@@ -1,0 +1,26 @@
+name: Lange YouTube-Videos erzeugen
+on:
+  workflow_dispatch:
+    inputs:
+      specs:
+        description: "Spec-Dateien, z. B. video/long/np-l01-sparplan.json"
+        required: true
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: pip install -q edge-tts
+      - run: python3 video/long.py ${{ inputs.specs }}
+      - name: Als Release zum Herunterladen ablegen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="youtube-$(date +%Y%m%d-%H%M)"
+          cd video/out
+          gh release create "$TAG" *.mp4 *.jpg *.srt *.txt --title "YouTube-Videos $(date +%d.%m.%Y)" \
+            --notes "Fertige YouTube-Videos. Pro Video: .mp4 (Video), -thumbnail.jpg, .srt (Untertitel), .txt (Titel, Beschreibung, Tags)."

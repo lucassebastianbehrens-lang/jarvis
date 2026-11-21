@@ -1,0 +1,141 @@
+{
+ "id": "ag-l01-winterfest",
+ "channel": "Alltag gehackt",
+ "format": "landscape",
+ "voice": "de-DE-KillianNeural",
+ "rate": "-4%",
+ "color": "#ff8a1f",
+ "title": "Auto winterfest machen: 12 Checks, die du selbst schaffst (ohne Werkstatt)",
+ "description": "Bevor der Frost kommt: 12 Checks, mit denen du dein Auto selbst winterfest machst – ohne Werkstatt und mit wenig Werkzeug.\n\n{KAPITEL}\n\nAngaben ohne Gewähr, Stand 2026. Im Zweifel die Betriebsanleitung deines Autos oder eine Werkstatt fragen.\nStimme und Bilder wurden mit KI erstellt.\n\n#auto #winter #winterreifen #autopflege #diy",
+ "tags": "auto winterfest, winterreifen, frostschutz, autobatterie, scheibenwischer, auto pflege, winter auto tipps, alpine symbol, reifenprofil, diy auto",
+ "scenes": [
+  {
+   "ch": "Einstieg",
+   "h": "Auto winterfest – selbst gemacht",
+   "p": "car parked on snowy street early morning, frost on windows, cinematic photorealistic",
+   "t": "Der erste Frost kommt meistens dann, wenn man ihn am wenigsten erwartet. Morgens um sechs, die Scheiben sind zu, das Auto springt schlecht an und das Wischwasser ist gefroren. Das muss nicht sein. Die meisten Dinge, die ein Auto winterfest machen, kannst du selbst prüfen. Ohne Werkstatt, mit wenig Werkzeug und in ungefähr einer Stunde."
+  },
+  {
+   "h": "12 Checks in einer Stunde",
+   "p": "open car hood in a home garage with tools laid out, warm light, photorealistic",
+   "t": "In diesem Video gehen wir zwölf Checks durch, Schritt für Schritt. Von den Reifen über die Batterie bis zur Notfallausrüstung im Kofferraum. Ich sage dir bei jedem Punkt, worauf du achten musst und wann es besser ist, doch in die Werkstatt zu fahren. Am Ende gibt es eine kurze Zusammenfassung zum Abhaken."
+  },
+  {
+   "ch": "Check 1–3: Reifen",
+   "h": "Check 1: Das Symbol am Reifen",
+   "p": "close-up of tire sidewall with mountain and snowflake symbol, photorealistic macro",
+   "t": "Check eins: Hast du überhaupt die richtigen Reifen? In Deutschland gilt eine situative Winterreifenpflicht. Das heißt, bei Glatteis, Schnee, Schneematsch oder Eisglätte musst du Reifen mit Wintertauglichkeit fahren. Und wichtig: Seit Oktober zwanzig vierundzwanzig zählen dafür nur noch Reifen mit dem Alpine-Symbol, also dem Berg mit der Schneeflocke. Reifen, die nur M plus S tragen, reichen nicht mehr."
+  },
+  {
+   "h": "Was es kostet, wenn nicht",
+   "p": "car sliding on icy road in winter, dramatic but safe scene, photorealistic",
+   "t": "Wer bei Glätte mit Sommerreifen erwischt wird, muss mit einem Bußgeld und einem Punkt in Flensburg rechnen. Wenn dabei andere behindert oder gefährdet werden, wird es teurer. Und noch wichtiger: Bei einem Unfall kann die Versicherung Probleme machen. Schau dir also jetzt die Flanke deiner Reifen an und such das Symbol."
+  },
+  {
+   "h": "Check 2: Profiltiefe",
+   "p": "measuring tire tread depth with a one euro coin, close-up, photorealistic",
+   "t": "Check zwei: die Profiltiefe. Gesetzlich vorgeschrieben sind mindestens eins Komma sechs Millimeter. Für Winterreifen empfehlen Experten aber mindestens vier Millimeter, weil die Reifen bei weniger Profil auf Schnee deutlich schlechter greifen. Ein einfacher Trick ist die Ein-Euro-Münze. Steck sie ins Profil. Verschwindet der goldene Rand komplett, hast du ungefähr vier Millimeter oder mehr."
+  },
+  {
+   "h": "Check 3: Reifendruck & Alter",
+   "p": "tire pressure gauge on car valve at gas station, close-up, photorealistic",
+   "t": "Check drei: Reifendruck und Alter. Bei Kälte sinkt der Druck im Reifen. Prüf ihn deshalb im Winter öfter, am besten an der Tankstelle bei kalten Reifen. Den richtigen Wert findest du meist in der Fahrertür, im Tankdeckel oder in der Betriebsanleitung. Schau auch auf die DOT-Nummer an der Reifenflanke. Die letzten vier Ziffern zeigen Woche und Jahr der Herstellung. Sehr alte Reifen werden hart und greifen schlechter, auch wenn noch Profil da ist."
+  },
+  {
+   "ch": "Check 4–5: Batterie & Frostschutz",
+   "h": "Check 4: Die Batterie",
+   "p": "car battery under hood with multimeter clamps attached, garage, photorealistic",
+   "t": "Check vier: die Batterie. Sie ist im Winter der häufigste Grund für Pannen. Kälte macht ihr doppelt zu schaffen. Sie liefert weniger Leistung, und gleichzeitig braucht der Motor beim Kaltstart mehr. Mit einem einfachen Multimeter für wenige Euro kannst du die Spannung messen. Motor aus, Auto ein paar Stunden gestanden. Eine volle Batterie hat ungefähr zwölf Komma sechs Volt."
+  },
+  {
+   "h": "Was die Werte bedeuten",
+   "p": "digital multimeter display showing 12.4 volts, close-up, photorealistic",
+   "t": "Liegt der Wert um zwölf Komma vier Volt, ist die Batterie nur noch etwa halb voll. Dann lohnt es sich, sie mit einem Ladegerät nachzuladen oder mal eine längere Strecke zu fahren. Liegt sie deutlich darunter oder ist sie schon mehrere Jahre alt und schwächelt beim Starten, lass sie in der Werkstatt testen, bevor sie dich an einem kalten Morgen im Stich lässt. Achte auch darauf, dass die Pole sauber und fest sind."
+  },
+  {
+   "h": "Check 5: Frostschutz im Kühlwasser",
+   "p": "coolant reservoir in engine bay with antifreeze tester, photorealistic",
+   "t": "Check fünf: Frostschutz im Kühlwasser. Das Kühlmittel muss so gemischt sein, dass es auch bei strengem Frost nicht gefriert. Üblich ist ein Schutz bis etwa minus fünfundzwanzig Grad. Mit einem Frostschutzprüfer aus dem Baumarkt kannst du das in einer Minute messen. Ganz wichtig: Öffne den Kühlwasserbehälter nur bei kaltem Motor. Heißes Kühlmittel steht unter Druck und kann schwere Verbrühungen verursachen."
+  },
+  {
+   "h": "Nachfüllen – aber richtig",
+   "p": "pouring coolant from bottle into reservoir, engine bay, photorealistic",
+   "t": "Wenn du nachfüllen musst, nimm das Kühlmittel, das zu deinem Auto passt. Welche Sorte das ist, steht in der Betriebsanleitung. Verschiedene Sorten zu mischen kann Probleme machen. Und wenn der Füllstand immer wieder sinkt, ist das ein Warnzeichen für ein Leck. Dann gehört das Auto in die Werkstatt."
+  },
+  {
+   "ch": "Check 6–8: Sicht",
+   "h": "Check 6: Scheibenwaschwasser",
+   "p": "filling windshield washer fluid with blue antifreeze, car engine bay, photorealistic",
+   "t": "Check sechs: das Scheibenwaschwasser. Im Winter fährst du durch Salz, Matsch und Dreck, und die Scheibe ist ständig verschmiert. Fülle den Behälter rechtzeitig mit Winter-Scheibenreiniger, der Frostschutz enthält. Reines Wasser gefriert und kann im schlimmsten Fall Schläuche oder die Pumpe beschädigen. Achte auf das Mischverhältnis auf der Flasche, je nachdem, für welche Temperaturen du es brauchst."
+  },
+  {
+   "h": "Check 7: Wischerblätter",
+   "p": "close-up of worn windshield wiper blade on glass with streaks, photorealistic",
+   "t": "Check sieben: die Wischerblätter. Wenn sie Schlieren ziehen, rubbeln oder quietschen, sind sie verschlissen. Fahr mit dem Finger über die Gummikante. Ist sie rissig oder ausgefranst, ist es Zeit für neue. Wischerblätter kannst du bei den meisten Autos ohne Werkzeug selbst wechseln. Und ein Tipp für frostige Nächte: Lass die Wischer nachts nicht an der Scheibe festfrieren, eine Scheibenabdeckung hilft dabei, und reiß sie morgens nie mit Gewalt los."
+  },
+  {
+   "h": "Check 8: Licht",
+   "p": "car headlights glowing on dark winter evening street, photorealistic",
+   "t": "Check acht: das Licht. Im Winter ist es lange dunkel, und du musst nicht nur sehen, sondern auch gesehen werden. Geh einmal ums Auto und prüf Abblendlicht, Fernlicht, Blinker, Bremslicht, Rücklicht und Nebelschlussleuchte. Für das Bremslicht hilft eine zweite Person oder du parkst rückwärts vor einer Hauswand und schaust im Spiegel. Und halte die Scheinwerfer sauber, Dreck und Salz schlucken viel Licht."
+  },
+  {
+   "ch": "Check 9–10: Türen & Innenraum",
+   "h": "Check 9: Türgummis & Schlösser",
+   "p": "applying silicone care stick to car door rubber seal, close-up, photorealistic",
+   "t": "Check neun: Türdichtungen und Schlösser. Nichts ist ärgerlicher als eine festgefrorene Tür. Pflege die Gummidichtungen mit einem Pflegestift oder Silikonspray. Das hält sie geschmeidig und verhindert, dass sie festfrieren. Wenn dein Auto noch ein klassisches Türschloss hat, hilft ein Schlossenteiser. Wichtig: Den Enteiser nicht im Auto lassen, sondern in der Jacke oder in der Wohnung."
+  },
+  {
+   "h": "Check 10: Scheiben innen",
+   "p": "cleaning inside of car windshield with microfiber cloth, photorealistic",
+   "t": "Check zehn: die Scheiben von innen. Beschlagene Scheiben sind im Winter ein großes Problem. Ein Grund ist Dreck auf der Innenseite, an dem sich Feuchtigkeit sammelt. Putz die Scheiben innen gründlich mit einem Mikrofasertuch. Nimm nasse Fußmatten über Nacht mit ins Haus, damit die Feuchtigkeit nicht im Auto bleibt. Und nutze beim Losfahren die Klimaanlage, falls vorhanden. Sie trocknet die Luft und die Scheiben werden schneller frei."
+  },
+  {
+   "ch": "Check 11–12: Ausrüstung & Fahren",
+   "h": "Check 11: Winter-Kiste",
+   "p": "car trunk with ice scraper, blanket, jumper cables, flashlight neatly arranged, photorealistic",
+   "t": "Check elf: die Winter-Kiste im Kofferraum. Pack eine kleine Box mit den Dingen, die dir im Winter wirklich helfen. Einen Eiskratzer und einen Handfeger für Schnee. Eine Decke und Handschuhe, falls du mal liegen bleibst. Starthilfekabel. Eine Taschenlampe. Und natürlich das, was sowieso an Bord sein muss: Warndreieck, Verbandskasten und Warnweste. Das alles kostet wenig, kann aber im Ernstfall sehr viel wert sein."
+  },
+  {
+   "h": "Starthilfe richtig",
+   "p": "jumper cables connected between two cars in winter, photorealistic",
+   "t": "Kurz zur Starthilfe, weil das viele falsch machen. Erst das rote Kabel an den Pluspol der leeren Batterie, dann an den Pluspol der vollen Batterie. Dann das schwarze Kabel an den Minuspol der vollen Batterie und das andere Ende an ein blankes Metallteil im Motorraum des Pannenautos, nicht direkt an die leere Batterie. Erst den Spenderwagen starten, dann den eigenen. Im Zweifel schau in die Betriebsanleitung, manche Autos haben eigene Anschlusspunkte."
+  },
+  {
+   "h": "Check 12: Frei kratzen & fahren",
+   "p": "person scraping ice off car windshield in morning frost, photorealistic",
+   "t": "Check zwölf ist kein Teil am Auto, sondern dein Verhalten. Kratz alle Scheiben komplett frei, nicht nur ein kleines Guckloch. Auch Schnee auf dem Dach gehört runter, weil er beim Bremsen auf die Scheibe rutschen oder den Hintermann treffen kann. Lass den Motor nicht im Stand warmlaufen. Das ist laut Straßenverkehrsordnung verboten und kostet Bußgeld. Fahr lieber direkt los, mit sanftem Gas, dann wird der Motor ohnehin schneller warm."
+  },
+  {
+   "h": "Fahren bei Glätte",
+   "p": "car driving slowly on snowy country road with safe distance, photorealistic",
+   "t": "Und auf der Straße gilt: mehr Abstand, früher bremsen, sanft lenken. Auf Schnee und Eis kann der Bremsweg um ein Vielfaches länger sein als auf trockener Straße. Besonders tückisch sind Brücken und Waldstücke, weil sie früher vereisen. Wenn du unsicher bist, übe auf einem leeren Parkplatz, wie sich dein Auto beim Bremsen verhält. Oder mach ein Fahrsicherheitstraining, das bringt mehr als jeder Tipp."
+  },
+  {
+   "ch": "Bonus-Tipps",
+   "h": "Bonus 1: Salz runter",
+   "p": "car wash with foam on dirty winter car, salt residue, photorealistic",
+   "t": "Und weil zwölf Checks manchmal nicht reichen, noch zwei Bonus-Tipps. Bonus eins: das Streusalz. Salz ist der größte Feind deiner Karosserie, vor allem bei älteren Autos. Es setzt sich in Ritzen, Radkästen und am Unterboden fest und fördert Rost. Fahr im Winter ab und zu in die Waschanlage, am besten mit Unterbodenwäsche, und zwar an Tagen, an denen es nicht gerade friert. Danach die Türen kurz offen lassen und die Gummis abwischen, damit nichts festfriert."
+  },
+  {
+   "h": "Bonus 2: Clever parken",
+   "p": "car parked in carport with windshield cover in frosty night, photorealistic",
+   "t": "Bonus zwei: clever parken. Wenn du die Wahl hast, park unter einem Carport, in der Garage oder zumindest mit der Frontscheibe nach Osten. Dann taut die Morgensonne die Scheibe schon etwas an. Eine Abdeckung für die Frontscheibe kostet wenig und spart dir jeden Morgen mehrere Minuten Kratzen. Und zieh im Winter nicht die Handbremse an, wenn das Auto lange steht und es nass war. Sie kann festfrieren. Leg stattdessen bei Schaltwagen einen Gang ein und park auf ebener Fläche, sofern das sicher möglich ist."
+  },
+  {
+   "ch": "Zusammenfassung",
+   "h": "Die 12 Checks zum Abhaken",
+   "p": "clipboard checklist on car hood in winter garage, photorealistic",
+   "t": "Zum Schluss alle zwölf Checks noch mal zum Abhaken. Eins: Reifen mit Alpine-Symbol. Zwei: Profil, am besten vier Millimeter. Drei: Reifendruck und Alter. Vier: Batterie messen. Fünf: Frostschutz im Kühlwasser. Sechs: Scheibenwaschwasser mit Frostschutz. Sieben: Wischerblätter. Acht: alle Lichter. Neun: Türdichtungen pflegen. Zehn: Scheiben innen sauber. Elf: Winter-Kiste im Kofferraum. Und zwölf: frei kratzen und vorsichtig fahren."
+  },
+  {
+   "h": "Alltag gehackt",
+   "p": "warm cozy garage with car and tools, winter evening light, photorealistic",
+   "t": "Wenn du dir das jetzt einmal vornimmst, kommst du entspannt durch den Winter und sparst dir vielleicht einen teuren Abschleppdienst. Wenn dir das Video geholfen hat, abonniere Alltag gehackt. Hier gibt es jede Woche Tipps rund um Auto, Haushalt und Alltag, die du selbst umsetzen kannst. Schreib in die Kommentare, welcher Check bei dir am meisten gebracht hat. Gute und sichere Fahrt."
+  }
+ ],
+ "thumb": [
+  "AUTO",
+  "WINTERFEST",
+  "12 CHECKS"
+ ]
+}
