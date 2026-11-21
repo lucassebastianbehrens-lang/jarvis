@@ -49,7 +49,7 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 <main>
 <section id="chat" class="on"><div id="log"></div>
 <div class="row"><textarea id="in" placeholder="Frag Jarvis … (»hilfe« zeigt Befehle ohne KI)"></textarea></div>
-<div class="row"><button class="p" id="send">Senden</button><button id="mic">🎙 Sprechen</button><button id="brf">Briefing</button><button id="clr">Leeren</button></div>
+<div class="row"><button class="p" id="send">Senden</button><button id="mic">🎙 Sprechen</button><button id="brf">Briefing</button><button id="att">📎 Bild/Video</button><input type="file" id="fileIn" accept="image/*,video/*" hidden><button id="clr">Leeren</button></div>
 <div class="voice"><label><input type="checkbox" id="tts" checked> Jarvis spricht</label><label><input type="checkbox" id="auto" checked> Briefing beim ersten Öffnen am Tag</label><label><input type="checkbox" id="wake"> „Hey Jarvis“ dauerhaft hören</label></div>
 <div class="m" id="vs"></div></section>
 
@@ -83,7 +83,7 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 <div class="row"><input id="gn" placeholder="Name"><input id="gu" placeholder="https://…"><button id="ga" style="flex:0 0 auto">+</button></div></section>
 
 <section id="cfg"><label>KI-Quelle</label><select id="cm"><option value="ollama">Ollama auf meinem PC (kostenlos)</option><option value="api">Online-API (OpenAI-kompatibel)</option></select>
-<label>Adresse</label><input id="cu"><label>Modell</label><input id="co"><label>API-Schlüssel (nur bei Online-API)</label><input id="ck" type="password">
+<label>Adresse</label><input id="cu"><label>Modell</label><input id="co"><label>API-Schlüssel (nur bei Online-API)</label><input id="ck" type="password"><label>Bild-Modell (zum Ansehen von Bildern/Videos – leer = gleiches Modell)</label><input id="cv" placeholder="Ollama z. B. llava · Online: ein Modell mit Bild-Eingabe">
 <div class="row"><button class="p" id="cs">Speichern</button><button id="ct">Verbindung testen</button></div><div class="m" id="cr"></div>
 <h3>Sicherung</h3><div class="row"><button id="bx">Backup herunterladen</button><label style="flex:1 1 200px">Backup laden<input type="file" id="bi" accept=".json"></label></div></section>
 </main>
@@ -97,6 +97,7 @@ S.links??=[['Gmail','https://mail.google.com'],['Kalender','https://calendar.goo
 const save=()=>{try{localStorage.jarvis=JSON.stringify(S)}catch(e){}};
 const eur=n=>n.toLocaleString('de-DE',{style:'currency',currency:'EUR'});
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const link=t=>t.replace(/https?:\/\/[^\s<]+/g,u=>`<a href="${u}" target="_blank" rel="noopener">${u.length>48?u.slice(0,45)+'…':u}</a>`);
 const today=()=>new Date().toISOString().slice(0,10);
 const saldo=()=>S.fin.reduce((a,x)=>a+x.v,0);
 const dl=(name,txt,type)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type}));a.download=name;a.click()};
@@ -107,6 +108,10 @@ async function ai(msgs){const c=S.cfg,u=c.url.replace(/\/$/,'');
  if(c.mode==='ollama'){const r=await fetch(u+'/api/chat',{method:'POST',body:JSON.stringify({model:c.model,messages:msgs,stream:false})});if(!r.ok)throw Error('Ollama '+r.status);return (await r.json()).message.content}
  const r=await fetch(u+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+c.key},body:JSON.stringify({model:c.model,messages:msgs})});
  if(!r.ok)throw Error('API '+r.status);return (await r.json()).choices[0].message.content}
+async function aiImg(text,imgs){const c=S.cfg,u=c.url.replace(/\/$/,''),model=c.vision||c.model;
+ if(c.mode==='ollama'){const r=await fetch(u+'/api/chat',{method:'POST',body:JSON.stringify({model,stream:false,messages:[{role:'user',content:text,images:imgs.map(d=>d.split(',')[1])}]})});if(!r.ok)throw Error('Ollama '+r.status);return (await r.json()).message.content}
+ const r=await fetch(u+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+c.key},body:JSON.stringify({model,messages:[{role:'user',content:[{type:'text',text},...imgs.map(d=>({type:'image_url',image_url:{url:d}}))]}]})});
+ if(!r.ok)throw Error('API '+r.status+(r.status===400||r.status===404?' – Bild-Modell in den Einstellungen prüfen':''));return (await r.json()).choices[0].message.content}
 const SYS={role:'system',content:'Du bist Jarvis, der persönliche Assistent von Lucas. Antworte immer auf Deutsch, kurz und direkt. Beträge in Euro. Heute ist '+today()+'. Kontext: Saldo '+0+' €.'};
 
 S.city??={n:'Halberstadt',lat:51.896,lon:11.047};S.mem??=[];
@@ -118,7 +123,25 @@ async function kurse(){const d=await (await fetch('https://api.coingecko.com/api
  return 'Kurse: '+Object.entries(d).map(([k,v])=>`${n[k]} ${eur(v.eur)} (${v.eur_24h_change>=0?'+':''}${(v.eur_24h_change||0).toLocaleString('de-DE',{maximumFractionDigits:1})} %)`).join(', ')+'.'}
 async function news(){const d=await (await fetch('https://www.tagesschau.de/api2u/homepage')).json();const t=(d.news||[]).filter(x=>x.title).slice(0,3).map(x=>x.title);if(!t.length)throw Error('leer');return 'Nachrichten: '+t.join(' · ')+'.'}
 async function stadt(q){const d=await (await fetch('https://geocoding-api.open-meteo.com/v1/search?count=1&language=de&name='+encodeURIComponent(q))).json(),r=(d.results||[])[0];if(!r)return 'Ort nicht gefunden: '+q;S.city={n:r.name,lat:r.latitude,lon:r.longitude};save();return 'Wetter-Ort ist jetzt '+r.name+'.'}
+async function websuche(q){const [w,n]=await Promise.all([safe(async()=>{const d=await (await fetch('https://de.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=3&srsearch='+encodeURIComponent(q))).json();
+  const hits=d.query.search;const top=hits[0]?await safe(async()=>(await (await fetch('https://de.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(hits[0].title))).json()).extract):null;
+  return hits.map((h,i)=>({t:h.title,x:i===0&&top?top:h.snippet.replace(/<[^>]+>/g,''),u:'https://de.wikipedia.org/wiki/'+encodeURIComponent(h.title.replace(/ /g,'_'))}))}),
+ safe(async()=>(await (await fetch('https://www.tagesschau.de/api2u/search/?pageSize=3&searchText='+encodeURIComponent(q))).json()).searchResults.map(r=>({t:r.title,x:(r.firstSentence||r.topline||'')+' ('+(r.date||'').slice(0,10)+')',u:r.shareURL||r.detailsweb||''})))]);
+ const R=[...(w||[]),...(n||[])];if(!R.length)return 'Keine Treffer für „'+q+'“.';
+ const src=R.map((r,i)=>`[${i+1}] ${r.t}: ${r.x}`).join('\n');
+ const ans=await safe(()=>ai([{role:'system',content:'Beantworte die Frage kurz auf Deutsch, nur mit den Quellen. Nenne die Quellennummern [1], [2].'},{role:'user',content:'Frage: '+q+'\n\nQuellen:\n'+src}]));
+ return (ans?ans+'\n\n':'')+'Quellen:\n'+R.map((r,i)=>`[${i+1}] ${r.t} – ${r.u}`).join('\n')}
+async function oeffne(u){const r=await fetch('https://r.jina.ai/'+u);if(!r.ok)throw Error(r.status);const t=(await r.text()).slice(0,6000);
+ const sum=await safe(()=>ai([{role:'user',content:'Fasse diese Webseite in 5 Stichpunkten auf Deutsch zusammen:\n\n'+t}]));return (sum||t.slice(0,1200)+' …')+'\n\nQuelle: '+u}
+let lastImg=0;
+function bild(q){const w=Math.max(0,15e3-(Date.now()-lastImg));lastImg=Date.now()+w;
+ const url='https://image.pollinations.ai/prompt/'+encodeURIComponent(q)+'?width=1024&height=1024&nologo=true&seed='+Math.floor(Math.random()*1e6);
+ return new Promise(res=>setTimeout(()=>res({text:'🎨 Bild: '+q+' (kostenlos über Pollinations, kann 10–30 Sek. laden)',img:url}),w))}
 function local(t){let m;
+ if(m=t.match(/^(?:suche|such|google|recherchiere)(?: im internet)?(?: nach)?:?\s+(.+)$/i))return websuche(m[1]);
+ if(m=t.match(/^(?:öffne|lies|zusammenfassen?)\s+(https?:\/\/\S+)/i))return safe(()=>oeffne(m[1])).then(x=>x||'Diese Seite konnte ich nicht lesen (Seite blockiert oder Lesedienst überlastet).');
+ if(m=t.match(/^(?:bild|zeichne|male|erstelle (?:ein|mir ein) bild(?: von)?|generiere (?:ein )?bild(?: von)?)\s+(.+)$/i))return bild(m[1]);
+ if(/^(video|erstelle (?:ein|mir ein) video)/i.test(t))return 'Kostenlose KI-Videos gibt es gerade nicht ohne Konto und Bezahlung. Ich kann dir Bilder erzeugen („bild …“) – daraus lässt sich in CapCut ein Video schneiden.';
  if(m=t.match(/^merk(?:e)? dir:?\s+(.+)$/i)){S.mem.push(m[1]);save();return 'Gemerkt: '+m[1]}
  if(/^was (weißt|weisst) du( über mich)?\??$/i.test(t))return S.mem.length?'Das habe ich mir gemerkt:\n'+S.mem.map(x=>'• '+x).join('\n'):'Ich habe mir noch nichts gemerkt. Sag „merke dir …“.';
  if(m=t.match(/^vergiss\s+(.+)$/i)){const q=m[1].toLowerCase(),n=S.mem.length;S.mem=q==='alles'?[]:S.mem.filter(x=>!x.toLowerCase().includes(q));save();const k=n-S.mem.length;return k?k+(k>1?' Einträge':' Eintrag')+' vergessen.':'Dazu habe ich nichts gespeichert.'}
@@ -135,7 +158,7 @@ function local(t){let m;
  if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
  if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
  if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
- if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
+ if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
 function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
  return g+', Lucas. Heute ist '+new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'. '+(o.length?o.length+(o.length>1?' offene Aufgaben: ':' offene Aufgabe: ')+o.slice(0,3).map(x=>x.t).join(', ')+'.':'Keine offenen Aufgaben.')+' Bilanz diesen Monat: '+eur(mm)+'. Saldo: '+eur(saldo())+'.'}
 async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),safe(news)]);return [briefBase(),w,k,n].filter(Boolean).join('\n')}
@@ -145,12 +168,21 @@ function say(t){if(!$('#tts').checked||!window.speechSynthesis)return;speechSynt
 function beep(){try{const a=new AudioContext(),o=a.createOscillator();o.frequency.value=880;o.connect(a.destination);o.start();o.stop(a.currentTime+.3)}catch(e){}}
 
 $('#send').onclick=async()=>{const t=$('#in').value.trim();if(!t)return;$('#in').value='';S.chat.push({role:'user',content:t});
- const l=await local(t);if(l){S.chat.push({role:'assistant',content:l});save();say(l);return render()}
+ S.chat.push({role:'assistant',content:'…'});render();const l=await local(t);S.chat.pop();if(l){const o=typeof l==='object'?l:{text:l};S.chat.push({role:'assistant',content:o.text,...(o.img?{img:o.img}:{})});save();say(o.text);return render()}
  S.chat.push({role:'assistant',content:'…'});render();
  const sys={...SYS,content:SYS.content.replace('Saldo 0','Saldo '+saldo().toFixed(2))+' Offene Aufgaben: '+S.todo.filter(x=>!x.ok).map(x=>x.t).join('; ')+(S.mem.length?' Was Lucas dir gesagt hat: '+S.mem.join('; '):'')};
- try{S.chat.at(-1).content=await ai([sys,...S.chat.slice(-11,-1)])}catch(e){S.chat.at(-1).content='Fehler: '+e.message+'. Einstellungen prüfen.'}
+ try{S.chat.at(-1).content=await ai([sys,...S.chat.slice(-11,-1).map(m=>({role:m.role,content:m.content}))])}catch(e){S.chat.at(-1).content='Fehler: '+e.message+'. Einstellungen prüfen.'}
  save();render();say(S.chat.at(-1).content)};
 $('#in').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('#send').click()}};
+const shrink=(src,max)=>new Promise((res,rej)=>{const i=new Image();i.onload=()=>{const k=Math.min(1,max/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;c.getContext('2d').drawImage(i,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.85))};i.onerror=rej;i.src=src});
+const frames=f=>new Promise((res,rej)=>{const v=document.createElement('video'),out=[];v.muted=true;v.playsInline=true;v.preload='auto';v.src=URL.createObjectURL(f);
+ v.onloadedmetadata=async()=>{const ts=[.15,.5,.85].map(p=>p*v.duration);for(const t of ts){await new Promise(r=>{v.onseeked=()=>setTimeout(r,150);v.currentTime=t});const k=Math.min(1,768/Math.max(v.videoWidth,v.videoHeight)),c=document.createElement('canvas');c.width=v.videoWidth*k;c.height=v.videoHeight*k;c.getContext('2d').drawImage(v,0,0,c.width,c.height);out.push(c.toDataURL('image/jpeg',.8))}res(out)};v.onerror=rej});
+$('#att').onclick=()=>$('#fileIn').click();
+$('#fileIn').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const q=$('#in').value.trim()||(f.type.startsWith('video')?'Was passiert in diesem Video? Beschreibe es kurz auf Deutsch.':'Was ist auf diesem Bild zu sehen? Antworte kurz auf Deutsch.');$('#in').value='';
+ try{const imgs=f.type.startsWith('video')?await frames(f):[await shrink(URL.createObjectURL(f),1024)];
+  S.chat.push({role:'user',content:(f.type.startsWith('video')?'🎬 Video: ':'🖼 Bild: ')+q,img:await shrink(imgs[0],240)});S.chat.push({role:'assistant',content:'…schaue es mir an'});render();
+  try{S.chat.at(-1).content=await aiImg(q+(imgs.length>1?' (3 Standbilder aus Anfang, Mitte und Ende des Videos)':''),imgs)}catch(x){S.chat.at(-1).content='Konnte es nicht ansehen: '+x.message+'. Dafür braucht die KI ein Modell mit Bild-Eingabe (Einstellungen → Bild-Modell).'}
+  save();render();say(S.chat.at(-1).content)}catch(x){S.chat.push({role:'assistant',content:'Datei konnte nicht gelesen werden.'});render()}};
 $('#clr').onclick=()=>{S.chat=[];save();render()};
 
 const book=s=>{const v=parseFloat($('#fv').value.replace(/\./g,'').replace(',','.'));if(!v)return;S.fin.unshift({d:$('#fd').value||today(),v:s*Math.abs(v),t:$('#ft').value||(s<0?'Ausgabe':'Einnahme')});$('#fv').value=$('#ft').value='';save();render()};
@@ -172,16 +204,16 @@ $('#ll').onclick=e=>{const d=e.target.dataset,a=S.apps[d.i];if(!a)return;
 $('#ga').onclick=()=>{const n=$('#gn').value.trim(),u=$('#gu').value.trim();if(n&&/^https?:/.test(u)){S.links.push([n,u]);$('#gn').value=$('#gu').value='';save();render()}};
 $('#gl').onclick=e=>{const i=e.target.dataset.del;if(i!=null){S.links.splice(i,1);save();render()}};
 
-const fill=()=>{$('#cm').value=S.cfg.mode;$('#cu').value=S.cfg.url;$('#co').value=S.cfg.model;$('#ck').value=S.cfg.key};
+const fill=()=>{$('#cv').value=S.cfg.vision||'';$('#cm').value=S.cfg.mode;$('#cu').value=S.cfg.url;$('#co').value=S.cfg.model;$('#ck').value=S.cfg.key};
 $('#cm').onchange=()=>{const o=$('#cm').value==='ollama';$('#cu').value=o?'http://localhost:11434':'https://api.groq.com/openai/v1';$('#co').value=o?'llama3.2':'llama-3.3-70b-versatile'};
-$('#cs').onclick=()=>{S.cfg={mode:$('#cm').value,url:$('#cu').value.trim(),model:$('#co').value.trim(),key:$('#ck').value.trim()};save();$('#cr').textContent='Gespeichert.';render()};
+$('#cs').onclick=()=>{S.cfg={mode:$('#cm').value,url:$('#cu').value.trim(),model:$('#co').value.trim(),key:$('#ck').value.trim(),vision:$('#cv').value.trim()};save();$('#cr').textContent='Gespeichert.';render()};
 $('#ct').onclick=async()=>{$('#cs').click();$('#cr').textContent='Teste …';try{$('#cr').textContent='OK: '+(await ai([{role:'user',content:'Sag nur: Bereit.'}]))}catch(e){$('#cr').textContent='Keine Verbindung: '+e.message}};
 $('#bx').onclick=()=>dl('jarvis-backup-'+today()+'.json',JSON.stringify(S),'application/json');
 $('#bi').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{S={...S,...JSON.parse(await f.text())};save();fill();render();$('#cr').textContent='Backup geladen.'}catch(x){$('#cr').textContent='Datei ungültig.'}};
 
 function render(){
  $('#st').textContent=(S.cfg.mode==='ollama'?'Lokale KI':'Online-KI')+' · '+S.todo.filter(x=>!x.ok).length+' Aufgaben offen';
- $('#log').innerHTML=S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${esc(m.content)}</div>`).join(''):'<p class="m mono">&gt; Systeme online. Hallo Lucas. Tipp »hilfe« für Befehle, die ohne KI laufen.</p>';
+ $('#log').innerHTML=S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${link(esc(m.content))}${m.img?`<a href="${esc(m.img)}" target="_blank" rel="noopener"><img src="${esc(m.img)}" alt="Bild" style="display:block;max-width:100%;border-radius:8px;margin-top:8px"></a>`:''}</div>`).join(''):'<p class="m mono">&gt; Systeme online. Hallo Lucas. Tipp »hilfe« für Befehle, die ohne KI laufen.</p>';
  const s=saldo(),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo));
  $('#sal').textContent=eur(s);$('#sal').className='big '+(s<0?'neg':'pos');
  $('#mon').textContent='Diesen Monat: +'+eur(mm.filter(x=>x.v>0).reduce((a,x)=>a+x.v,0))+' / '+eur(mm.filter(x=>x.v<0).reduce((a,x)=>a+x.v,0));
