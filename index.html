@@ -138,6 +138,7 @@ let S={};try{S=JSON.parse(localStorage.jarvis||'{}')}catch(e){}
 S.fin??=[];S.todo??=[];S.apps??=[];S.chat??=[];
 S.cfg??={mode:'free',url:'https://text.pollinations.ai/openai',model:'openai',key:''};
 if(S.cfg.mode==='ollama'&&S.cfg.url==='http://localhost:11434'&&S.cfg.model==='llama3.2'&&!S.cfgTouched){S.cfg={mode:'free',url:'https://text.pollinations.ai/openai',model:'openai',key:''};try{localStorage.jarvis=JSON.stringify(S)}catch(e){}}
+if(S.cfg.mode==='api'&&/llama-3\.(3-70b-versatile|1-8b-instant)/.test(S.cfg.model)){S.cfg.model='openai/gpt-oss-120b';try{localStorage.jarvis=JSON.stringify(S)}catch(e){}}
 S.links??=[['Gmail','https://mail.google.com'],['Kalender','https://calendar.google.com'],['Drive','https://drive.google.com'],['Todoist','https://app.todoist.com'],['Shopify','https://admin.shopify.com'],['PayPal','https://www.paypal.com']];
 const save=()=>{try{localStorage.jarvis=JSON.stringify(S)}catch(e){}};
 const eur=n=>n.toLocaleString('de-DE',{style:'currency',currency:'EUR'});
@@ -159,7 +160,7 @@ function aiFree(msgs){const run=async()=>{for(let k=0;k<4;k++){let w=freeNext-Da
 async function ai(msgs){const c=S.cfg,u=c.url.replace(/\/$/,'');if(c.mode==='free')return aiFree(msgs);
  if(c.mode==='ollama'){const r=await fetch(u+'/api/chat',{method:'POST',body:JSON.stringify({model:c.model,messages:msgs,stream:false})});if(!r.ok)throw Error('Ollama '+r.status);return (await r.json()).message.content}
  const r=await fetch(u+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+c.key},body:JSON.stringify({model:c.model,messages:msgs})});
- if(!r.ok)throw Error('API '+r.status);return (await r.json()).choices[0].message.content}
+ if(!r.ok){let d='';try{d=(await r.json()).error?.message||''}catch(e){}throw Error('API '+r.status+(d?' – '+d.slice(0,140):''))}return (await r.json()).choices[0].message.content}
 async function aiImg(text,imgs){const c=S.cfg,u=c.url.replace(/\/$/,''),model=c.vision||c.model;
  if(c.mode==='free')throw Error('Die kostenlose KI ohne Konto kann keine Bilder ansehen');
  if(c.mode==='ollama'){const r=await fetch(u+'/api/chat',{method:'POST',body:JSON.stringify({model,stream:false,messages:[{role:'user',content:text,images:imgs.map(d=>d.split(',')[1])}]})});if(!r.ok)throw Error('Ollama '+r.status);return (await r.json()).message.content}
@@ -264,7 +265,7 @@ $('#ga').onclick=()=>{const n=$('#gn').value.trim(),u=$('#gu').value.trim();if(n
 $('#gl').onclick=e=>{const i=e.target.dataset.del;if(i!=null){S.links.splice(i,1);save();render()}};
 
 const fill=()=>{$('#cv').value=S.cfg.vision||'';$('#cm').value=S.cfg.mode;$('#cu').value=S.cfg.url;$('#co').value=S.cfg.model;$('#ck').value=S.cfg.key};
-$('#cm').onchange=()=>{const m=$('#cm').value;$('#cu').value={free:'https://text.pollinations.ai/openai',ollama:'http://localhost:11434',api:'https://api.groq.com/openai/v1'}[m];$('#co').value={free:'openai',ollama:'llama3.2',api:'llama-3.3-70b-versatile'}[m]};
+$('#cm').onchange=()=>{const m=$('#cm').value;$('#cu').value={free:'https://text.pollinations.ai/openai',ollama:'http://localhost:11434',api:'https://api.groq.com/openai/v1'}[m];$('#co').value={free:'openai',ollama:'llama3.2',api:'openai/gpt-oss-120b'}[m]};
 $('#cs').onclick=()=>{S.cfgTouched=1;S.cfg={mode:$('#cm').value,url:$('#cu').value.trim(),model:$('#co').value.trim(),key:$('#ck').value.trim(),vision:$('#cv').value.trim()};save();$('#cr').textContent='Gespeichert.';render()};
 $('#ct').onclick=async()=>{$('#cs').click();$('#cr').textContent='Teste …';try{$('#cr').textContent='OK: '+(await ai([{role:'user',content:'Sag nur: Bereit.'}]))}catch(e){$('#cr').textContent='Keine Verbindung: '+e.message}};
 $('#bx').onclick=()=>dl('jarvis-backup-'+today()+'.json',JSON.stringify(S),'application/json');
