@@ -1,13 +1,32 @@
 name: Agenten-Test
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      minuten:
+        description: "Testdauer in Minuten"
+        default: "60"
+permissions:
+  contents: write
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 130
     steps:
       - uses: actions/checkout@v4
-      - name: Agenten-Bot 4 Durchläufe (Test)
-        env: {AGENTS_OUT: /tmp/ag/state.json}
+      - name: Agenten-Bot Live-Test (Spielgeld)
+        env:
+          AGENTS_OUT: data/agents.json
+          MIN: ${{ inputs.minuten }}
         run: |
-          for i in 1 2 3 4; do python3 bot/agents.py --once; sleep 15; done
-          python3 -c "import json;S=json.load(open('/tmp/ag/state.json'));print('AGENTS',S['agents']);print('ERR',S['errors']);print('ACT',[(a['kind'],a['sym'],a['note']) for a in S['activity'][:5]]);print('FX',S['usd_eur'])"
+          git config user.name "jarvis-bot"
+          git config user.email "jarvis-bot@users.noreply.github.com"
+          timeout "${MIN}m" python3 bot/agents.py &
+          END=$(( $(date +%s) + MIN*60 + 20 ))
+          while [ "$(date +%s)" -lt "$END" ]; do
+            sleep 60
+            [ -f data/agents.json ] || continue
+            git add data/agents.json
+            git diff --cached --quiet && continue
+            git commit -qm "Agenten-Test Update"
+            for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+          done

@@ -222,11 +222,11 @@ function achart(){const g=$('#achart');if(!AP||!g.clientWidth)return;const W=g.c
  g.innerHTML=`<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".35"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs>
  <line x1="0" x2="${W}" y1="${Y(AP.start)}" y2="${Y(AP.start)}" stroke="#3a1414" stroke-dasharray="4 4"/><path d="${d}L${X(x1)},${H}L${X(x0)},${H}Z" fill="url(#ag)"/><path d="${d}" fill="none" stroke="${c}" stroke-width="2.5" style="filter:drop-shadow(0 0 4px ${c})"/><circle cx="${X(E.at(-1)[0])}" cy="${Y(E.at(-1)[1])}" r="4" fill="${c}"/>`}
 const aro=new ResizeObserver(achart);aro.observe($('#achart'));
-async function agentsLoad(){if(!S.bot.url){$('#amsg').textContent='Der Agenten-Bot startet, sobald dein Server eingerichtet ist (ein Setup-Befehl). Bis dahin läuft unter „Krypto“ der Spielgeld-Bot.';return}
- try{const r=await fetch(S.bot.url.replace(/\/$/,'')+'/agents/state.json?t='+Date.now());if(!r.ok)throw Error('HTTP '+r.status);const P=AP=await r.json();
+async function agentsLoad(){const src=S.bot.url?S.bot.url.replace(/\/$/,'')+'/agents/state.json':'https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/data/agents.json';
+ try{const r=await fetch(src+'?t='+Date.now());if(r.status===404&&!S.bot.url)throw Error('Noch kein Testlauf – der Bot startet mit deinem Server.');if(!r.ok)throw Error('HTTP '+r.status);const P=AP=await r.json();
   const pl=P.value-P.start,A=P.agents||{},age=Date.now()/1e3-P.updated;
   $('#aval').textContent=eur(P.value);$('#apl').innerHTML=`<span class="${pl<0?'neg':'pos'}">${pl<0?'▼':'▲'} ${eur(pl)} (${(pl/P.start*100).toFixed(1)} %)</span> · ${(P.value/P.start).toFixed(2)}x`;
-  $('#amsg').textContent=(age<90?'● LIVE':'○ keine Daten seit '+Math.round(age/60)+' Min')+' · TEST mit Spielgeld · '+P.strategy;
+  $('#amsg').textContent=(age<(S.bot.url?90:420)?'● LIVE':'○ keine neuen Daten seit '+Math.round(age/60)+' Min')+(S.bot.url?' · Server':' · Testlauf über GitHub (Stand alle 1–5 Min)')+' · TEST mit Spielgeld · '+P.strategy;
   const an=A.analyst||{},sc=A.scanner||{},ex=A.executor||{},ri=A.risk||{};
   $('#acards').innerHTML=`<div class="tile"><small>Scanner</small><b class="mono">${sc.pools||0}</b><small>Tokens im Blick</small></div>
   <div class="tile"><small>Analyst</small><b class="mono ${an.passed?'pos':''}">${an.score??'–'}</b><small>${esc(an.sym||'')} ${an.passed?'bestanden':'zu schwach'}</small></div>
@@ -234,7 +234,7 @@ async function agentsLoad(){if(!S.bot.url){$('#amsg').textContent='Der Agenten-B
   <div class="tile"><small>Risk</small><b class="mono">${ri.watching||0}</b><small>bewacht · −6 % / 12 % Trail</small></div>`;
   $('#aopen').innerHTML=Object.values(P.open).map(o=>{const v=o.qty*o.now*(1-.015)-o.cost,pc=v/o.cost*100;return `<div><span>${esc(o.sym)} <span class="m">· ${o.score} Pkt</span><br><span class="m">seit ${agoT(o.t)} · Einsatz ${eur(o.cost)}</span></span><span class="${v<0?'neg':'pos'}">${(v>=0?'+':'')+eur(v)}<br><span class="m">${pc.toFixed(1)} %</span></span></div>`}).join('')||'<p class="m">Keine – der Analyst sucht.</p>';
   $('#aact').innerHTML=P.activity.slice(0,25).map(a=>`<div><span>${esc(a.kind)} ${esc(a.sym)}<br><span class="m">${esc(a.note)} · ${agoT(a.t)}</span></span><span class="${a.pnl==null?'':a.pnl<0?'neg':'pos'}">${eur(a.eur)}${a.pnl==null?'':'<br>'+(a.pnl>=0?'+':'')+eur(a.pnl)}</span></div>`).join('')||'<p class="m">Noch keine Aktivität.</p>';
-  S.botLast={mode:'TEST',state:age<90?'läuft':'verzögert',profit:(pl>=0?'+':'')+eur(pl),open:Object.keys(P.open).length};save();achart()}
+  S.botLast={mode:'TEST',state:age<420?'läuft':'verzögert',profit:(pl>=0?'+':'')+eur(pl),open:Object.keys(P.open).length};save();achart()}
  catch(e){$('#amsg').textContent='Agenten-Bot nicht erreichbar: '+e.message}}
 const tradeLoad=()=>AV?agentsLoad():botLoad();
 $('#vA').onclick=()=>{AV=true;$('#vA').classList.add('on');$('#vF').classList.remove('on');$('#agv').hidden=false;$('#ftv').hidden=true;tradeLoad()};
