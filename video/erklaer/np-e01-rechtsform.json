@@ -1,0 +1,907 @@
+{
+ "id": "np-e01-rechtsform",
+ "channel": "Netto Plus",
+ "voice": "de-DE-ConradNeural",
+ "rate": "-6%",
+ "color": "#22a35a",
+ "bgs": [
+  "#dcf5e6",
+  "#fff6b8",
+  "#e8e2ff"
+ ],
+ "mascot": {
+  "zeigen": "np/zeigen-11.jpg",
+  "denken": "np/denken-11.jpg",
+  "finger": "np/finger-11.jpg",
+  "arme": "np/arme-11.jpg",
+  "winken": "np/winken-11.jpg",
+  "daumen": "np/daumen-11.jpg"
+ },
+ "icons": {
+  "frage": "big question mark with three signposts pointing in different directions",
+  "eu": "small cozy single-person office building with one desk and laptop, mint green",
+  "gbr": "two business partners shaking hands in front of a small office building, yellow",
+  "ug": "modern small office building with a protective shield emblem, lavender purple",
+  "gmbh": "large modern corporate office building with coins, lavender purple",
+  "haftung": "a house and a car protected under a large glass shield",
+  "haftung_voll": "a house and a car sinking into a pile of unpaid bills, red arrow down",
+  "check": "clipboard checklist with green checkmarks",
+  "steuer": "tax forms, calculator and euro coins on a desk",
+  "amt": "small town hall service counter with a registration form",
+  "buch": "open bookkeeping ledger next to a laptop showing simple charts",
+  "vertrag": "signed partnership contract with two fountain pens",
+  "register": "official register book with a stamp",
+  "notar": "notary stamp and red wax seal on a contract",
+  "sparschwein": "pink piggy bank with stack of coins",
+  "start": "small rocket launching from a laptop screen"
+ },
+ "title": "Einzelunternehmen, GbR oder UG? Die richtige Rechtsform für dein Nebengewerbe (einfach erklärt)",
+ "thumb": [
+  "EINZEL,",
+  "GbR oder",
+  "UG?"
+ ],
+ "thumb_pose": "denken",
+ "description": "Einzelunternehmen, GbR oder UG – welche Rechtsform passt zu deinem Nebengewerbe? Wir vergleichen Gründung, Kosten, Haftung, Steuern und Buchhaltung.\n\n{KAPITEL}\n\nStand 2026. Allgemeine Information, keine Rechts- oder Steuerberatung.\nStimme und Bilder wurden mit KI erstellt.\n\n#nebengewerbe #selbstständig #gründung #steuern #ug",
+ "tags": "rechtsform, einzelunternehmen, gbr, ug gründen, nebengewerbe, gewerbe anmelden, kleinunternehmerregelung, haftung, selbstständig machen, gmbh",
+ "scenes": [
+  {
+   "t": "Du willst nebenbei Geld verdienen, mit einem kleinen Shop, mit Dienstleistungen oder mit digitalen Produkten. Dann stellt sich ganz schnell eine Frage: Welche Rechtsform brauche ich eigentlich? Einzelunternehmen, GbR oder UG? Die Wahl entscheidet darüber, wie viel Papierkram du hast, was die Gründung kostet und vor allem, ob du im schlimmsten Fall mit deinem privaten Geld haftest.",
+   "b": [
+    {
+     "pose": "winken",
+     "c": [
+      {
+       "l": "",
+       "v": "frage.jpg"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Einzel",
+       "v": "eu.jpg",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "GbR",
+       "v": "gbr.jpg",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "UG",
+       "v": "ug.jpg",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "",
+       "v": "haftung_voll.jpg"
+      }
+     ]
+    }
+   ],
+   "ch": "Einstieg"
+  },
+  {
+   "t": "In diesem Video vergleichen wir die drei Möglichkeiten Schritt für Schritt. Gründung, Kosten, Haftung, Steuern und Buchhaltung. Am Ende weißt du, welche Form für dich passt. Kleiner Hinweis vorab: Das hier ist allgemeine Information und keine Rechts- oder Steuerberatung. Für deinen Einzelfall lohnt sich ein kurzer Termin beim Steuerberater.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "",
+       "v": "check.jpg"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "",
+       "v": "steuer.jpg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Fangen wir mit der einfachsten Form an, dem Einzelunternehmen. Du gründest allein, ohne Partner, ohne Notar und ohne Mindestkapital. Wenn du ein Gewerbe betreibst, also zum Beispiel einen Shop oder einen Service, meldest du es beim Gewerbeamt deiner Stadt an. Das kostet je nach Gemeinde meist zwischen etwa fünfzehn und fünfundsechzig Euro und ist oft online erledigt.",
+   "b": [
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Einzelunternehmen",
+       "v": "eu.jpg",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Gründung",
+       "v": "amt.jpg",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Kosten",
+       "v": "txt:ca. 15–65 €",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Mindestkapital",
+       "v": "txt:Keins",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ],
+   "ch": "Einzelunternehmen"
+  },
+  {
+   "t": "Bist du freiberuflich tätig, etwa als Designer, Texter oder Programmierer, brauchst du kein Gewerbe. Dann reicht die Anmeldung beim Finanzamt. Diese machst du übrigens in beiden Fällen, mit dem Fragebogen zur steuerlichen Erfassung über das Portal Elster.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Gewerbe",
+       "v": "amt.jpg",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Freiberuf",
+       "v": "txt:Nur Finanzamt",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Finanzamt",
+       "v": "txt:Fragebogen über Elster",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Der große Vorteil: Es ist einfach und günstig. Du machst eine einfache Einnahmen-Überschuss-Rechnung statt einer Bilanz, solange du unter den gesetzlichen Grenzen bleibst. Und für Einzelunternehmen gibt es bei der Gewerbesteuer einen Freibetrag von vierundzwanzigtausendfünfhundert Euro Gewinn im Jahr. Darunter zahlst du gar keine Gewerbesteuer.",
+   "b": [
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Buchhaltung",
+       "v": "buch.jpg",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Form",
+       "v": "txt:Einnahmen-Überschuss-Rechnung",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Gewerbesteuer-Freibetrag",
+       "v": "txt:24.500 € Gewinn / Jahr",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Der große Nachteil ist die Haftung. Als Einzelunternehmer haftest du unbeschränkt, also auch mit deinem Privatvermögen. Geht etwas schief, etwa eine teure Rückforderung oder Schulden beim Lieferanten, kann das dein Konto, dein Auto und deine Ersparnisse treffen. Für die meisten kleinen Nebengewerbe mit wenig Risiko ist das trotzdem der typische Start.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Haftung",
+       "v": "txt:Unbeschränkt",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Privat",
+       "v": "haftung_voll.jpg",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "arme",
+     "c": [
+      {
+       "l": "Fazit",
+       "v": "txt:Typischer Start",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Ein wichtiges Extra für den Start ist die Kleinunternehmerregelung. Wenn dein Umsatz im Vorjahr höchstens fünfundzwanzigtausend Euro war und im laufenden Jahr hunderttausend Euro nicht übersteigt, kannst du dich von der Umsatzsteuer befreien lassen. Du stellst dann Rechnungen ohne Umsatzsteuer aus und sparst dir die Umsatzsteuer-Voranmeldungen. Das gilt übrigens nicht nur für Einzelunternehmen.",
+   "b": [
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Kleinunternehmer",
+       "v": "txt:Vorjahr ≤ 25.000 €",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Laufendes Jahr",
+       "v": "txt:≤ 100.000 €",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Vorteil",
+       "v": "txt:Keine Umsatzsteuer auf Rechnungen",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Kommen wir zur GbR, der Gesellschaft bürgerlichen Rechts. Sie entsteht, sobald mindestens zwei Personen gemeinsam ein Ziel verfolgen, zum Beispiel du und ein Freund, die zusammen einen Onlineshop betreiben. Auch hier brauchst du kein Mindestkapital und keinen Notar. Ein Gesellschaftsvertrag ist nicht vorgeschrieben, aber dringend zu empfehlen, und zwar schriftlich.",
+   "b": [
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "GbR",
+       "v": "gbr.jpg",
+       "bg": "#fff6b8"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Personen",
+       "v": "txt:Mindestens 2",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "Kapital",
+       "v": "txt:Keins",
+       "bg": "#fff6b8"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Vertrag",
+       "v": "vertrag.jpg",
+       "bg": "#fff6b8"
+      }
+     ]
+    }
+   ],
+   "ch": "GbR"
+  },
+  {
+   "t": "Im Vertrag regelt ihr, wer wie viel einbringt, wie der Gewinn verteilt wird, wer was entscheiden darf und was passiert, wenn einer aussteigen will. Gerade unter Freunden klingt das unnötig. Aber genau dann, wenn es Streit gibt, ist ein klarer Vertrag Gold wert.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Regeln",
+       "v": "txt:Gewinn · Entscheidungen · Ausstieg",
+       "bg": "#fff6b8"
+      }
+     ]
+    },
+    {
+     "pose": "arme",
+     "c": [
+      {
+       "l": "",
+       "v": "vertrag.jpg",
+       "bg": "#fff6b8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Seit zweitausendvierundzwanzig kann sich eine GbR auch in ein Gesellschaftsregister eintragen lassen. Dann heißt sie eingetragene GbR. Pflicht ist das für ein normales Nebengewerbe nicht, nötig wird es etwa, wenn die GbR eine Immobilie kaufen will. Steuerlich und bei der Buchhaltung ist die GbR ähnlich einfach wie ein Einzelunternehmen, mit Einnahmen-Überschuss-Rechnung und dem gleichen Gewerbesteuer-Freibetrag.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Register",
+       "v": "register.jpg",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "Pflicht?",
+       "v": "txt:Meist nicht",
+       "bg": "#fff6b8"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Buchhaltung",
+       "v": "buch.jpg",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "Freibetrag",
+       "v": "txt:24.500 €",
+       "bg": "#fff6b8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Und die Haftung? Hier wird es heikel. In einer GbR haften alle Gesellschafter persönlich und unbeschränkt. Und zwar nicht nur für ihre eigenen Fehler, sondern auch für Schulden der Gesellschaft, die der Partner verursacht hat. Du gehst also ein Risiko ein, das du nur teilweise selbst in der Hand hast. Such dir deinen Partner deshalb sehr sorgfältig aus.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Haftung",
+       "v": "txt:Alle persönlich",
+       "bg": "#fff6b8"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Risiko",
+       "v": "haftung_voll.jpg",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "Auch für",
+       "v": "txt:Fehler des Partners",
+       "bg": "#fff6b8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Die dritte Möglichkeit ist die UG, die Unternehmergesellschaft mit beschränkter Haftung. Man nennt sie auch die Mini-GmbH. Ihr größter Vorteil steht schon im Namen: Die Haftung ist auf das Vermögen der Firma beschränkt. Dein Privatvermögen ist im Normalfall geschützt.",
+   "b": [
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "UG",
+       "v": "ug.jpg",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Haftung",
+       "v": "haftung.jpg",
+       "bg": "#e8e2ff"
+      },
+      {
+       "l": "Privat",
+       "v": "txt:Geschützt",
+       "bg": "#e8e2ff"
+      }
+     ]
+    }
+   ],
+   "ch": "UG"
+  },
+  {
+   "t": "Gründen kannst du eine UG schon mit einem Euro Stammkapital. In der Praxis ist das aber zu wenig, weil die Firma sonst sofort zahlungsunfähig sein kann. Sinnvoll sind ein paar hundert oder tausend Euro. Außerdem musst du jedes Jahr ein Viertel des Gewinns zurücklegen, bis fünfundzwanzigtausend Euro zusammengekommen sind. Dann kannst du die UG in eine GmbH umwandeln.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Stammkapital",
+       "v": "txt:ab 1 €",
+       "bg": "#e8e2ff"
+      },
+      {
+       "l": "Sinnvoll",
+       "v": "txt:einige hundert bis tausend €",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Rücklage",
+       "v": "sparschwein.jpg",
+       "bg": "#e8e2ff"
+      },
+      {
+       "l": "Pflicht",
+       "v": "txt:25 % vom Gewinn",
+       "bg": "#e8e2ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Der Haken: Eine UG ist deutlich aufwendiger. Die Gründung läuft über einen Notar, und die Firma wird ins Handelsregister eingetragen. Das kostet mit Notar und Register schnell einige hundert Euro. Außerdem brauchst du eine doppelte Buchführung und jedes Jahr einen Jahresabschluss mit Bilanz. Die meisten lassen das vom Steuerberater machen, und das kostet laufend Geld.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Gründung",
+       "v": "notar.jpg",
+       "bg": "#e8e2ff"
+      },
+      {
+       "l": "Kosten",
+       "v": "txt:einige hundert €",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Buchhaltung",
+       "v": "txt:Bilanz + Jahresabschluss",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "arme",
+     "c": [
+      {
+       "l": "Laufend",
+       "v": "steuer.jpg",
+       "bg": "#e8e2ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Auch steuerlich ist die UG anders. Die Firma zahlt Körperschaftsteuer, Solidaritätszuschlag und Gewerbesteuer, zusammen je nach Stadt grob um die dreißig Prozent. Einen Gewerbesteuer-Freibetrag wie beim Einzelunternehmen gibt es nicht. Und wenn du dir den Gewinn privat auszahlst, wird darauf noch einmal Steuer fällig.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Steuer Firma",
+       "v": "txt:grob ca. 30 %",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Freibetrag",
+       "v": "txt:Keiner",
+       "bg": "#e8e2ff"
+      },
+      {
+       "l": "Ausschüttung",
+       "v": "txt:Nochmal Steuer",
+       "bg": "#e8e2ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Schauen wir uns alles im direkten Vergleich an. Gründung: Einzelunternehmen und GbR einfach und günstig, UG mit Notar und deutlich teurer. Haftung: Einzelunternehmen und GbR mit Privatvermögen, UG nur mit dem Firmenvermögen. Buchhaltung: bei den ersten beiden einfach, bei der UG aufwendig mit Bilanz.",
+   "b": [
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Einzel",
+       "v": "txt:Einfach",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "GbR",
+       "v": "txt:Einfach",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "UG",
+       "v": "txt:Notar",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Einzel",
+       "v": "txt:Privat haften",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "GbR",
+       "v": "txt:Privat haften",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "UG",
+       "v": "txt:Nur Firma",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Einzel",
+       "v": "txt:EÜR",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "GbR",
+       "v": "txt:EÜR",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "UG",
+       "v": "txt:Bilanz",
+       "bg": "#e8e2ff"
+      }
+     ]
+    }
+   ],
+   "ch": "Vergleich"
+  },
+  {
+   "t": "Welche Form passt also zu dir? Wenn du allein startest, wenig Risiko hast und erst mal testen willst, ob deine Idee funktioniert, ist das Einzelunternehmen fast immer die beste Wahl. Zum Beispiel für einen Etsy-Shop mit digitalen Vorlagen, einen kleinen Service oder ein bisschen Content-Arbeit für Kunden.",
+   "b": [
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Allein + wenig Risiko",
+       "v": "eu.jpg",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Beispiel",
+       "v": "txt:Etsy-Shop · kleiner Service",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ],
+   "ch": "Welche passt zu dir?"
+  },
+  {
+   "t": "Wenn ihr zu zweit oder zu dritt startet und euch gegenseitig voll vertraut, ist die GbR der einfache Weg. Aber nur mit schriftlichem Vertrag. Und wenn du ein echtes Haftungsrisiko hast, etwa weil du teure Ware einkaufst, Mitarbeiter einstellst oder für Kunden größere Projekte übernimmst, dann lohnt sich ein Blick auf die UG oder später die GmbH.",
+   "b": [
+    {
+     "pose": "arme",
+     "c": [
+      {
+       "l": "Zu zweit + Vertrauen",
+       "v": "gbr.jpg",
+       "bg": "#fff6b8"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Großes Risiko",
+       "v": "ug.jpg",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Später",
+       "v": "gmbh.jpg",
+       "bg": "#e8e2ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "ch": "Häufige Fehler",
+   "t": "Bevor wir zum Fazit kommen, schauen wir uns die vier häufigsten Fehler an, die beim Start passieren. Fehler Nummer eins: Gar nichts anmelden. Viele denken, ein paar Verkäufe nebenbei seien noch kein Gewerbe. Sobald du aber regelmäßig und mit dem Ziel verkaufst, Gewinn zu machen, bist du in der Regel gewerblich tätig. Wer das ignoriert, riskiert Ärger mit Gewerbeamt und Finanzamt, und zwar rückwirkend.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "4 Fehler",
+       "v": "frage.jpg",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Fehler 1",
+       "v": "txt:Nichts anmelden",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Folge",
+       "v": "txt:Ärger mit Amt + Finanzamt",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Fehler Nummer zwei: Den Arbeitgeber vergessen. Wenn du angestellt bist, schau in deinen Arbeitsvertrag. Viele Verträge verlangen, dass du eine Nebentätigkeit meldest. Dein Arbeitgeber darf sie meistens nur ablehnen, wenn sie deine Arbeit beeinträchtigt oder du ihm Konkurrenz machst. Trotzdem gilt: lieber vorher kurz Bescheid sagen, dann gibt es später keinen Streit.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Fehler 2",
+       "v": "txt:Arbeitgeber nicht informiert",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Lösung",
+       "v": "txt:Kurz vorher melden",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Fehler Nummer drei: Kein Geld für die Steuer zurücklegen. Die Einkommensteuer auf deinen Gewinn kommt oft erst ein Jahr später mit dem Steuerbescheid, manchmal zusammen mit Vorauszahlungen für das nächste Jahr. Wer das ganze Geld schon ausgegeben hat, bekommt dann ein Problem. Eine einfache Regel: Leg von jedem Gewinn einen festen Anteil auf ein separates Konto, zum Beispiel ein Viertel bis ein Drittel.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Fehler 3",
+       "v": "txt:Nichts für Steuer zurückgelegt",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Regel",
+       "v": "sparschwein.jpg",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Anteil",
+       "v": "txt:¼ bis ⅓ vom Gewinn",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Fehler Nummer vier: Zu früh zu groß gründen. Eine UG oder GmbH klingt professionell, aber für ein Nebengewerbe mit ein paar hundert Euro Umsatz im Monat frisst der Aufwand für Notar, Bilanz und Steuerberater schnell den ganzen Gewinn auf. Starte klein, teste deine Idee und wechsle, wenn es sich wirklich lohnt.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Fehler 4",
+       "v": "txt:Zu früh zu groß",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "arme",
+     "c": [
+      {
+       "l": "Lieber",
+       "v": "eu.jpg",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Statt",
+       "v": "ug.jpg",
+       "bg": "#e8e2ff"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "ch": "Checkliste Start",
+   "t": "Hier noch deine kurze Checkliste für den Start als Einzelunternehmer. Erstens: Arbeitgeber informieren, falls nötig. Zweitens: Gewerbe beim Gewerbeamt anmelden, oft online. Drittens: Fragebogen zur steuerlichen Erfassung über Elster ausfüllen und dort entscheiden, ob du die Kleinunternehmerregelung nutzt. Viertens: ein separates Konto für das Geschäft einrichten. Und fünftens: Belege von Anfang an ordentlich sammeln, digital oder in einem Ordner.",
+   "b": [
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Checkliste",
+       "v": "check.jpg",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "1–2",
+       "v": "txt:Arbeitgeber · Gewerbeamt",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "3",
+       "v": "txt:Elster-Fragebogen",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "4–5",
+       "v": "txt:Eigenes Konto · Belege sammeln",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Und noch ein Tipp zum Schluss: Du musst dich nicht für immer festlegen. Viele starten als Einzelunternehmen und wechseln erst in eine UG oder GmbH, wenn das Geschäft größer und das Risiko höher wird. So sparst du am Anfang Geld und Aufwand und schützt dich später, wenn es wirklich nötig ist.",
+   "b": [
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Start",
+       "v": "eu.jpg",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Später",
+       "v": "ug.jpg",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "",
+       "v": "start.jpg"
+      }
+     ]
+    }
+   ],
+   "ch": "Fazit"
+  },
+  {
+   "t": "Zusammengefasst: Einzelunternehmen ist einfach und günstig, aber mit voller Haftung. Die GbR ist ebenso einfach, aber du haftest auch für deine Partner. Die UG schützt dein Privatvermögen, kostet aber deutlich mehr Zeit und Geld. Wenn dir das Video geholfen hat, abonniere Netto Plus. Hier geht es jede Woche um Geld, Steuern und Nebenverdienst ohne Fachchinesisch. Schreib in die Kommentare, mit welcher Rechtsform du startest. Bis zum nächsten Mal.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Einzel",
+       "v": "txt:Einfach · volle Haftung",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "GbR",
+       "v": "txt:Einfach · Partner-Risiko",
+       "bg": "#fff6b8"
+      },
+      {
+       "l": "UG",
+       "v": "txt:Geschützt · aufwendig",
+       "bg": "#e8e2ff"
+      }
+     ]
+    },
+    {
+     "pose": "winken",
+     "c": [
+      {
+       "l": "",
+       "v": "check.jpg"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,788 @@
+{
+ "id": "ag-e01-strommythen",
+ "channel": "Alltag gehackt",
+ "voice": "de-DE-KillianNeural",
+ "rate": "-10%",
+ "color": "#e8730c",
+ "bgs": [
+  "#ffe0de",
+  "#dcf5e6",
+  "#fff1d6"
+ ],
+ "mascot": {
+  "zeigen": "ag/zeigen-11.jpg",
+  "denken": "ag/denken-11.jpg",
+  "finger": "ag/finger-11.jpg",
+  "arme": "ag/arme-11.jpg",
+  "winken": "ag/winken-11.jpg",
+  "daumen": "ag/daumen-11.jpg"
+ },
+ "icons": {
+  "strom": "glowing light bulb with a lightning bolt and euro coins",
+  "messgeraet": "plug-in electricity usage meter in a wall socket showing watts",
+  "spuelmaschine": "open dishwasher with clean plates, eco leaf symbol",
+  "teller": "plate with food scraps being scraped into a bin",
+  "wasserkocher": "electric kettle boiling water next to a pot on stove",
+  "kuehlschrank": "open fridge with thermometer showing 7 degrees",
+  "alter_kuehlschrank": "old retro fridge next to a modern efficient fridge",
+  "backofen": "kitchen oven with casserole dish, fan symbol",
+  "steckdosenleiste": "power strip with switch and several plugs, tv and game console",
+  "led": "LED light bulb and light switch",
+  "ladegeraet": "phone charger plugged into wall socket without phone",
+  "waescheleine": "laundry drying on a clothesline in the sun next to a dryer",
+  "topf": "cooking pot with lid on stove",
+  "zaehler": "household electricity meter with digital display",
+  "haus": "cutaway house showing kitchen, living room and laundry appliances",
+  "router": "wifi router on a shelf at night with moon symbol",
+  "heizluefter": "small electric fan heater in a cold room with euro coins flying away"
+ },
+ "title": "Strom sparen: 12 Mythen im Faktencheck – was wirklich hilft (und was nicht)",
+ "thumb": [
+  "STROM",
+  "SPAREN:",
+  "12 MYTHEN"
+ ],
+ "thumb_pose": "denken",
+ "description": "12 verbreitete Strom-Mythen im Faktencheck: Eco-Programm, Wasserkocher, Kühlschrank, Standby, LED, Trockner, Router, Heizlüfter und mehr – plus 3 Bonus-Tipps.\n\n{KAPITEL}\n\nAllgemeine Tipps ohne Gewähr, Stand 2026. Verbrauch hängt von deinen Geräten ab.\nStimme und Bilder wurden mit KI erstellt.\n\n#stromsparen #energiesparen #haushalt #lifehacks #sparen",
+ "tags": "strom sparen, energie sparen, strom mythen, eco programm, wasserkocher, kühlschrank temperatur, standby, wäschetrockner, haushalt tipps, stromkosten",
+ "scenes": [
+  {
+   "t": "Strom ist teuer, und überall liest man Spartipps. Aber viele davon sind Mythen. Manche bringen fast nichts, andere sind sogar falsch. In diesem Video nehmen wir zwölf Strom-Mythen aus dem Alltag auseinander. Bei jedem Punkt erfährst du, was wirklich stimmt und was du ab heute anders machen kannst, ohne auf Komfort zu verzichten.",
+   "b": [
+    {
+     "pose": "winken",
+     "c": [
+      {
+       "l": "",
+       "v": "strom.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Klingt richtig",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Stimmt wirklich",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ],
+   "ch": "Einstieg"
+  },
+  {
+   "t": "Ein Tipp vorab: Wenn du wissen willst, welche Geräte bei dir wirklich viel verbrauchen, hilft ein Strommessgerät für die Steckdose. Das kostet nicht viel, und manchmal kannst du es auch ausleihen, zum Beispiel bei Verbraucherberatungen oder in manchen Bibliotheken. So siehst du schwarz auf weiß, wo dein Geld hingeht.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Tipp",
+       "v": "messgeraet.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Ausleihen",
+       "v": "txt:Verbraucherberatung · Bibliothek",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "ch": "Wo der Strom hingeht",
+   "t": "Bevor wir mit den Mythen starten, kurz zur Frage: Wo geht der Strom in einem normalen Haushalt eigentlich hin? Die großen Brocken sind meistens alles, was Wärme oder Kälte erzeugt. Also Kühlschrank und Gefriertruhe, die rund um die Uhr laufen, dazu Herd und Backofen, Waschmaschine, Spülmaschine und Trockner. Wenn du warmes Wasser elektrisch machst, etwa mit einem Durchlauferhitzer oder Boiler, kommt das noch obendrauf. Dazu kommen Unterhaltungselektronik, Computer und Licht.",
+   "b": [
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Haushalt",
+       "v": "haus.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Große Brocken",
+       "v": "txt:Wärme und Kälte",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Beispiele",
+       "v": "txt:Kühlen · Kochen · Waschen",
+       "bg": "#fff1d6"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Dazu",
+       "v": "txt:Elektronik · Computer · Licht",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Und so findest du heraus, wie viel du selbst verbrauchst: Schreib dir eine Woche lang jeden Abend zur gleichen Zeit den Stand deines Stromzählers auf. Dann siehst du deinen Verbrauch pro Tag. Multipliziere die Kilowattstunden mit deinem Arbeitspreis aus der Stromrechnung, und du weißt genau, was dich ein Tag kostet. Wenn du danach einen der Tipps aus diesem Video umsetzt, siehst du direkt am Zähler, ob es etwas bringt. Das macht Sparen viel greifbarer als jede Schätzung.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Zählerstand",
+       "v": "zaehler.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Rechnung",
+       "v": "txt:kWh × Arbeitspreis",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Ergebnis",
+       "v": "txt:Kosten pro Tag",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Danach",
+       "v": "txt:Wirkung direkt sehen",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer eins: Das Eco-Programm der Spülmaschine dauert viel länger, also verbraucht es auch mehr Strom. Das Gegenteil stimmt. Eco-Programme spülen mit niedrigeren Temperaturen und lassen das Wasser dafür länger einwirken. Das Aufheizen des Wassers ist der größte Stromfresser, und genau da wird gespart. Die längere Laufzeit ist also kein Nachteil, sondern der Trick dahinter. Das gilt übrigens genauso für die Waschmaschine.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 1",
+       "v": "txt:Eco-Programm dauert länger, also verbraucht es mehr",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Eco-Programm dauert länger, also verbraucht es mehr",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Eco spart Energie",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "spuelmaschine.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ],
+   "ch": "Mythos 1–3: Küche & Waschen"
+  },
+  {
+   "t": "Mythos Nummer zwei: Man muss das Geschirr vor der Spülmaschine unter fließendem Wasser vorspülen. Moderne Spülmaschinen brauchen das nicht. Es reicht, grobe Essensreste in den Müll zu kratzen. Wer unter heißem Wasser vorspült, verbraucht zusätzlich Wasser und Energie für warmes Wasser, und das oft mehr, als die Maschine selbst für den ganzen Spülgang braucht.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 2",
+       "v": "txt:Vorspülen von Hand ist nötig",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Vorspülen von Hand ist nötig",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Grobe Reste abkratzen reicht",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "teller.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer drei: Wasser auf dem Herd zu kochen ist günstiger als im Wasserkocher. Meistens ist es umgekehrt. Der Wasserkocher bringt die Energie direkt ins Wasser und verliert dabei wenig Wärme. Auf der Herdplatte geht viel Wärme an Topf und Luft verloren. Der wichtigste Tipp dazu: Nur so viel Wasser kochen, wie du wirklich brauchst. Und wenn du doch im Topf kochst, dann immer mit Deckel.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 3",
+       "v": "txt:Wasser im Topf ist günstiger als der Wasserkocher",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Wasser im Topf ist günstiger als der Wasserkocher",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Wasserkocher ist meist effizienter",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "wasserkocher.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer vier: Je kälter der Kühlschrank, desto besser hält das Essen. Im mittleren Fach reichen in der Regel sieben Grad. Jedes Grad kälter kostet zusätzlich Strom, ohne dass die Lebensmittel spürbar länger halten. Beim Gefrierschrank sind minus achtzehn Grad der übliche Richtwert. Und denk daran, das Gefrierfach regelmäßig abzutauen, denn eine dicke Eisschicht wirkt wie eine Dämmung und lässt das Gerät mehr arbeiten.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 4",
+       "v": "txt:Je kälter der Kühlschrank, desto besser",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Je kälter der Kühlschrank, desto besser",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:7 °C reichen",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "kuehlschrank.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ],
+   "ch": "Mythos 4–6: Kühlen & Kochen"
+  },
+  {
+   "t": "Mythos Nummer fünf: Ein altes Gerät behält man am besten, solange es noch läuft. Das stimmt nicht immer. Gerade sehr alte Kühl- und Gefriergeräte, die rund um die Uhr laufen, können ein Vielfaches eines modernen sparsamen Geräts verbrauchen. Miss den Verbrauch mit dem Strommessgerät über ein paar Tage und rechne hoch. Manchmal hat sich ein neues Gerät nach einigen Jahren selbst bezahlt. Bei Geräten, die du selten nutzt, lohnt sich ein Austausch dagegen meistens nicht.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 5",
+       "v": "txt:Alte Geräte behalten, solange sie laufen",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Alte Geräte behalten, solange sie laufen",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Sehr alte Geräte können viel mehr verbrauchen",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "alter_kuehlschrank.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer sechs: Der Backofen muss immer vorgeheizt werden. Für empfindliche Sachen wie manche Kuchen oder Brot kann das sinnvoll sein. Bei vielen anderen Gerichten, etwa Aufläufen, Fertigpizza oder Ofengemüse, ist es oft nicht nötig. Nutze außerdem Umluft, wenn es geht, dann reicht meist eine niedrigere Temperatur. Und schalte den Ofen ein paar Minuten vor Ende aus, die Restwärme erledigt den Rest.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 6",
+       "v": "txt:Der Backofen muss immer vorgeheizt werden",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Der Backofen muss immer vorgeheizt werden",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Bei vielen Gerichten nicht nötig",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "backofen.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer sieben: Standby kostet fast nichts. Ein einzelnes modernes Gerät im Standby verbraucht tatsächlich nur wenig. Aber zähl mal, was bei dir alles dauerhaft am Strom hängt: Fernseher, Spielkonsole, Lautsprecher, Router, Drucker, Kaffeemaschine. Zusammen kann das übers Jahr einen spürbaren Betrag ausmachen. Die einfache Lösung ist eine schaltbare Steckdosenleiste, mit der du mehrere Geräte auf einmal komplett vom Netz nimmst.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 7",
+       "v": "txt:Standby kostet fast nichts",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Standby kostet fast nichts",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Viele Geräte zusammen summieren sich",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "steckdosenleiste.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ],
+   "ch": "Mythos 7–10: Wohnzimmer & Wäsche"
+  },
+  {
+   "t": "Mythos Nummer acht: Licht ständig an- und auszuschalten verbraucht mehr Strom, als es brennen zu lassen. Das ist ein alter Mythos aus der Zeit von Leuchtstoffröhren. Bei modernen LED-Lampen gilt ganz klar: Wenn du den Raum verlässt, mach das Licht aus. Und wenn du noch alte Glühbirnen oder Halogenlampen hast, ist der Wechsel auf LED einer der einfachsten Spartipps überhaupt.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 8",
+       "v": "txt:Licht an und aus kostet mehr als brennen lassen",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Licht an und aus kostet mehr als brennen lassen",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Bei LED: immer ausschalten",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "led.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer neun: Ein Ladegerät in der Steckdose verbraucht nichts, wenn kein Handy dranhängt. Moderne Netzteile sind zwar sehr sparsam, aber ein kleiner Verbrauch bleibt oft. Bei einem einzelnen Ladegerät ist das kaum der Rede wert. Trotzdem ist es eine gute Gewohnheit, Ladegeräte nach dem Laden aus der Steckdose zu ziehen. Das spart ein bisschen Strom und ist auch aus Sicherheitsgründen keine schlechte Idee.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 9",
+       "v": "txt:Ladegerät ohne Handy verbraucht nichts",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Ladegerät ohne Handy verbraucht nichts",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Wenig, aber nicht null",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "ladegeraet.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer zehn: Der Wäschetrockner ist kaum teurer als die Wäscheleine. Ein klassischer Trockner gehört im Haushalt zu den großen Stromverbrauchern. Die Wäscheleine kostet dagegen gar nichts. Wenn du trocknen musst, schleuder die Wäsche vorher in der Waschmaschine mit hoher Drehzahl, dann ist weniger Wasser drin. Und falls irgendwann ein neuer Trockner ansteht, ist ein Wärmepumpentrockner deutlich sparsamer als ein alter Ablufttrockner.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 10",
+       "v": "txt:Der Trockner ist kaum teurer als die Leine",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Der Trockner ist kaum teurer als die Leine",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Trockner gehört zu den großen Verbrauchern",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "waescheleine.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer elf: Den Router nachts auszuschalten bringt nichts. Ein einzelner Router braucht zwar nicht viel Leistung, aber er läuft jede Stunde des Jahres. Viele Router haben einen Nachtmodus oder eine Zeitschaltung für das WLAN, die du in den Einstellungen aktivieren kannst. Achtung nur: Wenn dein Festnetztelefon über den Router läuft, ist es dann eventuell nicht erreichbar. Prüf also vorher, ob das für dich passt.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 11",
+       "v": "txt:Den Router nachts auszuschalten bringt nichts",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Den Router nachts auszuschalten bringt nichts",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Er läuft 24/7 – ein Nachtmodus spart",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "router.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Mythos Nummer zwölf: Ein Heizlüfter ist eine günstige Zusatzheizung. Ein Heizlüfter ist zwar billig in der Anschaffung, aber im Betrieb einer der teuersten Wege, einen Raum zu heizen. Er wandelt Strom direkt in Wärme um und hat oft eine sehr hohe Leistung. Ein paar Stunden am Tag über den Winter können die Stromrechnung deutlich nach oben treiben. Für ein paar Minuten im kalten Bad ist das okay, als Dauerlösung aber nicht. Besser: Türen schließen, richtig lüften und die normale Heizung nutzen.",
+   "b": [
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Mythos 12",
+       "v": "txt:Ein Heizlüfter ist eine günstige Heizung",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Mythos",
+       "v": "txt:Ein Heizlüfter ist eine günstige Heizung",
+       "bg": "#ffe0de"
+      },
+      {
+       "l": "Fakt",
+       "v": "txt:Heizen mit Strom ist sehr teuer",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "",
+       "v": "heizluefter.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Zum Schluss noch drei schnelle Bonus-Tipps. Erstens: Kochen mit Deckel. Das spart viel Energie, weil die Wärme im Topf bleibt. Zweitens: Die Waschmaschine voll beladen und meistens reichen dreißig oder vierzig Grad. Drittens: Schau dir einmal im Jahr deinen Stromtarif an. Ein Wechsel bringt oft mehr als jeder einzelne Spartipp aus diesem Video.",
+   "b": [
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Bonus 1",
+       "v": "topf.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    },
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Bonus 2",
+       "v": "txt:Voll beladen · 30–40 °C",
+       "bg": "#fff1d6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Bonus 3",
+       "v": "txt:Stromtarif jährlich prüfen",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ],
+   "ch": "Bonus-Tipps"
+  },
+  {
+   "ch": "Die größten Hebel",
+   "t": "Wenn du nur drei Dinge aus diesem Video mitnimmst, dann diese. Erstens: Alles, was heizt, kostet am meisten. Also beim Kochen, Spülen, Waschen und Trocknen ansetzen. Zweitens: Geräte, die rund um die Uhr laufen, wie Kühlschrank, Gefriertruhe oder ein alter Router, wirken sich über das Jahr stark aus, auch wenn sie wenig Leistung haben. Und drittens: Der Tarif. Gerade wer lange nicht gewechselt hat, zahlt oft deutlich mehr als nötig. Das ist der Spartipp, der am wenigsten Mühe macht.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Hebel 1",
+       "v": "txt:Was heizt, kostet",
+       "bg": "#ffe0de"
+      }
+     ]
+    },
+    {
+     "pose": "denken",
+     "c": [
+      {
+       "l": "Hebel 2",
+       "v": "txt:Dauerläufer 24/7",
+       "bg": "#fff1d6"
+      }
+     ]
+    },
+    {
+     "pose": "daumen",
+     "c": [
+      {
+       "l": "Hebel 3",
+       "v": "txt:Tarif wechseln",
+       "bg": "#dcf5e6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "Fassen wir zusammen. Eco-Programm nutzen, nicht vorspülen, Wasserkocher statt Topf, Kühlschrank auf sieben Grad, alte Dauerläufer prüfen, Ofen nicht immer vorheizen, Standby mit Steckdosenleiste abschalten, LED-Licht immer ausmachen, Ladegeräte ziehen Wäsche möglichst an der Leine trocknen, den Router nachts in den Nachtmodus schicken und den Heizlüfter nur kurz nutzen. Wenn dir das Video geholfen hat, abonniere Alltag gehackt. Hier gibt es jede Woche Tipps für Haushalt, Auto und Alltag. Schreib in die Kommentare, welcher Mythos dich am meisten überrascht hat.",
+   "b": [
+    {
+     "pose": "finger",
+     "c": [
+      {
+       "l": "Küche",
+       "v": "txt:Eco · nicht vorspülen · Wasserkocher",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Kühlen",
+       "v": "txt:7 °C · alte Geräte prüfen",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "zeigen",
+     "c": [
+      {
+       "l": "Wohnen",
+       "v": "txt:Steckdosenleiste · LED aus",
+       "bg": "#dcf5e6"
+      },
+      {
+       "l": "Wäsche",
+       "v": "txt:Leine statt Trockner",
+       "bg": "#dcf5e6"
+      }
+     ]
+    },
+    {
+     "pose": "winken",
+     "c": [
+      {
+       "l": "",
+       "v": "strom.jpg",
+       "bg": "#fff1d6"
+      }
+     ]
+    }
+   ],
+   "ch": "Zusammenfassung"
+  }
+ ]
+}
