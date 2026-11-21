@@ -77,20 +77,32 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     return end
 
 
-def image(prompt, path, seed):
+def image(prompt, path, seed, color="#2ecc71"):
+    """KI-Bild von Pollinations (kostenlos, ohne Konto, begrenzt). Fällt es aus: Farb-Hintergrund."""
+    import urllib.error
     url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt)
-           + f"?width={W}&height={H}&nologo=true&seed={seed}")
-    for k in range(4):
+           + f"?width=720&height=1280&nologo=true&seed={seed}")
+    for k in range(6):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "jarvis-video"})
             with urllib.request.urlopen(req, timeout=120) as r, open(path, "wb") as f:
                 f.write(r.read())
             if os.path.getsize(path) > 10000:
-                return
+                return True
+        except urllib.error.HTTPError as e:
+            wait = int(e.headers.get("Retry-After") or 0) or 30
+            print(f"  Bild-Versuch {k+1}: HTTP {e.code}, warte {wait + 5} s")
+            time.sleep(wait + 5)
+            continue
         except Exception as e:
-            print("  Bild-Versuch", k + 1, "fehlgeschlagen:", e)
+            print(f"  Bild-Versuch {k+1}: {e}")
         time.sleep(20)
-    raise RuntimeError("Bild konnte nicht geladen werden: " + prompt)
+    print("  ⚠ Ersatz-Hintergrund für:", prompt)
+    c = color.lstrip("#")
+    sh("ffmpeg", "-y", "-f", "lavfi", "-i",
+       f"gradients=s={W}x{H}:c0=0x{c}:c1=0x0b0b10:x0=0:y0=0:x1={W}:y1={H}:d=1",
+       "-frames:v", "1", path)
+    return False
 
 
 def build(spec_path):
@@ -105,7 +117,7 @@ def build(spec_path):
     for i, p in enumerate(spec["prompts"]):
         path = f"{tmp}/img{i}.jpg"
         if not os.path.exists(path):
-            image(p, path, seed=abs(hash(vid)) % 100000 + i)
+            image(p, path, seed=sum(map(ord, vid)) * 7 + i, color=spec.get("color", "#2ecc71"))
             time.sleep(16)                     # Pollinations: 1 Bild / 15 s ohne Konto
         imgs.append(path)
     seg = total / len(imgs)
@@ -136,5 +148,11 @@ if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     args = sys.argv[1:] or ["all"]
     files = sorted(glob(os.path.join(os.path.dirname(__file__), "specs", "*.json"))) if args == ["all"] else args
+    bad = []
     for f in files:
-        build(f)
+        try:
+            build(f)
+        except Exception as e:
+            print("  ✗", f, e); bad.append(f)
+    if bad and len(bad) == len(files):
+        sys.exit(1)
