@@ -36,7 +36,7 @@ if [ ! -f user_data/config.json ]; then
 cat > user_data/config.json <<EOF
 {
   "bot_name": "jarvis-bot",
-  "max_open_trades": 3,
+  "max_open_trades": 6,
   "stake_currency": "EUR",
   "stake_amount": 50,
   "tradable_balance_ratio": 0.99,
@@ -51,7 +51,7 @@ cat > user_data/config.json <<EOF
     "check_depth_of_market": {"enabled": false, "bids_to_ask_delta": 1}},
   "exit_pricing": {"price_side": "same", "use_order_book": true, "order_book_top": 1},
   "exchange": {"name": "kraken", "key": "", "secret": "", "ccxt_config": {}, "ccxt_async_config": {},
-    "pair_whitelist": ["BTC/EUR", "ETH/EUR", "SOL/EUR", "XRP/EUR", "ADA/EUR"], "pair_blacklist": []},
+    "pair_whitelist": ["BTC/EUR", "ETH/EUR", "SOL/EUR", "XRP/EUR", "ADA/EUR", "DOGE/EUR", "DOT/EUR", "LINK/EUR", "AVAX/EUR", "LTC/EUR", "TRX/EUR", "ATOM/EUR", "BCH/EUR", "XLM/EUR", "NEAR/EUR", "SHIB/EUR", "PEPE/EUR", "POL/EUR", "SUI/EUR", "UNI/EUR"], "pair_blacklist": []},
   "pairlists": [{"method": "StaticPairList"}],
   "telegram": {"enabled": false, "token": "", "chat_id": ""},
   "api_server": {"enabled": true, "listen_ip_address": "0.0.0.0", "listen_port": 8080, "verbosity": "error",
@@ -111,7 +111,7 @@ cat /root/jarvis-bot-zugang.txt
 echo "======================================"
 echo "Diese 3 Zeilen in Jarvis > Trading > Bot-Server eintragen."
 echo "Beide Bots laufen im TEST-Modus mit je 1.000 EUR Spielgeld:"
-echo " - Freqtrade (BTC/ETH/SOL/XRP/ADA)"
+echo " - Freqtrade (20 große Kryptos in EUR)"
 echo " - Agenten-Bot (Solana-Memecoins, alle 15 Sekunden)"
 echo "Agenten-Log ansehen: journalctl -u jarvis-agents -f"
 echo "Zugang später nochmal anzeigen: cat /root/jarvis-bot-zugang.txt"

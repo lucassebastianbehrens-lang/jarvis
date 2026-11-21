@@ -3,8 +3,11 @@ Strategie: EMA9/EMA21-Kreuzung auf 15-Min-Kerzen, RSI-Filter, Stop-Loss -3 %, Ta
 Läuft alle 15 Min per GitHub Actions und speichert den Stand in data/paper.json."""
 import json, os, time, urllib.request
 
-PAIRS = {"BTC/EUR": "XBTEUR", "ETH/EUR": "ETHEUR", "SOL/EUR": "SOLEUR", "XRP/EUR": "XRPEUR", "ADA/EUR": "ADAEUR"}
-START, STAKE, MAX_OPEN = 1000.0, 200.0, 3
+PAIRS = {"BTC/EUR": "XBTEUR", "ETH/EUR": "ETHEUR", "SOL/EUR": "SOLEUR", "XRP/EUR": "XRPEUR", "ADA/EUR": "ADAEUR",
+         "DOGE/EUR": "XDGEUR", "DOT/EUR": "DOTEUR", "LINK/EUR": "LINKEUR", "AVAX/EUR": "AVAXEUR", "LTC/EUR": "LTCEUR",
+         "TRX/EUR": "TRXEUR", "ATOM/EUR": "ATOMEUR", "BCH/EUR": "BCHEUR", "XLM/EUR": "XLMEUR", "NEAR/EUR": "NEAREUR",
+         "SHIB/EUR": "SHIBEUR", "PEPE/EUR": "PEPEEUR", "POL/EUR": "POLEUR", "SUI/EUR": "SUIEUR", "UNI/EUR": "UNIEUR"}
+START, STAKE, MAX_OPEN = 1000.0, 150.0, 6
 FEE, SL, TP = 0.004, -0.03, 0.05          # 0,4 % Gebühr je Seite (konservativ)
 INTERVAL = 15
 FILE = os.path.join(os.path.dirname(__file__), "..", "data", "paper.json")
