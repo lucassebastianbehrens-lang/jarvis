@@ -9,14 +9,7 @@
   "#dcf5e6",
   "#fff1d6"
  ],
- "mascot": {
-  "zeigen": "ag/zeigen.png",
-  "denken": "ag/denken.png",
-  "finger": "ag/finger.png",
-  "arme": "ag/arme.png",
-  "winken": "ag/winken.png",
-  "daumen": "ag/winken.png"
- },
+ "mascot": "vector:ag",
  "icons": {
   "strom": "glowing light bulb with a lightning bolt and euro coins",
   "messgeraet": "plug-in electricity usage meter in a wall socket showing watts",

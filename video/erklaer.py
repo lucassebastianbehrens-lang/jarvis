@@ -81,8 +81,9 @@ def card(content, w, h, bg, tmp):
 def frame(beat, spec, tmp, mascots, out):
     im = Image.new("RGBA", (W, H), (252, 252, 250, 255))
     d = ImageDraw.Draw(im)
-    m = mascots[beat.get("pose", "finger")]
-    im.alpha_composite(m, (110 if spec.get("side", "left") == "left" else W - m.width - 110, H - m.height))
+    if mascots:
+        m = mascots[beat.get("pose", "finger")]
+        im.alpha_composite(m, (110, H - m.height))
     cards = beat["c"]; n = len(cards)
     area_x, area_w = 820, 1020
     cw = {1: 640, 2: 470, 3: 320}[n]; ch = {1: 470, 2: 470, 3: 360}[n]; gap = (area_w - n * cw) // (n + 1)
@@ -101,7 +102,55 @@ def frame(beat, spec, tmp, mascots, out):
     col = spec.get("color", "#2ecc71").lstrip("#")
     d.text((60, 36), spec["channel"].upper(), font=font(30), fill=tuple(int(col[j:j + 2], 16) for j in (0, 2, 4)))
     d.text((60, 76), "Stimme & Bilder mit KI erstellt", font=font(18), fill=(150, 150, 150))
+    if out is None:
+        return im
     im.convert("RGB").save(out, quality=92)
+
+
+POSEMAP = {"zeigen": "zeigen", "denken": "denken", "finger": "finger", "arme": "neutral", "winken": "winken",
+           "daumen": "finger", "neutral": "neutral"}
+FPSA = 25
+
+
+def animate(spec, tmp, beats, words, sprites, total, out):
+    """Bild für Bild: Karten-Hintergrund je Beat, Bär mit Mundbewegung, Blinzeln, leichtem Wippen."""
+    import math, subprocess, bisect
+    n = int(total * FPSA) + 1
+    ws = sorted((s, e) for s, e, _ in words); starts = [x[0] for x in ws]
+    def talking(t):
+        i = bisect.bisect_right(starts, t) - 1
+        return i >= 0 and t <= ws[i][1] + 0.02
+    blank = frame({"c": [], "pose": "zeigen"}, spec, tmp, {}, None) if False else None
+    proc = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+                             "-r", str(FPSA), "-i", "-", "-i", f"{tmp}/voice.m4a", "-vf", f"ass={tmp}/subs.ass",
+                             "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p",
+                             "-c:a", "copy", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
+    bi, cache, bg, prev = -1, {}, None, None
+    for f in range(n):
+        t = f / FPSA
+        while bi + 1 < len(beats) and t >= beats[bi + 1][0]:
+            bi += 1; prev = bg; bg = frame(beats[bi][2], spec, tmp, {}, None); cache = {}; fstart = f
+        if bg is None:
+            bg = frame(beats[0][2], spec, tmp, {}, None); bi = 0; fstart = 0
+        pose = POSEMAP.get(beats[bi][2].get("pose", "neutral"), "neutral")
+        m = 1 if talking(t) and (f // 3) % 2 == 0 else 0
+        e = 0 if (t % 3.7) < 0.12 else 1
+        yo = int(round(5 * math.sin(2 * math.pi * t / 2.6)))
+        k = (pose, m, e, yo)
+        fade = f - fstart < 6 and prev is not None
+        if not fade and k in cache:
+            buf = cache[k]
+        else:
+            base = Image.blend(prev, bg, (f - fstart + 1) / 6) if fade else bg
+            im = base.copy(); sp = sprites[f"{pose}_m{m}_e{e}.png"]
+            im.alpha_composite(sp, (40, H - sp.height + 20 + yo))
+            buf = im.convert("RGB").tobytes()
+            if not fade:
+                cache[k] = buf
+        proc.stdin.write(buf)
+    proc.stdin.close()
+    if proc.wait():
+        raise RuntimeError("ffmpeg Animation fehlgeschlagen")
 
 
 def build(spec_path):
@@ -109,7 +158,14 @@ def build(spec_path):
     tmp = os.path.join(OUT, vid + "_tmp"); os.makedirs(tmp, exist_ok=True); os.makedirs(OUT, exist_ok=True)
     print("▶", vid)
     # Maskottchen
-    mascots = {k: cutout(os.path.join(ASSETS, v), 900) for k, v in spec["mascot"].items()}
+    vec = isinstance(spec["mascot"], str) and spec["mascot"].startswith("vector:")
+    if vec:
+        import baer
+        kind = spec["mascot"].split(":")[1]; sd = os.path.join(tmp, "baer"); baer.render_set(kind, sd, 900)
+        sprites = {f: Image.open(os.path.join(sd, f)).convert("RGBA") for f in os.listdir(sd)}
+        mascots = {}
+    else:
+        mascots = {k: cutout(os.path.join(ASSETS, v), 900) for k, v in spec["mascot"].items()}
     # Icons
     ok = 0
     for i, (k, p) in enumerate(spec["icons"].items()):
@@ -160,9 +216,13 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         ass += f"Dialogue: 1,{ts(s)},{ts(e)},Cap,,0,0,0,,{{\\fscx88\\fscy88\\t(0,80,\\fscx100\\fscy100)}}{esc(t.upper())}\n"
         srt.append(f"{n}\n{ts(s, True)} --> {ts(e, True)}\n{t}\n")
     open(f"{tmp}/subs.ass", "w").write(ass); open(os.path.join(OUT, vid + ".srt"), "w").write("\n".join(srt))
+    out = os.path.join(OUT, vid + ".mp4")
+    if vec:
+        animate(spec, tmp, beats, words, sprites, total, out)
+        clips = None
     # Bilder je Beat -> Clips mit leichtem Zoom
-    clips = []
-    for i, (s, e, b) in enumerate(beats):
+    clips = [] if not vec else None
+    for i, (s, e, b) in enumerate(beats if not vec else []):
         fp = f"{tmp}/f{i}.jpg"; frame(b, spec, tmp, mascots, fp)
         seg = e - s; frames = int(seg * FPS) + 2; c = f"{tmp}/c{i}.mp4"
         sh("ffmpeg", "-y", "-loop", "1", "-i", fp, "-vf",
@@ -170,15 +230,16 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
            f":d={frames}:s={W}x{H}:fps={FPS}", "-t", f"{seg:.3f}", "-pix_fmt", "yuv420p", "-c:v", "libx264",
            "-preset", "veryfast", "-crf", "20", c)
         clips.append(c)
-    with open(f"{tmp}/vlist.txt", "w") as f:
+    if not vec:
+      with open(f"{tmp}/vlist.txt", "w") as f:
         f.writelines(f"file '{os.path.abspath(c)}'\n" for c in clips)
-    out = os.path.join(OUT, vid + ".mp4")
-    sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", f"{tmp}/vlist.txt", "-i", f"{tmp}/voice.m4a",
+      sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", f"{tmp}/vlist.txt", "-i", f"{tmp}/voice.m4a",
        "-vf", f"ass={tmp}/subs.ass", "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-c:a", "copy",
        "-shortest", "-movflags", "+faststart", out)
     # Thumbnail: Maskottchen + 2 Karten + große Schrift
     th = Image.new("RGBA", (1280, 720), (252, 252, 250, 255)); dd = ImageDraw.Draw(th)
-    mm = mascots.get(spec.get("thumb_pose", "zeigen"), list(mascots.values())[0]).copy()
+    mm = (sprites[f"{POSEMAP.get(spec.get('thumb_pose','zeigen'),'zeigen')}_m1_e1.png"] if vec else
+          mascots.get(spec.get("thumb_pose", "zeigen"), list(mascots.values())[0])).copy()
     mm = mm.resize((int(mm.width * 690 / mm.height), 690)); th.alpha_composite(mm, (20, 30))
     y = 70
     for k, line in enumerate(spec["thumb"]):

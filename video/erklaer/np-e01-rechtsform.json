@@ -1,7 +1,7 @@
 {
  "id": "np-e01-rechtsform",
  "channel": "Netto Plus",
- "voice": "de-DE-ConradNeural",
+ "voice": "de-DE-FlorianMultilingualNeural",
  "rate": "-6%",
  "color": "#22a35a",
  "bgs": [
@@ -9,14 +9,7 @@
   "#fff6b8",
   "#e8e2ff"
  ],
- "mascot": {
-  "zeigen": "np/zeigen.png",
-  "denken": "np/denken.png",
-  "finger": "np/finger.png",
-  "arme": "np/arme.png",
-  "winken": "np/winken.png",
-  "daumen": "np/daumen.png"
- },
+ "mascot": "vector:np",
  "icons": {
   "frage": "big question mark with three signposts pointing in different directions",
   "eu": "small cozy single-person office building with one desk and laptop, mint green",
