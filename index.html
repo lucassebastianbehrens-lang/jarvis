@@ -95,7 +95,7 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <select id="tbS"><option value="daily">täglich</option><option value="weekdays">werktags</option><option value="hourly">stündlich</option><option value="once">einmal</option></select><input id="tbZ" type="time" value="08:00"></div>
 <select id="tbK"></select>
 <button class="p" id="tbAdd">Bot anlegen</button></details>
-<h3>Skills</h3><p class="m">Skills sind gespeicherte Arbeitsanleitungen. Bots können sie nutzen, und im Chat startest du sie mit »nutz den <i>name</i> skill: …«.</p><div class="skl" id="skList"></div>
+<h3>Skills</h3><p class="m">Skills sind gespeicherte Arbeitsanleitungen. Im Chat startest du sie mit »nutz den <i>name</i> skill: …«. Unter jeder Antwort kannst du 👍/👎 geben – Jarvis merkt sich dein Feedback und schreibt den Skill einmal am Tag (oder nach 3 Hinweisen) selbst besser.</p><div class="skl" id="skList"></div>
 <details class="camp" id="skNew"><summary>+ Skill anlegen</summary><label>Name (kurz, mit Bindestrich)</label><input id="skN" placeholder="z. B. kc-post"><label>Wann benutzen</label><input id="skD" placeholder="z. B. Social-Media-Post für einen Handwerksbetrieb"><label>Anleitung</label><textarea id="skI"></textarea><button class="p" id="skAdd">Skill speichern</button></details></section>
 <section id="fin"><div class="m">Saldo</div><div class="big" id="sal"></div><div class="m" id="mon"></div>
 <div class="row"><input id="fd" type="date"><input id="fv" inputmode="decimal" placeholder="Betrag €"><input id="ft" placeholder="Wofür?"></div>
@@ -192,7 +192,7 @@ function bild(q){const w=Math.max(0,15e3-(Date.now()-lastImg));lastImg=Date.now(
  const url='https://image.pollinations.ai/prompt/'+encodeURIComponent(q)+'?width=1024&height=1024&nologo=true&seed='+Math.floor(Math.random()*1e6);
  return new Promise(res=>setTimeout(()=>res({text:'🎨 Bild: '+q+' (kostenlos über Pollinations, kann 10–30 Sek. laden)',img:url}),w))}
 function local(t){let m;
- if((m=t.match(/^(?:nutze?\s+(?:den\s+)?)?([\w-]+)[\s-]skill\b[:\s]*([\s\S]*)$/i))&&skFind(m[1]))return skRun(skFind(m[1]),m[2].trim()).then(x=>x,e=>'Fehler: '+e.message);
+ if((m=t.match(/^(?:nutze?\s+(?:den\s+)?)?([\w-]+)[\s-]skill\b[:\s]*([\s\S]*)$/i))&&skFind(m[1]))return skRun(skFind(m[1]),m[2].trim()).then(x=>({text:x,sk:skFind(m[1]).n}),e=>'Fehler: '+e.message);
  if(/^skills$/i.test(t))return 'Skills:\n'+S.skills.map(k=>'• '+k.n+' – '+k.d).join('\n')+'\nStart: »nutz den kc-post skill: Heizungsbau Böhle, Thema Wartung«';
  if(m=t.match(/^(?:suche|such|google|recherchiere)(?: im internet)?(?: nach)?:?\s+(.+)$/i))return websuche(m[1]);
  if(m=t.match(/^(?:öffne|lies|zusammenfassen?)\s+(https?:\/\/\S+)/i))return safe(()=>oeffne(m[1])).then(x=>x||'Diese Seite konnte ich nicht lesen (Seite blockiert oder Lesedienst überlastet).');
@@ -228,7 +228,7 @@ async function push(t){try{if(!('Notification' in window)||Notification.permissi
 function beep(){try{const a=new AudioContext(),o=a.createOscillator();o.frequency.value=880;o.connect(a.destination);o.start();o.stop(a.currentTime+.3)}catch(e){}}
 
 $('#send').onclick=async()=>{const t=$('#in').value.trim();if(!t)return;$('#in').value='';S.chat.push({role:'user',content:t});
- S.chat.push({role:'assistant',content:'…'});render();const l=await local(t);S.chat.pop();if(l){const o=typeof l==='object'?l:{text:l};S.chat.push({role:'assistant',content:o.text,...(o.img?{img:o.img}:{})});save();say(o.text);return render()}
+ S.chat.push({role:'assistant',content:'…'});render();const l=await local(t);S.chat.pop();if(l){const o=typeof l==='object'?l:{text:l};S.chat.push({role:'assistant',content:o.text,...(o.img?{img:o.img}:{}),...(o.sk?{sk:o.sk}:{})});save();say(o.text);return render()}
  S.chat.push({role:'assistant',content:'…'});render();
  const sys={...SYS,content:SYS.content.replace('Saldo 0','Saldo '+saldo().toFixed(2))+' Offene Aufgaben: '+S.todo.filter(x=>!x.ok).map(x=>x.t).join('; ')+(S.mem.length?' Was Lucas dir gesagt hat: '+S.mem.join('; '):'')};
  try{S.chat.at(-1).content=await ai([sys,...S.chat.slice(-11,-1).map(m=>({role:m.role,content:m.content}))])}catch(e){S.chat.at(-1).content='Fehler: '+e.message+'. Einstellungen prüfen.'}
@@ -273,7 +273,7 @@ $('#bi').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{S={...S,.
 
 function render(){
  $('#st').textContent=({free:'KI kostenlos',ollama:'Lokale KI',api:'Online-KI'}[S.cfg.mode]||'KI')+' · '+S.todo.filter(x=>!x.ok).length+' Aufgaben offen';
- $('#log').innerHTML=S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${link(esc(m.content))}${m.img?`<a href="${esc(m.img)}" target="_blank" rel="noopener"><img src="${esc(m.img)}" alt="Bild" style="display:block;max-width:100%;border-radius:8px;margin-top:8px"></a>`:''}</div>`).join(''):'<p class="m mono">&gt; Systeme online. Hallo Lucas. Tipp »hilfe« für Befehle, die ohne KI laufen.</p>';
+ $('#log').innerHTML=S.chat.length?S.chat.map((m,ci)=>`<div class="msg ${m.role==='user'?'u':'a'}">${link(esc(m.content))}${m.sk?`<div class="m" style="margin-top:6px">Skill ${esc(m.sk)} · ${m.fb?esc(m.fb):`<button class="s" data-fbok="${ci}">👍</button> <button class="s" data-fbno="${ci}">👎 verbessern</button>`}</div>`:''}${m.img?`<a href="${esc(m.img)}" target="_blank" rel="noopener"><img src="${esc(m.img)}" alt="Bild" style="display:block;max-width:100%;border-radius:8px;margin-top:8px"></a>`:''}</div>`).join(''):'<p class="m mono">&gt; Systeme online. Hallo Lucas. Tipp »hilfe« für Befehle, die ohne KI laufen.</p>';
  const s=saldo(),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo));
  $('#sal').textContent=eur(s);$('#sal').className='big '+(s<0?'neg':'pos');
  $('#mon').textContent='Diesen Monat: +'+eur(mm.filter(x=>x.v>0).reduce((a,x)=>a+x.v,0))+' / '+eur(mm.filter(x=>x.v<0).reduce((a,x)=>a+x.v,0));
@@ -450,8 +450,25 @@ S.skills??=[{n:'kc-post',d:'Social-Media-Post für einen Handwerks- oder Gastrob
  {n:'kundenpanel',d:'Geschäftsidee mit 100 simulierten Käufern testen',i:'Simuliere 100 verschiedene Käufer für die Idee (Name, Alter, Budget, Gewohnheit, „sagt Nein, wenn …“). Biete jedem das Produkt an, zähle Kauf/Nein. Gib: Käufer-Gruppen-Tabelle, die 3 häufigsten Einwände, den Preis mit den meisten Käufern und 3 Verbesserungen. Sei kritisch, echte Kunden sagen öfter Nein – nenne zusätzlich die halbierte Quote.'}];
 S.dash??={goal:300,fun:{Leads:8,Briefe:0,Besuche:0,'Profil-Check':0,Testmonat:0,Kunden:0}};
 const skFind=n=>S.skills.find(k=>k.n.toLowerCase()===n.toLowerCase());
-async function skRun(k,input){return await ai([{role:'system',content:`Du bist Jarvis und nutzt den Skill „${k.n}“. Antworte auf Deutsch, Beträge in Euro.\nAnleitung: ${k.i}`},{role:'user',content:input||'Leg los.'}])}
-function skRender(){$('#skList').innerHTML=S.skills.map((k,i)=>`<div><span><code>${esc(k.n)}</code><br><span class="m">${esc(k.d)}</span></span><span><button class="s" data-skt="${i}">Testen</button> <button class="s" data-skx="${i}">✕</button></span></div>`).join('')||'<p class="m">Keine Skills.</p>';
+async function skRun(k,input){k.uses=(k.uses||0)+1;save();return await ai([{role:'system',content:`Du bist Jarvis und nutzt den Skill „${k.n}“. Antworte auf Deutsch, Beträge in Euro.\nAnleitung: ${k.i}${(k.learn||[]).length?'\nLehren aus Lucas\' Feedback (unbedingt beachten): '+k.learn.join(' | '):''}`},{role:'user',content:input||'Leg los.'}])}
+
+const SKPLUS=[{n:'kc-brief',d:'Akquise-Brief an einen Betrieb (KC, Brief/Besuch – UWG-konform)',i:'Schreibe einen kurzen, persönlichen Brief (max. 1 Seite) an den genannten Betrieb in der Region Börde/Harz. Konkret auf den Betrieb eingehen, Nutzen: Kunden und Mitarbeiter über Social Media gewinnen. Angebot: Google-Profil-Check für 99 € als Einstieg, Testmonat 149 € ohne Laufzeit, 60-Tage-Garantie. Sie-Form, keine Übertreibungen, Absender Lucas Behrens, Handwerk sichtbar.'},
+ {n:'kc-monatsbericht',d:'Monatsbericht für einen KC-Kunden',i:'Erstelle aus den genannten Zahlen (Reichweite, Interaktionen, Anfragen, Bewerbungen, Posts) einen kurzen Monatsbericht für den Kunden: 3 Erfolge, 1 Lernpunkt, Plan für nächsten Monat. Einfach, ohne Fachbegriffe, Sie-Form.'},
+ {n:'kunden-antwort',d:'Antwort auf eine Kundenanfrage/Bewertung (KC oder Etsy)',i:'Formuliere eine freundliche, kurze Antwort auf die genannte Nachricht. Bei Kritik: verstehen, Lösung anbieten, nicht rechtfertigen. Gib 2 Varianten (kurz/ausführlicher).'},
+ {n:'etsy-seo',d:'Etsy-Titel und 13 Tags optimieren',i:'Optimiere Titel (max. 140 Zeichen, wichtigste deutsche Suchbegriffe vorne) und genau 13 Tags (je max. 20 Zeichen) für das genannte Produkt. Begründe in 2 Sätzen.'},
+ {n:'tt-hook',d:'10 Hooks und Cliffhanger für die KI-Obst-Serie',i:'Gib 10 Ideen: je Hook für Sekunde 1 (Konflikt) und Cliffhanger am Ende, familienfreundlich, für die genannte Folge/Figuren.'},
+ {n:'trade-check',d:'Kurze Trade-Einschätzung (Long/Short mit SL/TP)',i:'Antworte nur mit: Richtung Long oder Short, Einstieg, Stop-Loss, Take-Profit (Beträge in Euro) und einem Satz Begründung. Immer Hinweis: keine Anlageberatung. Wenn Daten fehlen, sag welche.'},
+ {n:'wochenplan',d:'Wochenplan für 15 h passend zur Schicht',i:'Erstelle einen Wochenplan für Lucas mit 15 h für seine Geschäfte (KC 7 h, ET 4 h, TT 3 h, Verwaltung 1 h) passend zur genannten Schichtwoche (Spät: vormittags; Früh: nachmittags; freie Woche: große Blöcke). Tabelle Tag/Zeit/Aufgabe.'}];
+for(const k of SKPLUS)if(!S.skills.some(x=>x.n===k.n))S.skills.push(k);
+async function skImprove(k){if(!(k.learn||[]).length)return;
+ try{const neu=await ai([{role:'system',content:'Du verbesserst Arbeitsanleitungen. Antworte NUR mit der neuen Anleitung (max. 900 Zeichen), Deutsch.'},{role:'user',content:`Alte Anleitung:\n${k.i}\n\nFeedback von Lucas:\n- ${k.learn.join('\n- ')}\n\nSchreibe eine verbesserte Anleitung, die das Feedback dauerhaft einbaut.`}]);
+  if(neu&&neu.length>40){k.old=k.i;k.i=neu.trim().slice(0,1200);k.learn=[];k.v=(k.v||1)+1;save();push('🧠 Skill '+k.n+' verbessert (Version '+k.v+')')}}catch(e){}}
+$('#log').addEventListener('click',e=>{const d=e.target.dataset,i=d.fbok??d.fbno;if(i==null)return;const m=S.chat[i],k=m&&skFind(m.sk||'');if(!k)return;
+ if(d.fbok!=null){k.good=(k.good||0)+1;m.fb='👍 danke';}
+ else{const w=prompt('Was soll der Skill „'+k.n+'“ besser machen?');if(!w)return;(k.learn??=[]).push(w.slice(0,200));m.fb='👎 gemerkt: '+w.slice(0,60);if(k.learn.length>=3)skImprove(k)}
+ save();render()});
+const skAuto=()=>{const d=today();if(S.skDay===d)return;S.skDay=d;save();for(const k of S.skills)if((k.learn||[]).length)skImprove(k)};setTimeout(skAuto,8000);
+function skRender(){$('#skList').innerHTML=S.skills.map((k,i)=>`<div><span><code>${esc(k.n)}</code><br><span class="m">${esc(k.d)}${k.v?' · v'+k.v:''}${(k.learn||[]).length?' · '+k.learn.length+' Lehren offen':''}${k.uses?' · '+k.uses+'× genutzt':''}</span></span><span><button class="s" data-skt="${i}">Testen</button> <button class="s" data-skx="${i}">✕</button></span></div>`).join('')||'<p class="m">Keine Skills.</p>';
  $('#tbK').innerHTML='<option value="">Skill: keiner</option>'+S.skills.map(k=>`<option>${esc(k.n)}</option>`).join('')}
 $('#skList').onclick=e=>{const d=e.target.dataset;if(d.skx!=null){S.skills.splice(d.skx,1);save();skRender()}
  if(d.skt!=null){const k=S.skills[d.skt];$$('nav button,section').forEach(x=>x.classList.remove('on'));$('[data-t=chat]').classList.add('on');$('#chat').classList.add('on');$('#in').value='nutz den '+k.n+' skill: ';$('#in').focus();render()}};
