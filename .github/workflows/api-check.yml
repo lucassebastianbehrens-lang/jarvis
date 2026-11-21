@@ -1,0 +1,14 @@
+name: API-Check
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          cd bot && python3 -c "
+          import agents as A, time
+          mints=[t['tokenAddress'] for t in A.get(A.API+'/token-profiles/latest/v1') if t.get('chainId')=='solana'][:6]+['DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263']
+          for m in mints:
+              print('RUG',m[:8],A.rugcheck(m)); time.sleep(2)
+          "

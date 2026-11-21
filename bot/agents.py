@@ -2,14 +2,14 @@
 
 4 Agenten wie im Video:
   Scanner  – findet neue/beworbene Solana-Tokens (DexScreener, öffentlich)
-  Analyst  – bewertet jeden Token mit 0–100 Punkten
+  Analyst  – bewertet jeden Token mit 0–100 Punkten + Sicherheitsprüfung (RugCheck)
   Executor – kauft ab Mindestpunktzahl (Start 75) mit 8 % des Kontos (Spielgeld)
   Risk     – Stop −6 %, Gewinn sichern ab +4 %, Take-Profit, Trailing-Stop 12 %, Rug-Schutz
 Optimierer – jeden Tag um 10 Uhr: passt Regeln an (Ziel ≥75 % Trefferquote UND Gewinn)
 Läuft dauerhaft (alle 15 s). Stand → /var/lib/jarvis/agents/state.json (für Jarvis).
 Start: python3 agents.py          Test: python3 agents.py --once
 """
-import json, os, sys, time, urllib.request
+import json, os, sys, time, urllib.parse, urllib.request
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -22,6 +22,10 @@ COST = 0.015            # Gebühren + Slippage je Seite (Memecoins: konservativ)
 LOOP, SCAN_EVERY = 15, 60
 COOLDOWN = 2 * 3600
 API = "https://api.dexscreener.com"
+RUG_API = "https://api.rugcheck.xyz/v1/tokens/{}/report/summary"
+RUG_MAX = 50                       # normierter RugCheck-Risikowert: darüber kein Kauf
+TG_FILE = "/etc/jarvis/telegram.env"  # optional: TG_TOKEN=... und TG_CHAT=...
+_rug_cache, _tg = {}, None
 
 
 def get(url):
@@ -35,6 +39,54 @@ def usd_eur():
         return float(get("https://api.frankfurter.app/latest?from=USD&to=EUR")["rates"]["EUR"])
     except Exception:
         return None
+
+
+def tg_conf():
+    global _tg
+    if _tg is None:
+        _tg = {}
+        try:
+            for line in open(TG_FILE):
+                if "=" in line:
+                    k, v = line.strip().split("=", 1)
+                    _tg[k] = v.strip().strip('"')
+        except OSError:
+            pass
+    return _tg
+
+
+def notify(text):
+    """Telegram-Nachricht aufs Handy (nur wenn eingerichtet)."""
+    c = tg_conf()
+    if not c.get("TG_TOKEN") or not c.get("TG_CHAT"):
+        return
+    try:
+        data = urllib.parse.urlencode({"chat_id": c["TG_CHAT"], "text": text}).encode()
+        urllib.request.urlopen(f"https://api.telegram.org/bot{c['TG_TOKEN']}/sendMessage", data, timeout=10)
+    except Exception:
+        pass
+
+
+def rugcheck(mint):
+    """Sicherheitsprüfung (RugCheck, kostenlos). Rückgabe: (ok, grund)."""
+    hit = _rug_cache.get(mint)
+    if hit and time.time() - hit[0] < 1800:
+        return hit[1]
+    try:
+        d = get(RUG_API.format(mint))
+        risks = d.get("risks") or []
+        danger = [r.get("name", "?") for r in risks if r.get("level") == "danger"]
+        norm = d.get("score_normalised")
+        if danger:
+            res = (False, "Gefahr: " + ", ".join(danger[:3]))
+        elif norm is not None and norm > RUG_MAX:
+            res = (False, f"Risikowert {norm}")
+        else:
+            res = (True, f"RugCheck ok ({norm if norm is not None else '?'})")
+    except Exception as e:
+        res = (None, f"RugCheck nicht erreichbar: {e}")   # None = unbekannt -> kein Kauf
+    _rug_cache[mint] = (time.time(), res)
+    return res
 
 
 def scan(S):
@@ -114,6 +166,7 @@ def sell(S, a, price_eur, why):
     day = time.strftime("%Y-%m-%d")
     S["daily"][day] = round(S["daily"].get(day, 0) + pnl, 2)
     log(S, "Gestoppt" if pnl < 0 else "Verkauft", p["sym"], val, pnl, why)
+    notify(f"{'🔴' if pnl < 0 else '✅'} {p['sym']} verkauft: {pnl:+.2f} € ({why}) · Konto {value(S):.2f} € – Spielgeld")
 
 
 def tick(S, do_scan):
@@ -148,18 +201,30 @@ def tick(S, do_scan):
             sell(S, a, px, "Trailing-Stop")
     S["agents"]["risk"] = {"watching": len(S["open"]), "stop": K["stop"], "trail": K["trail"]}
     # Analyst + Executor
-    best = None
+    cands = []
     for a in S["watch"]:
         q = P.get(a)
         if not q or a in S["open"] or now - S["cool"].get(a, 0) < COOLDOWN or not q.get("priceUsd"):
             continue
-        sc = score(q, now)
-        if not best or sc > best[0]:
-            best = (sc, a, q)
+        cands.append((score(q, now), a, q))
+    cands.sort(key=lambda c: -c[0])
+    best, safety = (cands[0] if cands else None), ""
+    if len(S["open"]) < MAX_OPEN:
+        for c in [c for c in cands if c[0] >= K["min_score"]][:3]:   # max. 3 Sicherheitsprüfungen je Runde
+            ok, why = rugcheck(c[1])
+            if ok:
+                best, safety = c, why
+                break
+            S["cool"][c[1]] = int(now)                                # unsicher: 2 h sperren
+            S["rejected"] = S.get("rejected", 0) + 1
+            log(S, "Abgelehnt", c[2]["baseToken"].get("symbol", "?"), 0, None, f"{c[0]} Pkt, aber {why}")
+            best = None
     if best:
-        S["agents"]["analyst"] = {"score": best[0], "sym": best[2]["baseToken"].get("symbol", "?"), "passed": best[0] >= K["min_score"]}
+        S["agents"]["analyst"] = {"score": best[0], "sym": best[2]["baseToken"].get("symbol", "?"),
+                                  "passed": best[0] >= K["min_score"] and bool(safety), "safety": safety,
+                                  "rejected": S.get("rejected", 0)}
     eq = value(S)
-    if best and best[0] >= K["min_score"] and len(S["open"]) < MAX_OPEN:
+    if best and safety and best[0] >= K["min_score"] and len(S["open"]) < MAX_OPEN:
         stake = round(eq * STAKE_PCT, 2)
         if S["cash"] >= stake > 1:
             sc, a, q = best
@@ -169,7 +234,8 @@ def tick(S, do_scan):
                             "qty": stake * (1 - COST) / px, "cost": stake, "t": int(now), "score": sc,
                             "liq": (q.get("liquidity") or {}).get("usd") or 0, "url": q.get("url", "")}
             S["trades"] += 1
-            log(S, "Gekauft", S["open"][a]["sym"], stake, None, f"{sc} Punkte · {STAKE_PCT*100:.0f} % vom Konto")
+            log(S, "Gekauft", S["open"][a]["sym"], stake, None, f"{sc} Punkte · {safety}")
+            notify(f"🟢 Gekauft {S['open'][a]['sym']} für {stake:.2f} € ({sc} Pkt, {safety}) – Spielgeld")
     S["agents"]["executor"] = {"trades": S["trades"], "open": len(S["open"])}
     S["value"] = round(value(S), 2)
     if not S["equity"] or now - S["equity"][-1][0] >= 300:
@@ -235,6 +301,8 @@ def optimize(S):
                   "changes": changes, "notes": notes}] + S.get("opt", []))[:30]
     S["strategy"] = strategy_text(K)
     log(S, "Optimiert", "Regeln", 0, None, "; ".join(changes) or "keine Änderung")
+    notify(f"🧠 Tages-Optimierung: Trefferquote {winrate(T)*100:.0f} % ({len(T)} Trades), Konto {value(S):.2f} €. "
+           + ("; ".join(changes) or "keine Änderung"))
 
 
 def value(S):
