@@ -40,7 +40,10 @@ def icon(prompt, path, seed):
 
 def cutout(path, h):
     """Maskottchen freistellen (weißer Hintergrund -> transparent) und auf Höhe h skalieren."""
-    im = Image.open(path).convert("RGB")
+    im = Image.open(path)
+    if im.mode == "RGBA":  # bereits freigestellt
+        return im.resize((int(im.width * h / im.height), h), Image.LANCZOS)
+    im = im.convert("RGB")
     im = im.resize((int(im.width * h / im.height), h), Image.LANCZOS)
     g = im.convert("L").point(lambda v: 0 if v > 238 else 255).filter(ImageFilter.GaussianBlur(1.2))
     rgba = im.convert("RGBA"); rgba.putalpha(g)

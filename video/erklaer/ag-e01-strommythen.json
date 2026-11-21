@@ -10,12 +10,12 @@
   "#fff1d6"
  ],
  "mascot": {
-  "zeigen": "ag/zeigen-11.jpg",
-  "denken": "ag/denken-11.jpg",
-  "finger": "ag/finger-11.jpg",
-  "arme": "ag/arme-11.jpg",
-  "winken": "ag/winken-11.jpg",
-  "daumen": "ag/daumen-11.jpg"
+  "zeigen": "ag/zeigen.png",
+  "denken": "ag/denken.png",
+  "finger": "ag/finger.png",
+  "arme": "ag/arme.png",
+  "winken": "ag/winken.png",
+  "daumen": "ag/winken.png"
  },
  "icons": {
   "strom": "glowing light bulb with a lightning bolt and euro coins",

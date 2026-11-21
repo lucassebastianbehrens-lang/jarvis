@@ -10,12 +10,12 @@
   "#e8e2ff"
  ],
  "mascot": {
-  "zeigen": "np/zeigen-11.jpg",
-  "denken": "np/denken-11.jpg",
-  "finger": "np/finger-11.jpg",
-  "arme": "np/arme-11.jpg",
-  "winken": "np/winken-11.jpg",
-  "daumen": "np/daumen-11.jpg"
+  "zeigen": "np/zeigen.png",
+  "denken": "np/denken.png",
+  "finger": "np/finger.png",
+  "arme": "np/arme.png",
+  "winken": "np/winken.png",
+  "daumen": "np/daumen.png"
  },
  "icons": {
   "frage": "big question mark with three signposts pointing in different directions",
