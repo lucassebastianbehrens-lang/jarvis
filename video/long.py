@@ -116,7 +116,9 @@ def openverse(prompt, path):
 
 
 def image(prompt, path, seed, color):
-    if not os.environ.get("NO_IMG"):
+    if os.environ.get("FOTOS") and openverse(prompt, path):
+        return True
+    if not os.environ.get("NO_IMG") and not os.environ.get("FOTOS"):
         url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt + ", 16:9, high detail")
                + f"?width=1280&height=720&nologo=true&seed={seed}")
         for k in range(4):
@@ -207,7 +209,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         p = f"{tmp}/img{i}.jpg"
         if not os.path.exists(p):
             real += image(sc["p"], p, seed=sum(map(ord, vid)) * 11 + i, color=color)
-            if not os.environ.get("NO_IMG"):
+            if not os.environ.get("NO_IMG") and not os.environ.get("FOTOS"):
                 time.sleep(16)
         seg = e - s; frames = int(seg * FPS) + 2
         z = "min(zoom+0.00025,1.10)" if i % 2 == 0 else "if(eq(on,1),1.10,max(zoom-0.00025,1))"

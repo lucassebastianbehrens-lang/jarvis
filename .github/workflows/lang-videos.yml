@@ -5,6 +5,9 @@ on:
       specs:
         description: "Spec-Dateien, z. B. video/long/np-l01-sparplan.json"
         required: true
+      fotos:
+        description: "1 = schnell mit gemeinfreien Fotos statt KI-Bildern"
+        default: ""
 permissions:
   contents: write
 jobs:
@@ -16,6 +19,8 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
       - run: pip install -q edge-tts
       - run: python3 video/long.py ${{ inputs.specs }}
+        env:
+          FOTOS: ${{ inputs.fotos }}
       - name: Als Release zum Herunterladen ablegen
         env:
           GH_TOKEN: ${{ github.token }}
