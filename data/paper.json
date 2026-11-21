@@ -5,18 +5,48 @@
  "closed": [],
  "daily": {},
  "last_ts": {
-  "BTC/EUR": 1795260600,
-  "ETH/EUR": 1795260600,
-  "SOL/EUR": 1795260600,
-  "XRP/EUR": 1795260600,
-  "ADA/EUR": 1795260600
+  "BTC/EUR": 1795262400,
+  "ETH/EUR": 1795262400,
+  "SOL/EUR": 1795262400,
+  "XRP/EUR": 1795262400,
+  "ADA/EUR": 1795262400,
+  "DOGE/EUR": 1795262400,
+  "DOT/EUR": 1795262400,
+  "LINK/EUR": 1795262400,
+  "AVAX/EUR": 1795262400,
+  "LTC/EUR": 1795262400,
+  "TRX/EUR": 1795262400,
+  "ATOM/EUR": 1795262400,
+  "BCH/EUR": 1795262400,
+  "XLM/EUR": 1795262400,
+  "NEAR/EUR": 1795262400,
+  "SHIB/EUR": 1795262400,
+  "PEPE/EUR": 1795262400,
+  "POL/EUR": 1795262400,
+  "SUI/EUR": 1795262400,
+  "UNI/EUR": 1795262400
  },
  "prices": {
-  "BTC/EUR": 53084.4,
-  "ETH/EUR": 1508.23,
-  "SOL/EUR": 62.76,
-  "XRP/EUR": 0.8241,
-  "ADA/EUR": 0.127898
+  "BTC/EUR": 53199.9,
+  "ETH/EUR": 1510.0,
+  "SOL/EUR": 63.01,
+  "XRP/EUR": 0.82369,
+  "ADA/EUR": 0.128506,
+  "DOGE/EUR": 0.0491311,
+  "DOT/EUR": 0.5874,
+  "LINK/EUR": 7.73243,
+  "AVAX/EUR": 5.878,
+  "LTC/EUR": 35.71,
+  "TRX/EUR": 0.276741,
+  "ATOM/EUR": 1.0626,
+  "BCH/EUR": 175.72,
+  "XLM/EUR": 0.11487,
+  "NEAR/EUR": 2.5419,
+  "SHIB/EUR": 3.231e-06,
+  "PEPE/EUR": 3.069e-06,
+  "POL/EUR": 0.06838,
+  "SUI/EUR": 0.5752,
+  "UNI/EUR": 4.1086
  },
  "equity": [
   [
@@ -26,11 +56,15 @@
   [
    1795261618,
    1000.0
+  ],
+  [
+   1795263967,
+   1000.0
   ]
  ],
  "started": 1795259130,
  "strategy": "EMA 9/21 + RSI, SL -3 %, TP +5 %",
  "value": 1000.0,
- "updated": 1795261618,
+ "updated": 1795263967,
  "errors": []
 }
