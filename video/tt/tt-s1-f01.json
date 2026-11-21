@@ -1,0 +1,114 @@
+{
+ "id": "tt-s1-f01",
+ "series": "Früchte-Drama",
+ "episode": 1,
+ "title": "Er ist verheiratet 🍓🧄",
+ "caption": "Folge 1: Alles war normal … bis SIE ins Gym kam. 😳 Folge mir für Teil 2!",
+ "hashtags": [
+  "#früchtedrama",
+  "#kiserie",
+  "#obstdrama",
+  "#drama",
+  "#fyp"
+ ],
+ "end": "WIE GEHT'S WEITER? FOLGE MIR FÜR TEIL 2!",
+ "voices": {
+  "Erzähler": "de-DE-FlorianMultilingualNeural",
+  "Gino": "de-DE-ConradNeural",
+  "Rosa": "de-DE-SeraphinaMultilingualNeural",
+  "Jessy": "de-DE-AmalaNeural",
+  "Avo": "de-DE-KillianNeural"
+ },
+ "scenes": [
+  {
+   "p": "muscular man with a realistic garlic bulb head, expressive Pixar-style face, thick eyebrows, grey tank top reading GARLIC GYM lifting heavy dumbbells in a modern gym, sweat, determined",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Gino hatte ein perfektes Leben. Eine liebe Frau, ein gemütliches Zuhause und sein Gym."
+    },
+    {
+     "s": "Gino",
+     "t": "Noch zehn Wiederholungen. Für Rosa. Für unsere Zukunft!"
+    }
+   ]
+  },
+  {
+   "p": "athletic woman with a shiny strawberry head, green leaf hair, confident smile, pink sports top and black leggings walking into the gym smiling, other people turning heads, muscular man with a realistic garlic bulb head, expressive Pixar-style face, thick eyebrows, grey tank top reading GARLIC GYM in background staring",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Bis zu dem Tag, an dem die neue Trainerin kam."
+    },
+    {
+     "s": "Jessy",
+     "t": "Hey, ich bin Jessy. Deine neue Trainerin. Du hältst die Hantel ganz falsch, Großer."
+    },
+    {
+     "s": "Gino",
+     "t": "Äh … ich mache das seit zehn Jahren so."
+    }
+   ]
+  },
+  {
+   "p": "athletic woman with a shiny strawberry head, green leaf hair, confident smile, pink sports top and black leggings touching the arm of muscular man with a realistic garlic bulb head, expressive Pixar-style face, thick eyebrows, grey tank top reading GARLIC GYM to correct his posture, he looks nervous, gym mirror",
+   "lines": [
+    {
+     "s": "Jessy",
+     "t": "Dann wird es Zeit, dass dir das mal jemand richtig zeigt. Morgen um sechs? Nur wir zwei."
+    },
+    {
+     "s": "Gino",
+     "t": "Um sechs … ja. Klar. Wegen der Technik."
+    }
+   ]
+  },
+  {
+   "p": "chubby friendly man with a halved-avocado head, green hoodie hiding behind a gym machine, shocked face, holding a protein shake",
+   "lines": [
+    {
+     "s": "Avo",
+     "t": "Alter. Gino. Das hab ich gesehen. Du bist verheiratet!"
+    },
+    {
+     "s": "Gino",
+     "t": "Avo, das ist nur Training! Mehr nicht."
+    },
+    {
+     "s": "Avo",
+     "t": "Ja klar. Und ich bin ein Pfirsich."
+    }
+   ]
+  },
+  {
+   "p": "woman with a glossy purple red-onion head, big warm eyes, long lashes, floral apron over a cozy sweater cooking soup in a warm cozy kitchen at evening, smiling, steam rising",
+   "lines": [
+    {
+     "s": "Rosa",
+     "t": "Schatz, ich habe deine Lieblingssuppe gekocht. Wie war das Training?"
+    },
+    {
+     "s": "Gino",
+     "t": "Gut. Ganz normal. Nichts Besonderes."
+    }
+   ]
+  },
+  {
+   "p": "close-up of a smartphone on a kitchen table lighting up with a heart emoji message, woman with a glossy purple red-onion head, big warm eyes, long lashes, floral apron over a cozy sweater looking at it suspiciously in background",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Doch dann leuchtete sein Handy auf. Eine Nachricht. Mit einem roten Herz."
+    },
+    {
+     "s": "Rosa",
+     "t": "Gino … wer ist Jessy?"
+    },
+    {
+     "s": "Erzähler",
+     "t": "Und in dieser Nacht konnte Gino um zwei Uhr dreizehn immer noch nicht schlafen."
+    }
+   ]
+  }
+ ]
+}
