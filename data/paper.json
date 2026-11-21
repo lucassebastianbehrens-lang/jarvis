@@ -5,28 +5,32 @@
  "closed": [],
  "daily": {},
  "last_ts": {
-  "BTC/EUR": 1795257900,
-  "ETH/EUR": 1795257900,
-  "SOL/EUR": 1795257900,
-  "XRP/EUR": 1795257900,
-  "ADA/EUR": 1795257900
+  "BTC/EUR": 1795260600,
+  "ETH/EUR": 1795260600,
+  "SOL/EUR": 1795260600,
+  "XRP/EUR": 1795260600,
+  "ADA/EUR": 1795260600
  },
  "prices": {
-  "BTC/EUR": 52866.3,
-  "ETH/EUR": 1498.16,
-  "SOL/EUR": 62.18,
-  "XRP/EUR": 0.81776,
-  "ADA/EUR": 0.127284
+  "BTC/EUR": 53084.4,
+  "ETH/EUR": 1508.23,
+  "SOL/EUR": 62.76,
+  "XRP/EUR": 0.8241,
+  "ADA/EUR": 0.127898
  },
  "equity": [
   [
    1795259131,
+   1000.0
+  ],
+  [
+   1795261618,
    1000.0
   ]
  ],
  "started": 1795259130,
  "strategy": "EMA 9/21 + RSI, SL -3 %, TP +5 %",
  "value": 1000.0,
- "updated": 1795259131,
+ "updated": 1795261618,
  "errors": []
 }
