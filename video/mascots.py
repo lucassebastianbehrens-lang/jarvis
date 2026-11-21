@@ -1,8 +1,8 @@
 """Erzeugt Maskottchen-Posen (Pollinations, kostenlos) für die Kanäle. Aufruf: python3 video/mascots.py"""
 import os, time, urllib.parse, urllib.request, urllib.error
 M = {
- "np": "a friendly chubby cartoon hamster mascot wearing a dark green suit jacket, white shirt and green tie, small gold coin pin",
- "ag": "a friendly cartoon beaver mascot mechanic wearing orange work overalls and a grey cap, small wrench in back pocket",
+ "np": "a friendly anthropomorphic brown bear mascot wearing a dark green suit jacket, white shirt and green tie, gold watch",
+ "ag": "a friendly anthropomorphic black bear mascot wearing orange work overalls over a grey t-shirt, small wrench in chest pocket",
 }
 P = {
  "zeigen": "pointing up to the right with index finger, confident smile",
