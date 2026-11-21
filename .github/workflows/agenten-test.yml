@@ -1,0 +1,13 @@
+name: Agenten-Test
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Agenten-Bot 4 Durchläufe (Test)
+        env: {AGENTS_OUT: /tmp/ag/state.json}
+        run: |
+          for i in 1 2 3 4; do python3 bot/agents.py --once; sleep 15; done
+          python3 -c "import json;S=json.load(open('/tmp/ag/state.json'));print('AGENTS',S['agents']);print('ERR',S['errors']);print('ACT',[(a['kind'],a['sym'],a['note']) for a in S['activity'][:5]]);print('FX',S['usd_eur'])"
