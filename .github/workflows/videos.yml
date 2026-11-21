@@ -21,7 +21,6 @@ jobs:
           mkdir /tmp/pub && cp video/out/*.mp4 video/out/*.txt /tmp/pub/
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
           git fetch -q origin videos && git checkout -q videos || git checkout -q --orphan videos
-          git rm -rq --cached . >/dev/null 2>&1 || true
-          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          [ "$(git branch --show-current)" = videos ] && [ -f .github/workflows/videos.yml ] && { git rm -rq --cached . >/dev/null; find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +; } || true
           cp /tmp/pub/* .
           git add -A && git commit -qm "Videos $(date +%F_%H%M)" && git push -q origin videos
