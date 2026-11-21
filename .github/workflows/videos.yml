@@ -1,0 +1,27 @@
+name: Videos erzeugen
+on:
+  workflow_dispatch:
+    inputs:
+      specs:
+        description: "Spec-Dateien (leer = alle), z. B. video/specs/np-01-haerteausgleich.json"
+        default: ""
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: pip install -q edge-tts
+      - run: python3 video/make.py ${{ inputs.specs || 'all' }}
+      - name: Videos im Branch "videos" ablegen
+        run: |
+          mkdir /tmp/pub && cp video/out/*.mp4 video/out/*.txt /tmp/pub/
+          git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
+          git fetch -q origin videos && git checkout -q videos || git checkout -q --orphan videos
+          git rm -rq --cached . >/dev/null 2>&1 || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp /tmp/pub/* .
+          git add -A && git commit -qm "Videos $(date +%F_%H%M)" && git push -q origin videos

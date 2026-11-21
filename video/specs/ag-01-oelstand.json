@@ -1,0 +1,14 @@
+{
+ "id": "ag-01-oelstand",
+ "channel": "Alltag gehackt",
+ "voice": "de-DE-KillianNeural",
+ "color": "#ff8a1f",
+ "title": "Ölstand prüfen in 30 Sekunden – so geht's richtig",
+ "text": "Ölstand prüfen dauert 30 Sekunden. Auto auf ebenen Boden, Motor aus, ein paar Minuten warten. Messstab rausziehen, abwischen, ganz reinstecken, wieder raus. Der Ölfilm muss zwischen Minimum und Maximum stehen. Zu wenig? Das passende Öl aus der Betriebsanleitung nachfüllen, in kleinen Schritten. Nie über Maximum. Folg für mehr Schrauber-Tricks.",
+ "prompts": [
+  "car engine bay close-up with dipstick, garage light, photorealistic, vertical",
+  "hand wiping engine dipstick with red rag, close-up, photorealistic, vertical",
+  "motor oil bottle pouring into car engine, close-up, photorealistic, vertical"
+ ],
+ "description": "Ölstand richtig prüfen – Schritt für Schritt. Immer die Betriebsanleitung deines Autos beachten.\n#auto #schrauben #ölwechsel #autotipps"
+}

@@ -1,0 +1,14 @@
+{
+ "id": "ag-02-auto-ausruestung",
+ "channel": "Alltag gehackt",
+ "voice": "de-DE-KillianNeural",
+ "color": "#ff8a1f",
+ "title": "5 Dinge, die in jedes Auto gehören",
+ "text": "Fünf Dinge, die in jedes Auto gehören. Eins: Warnweste, Warndreieck und Verbandkasten, die sind Pflicht. Zwei: eine Taschenlampe. Drei: Starthilfekabel oder Powerbank-Starthilfe. Vier: Eiskratzer und Handfeger im Winter. Fünf: ein Paar Arbeitshandschuhe. Kostet zusammen wenig und rettet dir die Panne. Welches Teil fehlt bei dir?",
+ "prompts": [
+  "open car trunk with emergency kit neatly arranged, photorealistic, vertical",
+  "flashlight and jumper cables on garage floor, photorealistic, vertical",
+  "ice scraper on frosty car windshield, winter morning, photorealistic, vertical"
+ ],
+ "description": "Warnweste, Warndreieck und Verbandkasten sind in Deutschland Pflicht. Der Rest rettet dir die Panne.\n#auto #autotipps #winter #panne"
+}
