@@ -1,0 +1,10 @@
+name: API-Check
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for u in "https://api.open-meteo.com/v1/forecast?latitude=51.9&longitude=11.0&current=temperature_2m" "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur" "https://www.tagesschau.de/api2u/homepage/" "https://geocoding-api.open-meteo.com/v1/search?name=Oschersleben&count=1"; do
+            echo "== $u"; curl -s -o /dev/null -D - -H "Origin: https://lucassebastianbehrens-lang.github.io" "$u" | grep -i -E "^HTTP|access-control-allow-origin"
+          done

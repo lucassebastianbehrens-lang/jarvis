@@ -50,7 +50,7 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 <section id="chat" class="on"><div id="log"></div>
 <div class="row"><textarea id="in" placeholder="Frag Jarvis … (»hilfe« zeigt Befehle ohne KI)"></textarea></div>
 <div class="row"><button class="p" id="send">Senden</button><button id="mic">🎙 Sprechen</button><button id="brf">Briefing</button><button id="clr">Leeren</button></div>
-<div class="voice"><label><input type="checkbox" id="tts" checked> Jarvis spricht</label><label><input type="checkbox" id="wake"> „Hey Jarvis“ dauerhaft hören</label></div>
+<div class="voice"><label><input type="checkbox" id="tts" checked> Jarvis spricht</label><label><input type="checkbox" id="auto" checked> Briefing beim ersten Öffnen am Tag</label><label><input type="checkbox" id="wake"> „Hey Jarvis“ dauerhaft hören</label></div>
 <div class="m" id="vs"></div></section>
 
 <section id="fin"><div class="m">Saldo</div><div class="big" id="sal"></div><div class="m" id="mon"></div>
@@ -109,7 +109,23 @@ async function ai(msgs){const c=S.cfg,u=c.url.replace(/\/$/,'');
  if(!r.ok)throw Error('API '+r.status);return (await r.json()).choices[0].message.content}
 const SYS={role:'system',content:'Du bist Jarvis, der persönliche Assistent von Lucas. Antworte immer auf Deutsch, kurz und direkt. Beträge in Euro. Heute ist '+today()+'. Kontext: Saldo '+0+' €.'};
 
+S.city??={n:'Halberstadt',lat:51.896,lon:11.047};S.mem??=[];
+const WC=c=>c==0?'klar':c<=3?'bewölkt':c<=48?'neblig':c<=57?'Nieselregen':c<=67?'Regen':c<=77?'Schnee':c<=82?'Regenschauer':c<=86?'Schneeschauer':'Gewitter';
+const safe=async f=>{try{return await f()}catch(e){return null}};
+async function wx(){const c=S.city,d=await (await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${c.lat}&longitude=${c.lon}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe%2FBerlin&forecast_days=1`)).json();
+ return `Wetter ${c.n}: ${Math.round(d.current.temperature_2m)} °C, ${WC(d.current.weather_code)}. Heute ${Math.round(d.daily.temperature_2m_min[0])} bis ${Math.round(d.daily.temperature_2m_max[0])} °C, Regenrisiko ${d.daily.precipitation_probability_max[0]} %.`}
+async function kurse(){const d=await (await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=eur&include_24hr_change=true')).json(),n={bitcoin:'Bitcoin',ethereum:'Ethereum',solana:'Solana'};
+ return 'Kurse: '+Object.entries(d).map(([k,v])=>`${n[k]} ${eur(v.eur)} (${v.eur_24h_change>=0?'+':''}${(v.eur_24h_change||0).toLocaleString('de-DE',{maximumFractionDigits:1})} %)`).join(', ')+'.'}
+async function news(){const d=await (await fetch('https://www.tagesschau.de/api2u/homepage/')).json();const t=(d.news||[]).filter(x=>x.title).slice(0,3).map(x=>x.title);if(!t.length)throw Error('leer');return 'Nachrichten: '+t.join(' · ')+'.'}
+async function stadt(q){const d=await (await fetch('https://geocoding-api.open-meteo.com/v1/search?count=1&language=de&name='+encodeURIComponent(q))).json(),r=(d.results||[])[0];if(!r)return 'Ort nicht gefunden: '+q;S.city={n:r.name,lat:r.latitude,lon:r.longitude};save();return 'Wetter-Ort ist jetzt '+r.name+'.'}
 function local(t){let m;
+ if(m=t.match(/^merk(?:e)? dir:?\s+(.+)$/i)){S.mem.push(m[1]);save();return 'Gemerkt: '+m[1]}
+ if(/^was (weißt|weisst) du( über mich)?\??$/i.test(t))return S.mem.length?'Das habe ich mir gemerkt:\n'+S.mem.map(x=>'• '+x).join('\n'):'Ich habe mir noch nichts gemerkt. Sag „merke dir …“.';
+ if(m=t.match(/^vergiss\s+(.+)$/i)){const q=m[1].toLowerCase(),n=S.mem.length;S.mem=q==='alles'?[]:S.mem.filter(x=>!x.toLowerCase().includes(q));save();const k=n-S.mem.length;return k?k+(k>1?' Einträge':' Eintrag')+' vergessen.':'Dazu habe ich nichts gespeichert.'}
+ if(/^wetter\??$/i.test(t))return safe(wx).then(x=>x||'Wetter gerade nicht erreichbar.');
+ if(/^(kurse|krypto)\??$/i.test(t))return safe(kurse).then(x=>x||'Kurse gerade nicht erreichbar.');
+ if(/^(news|nachrichten)\??$/i.test(t))return safe(news).then(x=>x||'Nachrichten gerade nicht erreichbar.');
+ if(m=t.match(/^(?:stadt|ort|wetter in)\s+(.+)$/i))return safe(()=>stadt(m[1])).then(x=>x||'Ort-Suche gerade nicht erreichbar.');
  if(m=t.match(/^(ausgabe|einnahme)\s+([\d.,]+)\s*(.*)$/i)){const v=parseFloat(m[2].replace(/\./g,'').replace(',','.'))*(/ausgabe/i.test(m[1])?-1:1);
   S.fin.unshift({d:today(),v,t:m[3]||m[1]});return 'Gebucht: '+eur(v)+' '+m[3]+'\nSaldo: '+eur(saldo())}
  if(m=t.match(/^aufgabe\s+(.+)$/i)){S.todo.push({t:m[1],ok:false});return 'Aufgabe angelegt: '+m[1]}
@@ -119,18 +135,19 @@ function local(t){let m;
  if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
  if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
  if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
- if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
-function brief(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
+ if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
+function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
  return g+', Lucas. Heute ist '+new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'. '+(o.length?o.length+(o.length>1?' offene Aufgaben: ':' offene Aufgabe: ')+o.slice(0,3).map(x=>x.t).join(', ')+'.':'Keine offenen Aufgaben.')+' Bilanz diesen Monat: '+eur(mm)+'. Saldo: '+eur(saldo())+'.'}
+async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),safe(news)]);return [briefBase(),w,k,n].filter(Boolean).join('\n')}
 function say(t){if(!$('#tts').checked||!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/[•⏰*#]/g,''));u.lang='de-DE';u.rate=1.05;
  const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('de')&&/male|Mann|Markus|Yannick|Conrad/i.test(v.name))||speechSynthesis.getVoices().find(v=>v.lang.startsWith('de'));if(v)u.voice=v;
  u.onstart=()=>$('#core').classList.add('live');u.onend=()=>$('#core').classList.remove('live');speechSynthesis.speak(u)}
 function beep(){try{const a=new AudioContext(),o=a.createOscillator();o.frequency.value=880;o.connect(a.destination);o.start();o.stop(a.currentTime+.3)}catch(e){}}
 
 $('#send').onclick=async()=>{const t=$('#in').value.trim();if(!t)return;$('#in').value='';S.chat.push({role:'user',content:t});
- const l=local(t);if(l){S.chat.push({role:'assistant',content:l});save();say(l);return render()}
+ const l=await local(t);if(l){S.chat.push({role:'assistant',content:l});save();say(l);return render()}
  S.chat.push({role:'assistant',content:'…'});render();
- const sys={...SYS,content:SYS.content.replace('Saldo 0','Saldo '+saldo().toFixed(2))+' Offene Aufgaben: '+S.todo.filter(x=>!x.ok).map(x=>x.t).join('; ')};
+ const sys={...SYS,content:SYS.content.replace('Saldo 0','Saldo '+saldo().toFixed(2))+' Offene Aufgaben: '+S.todo.filter(x=>!x.ok).map(x=>x.t).join('; ')+(S.mem.length?' Was Lucas dir gesagt hat: '+S.mem.join('; '):'')};
  try{S.chat.at(-1).content=await ai([sys,...S.chat.slice(-11,-1)])}catch(e){S.chat.at(-1).content='Fehler: '+e.message+'. Einstellungen prüfen.'}
  save();render();say(S.chat.at(-1).content)};
 $('#in').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('#send').click()}};
@@ -265,6 +282,8 @@ $('#wake').onchange=()=>{S.wake=$('#wake').checked;save();S.wake?listen(false):r
 $('#tts').onchange=()=>{S.tts=$('#tts').checked;save()};
 $('#brf').onclick=()=>ask('briefing');
 if(window.speechSynthesis)speechSynthesis.onvoiceschanged=()=>{};
+$('#auto').onchange=()=>{S.autoBrief=$('#auto').checked;save()};$('#auto').checked=S.autoBrief!==false;
+if(S.autoBrief!==false&&S.lastBrief!==today()&&new Date().getHours()>=5){S.lastBrief=today();save();brief().then(b=>{S.chat.push({role:'assistant',content:'☀ Tages-Briefing\n'+b});save();render()})}
 $('#tts').checked=S.tts!==false;$('#wake').checked=!!S.wake;if(S.wake)listen(false);
 $('#fd').value=today();fill();render();
 const tick=()=>$('#clk').textContent=new Date().toLocaleTimeString('de-DE');tick();setInterval(tick,1000);
