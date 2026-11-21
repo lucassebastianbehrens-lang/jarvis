@@ -116,7 +116,7 @@ async function wx(){const c=S.city,d=await (await fetch(`https://api.open-meteo.
  return `Wetter ${c.n}: ${Math.round(d.current.temperature_2m)} °C, ${WC(d.current.weather_code)}. Heute ${Math.round(d.daily.temperature_2m_min[0])} bis ${Math.round(d.daily.temperature_2m_max[0])} °C, Regenrisiko ${d.daily.precipitation_probability_max[0]} %.`}
 async function kurse(){const d=await (await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=eur&include_24hr_change=true')).json(),n={bitcoin:'Bitcoin',ethereum:'Ethereum',solana:'Solana'};
  return 'Kurse: '+Object.entries(d).map(([k,v])=>`${n[k]} ${eur(v.eur)} (${v.eur_24h_change>=0?'+':''}${(v.eur_24h_change||0).toLocaleString('de-DE',{maximumFractionDigits:1})} %)`).join(', ')+'.'}
-async function news(){const d=await (await fetch('https://www.tagesschau.de/api2u/homepage/')).json();const t=(d.news||[]).filter(x=>x.title).slice(0,3).map(x=>x.title);if(!t.length)throw Error('leer');return 'Nachrichten: '+t.join(' · ')+'.'}
+async function news(){const d=await (await fetch('https://www.tagesschau.de/api2u/homepage')).json();const t=(d.news||[]).filter(x=>x.title).slice(0,3).map(x=>x.title);if(!t.length)throw Error('leer');return 'Nachrichten: '+t.join(' · ')+'.'}
 async function stadt(q){const d=await (await fetch('https://geocoding-api.open-meteo.com/v1/search?count=1&language=de&name='+encodeURIComponent(q))).json(),r=(d.results||[])[0];if(!r)return 'Ort nicht gefunden: '+q;S.city={n:r.name,lat:r.latitude,lon:r.longitude};save();return 'Wetter-Ort ist jetzt '+r.name+'.'}
 function local(t){let m;
  if(m=t.match(/^merk(?:e)? dir:?\s+(.+)$/i)){S.mem.push(m[1]);save();return 'Gemerkt: '+m[1]}
