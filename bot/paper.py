@@ -8,7 +8,8 @@ PAIRS = {"BTC/EUR": "XBTEUR", "ETH/EUR": "ETHEUR", "SOL/EUR": "SOLEUR", "XRP/EUR
          "TRX/EUR": "TRXEUR", "ATOM/EUR": "ATOMEUR", "BCH/EUR": "BCHEUR", "XLM/EUR": "XLMEUR", "NEAR/EUR": "NEAREUR",
          "SHIB/EUR": "SHIBEUR", "PEPE/EUR": "PEPEEUR", "POL/EUR": "POLEUR", "SUI/EUR": "SUIEUR", "UNI/EUR": "UNIEUR"}
 START, STAKE, MAX_OPEN = 1000.0, 150.0, 6
-FEE, SL, TP = 0.004, -0.03, 0.05          # 0,4 % Gebühr je Seite (konservativ)
+FEE, SL, TP = 0.004, -0.035, 0.025        # 0,4 % Gebühr je Seite; kleine Gewinne ~2,5 € netto
+BE_AT, BE_LOCK = 0.015, 0.009             # ab +1,5 % Stop auf +0,9 % (Gebühren gedeckt)
 INTERVAL = 15
 FILE = os.path.join(os.path.dirname(__file__), "..", "data", "paper.json")
 
@@ -56,6 +57,9 @@ def close_pos(S, pair, price, ts, why):
     S["daily"][day] = round(S["daily"].get(day, 0) + pnl, 2)
 
 
+STRAT = "EMA 9/21 + Trendfilter EMA 100 + RSI 45–70, SL -3,5 %, ab +1,5 % abgesichert, TP +2,5 % (viele kleine Gewinne)"
+
+
 def step(S, pair, cs):
     closes = [c[3] for c in cs]
     e9, e21, e100, r = ema(closes, 9), ema(closes, 21), ema(closes, 100), rsi(closes)
@@ -66,8 +70,11 @@ def step(S, pair, cs):
             continue
         if pair in S["open"]:
             p = S["open"][pair]
-            if lo <= p["price"] * (1 + SL):
-                close_pos(S, pair, round(p["price"] * (1 + SL), 8), ts, "Stop-Loss")
+            p["hi"] = max(p.get("hi", p["price"]), hi)
+            be = p["hi"] >= p["price"] * (1 + BE_AT)
+            stop = p["price"] * (1 + (BE_LOCK if be else SL))
+            if lo <= stop:
+                close_pos(S, pair, round(stop, 8), ts, "Gewinn gesichert" if be else "Stop-Loss")
             elif hi >= p["price"] * (1 + TP):
                 close_pos(S, pair, round(p["price"] * (1 + TP), 8), ts, "Take-Profit")
             elif e9[i] < e21[i] and e9[i - 1] >= e21[i - 1]:
@@ -86,7 +93,8 @@ def main():
         S = json.load(open(FILE))
     except (FileNotFoundError, ValueError):
         S = {"start": START, "cash": START, "open": {}, "closed": [], "daily": {}, "last_ts": {}, "prices": {},
-             "equity": [], "started": int(time.time()), "strategy": "EMA 9/21 + Trendfilter EMA 100 + RSI 45–70, SL -3 %, TP +5 %"}
+             "equity": [], "started": int(time.time()), "strategy": STRAT}
+    S["strategy"] = STRAT
     errors = []
     for pair, code in PAIRS.items():
         try:

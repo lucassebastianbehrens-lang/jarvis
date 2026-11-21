@@ -17,7 +17,8 @@ OUT = os.environ.get("AGENTS_OUT", "/var/lib/jarvis/agents/state.json")
 START_EUR, STAKE_PCT, MAX_OPEN = 1000.0, 0.08, 7
 TARGET_WR = 0.75                     # Ziel-Trefferquote
 OPT_HOUR = 10                        # tägliche Selbst-Optimierung um 10 Uhr (Berlin)
-DEFAULTS = {"min_score": 75, "stop": -0.06, "trail": 0.12, "tp": 0.10, "be_trigger": 0.04, "be_lock": 0.01}
+DEFAULTS = {"min_score": 75, "stop": -0.07, "trail": 0.12, "tp": 0.065, "be_trigger": 0.05, "be_lock": 0.035}
+PARAMS_VERSION = 2   # v2: viele kleine Gewinne (~2–3 € netto), Absicherung deckt Gebühren
 COST = 0.015            # Gebühren + Slippage je Seite (Memecoins: konservativ)
 LOOP, SCAN_EVERY = 15, 60
 COOLDOWN = 2 * 3600
@@ -194,7 +195,7 @@ def tick(S, do_scan):
         if liq < p["liq"] * 0.5:
             sell(S, a, px, "Rug-Schutz: Liquidität weg")
         elif K["tp"] and px >= p["price"] * (1 + K["tp"]):
-            sell(S, a, px, f"Take-Profit +{K['tp']*100:.0f} %")
+            sell(S, a, px, f"Take-Profit +{K['tp']*100:.1f} %")
         elif px <= stop:
             sell(S, a, px, "Gewinn gesichert" if stop > p["price"] else f"Stop {K['stop']*100:.0f} %")
         elif px <= p["peak"] * (1 - K["trail"]) and p["peak"] > p["price"]:
@@ -244,9 +245,9 @@ def tick(S, do_scan):
 
 
 def strategy_text(K):
-    tp = f" · TP +{K['tp']*100:.0f} %" if K["tp"] else ""
-    return (f"ab {K['min_score']} Pkt · Stop {K['stop']*100:.0f} % · ab +{K['be_trigger']*100:.0f} % "
-            f"Gewinn gesichert{tp} · Trail {K['trail']*100:.0f} %")
+    tp = f" · TP +{K['tp']*100:.1f} %".replace(".0 %", " %") if K["tp"] else ""
+    return (f"ab {K['min_score']} Pkt · Stop {K['stop']*100:.0f} % · ab +{K['be_trigger']*100:.1f} % "
+            f"auf +{K['be_lock']*100:.1f} % gesichert{tp} · Trail {K['trail']*100:.0f} %")
 
 
 def winrate(T):
@@ -271,8 +272,8 @@ def optimize(S):
         notes.append(f"nur {len(T)} Trades – zu wenig Daten, Regeln bleiben")
     else:
         best = None
-        for tp in (0.05, 0.08, 0.10, 0.15, 0.25, None):
-            for bt, bl in ((0.03, 0.01), (0.04, 0.01), (0.06, 0.02), (0.08, 0.03)):
+        for tp in (0.05, 0.06, 0.065, 0.075, 0.09):          # kleine, schnelle Gewinne
+            for bt, bl in ((0.045, 0.032), (0.05, 0.035), (0.06, 0.04)):   # gesicherter Gewinn > Gebühren
                 for ms in range(60, 96, 5):
                     sel = [t for t in T if t.get("score", 0) >= ms]
                     if len(sel) < 10:
@@ -329,6 +330,8 @@ def save(S):
 def main():
     S, n = load(), 0
     S.setdefault("params", dict(DEFAULTS))
+    if S.get("pv") != PARAMS_VERSION:
+        S["params"] = dict(DEFAULTS, min_score=S["params"].get("min_score", DEFAULTS["min_score"])); S["pv"] = PARAMS_VERSION
     for k, v in DEFAULTS.items():
         S["params"].setdefault(k, v)
     S["strategy"] = strategy_text(S["params"])
