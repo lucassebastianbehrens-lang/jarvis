@@ -31,5 +31,5 @@ jobs:
         run: |
           TAG="youtube-$(date +%Y%m%d-%H%M)-${{ github.run_id }}"
           cd video/out
-          gh release create "$TAG" *.mp4 *.jpg *.srt *.txt --title "YouTube-Videos $(date +%d.%m.%Y)" \
+          shopt -s nullglob; F=(*.mp4 *.jpg *.srt *.txt); gh release create "$TAG" "${F[@]}" --title "YouTube-Videos $(date +%d.%m.%Y)" \
             --notes "Fertige YouTube-Videos. Pro Video: .mp4 (Video), -thumbnail.jpg, .srt (Untertitel), .txt (Titel, Beschreibung, Tags)."
