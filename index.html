@@ -33,6 +33,8 @@ textarea{min-height:90px;resize:vertical}label{font-size:13px;color:var(--mut);l
 .neg{color:var(--red)}.pos{color:#5fe39a}.m{color:var(--mut);font-size:13px}h3{color:var(--org);letter-spacing:2px;text-transform:uppercase;font-size:15px}
 iframe{width:100%;height:60vh;border:1px solid var(--ln);background:#fff;margin-top:8px}
 a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
+.seg{margin:0 0 12px}.seg button.on{color:var(--red);border-color:var(--red);box-shadow:var(--glow)}
+.fig{position:relative;height:170px;margin:6px 0 12px}.fig svg{position:absolute;inset:0;width:100%;height:100%}
 .ring.live svg{animation:pl 1s ease-in-out infinite}@keyframes pl{50%{filter:drop-shadow(0 0 14px #ff2a2a)}}
 .ring{cursor:pointer}button.rec{background:var(--red);color:#fff;animation:pl 1s infinite}
 .voice{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.voice label{display:flex;align-items:center;gap:6px;text-transform:none;font-size:14px}.voice input{width:auto}
@@ -55,14 +57,18 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 <div class="row"><input id="fd" type="date"><input id="fv" inputmode="decimal" placeholder="Betrag €"><input id="ft" placeholder="Wofür?"></div>
 <div class="row"><button class="p" id="fout">− Ausgabe</button><button id="fin2">+ Einnahme</button></div><div class="list" id="fl"></div></section>
 
-<section id="bot"><div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
+<section id="bot"><div class="row seg"><button id="vA" class="on">Agenten</button><button id="vF">Krypto</button></div>
+<div id="agv"><div class="m" id="amsg">Lade …</div><div class="big mono" id="aval">–</div><div class="mono" id="apl"></div>
+<div class="fig"><svg id="achart"></svg></div><div class="tiles" id="acards"></div>
+<h3>Offene Positionen</h3><div class="list" id="aopen"></div><h3>Aktivität</h3><div class="list" id="aact"></div></div>
+<div id="ftv" hidden><div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
 <div class="tile"><small>Modus</small><b id="b1" class="mono">–</b></div><div class="tile"><small>Status</small><b id="b2" class="mono">–</b></div>
 <div class="tile"><small>Gewinn gesamt</small><b id="b3" class="mono">–</b></div><div class="tile"><small>Trades / Trefferquote</small><b id="b4" class="mono">–</b></div>
 <div class="bars" id="bbars" title="Gewinn pro Tag, 14 Tage"></div></div>
 <div class="m" id="bmsg" style="margin:8px 0">Nicht verbunden – Server unten eintragen.</div>
 <div class="row"><button id="bstart">▶ Start</button><button id="bstop">■ Stop</button><button class="p" id="bkill">Not-Aus: alles verkaufen</button><button id="bref">↻</button></div>
 <h3>Offene Trades</h3><div class="list" id="btr"></div>
-<h3>Bot-Server</h3><label>Adresse (Freqtrade)</label><input id="bu" placeholder="https://1-2-3-4.sslip.io">
+</div><h3>Bot-Server</h3><label>Adresse (Freqtrade)</label><input id="bu" placeholder="https://1-2-3-4.sslip.io">
 <div class="row"><input id="bn" placeholder="Benutzer"><input id="bp" type="password" placeholder="Passwort"></div>
 <div class="row"><button class="p" id="bsave">Verbinden</button></div></section>
 <section id="todo"><div class="row"><input id="tt" placeholder="Neue Aufgabe"><button class="p" id="tadd" style="flex:0 0 auto">Anlegen</button></div><div class="list" id="tl"></div></section>
@@ -206,14 +212,41 @@ async function paperLoad(){try{const r=await fetch(PAPER+'?t='+Date.now());if(!r
  S.botLast={mode:'TEST',state:$('#b2').textContent,profit:(pl>=0?'+':'')+eur(pl),open:Object.keys(P.open).length};save();
  $('#bmsg').textContent='Spielgeld-Bot (Cloud) · Kontowert '+eur(P.value)+' von '+eur(P.start)+' · '+P.strategy+' · Stand '+new Date(P.updated*1e3).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
  catch(e){$('#bmsg').textContent='Spielgeld-Bot: '+e.message}}
+
+let AV=true,AP=null;
+const agoT=t=>new Date(t*1e3).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+function achart(){const g=$('#achart');if(!AP||!g.clientWidth)return;const W=g.clientWidth,H=g.clientHeight,E=AP.equity.length>1?AP.equity:[[AP.started,AP.start],[AP.updated,AP.value]];
+ const xs=E.map(e=>e[0]),ys=E.map(e=>e[1]),x0=Math.min(...xs),x1=Math.max(...xs)||x0+1,y0=Math.min(...ys,AP.start),y1=Math.max(...ys,AP.start),dy=(y1-y0)||1;
+ const X=t=>(t-x0)/((x1-x0)||1)*(W-8)+4,Y=v=>H-6-(v-y0)/dy*(H-16),c=AP.value>=AP.start?'#5fe39a':'#ff2a2a';
+ const d=E.map((e,i)=>(i?'L':'M')+X(e[0]).toFixed(1)+','+Y(e[1]).toFixed(1)).join('');
+ g.innerHTML=`<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".35"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs>
+ <line x1="0" x2="${W}" y1="${Y(AP.start)}" y2="${Y(AP.start)}" stroke="#3a1414" stroke-dasharray="4 4"/><path d="${d}L${X(x1)},${H}L${X(x0)},${H}Z" fill="url(#ag)"/><path d="${d}" fill="none" stroke="${c}" stroke-width="2.5" style="filter:drop-shadow(0 0 4px ${c})"/><circle cx="${X(E.at(-1)[0])}" cy="${Y(E.at(-1)[1])}" r="4" fill="${c}"/>`}
+const aro=new ResizeObserver(achart);aro.observe($('#achart'));
+async function agentsLoad(){if(!S.bot.url){$('#amsg').textContent='Der Agenten-Bot startet, sobald dein Server eingerichtet ist (ein Setup-Befehl). Bis dahin läuft unter „Krypto“ der Spielgeld-Bot.';return}
+ try{const r=await fetch(S.bot.url.replace(/\/$/,'')+'/agents/state.json?t='+Date.now());if(!r.ok)throw Error('HTTP '+r.status);const P=AP=await r.json();
+  const pl=P.value-P.start,A=P.agents||{},age=Date.now()/1e3-P.updated;
+  $('#aval').textContent=eur(P.value);$('#apl').innerHTML=`<span class="${pl<0?'neg':'pos'}">${pl<0?'▼':'▲'} ${eur(pl)} (${(pl/P.start*100).toFixed(1)} %)</span> · ${(P.value/P.start).toFixed(2)}x`;
+  $('#amsg').textContent=(age<90?'● LIVE':'○ keine Daten seit '+Math.round(age/60)+' Min')+' · TEST mit Spielgeld · '+P.strategy;
+  const an=A.analyst||{},sc=A.scanner||{},ex=A.executor||{},ri=A.risk||{};
+  $('#acards').innerHTML=`<div class="tile"><small>Scanner</small><b class="mono">${sc.pools||0}</b><small>Tokens im Blick</small></div>
+  <div class="tile"><small>Analyst</small><b class="mono ${an.passed?'pos':''}">${an.score??'–'}</b><small>${esc(an.sym||'')} ${an.passed?'bestanden':'zu schwach'}</small></div>
+  <div class="tile"><small>Executor</small><b class="mono">${ex.trades||0}</b><small>Trades · ${ex.open||0} offen</small></div>
+  <div class="tile"><small>Risk</small><b class="mono">${ri.watching||0}</b><small>bewacht · −6 % / 12 % Trail</small></div>`;
+  $('#aopen').innerHTML=Object.values(P.open).map(o=>{const v=o.qty*o.now*(1-.015)-o.cost,pc=v/o.cost*100;return `<div><span>${esc(o.sym)} <span class="m">· ${o.score} Pkt</span><br><span class="m">seit ${agoT(o.t)} · Einsatz ${eur(o.cost)}</span></span><span class="${v<0?'neg':'pos'}">${(v>=0?'+':'')+eur(v)}<br><span class="m">${pc.toFixed(1)} %</span></span></div>`}).join('')||'<p class="m">Keine – der Analyst sucht.</p>';
+  $('#aact').innerHTML=P.activity.slice(0,25).map(a=>`<div><span>${esc(a.kind)} ${esc(a.sym)}<br><span class="m">${esc(a.note)} · ${agoT(a.t)}</span></span><span class="${a.pnl==null?'':a.pnl<0?'neg':'pos'}">${eur(a.eur)}${a.pnl==null?'':'<br>'+(a.pnl>=0?'+':'')+eur(a.pnl)}</span></div>`).join('')||'<p class="m">Noch keine Aktivität.</p>';
+  S.botLast={mode:'TEST',state:age<90?'läuft':'verzögert',profit:(pl>=0?'+':'')+eur(pl),open:Object.keys(P.open).length};save();achart()}
+ catch(e){$('#amsg').textContent='Agenten-Bot nicht erreichbar: '+e.message}}
+const tradeLoad=()=>AV?agentsLoad():botLoad();
+$('#vA').onclick=()=>{AV=true;$('#vA').classList.add('on');$('#vF').classList.remove('on');$('#agv').hidden=false;$('#ftv').hidden=true;tradeLoad()};
+$('#vF').onclick=()=>{AV=false;$('#vF').classList.add('on');$('#vA').classList.remove('on');$('#agv').hidden=true;$('#ftv').hidden=false;tradeLoad()};
 const bact=async(p,b,msg)=>{if(!S.bot.url){$('#bmsg').textContent='Der Spielgeld-Bot läuft automatisch in der Cloud. Start/Stop gibt es mit eigenem Server.';return}try{await ft(p,1,b);bnote=msg;$('#bmsg').textContent=msg;setTimeout(botLoad,800)}catch(e){$('#bmsg').textContent='Fehler: '+e.message}};
 $('#bstart').onclick=()=>bact('start',0,'Bot gestartet.');$('#bstop').onclick=()=>bact('stop',0,'Bot gestoppt.');
 $('#bkill').onclick=async()=>{if(!S.bot.url){$('#bmsg').textContent='Spielgeld-Bot: kein echtes Geld im Spiel, Not-Aus nicht nötig.';return}if(!kill){kill=1;$('#bkill').textContent='Sicher? Nochmal tippen';setTimeout(()=>{kill=0;$('#bkill').textContent='Not-Aus: alles verkaufen'},4000);return}
  kill=0;$('#bkill').textContent='Not-Aus: alles verkaufen';try{await ft('stop',1);await ft('forceexit',1,{tradeid:'all'});bnote='NOT-AUS: Bot gestoppt, alle Trades verkauft';$('#bmsg').textContent=bnote;say('Not-Aus ausgeführt.');botLoad()}catch(e){$('#bmsg').textContent='Not-Aus Fehler: '+e.message}};
 $('#bref').onclick=botLoad;
-$('#bsave').onclick=()=>{S.bot={url:$('#bu').value.trim(),u:$('#bn').value.trim(),p:$('#bp').value};save();botLoad()};
+$('#bsave').onclick=()=>{S.bot={url:$('#bu').value.trim(),u:$('#bn').value.trim(),p:$('#bp').value};save();tradeLoad()};
 $('#bu').value=S.bot.url;$('#bn').value=S.bot.u;$('#bp').value=S.bot.p;
-document.querySelector('[data-t=bot]').addEventListener('click',()=>{botLoad();clearInterval(btimer);btimer=setInterval(()=>$('#bot').classList.contains('on')?botLoad():clearInterval(btimer),30000)});
+document.querySelector('[data-t=bot]').addEventListener('click',()=>{tradeLoad();clearInterval(btimer);btimer=setInterval(()=>$('#bot').classList.contains('on')?tradeLoad():clearInterval(btimer),15000)});
 
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec,listening=false;
 const vs=t=>$('#vs').textContent=t;

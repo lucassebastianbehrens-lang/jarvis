@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
 # Jarvis Trading-Server – automatische Einrichtung (Ubuntu 24.04)
-# Freqtrade im TEST-Modus (Spielgeld 1.000 EUR), Kraken, EUR-Paare, https über Caddy.
+# Freqtrade + Agenten-Bot im TEST-Modus (Spielgeld), https über Caddy.
 set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
 [ "$(id -u)" = 0 ] || { echo "Bitte als root ausführen."; exit 1; }
 
-echo ">> 1/6 System aktualisieren"
+echo ">> 1/7 System aktualisieren"
 apt-get update -qq && apt-get upgrade -y -qq
 apt-get install -y -qq curl ufw gpg debian-keyring debian-archive-keyring apt-transport-https openssl
 
-echo ">> 2/6 Docker installieren"
+echo ">> 2/7 Docker installieren"
 command -v docker >/dev/null || curl -fsSL https://get.docker.com | sh
 
-echo ">> 3/6 Caddy (https) installieren"
+echo ">> 3/7 Caddy (https) installieren"
 if ! command -v caddy >/dev/null; then
   curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor --yes -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
   curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' > /etc/apt/sources.list.d/caddy-stable.list
   apt-get update -qq && apt-get install -y -qq caddy
 fi
 
-echo ">> 4/6 Firewall"
+echo ">> 4/7 Firewall"
 ufw allow 22/tcp >/dev/null; ufw allow 80/tcp >/dev/null; ufw allow 443/tcp >/dev/null
 ufw --force enable >/dev/null
 
-echo ">> 5/6 Freqtrade einrichten"
+echo ">> 5/7 Freqtrade einrichten"
 mkdir -p /root/ft && cd /root/ft
 curl -fsSL https://raw.githubusercontent.com/freqtrade/freqtrade/stable/docker-compose.yml -o docker-compose.yml
 docker compose pull -q
@@ -65,8 +65,39 @@ else
 fi
 docker compose up -d
 
-echo ">> 6/6 https-Adresse einrichten"
-printf '%s {\n  reverse_proxy 127.0.0.1:8080\n}\n' "$DOMAIN" > /etc/caddy/Caddyfile
+echo ">> 6/7 Agenten-Bot (Memecoins, Spielgeld) einrichten"
+mkdir -p /opt/jarvis /var/lib/jarvis/agents
+curl -fsSL https://lucassebastianbehrens-lang.github.io/jarvis/bot/agents.py -o /opt/jarvis/agents.py
+chmod 755 /var/lib/jarvis /var/lib/jarvis/agents
+cat > /etc/systemd/system/jarvis-agents.service <<'SVC'
+[Unit]
+Description=Jarvis Agenten-Bot (Papierhandel)
+After=network-online.target
+[Service]
+ExecStart=/usr/bin/python3 /opt/jarvis/agents.py
+Restart=always
+RestartSec=10
+UMask=0022
+[Install]
+WantedBy=multi-user.target
+SVC
+systemctl daemon-reload
+systemctl enable --now jarvis-agents
+
+echo ">> 7/7 https-Adresse einrichten"
+cat > /etc/caddy/Caddyfile <<CADDY
+$DOMAIN {
+  handle /agents/* {
+    header Access-Control-Allow-Origin "https://lucassebastianbehrens-lang.github.io"
+    header Cache-Control "no-store"
+    root * /var/lib/jarvis
+    file_server
+  }
+  handle {
+    reverse_proxy 127.0.0.1:8080
+  }
+}
+CADDY
 systemctl restart caddy
 
 cat > /root/jarvis-bot-zugang.txt <<EOF
@@ -79,5 +110,8 @@ echo "=============== FERTIG ==============="
 cat /root/jarvis-bot-zugang.txt
 echo "======================================"
 echo "Diese 3 Zeilen in Jarvis > Trading > Bot-Server eintragen."
-echo "Der Bot läuft im TEST-Modus mit 1.000 EUR Spielgeld."
+echo "Beide Bots laufen im TEST-Modus mit je 1.000 EUR Spielgeld:"
+echo " - Freqtrade (BTC/ETH/SOL/XRP/ADA)"
+echo " - Agenten-Bot (Solana-Memecoins, alle 15 Sekunden)"
+echo "Agenten-Log ansehen: journalctl -u jarvis-agents -f"
 echo "Zugang später nochmal anzeigen: cat /root/jarvis-bot-zugang.txt"
