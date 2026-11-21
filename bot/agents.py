@@ -3,16 +3,21 @@
 4 Agenten wie im Video:
   Scanner  – findet neue/beworbene Solana-Tokens (DexScreener, öffentlich)
   Analyst  – bewertet jeden Token mit 0–100 Punkten
-  Executor – kauft ab 70 Punkten mit 8 % des Kontos (Spielgeld)
-  Risk     – Stop-Loss −6 %, Trailing-Stop 12 % unter Höchststand, Rug-Schutz
+  Executor – kauft ab Mindestpunktzahl (Start 75) mit 8 % des Kontos (Spielgeld)
+  Risk     – Stop −6 %, Gewinn sichern ab +4 %, Take-Profit, Trailing-Stop 12 %, Rug-Schutz
+Optimierer – jeden Tag um 10 Uhr: passt Regeln an (Ziel ≥75 % Trefferquote UND Gewinn)
 Läuft dauerhaft (alle 15 s). Stand → /var/lib/jarvis/agents/state.json (für Jarvis).
 Start: python3 agents.py          Test: python3 agents.py --once
 """
 import json, os, sys, time, urllib.request
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 OUT = os.environ.get("AGENTS_OUT", "/var/lib/jarvis/agents/state.json")
 START_EUR, STAKE_PCT, MAX_OPEN = 1000.0, 0.08, 7
-STOP, TRAIL, MIN_SCORE = -0.06, 0.12, 70
+TARGET_WR = 0.75                     # Ziel-Trefferquote
+OPT_HOUR = 10                        # tägliche Selbst-Optimierung um 10 Uhr (Berlin)
+DEFAULTS = {"min_score": 75, "stop": -0.06, "trail": 0.12, "tp": 0.10, "be_trigger": 0.04, "be_lock": 0.01}
 COST = 0.015            # Gebühren + Slippage je Seite (Memecoins: konservativ)
 LOOP, SCAN_EVERY = 15, 60
 COOLDOWN = 2 * 3600
@@ -102,7 +107,8 @@ def sell(S, a, price_eur, why):
     pnl = val - p["cost"]
     S["cash"] += val
     S["closed"].append({"sym": p["sym"], "pnl": round(pnl, 2), "pct": round(pnl / p["cost"] * 100, 1),
-                        "t_in": p["t"], "t_out": int(time.time()), "why": why})
+                        "t_in": p["t"], "t_out": int(time.time()), "why": why, "score": p.get("score", 0),
+                        "peak": round(p["peak"] / p["price"] - 1, 4), "cost": p["cost"]})
     S["closed"] = S["closed"][-500:]
     S["cool"][a] = int(time.time())
     day = time.strftime("%Y-%m-%d")
@@ -118,6 +124,7 @@ def tick(S, do_scan):
         if r:
             S["usd_eur"] = r
     fx = S["usd_eur"]
+    K = S["params"]
     addrs = list(dict.fromkeys(list(S["open"]) + S["watch"]))
     P = pairs(addrs)
     # Risk
@@ -128,13 +135,18 @@ def tick(S, do_scan):
         px = float(q["priceUsd"]) * fx
         liq = (q.get("liquidity") or {}).get("usd") or 0
         p["now"], p["peak"] = px, max(p["peak"], px)
+        stop = p["price"] * (1 + K["stop"])
+        if p["peak"] >= p["price"] * (1 + K["be_trigger"]):      # Gewinn absichern
+            stop = max(stop, p["price"] * (1 + K["be_lock"]))
         if liq < p["liq"] * 0.5:
             sell(S, a, px, "Rug-Schutz: Liquidität weg")
-        elif px <= p["price"] * (1 + STOP):
-            sell(S, a, px, "Stop −6 %")
-        elif px <= p["peak"] * (1 - TRAIL) and p["peak"] > p["price"]:
+        elif K["tp"] and px >= p["price"] * (1 + K["tp"]):
+            sell(S, a, px, f"Take-Profit +{K['tp']*100:.0f} %")
+        elif px <= stop:
+            sell(S, a, px, "Gewinn gesichert" if stop > p["price"] else f"Stop {K['stop']*100:.0f} %")
+        elif px <= p["peak"] * (1 - K["trail"]) and p["peak"] > p["price"]:
             sell(S, a, px, "Trailing-Stop")
-    S["agents"]["risk"] = {"watching": len(S["open"]), "stop": STOP, "trail": TRAIL}
+    S["agents"]["risk"] = {"watching": len(S["open"]), "stop": K["stop"], "trail": K["trail"]}
     # Analyst + Executor
     best = None
     for a in S["watch"]:
@@ -145,9 +157,9 @@ def tick(S, do_scan):
         if not best or sc > best[0]:
             best = (sc, a, q)
     if best:
-        S["agents"]["analyst"] = {"score": best[0], "sym": best[2]["baseToken"].get("symbol", "?"), "passed": best[0] >= MIN_SCORE}
+        S["agents"]["analyst"] = {"score": best[0], "sym": best[2]["baseToken"].get("symbol", "?"), "passed": best[0] >= K["min_score"]}
     eq = value(S)
-    if best and best[0] >= MIN_SCORE and len(S["open"]) < MAX_OPEN:
+    if best and best[0] >= K["min_score"] and len(S["open"]) < MAX_OPEN:
         stake = round(eq * STAKE_PCT, 2)
         if S["cash"] >= stake > 1:
             sc, a, q = best
@@ -165,6 +177,66 @@ def tick(S, do_scan):
     S["updated"] = int(now)
 
 
+def strategy_text(K):
+    tp = f" · TP +{K['tp']*100:.0f} %" if K["tp"] else ""
+    return (f"ab {K['min_score']} Pkt · Stop {K['stop']*100:.0f} % · ab +{K['be_trigger']*100:.0f} % "
+            f"Gewinn gesichert{tp} · Trail {K['trail']*100:.0f} %")
+
+
+def winrate(T):
+    return sum(t["pnl"] > 0 for t in T) / len(T) if T else 0
+
+
+def sim_pnl(t, tp, bt, bl):
+    """Schätzt das Ergebnis eines alten Trades mit anderen Ausstiegsregeln (aus Höchststand)."""
+    cost, pk = t.get("cost") or 80, t.get("peak", 0)
+    if tp and pk >= tp:
+        return cost * ((1 + tp) * (1 - 0.015) ** 2 - 1)
+    if pk >= bt and t["pct"] / 100 < bl:
+        return cost * ((1 + bl) * (1 - 0.015) ** 2 - 1)
+    return t["pnl"]
+
+
+def optimize(S):
+    """Tägliche Selbst-Optimierung: Ziel ≥75 % Trefferquote UND Gewinn > 0."""
+    K, T = S["params"], [t for t in S["closed"] if "peak" in t][-300:]
+    old, notes = dict(K), []
+    if len(T) < 15:
+        notes.append(f"nur {len(T)} Trades – zu wenig Daten, Regeln bleiben")
+    else:
+        best = None
+        for tp in (0.05, 0.08, 0.10, 0.15, 0.25, None):
+            for bt, bl in ((0.03, 0.01), (0.04, 0.01), (0.06, 0.02), (0.08, 0.03)):
+                for ms in range(60, 96, 5):
+                    sel = [t for t in T if t.get("score", 0) >= ms]
+                    if len(sel) < 10:
+                        continue
+                    pn = [sim_pnl(t, tp, bt, bl) for t in sel]
+                    wr, tot = sum(x > 0 for x in pn) / len(pn), sum(pn)
+                    key = (wr >= TARGET_WR and tot > 0, tot > 0, tot if wr >= TARGET_WR else wr, len(sel))
+                    if not best or key > best[0]:
+                        best = (key, tp, bt, bl, ms, wr, tot, len(sel))
+        if best:
+            _, tp, bt, bl, ms, wr, tot, n = best
+            # behutsam ändern: Mindestpunkte max. ±5 pro Tag
+            K["min_score"] = max(K["min_score"] - 5, min(K["min_score"] + 5, ms))
+            K["tp"], K["be_trigger"], K["be_lock"] = tp, bt, bl
+            notes.append(f"Test auf {n} alten Trades: Trefferquote {wr*100:.0f} %, Ergebnis {tot:+.2f} €")
+            if wr < TARGET_WR:
+                notes.append("75 % noch nicht erreichbar – beste gefundene Einstellung genommen")
+        else:
+            K["min_score"] = min(95, K["min_score"] + 5)
+            notes.append("zu wenig Trades je Stufe – Mindestpunkte +5")
+    names = {"min_score": "Mindestpunkte", "tp": "Take-Profit", "be_trigger": "Gewinn sichern ab",
+             "be_lock": "gesicherter Gewinn", "stop": "Stop", "trail": "Trailing"}
+    fmt = lambda k, v: str(v) if k == "min_score" else ("aus" if v is None else f"{v*100:+.0f} %")
+    changes = [f"{names.get(k, k)} {fmt(k, old[k])} → {fmt(k, K[k])}" for k in K if old[k] != K[k]]
+    S["opt"] = ([{"t": int(time.time()), "wr": round(winrate(T) * 100, 1), "n": len(T),
+                  "changes": changes, "notes": notes}] + S.get("opt", []))[:30]
+    S["strategy"] = strategy_text(K)
+    log(S, "Optimiert", "Regeln", 0, None, "; ".join(changes) or "keine Änderung")
+
+
 def value(S):
     return S["cash"] + sum(p["qty"] * p["now"] * (1 - COST) for p in S["open"].values())
 
@@ -176,7 +248,7 @@ def load():
         return {"start": START_EUR, "cash": START_EUR, "open": {}, "closed": [], "activity": [], "daily": {},
                 "watch": [], "cool": {}, "equity": [], "trades": 0, "usd_eur": usd_eur() or 0.92,
                 "agents": {}, "errors": [], "started": int(time.time()), "mode": "TEST",
-                "strategy": "4 Agenten · ab 70 Punkte · 8 % je Trade · Stop −6 % · Trailing 12 %"}
+                "strategy": ""}
 
 
 def save(S):
@@ -188,10 +260,20 @@ def save(S):
 
 def main():
     S, n = load(), 0
+    S.setdefault("params", dict(DEFAULTS))
+    for k, v in DEFAULTS.items():
+        S["params"].setdefault(k, v)
+    S["strategy"] = strategy_text(S["params"])
+    S["target_wr"] = TARGET_WR
     once = "--once" in sys.argv
     while True:
         try:
             tick(S, n % (SCAN_EVERY // LOOP) == 0)
+            berlin = datetime.now(ZoneInfo("Europe/Berlin"))
+            if berlin.hour >= OPT_HOUR and S.get("opt_day") != berlin.strftime("%Y-%m-%d"):
+                S["opt_day"] = berlin.strftime("%Y-%m-%d")
+                optimize(S)
+            S["winrate"] = round(winrate(S["closed"]) * 100, 1)
             save(S)
             print(f"{time.strftime('%H:%M:%S')} Wert {S['value']:.2f} EUR | offen {len(S['open'])} | "
                   f"Trades {S['trades']} | Watchlist {len(S['watch'])}", flush=True)

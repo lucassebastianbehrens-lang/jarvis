@@ -58,7 +58,7 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 <div class="row"><button class="p" id="fout">− Ausgabe</button><button id="fin2">+ Einnahme</button></div><div class="list" id="fl"></div></section>
 
 <section id="bot"><div class="row seg"><button id="vA" class="on">Agenten</button><button id="vF">Krypto</button></div>
-<div id="agv"><div class="m" id="amsg">Lade …</div><div class="big mono" id="aval">–</div><div class="mono" id="apl"></div>
+<div id="agv"><div class="m" id="amsg">Lade …</div><div class="big mono" id="aval">–</div><div class="mono" id="apl"></div><div class="m" id="aopt" style="margin-top:4px"></div>
 <div class="fig"><svg id="achart"></svg></div><div class="tiles" id="acards"></div>
 <h3>Offene Positionen</h3><div class="list" id="aopen"></div><h3>Aktivität</h3><div class="list" id="aact"></div></div>
 <div id="ftv" hidden><div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
@@ -227,6 +227,7 @@ async function agentsLoad(){const src=S.bot.url?S.bot.url.replace(/\/$/,'')+'/ag
   const pl=P.value-P.start,A=P.agents||{},age=Date.now()/1e3-P.updated;
   $('#aval').textContent=eur(P.value);$('#apl').innerHTML=`<span class="${pl<0?'neg':'pos'}">${pl<0?'▼':'▲'} ${eur(pl)} (${(pl/P.start*100).toFixed(1)} %)</span> · ${(P.value/P.start).toFixed(2)}x`;
   $('#amsg').textContent=(age<(S.bot.url?90:420)?'● LIVE':'○ keine neuen Daten seit '+Math.round(age/60)+' Min')+(S.bot.url?' · Server':' · Testlauf über GitHub (Stand alle 1–5 Min)')+' · TEST mit Spielgeld · '+P.strategy;
+  const wr=P.winrate??0,o=(P.opt||[])[0];$('#aopt').innerHTML=`Trefferquote <b class="${wr>=75?'pos':'neg'}">${wr} %</b> (Ziel 75 %) · ${P.closed.length} Trades`+(o?` · Optimiert ${new Date(o.t*1e3).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}: ${esc(o.changes.join(', ')||'keine Änderung')}${o.notes.length?' – '+esc(o.notes.join(' / ')):''}`:' · nächste Selbst-Optimierung um 10:00');
   const an=A.analyst||{},sc=A.scanner||{},ex=A.executor||{},ri=A.risk||{};
   $('#acards').innerHTML=`<div class="tile"><small>Scanner</small><b class="mono">${sc.pools||0}</b><small>Tokens im Blick</small></div>
   <div class="tile"><small>Analyst</small><b class="mono ${an.passed?'pos':''}">${an.score??'–'}</b><small>${esc(an.sym||'')} ${an.passed?'bestanden':'zu schwach'}</small></div>
