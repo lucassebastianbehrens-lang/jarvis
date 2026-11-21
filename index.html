@@ -129,6 +129,11 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <section id="cfg"><label>KI-Quelle</label><select id="cm"><option value="free">Kostenlos ohne Konto (1 Antwort / 45 s)</option><option value="ollama">Ollama auf meinem PC (kostenlos)</option><option value="api">Online-API (OpenAI-kompatibel)</option></select>
 <label>Adresse</label><input id="cu"><label>Modell</label><input id="co"><label>API-Schlüssel (nur bei Online-API)</label><input id="ck" type="password"><label>Bild-Modell (zum Ansehen von Bildern/Videos – leer = gleiches Modell)</label><input id="cv" placeholder="Ollama z. B. llava · Online: ein Modell mit Bild-Eingabe">
 <div class="row"><button class="p" id="cs">Speichern</button><button id="ct">Verbindung testen</button></div><div class="m" id="cr"></div>
+<h3>Telegram</h3><p class="m">Jarvis schickt Bot-Ergebnisse, Erinnerungen und Meldungen an deinen Telegram-Bot. Token von @BotFather, Chat-ID findet Jarvis selbst, wenn du deinem Bot einmal „Start“ geschrieben hast.</p>
+<label>Bot-Token</label><input id="tgT" type="password" placeholder="123456:ABC…">
+<label>Chat-ID</label><input id="tgC" inputmode="numeric" placeholder="wird automatisch gesucht">
+<div class="row"><button class="p" id="tgS">Speichern + Test</button><button id="tgF">Chat-ID suchen</button><label style="flex:1 1 200px;display:flex;align-items:center;gap:6px;text-transform:none"><input type="checkbox" id="tgTeam" style="width:auto"> KI-Team-Ergebnisse senden</label></div><div class="m" id="tgR"></div>
+<p class="m">Für die Trading-Bots auf GitHub gibt es eigene Einträge: <a href="https://github.com/lucassebastianbehrens-lang/jarvis/settings/secrets/actions" target="_blank" rel="noopener">GitHub-Secrets öffnen</a> (TG_TOKEN und TG_CHAT – vorhandene mit dem Stift ändern, nicht neu anlegen).</p>
 <h3>Sicherung</h3><div class="row"><button id="bx">Backup herunterladen</button><label style="flex:1 1 200px">Backup laden<input type="file" id="bi" accept=".json"></label></div></section>
 </main>
 <script>
@@ -192,6 +197,7 @@ function bild(q){const w=Math.max(0,15e3-(Date.now()-lastImg));lastImg=Date.now(
  const url='https://image.pollinations.ai/prompt/'+encodeURIComponent(q)+'?width=1024&height=1024&nologo=true&seed='+Math.floor(Math.random()*1e6);
  return new Promise(res=>setTimeout(()=>res({text:'🎨 Bild: '+q+' (kostenlos über Pollinations, kann 10–30 Sek. laden)',img:url}),w))}
 function local(t){let m;
+ if((m=t.match(/^(?:telegram|tg)\s*:?\s+([\s\S]+)/i))){if(!S.tg?.t||!S.tg?.c)return 'Telegram ist noch nicht eingerichtet (Einstellungen → Telegram).';tgSend(m[1]);return 'An Telegram gesendet ✓'}
  if((m=t.match(/^(?:nutze?\s+(?:den\s+)?)?([\w-]+)[\s-]skill\b[:\s]*([\s\S]*)$/i))&&skFind(m[1]))return skRun(skFind(m[1]),m[2].trim()).then(x=>({text:x,sk:skFind(m[1]).n}),e=>'Fehler: '+e.message);
  if(/^skills$/i.test(t))return 'Skills:\n'+S.skills.map(k=>'• '+k.n+' – '+k.d).join('\n')+'\nStart: »nutz den kc-post skill: Heizungsbau Böhle, Thema Wartung«';
  if(m=t.match(/^(?:suche|such|google|recherchiere)(?: im internet)?(?: nach)?:?\s+(.+)$/i))return websuche(m[1]);
@@ -217,14 +223,23 @@ function local(t){let m;
  if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
  if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
  if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
- if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• Tab KI-Team: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
+ if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• telegram Einkaufsliste: Milch, Brot (schickt es an deinen Telegram-Bot)\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• Tab KI-Team: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
 function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
  return g+', Lucas. Heute ist '+new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'. '+(o.length?o.length+(o.length>1?' offene Aufgaben: ':' offene Aufgabe: ')+o.slice(0,3).map(x=>x.t).join(', ')+'.':'Keine offenen Aufgaben.')+' Bilanz diesen Monat: '+eur(mm)+'. Saldo: '+eur(saldo())+'.'}
 async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),safe(news)]);return [briefBase(),w,k,n].filter(Boolean).join('\n')}
 function say(t){if(!$('#tts').checked||!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/[•⏰*#]/g,''));u.lang='de-DE';u.rate=1.05;
  const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('de')&&/male|Mann|Markus|Yannick|Conrad/i.test(v.name))||speechSynthesis.getVoices().find(v=>v.lang.startsWith('de'));if(v)u.voice=v;
  u.onstart=()=>$('#core').classList.add('live');u.onend=()=>$('#core').classList.remove('live');speechSynthesis.speak(u)}
-async function push(t){try{if(!('Notification' in window)||Notification.permission!=='granted')return;const r=await navigator.serviceWorker?.getRegistration();r?r.showNotification('Jarvis',{body:t,icon:'icon-192.png',badge:'icon-192.png'}):new Notification('Jarvis',{body:t,icon:'icon-192.png'})}catch(e){}}
+
+S.tg??={t:'',c:'',team:true};
+const tgApi=async(m,p)=>{const r=await fetch(`https://api.telegram.org/bot${S.tg.t}/${m}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p||{})});const j=await r.json();if(!j.ok)throw Error(j.description||'Telegram-Fehler');return j.result};
+async function tgSend(text){if(!S.tg.t||!S.tg.c)return;try{await tgApi('sendMessage',{chat_id:S.tg.c,text:String(text).slice(0,4000)})}catch(e){}}
+async function tgFind(){const u=await tgApi('getUpdates');const ids=[...new Set(u.filter(x=>x.message).map(x=>x.message.chat.id))];if(!ids.length)throw Error('Noch keine Nachricht an den Bot – öffne deinen Bot und tippe „Start“.');S.tg.c=String(ids[ids.length-1]);return S.tg.c}
+const tgFill=()=>{$('#tgT').value=S.tg.t;$('#tgC').value=S.tg.c;$('#tgTeam').checked=S.tg.team!==false};tgFill();
+$('#tgF').onclick=async()=>{S.tg.t=$('#tgT').value.trim();$('#tgR').textContent='Suche …';try{$('#tgC').value=await tgFind();save();$('#tgR').textContent='Chat-ID gefunden ✓'}catch(e){$('#tgR').textContent=e.message}};
+$('#tgS').onclick=async()=>{S.tg={t:$('#tgT').value.trim(),c:$('#tgC').value.trim(),team:$('#tgTeam').checked};$('#tgR').textContent='Teste …';
+ try{if(!S.tg.c)$('#tgC').value=await tgFind();const me=await tgApi('getMe');await tgApi('sendMessage',{chat_id:S.tg.c,text:'🤖 Jarvis-App ist mit Telegram verbunden.'});save();$('#tgR').textContent='Verbunden mit @'+me.username+' ✓ – Testnachricht gesendet'}catch(e){save();$('#tgR').textContent='Fehler: '+e.message}};
+async function push(t,noTg){if(!noTg)tgSend(t);try{if(!('Notification' in window)||Notification.permission!=='granted')return;const r=await navigator.serviceWorker?.getRegistration();r?r.showNotification('Jarvis',{body:t,icon:'icon-192.png',badge:'icon-192.png'}):new Notification('Jarvis',{body:t,icon:'icon-192.png'})}catch(e){}}
 function beep(){try{const a=new AudioContext(),o=a.createOscillator();o.frequency.value=880;o.connect(a.destination);o.start();o.stop(a.currentTime+.3)}catch(e){}}
 
 $('#send').onclick=async()=>{const t=$('#in').value.trim();if(!t)return;$('#in').value='';S.chat.push({role:'user',content:t});
@@ -424,7 +439,7 @@ async function tmTool(b){if(b.tool==='web')return await websuche(b.q||b.task.sli
 async function tmExec(b){if(tmRun.has(b.id))return;tmRun.add(b.id);tmRender();
  try{const data=await tmTool(b);const out=await ai([{role:'system',content:`Du bist „${b.n}“ im KI-Team von Lucas. Antworte auf Deutsch, kurz, Beträge in Euro.\nDauerhafte Anweisung: ${b.task}\n${b.skill&&skFind(b.skill)?'Skill „'+b.skill+'“: '+skFind(b.skill).i+'\n':''}Dein Gedächtnis: ${b.mem||'(leer)'}\nSchreibe am Ende eine Zeile „MERKEN: …“ mit dem Wichtigsten für den nächsten Lauf.`},{role:'user',content:(data?'Material:\n'+data+'\n\n':'')+'Führe deine Aufgabe jetzt aus.'}]);
   const mm=out.match(/MERKEN:\s*(.+)$/im);if(mm)b.mem=((b.mem?b.mem+' | ':'')+mm[1].trim()).slice(-600);
-  b.out.unshift({t:Date.now(),txt:out.replace(/MERKEN:.*$/im,'').trim()});b.out=b.out.slice(0,10);push('🤖 '+b.n+': fertig')}
+  b.out.unshift({t:Date.now(),txt:out.replace(/MERKEN:.*$/im,'').trim()});b.out=b.out.slice(0,10);push('🤖 '+b.n+': fertig',S.tg?.team!==false&&!!S.tg?.c);if(S.tg?.team!==false)tgSend('🤖 '+b.n+'\n\n'+b.out[0].txt.slice(0,3500))}
  catch(e){b.out.unshift({t:Date.now(),txt:'Fehler: '+e.message})}
  b.last=Date.now();if(b.sched==='once')b.on=false;tmRun.delete(b.id);save();tmRender()}
 function tmNext(b){if(!b.on)return 'pausiert';if(b.sched==='once')return b.last?'erledigt':'sofort';if(b.sched==='hourly')return 'stündlich';return (b.sched==='weekdays'?'werktags ':'täglich ')+b.time}
