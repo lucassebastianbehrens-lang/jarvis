@@ -35,6 +35,14 @@ iframe{width:100%;height:60vh;border:1px solid var(--ln);background:#fff;margin-
 a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 .seg{margin:0 0 12px}.seg button.on{color:var(--red);border-color:var(--red);box-shadow:var(--glow)}
 .fig{position:relative;height:170px;margin:6px 0 12px}.fig svg{position:absolute;inset:0;width:100%;height:100%}
+.ag-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}.ag-top b{letter-spacing:3px;color:#c77dff}.ag-on{color:#39ff6a;font-size:13px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}.chips button{flex:none;border-radius:999px;min-height:38px;text-transform:none;letter-spacing:0}.chips button.on{border-color:#c77dff;color:#c77dff;box-shadow:0 0 12px #c77dff66}
+.office{width:100%;max-width:720px;display:block;margin:6px auto}.office .bot{transition:transform .3s}.office .bot.work{animation:bob .7s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-5px)}}@media(prefers-reduced-motion:reduce){.office .bot.work{animation:none}}
+.agc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.agc div{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:6px 8px;font-size:13px}.agc b{display:block}.agc i{font-style:normal;color:var(--mut)}
+.prog{height:6px;background:#1a0c0c;border-radius:6px;overflow:hidden;margin:6px 0}.prog i{display:block;height:100%;background:linear-gradient(90deg,#c77dff,#ff3fa4);width:0;transition:width .4s}
+details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;margin:6px 0}details.camp summary{cursor:pointer}details.camp pre{white-space:pre-wrap;font:14px/1.45 'Share Tech Mono',monospace;margin:4px 0 10px}
+@media(max-width:520px){.agc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ring.live svg{animation:pl 1s ease-in-out infinite}@keyframes pl{50%{filter:drop-shadow(0 0 14px #ff2a2a)}}
 .ring{cursor:pointer}button.rec{background:var(--red);color:#fff;animation:pl 1s infinite}
 .voice{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.voice label{display:flex;align-items:center;gap:6px;text-transform:none;font-size:14px}.voice input{width:auto}
@@ -44,7 +52,7 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 <div class="hud"><div class="ring" id="core" title="Tippen zum Sprechen"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#3a1414" stroke-width="1"/><circle class="spin" cx="50" cy="50" r="42" fill="none" stroke="#ff6a1a" stroke-width="1" stroke-dasharray="2 4"/><circle cx="50" cy="50" r="36" fill="none" stroke="#2a0c0c" stroke-width="6"/><circle id="arc" cx="50" cy="50" r="36" fill="none" stroke="#ff2a2a" stroke-width="6" stroke-linecap="round" transform="rotate(-90 50 50)" stroke-dasharray="0 227" style="filter:drop-shadow(0 0 4px #ff2a2a)"/></svg><div><b id="pct" class="mono">0%</b><span class="m">Aufgaben erledigt</span></div></div>
 <div class="tiles"><div class="tile"><small>Saldo</small><b id="h1" class="mono"></b></div><div class="tile"><small>Monat</small><b id="h2" class="mono"></b></div><div class="tile"><small>Offen</small><b id="h3" class="mono"></b></div><div class="tile"><small>Apps</small><b id="h4" class="mono"></b></div><div class="bars" id="bars" title="Ausgaben letzte 30 Tage"></div></div></div>
 <nav>
-<button data-t="chat" class="on">Chat</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
+<button data-t="chat" class="on">Chat</button><button data-t="agency">Agentur</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
 </nav>
 <main>
 <section id="chat" class="on"><div id="log"></div>
@@ -53,6 +61,15 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 <div class="voice"><label><input type="checkbox" id="tts" checked> Jarvis spricht</label><label><input type="checkbox" id="auto" checked> Briefing beim ersten Öffnen am Tag</label><label><input type="checkbox" id="wake"> „Hey Jarvis“ dauerhaft hören</label></div>
 <div class="m" id="vs"></div></section>
 
+<section id="agency"><div class="ag-top"><b>JARVIS AGENTUR</b><span class="ag-on mono" id="agOn">● 6 Agenten online</span></div>
+<div class="chips" id="agCl"></div>
+<svg class="office" id="office" viewBox="50 -30 500 340" role="img" aria-label="Büro mit 6 KI-Agenten"></svg>
+<div class="agc" id="agCards"></div>
+<div class="row"><input id="agGoal" placeholder="Auftrag, z. B. Launch-Kampagne für die Hunde-Schondecke"><button class="p" id="agRun" style="flex:0 0 auto">Kampagne starten</button></div>
+<div class="m mono" id="agStep">Wähle einen Kunden und gib einen Auftrag ein.</div><div class="prog"><i id="agBar"></i></div>
+<h3>Kampagnen</h3><div id="agCamps"></div>
+<details class="camp"><summary>+ Kunde hinzufügen / entfernen</summary><div class="row"><input id="agNn" placeholder="Name"><input id="agNd" placeholder="Was macht der Kunde?"><button id="agAdd" style="flex:0 0 auto">Hinzufügen</button></div><button class="s" id="agDel">Ausgewählten Kunden entfernen</button></details>
+</section>
 <section id="fin"><div class="m">Saldo</div><div class="big" id="sal"></div><div class="m" id="mon"></div>
 <div class="row"><input id="fd" type="date"><input id="fv" inputmode="decimal" placeholder="Betrag €"><input id="ft" placeholder="Wofür?"></div>
 <div class="row"><button class="p" id="fout">− Ausgabe</button><button id="fin2">+ Einnahme</button></div><div class="list" id="fl"></div></section>
@@ -298,6 +315,61 @@ $('#bref').onclick=botLoad;
 $('#bsave').onclick=()=>{S.bot={url:$('#bu').value.trim(),u:$('#bn').value.trim(),p:$('#bp').value};save();tradeLoad()};
 $('#bu').value=S.bot.url;$('#bn').value=S.bot.u;$('#bp').value=S.bot.p;
 document.querySelector('[data-t=bot]').addEventListener('click',()=>{tradeLoad();clearInterval(btimer);btimer=setInterval(()=>$('#bot').classList.contains('on')?tradeLoad():clearInterval(btimer),15000)});
+
+const AG=[{k:'strategy',n:'Strategie',c:'#b45cff',d:'plant Kampagnen'},{k:'content',n:'Content',c:'#2ee6e6',d:'schreibt Texte & Hooks'},{k:'design',n:'Design',c:'#ff3fa4',d:'erstellt Werbebilder'},{k:'ads',n:'Ads',c:'#39ff6a',d:'baut Anzeigen'},{k:'email',n:'E-Mail',c:'#ff8a1f',d:'schreibt Mails'},{k:'analytics',n:'Analyse',c:'#ffd21f',d:'setzt Ziele & KPIs'}];
+S.agency??={sel:'DS',camps:[],clients:[{id:'DS',n:'Pfotenfahrt',d:'Online-Shop für Hundezubehör im Auto und unterwegs'},{id:'ET',n:'Finanz-Vorlagen',d:'Etsy-Shop mit digitalen Budget- und Sparvorlagen auf Deutsch'},{id:'KC',n:'Handwerk sichtbar',d:'KI-Content-Service für Handwerksbetriebe in Börde, Harz und Magdeburg'},{id:'TT',n:'KI-Miniserien',d:'TikTok-Kanal mit KI-Seifenopern, 60–90 Sekunden'},{id:'SH',n:'Nachtschicht Garage',d:'Print-on-Demand-Modemarke für Youngtimer- und Schrauber-Kultur, ohne Automarken'}]};
+let agBusy=null,agDone={};
+const iso=(x,y,z=0)=>[300+(x-y)*40,62+(x+y)*20-z];
+const P=a=>a.map(p=>p.join(',')).join(' ');
+function office(){const D=[[1.3,1.2],[3.1,1.0],[4.9,1.2],[1.1,3.6],[3,3.4],[4.9,3.6]];let g='';
+ g+=`<defs><radialGradient id="flG"><stop offset="0" stop-color="#2a1236"/><stop offset="1" stop-color="#0d0812"/></radialGradient></defs>`;
+ g+=`<polygon points="${P([iso(0,0),iso(6,0),iso(6,6),iso(0,6)])}" fill="url(#flG)" stroke="#3b1f4a"/>`;
+ g+=`<polygon points="${P([iso(0,0),iso(0,6),iso(0,6,90),iso(0,0,90)])}" fill="#170d1f" stroke="#3b1f4a"/><polygon points="${P([iso(0,0),iso(6,0),iso(6,0,90),iso(0,0,90)])}" fill="#1d1028" stroke="#3b1f4a"/>`;
+ const bars=[18,28,24,40,52];bars.forEach((h,i)=>{const b=iso(0,1+i*.35,20);g+=`<polygon points="${P([[b[0],b[1]],[b[0]-10,b[1]+5],[b[0]-10,b[1]+5-h],[b[0],b[1]-h]])}" fill="#b45cff" opacity=".85"/>`});
+ const w=iso(3.2,0,62);g+=`<text x="${w[0]}" y="${w[1]}" fill="#d9a6ff" font-size="22" font-weight="700" transform="rotate(26.6 ${w[0]} ${w[1]})" text-anchor="middle" font-family="Rajdhani,sans-serif" letter-spacing="2">JARVIS AGENTUR</text>`;
+ [[.4,.4],[5.6,.4],[.4,5.4],[5.5,5.5],[3,2.8]].forEach(([x,y])=>{const p=iso(x,y);g+=`<rect x="${p[0]-6}" y="${p[1]-10}" width="12" height="10" fill="#e8743b"/><circle cx="${p[0]}" cy="${p[1]-18}" r="10" fill="#2f9e44"/><circle cx="${p[0]-6}" cy="${p[1]-24}" r="6" fill="#40c057"/>`});
+ const c=iso(3,5.2);g+=`<rect x="${c[0]-34}" y="${c[1]-14}" width="68" height="16" rx="6" fill="#e86fb0"/><rect x="${c[0]-34}" y="${c[1]-24}" width="68" height="10" rx="5" fill="#f48cc6"/>`;
+ AG.forEach((a,i)=>{const [x,y]=D[i],t=[iso(x-.45,y-.25,22),iso(x+.45,y-.25,22),iso(x+.45,y+.25,22),iso(x-.45,y+.25,22)],act=agBusy===a.k,done=agDone[a.k];
+  g+=`<polygon points="${P(t)}" fill="#f1e4ff"/><polygon points="${P([t[3],t[2],[t[2][0],t[2][1]+22],[t[3][0],t[3][1]+22]])}" fill="#a58bbf"/><polygon points="${P([t[2],t[1],[t[1][0],t[1][1]+22],[t[2][0],t[2][1]+22]])}" fill="#7d6596"/>`;
+  const m=iso(x,y-.15,40);g+=`<rect x="${m[0]-12}" y="${m[1]-12}" width="24" height="16" rx="2" fill="#111" stroke="${act?a.c:'#333'}"/>`;
+  const r=iso(x,y+.55,30);g+=`<g class="bot${act?' work':''}" style="transform-box:fill-box"><ellipse cx="${r[0]}" cy="${r[1]+32}" rx="16" ry="5" fill="${a.c}" opacity="${act?.6:.18}"/>
+   <rect x="${r[0]-12}" y="${r[1]+2}" width="24" height="22" rx="9" fill="${a.c}" ${act?`style="filter:drop-shadow(0 0 8px ${a.c})"`:''}/><rect x="${r[0]-15}" y="${r[1]-22}" width="30" height="24" rx="11" fill="#fff"/><rect x="${r[0]-11}" y="${r[1]-17}" width="22" height="14" rx="6" fill="#16202a"/>
+   <circle cx="${r[0]-5}" cy="${r[1]-10}" r="3" fill="${a.c}"/><circle cx="${r[0]+5}" cy="${r[1]-10}" r="3" fill="${a.c}"/></g>`;
+  const lb=[r[0],r[1]-34],tw=a.n.length*8+18;g+=`<rect x="${lb[0]-tw/2}" y="${lb[1]-13}" width="${tw}" height="20" rx="10" fill="#0b0b10" stroke="${a.c}"/><text x="${lb[0]}" y="${lb[1]+2}" fill="#fff" font-size="12" font-weight="700" text-anchor="middle" font-family="Rajdhani,sans-serif">${a.n}${done?' ✓':''}</text>`});
+ $('#office').innerHTML=g}
+function agRender(){const A=S.agency,cl=A.clients.find(c=>c.id===A.sel)||A.clients[0];if(cl)A.sel=cl.id;
+ $('#agCl').innerHTML=A.clients.map(c=>`<button data-c="${esc(c.id)}" class="${c.id===A.sel?'on':''}">${esc(c.n)}</button>`).join('');
+ office();$('#agCards').innerHTML=AG.map(a=>`<div style="border-left:3px solid ${a.c}"><b style="color:${a.c}">${a.n}</b><i>${agBusy===a.k?'arbeitet …':agDone[a.k]?'fertig ✓':a.d}</i></div>`).join('');
+ $('#agOn').textContent=agBusy?'● '+AG.find(a=>a.k===agBusy).n+' arbeitet':'● 6 Agenten online';
+ const cs=A.camps.filter(c=>c.client===A.sel);
+ $('#agCamps').innerHTML=cs.map(c=>`<details class="camp"${c===cs[0]?' open':''}><summary><b>${esc(c.goal)}</b> <span class="m">· ${new Date(c.t).toLocaleDateString('de-DE')}</span></summary>${c.img?`<a href="${esc(c.img)}" target="_blank" rel="noopener"><img src="${esc(c.img)}" alt="Werbebild" style="width:100%;max-width:360px;border-radius:8px;margin:6px 0"></a>`:''}
+  ${AG.filter(a=>c.steps[a.k]).map(a=>`<div style="color:${a.c};font-weight:700">${a.n}</div><pre>${link(esc(c.steps[a.k]))}</pre>`).join('')}
+  <div class="row"><button class="s" data-cp="${c.id}">Alles kopieren</button><button class="s" data-td="${c.id}">Checkliste → Aufgaben</button><button class="s" data-dl="${c.id}">Löschen</button></div></details>`).join('')||'<p class="m">Noch keine Kampagnen für diesen Kunden.</p>'}
+async function agRun(){const goal=$('#agGoal').value.trim();if(!goal||agBusy)return;const A=S.agency,cl=A.clients.find(c=>c.id===A.sel);
+ const camp={id:Date.now().toString(36),client:cl.id,goal,t:Date.now(),steps:{},img:''};A.camps.unshift(camp);A.camps=A.camps.slice(0,40);agDone={};
+ const sys=a=>({role:'system',content:`Du bist der ${a}-Agent der Jarvis Agentur. Kunde: ${cl.n} – ${cl.d}. Antworte auf Deutsch, knapp und konkret, mit Stichpunkten. Beträge in Euro.`});
+ const jobs={strategy:()=>`Auftrag: ${goal}\nErstelle: Zielgruppe, Kernbotschaft, 3 Kanäle, Plan für 4 Wochen (je Woche 1 Zeile), Budgetvorschlag.`,
+  content:()=>`Strategie:\n${camp.steps.strategy}\n\nSchreibe: 3 TikTok-Hooks (je 1 Satz), 1 Instagram-Caption mit 8 Hashtags, 1 Kurzvideo-Skript in 5 Szenen.`,
+  design:()=>`Schreibe EINEN englischen Bild-Prompt (max. 30 Wörter) für ein Werbebild zu „${goal}“ für ${cl.n}. Fotorealistisch, Social-Media-tauglich. Nur den Prompt, sonst nichts.`,
+  ads:()=>`Strategie:\n${camp.steps.strategy}\n\nErstelle 2 Anzeigen-Varianten (Überschrift, Text, Call-to-Action), Zielgruppen-Einstellungen für Meta und TikTok, Tagesbudget in €.`,
+  email:()=>`Auftrag: ${goal}\nSchreibe eine Launch-E-Mail: 3 Betreff-Varianten und einen Text mit max. 120 Wörtern.`,
+  analytics:()=>`Strategie:\n${camp.steps.strategy}\n\nNenne 5 Kennzahlen mit Zielwerten für 4 Wochen. Danach „Checkliste:“ mit 5 Aufgaben, jede Zeile beginnt mit „- “.`};
+ for(const [i,a] of AG.entries()){agBusy=a.k;$('#agStep').textContent=`Schritt ${i+1} von 6 · ${a.n} ${a.d} …`;$('#agBar').style.width=(i/6*100)+'%';agRender();
+  try{const out=await ai([sys(a.n),{role:'user',content:jobs[a.k]()}]);
+   if(a.k==='design'){const pr=out.replace(/^["'\s]+|["'\s]+$/g,'').slice(0,300);camp.img='https://image.pollinations.ai/prompt/'+encodeURIComponent(pr)+'?width=1024&height=1024&nologo=true&seed='+Math.floor(Math.random()*1e6);camp.steps.design='Bild-Prompt: '+pr+'\n(Bild kostenlos über Pollinations, lädt 10–30 Sek.)'}
+   else camp.steps[a.k]=out}
+  catch(e){camp.steps[a.k]='Fehler: '+e.message;agBusy=null;$('#agStep').textContent='Abgebrochen: KI nicht erreichbar ('+e.message+'). Einstellungen → KI prüfen.';save();return agRender()}
+  agDone[a.k]=1;save()}
+ agBusy=null;$('#agBar').style.width='100%';$('#agStep').textContent='✓ Kampagne fertig – alle 6 Agenten haben geliefert.';$('#agGoal').value='';save();agRender();say('Kampagne für '+cl.n+' ist fertig.')}
+$('#agRun').onclick=agRun;
+$('#agCl').onclick=e=>{const c=e.target.dataset.c;if(c&&!agBusy){S.agency.sel=c;agDone={};save();agRender()}};
+$('#agCamps').onclick=e=>{const d=e.target.dataset,A=S.agency,id=d.cp||d.td||d.dl,c=A.camps.find(x=>x.id===id);if(!c)return;
+ if(d.cp){const t=c.goal+'\n\n'+AG.filter(a=>c.steps[a.k]).map(a=>'## '+a.n+'\n'+c.steps[a.k]).join('\n\n')+(c.img?'\n\nBild: '+c.img:'');navigator.clipboard?.writeText(t).then(()=>e.target.textContent='Kopiert ✓',()=>{})}
+ if(d.td){const L=((c.steps.analytics||'').split(/checkliste:?/i)[1]||'').split('\n').filter(l=>/^\s*[-•]\s+/.test(l)).map(l=>l.replace(/^\s*[-•]\s+/,'').trim()).filter(Boolean).slice(-5);L.forEach(t=>S.todo.push({t:'['+c.client+'] '+t,ok:false}));e.target.textContent=L.length+' Aufgaben angelegt ✓';save();render()}
+ if(d.dl){A.camps=A.camps.filter(x=>x!==c);save();agRender()}};
+$('#agAdd').onclick=()=>{const n=$('#agNn').value.trim(),d=$('#agNd').value.trim();if(!n)return;const id=n.slice(0,12);S.agency.clients.push({id,n,d:d||n});S.agency.sel=id;$('#agNn').value=$('#agNd').value='';save();agRender()};
+$('#agDel').onclick=()=>{const A=S.agency;if(A.clients.length<2)return;A.clients=A.clients.filter(c=>c.id!==A.sel);A.sel=A.clients[0].id;save();agRender()};
+document.querySelector('[data-t=agency]').addEventListener('click',agRender);
 
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec,listening=false;
 const vs=t=>$('#vs').textContent=t;
