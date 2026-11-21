@@ -21,7 +21,7 @@
  },
  "scenes": [
   {
-   "p": "muscular man with a realistic garlic bulb head, expressive Pixar-style face, thick eyebrows, grey tank top reading GARLIC GYM lifting heavy dumbbells in a modern gym, sweat, determined",
+   "p": "a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top, lifting dumbbells in a modern gym, determined",
    "lines": [
     {
      "s": "Erzähler",
@@ -34,7 +34,7 @@
    ]
   },
   {
-   "p": "athletic woman with a shiny strawberry head, green leaf hair, confident smile, pink sports top and black leggings walking into the gym smiling, other people turning heads, muscular man with a realistic garlic bulb head, expressive Pixar-style face, thick eyebrows, grey tank top reading GARLIC GYM in background staring",
+   "p": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket walking into a gym and smiling, in the background a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top staring surprised",
    "lines": [
     {
      "s": "Erzähler",
@@ -51,7 +51,7 @@
    ]
   },
   {
-   "p": "athletic woman with a shiny strawberry head, green leaf hair, confident smile, pink sports top and black leggings touching the arm of muscular man with a realistic garlic bulb head, expressive Pixar-style face, thick eyebrows, grey tank top reading GARLIC GYM to correct his posture, he looks nervous, gym mirror",
+   "p": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket pointing at the dumbbell of a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top to correct his technique, he looks nervous, gym mirror",
    "lines": [
     {
      "s": "Jessy",
@@ -64,7 +64,7 @@
    ]
   },
   {
-   "p": "chubby friendly man with a halved-avocado head, green hoodie hiding behind a gym machine, shocked face, holding a protein shake",
+   "p": "an avocado character (head is a halved avocado, the pit is the nose, cartoon eyes), green hoodie hiding behind a gym machine with a shocked face, holding a protein shake",
    "lines": [
     {
      "s": "Avo",
@@ -81,7 +81,7 @@
    ]
   },
   {
-   "p": "woman with a glossy purple red-onion head, big warm eyes, long lashes, floral apron over a cozy sweater cooking soup in a warm cozy kitchen at evening, smiling, steam rising",
+   "p": "a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater cooking soup in a warm cozy kitchen in the evening, smiling, steam rising",
    "lines": [
     {
      "s": "Rosa",
@@ -94,7 +94,7 @@
    ]
   },
   {
-   "p": "close-up of a smartphone on a kitchen table lighting up with a heart emoji message, woman with a glossy purple red-onion head, big warm eyes, long lashes, floral apron over a cozy sweater looking at it suspiciously in background",
+   "p": "close-up of a smartphone on a kitchen table showing a red heart message, in the background a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater looking suspicious",
    "lines": [
     {
      "s": "Erzähler",
@@ -110,5 +110,11 @@
     }
    ]
   }
- ]
+ ],
+ "figuren": {
+  "Gino": "a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top",
+  "Jessy": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket",
+  "Rosa": "a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater",
+  "Avo": "an avocado character (head is a halved avocado, the pit is the nose, cartoon eyes), green hoodie"
+ }
 }

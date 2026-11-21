@@ -6,8 +6,9 @@ sys.path.insert(0, os.path.dirname(__file__))
 from long import tts, dur, sh, ts, esc, OUT
 
 W, H, FPS = 1080, 1920, 30
-STYLE = ("cinematic photorealistic 3D render, anthropomorphic fruit character with expressive face, arms and legs, "
-         "pixar-like but realistic textures, dramatic soft lighting, shallow depth of field, vertical 9:16, no text")
+STYLE = ("3D animated movie still, cute anthropomorphic fruit and vegetable characters whose heads ARE real fruits or vegetables "
+         "with cartoon eyes and mouth, no human faces, no human hair, no human skin, cartoon bodies, fully clothed, family friendly, "
+         "cinematic soft lighting, detailed textures, vertical 9:16, no text")
 COLS = ["&H0066CCFF", "&H00FF99CC", "&H0099FF99", "&H00FFCC66", "&H00CC99FF", "&H0066FFFF"]
 
 
