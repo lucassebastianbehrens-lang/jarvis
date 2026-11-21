@@ -37,8 +37,26 @@ def voice(spec, mp3):
     return words
 
 
+def punctuate(words, text):
+    """Holt die Satzzeichen aus dem Original-Text zurück (die Stimm-Zeitmarken haben keine)."""
+    import re
+    toks, j, res = text.split(), 0, []
+    norm = lambda x: re.sub(r"[^\wäöüß]", "", x.lower())
+    for st, en, w in words:
+        k = j
+        while k < len(toks) and not norm(toks[k]).startswith(norm(w)[:4] or "#"):
+            k += 1
+        if k < len(toks):
+            j = k + 1
+            tail = re.search(r"[.,!?:;]+$", toks[k])
+            res.append((st, en, w + (tail.group(0) if tail and norm(w) == norm(toks[k]) else "")))
+        else:
+            res.append((st, en, w))
+    return res
+
+
 def captions(words, max_words=3):
-    """Gruppiert Wörter zu kurzen Untertitel-Häppchen (TikTok-Stil)."""
+    """Gruppiert Wörter zu kurzen Untertitel-Häppchen (TikTok-Stil), nie über Satzgrenzen."""
     out, cur = [], []
     for w in words:
         cur.append(w)
@@ -111,7 +129,7 @@ def build(spec_path):
     os.makedirs(tmp, exist_ok=True)
     print("▶", vid)
     words = voice(spec, f"{tmp}/voice.mp3")
-    caps = captions(words)
+    caps = captions(punctuate(words, spec["text"]))
     total = ass(caps, spec, f"{tmp}/subs.ass")
     imgs = []
     for i, p in enumerate(spec["prompts"]):
