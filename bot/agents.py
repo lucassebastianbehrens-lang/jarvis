@@ -45,7 +45,7 @@ def usd_eur():
 def tg_conf():
     global _tg
     if _tg is None:
-        _tg = {}
+        _tg = {k: os.environ[k] for k in ("TG_TOKEN", "TG_CHAT") if os.environ.get(k)}
         try:
             for line in open(TG_FILE):
                 if "=" in line:

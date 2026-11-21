@@ -17,6 +17,8 @@ jobs:
         env:
           AGENTS_OUT: data/agents.json
           MIN: ${{ inputs.minuten }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
         run: |
           git config user.name "jarvis-bot"
           git config user.email "jarvis-bot@users.noreply.github.com"

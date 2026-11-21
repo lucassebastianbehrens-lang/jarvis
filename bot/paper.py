@@ -1,7 +1,7 @@
 """Jarvis Spielgeld-Bot: Papierhandel mit echten Kraken-Kursen (kein echtes Geld).
-Strategie: EMA9/EMA21-Kreuzung auf 15-Min-Kerzen, nur über EMA100 (Aufwärtstrend), RSI 45–70, Stop-Loss -3 %, Take-Profit +5 %.
+Strategie: EMA9/EMA21-Kreuzung auf 15-Min-Kerzen, nur über EMA100 (Aufwärtstrend), RSI 45–70, Stop-Loss -3,5 %, ab +1,5 % abgesichert, Take-Profit +2,5 %.
 Läuft alle 15 Min per GitHub Actions und speichert den Stand in data/paper.json."""
-import json, os, time, urllib.request
+import json, os, time, urllib.parse, urllib.request
 
 PAIRS = {"BTC/EUR": "XBTEUR", "ETH/EUR": "ETHEUR", "SOL/EUR": "SOLEUR", "XRP/EUR": "XRPEUR", "ADA/EUR": "ADAEUR",
          "DOGE/EUR": "XDGEUR", "DOT/EUR": "DOTEUR", "LINK/EUR": "LINKEUR", "AVAX/EUR": "AVAXEUR", "LTC/EUR": "LTCEUR",
@@ -45,6 +45,18 @@ def candles(code):
     return [(int(c[0]), float(c[2]), float(c[3]), float(c[4])) for c in rows[:-1]]  # nur abgeschlossene Kerzen
 
 
+def notify(text):
+    """Telegram-Nachricht (nur wenn TG_TOKEN/TG_CHAT gesetzt sind)."""
+    t, c = os.environ.get("TG_TOKEN"), os.environ.get("TG_CHAT")
+    if not t or not c:
+        return
+    try:
+        data = urllib.parse.urlencode({"chat_id": c, "text": text}).encode()
+        urllib.request.urlopen(f"https://api.telegram.org/bot{t}/sendMessage", data, timeout=10)
+    except Exception:
+        pass
+
+
 def close_pos(S, pair, price, ts, why):
     p = S["open"].pop(pair)
     gross = p["qty"] * price
@@ -53,6 +65,7 @@ def close_pos(S, pair, price, ts, why):
     S["cash"] += net
     S["closed"].append({"pair": pair, "in": p["price"], "out": price, "pnl": round(pnl, 2),
                         "pct": round(pnl / p["cost"] * 100, 2), "t_in": p["t"], "t_out": ts, "why": why})
+    notify(f"{'✅' if pnl >= 0 else '🔴'} Krypto-Bot: {pair} verkauft {pnl:+.2f} € ({why}) – Spielgeld")
     day = time.strftime("%Y-%m-%d", time.gmtime(ts))
     S["daily"][day] = round(S["daily"].get(day, 0) + pnl, 2)
 
