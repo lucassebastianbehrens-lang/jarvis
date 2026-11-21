@@ -178,7 +178,7 @@ S.bot??={url:'',u:'',p:''};let kill=0,btimer,bnote='';
 async function ft(path,post,body){const b=S.bot;if(!b.url)throw Error('kein Server');
  const r=await fetch(b.url.replace(/\/$/,'')+'/api/v1/'+path,{method:post?'POST':'GET',headers:{Authorization:'Basic '+btoa(b.u+':'+b.p),'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
  if(!r.ok)throw Error('Bot '+r.status);return r.json()}
-async function botLoad(){if(!S.bot.url)return;
+async function botLoad(){if(!S.bot.url)return paperLoad();
  try{const [c,p,st,d]=await Promise.all([ft('show_config'),ft('profit'),ft('status'),ft('daily?timescale=14')]);
   const cur=c.stake_currency||'€',f=n=>(n>=0?'+':'')+(cur==='EUR'?eur(+n||0):(+n||0).toFixed(2)+' '+cur);
   $('#b1').textContent=c.dry_run?'TEST':'ECHT';$('#b1').className='mono '+(c.dry_run?'pos':'neg');
@@ -191,9 +191,24 @@ async function botLoad(){if(!S.bot.url)return;
   S.botLast={mode:$('#b1').textContent,state:$('#b2').textContent,profit:f(p.profit_all_coin),open:st.length};
   $('#bmsg').textContent=(bnote?bnote+' · ':'')+'Verbunden · Strategie '+(c.strategy||'?')+' · aktualisiert '+new Date().toLocaleTimeString('de-DE')}
  catch(e){$('#bmsg').textContent='Keine Verbindung zum Bot: '+e.message}}
-const bact=async(p,b,msg)=>{try{await ft(p,1,b);bnote=msg;$('#bmsg').textContent=msg;setTimeout(botLoad,800)}catch(e){$('#bmsg').textContent='Fehler: '+e.message}};
+
+const PAPER='https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/data/paper.json';
+async function paperLoad(){try{const r=await fetch(PAPER+'?t='+Date.now());if(!r.ok)throw Error(r.status===404?'Bot startet gerade – gleich nochmal versuchen':'HTTP '+r.status);const P=await r.json();
+ const pl=P.value-P.start,w=P.closed.filter(t=>t.pnl>0).length,age=(Date.now()/1e3-P.updated)/60;
+ $('#b1').textContent='TEST';$('#b1').className='mono pos';$('#b2').textContent=age<45?'läuft':'verzögert';
+ $('#b3').textContent=(pl>=0?'+':'')+eur(pl);$('#b3').className='mono '+(pl<0?'neg':'pos');
+ $('#b4').textContent=P.closed.length+' / '+(P.closed.length?Math.round(w/P.closed.length*100):0)+'%';
+ const days=[...Array(14)].map((_,i)=>new Date(Date.now()-(13-i)*864e5).toISOString().slice(0,10)),D=days.map(d=>P.daily[d]||0),mx=Math.max(1e-9,...D.map(Math.abs));
+ $('#bbars').innerHTML=D.map(v=>`<i style="height:${Math.abs(v)/mx*100}%;${v<0?'background:#555;box-shadow:none':''}" title="${eur(v)}"></i>`).join('');
+ const op=Object.entries(P.open).map(([k,p])=>{const c=P.prices[k]||p.price,v=p.qty*c*(1-.004)-p.cost;return `<div><span>${esc(k)}<br><span class="m">Einstieg ${(+p.price).toPrecision(5)} · jetzt ${(+c).toPrecision(5)}</span></span><span class="${v<0?'neg':'pos'}">${(v>=0?'+':'')+eur(v)}</span></div>`}).join('');
+ const cl=P.closed.slice(-5).reverse().map(t=>`<div><span>${esc(t.pair)} <span class="m">· ${esc(t.why)}</span><br><span class="m">${new Date(t.t_out*1e3).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}</span></span><span class="${t.pnl<0?'neg':'pos'}">${(t.pnl>=0?'+':'')+eur(t.pnl)}</span></div>`).join('');
+ $('#btr').innerHTML=(op||'<p class="m">Keine offenen Trades.</p>')+(cl?'<p class="m" style="margin-top:12px">Letzte abgeschlossene Trades</p>'+cl:'');
+ S.botLast={mode:'TEST',state:$('#b2').textContent,profit:(pl>=0?'+':'')+eur(pl),open:Object.keys(P.open).length};save();
+ $('#bmsg').textContent='Spielgeld-Bot (Cloud) · Kontowert '+eur(P.value)+' von '+eur(P.start)+' · '+P.strategy+' · Stand '+new Date(P.updated*1e3).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
+ catch(e){$('#bmsg').textContent='Spielgeld-Bot: '+e.message}}
+const bact=async(p,b,msg)=>{if(!S.bot.url){$('#bmsg').textContent='Der Spielgeld-Bot läuft automatisch in der Cloud. Start/Stop gibt es mit eigenem Server.';return}try{await ft(p,1,b);bnote=msg;$('#bmsg').textContent=msg;setTimeout(botLoad,800)}catch(e){$('#bmsg').textContent='Fehler: '+e.message}};
 $('#bstart').onclick=()=>bact('start',0,'Bot gestartet.');$('#bstop').onclick=()=>bact('stop',0,'Bot gestoppt.');
-$('#bkill').onclick=async()=>{if(!kill){kill=1;$('#bkill').textContent='Sicher? Nochmal tippen';setTimeout(()=>{kill=0;$('#bkill').textContent='Not-Aus: alles verkaufen'},4000);return}
+$('#bkill').onclick=async()=>{if(!S.bot.url){$('#bmsg').textContent='Spielgeld-Bot: kein echtes Geld im Spiel, Not-Aus nicht nötig.';return}if(!kill){kill=1;$('#bkill').textContent='Sicher? Nochmal tippen';setTimeout(()=>{kill=0;$('#bkill').textContent='Not-Aus: alles verkaufen'},4000);return}
  kill=0;$('#bkill').textContent='Not-Aus: alles verkaufen';try{await ft('stop',1);await ft('forceexit',1,{tradeid:'all'});bnote='NOT-AUS: Bot gestoppt, alle Trades verkauft';$('#bmsg').textContent=bnote;say('Not-Aus ausgeführt.');botLoad()}catch(e){$('#bmsg').textContent='Not-Aus Fehler: '+e.message}};
 $('#bref').onclick=botLoad;
 $('#bsave').onclick=()=>{S.bot={url:$('#bu').value.trim(),u:$('#bn').value.trim(),p:$('#bp').value};save();botLoad()};
