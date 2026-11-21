@@ -52,7 +52,7 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="hud"><div class="ring" id="core" title="Tippen zum Sprechen"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#3a1414" stroke-width="1"/><circle class="spin" cx="50" cy="50" r="42" fill="none" stroke="#ff6a1a" stroke-width="1" stroke-dasharray="2 4"/><circle cx="50" cy="50" r="36" fill="none" stroke="#2a0c0c" stroke-width="6"/><circle id="arc" cx="50" cy="50" r="36" fill="none" stroke="#ff2a2a" stroke-width="6" stroke-linecap="round" transform="rotate(-90 50 50)" stroke-dasharray="0 227" style="filter:drop-shadow(0 0 4px #ff2a2a)"/></svg><div><b id="pct" class="mono">0%</b><span class="m">Aufgaben erledigt</span></div></div>
 <div class="tiles"><div class="tile"><small>Saldo</small><b id="h1" class="mono"></b></div><div class="tile"><small>Monat</small><b id="h2" class="mono"></b></div><div class="tile"><small>Offen</small><b id="h3" class="mono"></b></div><div class="tile"><small>Apps</small><b id="h4" class="mono"></b></div><div class="bars" id="bars" title="Ausgaben letzte 30 Tage"></div></div></div>
 <nav>
-<button data-t="chat" class="on">Chat</button><button data-t="agency">Agentur</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
+<button data-t="chat" class="on">Chat</button><button data-t="agency">Agentur</button><button data-t="team">KI-Team</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
 </nav>
 <main>
 <section id="chat" class="on"><div id="log"></div>
@@ -70,6 +70,15 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <h3>Kampagnen</h3><div id="agCamps"></div>
 <details class="camp"><summary>+ Kunde hinzufügen / entfernen</summary><div class="row"><input id="agNn" placeholder="Name"><input id="agNd" placeholder="Was macht der Kunde?"><button id="agAdd" style="flex:0 0 auto">Hinzufügen</button></div><button class="s" id="agDel">Ausgewählten Kunden entfernen</button></details>
 </section>
+<section id="team"><div class="ag-top"><b>KI-TEAM</b><span class="ag-on mono" id="tmOn"></span></div>
+<p class="m">Jeder Bot hat eine eigene Aufgabe, ein Gedächtnis und einen Zeitplan. Bots laufen, solange Jarvis geöffnet ist – Verpasstes holen sie beim Öffnen nach.</p>
+<div class="chips" id="tmPre"></div><div id="tmList"></div>
+<details class="camp" id="tmNew"><summary>+ Eigenen Bot anlegen</summary>
+<label>Name</label><input id="tbN" placeholder="z. B. Recherche-Bot">
+<label>Aufgabe (dauerhafte Anweisung)</label><textarea id="tbT" placeholder="z. B. Such die angesagtesten KI-Tools dieser Woche und fasse sie in 5 Punkten zusammen."></textarea>
+<div class="row"><select id="tbW"><option value="web">Werkzeug: Websuche</option><option value="news">Werkzeug: Nachrichten</option><option value="markt">Werkzeug: Kurse + Wetter</option><option value="ki">Nur KI</option></select>
+<select id="tbS"><option value="daily">täglich</option><option value="weekdays">werktags</option><option value="hourly">stündlich</option><option value="once">einmal</option></select><input id="tbZ" type="time" value="08:00"></div>
+<button class="p" id="tbAdd">Bot anlegen</button></details></section>
 <section id="fin"><div class="m">Saldo</div><div class="big" id="sal"></div><div class="m" id="mon"></div>
 <div class="row"><input id="fd" type="date"><input id="fv" inputmode="decimal" placeholder="Betrag €"><input id="ft" placeholder="Wofür?"></div>
 <div class="row"><button class="p" id="fout">− Ausgabe</button><button id="fin2">+ Einnahme</button></div><div class="list" id="fl"></div></section>
@@ -149,13 +158,13 @@ async function kurse(){const d=await (await fetch('https://api.coingecko.com/api
  return 'Kurse: '+Object.entries(d).map(([k,v])=>`${n[k]} ${eur(v.eur)} (${v.eur_24h_change>=0?'+':''}${(v.eur_24h_change||0).toLocaleString('de-DE',{maximumFractionDigits:1})} %)`).join(', ')+'.'}
 async function news(){const d=await (await fetch('https://www.tagesschau.de/api2u/homepage')).json();const t=(d.news||[]).filter(x=>x.title).slice(0,3).map(x=>x.title);if(!t.length)throw Error('leer');return 'Nachrichten: '+t.join(' · ')+'.'}
 async function stadt(q){const d=await (await fetch('https://geocoding-api.open-meteo.com/v1/search?count=1&language=de&name='+encodeURIComponent(q))).json(),r=(d.results||[])[0];if(!r)return 'Ort nicht gefunden: '+q;S.city={n:r.name,lat:r.latitude,lon:r.longitude};save();return 'Wetter-Ort ist jetzt '+r.name+'.'}
-async function websuche(q){const [w,n]=await Promise.all([safe(async()=>{const d=await (await fetch('https://de.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=3&srsearch='+encodeURIComponent(q))).json();
+async function websuche(q,raw){const [w,n]=await Promise.all([safe(async()=>{const d=await (await fetch('https://de.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=3&srsearch='+encodeURIComponent(q))).json();
   const hits=d.query.search;const top=hits[0]?await safe(async()=>(await (await fetch('https://de.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(hits[0].title))).json()).extract):null;
   return hits.map((h,i)=>({t:h.title,x:i===0&&top?top:h.snippet.replace(/<[^>]+>/g,''),u:'https://de.wikipedia.org/wiki/'+encodeURIComponent(h.title.replace(/ /g,'_'))}))}),
  safe(async()=>(await (await fetch('https://www.tagesschau.de/api2u/search/?pageSize=3&searchText='+encodeURIComponent(q))).json()).searchResults.map(r=>({t:r.title,x:(r.firstSentence||r.topline||'')+' ('+(r.date||'').slice(0,10)+')',u:r.shareURL||r.detailsweb||''})))]);
  const R=[...(w||[]),...(n||[])];if(!R.length)return 'Keine Treffer für „'+q+'“.';
  const src=R.map((r,i)=>`[${i+1}] ${r.t}: ${r.x}`).join('\n');
- const ans=await safe(()=>ai([{role:'system',content:'Beantworte die Frage kurz auf Deutsch, nur mit den Quellen. Nenne die Quellennummern [1], [2].'},{role:'user',content:'Frage: '+q+'\n\nQuellen:\n'+src}]));
+ const ans=raw?null:await safe(()=>ai([{role:'system',content:'Beantworte die Frage kurz auf Deutsch, nur mit den Quellen. Nenne die Quellennummern [1], [2].'},{role:'user',content:'Frage: '+q+'\n\nQuellen:\n'+src}]));
  return (ans?ans+'\n\n':'')+'Quellen:\n'+R.map((r,i)=>`[${i+1}] ${r.t} – ${r.u}`).join('\n')}
 async function oeffne(u){const r=await fetch('https://r.jina.ai/'+u);if(!r.ok)throw Error(r.status);const t=(await r.text()).slice(0,6000);
  const sum=await safe(()=>ai([{role:'user',content:'Fasse diese Webseite in 5 Stichpunkten auf Deutsch zusammen:\n\n'+t}]));return (sum||t.slice(0,1200)+' …')+'\n\nQuelle: '+u}
@@ -187,7 +196,7 @@ function local(t){let m;
  if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
  if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
  if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
- if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
+ if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• Tab KI-Team: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
 function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
  return g+', Lucas. Heute ist '+new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'. '+(o.length?o.length+(o.length>1?' offene Aufgaben: ':' offene Aufgabe: ')+o.slice(0,3).map(x=>x.t).join(', ')+'.':'Keine offenen Aufgaben.')+' Bilanz diesen Monat: '+eur(mm)+'. Saldo: '+eur(saldo())+'.'}
 async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),safe(news)]);return [briefBase(),w,k,n].filter(Boolean).join('\n')}
@@ -382,6 +391,35 @@ $('#agCamps').onclick=e=>{const d=e.target.dataset,A=S.agency,id=d.cp||d.td||d.d
 $('#agAdd').onclick=()=>{const n=$('#agNn').value.trim(),d=$('#agNd').value.trim();if(!n)return;const id=n.slice(0,12);S.agency.clients.push({id,n,d:d||n});S.agency.sel=id;$('#agNn').value=$('#agNd').value='';save();agRender()};
 $('#agDel').onclick=()=>{const A=S.agency;if(A.clients.length<2)return;A.clients=A.clients.filter(c=>c.id!==A.sel);A.sel=A.clients[0].id;save();agRender()};
 document.querySelector('[data-t=agency]').addEventListener('click',agRender);
+
+S.team??=[];let tmRun=new Set();
+const TPRE=[{n:'Recherche-Bot',task:'Such die angesagtesten neuen KI-Tools und -Apps dieser Woche. Gib 5 Punkte mit je einem Satz Nutzen, mit Quelle.',tool:'web',sched:'daily',time:'08:00',q:'neue KI Tools'},
+ {n:'Nachrichten-Bot',task:'Fasse die wichtigsten Nachrichten des Tages neutral in 5 Stichpunkten zusammen.',tool:'news',sched:'weekdays',time:'07:00'},
+ {n:'Markt-Bot',task:'Bewerte kurz die Kursbewegung von Bitcoin, Ethereum und Solana in Euro. Keine Anlageberatung, nur Lage in 3 Sätzen.',tool:'markt',sched:'daily',time:'18:00'},
+ {n:'Business-Bot',task:'Gib Lucas einen konkreten Tipp des Tages für seine Nebengeschäfte (Etsy-Vorlagen, KI-Content für Handwerker, Print-on-Demand), umsetzbar in 30 Minuten.',tool:'ki',sched:'daily',time:'12:00'}];
+const tmDue=b=>{if(!b.on||tmRun.has(b.id))return false;const n=new Date();if(b.sched==='once')return !b.last;if(b.sched==='hourly')return Date.now()-b.last>=36e5;
+ const [h,m]=(b.time||'08:00').split(':').map(Number),at=new Date(n);at.setHours(h,m,0,0);if(b.sched==='weekdays'&&(n.getDay()===0||n.getDay()===6))return false;return n>=at&&b.last<at.getTime()};
+async function tmTool(b){if(b.tool==='web')return await websuche(b.q||b.task.slice(0,60),1);if(b.tool==='news')return (await safe(news))||'';if(b.tool==='markt')return [(await safe(kurse)),(await safe(wx))].filter(Boolean).join('\n');return ''}
+async function tmExec(b){if(tmRun.has(b.id))return;tmRun.add(b.id);tmRender();
+ try{const data=await tmTool(b);const out=await ai([{role:'system',content:`Du bist „${b.n}“ im KI-Team von Lucas. Antworte auf Deutsch, kurz, Beträge in Euro.\nDauerhafte Anweisung: ${b.task}\nDein Gedächtnis: ${b.mem||'(leer)'}\nSchreibe am Ende eine Zeile „MERKEN: …“ mit dem Wichtigsten für den nächsten Lauf.`},{role:'user',content:(data?'Material:\n'+data+'\n\n':'')+'Führe deine Aufgabe jetzt aus.'}]);
+  const mm=out.match(/MERKEN:\s*(.+)$/im);if(mm)b.mem=((b.mem?b.mem+' | ':'')+mm[1].trim()).slice(-600);
+  b.out.unshift({t:Date.now(),txt:out.replace(/MERKEN:.*$/im,'').trim()});b.out=b.out.slice(0,10);push('🤖 '+b.n+': fertig')}
+ catch(e){b.out.unshift({t:Date.now(),txt:'Fehler: '+e.message})}
+ b.last=Date.now();if(b.sched==='once')b.on=false;tmRun.delete(b.id);save();tmRender()}
+function tmNext(b){if(!b.on)return 'pausiert';if(b.sched==='once')return b.last?'erledigt':'sofort';if(b.sched==='hourly')return 'stündlich';return (b.sched==='weekdays'?'werktags ':'täglich ')+b.time}
+function tmRender(){$('#tmOn').textContent='● '+S.team.filter(b=>b.on).length+' Bots aktiv'+(tmRun.size?' · '+tmRun.size+' arbeitet':'');
+ $('#tmPre').innerHTML=TPRE.filter(p=>!S.team.some(b=>b.n===p.n)).map((p,i)=>`<button data-pre="${TPRE.indexOf(p)}">+ ${esc(p.n)}</button>`).join('');
+ $('#tmList').innerHTML=S.team.map(b=>`<details class="camp"${tmRun.has(b.id)?' open':''}><summary><b>${esc(b.n)}</b> <span class="m">· ${tmRun.has(b.id)?'arbeitet …':tmNext(b)}${b.last?' · zuletzt '+new Date(b.last).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):''}</span></summary>
+  <div class="m">Aufgabe: ${esc(b.task)}</div><div class="m">Gedächtnis: ${esc(b.mem||'– noch leer –')}</div>
+  ${(b.out[0]?`<pre>${link(esc(b.out[0].txt))}</pre>`:'<p class="m">Noch kein Ergebnis.</p>')}
+  <div class="row"><button class="s" data-run="${b.id}">▶ Jetzt ausführen</button><button class="s" data-tog="${b.id}">${b.on?'Pausieren':'Aktivieren'}</button><button class="s" data-mem="${b.id}">Gedächtnis leeren</button><button class="s" data-del="${b.id}">Löschen</button></div></details>`).join('')||'<p class="m">Noch keine Bots – oben eine Vorlage antippen oder eigenen anlegen.</p>'}
+const tmAdd=o=>{S.team.push({id:Date.now().toString(36),on:true,mem:'',out:[],last:0,time:'08:00',...o});save();tmRender()};
+$('#tmPre').onclick=e=>{const i=e.target.dataset.pre;if(i!=null)tmAdd({...TPRE[i]})};
+$('#tbAdd').onclick=()=>{const n=$('#tbN').value.trim(),t=$('#tbT').value.trim();if(!n||!t)return;tmAdd({n,task:t,tool:$('#tbW').value,sched:$('#tbS').value,time:$('#tbZ').value||'08:00'});$('#tbN').value=$('#tbT').value='';$('#tmNew').open=false};
+$('#tmList').onclick=e=>{const d=e.target.dataset,b=S.team.find(x=>x.id===(d.run||d.tog||d.mem||d.del));if(!b)return;
+ if(d.run)tmExec(b);if(d.tog){b.on=!b.on;save();tmRender()}if(d.mem){b.mem='';save();tmRender()}if(d.del){S.team=S.team.filter(x=>x!==b);save();tmRender()}};
+document.querySelector('[data-t=team]').addEventListener('click',tmRender);
+const tmTick=()=>{for(const b of S.team)if(tmDue(b))tmExec(b)};setTimeout(tmTick,4000);setInterval(tmTick,6e4);
 
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec,listening=false;
 const vs=t=>$('#vs').textContent=t;
