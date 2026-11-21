@@ -99,7 +99,7 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <section id="go"><p class="m">Schnellzugriff auf deine Dienste. Eigene Links unten hinzufügen.</p><div class="list" id="gl"></div>
 <div class="row"><input id="gn" placeholder="Name"><input id="gu" placeholder="https://…"><button id="ga" style="flex:0 0 auto">+</button></div></section>
 
-<section id="cfg"><label>KI-Quelle</label><select id="cm"><option value="ollama">Ollama auf meinem PC (kostenlos)</option><option value="api">Online-API (OpenAI-kompatibel)</option></select>
+<section id="cfg"><label>KI-Quelle</label><select id="cm"><option value="free">Kostenlos ohne Konto (1 Antwort / 45 s)</option><option value="ollama">Ollama auf meinem PC (kostenlos)</option><option value="api">Online-API (OpenAI-kompatibel)</option></select>
 <label>Adresse</label><input id="cu"><label>Modell</label><input id="co"><label>API-Schlüssel (nur bei Online-API)</label><input id="ck" type="password"><label>Bild-Modell (zum Ansehen von Bildern/Videos – leer = gleiches Modell)</label><input id="cv" placeholder="Ollama z. B. llava · Online: ein Modell mit Bild-Eingabe">
 <div class="row"><button class="p" id="cs">Speichern</button><button id="ct">Verbindung testen</button></div><div class="m" id="cr"></div>
 <h3>Sicherung</h3><div class="row"><button id="bx">Backup herunterladen</button><label style="flex:1 1 200px">Backup laden<input type="file" id="bi" accept=".json"></label></div></section>
@@ -109,7 +109,8 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 let S={};try{S=JSON.parse(localStorage.jarvis||'{}')}catch(e){}
 S.fin??=[];S.todo??=[];S.apps??=[];S.chat??=[];
-S.cfg??={mode:'ollama',url:'http://localhost:11434',model:'llama3.2',key:''};
+S.cfg??={mode:'free',url:'https://text.pollinations.ai/openai',model:'openai',key:''};
+if(S.cfg.mode==='ollama'&&S.cfg.url==='http://localhost:11434'&&S.cfg.model==='llama3.2'&&!S.cfgTouched){S.cfg={mode:'free',url:'https://text.pollinations.ai/openai',model:'openai',key:''};try{localStorage.jarvis=JSON.stringify(S)}catch(e){}}
 S.links??=[['Gmail','https://mail.google.com'],['Kalender','https://calendar.google.com'],['Drive','https://drive.google.com'],['Todoist','https://app.todoist.com'],['Shopify','https://admin.shopify.com'],['PayPal','https://www.paypal.com']];
 const save=()=>{try{localStorage.jarvis=JSON.stringify(S)}catch(e){}};
 const eur=n=>n.toLocaleString('de-DE',{style:'currency',currency:'EUR'});
@@ -121,11 +122,19 @@ const dl=(name,txt,type)=>{const a=document.createElement('a');a.href=URL.create
 
 $$('nav button').forEach(b=>b.onclick=()=>{$$('nav button,section').forEach(e=>e.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.t).classList.add('on');render()});
 
-async function ai(msgs){const c=S.cfg,u=c.url.replace(/\/$/,'');
+let freeNext=0,freeQ=Promise.resolve();
+const kiWait=t=>{const e=$('#st');if(e)e.textContent=t};
+function aiFree(msgs){const run=async()=>{for(let k=0;k<4;k++){let w=freeNext-Date.now();while(w>0){kiWait('KI (kostenlos) antwortet in '+Math.ceil(w/1000)+' s …');await new Promise(r=>setTimeout(r,Math.min(w,1000)));w=freeNext-Date.now()}
+  kiWait('KI denkt …');const r=await fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'openai',messages:msgs})});freeNext=Date.now()+46e3;
+  if(r.status===402||r.status===429){const j=await r.json().catch(()=>({}));const sec=+(r.headers.get('Retry-After')||((j.error?.message||'').match(/after (\d+)s/)||[])[1]||45);freeNext=Date.now()+sec*1000+1000;continue}
+  if(!r.ok)throw Error('Kostenlose KI '+r.status);const d=await r.json();render();return (d.choices?.[0]?.message?.content||'').trim()}throw Error('Kostenlose KI ist gerade überlastet')};
+ const p=freeQ.then(run,run);freeQ=p.catch(()=>{});return p}
+async function ai(msgs){const c=S.cfg,u=c.url.replace(/\/$/,'');if(c.mode==='free')return aiFree(msgs);
  if(c.mode==='ollama'){const r=await fetch(u+'/api/chat',{method:'POST',body:JSON.stringify({model:c.model,messages:msgs,stream:false})});if(!r.ok)throw Error('Ollama '+r.status);return (await r.json()).message.content}
  const r=await fetch(u+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+c.key},body:JSON.stringify({model:c.model,messages:msgs})});
  if(!r.ok)throw Error('API '+r.status);return (await r.json()).choices[0].message.content}
 async function aiImg(text,imgs){const c=S.cfg,u=c.url.replace(/\/$/,''),model=c.vision||c.model;
+ if(c.mode==='free')throw Error('Die kostenlose KI ohne Konto kann keine Bilder ansehen');
  if(c.mode==='ollama'){const r=await fetch(u+'/api/chat',{method:'POST',body:JSON.stringify({model,stream:false,messages:[{role:'user',content:text,images:imgs.map(d=>d.split(',')[1])}]})});if(!r.ok)throw Error('Ollama '+r.status);return (await r.json()).message.content}
  const r=await fetch(u+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+c.key},body:JSON.stringify({model,messages:[{role:'user',content:[{type:'text',text},...imgs.map(d=>({type:'image_url',image_url:{url:d}}))]}]})});
  if(!r.ok)throw Error('API '+r.status+(r.status===400||r.status===404?' – Bild-Modell in den Einstellungen prüfen':''));return (await r.json()).choices[0].message.content}
@@ -158,6 +167,9 @@ function local(t){let m;
  if(m=t.match(/^(?:suche|such|google|recherchiere)(?: im internet)?(?: nach)?:?\s+(.+)$/i))return websuche(m[1]);
  if(m=t.match(/^(?:öffne|lies|zusammenfassen?)\s+(https?:\/\/\S+)/i))return safe(()=>oeffne(m[1])).then(x=>x||'Diese Seite konnte ich nicht lesen (Seite blockiert oder Lesedienst überlastet).');
  if(m=t.match(/^(?:bild|zeichne|male|erstelle (?:ein|mir ein) bild(?: von)?|generiere (?:ein )?bild(?: von)?)\s+(.+)$/i))return bild(m[1]);
+ if(m=t.match(/(?:bild|foto|grafik)(?:er)?\s+(?:von|mit|vom|zu)\s+(.+?)[?.!]*$/i))return bild(m[1]);
+ if(/(bild|bilder|foto|grafik).*(generier|erstell|mach|mal|zeichn)|(generier|erstell|mach|mal|zeichn).*(bild|bilder|foto|grafik)/i.test(t))return 'Klar! Sag mir einfach, was drauf sein soll – z. B. „bild ein roter BMW E46 bei Nacht“ oder „mach ein Bild von einem Hund im Auto“.';
+ if(/(kannst|darfst) du.*(video|videos).*(erstell|generier|mach)/i.test(t))return 'Kostenlose KI-Videos gibt es gerade nicht ohne Konto und Bezahlung. Bilder kann ich: „bild …“.';
  if(/^(video|erstelle (?:ein|mir ein) video)/i.test(t))return 'Kostenlose KI-Videos gibt es gerade nicht ohne Konto und Bezahlung. Ich kann dir Bilder erzeugen („bild …“) – daraus lässt sich in CapCut ein Video schneiden.';
  if(m=t.match(/^merk(?:e)? dir:?\s+(.+)$/i)){S.mem.push(m[1]);save();return 'Gemerkt: '+m[1]}
  if(/^was (weißt|weisst) du( über mich)?\??$/i.test(t))return S.mem.length?'Das habe ich mir gemerkt:\n'+S.mem.map(x=>'• '+x).join('\n'):'Ich habe mir noch nichts gemerkt. Sag „merke dir …“.';
@@ -223,14 +235,14 @@ $('#ga').onclick=()=>{const n=$('#gn').value.trim(),u=$('#gu').value.trim();if(n
 $('#gl').onclick=e=>{const i=e.target.dataset.del;if(i!=null){S.links.splice(i,1);save();render()}};
 
 const fill=()=>{$('#cv').value=S.cfg.vision||'';$('#cm').value=S.cfg.mode;$('#cu').value=S.cfg.url;$('#co').value=S.cfg.model;$('#ck').value=S.cfg.key};
-$('#cm').onchange=()=>{const o=$('#cm').value==='ollama';$('#cu').value=o?'http://localhost:11434':'https://api.groq.com/openai/v1';$('#co').value=o?'llama3.2':'llama-3.3-70b-versatile'};
-$('#cs').onclick=()=>{S.cfg={mode:$('#cm').value,url:$('#cu').value.trim(),model:$('#co').value.trim(),key:$('#ck').value.trim(),vision:$('#cv').value.trim()};save();$('#cr').textContent='Gespeichert.';render()};
+$('#cm').onchange=()=>{const m=$('#cm').value;$('#cu').value={free:'https://text.pollinations.ai/openai',ollama:'http://localhost:11434',api:'https://api.groq.com/openai/v1'}[m];$('#co').value={free:'openai',ollama:'llama3.2',api:'llama-3.3-70b-versatile'}[m]};
+$('#cs').onclick=()=>{S.cfgTouched=1;S.cfg={mode:$('#cm').value,url:$('#cu').value.trim(),model:$('#co').value.trim(),key:$('#ck').value.trim(),vision:$('#cv').value.trim()};save();$('#cr').textContent='Gespeichert.';render()};
 $('#ct').onclick=async()=>{$('#cs').click();$('#cr').textContent='Teste …';try{$('#cr').textContent='OK: '+(await ai([{role:'user',content:'Sag nur: Bereit.'}]))}catch(e){$('#cr').textContent='Keine Verbindung: '+e.message}};
 $('#bx').onclick=()=>dl('jarvis-backup-'+today()+'.json',JSON.stringify(S),'application/json');
 $('#bi').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{S={...S,...JSON.parse(await f.text())};save();fill();render();$('#cr').textContent='Backup geladen.'}catch(x){$('#cr').textContent='Datei ungültig.'}};
 
 function render(){
- $('#st').textContent=(S.cfg.mode==='ollama'?'Lokale KI':'Online-KI')+' · '+S.todo.filter(x=>!x.ok).length+' Aufgaben offen';
+ $('#st').textContent=({free:'KI kostenlos',ollama:'Lokale KI',api:'Online-KI'}[S.cfg.mode]||'KI')+' · '+S.todo.filter(x=>!x.ok).length+' Aufgaben offen';
  $('#log').innerHTML=S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${link(esc(m.content))}${m.img?`<a href="${esc(m.img)}" target="_blank" rel="noopener"><img src="${esc(m.img)}" alt="Bild" style="display:block;max-width:100%;border-radius:8px;margin-top:8px"></a>`:''}</div>`).join(''):'<p class="m mono">&gt; Systeme online. Hallo Lucas. Tipp »hilfe« für Befehle, die ohne KI laufen.</p>';
  const s=saldo(),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo));
  $('#sal').textContent=eur(s);$('#sal').className='big '+(s<0?'neg':'pos');
