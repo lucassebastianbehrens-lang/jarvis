@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jarvis</title><meta name="theme-color" content="#050506"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg"><link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050506;--pan:#0d0b0c;--ink:#f3e9e6;--red:#ff2a2a;--org:#ff6a1a;--mut:#8a7470;--ln:#3a1414;--glow:0 0 12px #ff2a2a66}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:radial-gradient(ellipse at 50% 30%,#2a0808 0,var(--bg) 60%) fixed;color:var(--ink);font:16px/1.5 Rajdhani,system-ui,sans-serif;display:flex;flex-direction:column;height:100vh;height:100dvh}
+.mono{font-family:'Share Tech Mono',monospace}
+header{padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--ln)}
+header b{font:700 20px Rajdhani,system-ui,sans-serif;white-space:nowrap;letter-spacing:3px;color:var(--red);text-shadow:var(--glow)}header b i{color:var(--mut);font-style:normal}
+header span{color:var(--mut);font-size:13px;margin-left:auto}#clk{font-size:22px;color:var(--ink)}
+.hud{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:12px;padding:12px 16px}
+.ring{position:relative;aspect-ratio:1}.ring svg{width:100%;height:100%}.spin{transform-origin:50% 50%;animation:sp 18s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.spin{animation:none}}
+.ring div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}.ring div b{font-size:30px;color:var(--red);text-shadow:var(--glow)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;align-content:start}
+.tile{background:var(--pan);border:1px solid var(--ln);border-left:2px solid var(--red);padding:8px 10px}.tile small{color:var(--mut);font-size:13px;display:block}.tile b{font-size:clamp(16px,2.2vw,26px);white-space:nowrap;display:block;overflow:hidden;text-overflow:ellipsis}
+.bars{grid-column:1/-1;display:flex;align-items:flex-end;gap:2px;height:70px;border-bottom:1px solid var(--ln)}.bars i{flex:1;background:linear-gradient(var(--org),var(--red));min-height:2px;box-shadow:var(--glow)}
+nav{display:flex;gap:6px;padding:0 16px 8px;overflow-x:auto}nav button{flex:none}
+main{flex:1;overflow:auto;padding:8px 16px 24px}
+section{display:none;max-width:980px;margin:auto}section.on{display:block}
+button{background:var(--pan);color:var(--ink);border:1px solid var(--ln);border-radius:4px;padding:10px 14px;font:600 15px Rajdhani,system-ui,sans-serif;letter-spacing:1px;text-transform:uppercase;min-height:44px;cursor:pointer}
+button:hover{border-color:var(--red)}button.p{background:var(--red);border-color:var(--red);color:#fff;box-shadow:var(--glow)}
+nav button.on{color:var(--red);border-color:var(--red);box-shadow:var(--glow)}
+button.s{min-height:34px;padding:4px 10px;font-size:13px}
+input,textarea,select{width:100%;background:#000;color:var(--ink);border:1px solid var(--ln);border-radius:4px;padding:10px;font:16px 'Share Tech Mono',monospace}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--red);box-shadow:var(--glow)}
+textarea{min-height:90px;resize:vertical}label{font-size:13px;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
+.row{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}.row>*{flex:1 1 140px}
+.msg{padding:10px 12px;margin:6px 0;white-space:pre-wrap;max-width:88%;width:fit-content;font-family:'Share Tech Mono',monospace;font-size:15px}
+.u{background:#1a0c0c;margin-left:auto;border-right:2px solid var(--org)}.a{background:var(--pan);border-left:2px solid var(--red)}
+.big{font-size:clamp(30px,9vw,48px);font-weight:700;line-height:1.1}
+.list>div{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--ln)}
+.neg{color:var(--red)}.pos{color:#5fe39a}.m{color:var(--mut);font-size:13px}h3{color:var(--org);letter-spacing:2px;text-transform:uppercase;font-size:15px}
+iframe{width:100%;height:60vh;border:1px solid var(--ln);background:#fff;margin-top:8px}
+a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
+.ring.live svg{animation:pl 1s ease-in-out infinite}@keyframes pl{50%{filter:drop-shadow(0 0 14px #ff2a2a)}}
+.ring{cursor:pointer}button.rec{background:var(--red);color:#fff;animation:pl 1s infinite}
+.voice{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.voice label{display:flex;align-items:center;gap:6px;text-transform:none;font-size:14px}.voice input{width:auto}
+@media(max-width:520px){.hud{grid-template-columns:96px minmax(0,1fr);padding:8px 12px}.tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.tile{padding:5px 8px}.bars{height:36px}header b i{display:none}.ring .m{font-size:10px}.ring div b{font-size:20px}#st{display:none}#clk{font-size:16px}}
+</style></head><body>
+<header><b>JARVIS <i>// COMMAND CENTER</i></b><span id="st" class="mono"></span><span id="clk" class="mono"></span></header>
+<div class="hud"><div class="ring" id="core" title="Tippen zum Sprechen"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#3a1414" stroke-width="1"/><circle class="spin" cx="50" cy="50" r="42" fill="none" stroke="#ff6a1a" stroke-width="1" stroke-dasharray="2 4"/><circle cx="50" cy="50" r="36" fill="none" stroke="#2a0c0c" stroke-width="6"/><circle id="arc" cx="50" cy="50" r="36" fill="none" stroke="#ff2a2a" stroke-width="6" stroke-linecap="round" transform="rotate(-90 50 50)" stroke-dasharray="0 227" style="filter:drop-shadow(0 0 4px #ff2a2a)"/></svg><div><b id="pct" class="mono">0%</b><span class="m">Aufgaben erledigt</span></div></div>
+<div class="tiles"><div class="tile"><small>Saldo</small><b id="h1" class="mono"></b></div><div class="tile"><small>Monat</small><b id="h2" class="mono"></b></div><div class="tile"><small>Offen</small><b id="h3" class="mono"></b></div><div class="tile"><small>Apps</small><b id="h4" class="mono"></b></div><div class="bars" id="bars" title="Ausgaben letzte 30 Tage"></div></div></div>
+<nav>
+<button data-t="chat" class="on">Chat</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
+</nav>
+<main>
+<section id="chat" class="on"><div id="log"></div>
+<div class="row"><textarea id="in" placeholder="Frag Jarvis … (»hilfe« zeigt Befehle ohne KI)"></textarea></div>
+<div class="row"><button class="p" id="send">Senden</button><button id="mic">🎙 Sprechen</button><button id="brf">Briefing</button><button id="clr">Leeren</button></div>
+<div class="voice"><label><input type="checkbox" id="tts" checked> Jarvis spricht</label><label><input type="checkbox" id="wake"> „Hey Jarvis“ dauerhaft hören</label></div>
+<div class="m" id="vs"></div></section>
+
+<section id="fin"><div class="m">Saldo</div><div class="big" id="sal"></div><div class="m" id="mon"></div>
+<div class="row"><input id="fd" type="date"><input id="fv" inputmode="decimal" placeholder="Betrag €"><input id="ft" placeholder="Wofür?"></div>
+<div class="row"><button class="p" id="fout">− Ausgabe</button><button id="fin2">+ Einnahme</button></div><div class="list" id="fl"></div></section>
+
+<section id="bot"><div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
+<div class="tile"><small>Modus</small><b id="b1" class="mono">–</b></div><div class="tile"><small>Status</small><b id="b2" class="mono">–</b></div>
+<div class="tile"><small>Gewinn gesamt</small><b id="b3" class="mono">–</b></div><div class="tile"><small>Trades / Trefferquote</small><b id="b4" class="mono">–</b></div>
+<div class="bars" id="bbars" title="Gewinn pro Tag, 14 Tage"></div></div>
+<div class="m" id="bmsg" style="margin:8px 0">Nicht verbunden – Server unten eintragen.</div>
+<div class="row"><button id="bstart">▶ Start</button><button id="bstop">■ Stop</button><button class="p" id="bkill">Not-Aus: alles verkaufen</button><button id="bref">↻</button></div>
+<h3>Offene Trades</h3><div class="list" id="btr"></div>
+<h3>Bot-Server</h3><label>Adresse (Freqtrade)</label><input id="bu" placeholder="https://1-2-3-4.sslip.io">
+<div class="row"><input id="bn" placeholder="Benutzer"><input id="bp" type="password" placeholder="Passwort"></div>
+<div class="row"><button class="p" id="bsave">Verbinden</button></div></section>
+<section id="todo"><div class="row"><input id="tt" placeholder="Neue Aufgabe"><button class="p" id="tadd" style="flex:0 0 auto">Anlegen</button></div><div class="list" id="tl"></div></section>
+
+<section id="lab"><label>Beschreib die App, Jarvis baut sie als eine HTML-Datei</label>
+<textarea id="lp" placeholder="z. B. Spritkosten-Rechner für meinen BMW E46 mit Verlauf"></textarea>
+<div class="row"><input id="ln" placeholder="Name der App"><button class="p" id="lb">Bauen</button></div>
+<div class="m" id="ls"></div><iframe id="lv" sandbox="allow-scripts allow-forms"></iframe>
+<h3>Gespeicherte Apps</h3><div class="list" id="ll"></div></section>
+
+<section id="go"><p class="m">Schnellzugriff auf deine Dienste. Eigene Links unten hinzufügen.</p><div class="list" id="gl"></div>
+<div class="row"><input id="gn" placeholder="Name"><input id="gu" placeholder="https://…"><button id="ga" style="flex:0 0 auto">+</button></div></section>
+
+<section id="cfg"><label>KI-Quelle</label><select id="cm"><option value="ollama">Ollama auf meinem PC (kostenlos)</option><option value="api">Online-API (OpenAI-kompatibel)</option></select>
+<label>Adresse</label><input id="cu"><label>Modell</label><input id="co"><label>API-Schlüssel (nur bei Online-API)</label><input id="ck" type="password">
+<div class="row"><button class="p" id="cs">Speichern</button><button id="ct">Verbindung testen</button></div><div class="m" id="cr"></div>
+<h3>Sicherung</h3><div class="row"><button id="bx">Backup herunterladen</button><label style="flex:1 1 200px">Backup laden<input type="file" id="bi" accept=".json"></label></div></section>
+</main>
+<script>
+{
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+let S={};try{S=JSON.parse(localStorage.jarvis||'{}')}catch(e){}
+S.fin??=[];S.todo??=[];S.apps??=[];S.chat??=[];
+S.cfg??={mode:'ollama',url:'http://localhost:11434',model:'llama3.2',key:''};
+S.links??=[['Gmail','https://mail.google.com'],['Kalender','https://calendar.google.com'],['Drive','https://drive.google.com'],['Todoist','https://app.todoist.com'],['Shopify','https://admin.shopify.com'],['PayPal','https://www.paypal.com']];
+const save=()=>{try{localStorage.jarvis=JSON.stringify(S)}catch(e){}};
+const eur=n=>n.toLocaleString('de-DE',{style:'currency',currency:'EUR'});
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const today=()=>new Date().toISOString().slice(0,10);
+const saldo=()=>S.fin.reduce((a,x)=>a+x.v,0);
+const dl=(name,txt,type)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type}));a.download=name;a.click()};
+
+$$('nav button').forEach(b=>b.onclick=()=>{$$('nav button,section').forEach(e=>e.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.t).classList.add('on');render()});
+
+async function ai(msgs){const c=S.cfg,u=c.url.replace(/\/$/,'');
+ if(c.mode==='ollama'){const r=await fetch(u+'/api/chat',{method:'POST',body:JSON.stringify({model:c.model,messages:msgs,stream:false})});if(!r.ok)throw Error('Ollama '+r.status);return (await r.json()).message.content}
+ const r=await fetch(u+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+c.key},body:JSON.stringify({model:c.model,messages:msgs})});
+ if(!r.ok)throw Error('API '+r.status);return (await r.json()).choices[0].message.content}
+const SYS={role:'system',content:'Du bist Jarvis, der persönliche Assistent von Lucas. Antworte immer auf Deutsch, kurz und direkt. Beträge in Euro. Heute ist '+today()+'. Kontext: Saldo '+0+' €.'};
+
+function local(t){let m;
+ if(m=t.match(/^(ausgabe|einnahme)\s+([\d.,]+)\s*(.*)$/i)){const v=parseFloat(m[2].replace(/\./g,'').replace(',','.'))*(/ausgabe/i.test(m[1])?-1:1);
+  S.fin.unshift({d:today(),v,t:m[3]||m[1]});return 'Gebucht: '+eur(v)+' '+m[3]+'\nSaldo: '+eur(saldo())}
+ if(m=t.match(/^aufgabe\s+(.+)$/i)){S.todo.push({t:m[1],ok:false});return 'Aufgabe angelegt: '+m[1]}
+ if(/^saldo$/i.test(t))return 'Saldo: '+eur(saldo());
+ if(/^aufgaben$/i.test(t))return S.todo.filter(x=>!x.ok).map(x=>'• '+x.t).join('\n')||'Keine offenen Aufgaben.';
+ if(m=t.match(/^(?:timer|erinnere mich in)\s+(\d+)\s*(?:min\w*)?\s*(?:an\s+)?(.*)$/i)){const n=+m[1],w=m[2]||'Timer';setTimeout(()=>{beep();say('Lucas, Erinnerung: '+w);S.chat.push({role:'assistant',content:'⏰ '+w});save();render()},n*6e4);return 'Timer gestellt: '+n+' Min – '+w}
+ if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
+ if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
+ if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
+ if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
+function brief(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
+ return g+', Lucas. Heute ist '+new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'. '+(o.length?o.length+(o.length>1?' offene Aufgaben: ':' offene Aufgabe: ')+o.slice(0,3).map(x=>x.t).join(', ')+'.':'Keine offenen Aufgaben.')+' Bilanz diesen Monat: '+eur(mm)+'. Saldo: '+eur(saldo())+'.'}
+function say(t){if(!$('#tts').checked||!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/[•⏰*#]/g,''));u.lang='de-DE';u.rate=1.05;
+ const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('de')&&/male|Mann|Markus|Yannick|Conrad/i.test(v.name))||speechSynthesis.getVoices().find(v=>v.lang.startsWith('de'));if(v)u.voice=v;
+ u.onstart=()=>$('#core').classList.add('live');u.onend=()=>$('#core').classList.remove('live');speechSynthesis.speak(u)}
+function beep(){try{const a=new AudioContext(),o=a.createOscillator();o.frequency.value=880;o.connect(a.destination);o.start();o.stop(a.currentTime+.3)}catch(e){}}
+
+$('#send').onclick=async()=>{const t=$('#in').value.trim();if(!t)return;$('#in').value='';S.chat.push({role:'user',content:t});
+ const l=local(t);if(l){S.chat.push({role:'assistant',content:l});save();say(l);return render()}
+ S.chat.push({role:'assistant',content:'…'});render();
+ const sys={...SYS,content:SYS.content.replace('Saldo 0','Saldo '+saldo().toFixed(2))+' Offene Aufgaben: '+S.todo.filter(x=>!x.ok).map(x=>x.t).join('; ')};
+ try{S.chat.at(-1).content=await ai([sys,...S.chat.slice(-11,-1)])}catch(e){S.chat.at(-1).content='Fehler: '+e.message+'. Einstellungen prüfen.'}
+ save();render();say(S.chat.at(-1).content)};
+$('#in').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('#send').click()}};
+$('#clr').onclick=()=>{S.chat=[];save();render()};
+
+const book=s=>{const v=parseFloat($('#fv').value.replace(/\./g,'').replace(',','.'));if(!v)return;S.fin.unshift({d:$('#fd').value||today(),v:s*Math.abs(v),t:$('#ft').value||(s<0?'Ausgabe':'Einnahme')});$('#fv').value=$('#ft').value='';save();render()};
+$('#fout').onclick=()=>book(-1);$('#fin2').onclick=()=>book(1);
+$('#fl').onclick=e=>{const i=e.target.dataset.del;if(i!=null){S.fin.splice(i,1);save();render()}};
+
+$('#tadd').onclick=()=>{const t=$('#tt').value.trim();if(t){S.todo.push({t,ok:false});$('#tt').value='';save();render()}};
+$('#tt').onkeydown=e=>{if(e.key==='Enter')$('#tadd').click()};
+$('#tl').onclick=e=>{const d=e.target.dataset;if(d.ok!=null)S.todo[d.ok].ok=!S.todo[d.ok].ok;else if(d.del!=null)S.todo.splice(d.del,1);else return;save();render()};
+
+$('#lb').onclick=async()=>{const p=$('#lp').value.trim();if(!p)return;$('#ls').textContent='Jarvis baut …';
+ try{let h=await ai([{role:'system',content:'Du bist ein Web-Entwickler. Gib NUR eine vollständige, eigenständige HTML-Datei aus (CSS und JS inline, keine Erklärung). Deutsch, mobilfreundlich, Daten in localStorage.'},{role:'user',content:p}]);
+  h=(h.match(/```(?:html)?\s*([\s\S]*?)```/)||[,h])[1].trim();
+  S.apps.unshift({n:$('#ln').value||p.slice(0,30),h});save();$('#lv').srcdoc=h;$('#ls').textContent='Fertig und gespeichert.';render()}
+ catch(e){$('#ls').textContent='Fehler: '+e.message}};
+$('#ll').onclick=e=>{const d=e.target.dataset,a=S.apps[d.i];if(!a)return;
+ if(d.a==='o')$('#lv').srcdoc=a.h;if(d.a==='d')dl(a.n.replace(/\W+/g,'-')+'.html',a.h,'text/html');if(d.a==='x'){S.apps.splice(d.i,1);save();render()}};
+
+$('#ga').onclick=()=>{const n=$('#gn').value.trim(),u=$('#gu').value.trim();if(n&&/^https?:/.test(u)){S.links.push([n,u]);$('#gn').value=$('#gu').value='';save();render()}};
+$('#gl').onclick=e=>{const i=e.target.dataset.del;if(i!=null){S.links.splice(i,1);save();render()}};
+
+const fill=()=>{$('#cm').value=S.cfg.mode;$('#cu').value=S.cfg.url;$('#co').value=S.cfg.model;$('#ck').value=S.cfg.key};
+$('#cm').onchange=()=>{const o=$('#cm').value==='ollama';$('#cu').value=o?'http://localhost:11434':'https://api.groq.com/openai/v1';$('#co').value=o?'llama3.2':'llama-3.3-70b-versatile'};
+$('#cs').onclick=()=>{S.cfg={mode:$('#cm').value,url:$('#cu').value.trim(),model:$('#co').value.trim(),key:$('#ck').value.trim()};save();$('#cr').textContent='Gespeichert.';render()};
+$('#ct').onclick=async()=>{$('#cs').click();$('#cr').textContent='Teste …';try{$('#cr').textContent='OK: '+(await ai([{role:'user',content:'Sag nur: Bereit.'}]))}catch(e){$('#cr').textContent='Keine Verbindung: '+e.message}};
+$('#bx').onclick=()=>dl('jarvis-backup-'+today()+'.json',JSON.stringify(S),'application/json');
+$('#bi').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{S={...S,...JSON.parse(await f.text())};save();fill();render();$('#cr').textContent='Backup geladen.'}catch(x){$('#cr').textContent='Datei ungültig.'}};
+
+function render(){
+ $('#st').textContent=(S.cfg.mode==='ollama'?'Lokale KI':'Online-KI')+' · '+S.todo.filter(x=>!x.ok).length+' Aufgaben offen';
+ $('#log').innerHTML=S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${esc(m.content)}</div>`).join(''):'<p class="m mono">&gt; Systeme online. Hallo Lucas. Tipp »hilfe« für Befehle, die ohne KI laufen.</p>';
+ const s=saldo(),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo));
+ $('#sal').textContent=eur(s);$('#sal').className='big '+(s<0?'neg':'pos');
+ $('#mon').textContent='Diesen Monat: +'+eur(mm.filter(x=>x.v>0).reduce((a,x)=>a+x.v,0))+' / '+eur(mm.filter(x=>x.v<0).reduce((a,x)=>a+x.v,0));
+ $('#fl').innerHTML=S.fin.map((x,i)=>`<div><span>${esc(x.t)}<br><span class="m">${x.d}</span></span><span class="${x.v<0?'neg':'pos'}">${eur(x.v)} <button class="s" data-del="${i}">✕</button></span></div>`).join('')||'<p class="m">Noch keine Buchungen.</p>';
+ $('#tl').innerHTML=S.todo.map((x,i)=>`<div><span class="${x.ok?'done':''}">${esc(x.t)}</span><span><button class="s" data-ok="${i}">${x.ok?'↺':'✓'}</button> <button class="s" data-del="${i}">✕</button></span></div>`).join('')||'<p class="m">Nichts offen.</p>';
+ $('#ll').innerHTML=S.apps.map((a,i)=>`<div><span>${esc(a.n)}</span><span><button class="s" data-i="${i}" data-a="o">Öffnen</button> <button class="s" data-i="${i}" data-a="d">Download</button> <button class="s" data-i="${i}" data-a="x">✕</button></span></div>`).join('')||'<p class="m">Noch keine Apps gebaut.</p>';
+ $('#gl').innerHTML=S.links.map(([n,u],i)=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a><button class="s" data-del="${i}">✕</button></div>`).join('');
+ const done=S.todo.filter(x=>x.ok).length,p=S.todo.length?Math.round(done/S.todo.length*100):0;
+ $('#arc').setAttribute('stroke-dasharray',(p*2.262).toFixed(1)+' 227');$('#pct').textContent=p+'%';
+ $('#h1').textContent=eur(s);$('#h1').className='mono '+(s<0?'neg':'pos');$('#h2').textContent=eur(mm.reduce((a,x)=>a+x.v,0));
+ $('#h3').textContent=S.todo.length-done;$('#h4').textContent=S.apps.length;
+ const D=[...Array(30)].map((_,i)=>{const d=new Date(Date.now()-(29-i)*864e5).toISOString().slice(0,10);return -S.fin.filter(x=>x.d===d&&x.v<0).reduce((a,x)=>a+x.v,0)}),mx=Math.max(1,...D);
+ $('#bars').innerHTML=D.map(v=>`<i style="height:${v/mx*100}%"></i>`).join('');
+ if($('#chat').classList.contains('on'))$('main').scrollTop=1e9}
+
+S.bot??={url:'',u:'',p:''};let kill=0,btimer,bnote='';
+async function ft(path,post,body){const b=S.bot;if(!b.url)throw Error('kein Server');
+ const r=await fetch(b.url.replace(/\/$/,'')+'/api/v1/'+path,{method:post?'POST':'GET',headers:{Authorization:'Basic '+btoa(b.u+':'+b.p),'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
+ if(!r.ok)throw Error('Bot '+r.status);return r.json()}
+async function botLoad(){if(!S.bot.url)return;
+ try{const [c,p,st,d]=await Promise.all([ft('show_config'),ft('profit'),ft('status'),ft('daily?timescale=14')]);
+  const cur=c.stake_currency||'€',f=n=>(n>=0?'+':'')+(cur==='EUR'?eur(+n||0):(+n||0).toFixed(2)+' '+cur);
+  $('#b1').textContent=c.dry_run?'TEST':'ECHT';$('#b1').className='mono '+(c.dry_run?'pos':'neg');
+  $('#b2').textContent=c.state==='running'?'läuft':'gestoppt';
+  $('#b3').textContent=f(p.profit_all_coin);$('#b3').className='mono '+(p.profit_all_coin<0?'neg':'pos');
+  const w=p.winning_trades||0,l=p.losing_trades||0;$('#b4').textContent=(p.trade_count||0)+' / '+(w+l?Math.round(w/(w+l)*100):0)+'%';
+  const D=(d.data||[]).slice().reverse().map(x=>x.abs_profit||0),mx=Math.max(1e-9,...D.map(Math.abs));
+  $('#bbars').innerHTML=D.map(v=>`<i style="height:${Math.abs(v)/mx*100}%;${v<0?'background:#555;box-shadow:none':''}" title="${v.toFixed(2)}"></i>`).join('');
+  $('#btr').innerHTML=st.map(t=>`<div><span>${esc(t.pair)}<br><span class="m">Einstieg ${(+t.open_rate).toPrecision(5)} · jetzt ${(+t.current_rate).toPrecision(5)}</span></span><span class="${t.profit_abs<0?'neg':'pos'}">${f(t.profit_abs)} (${((t.profit_ratio||0)*100).toFixed(1)}%)</span></div>`).join('')||'<p class="m">Keine offenen Trades.</p>';
+  S.botLast={mode:$('#b1').textContent,state:$('#b2').textContent,profit:f(p.profit_all_coin),open:st.length};
+  $('#bmsg').textContent=(bnote?bnote+' · ':'')+'Verbunden · Strategie '+(c.strategy||'?')+' · aktualisiert '+new Date().toLocaleTimeString('de-DE')}
+ catch(e){$('#bmsg').textContent='Keine Verbindung zum Bot: '+e.message}}
+const bact=async(p,b,msg)=>{try{await ft(p,1,b);bnote=msg;$('#bmsg').textContent=msg;setTimeout(botLoad,800)}catch(e){$('#bmsg').textContent='Fehler: '+e.message}};
+$('#bstart').onclick=()=>bact('start',0,'Bot gestartet.');$('#bstop').onclick=()=>bact('stop',0,'Bot gestoppt.');
+$('#bkill').onclick=async()=>{if(!kill){kill=1;$('#bkill').textContent='Sicher? Nochmal tippen';setTimeout(()=>{kill=0;$('#bkill').textContent='Not-Aus: alles verkaufen'},4000);return}
+ kill=0;$('#bkill').textContent='Not-Aus: alles verkaufen';try{await ft('stop',1);await ft('forceexit',1,{tradeid:'all'});bnote='NOT-AUS: Bot gestoppt, alle Trades verkauft';$('#bmsg').textContent=bnote;say('Not-Aus ausgeführt.');botLoad()}catch(e){$('#bmsg').textContent='Not-Aus Fehler: '+e.message}};
+$('#bref').onclick=botLoad;
+$('#bsave').onclick=()=>{S.bot={url:$('#bu').value.trim(),u:$('#bn').value.trim(),p:$('#bp').value};save();botLoad()};
+$('#bu').value=S.bot.url;$('#bn').value=S.bot.u;$('#bp').value=S.bot.p;
+document.querySelector('[data-t=bot]').addEventListener('click',()=>{botLoad();clearInterval(btimer);btimer=setInterval(()=>$('#bot').classList.contains('on')?botLoad():clearInterval(btimer),30000)});
+
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec,listening=false;
+const vs=t=>$('#vs').textContent=t;
+function ask(t){$('#in').value=t;$('#send').click()}
+function listen(once){if(!SR){vs('Spracherkennung geht nur in Chrome/Edge.');return}
+ try{rec&&rec.abort()}catch(e){}rec=new SR();rec.lang='de-DE';rec.interimResults=false;rec.continuous=!once;
+ rec.onstart=()=>{listening=true;$('#core').classList.add('live');$('#mic').classList.add('rec');vs(once?'Ich höre …':'Warte auf „Hey Jarvis“ …')};
+ rec.onresult=e=>{const t=e.results[e.results.length-1][0].transcript.trim();
+  if(once)return ask(t);const m=t.match(/(?:hey |hallo |ok )?jarvis[,.!]?\s*(.*)/i);if(m){beep();m[1]?ask(m[1]):(say('Ja?'),setTimeout(()=>listen(true),900))}};
+ rec.onerror=e=>{if(e.error==='not-allowed'){$('#wake').checked=S.wake=false;save()}vs(e.error==='not-allowed'?'Mikrofon blockiert – im Browser erlauben (am besten Seite über https öffnen).':'Sprache: '+e.error)};
+ rec.onend=()=>{listening=false;$('#core').classList.remove('live');$('#mic').classList.remove('rec');if($('#wake').checked&&!once)setTimeout(()=>listen(false),300);else if($('#wake').checked)setTimeout(()=>listen(false),1500);else vs('')};
+ rec.start()}
+$('#mic').onclick=()=>listening?rec.stop():listen(true);$('#core').onclick=()=>listen(true);
+$('#wake').onchange=()=>{S.wake=$('#wake').checked;save();S.wake?listen(false):rec&&rec.abort()};
+$('#tts').onchange=()=>{S.tts=$('#tts').checked;save()};
+$('#brf').onclick=()=>ask('briefing');
+if(window.speechSynthesis)speechSynthesis.onvoiceschanged=()=>{};
+$('#tts').checked=S.tts!==false;$('#wake').checked=!!S.wake;if(S.wake)listen(false);
+$('#fd').value=today();fill();render();
+const tick=()=>$('#clk').textContent=new Date().toLocaleTimeString('de-DE');tick();setInterval(tick,1000);
+}
+</script></body></html>
