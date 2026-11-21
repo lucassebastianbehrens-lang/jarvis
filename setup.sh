@@ -66,7 +66,9 @@ fi
 docker compose up -d
 
 echo ">> 6/7 Agenten-Bot (Memecoins, Spielgeld) einrichten"
-mkdir -p /opt/jarvis /var/lib/jarvis/agents
+mkdir -p /opt/jarvis /var/lib/jarvis/agents /etc/jarvis
+[ -f /etc/jarvis/telegram.env ] || printf '# Telegram-Benachrichtigungen (optional)\n# TG_TOKEN=123456:ABC...\n# TG_CHAT=123456789\n' > /etc/jarvis/telegram.env
+chmod 600 /etc/jarvis/telegram.env
 curl -fsSL https://lucassebastianbehrens-lang.github.io/jarvis/bot/agents.py -o /opt/jarvis/agents.py
 chmod 755 /var/lib/jarvis /var/lib/jarvis/agents
 cat > /etc/systemd/system/jarvis-agents.service <<'SVC'

@@ -63,7 +63,7 @@
   ]
  ],
  "started": 1795259130,
- "strategy": "EMA 9/21 + RSI, SL -3 %, TP +5 %",
+ "strategy": "EMA 9/21 + Trendfilter EMA 100 + RSI 45\u201370, SL -3 %, TP +5 %",
  "value": 1000.0,
  "updated": 1795263967,
  "errors": []

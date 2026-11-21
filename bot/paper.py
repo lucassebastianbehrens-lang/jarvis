@@ -1,5 +1,5 @@
 """Jarvis Spielgeld-Bot: Papierhandel mit echten Kraken-Kursen (kein echtes Geld).
-Strategie: EMA9/EMA21-Kreuzung auf 15-Min-Kerzen, RSI-Filter, Stop-Loss -3 %, Take-Profit +5 %.
+Strategie: EMA9/EMA21-Kreuzung auf 15-Min-Kerzen, nur über EMA100 (Aufwärtstrend), RSI 45–70, Stop-Loss -3 %, Take-Profit +5 %.
 Läuft alle 15 Min per GitHub Actions und speichert den Stand in data/paper.json."""
 import json, os, time, urllib.request
 
@@ -58,7 +58,7 @@ def close_pos(S, pair, price, ts, why):
 
 def step(S, pair, cs):
     closes = [c[3] for c in cs]
-    e9, e21, r = ema(closes, 9), ema(closes, 21), rsi(closes)
+    e9, e21, e100, r = ema(closes, 9), ema(closes, 21), ema(closes, 100), rsi(closes)
     last = S["last_ts"].get(pair, cs[-1][0])            # erster Lauf: ab jetzt starten
     for i in range(max(1, len(cs) - 200), len(cs)):
         ts, hi, lo, cl = cs[i]
@@ -72,7 +72,7 @@ def step(S, pair, cs):
                 close_pos(S, pair, round(p["price"] * (1 + TP), 8), ts, "Take-Profit")
             elif e9[i] < e21[i] and e9[i - 1] >= e21[i - 1]:
                 close_pos(S, pair, cl, ts, "Signal")
-        elif (e9[i] > e21[i] and e9[i - 1] <= e21[i - 1] and r[i] < 70
+        elif (e9[i] > e21[i] and e9[i - 1] <= e21[i - 1] and 45 < r[i] < 70 and cl > e100[i]   # nur im Aufwärtstrend
               and len(S["open"]) < MAX_OPEN and S["cash"] >= STAKE):
             S["cash"] -= STAKE
             S["open"][pair] = {"price": cl, "qty": STAKE * (1 - FEE) / cl, "cost": STAKE, "t": ts}
@@ -86,7 +86,7 @@ def main():
         S = json.load(open(FILE))
     except (FileNotFoundError, ValueError):
         S = {"start": START, "cash": START, "open": {}, "closed": [], "daily": {}, "last_ts": {}, "prices": {},
-             "equity": [], "started": int(time.time()), "strategy": "EMA 9/21 + RSI, SL -3 %, TP +5 %"}
+             "equity": [], "started": int(time.time()), "strategy": "EMA 9/21 + Trendfilter EMA 100 + RSI 45–70, SL -3 %, TP +5 %"}
     errors = []
     for pair, code in PAIRS.items():
         try:

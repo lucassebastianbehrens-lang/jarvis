@@ -154,7 +154,7 @@ function local(t){let m;
  if(m=t.match(/^aufgabe\s+(.+)$/i)){S.todo.push({t:m[1],ok:false});return 'Aufgabe angelegt: '+m[1]}
  if(/^saldo$/i.test(t))return 'Saldo: '+eur(saldo());
  if(/^aufgaben$/i.test(t))return S.todo.filter(x=>!x.ok).map(x=>'• '+x.t).join('\n')||'Keine offenen Aufgaben.';
- if(m=t.match(/^(?:timer|erinnere mich in)\s+(\d+)\s*(?:min\w*)?\s*(?:an\s+)?(.*)$/i)){const n=+m[1],w=m[2]||'Timer';setTimeout(()=>{beep();say('Lucas, Erinnerung: '+w);S.chat.push({role:'assistant',content:'⏰ '+w});save();render()},n*6e4);return 'Timer gestellt: '+n+' Min – '+w}
+ if(m=t.match(/^(?:timer|erinnere mich in)\s+(\d+)\s*(?:min\w*)?\s*(?:an\s+)?(.*)$/i)){const n=+m[1],w=m[2]||'Timer';try{Notification?.permission==='default'&&Notification.requestPermission()}catch(e){};setTimeout(()=>{beep();push('⏰ '+w);say('Lucas, Erinnerung: '+w);S.chat.push({role:'assistant',content:'⏰ '+w});save();render()},n*6e4);return 'Timer gestellt: '+n+' Min – '+w}
  if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
  if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
  if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
@@ -165,6 +165,7 @@ async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),saf
 function say(t){if(!$('#tts').checked||!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/[•⏰*#]/g,''));u.lang='de-DE';u.rate=1.05;
  const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('de')&&/male|Mann|Markus|Yannick|Conrad/i.test(v.name))||speechSynthesis.getVoices().find(v=>v.lang.startsWith('de'));if(v)u.voice=v;
  u.onstart=()=>$('#core').classList.add('live');u.onend=()=>$('#core').classList.remove('live');speechSynthesis.speak(u)}
+async function push(t){try{if(!('Notification' in window)||Notification.permission!=='granted')return;const r=await navigator.serviceWorker?.getRegistration();r?r.showNotification('Jarvis',{body:t,icon:'icon-192.png',badge:'icon-192.png'}):new Notification('Jarvis',{body:t,icon:'icon-192.png'})}catch(e){}}
 function beep(){try{const a=new AudioContext(),o=a.createOscillator();o.frequency.value=880;o.connect(a.destination);o.start();o.stop(a.currentTime+.3)}catch(e){}}
 
 $('#send').onclick=async()=>{const t=$('#in').value.trim();if(!t)return;$('#in').value='';S.chat.push({role:'user',content:t});
@@ -279,7 +280,7 @@ async function agentsLoad(){const src=S.bot.url?S.bot.url.replace(/\/$/,'')+'/ag
   const wr=P.winrate??0,o=(P.opt||[])[0];$('#aopt').innerHTML=`Trefferquote <b class="${wr>=75?'pos':'neg'}">${wr} %</b> (Ziel 75 %) · ${P.closed.length} Trades`+(o?` · Optimiert ${new Date(o.t*1e3).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}: ${esc(o.changes.join(', ')||'keine Änderung')}${o.notes.length?' – '+esc(o.notes.join(' / ')):''}`:' · nächste Selbst-Optimierung um 10:00');
   const an=A.analyst||{},sc=A.scanner||{},ex=A.executor||{},ri=A.risk||{};
   $('#acards').innerHTML=`<div class="tile"><small>Scanner</small><b class="mono">${sc.pools||0}</b><small>Tokens im Blick</small></div>
-  <div class="tile"><small>Analyst</small><b class="mono ${an.passed?'pos':''}">${an.score??'–'}</b><small>${esc(an.sym||'')} ${an.passed?'bestanden':'zu schwach'}</small></div>
+  <div class="tile"><small>Analyst</small><b class="mono ${an.passed?'pos':''}">${an.score??'–'}</b><small>${esc(an.sym||'')} ${an.passed?'sicher ✓':'zu schwach'}${an.rejected?' · '+an.rejected+' Betrug abgewehrt':''}</small></div>
   <div class="tile"><small>Executor</small><b class="mono">${ex.trades||0}</b><small>Trades · ${ex.open||0} offen</small></div>
   <div class="tile"><small>Risk</small><b class="mono">${ri.watching||0}</b><small>bewacht · −6 % / 12 % Trail</small></div>`;
   $('#aopen').innerHTML=Object.values(P.open).map(o=>{const v=o.qty*o.now*(1-.015)-o.cost,pc=v/o.cost*100;return `<div><span>${esc(o.sym)} <span class="m">· ${o.score} Pkt</span><br><span class="m">seit ${agoT(o.t)} · Einsatz ${eur(o.cost)}</span></span><span class="${v<0?'neg':'pos'}">${(v>=0?'+':'')+eur(v)}<br><span class="m">${pc.toFixed(1)} %</span></span></div>`}).join('')||'<p class="m">Keine – der Analyst sucht.</p>';
@@ -318,6 +319,7 @@ $('#auto').onchange=()=>{S.autoBrief=$('#auto').checked;save()};$('#auto').check
 if(S.autoBrief!==false&&S.lastBrief!==today()&&new Date().getHours()>=5){S.lastBrief=today();save();brief().then(b=>{S.chat.push({role:'assistant',content:'☀ Tages-Briefing\n'+b});save();render()})}
 $('#tts').checked=S.tts!==false;$('#wake').checked=!!S.wake;if(S.wake)listen(false);
 $('#fd').value=today();fill();render();
+try{if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js')}catch(e){}
 const tick=()=>$('#clk').textContent=new Date().toLocaleTimeString('de-DE');tick();setInterval(tick,1000);
 }
 </script></body></html>
