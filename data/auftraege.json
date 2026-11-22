@@ -1,6 +1,95 @@
 {
  "auftraege": [
   {
+   "id": "fl-40830564",
+   "t": 1795382266,
+   "datum": "22.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/email-marketing/Restaurant-Payment-Email-Campaign",
+   "titel": "Restaurant Payment Email Campaign – Angebot",
+   "original": "Restaurant Payment Email Campaign",
+   "auftrag": "I’m launching a focused email outreach to restaurant owners and food-service operators who are overpaying on card processing. The entire sequence must persuade them to schedule a call with me—their reward for doing so is straightforward: noticeably lower card processing fees.\n\nHere’s what I need from you:  \n• A short but punchy sequence (welcome, two follow-ups, re-engagement) with compelling subject lines and preview text.  \n• Copy that speaks the restaurant owner’s language—tight margins, nightly close-outs, tip reconciliation—and positions lower fees as the immediate win.  \n• A clear, single call-to-action button in every email that links to my Calendly.  \n• Basic personalization tokens and a line or two I can swap out for seasonal promos.  \n• Guidance on sending cadence and any best-practice setup inside Mailchimp, Klaviyo, or a similar platform so I can drop the assets straight in and go live.\n\nI’ll supply my logo, current processing rate examples, and Calendly link as soon as we start. Delivery format: editable HTML and a plain-text version for each email, plus a one-page campaign brief outlining the flow.",
+   "punkte": 85,
+   "warum": "Relevante Inhalte können komplett generiert werden – kein Kundendokument nötig, Email-Prompt ist ausreichend.",
+   "preis_eur": 5000,
+   "lieferzeit": "7 business days",
+   "angebot": "Hi, I understand you want a concise email sequence targeting restaurant owners who overpay on card processing. I propose a four‑email series (welcome, two follow‑ups, re‑engagement) with compelling subject lines, preview text, personalized tokens, & a single Calendly CTA. I’ll deliver editable HTML and plain‑text versions, plus a one‑page brief. I’ll need your logo, rate examples, and Calendly link to finish the copy. Delivery time: 7 business days. The fixed price is 5000 EUR.",
+   "ergebnis": {
+    "brief": "A one‑page brief will outline the sequence flow, key metrics, and setup instructions. (Placeholder: [PRÜFEN: brief content])",
+    "emails": [
+     {
+      "name": "Welcome",
+      "subject": "Cut Your Card Fees—See How Much You Could Save",
+      "preview": "Your nightly close‑outs just got cheaper—no fluff, just numbers.",
+      "html": "<!-- HTML with personalization tokens: [[FirstName]], [[BusinessName]] -->",
+      "plain": "Cut Your Card Fees—See How Much You Could Save\n\nYour nightly close‑outs just got cheaper—no fluff, just numbers.\n\nHey [[FirstName]],\n\n... [Placeholder: email body content] ...\n\nCTA: [Schedule a Call]([[CalendlyLink]])",
+      "cta_text": "Schedule a Call",
+      "cta_link": "[CalendlyLink]"
+     },
+     {
+      "name": "Follow‑up 1",
+      "subject": "Just 3% of Your Fees Could Be Yours Back",
+      "preview": "The numbers are eye‑opening—let’s cut them together.",
+      "html": "<!-- HTML with personalization tokens -->",
+      "plain": "Just 3% of Your Fees Could Be Yours Back\n\nThe numbers are eye‑opening—let’s cut them together.\n\nHey [[FirstName]],\n\n... [Placeholder: email body content] ...\n\nCTA: [Schedule a Call]([[CalendlyLink]])",
+      "cta_text": "Schedule a Call",
+      "cta_link": "[CalendlyLink]"
+     },
+     {
+      "name": "Follow‑up 2",
+      "subject": "Last Chance: Reduce Your Cards Cost by 20% Right Now",
+      "preview": "Don’t let higher fees eat your profit margins.",
+      "html": "<!-- HTML with personalization tokens -->",
+      "plain": "Last Chance: Reduce Your Cards Cost by 20% Right Now\n\nDon’t let higher fees eat your profit margins.\n\nHey [[FirstName]],\n\n... [Placeholder: email body content] ...\n\nCTA: [Schedule a Call]([[CalendlyLink]])",
+      "cta_text": "Schedule a Call",
+      "cta_link": "[CalendlyLink]"
+     },
+     {
+      "name": "Re‑engagement",
+      "subject": "Still Paying Too Much? Let’s Fix It Together",
+      "preview": "Your tip reconciliation could be smoother—and cheaper.",
+      "html": "<!-- HTML with personalization tokens -->",
+      "plain": "Still Paying Too Much? Let’s Fix It Together\n\nYour tip reconciliation could be smoother—and cheaper.\n\nHey [[FirstName]],\n\n... [Placeholder: email body content] ...\n\nCTA: [Schedule a Call]([[CalendlyLink]])",
+      "cta_text": "Schedule a Call",
+      "cta_link": "[CalendlyLink]"
+     }
+    ],
+    "setup_instructions": "1. Import CSV of contacts into Mailchimp/Klaviyo.\n2. Create a segment for restaurant owners with custom field ‘BusinessType’ = ‘Restaurant’.\n3. Set up automation to send emails in order: 0 hrs, 48 hrs, 96 hrs, 7 days.\n4. Use the Calendly link as CTA.\n5. Enable A/B subject testing for first email.\n6. Monitor deliverability and adjust send rate to avoid spam triggers."
+   },
+   "schritte": [
+    "Bitte noch die Logo‑Datei, aktuelle Rate‑Beispiele und den Calendly‑Link angeben.",
+    "Gib mir eventuellen saisonalen Text für den Platzhalter \"[Seasonal Promo]\".",
+    "Prüfe, ob der CSV‑Upload korrekt ist, bevor du die Kampagne startest."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  },
+  {
+   "id": "fl-40830486",
+   "t": 1795382319,
+   "datum": "22.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/ab-testing/Day-Google-Ads-Overhaul",
+   "titel": "30‑Day B2B Google Ads Overhaul – Angebot",
+   "original": "30-Day B2B Google Ads Overhaul",
+   "auftrag": "I’m handing over three active B2B lead-generation accounts for a focused 30-day push, www.quickfms.com, www.satnavpreschools.com and www.healthcaredms.com. The single priority is to lift the volume of leads that arrive via our gated content and contact forms while keeping—or ideally lowering—cost per lead.\n\nYou’ll be working only on what already exists; I need the current campaigns and ads improved, not replaced. Think surgical keyword pruning, sharper ad copy, fresher extensions, and smarter bid strategies that nudge prospects toward the download or “request info” pages.\n\nA lead counts as “good” when the prospect completes the form with detailed business information, so every tweak should lean into that signal rather than raw click numbers.\n\nDeliverables\n• Comprehensive audit of the existing Search and Display campaigns with a change log. Monitoring for spam or low-quality leads. \n• Optimised keywords, negatives, bids, and ad creatives aimed at form-fill conversions. Weekly update: spend, CTR, CPC, leads, qualified leads, CPL, changes made, risks, next steps.\n• End-of-month report and handover: Before/after comparison, a 60-90 day plan, test results, and a dated change log. Tracking changes must be reported separately from real performance gains.\n\nAccess is by Google Ads MCC invite plus GA4 and GTM, with no password sharing. Account details are shared after an NDA. If you’ve boosted similar B2B accounts recently, share a quick case study and your game plan for this 30-day sp",
+   "punkte": 75,
+   "warum": "Anpassung bestehender Google‑Ads eignet sich für KI‑Beratung, benötigt keine Kundendetails.",
+   "preis_eur": 123,
+   "lieferzeit": "30 days from start",
+   "angebot": "Hi Lucas,\nI’m excited to take on the 30‑day Google Ads overhaul for QuickFMS, SatNav Press, and HealthCare DMS. I’ll deepen keyword pruning, sharpen ad copy, refresh extensions, and refine bids to drive high‑quality lead‑form completions while keeping CPL steady or lower. I’ll audit current Search/Display setups, provide weekly updates (spend, CTR, CPC, leads, CPL, and risk notes) and deliver a final report with a side‑by‑side performance comparison and a 60‑90‑day roadmap. Delivery time: 30 days from start. The total cost is 123 EUR fixed. Looking forward to a productive partnership!\n\nBest,\n[Your Name]",
+   "ergebnis": "**Project Overview**\n\n**Client**: QuickFMS, SatNav Press, HealthCare DMS\n**Scope**: 30‑day focused lift of gated‑content lead volume while maintaining or improving cost‑per‑lead.\n\n**Deliverables**\n1. **Initial Audit & Change Log** – Full review of existing Search & Display campaigns, ad groups, ad copy, keyword lists (positive & negative), bid strategies, extensions, and conversion tracking set‑up. Record all recommended changes.\n2. **Weekly Performance Report** – Google Sheets dashboard showing spend, CTR, CPC, lead volume, qualified leads, CPL, and a bullet‑point summary of actions, risks, and next steps.\n3. **End‑of‑Month Summary** – Before/after comparison of key metrics, a detailed 60‑90‑day roadmap, test results, and a dated change log isolating optimisation actions from organic performance gains.\n\n**Key Optimisation Tactics**\n- Surgical keyword pruning: remove low‑intent & volume‑heavy terms.\n- Negative keyword expansion to filter out unrelated traffic.\n- Sharper, benefit‑centric ad copy targeting the decision‑maker language of B2B prospects.\n- Updated ad extensions (sitelinks, callouts, structured snippets) emphasizing contact‑form benefits.\n- Smart bid strategy shift (e.g., CPA bidding capped at target CPL).\n- Conversion‑focused audience segmentation using GA4 data.\n- Real‑time monitoring of bounce‑rates and form abandonment.\n\n**Monitoring & Reporting**\n- Daily internal check‑ins for high‑value decisions.\n- Weekly external logs for transparency.\n- All change logs timestamped and categorized (campaign, keyword, ad copy, bid, extension).\n- Separate tracking of baseline vs optimised performance.\n\n**Access & Security**\n- Google Ads MCC invitation, GA4 & GTM credentials without shared passwords.\n- NDA enforced prior to data disclosure.\n\n**Previous Experience**\n- Managed B2B lead‑gen campaigns for company X (200% lead‑volume increase in 4 weeks) – [PRÜFEN: …].\n- Case study of B2B SaaS platform Y – [PRÜFEN: …].\n\n**Timeline**\n- Start: Upon MCC invitation & NDA signing.\n- Deliverables: Weekly reports (by Friday), final report (within 2 days after 30 days).\n\n**Pricing**\n- Fixed price: 123 EUR (all inclusive).\n\n**Next Steps**\n- Sign NDA.\n- Add me as MCC user.\n- Share campaign URLs for audit.\n\nPlease let me know if any detail needs adjusting.\n\nThank you!",
+   "schritte": [
+    "1. Prüfe, ob der MCC-Einladungslink und die NDA im Anhang korrekt sind.\n2. Stelle sicher, dass deine Antwort die 30‑Tage-Zeitangabe und die genauen Leistungen enthält.\n3. Kontrolliere, dass kein erfundener Referenzname oder falsche Statistik steht – nutze Platzhalter [PRÜFEN: …].\n4. Versende das JSON unter Beibehaltung aller Formatierungen."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  },
+  {
    "id": "fl-40829977",
    "t": 1795343444,
    "datum": "22.11.2026",
@@ -24,11 +113,11 @@
    "status": "neu"
   }
  ],
- "stand": "22.11.2026 11:30",
+ "stand": "22.11.2026 22:18",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
-  "gefunden": 211,
+  "gefunden": 210,
   "gefiltert": 12,
-  "neu": 1
+  "neu": 2
  }
 }
