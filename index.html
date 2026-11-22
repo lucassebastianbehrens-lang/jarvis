@@ -61,6 +61,11 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 .ks-feed{background:var(--pan);border:1px solid var(--ln);border-radius:12px;padding:8px 10px;max-height:420px;overflow:auto;font:13px/1.4 'Share Tech Mono',monospace}.ks-feed div{padding:5px 0;border-bottom:1px solid var(--ln)}.ks-feed i{color:var(--org);font-style:normal}
 .ks-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}.ks-card{background:var(--pan);border:1px solid var(--ln);border-left:3px solid var(--c,#ff6a1a);border-radius:10px;padding:8px 10px;font-size:14px}.ks-card pre{white-space:pre-wrap;font:13px/1.4 'Share Tech Mono',monospace;margin:4px 0;max-height:140px;overflow:auto}
 .ks-grades{display:flex;gap:4px;margin-top:6px}.ks-grades button{flex:1;min-height:36px;padding:0;font-size:15px}.ks-g{display:inline-block;min-width:26px;text-align:center;border-radius:6px;padding:0 6px;font-weight:700;color:#050506}
+.hs-two{display:grid;gap:10px;margin:8px 0 14px}@media(min-width:900px){.hs-two{grid-template-columns:1fr 1fr;align-items:start}}
+.hs-two>details{margin:0}.hs-two summary{font-weight:700;letter-spacing:2px;font-size:16px}.hs-two summary small{display:block;font-weight:400;letter-spacing:0;font-size:12px;color:var(--mut);margin-left:22px}
+.hs-in{border:2px solid #3fb6ff!important;box-shadow:0 0 14px #3fb6ff33}.hs-in summary{color:#3fb6ff}.hs-out{border:2px solid #39ff6a!important;box-shadow:0 0 14px #39ff6a33}.hs-out summary{color:#39ff6a}
+.fh-it{border:1px solid var(--ln);border-left:3px solid #39ff6a;border-radius:8px;padding:8px 10px;margin:8px 0;background:#0b0809}.fh-it b{display:block}.fh-it .au-dl{margin:6px 0 0}
+#office .hs-house{cursor:pointer}#office .hs-house:hover polygon{filter:brightness(1.4)}
 .au-card .ag-top{justify-content:space-between}.au-card .ag-top>b{display:block;font-size:15px}.au-card textarea{width:100%;min-height:220px;font:13px/1.45 "Share Tech Mono",monospace}.au-dl{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.au-card{background:var(--pan);border:1px solid var(--ln);border-left:3px solid #39ff6a;border-radius:10px;padding:10px 12px;margin:8px 0}.au-card pre{white-space:pre-wrap;font:13px/1.45 'Share Tech Mono',monospace;max-height:260px;overflow:auto;background:#0b0809;border:1px solid var(--ln);border-radius:8px;padding:8px;margin:4px 0}.au-card ol{margin:4px 0 6px 18px;padding:0}.au-st{display:inline-block;border-radius:6px;padding:0 6px;font-size:12px;font-weight:700;color:#050506;background:#39ff6a}
 .ks-sel{background:var(--pan);border:1px solid var(--ln);border-radius:12px;padding:10px 12px;margin:10px 0}
 @media(max-width:760px){.ks-wrap{grid-template-columns:1fr}.ks-feed{max-height:180px}.ks-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -86,8 +91,19 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="card"><h3>KI-Team · heute</h3><div class="tl" id="dbTl"></div></div>
 <div class="row"><input id="dbGoal" inputmode="decimal" placeholder="Monatsziel Gewinn in €"><button id="dbGs" style="flex:0 0 auto">Ziel speichern</button></div></section>
 <section id="kstadt"><div class="ag-top"><b>KI-STADT</b><span class="ag-on mono" id="ksOn"></span></div>
+<div class="hs-two">
+<details class="camp hs-in" id="ksInB" open><summary>📥 EINFÜGE-HAUS <small>Auftrag aus dem Internet reinkopieren</small></summary>
+<p class="m">Auftrag gefunden (Kleinanzeigen, Facebook, Reddit, Freelancer …)? Text hier reinkopieren – das KI-Team startet automatisch und schreibt Angebot, Preis und den fertigen Entwurf. Das Ergebnis landet automatisch im Fertig-Haus daneben.</p>
+<label for="auTxt">Auftragstext</label><textarea id="auTxt" placeholder="Kompletten Text der Anzeige oder Nachricht hier einfügen"></textarea>
+<div class="row"><input id="auUrl" placeholder="Link zur Anzeige (optional)"><input id="auPr" inputmode="decimal" placeholder="Preis in € (optional)" style="max-width:150px"></div>
+<div class="row"><input id="auQu" placeholder="Wo gefunden? z. B. Kleinanzeigen"><input id="auKu" placeholder="Name des Kunden (optional)"></div>
+<button class="p" id="auMake">Angebot + Entwurf erstellen</button><div class="m" id="auOwnMsg"></div></details>
+<details class="camp hs-out" id="ksOutB" open><summary>📦 FERTIG-HAUS <small id="fhCnt">fertige Sachen zum Rauskopieren</small></summary>
+<p class="m">Hier liegt alles, was das KI-Team fertig hat – Angebot und Entwurf nur noch kopieren oder als Datei an den Kunden schicken.</p>
+<div id="fhList"></div></details>
+</div>
 <h3>Stadtplan · 17 KI-Bewohner</h3>
-<svg class="office" id="office" viewBox="-215 -45 1030 640" role="img" aria-label="KI-Stadt: Agentur mit 6 Marketing-Agenten, Trading-Viertel mit 4 Trading-Agenten und KI-Team-Haus mit 7 Helfern"></svg>
+<svg class="office" id="office" viewBox="-215 -45 1170 660" role="img" aria-label="KI-Stadt: Agentur mit 6 Marketing-Agenten, Trading-Viertel mit 4 Trading-Agenten und KI-Team-Haus mit 7 Helfern"></svg>
 <div class="agc" id="agCards"></div>
 <p class="m">Jeder Bot aus dem KI-Team wohnt hier in einem eigenen Haus. Läuft ein Bot, geht sein Agent nach Hause und arbeitet. Fertige Ergebnisse landen auf der To-do-Liste unten – benote sie wie ein Lehrer (1 = sehr gut, 6 = ungenügend). Gute Ergebnisse werden zum Vorbild, Kritik zu Regeln, und nach 3 Kritikpunkten schreibt Jarvis die Aufgabe des Bots selbst besser. Je besser der Notenschnitt, desto höher das Haus. In der Stadt stehen außerdem das Agentur-Gebäude und die KI-Team-Zentrale – tippe sie an oder öffne sie unten.</p>
 <div class="ks-kpi"><div><small>Bots aktiv</small><b class="mono" id="ksK1">–</b></div><div><small>Arbeiten gerade</small><b class="mono" id="ksK2">–</b></div><div><small>Zu benoten</small><b class="mono" id="ksK3">–</b></div><div><small>Notenschnitt 7 Tage</small><b class="mono" id="ksK4">–</b></div></div>
@@ -100,12 +116,6 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div id="auftr"><p class="m">Jeden Morgen (und nachmittags nochmal) durchsucht der Auftrags-Scout öffentliche Auftragsbörsen nach Aufgaben, die die KIs komplett erledigen können – Texte, Übersetzungen, Recherche, Tabellen. Für die besten schreibt er Angebot, Preis und schon den fertigen Entwurf. Findet er nichts, macht er ein eigenes Tagesangebot zum Posten. Du prüfst, schickst ab – das Geld kommt per PayPal.</p>
 <div class="ks-kpi"><div><small>Neu</small><b class="mono" id="auK1">–</b></div><div><small>Gesendet</small><b class="mono" id="auK2">–</b></div><div><small>Bezahlt</small><b class="mono pos" id="auK3">–</b></div><div><small>Letzter Lauf</small><b class="mono" id="auK4" style="font-size:15px">–</b></div></div>
 <div class="row"><button class="s" id="auLoad">↻ Aktualisieren</button><a class="s" href="https://github.com/lucassebastianbehrens-lang/jarvis/actions/workflows/auftraege.yml" target="_blank" rel="noopener"><button class="s">Jetzt neu suchen (GitHub)</button></a><label style="display:flex;align-items:center;gap:6px;text-transform:none"><input type="checkbox" id="auAll" style="width:auto"> Erledigte zeigen</label></div>
-<details class="camp" id="auOwnB"><summary>➕ Eigenen Auftrag einfügen (aus dem Internet)</summary>
-<p class="m">Auftrag gefunden (Kleinanzeigen, Facebook, Reddit, Freelancer …)? Text hier reinkopieren – das KI-Team startet automatisch und schreibt Angebot, Preis und den fertigen Entwurf. Der Auftrag erscheint dann unten in der Liste.</p>
-<label for="auTxt">Auftragstext</label><textarea id="auTxt" placeholder="Kompletten Text der Anzeige oder Nachricht hier einfügen"></textarea>
-<div class="row"><input id="auUrl" placeholder="Link zur Anzeige (optional)"><input id="auPr" inputmode="decimal" placeholder="Preis in € (optional)" style="max-width:150px"></div>
-<div class="row"><input id="auQu" placeholder="Wo gefunden? z. B. Kleinanzeigen"><input id="auKu" placeholder="Name des Kunden (optional)"></div>
-<button class="p" id="auMake">Angebot + Entwurf erstellen</button><div class="m" id="auOwnMsg"></div></details>
 <div class="m" id="auMsg"></div><div id="auList"></div></div></details>
 <details class="camp ks-bld" id="ksAgB"><summary>🏢 Agentur-Gebäude · Kampagnen mit 6 Agenten</summary>
 <div id="agency"><div class="ag-top"><b>JARVIS AGENTUR</b><span class="ag-on mono" id="agOn">● 6 Agenten online</span></div>
@@ -456,6 +466,13 @@ function office(){let g='';
  HT.forEach((a,i)=>{const [x,y]=HD[i];g+=desk(x,y,a.c,true)+bot(x,y,a,false,false,a.k)});
  g+=tree(.4,12.1)+tree(12.1,12.1);
  g+=sign(1.2,12.2,'KI-TEAM','#ffb347');
+ // Einfüge-Haus + Fertig-Haus (anklickbar)
+ const hb=(x0,y0,x1,y1,h,c,top,lab,sub,key)=>{const wl=P([iso(x0,y1),iso(x1,y1),iso(x1,y1,h),iso(x0,y1,h)]),wr=P([iso(x1,y0),iso(x1,y1),iso(x1,y1,h),iso(x1,y0,h)]),rf=P([iso(x0,y0,h),iso(x1,y0,h),iso(x1,y1,h),iso(x0,y1,h)]),cx=iso((x0+x1)/2,(y0+y1)/2,h+22);
+  return `<g class="hs-house" data-house="${key}" role="button" tabindex="0" aria-label="${lab} öffnen"><title>${lab} – ${sub}</title><polygon points="${P([iso(x0-.2,y0-.2),iso(x1+.2,y0-.2),iso(x1+.2,y1+.2),iso(x0-.2,y1+.2)])}" fill="${c}" opacity=".15"/><polygon points="${wl}" fill="${c}" fill-opacity=".55" stroke="${c}"/><polygon points="${wr}" fill="${c}" fill-opacity=".35" stroke="${c}"/><polygon points="${rf}" fill="${top}" stroke="${c}"/>
+  <rect x="${cx[0]-74}" y="${cx[1]-34}" width="148" height="48" rx="9" fill="#0b0b10" stroke="${c}" style="filter:drop-shadow(0 0 6px ${c})"/><text x="${cx[0]}" y="${cx[1]-12}" fill="${c}" font-size="18" font-weight="700" text-anchor="middle" font-family="Rajdhani,sans-serif" letter-spacing="1">${lab}</text><text x="${cx[0]}" y="${cx[1]+6}" fill="#fff" font-size="13" text-anchor="middle" font-family="Share Tech Mono,monospace">${sub}</text></g>`};
+ let nf=0;try{nf=fhItems().length}catch(e){}
+ g+=hb(13.6,2.4,15.6,4.4,50,'#3fb6ff','#123a55','EINFÜGE-HAUS','hier reinkopieren','in');
+ g+=hb(13.6,8.2,15.6,10.2,50,'#39ff6a','#0f4a24','FERTIG-HAUS',nf+(nf===1?' Sache fertig':' Sachen fertig'),'out');
  $('#office').innerHTML=g}
 function agRender(){const A=S.agency,cl=A.clients.find(c=>c.id===A.sel)||A.clients[0];if(cl)A.sel=cl.id;
  $('#agCl').innerHTML=A.clients.map(c=>`<button data-c="${esc(c.id)}" class="${c.id===A.sel?'on':''}">${esc(c.n)}</button>`).join('');
@@ -638,7 +655,7 @@ const AUS={neu:['Neu','#39ff6a'],gesendet:['Gesendet','#3fb6ff'],bezahlt:['Bezah
 async function auLoad(){try{const r=await fetch(AUFTR+'?t='+Date.now());if(r.status===404)throw Error('Der Auftrags-Scout war noch nicht unterwegs – er startet täglich morgens, oder tippe „Jetzt neu suchen“.');if(!r.ok)throw Error('HTTP '+r.status);
   const prev=AU?auOpen():-1,j=await r.json();if(!j||!Array.isArray(j.auftraege))throw Error('Auftragsdaten unvollständig');AU=j;const n=auOpen();if(AU&&n>prev&&prev>=0&&S.auftr.seen!==AU.stand){S.auftr.seen=AU.stand;save();if(n)push('💼 '+n+' neue Aufträge im Auftragsbüro',true)}$('#auMsg').textContent=''}
  catch(e){$('#auMsg').textContent=e.message}auRender();if(typeof ksRefresh==='function')ksRefresh()}
-function auRender(){const L=$('#auList');if(!L)return;const A=auAll(),all=$('#auAll').checked,cnt=k=>A.filter(a=>auSt(a)===k).length;
+function auRender(){fhRender();const L=$('#auList');if(!L)return;const A=auAll(),all=$('#auAll').checked,cnt=k=>A.filter(a=>auSt(a)===k).length;
  $('#auK1').textContent=cnt('neu');$('#auK2').textContent=cnt('gesendet');$('#auK3').textContent=eur(A.filter(a=>auSt(a)==='bezahlt').reduce((s,a)=>s+(S.auftr.paid?.[a.id]??a.preis_eur),0));
  $('#auK4').textContent=AU?AU.stand+(AU.letzter_lauf?' · '+AU.letzter_lauf.gefunden+' geprüft':''):'–';
  const vis=A.filter(a=>all||['neu','gesendet'].includes(auSt(a)));
@@ -654,15 +671,32 @@ function auRender(){const L=$('#auList');if(!L)return;const A=auAll(),all=$('#au
   <div class="m">Zahlung: ${esc(a.zahlung)}</div>
   <div class="row">${a.url?`<a href="${esc(a.url)}" target="_blank" rel="noopener"><button class="s">Auftrag öffnen</button></a>`:''}<button class="s" data-auc="angebot|${esc(a.id)}">Angebot kopieren</button><button class="s" data-auc="ergebnis|${esc(a.id)}">Entwurf kopieren</button>${a.paypal?`<button class="s" data-auc="paypal|${esc(a.id)}">PayPal-Link kopieren</button>`:''}</div>
   <div class="row">${st!=='gesendet'&&st!=='bezahlt'?`<button class="s" data-aus="gesendet|${esc(a.id)}">✉ Gesendet</button>`:''}${st!=='bezahlt'?`<button class="s" data-aus="bezahlt|${esc(a.id)}">✓ Bezahlt</button>`:''}${st==='neu'?`<button class="s" data-aus="abgelehnt|${esc(a.id)}">Passt nicht</button>`:''}${a.eigen?`<button class="s" data-aux="${esc(a.id)}">🗑 Entfernen</button>`:''}${st!=='neu'?`<button class="s" data-aus="neu|${esc(a.id)}">↶ Zurücksetzen</button>`:''}</div></div>`}).join('')||`<p class="m">${AU||S.auftr.own.length?'Gerade keine offenen Aufträge – der Scout sucht wieder morgen früh. Eigene Aufträge oben unter „Eigenen Auftrag einfügen“.':'Noch keine Daten.'}</p>`}
-$('#auftr').addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;const d=t.dataset;
+function auClick(e){const t=e.target.closest('button');if(!t)return;const d=t.dataset;
  if(d.aux){if(!confirm('Diesen eigenen Auftrag entfernen?'))return;S.auftr.own=S.auftr.own.filter(x=>x.id!==d.aux);delete S.auftr.st[d.aux];delete S.auftr.ed[d.aux];save();auRender();ksRefresh();return}
  const [k,id]=(d.auc||d.aus||d.aud||'').split('|'),a=auAll().find(x=>x.id===id);if(!a)return;
  if(d.aud)return auFile(k,a,t);
  if(d.auc){const v=auTxt(a,k);navigator.clipboard?.writeText(v).then(()=>{t.textContent='Kopiert ✓';setTimeout(auRender,1500)},()=>{prompt('Kopieren:',v)})}
  if(d.aus){if(k==='bezahlt'){const v=parseFloat((prompt('Wie viel ist auf PayPal angekommen (€)?',a.preis_eur)||'').replace(',','.'));if(!(v>0))return;(S.auftr.paid??={})[a.id]=v;S.fin.unshift({d:today(),v,t:'Auftrag: '+a.titel.slice(0,60)+' (PayPal)'});push('💶 '+eur(v)+' für „'+a.titel.slice(0,40)+'“ verbucht',true)}
   if(auSt(a)==='bezahlt'&&k!=='bezahlt'&&S.auftr.paid?.[a.id]){const i=S.fin.findIndex(x=>x.t==='Auftrag: '+a.titel.slice(0,60)+' (PayPal)');if(i>=0)S.fin.splice(i,1);delete S.auftr.paid[a.id]}
-  if(k==='neu')delete S.auftr.st[a.id];else S.auftr.st[a.id]=k;save();render();auRender();ksRefresh()}});
+  if(k==='neu')delete S.auftr.st[a.id];else S.auftr.st[a.id]=k;save();render();auRender();ksRefresh()}}
+$('#auftr').addEventListener('click',auClick);
 $('#auLoad').onclick=auLoad;$('#auAll').onchange=auRender;
+// ===== FERTIG-HAUS: alle fertigen Angebote/Entwürfe zum Rauskopieren =====
+const fhEd=new Set();
+function fhItems(){return auAll().filter(a=>['neu','gesendet'].includes(auSt(a))&&(auTxt(a,'ergebnis').trim()||(a.angebot||'').trim()))}
+function fhRender(){const L=$('#fhList');if(!L)return;if(L.contains(document.activeElement)&&document.activeElement.tagName==='TEXTAREA'){$('#fhCnt')&&0;return}const it=fhItems();$('#fhCnt').textContent=it.length?it.length+(it.length===1?' Sache fertig':' Sachen fertig')+' – nur noch rauskopieren':'noch nichts fertig';
+ L.innerHTML=it.map(a=>{const st=auSt(a),[sl,sc]=AUS[st],id=esc(a.id);return `<div class="fh-it" style="border-left-color:${sc}"><b>${esc(a.titel||'Auftrag')}</b>
+  <div class="m">${a.kunde?esc(a.kunde)+' · ':''}${esc(a.quelle||'')} · <b class="pos" style="display:inline">${eur(a.preis_eur||0)}</b> · <span style="color:${sc}">${sl}</span></div>
+  <div class="au-dl">${(a.angebot||'').trim()?`<button class="s" data-auc="angebot|${id}">📋 Angebot kopieren</button>`:''}${auTxt(a,'ergebnis').trim()?`<button class="s" data-auc="ergebnis|${id}">📋 Entwurf kopieren</button><button class="s" data-aud="pdf|${id}">📄 PDF</button><button class="s" data-aud="doc|${id}">📝 Word</button>${navigator.canShare?`<button class="s" data-aud="share|${id}">📤 Teilen</button>`:''}`:''}</div>
+  <div class="au-dl">${st==='neu'?`<button class="s" data-aus="gesendet|${id}">✉ Gesendet</button>`:''}<button class="s" data-aus="bezahlt|${id}">✓ Bezahlt</button><button class="s" data-fhed="${id}">${fhEd.has(a.id)?'✓ Fertig bearbeitet':'✎ Entwurf bearbeiten'}</button></div>${fhEd.has(a.id)?`<textarea data-aued="${id}" aria-label="Entwurf bearbeiten" style="width:100%;min-height:200px;margin-top:6px;font:13px/1.45 'Share Tech Mono',monospace">${esc(auTxt(a,'ergebnis'))}</textarea>`:''}</div>`}).join('')||'<p class="m">Noch nichts fertig – kopiere links im Einfüge-Haus einen Auftrag rein.</p>';
+ if(typeof office==='function'&&$('#office'))office()}
+function hsOpen(k){const el=$(k==='in'?'#ksInB':'#ksOutB');el.open=true;el.scrollIntoView({behavior:'smooth',block:'start'});if(k==='in')setTimeout(()=>$('#auTxt').focus(),400)}
+$('#ksOutB').addEventListener('click',e=>{const t=e.target.closest('[data-fhed]');if(t){const id=t.dataset.fhed;if(fhEd.has(id)){fhEd.delete(id);save()}else fhEd.add(id);auRender();if(fhEd.has(id)){const ta=document.querySelector(`#fhList textarea[data-aued="${CSS.escape(id)}"]`);if(ta){ta.focus();ta.scrollIntoView({behavior:'smooth',block:'center'})}}return}auClick(e)});
+$('#fhList').addEventListener('input',e=>{const id=e.target.dataset.aued;if(id){S.auftr.ed[id]=e.target.value;clearTimeout(auSaveT);auSaveT=setTimeout(save,400)}});
+setTimeout(fhRender,0);
+$('#office').addEventListener('click',e=>{const h=e.target.closest('[data-house]');if(h)hsOpen(h.dataset.house)});
+$('#office').addEventListener('keydown',e=>{const h=e.target.closest('[data-house]');if(h&&(e.key==='Enter'||e.key===' ')){e.preventDefault();hsOpen(h.dataset.house)}});
+['ksInB','ksOutB'].forEach(k=>{const el=$('#'+k);if(S.kstadt&&S.kstadt[k]===false)el.open=false;el.addEventListener('toggle',()=>{(S.kstadt??={log:[]})[k]=el.open;save()})});
 $('#auList').addEventListener('input',e=>{const id=e.target.dataset.aued;if(id){S.auftr.ed[id]=e.target.value;clearTimeout(auSaveT);auSaveT=setTimeout(save,400)}});var auSaveT=0;
 // --- Dateien für Kunden: PDF (Druckdialog → „Als PDF speichern“), Word, Text, Teilen ---
 function auName(a){return ('Jarvis-'+(a.kunde||a.titel||'Auftrag')).normalize('NFKD').replace(/[^\w\- ]+/g,'').trim().replace(/\s+/g,'-').slice(0,60)||'Auftrag'}
@@ -686,8 +720,8 @@ $('#auMake').onclick=async()=>{clearTimeout(auAutoT);const txt=$('#auTxt').value
  const a={id:'eigen-'+Date.now(),eigen:true,titel:String(r.titel||txt.split('\n')[0]).slice(0,90),quelle:qu,datum:today(),preis_eur:pr>0?pr:(+r.preis_eur||0),lieferzeit:r.lieferzeit||'',kunde:ku,
   original:url?'Link: '+url:'Selbst eingefügt',auftrag:txt,url,schritte:Array.isArray(r.schritte)?r.schritte.slice(0,8).map(String):[],angebot:String(r.angebot||''),ergebnis:String(r.ergebnis||''),
   zahlung:'PayPal (Waren und Dienstleistungen): '+pp,paypal:pp};
- S.auftr.own.unshift(a);save();b.disabled=false;['#auTxt','#auUrl','#auPr','#auKu'].forEach(x=>$(x).value='');if(r.angebot)m.textContent='✓ Fertig – dein Auftrag steht unten ganz oben. Entwurf prüfen, dann unter „Datei für den Kunden“ herunterladen.';auBusy=false;
- auRender();ksRefresh();$('#auList').firstElementChild?.scrollIntoView({behavior:'smooth',block:'start'})};
+ S.auftr.own.unshift(a);save();b.disabled=false;['#auTxt','#auUrl','#auPr','#auKu'].forEach(x=>$(x).value='');if(r.angebot){m.textContent='✓ Fertig – liegt jetzt im Fertig-Haus.';setTimeout(()=>hsOpen('out'),300)}auBusy=false;
+ auRender();ksRefresh()};
 $('#ksAuB').addEventListener('toggle',e=>{S.kstadt.au=e.target.open;save();if(e.target.open)auLoad()});if(S.kstadt.au)$('#ksAuB').open=true;
 setTimeout(auLoad,1500);setInterval(()=>{if(!document.hidden)auLoad()},30*6e4);
 
