@@ -1,0 +1,120 @@
+{
+ "id": "tt-s1-f02",
+ "series": "Früchte-Drama",
+ "episode": 2,
+ "title": "Der Trainingsplan 🍓🧅",
+ "caption": "Folge 2: Ein Erdbeer-Handtuch in seiner Tasche … und dann steht SIE im Gym. 😳 Folge mir für Teil 3!",
+ "hashtags": [
+  "#früchtedrama",
+  "#kiserie",
+  "#obstdrama",
+  "#drama",
+  "#fyp"
+ ],
+ "end": "WAS PLANT JESSY? FOLGE MIR FÜR TEIL 3!",
+ "voices": {
+  "Erzähler": "de-DE-FlorianMultilingualNeural",
+  "Gino": "de-DE-ConradNeural",
+  "Rosa": "de-DE-SeraphinaMultilingualNeural",
+  "Jessy": "de-DE-AmalaNeural",
+  "Avo": "de-DE-KillianNeural"
+ },
+ "scenes": [
+  {
+   "p": "a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater, holding up a pink towel with a strawberry pattern next to an open sports bag in a cozy hallway, angry face, in the background a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top looking guilty",
+   "lines": [
+    {
+     "s": "Rosa",
+     "t": "Gino! Was macht ein Erdbeer-Handtuch in deiner Sporttasche?"
+    },
+    {
+     "s": "Gino",
+     "t": "Das … das ist aus dem Fundbüro im Gym. Ich wollte es zurückbringen."
+    },
+    {
+     "s": "Rosa",
+     "t": "Aus dem Fundbüro. Mit kleinen Herzchen drauf?"
+    }
+   ]
+  },
+  {
+   "p": "a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top, sitting on the edge of a bed at night, lit only by a smartphone screen, nervous sweat drop, dark bedroom",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Gino konnte wieder nicht schlafen. Um sechs Uhr wartete Jessy im Gym. Und Rosa ahnte längst, dass etwas nicht stimmte."
+    }
+   ]
+  },
+  {
+   "p": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket, holding a clipboard with a training plan in an empty gym at sunrise, smiling, next to a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top stretching awkwardly",
+   "lines": [
+    {
+     "s": "Jessy",
+     "t": "Pünktlich, Großer. Ich habe dir einen eigenen Trainingsplan geschrieben. Nur für dich."
+    },
+    {
+     "s": "Gino",
+     "t": "Ein eigener Plan? Jessy, ich bin verheiratet. Das weißt du, oder?"
+    },
+    {
+     "s": "Jessy",
+     "t": "Es ist doch nur ein Plan. Warum wirst du denn so rot?"
+    }
+   ]
+  },
+  {
+   "p": "an avocado character (head is a halved avocado, the pit is the nose, cartoon eyes), green hoodie, running through the gym entrance out of breath, waving his arms in panic, holding a protein shake",
+   "lines": [
+    {
+     "s": "Avo",
+     "t": "Gino! Notfall! Draußen parkt ein lila Auto. Mit Blumen am Spiegel!"
+    },
+    {
+     "s": "Gino",
+     "t": "Was? Das ist Rosas Auto!"
+    },
+    {
+     "s": "Avo",
+     "t": "Ich hab's dir gesagt, Bruder. Versteck dich hinter der Beinpresse!"
+    }
+   ]
+  },
+  {
+   "p": "a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater, standing in the doorway of a gym holding a pink strawberry towel, serious determined face, morning light behind",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Und dann ging die Tür auf."
+    },
+    {
+     "s": "Rosa",
+     "t": "Guten Morgen. Ich bringe nur etwas zurück. Ins Fundbüro."
+    }
+   ]
+  },
+  {
+   "p": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket, face to face with a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater in a gym, tense standoff, between them a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top frozen in shock",
+   "lines": [
+    {
+     "s": "Jessy",
+     "t": "Oh. Das ist ja mein Handtuch."
+    },
+    {
+     "s": "Rosa",
+     "t": "Ich weiß. Und jetzt erklärst du mir, warum es bei meinem Mann war."
+    },
+    {
+     "s": "Erzähler",
+     "t": "Gino hielt die Luft an. Denn Jessy lächelte. Als hätte sie genau darauf gewartet."
+    }
+   ]
+  }
+ ],
+ "figuren": {
+  "Gino": "a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top",
+  "Jessy": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket",
+  "Rosa": "a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater",
+  "Avo": "an avocado character (head is a halved avocado, the pit is the nose, cartoon eyes), green hoodie"
+ }
+}
