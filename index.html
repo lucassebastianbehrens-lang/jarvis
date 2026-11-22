@@ -55,12 +55,20 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 .tl>div{display:flex;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--ln);font-size:14px}.tl .ok{color:#5fe39a}.tl .t{font-family:'Share Tech Mono',monospace;color:var(--org);width:52px}
 .skl>div{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--ln)}.skl code{color:#c77dff;font-family:'Share Tech Mono',monospace}
 @media(max-width:620px){.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.biz{grid-template-columns:1fr}}
+.ks-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:6px 0}.ks-kpi>div{background:var(--pan);border:1px solid var(--ln);border-radius:10px;padding:8px 10px}.ks-kpi small{color:var(--mut);font-size:13px;display:block}.ks-kpi b{font-size:20px}
+.ks-wrap{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:10px}.ks-map{background:radial-gradient(ellipse at 50% 45%,#1d0d0d,#070506 70%);border:1px solid var(--ln);border-radius:12px;overflow:hidden}.ks-map svg{display:block;width:100%;height:auto}
+.ks-map .hs{cursor:pointer}.ks-map .hs:hover polygon,.ks-map .hs.sel polygon{stroke:#fff;stroke-width:1.2}.ks-map text{font:600 9px Rajdhani,system-ui,sans-serif;fill:#f3e9e6;paint-order:stroke;stroke:#050506;stroke-width:3px;pointer-events:none}
+.ks-feed{background:var(--pan);border:1px solid var(--ln);border-radius:12px;padding:8px 10px;max-height:420px;overflow:auto;font:13px/1.4 'Share Tech Mono',monospace}.ks-feed div{padding:5px 0;border-bottom:1px solid var(--ln)}.ks-feed i{color:var(--org);font-style:normal}
+.ks-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}.ks-card{background:var(--pan);border:1px solid var(--ln);border-left:3px solid var(--c,#ff6a1a);border-radius:10px;padding:8px 10px;font-size:14px}.ks-card pre{white-space:pre-wrap;font:13px/1.4 'Share Tech Mono',monospace;margin:4px 0;max-height:140px;overflow:auto}
+.ks-grades{display:flex;gap:4px;margin-top:6px}.ks-grades button{flex:1;min-height:36px;padding:0;font-size:15px}.ks-g{display:inline-block;min-width:26px;text-align:center;border-radius:6px;padding:0 6px;font-weight:700;color:#050506}
+.ks-sel{background:var(--pan);border:1px solid var(--ln);border-radius:12px;padding:10px 12px;margin:10px 0}
+@media(max-width:760px){.ks-wrap{grid-template-columns:1fr}.ks-feed{max-height:180px}.ks-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
 <header><b>JARVIS <i>// COMMAND CENTER</i></b><span id="st" class="mono"></span><span id="clk" class="mono"></span></header>
 <div class="hud"><div class="ring" id="core" title="Tippen zum Sprechen"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#3a1414" stroke-width="1"/><circle class="spin" cx="50" cy="50" r="42" fill="none" stroke="#ff6a1a" stroke-width="1" stroke-dasharray="2 4"/><circle cx="50" cy="50" r="36" fill="none" stroke="#2a0c0c" stroke-width="6"/><circle id="arc" cx="50" cy="50" r="36" fill="none" stroke="#ff2a2a" stroke-width="6" stroke-linecap="round" transform="rotate(-90 50 50)" stroke-dasharray="0 227" style="filter:drop-shadow(0 0 4px #ff2a2a)"/></svg><div><b id="pct" class="mono">0%</b><span class="m">Aufgaben erledigt</span></div></div>
 <div class="tiles"><div class="tile"><small>Saldo</small><b id="h1" class="mono"></b></div><div class="tile"><small>Monat</small><b id="h2" class="mono"></b></div><div class="tile"><small>Offen</small><b id="h3" class="mono"></b></div><div class="tile"><small>Apps</small><b id="h4" class="mono"></b></div><div class="bars" id="bars" title="Ausgaben letzte 30 Tage"></div></div></div>
 <nav>
-<button data-t="chat" class="on">Chat</button><button data-t="dash">Übersicht</button><button data-t="agency">Agentur</button><button data-t="team">KI-Team</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
+<button data-t="chat" class="on">Chat</button><button data-t="dash">Übersicht</button><button data-t="agency">Agentur</button><button data-t="team">KI-Team</button><button data-t="kstadt" id="ksNav">KI-Stadt</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
 </nav>
 <main>
 <section id="chat" class="on"><div id="log"></div>
@@ -97,6 +105,14 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <button class="p" id="tbAdd">Bot anlegen</button></details>
 <h3>Skills</h3><p class="m">Skills sind gespeicherte Arbeitsanleitungen. Im Chat startest du sie mit »nutz den <i>name</i> skill: …«. Unter jeder Antwort kannst du 👍/👎 geben – Jarvis merkt sich dein Feedback und schreibt den Skill einmal am Tag (oder nach 3 Hinweisen) selbst besser.</p><div class="skl" id="skList"></div>
 <details class="camp" id="skNew"><summary>+ Skill anlegen</summary><label>Name (kurz, mit Bindestrich)</label><input id="skN" placeholder="z. B. kc-post"><label>Wann benutzen</label><input id="skD" placeholder="z. B. Social-Media-Post für einen Handwerksbetrieb"><label>Anleitung</label><textarea id="skI"></textarea><button class="p" id="skAdd">Skill speichern</button></details></section>
+<section id="kstadt"><div class="ag-top"><b>KI-STADT</b><span class="ag-on mono" id="ksOn"></span></div>
+<p class="m">Jeder Bot aus dem KI-Team wohnt hier in einem eigenen Haus. Läuft ein Bot, geht sein Agent nach Hause und arbeitet. Fertige Ergebnisse landen auf der To-do-Liste unten – benote sie wie ein Lehrer (1 = sehr gut, 6 = ungenügend). Gute Ergebnisse werden zum Vorbild, Kritik zu Regeln, und nach 3 Kritikpunkten schreibt Jarvis die Aufgabe des Bots selbst besser. Je besser der Notenschnitt, desto höher das Haus.</p>
+<div class="ks-kpi"><div><small>Bots aktiv</small><b class="mono" id="ksK1">–</b></div><div><small>Arbeiten gerade</small><b class="mono" id="ksK2">–</b></div><div><small>Zu benoten</small><b class="mono" id="ksK3">–</b></div><div><small>Notenschnitt 7 Tage</small><b class="mono" id="ksK4">–</b></div></div>
+<div class="ks-wrap"><div class="ks-map"><svg id="ksMap" viewBox="0 0 440 290" role="img" aria-label="KI-Stadt mit den Bots als Häusern"></svg></div><div class="ks-feed" id="ksFeed"></div></div>
+<div id="ksSel"></div>
+<h3>To-do-Liste · zu benoten</h3><div class="ks-board" id="ksTodo"></div>
+<details class="camp"><summary>Benotete Ergebnisse</summary><div class="ks-board" id="ksDone"></div></details>
+<p class="m">Die Stadt arbeitet, solange Jarvis geöffnet ist – verpasste Läufe holen die Bots beim Öffnen nach. Bots und Zeitpläne verwaltest du im Reiter KI-Team.</p></section>
 <section id="fin"><div class="m">Saldo</div><div class="big" id="sal"></div><div class="m" id="mon"></div>
 <div class="row"><input id="fd" type="date"><input id="fv" inputmode="decimal" placeholder="Betrag €"><input id="ft" placeholder="Wofür?"></div>
 <div class="row"><button class="p" id="fout">− Ausgabe</button><button id="fin2">+ Einnahme</button></div><div class="list" id="fl"></div></section>
@@ -334,7 +350,7 @@ async function paperLoad(){try{const r=await fetch(PAPER+'?t='+Date.now());if(!r
  const cl=P.closed.slice(-5).reverse().map(t=>`<div><span>${esc(t.pair)} <span class="m">· ${esc(t.why)}</span><br><span class="m">${new Date(t.t_out*1e3).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}</span></span><span class="${t.pnl<0?'neg':'pos'}">${(t.pnl>=0?'+':'')+eur(t.pnl)}</span></div>`).join('');
  $('#btr').innerHTML=(op||'<p class="m">Keine offenen Trades.</p>')+(cl?'<p class="m" style="margin-top:12px">Letzte abgeschlossene Trades</p>'+cl:'');
  S.botLast={mode:'TEST',state:$('#b2').textContent,profit:(pl>=0?'+':'')+eur(pl),open:Object.keys(P.open).length};save();
- $('#bmsg').textContent='Spielgeld-Bot (Cloud) · Kontowert '+eur(P.value)+' von '+eur(P.start)+' · '+P.strategy+' · Stand '+new Date(P.updated*1e3).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
+ $('#bmsg').textContent='Spielgeld-Bot (Cloud) · Kontowert '+eur(P.value)+' von '+eur(P.start)+' · '+P.strategy+(P.gate?' · Echtgeld-Freigabe: '+(P.gate.passed?'ERREICHT ✓':P.gate.trades+'/'+P.gate.need.trades+' Trades, '+P.gate.wr+'/'+P.gate.need.wr+' % Treffer, '+eur(P.gate.value)+'/'+eur(P.gate.need.value)):'')+' · Stand '+new Date(P.updated*1e3).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
  catch(e){$('#bmsg').textContent='Spielgeld-Bot: '+e.message}}
 
 let AV=true,AP=null;
@@ -433,29 +449,126 @@ const TPRE=[{n:'Recherche-Bot',task:'Such die angesagtesten neuen KI-Tools und -
  {n:'Nachrichten-Bot',task:'Fasse die wichtigsten Nachrichten des Tages neutral in 5 Stichpunkten zusammen.',tool:'news',sched:'weekdays',time:'07:00'},
  {n:'Markt-Bot',task:'Bewerte kurz die Kursbewegung von Bitcoin, Ethereum und Solana in Euro. Keine Anlageberatung, nur Lage in 3 Sätzen.',tool:'markt',sched:'daily',time:'18:00'},
  {n:'Business-Bot',task:'Gib Lucas einen konkreten Tipp des Tages für seine Nebengeschäfte (Etsy-Vorlagen, KI-Content für Handwerker, Print-on-Demand), umsetzbar in 30 Minuten.',tool:'ki',sched:'daily',time:'12:00'}];
-const tmDue=b=>{if(!b.on||tmRun.has(b.id))return false;const n=new Date();if(b.sched==='once')return !b.last;if(b.sched==='hourly')return Date.now()-b.last>=36e5;
+const tmDue=b=>{if(!b.on||tmRun.has(b.id))return false;if(b.errAt&&Date.now()-b.errAt<9e5)return false;const n=new Date();if(b.sched==='once')return !b.last;if(b.sched==='hourly')return Date.now()-b.last>=36e5;
  const [h,m]=(b.time||'08:00').split(':').map(Number),at=new Date(n);at.setHours(h,m,0,0);if(b.sched==='weekdays'&&(n.getDay()===0||n.getDay()===6))return false;return n>=at&&b.last<at.getTime()};
 async function tmTool(b){if(b.tool==='web')return await websuche(b.q||b.task.slice(0,60),1);if(b.tool==='news')return (await safe(news))||'';if(b.tool==='markt')return [(await safe(kurse)),(await safe(wx))].filter(Boolean).join('\n');return ''}
-async function tmExec(b){if(tmRun.has(b.id))return;tmRun.add(b.id);tmRender();
- try{const data=await tmTool(b);const out=await ai([{role:'system',content:`Du bist „${b.n}“ im KI-Team von Lucas. Antworte auf Deutsch, kurz, Beträge in Euro.\nDauerhafte Anweisung: ${b.task}\n${b.skill&&skFind(b.skill)?'Skill „'+b.skill+'“: '+skFind(b.skill).i+'\n':''}Dein Gedächtnis: ${b.mem||'(leer)'}\nSchreibe am Ende eine Zeile „MERKEN: …“ mit dem Wichtigsten für den nächsten Lauf.`},{role:'user',content:(data?'Material:\n'+data+'\n\n':'')+'Führe deine Aufgabe jetzt aus.'}]);
+async function tmExec(b){if(tmRun.has(b.id))return;tmRun.add(b.id);ksLog(b,'macht sich an die Arbeit');tmRender();let ok=false;
+ try{const data=await tmTool(b);const out=await ai([{role:'system',content:`Du bist „${b.n}“ im KI-Team von Lucas. Antworte auf Deutsch, kurz, Beträge in Euro.\nDauerhafte Anweisung: ${b.task}\n${b.skill&&skFind(b.skill)?'Skill „'+b.skill+'“: '+skFind(b.skill).i+'\n':''}Dein Gedächtnis: ${b.mem||'(leer)'}\n${ksLessons(b)}Schreibe am Ende eine Zeile „MERKEN: …“ mit dem Wichtigsten für den nächsten Lauf.`},{role:'user',content:(data?'Material:\n'+data+'\n\n':'')+'Führe deine Aufgabe jetzt aus.'}]);
   const mm=out.match(/MERKEN:\s*(.+)$/im);if(mm)b.mem=((b.mem?b.mem+' | ':'')+mm[1].trim()).slice(-600);
-  b.out.unshift({t:Date.now(),txt:out.replace(/MERKEN:.*$/im,'').trim()});b.out=b.out.slice(0,10);push('🤖 '+b.n+': fertig',S.tg?.team!==false&&!!S.tg?.c);if(S.tg?.team!==false)tgSend('🤖 '+b.n+'\n\n'+b.out[0].txt.slice(0,3500))}
- catch(e){b.out.unshift({t:Date.now(),txt:'Fehler: '+e.message})}
- b.last=Date.now();if(b.sched==='once')b.on=false;tmRun.delete(b.id);save();tmRender()}
+  const txt=out.replace(/MERKEN:.*$/im,'').trim();if(!txt)throw new Error('leere Antwort der KI');
+  b.out.unshift({t:Date.now(),txt});b.out=b.out.slice(0,30);ok=true;b.errAt=0;b.errN=0;ksLog(b,'fertig – wartet auf deine Note');push('🤖 '+b.n+': fertig',S.tg?.team!==false&&!!S.tg?.c);if(S.tg?.team!==false)tgSend('🤖 '+b.n+'\n\n'+b.out[0].txt.slice(0,3500))}
+ catch(e){b.errN=(b.errN||0)+1;b.errAt=Date.now();b.lastErr=e.message;ksLog(b,'Fehler: '+e.message+(b.errN<3?' – neuer Versuch in 15 min':' – Pause bis zum nächsten Termin'))}
+ if(ok||b.errN>=3){b.last=Date.now();b.errAt=0;b.errN=0;if(b.sched==='once')b.on=false}tmRun.delete(b.id);save();tmRender()}
 function tmNext(b){if(!b.on)return 'pausiert';if(b.sched==='once')return b.last?'erledigt':'sofort';if(b.sched==='hourly')return 'stündlich';return (b.sched==='weekdays'?'werktags ':'täglich ')+b.time}
-function tmRender(){$('#tmOn').textContent='● '+S.team.filter(b=>b.on).length+' Bots aktiv'+(tmRun.size?' · '+tmRun.size+' arbeitet':'');
+function tmRender(){if(typeof ksRefresh==='function')ksRefresh();$('#tmOn').textContent='● '+S.team.filter(b=>b.on).length+' Bots aktiv'+(tmRun.size?' · '+tmRun.size+' arbeitet':'');
  $('#tmPre').innerHTML=TPRE.filter(p=>!S.team.some(b=>b.n===p.n)).map((p,i)=>`<button data-pre="${TPRE.indexOf(p)}">+ ${esc(p.n)}</button>`).join('');
  $('#tmList').innerHTML=S.team.map(b=>`<details class="camp"${tmRun.has(b.id)?' open':''}><summary><b>${esc(b.n)}</b> <span class="m">· ${tmRun.has(b.id)?'arbeitet …':tmNext(b)}${b.last?' · zuletzt '+new Date(b.last).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):''}</span></summary>
-  <div class="m">Aufgabe: ${esc(b.task)}${b.skill?' · Skill: '+esc(b.skill):''}</div><div class="m">Gedächtnis: ${esc(b.mem||'– noch leer –')}</div>
+  <div class="m">Aufgabe: ${esc(b.task)}${b.skill?' · Skill: '+esc(b.skill):''}</div><div class="m">Gedächtnis: ${esc(b.mem||'– noch leer –')}</div>${b.errAt?`<div class="m neg">Letzter Lauf fehlgeschlagen: ${esc(b.lastErr||'')} – neuer Versuch folgt automatisch.</div>`:''}
   ${(b.out[0]?`<pre>${link(esc(b.out[0].txt))}</pre>`:'<p class="m">Noch kein Ergebnis.</p>')}
   <div class="row"><button class="s" data-run="${b.id}">▶ Jetzt ausführen</button><button class="s" data-tog="${b.id}">${b.on?'Pausieren':'Aktivieren'}</button><button class="s" data-mem="${b.id}">Gedächtnis leeren</button><button class="s" data-del="${b.id}">Löschen</button></div></details>`).join('')||'<p class="m">Noch keine Bots – oben eine Vorlage antippen oder eigenen anlegen.</p>'}
 const tmAdd=o=>{S.team.push({id:Date.now().toString(36),on:true,mem:'',out:[],last:0,time:'08:00',...o});save();tmRender()};
 $('#tmPre').onclick=e=>{const i=e.target.dataset.pre;if(i!=null)tmAdd({...TPRE[i]})};
 $('#tbAdd').onclick=()=>{const n=$('#tbN').value.trim(),t=$('#tbT').value.trim();if(!n||!t)return;tmAdd({n,task:t,tool:$('#tbW').value,skill:$('#tbK').value,sched:$('#tbS').value,time:$('#tbZ').value||'08:00'});$('#tbN').value=$('#tbT').value='';$('#tmNew').open=false};
 $('#tmList').onclick=e=>{const d=e.target.dataset,b=S.team.find(x=>x.id===(d.run||d.tog||d.mem||d.del));if(!b)return;
- if(d.run)tmExec(b);if(d.tog){b.on=!b.on;save();tmRender()}if(d.mem){b.mem='';save();tmRender()}if(d.del){S.team=S.team.filter(x=>x!==b);save();tmRender()}};
+ if(d.run)tmExec(b);if(d.tog){b.on=!b.on;save();tmRender()}if(d.mem){b.mem='';save();tmRender()}if(d.del&&confirm('Bot „'+b.n+'“ mit allen Ergebnissen und Noten löschen?')){S.team=S.team.filter(x=>x!==b);save();tmRender()}};
 document.querySelector('[data-t=team]').addEventListener('click',tmRender);
 const tmTick=()=>{for(const b of S.team)if(tmDue(b))tmExec(b)};setTimeout(tmTick,4000);setInterval(tmTick,6e4);
+
+// ===== KI-STADT: Bots als Häuser, Agenten laufen durch die Stadt, Ergebnisse benoten → Bots lernen =====
+S.kstadt??={log:[]};
+const KSC=['#ff2a2a','#ff6a1a','#c77dff','#39ff6a','#3fb6ff','#ffd23f','#ff3fa4','#5fe39a'],KGC=['','#39ff6a','#a6f04a','#ffd23f','#ff9a3f','#ff5a3f','#ff2a2a'];
+const KN=10,KW=44,KH=22,KX=220,KY=62,ksRoad=(i,j)=>i%3===0||j%3===0,ksHall=(i,j)=>i>=4&&i<6&&j>=4&&j<6;
+const ksP=(i,j)=>[(i-j)*KW/2+KX,(i+j)*KH/2+KY];
+// Bauplätze: erst ein Haus pro Block (vordere Blöcke zuerst, damit nichts hinter dem Notenamt verschwindet), dann auffüllen
+const ksLots=[];{const B=[];for(const bi of [1,4,7])for(const bj of [1,4,7])if(!(bi===4&&bj===4))B.push([bi,bj]);B.sort((a,b)=>(b[0]+b[1])-(a[0]+a[1])||Math.abs(a[0]-a[1])-Math.abs(b[0]-b[1]));
+ for(const [di,dj] of [[1,1],[0,1],[1,0],[0,0]])for(const [bi,bj] of B)ksLots.push([bi+di,bj+dj])}
+const ksDoor=([i,j])=>[[i-1,j],[i+1,j],[i,j-1],[i,j+1]].find(([a,c])=>a>=0&&c>=0&&a<KN&&c<KN&&ksRoad(a,c));
+function ksLog(b,txt){S.kstadt.log.unshift({t:Date.now(),n:b.n,txt});S.kstadt.log=S.kstadt.log.slice(0,60)}
+const ksGrades=b=>(b.out||[]).filter(o=>o.g).sort((x,y)=>y.t-x.t);
+const ksAvg=a=>a.length?a.reduce((s,o)=>s+o.g,0)/a.length:0;
+const ksFmt=v=>v?v.toFixed(1).replace('.',','):'–';
+// Was der Bot aus den Noten lernt (wird in jeden Lauf eingebaut)
+function ksLessons(b){const best=(b.best||[]).slice(0,2),rules=(b.learn||[]).slice(-5),g=ksGrades(b).slice(0,10);let t='';
+ if(g.length)t+=`Notenschnitt deiner letzten ${g.length} Ergebnisse bei Lucas: ${ksFmt(ksAvg(g))} (1 = sehr gut, 6 = ungenügend). Ziel: 1.\n`;
+ if(rules.length)t+='Kritik von Lucas, die du unbedingt umsetzen musst:\n- '+rules.join('\n- ')+'\n';
+ if(best.length)t+='So sahen gut benotete Ergebnisse aus (Stil und Tiefe übernehmen, Inhalt nicht kopieren):\n'+best.map(x=>'[Note '+x.g+'] '+x.txt.slice(0,450)).join('\n---\n')+'\n';
+ return t}
+async function ksImprove(b){if(!(b.learn||[]).length||b.improving)return;b.improving=true;ksLog(b,'schreibt seine Aufgabe nach deiner Kritik neu …');ksRefresh();
+ try{const neu=await ai([{role:'system',content:'Du verbesserst dauerhafte Arbeitsanweisungen für KI-Bots. Antworte NUR mit der neuen Anweisung (max. 700 Zeichen), Deutsch, ohne Einleitung.'},{role:'user',content:`Bot: ${b.n}\nAlte Anweisung:\n${b.task}\n\nKritik von Lucas zu benoteten Ergebnissen:\n- ${b.learn.join('\n- ')}\n\nSchreibe die Anweisung so um, dass die Kritik dauerhaft eingebaut ist und der ursprüngliche Zweck erhalten bleibt.`}]);
+  const t=(neu||'').trim();if(t.length>30){b.taskOld=b.task;b.task=t.slice(0,900);b.learnOld=b.learn;b.learn=[];b.v=(b.v||1)+1;ksLog(b,'neue Aufgabe Version '+b.v);push('🏙 '+b.n+' hat dazugelernt (Version '+b.v+')',true)}}
+ catch(e){ksLog(b,'Verbessern fehlgeschlagen: '+e.message)}
+ b.improving=false;save();ksRefresh()}
+function ksGrade(b,o,g,c){o.g=g;o.c=c||'';o.gt=Date.now();
+ if(g<=2){(b.best??=[]).unshift({t:o.t,g,txt:o.txt.slice(0,600)});b.best=b.best.sort((x,y)=>x.g-y.g||y.t-x.t).slice(0,3)}
+ if(c)(b.learn??=[]).push((g>=4?'Note '+g+': ':'Hinweis: ')+c.slice(0,200));
+ ksLog(b,'bekommt eine '+g+(c?' – „'+c.slice(0,50)+'“':''));save();
+ if((b.learn||[]).filter(x=>/^Note/.test(x)).length>=3)ksImprove(b);ksRefresh()}
+// --- Stadtbild ---
+let ksAg={},ksSelId=null,ksRaf=0,ksT0=0;
+function ksBox(i0,j0,i1,j1,h,col,ins=.14){const a=ksP(i0+ins,j0+ins),r=ksP(i1-ins,j0+ins),bb=ksP(i1-ins,j1-ins),l=ksP(i0+ins,j1-ins),u=p=>[p[0],p[1]-h],P=v=>v.map(p=>p.join(',')).join(' ');
+ return `<polygon points="${P([l,bb,u(bb),u(l)])}" fill="${col}" fill-opacity=".55"/><polygon points="${P([bb,r,u(r),u(bb)])}" fill="${col}" fill-opacity=".35"/><polygon points="${P([u(a),u(r),u(bb),u(l)])}" fill="${col}" fill-opacity=".9"/>`}
+function ksDraw(){const svg=$('#ksMap');if(!svg)return;let g='';
+ for(let s=0;s<2*KN;s++)for(let i=0;i<KN;i++){const j=s-i;if(j<0||j>=KN)continue;const P=[ksP(i,j),ksP(i+1,j),ksP(i+1,j+1),ksP(i,j+1)].map(p=>p.join(',')).join(' ');
+  g+=`<polygon points="${P}" fill="${ksRoad(i,j)?'#231b1d':'#120d0e'}" stroke="#2c1416" stroke-width=".5"/>`}
+ const items=[];S.team.forEach((b,k)=>{const lot=ksLots[k];if(!lot)return;const gr=ksGrades(b).slice(0,10),av=ksAvg(gr),run=tmRun.has(b.id);
+  const h=14+Math.min(gr.length,10)*2+(av?Math.max(0,6-av)*7:0),col=b.on?KSC[k%KSC.length]:'#55484a';
+  items.push({s:lot[0]+lot[1],svg:`<g class="hs${ksSelId===b.id?' sel':''}" data-ks="${b.id}">${ksBox(lot[0],lot[1],lot[0]+1,lot[1]+1,h,col)}${run?`<circle cx="${ksP(lot[0]+.5,lot[1]+.5)[0]}" cy="${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" r="5" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="6 4"><animateTransform attributeName="transform" type="rotate" from="0 ${ksP(lot[0]+.5,lot[1]+.5)[0]} ${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" to="360 ${ksP(lot[0]+.5,lot[1]+.5)[0]} ${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" dur="1.2s" repeatCount="indefinite"/></circle>`:''}<text x="${ksP(lot[0]+.5,lot[1]+.5)[0]}" y="${ksP(lot[0]+.5,lot[1]+.5)[1]-h-(run?16:4)}" text-anchor="middle">${esc(b.n.replace(/-?Bot$/i,'')).slice(0,14)}${av?' · '+ksFmt(av):''}</text><title>${esc(b.n)} – ${run?'arbeitet':tmNext(b)}${av?' – Schnitt '+ksFmt(av):''}</title></g>`})});
+ const open=S.team.reduce((n,b)=>n+(b.out||[]).filter(o=>!o.g&&!/^Fehler/.test(o.txt)).length,0);
+ items.push({s:8.5,svg:`<g>${ksBox(4,4,6,6,30,'#ff6a1a',.1)}<text x="${KX}" y="${ksP(5,5)[1]-44}" text-anchor="middle">Notenamt${open?' · '+open+' offen':''}</text></g>`});
+ items.sort((a,b)=>a.s-b.s).forEach(x=>g+=x.svg);
+ svg.innerHTML=g+'<g id="ksAgents"></g>';ksAgentsSync()}
+function ksAgentsSync(){const L=$('#ksAgents');if(!L)return;const ids=new Set();
+ S.team.forEach((b,k)=>{const lot=ksLots[k];if(!lot)return;ids.add(b.id);const d=ksDoor(lot);let a=ksAg[b.id];
+  if(!a){const st=[[0,0],[3,9],[9,3],[6,0],[0,6]][k%5];a=ksAg[b.id]={i:st[0],j:st[1],ti:st[0],tj:st[1],f:1,el:null}}
+  a.home=d;a.col=KSC[k%KSC.length];a.state=tmRun.has(b.id)?'work':b.on?'walk':'off';
+  if(!a.el||!a.el.isConnected){a.el=document.createElementNS('http://www.w3.org/2000/svg','g');a.el.innerHTML=`<ellipse cx="0" cy="0" rx="5" ry="2.4" fill="#000" opacity=".5"/><rect x="-3" y="-11" width="6" height="9" rx="2" fill="${a.col}"/><circle cx="0" cy="-14" r="3.2" fill="#f3e9e6"/><circle class="gl" cx="0" cy="-7" r="9" fill="none" stroke="${a.col}" stroke-width="1.5" opacity="0"/>`;L.appendChild(a.el)}});
+ for(const id in ksAg)if(!ids.has(id)){ksAg[id].el?.remove();delete ksAg[id]}}
+function ksStep(a){const nb=[[1,0],[-1,0],[0,1],[0,-1]].map(([x,y])=>[a.ti+x,a.tj+y]).filter(([x,y])=>x>=0&&y>=0&&x<KN&&y<KN&&ksRoad(x,y));
+ if(a.state==='walk'||!a.home){const back=nb.filter(([x,y])=>!(x===a.pi&&y===a.pj));const c=(back.length?back:nb)[Math.floor(Math.random()*(back.length||nb.length))];return c}
+ if(a.ti===a.home[0]&&a.tj===a.home[1])return null;
+ return nb.sort((p,q)=>Math.abs(p[0]-a.home[0])+Math.abs(p[1]-a.home[1])-(Math.abs(q[0]-a.home[0])+Math.abs(q[1]-a.home[1])))[0]}
+const ksRM=matchMedia('(prefers-reduced-motion: reduce)');
+function ksLoop(t){ksRaf=0;if(!$('#kstadt').classList.contains('on'))return;const dt=Math.min(.1,(t-(ksT0||t))/1000);ksT0=t;
+ for(const id in ksAg){const a=ksAg[id];if(!a.el)continue;
+  if(a.state==='off'&&a.home){a.i=a.ti=a.home[0];a.j=a.tj=a.home[1];a.f=1}
+  else{a.f+=dt*(a.state==='work'?2.2:1.1)*(ksRM.matches?0:1);if(a.f>=1){a.i=a.ti;a.j=a.tj;const n=ksStep(a);if(n){a.pi=a.ti;a.pj=a.tj;a.ti=n[0];a.tj=n[1];a.f=0}else a.f=1}}
+  const k=Math.min(1,a.f),fi=a.i+(a.ti-a.i)*k+.5,fj=a.j+(a.tj-a.j)*k+.5,[x,y]=ksP(fi,fj),atHome=a.state==='work'&&a.f>=1;
+  a.el.setAttribute('transform',`translate(${x.toFixed(1)} ${(y-(a.state==='work'&&atHome?Math.abs(Math.sin(t/180))*3:0)).toFixed(1)})`);a.el.style.opacity=a.state==='off'?.35:1;
+  a.el.querySelector('.gl').setAttribute('opacity',a.state==='work'?.6+.4*Math.sin(t/200):0)}
+ ksRaf=requestAnimationFrame(ksLoop)}
+// --- Panels ---
+const ksTime=t=>new Date(t).toLocaleString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+function ksRefresh(){const open=[];S.team.forEach((b,k)=>(b.out||[]).forEach(o=>{if(!o.g&&!/^Fehler/.test(o.txt))open.push({b,k,o})}));
+ const nav=$('#ksNav');if(nav)nav.textContent='KI-Stadt'+(open.length?' ('+open.length+')':'');
+ if(!$('#kstadt').classList.contains('on'))return;
+ const wk=Date.now()-7*864e5,g7=S.team.flatMap(b=>ksGrades(b).filter(o=>o.gt>=wk));
+ $('#ksK1').textContent=S.team.filter(b=>b.on).length+' / '+S.team.length;$('#ksK2').textContent=tmRun.size;$('#ksK3').textContent=open.length;$('#ksK4').textContent=ksFmt(ksAvg(g7))+(g7.length?' ('+g7.length+')':'');
+ $('#ksOn').textContent='● '+(tmRun.size?tmRun.size+' Agent'+(tmRun.size>1?'en arbeiten':' arbeitet'):'alle Agenten unterwegs');
+ ksDraw();
+ $('#ksFeed').innerHTML='<b style="color:var(--org)">LIVE-PROTOKOLL</b>'+(S.kstadt.log.slice(0,30).map(l=>`<div><span class="m">${new Date(l.t).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}</span> <i>${esc(l.n)}</i> ${esc(l.txt)}</div>`).join('')||'<div class="m">Noch ruhig in der Stadt.</div>');
+ const card=({b,k,o},done)=>`<div class="ks-card" style="--c:${KSC[k%KSC.length]}"><b>${esc(b.n)}</b> <span class="m">· ${ksTime(o.t)}</span>${done?` <span class="ks-g" style="background:${KGC[o.g]}">${o.g}</span>`:''}
+  <pre>${link(esc(o.txt))}</pre>${done?(o.c?`<div class="m">„${esc(o.c)}“</div>`:'')+`<button class="s" data-ksun="${b.id}|${o.t}">Note ändern</button>`:`<input class="ksc" data-kc="${b.id}|${o.t}" placeholder="Kommentar – was soll besser werden? (bei Note 4–6 Pflicht)"><div class="ks-grades">${[1,2,3,4,5,6].map(n=>`<button style="color:${KGC[n]}" data-ksg="${b.id}|${o.t}|${n}" title="Note ${n}">${n}</button>`).join('')}</div>`}</div>`;
+ $('#ksTodo').innerHTML=open.sort((x,y)=>y.o.t-x.o.t).map(x=>card(x)).join('')||`<p class="m">${S.team.length?'Alles benotet – die Agenten arbeiten an den nächsten Aufgaben.':'Noch keine Bots in der Stadt.'}</p>${S.team.length?'':TPRE.map((p,i)=>`<button class="s" data-kspre="${i}">+ ${esc(p.n)} einziehen lassen</button> `).join('')}`;
+ const done=[];S.team.forEach((b,k)=>(b.out||[]).forEach(o=>{if(o.g)done.push({b,k,o})}));
+ $('#ksDone').innerHTML=done.sort((x,y)=>y.o.gt-x.o.gt).slice(0,24).map(x=>card(x,1)).join('')||'<p class="m">Noch nichts benotet.</p>';
+ const b=S.team.find(x=>x.id===ksSelId);
+ if(!b){$('#ksSel').innerHTML='<p class="m">Tipp: Tippe auf ein Haus, um den Bot zu sehen.</p>';return}
+ const gr=ksGrades(b),a5=ksAvg(gr.slice(0,5)),p5=ksAvg(gr.slice(5,10)),tr=a5&&p5?(a5<p5-.2?' ↗ besser':a5>p5+.2?' ↘ schlechter':' → gleich'):'';
+ $('#ksSel').innerHTML=`<div class="ks-sel"><div class="ag-top"><b style="color:${KSC[S.team.indexOf(b)%KSC.length]}">${esc(b.n)}</b><span class="m">${tmRun.has(b.id)?'arbeitet …':tmNext(b)} · Version ${b.v||1}</span></div>
+  <div class="m">Schnitt: ${ksFmt(ksAvg(gr.slice(0,10)))}${tr} · ${gr.length} benotet · ${(b.best||[]).length} Vorbilder · ${(b.learn||[]).length} offene Kritikpunkte${b.improving?' · lernt gerade …':''}</div>
+  <div class="m" style="margin-top:4px">Aufgabe: ${esc(b.task)}</div>${(b.learn||[]).length?`<div class="m">Kritik: ${b.learn.map(esc).join(' · ')}</div>`:''}${b.errAt?`<div class="m neg">Letzter Lauf fehlgeschlagen: ${esc(b.lastErr||'')}</div>`:''}
+  <div class="row"><button class="s" data-ksrun="${b.id}">▶ Jetzt arbeiten</button><button class="s" data-ksimp="${b.id}"${(b.learn||[]).length?'':' disabled'}>🧠 Aus Kritik lernen</button>${b.taskOld?`<button class="s" data-ksundo="${b.id}">↶ Alte Aufgabe zurück</button>`:''}<button class="s" data-kstog="${b.id}">${b.on?'Pausieren':'Aktivieren'}</button></div></div>`}
+$('#kstadt').addEventListener('click',e=>{const t=e.target.closest('[data-ks],button');if(!t)return;const d=t.dataset;
+ if(d.ks){ksSelId=ksSelId===d.ks?null:d.ks;return ksRefresh()}
+ if(d.kspre!=null)return tmAdd({...TPRE[d.kspre]});
+ const id=(d.ksg||d.ksun||'').split('|'),b=S.team.find(x=>x.id===(id[0]||d.ksrun||d.ksimp||d.ksundo||d.kstog));if(!b)return;
+ if(d.ksg){const o=b.out.find(x=>String(x.t)===id[1]),g=+id[2];if(!o)return;let c=($(`[data-kc="${id[0]}|${id[1]}"]`)?.value||'').trim();
+  if(g>=4&&!c){c=(prompt('Note '+g+' – was soll '+b.n+' beim nächsten Mal besser machen?')||'').trim();if(!c)return}ksGrade(b,o,g,c)}
+ if(d.ksun){const o=b.out.find(x=>String(x.t)===id[1]);if(o){b.best=(b.best||[]).filter(x=>x.t!==o.t);if(o.c)b.learn=(b.learn||[]).filter(x=>!x.endsWith(o.c.slice(0,200)));delete o.g;delete o.c;delete o.gt;save();ksRefresh()}}
+ if(d.ksrun)tmExec(b);if(d.ksimp)ksImprove(b);if(d.kstog){b.on=!b.on;save();tmRender()}
+ if(d.ksundo&&b.taskOld){b.task=b.taskOld;delete b.taskOld;b.learn=b.learnOld||[];b.v=Math.max(1,(b.v||2)-1);ksLog(b,'Aufgabe zurückgesetzt');save();ksRefresh()}});
+document.querySelector('[data-t=kstadt]').addEventListener('click',()=>{ksRefresh();if(!ksRaf){ksT0=0;ksRaf=requestAnimationFrame(ksLoop)}});
+setTimeout(ksRefresh,500);
 
 
 S.skills??=[{n:'kc-post',d:'Social-Media-Post für einen Handwerks- oder Gastrobetrieb (KC)',i:'Schreibe einen Facebook/Instagram-Post für den genannten Betrieb aus der Region Börde/Harz. Aufbau: Hook in Zeile 1, 2–4 kurze Sätze mit konkretem Nutzen oder Einblick in die Arbeit, klare Handlungsaufforderung (Anfrage, Bewerbung oder Anruf), 3–5 regionale Hashtags. Du-Form nur, wenn der Betrieb das will, sonst Sie. Keine Übertreibungen, keine erfundenen Zahlen. Gib zusätzlich eine Bildidee in einer Zeile.'},
