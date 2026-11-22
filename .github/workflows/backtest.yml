@@ -5,6 +5,9 @@ on:
       monate:
         description: "Monate Historie"
         default: "12"
+      modus:
+        description: "leer oder fokus"
+        default: ""
 permissions:
   contents: write
 jobs:
@@ -16,13 +19,14 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: .bt_cache
-          key: bt-cache-v1
+          key: bt-cache-v1-${{ inputs.modus }}
+          restore-keys: bt-cache-v1
       - run: pip install -q numpy pandas
-      - run: python3 bot/backtest.py "${{ inputs.monate }}"
+      - run: python3 bot/backtest.py "${{ inputs.monate }}" "${{ inputs.modus }}"
       - run: |
           git config user.name "jarvis-bot"
           git config user.email "jarvis-bot@users.noreply.github.com"
-          git add data/backtest.json
+          git add data/backtest*.json
           git diff --cached --quiet && exit 0
           git commit -qm "Backtest-Ergebnis"
           for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done

@@ -10,6 +10,8 @@ import pandas as pd
 
 COINS = ["BTC", "ETH", "SOL", "XRP", "ADA", "DOGE", "DOT", "LINK", "AVAX", "LTC",
          "TRX", "ATOM", "BCH", "XLM", "NEAR", "SHIB", "PEPE", "POL", "SUI", "UNI"]
+MORE = ["ARB", "OP", "APT", "INJ", "FET", "RENDER", "TIA", "SEI", "WIF", "BONK",
+        "FIL", "ICP", "AAVE", "HBAR", "ALGO", "ETC", "SAND", "MANA", "GRT", "TAO"]
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "backtest.json")
 CACHE = os.path.join(os.path.dirname(__file__), "..", ".bt_cache")
 
@@ -124,10 +126,12 @@ def simulate(O, H, L, C, entry, tp, sl, hold, fee, max_open=5, start=1000.0, be=
 
 def main():
     nmon = int(sys.argv[1]) if len(sys.argv) > 1 else 12
+    focus = len(sys.argv) > 2 and sys.argv[2] == "fokus"
     months = months_back(nmon)
+    coin_list = COINS + MORE if focus else COINS
     print("Monate:", months[0], "bis", months[-1])
     data = {}
-    for c in COINS:
+    for c in coin_list:
         df = load(c, months)
         if df is not None and len(df) > 1000:
             data[c] = df
@@ -168,40 +172,55 @@ def main():
     for d in (0.04, 0.06):
         drop = Cf / np.roll(Cf, 8, 0) - 1
         entries[f"E_drop{int(d * 100)}%/8_kein_trend"] = (drop <= -d) & (ind["rsi14"] < 30) & valid
+    if focus:
+        entries = {}
+        for bars in (4, 8, 16):
+            drop = Cf / np.roll(Cf, bars, 0) - 1
+            for d in (0.04, 0.05, 0.06, 0.08):
+                for rm in (25, 30, 35, 101):
+                    entries[f"E_drop{int(d * 100)}%/{bars}_rsi<{rm}"] = (drop <= -d) & (ind["rsi14"] < rm) & valid
     for e in entries.values():
         e[:850] = False
 
     FEE = 0.0045          # 0,40 % Kraken-Taker + 0,05 % Slippage je Seite (vorsichtig)
-    grid = [(tp, sl, hold) for tp in (0.008, 0.012, 0.016, 0.02, 0.03) for sl in (0.03, 0.05, 0.08, 0.12)
+    grid = [(tp, sl, hold, 5) for tp in (0.008, 0.012, 0.016, 0.02, 0.03) for sl in (0.03, 0.05, 0.08, 0.12)
             for hold in (32, 96, 288)]
+    if focus:
+        grid = [(tp, sl, hold, mo) for tp in (0.015, 0.02, 0.025, 0.03) for sl in (0.08, 0.12, 0.2)
+                for hold in (288, 576) for mo in (3, 5)]
     results = []
     t0 = time.time()
     for name, e in entries.items():
-        for tp, sl, hold in grid:
-            r = simulate(O, H, L, C, e, tp, sl, hold, FEE, split_t=split)
-            r.update({"strategy": name, "tp": tp, "sl": sl, "hold": hold})
+        for tp, sl, hold, mo in grid:
+            r = simulate(O, H, L, C, e, tp, sl, hold, FEE, max_open=mo, split_t=split)
+            r.update({"strategy": name, "tp": tp, "sl": sl, "hold": hold, "max_open": mo})
             results.append(r)
         print(f"  {name}: fertig ({time.time() - t0:.0f}s)")
 
     def ok(r, part):
-        return r[part]["wr"] >= 80 and r[part]["n"] >= 30 and r[part]["pnl"] > 0
+        return r[part]["wr"] >= 80 and r[part]["n"] >= (30 if part == "train" else 15) and r[part]["pnl"] > 0
     good = [r for r in results if ok(r, "train")]
     good.sort(key=lambda r: r["train"]["pnl"], reverse=True)
     both = [r for r in good if ok(r, "test")]
     best_any = sorted(results, key=lambda r: r["final"], reverse=True)[:15]
     # Top-Kandidaten zusätzlich mit Maker-Gebühren (Limit-Orders, 0,25 %)
     for r in (both[:10] or good[:10]):
-        rr = simulate(O, H, L, C, entries[r["strategy"]], r["tp"], r["sl"], r["hold"], 0.0030, split_t=split)
+        rr = simulate(O, H, L, C, entries[r["strategy"]], r["tp"], r["sl"], r["hold"], 0.0030,
+                      max_open=r["max_open"], split_t=split)
         r["maker_final"] = rr["final"]
         r["maker_wr"] = rr["all"]["wr"]
-    out = {"created": int(time.time()), "months": [months[0], months[-1]], "coins": coins, "fee_side": FEE,
+    fam = {}
+    for r in results:
+        if r["strategy"] not in fam or r["final"] > fam[r["strategy"]]["final"]:
+            fam[r["strategy"]] = {k: r[k] for k in ("final", "max_dd", "tp", "sl", "hold", "max_open")} | {"wr": r["all"]["wr"], "n": r["all"]["n"]}
+    out = {"per_strategy_best": fam, "created": int(time.time()), "months": [months[0], months[-1]], "coins": coins, "fee_side": FEE,
            "configs": len(results), "train_ok": len(good), "train_and_test_ok": len(both),
            "best_both": both[:15], "best_train": good[:15], "best_return": best_any}
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    json.dump(out, open(OUT, "w"), indent=1)
+    json.dump(out, open(OUT.replace(".json", "_fokus.json") if focus else OUT, "w"), indent=1)
 
     def line(r):
-        return (f"{r['strategy']:<28} TP {r['tp'] * 100:.1f}% SL {r['sl'] * 100:.0f}% max {r['hold'] // 4}h | "
+        return (f"{r['strategy']:<24} slots {r['max_open']} TP {r['tp'] * 100:.1f}% SL {r['sl'] * 100:.0f}% max {r['hold'] // 4}h | "
                 f"Endwert {r['final']:>9.0f} € DD {r['max_dd']}% | Trades {r['all']['n']} WR {r['all']['wr']}% | "
                 f"Train WR {r['train']['wr']}% {r['train']['pnl']:+.0f}€ | Test WR {r['test']['wr']}% {r['test']['pnl']:+.0f}€"
                 + (f" | Maker {r['maker_final']:.0f}€" if "maker_final" in r else ""))
@@ -213,6 +232,9 @@ def main():
     print("\n--- Beste nur Training ---")
     for r in good[:10]:
         print(line(r))
+    print("\n--- Bestes Ergebnis je Strategie ---")
+    for k2, v in sorted(fam.items(), key=lambda x: -x[1]["final"])[:25]:
+        print(f"{k2:<28} Endwert {v['final']:>8.0f} € WR {v['wr']}% n {v['n']} DD {v['max_dd']}%")
     print("\n--- Höchster Endwert (egal welche Trefferquote) ---")
     for r in best_any[:10]:
         print(line(r))
