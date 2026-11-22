@@ -1,0 +1,47 @@
+name: App veröffentlichen
+# Baut GitHub Pages neu, sobald sich die Jarvis-App ändert, und prüft danach die Live-Seite.
+on:
+  push:
+    branches: [main]
+    paths: ['index.html', 'sw.js', 'manifest.json', 'icon*']
+  workflow_dispatch:
+    inputs:
+      marker:
+        description: 'Text, der auf der Live-Seite stehen muss'
+        required: false
+        default: ''
+permissions:
+  contents: read
+  pages: write
+concurrency:
+  group: app-veroeffentlichen
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pages-Neubau anfordern
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -X POST repos/${{ github.repository }}/pages/builds
+          echo "Neubau angefordert für ${{ github.sha }}"
+      - name: Live-Seite prüfen
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MARKER: ${{ inputs.marker }}
+        run: |
+          URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          want=$(gh api "repos/${{ github.repository }}/contents/index.html?ref=${{ github.sha }}" --jq .sha)
+          for i in $(seq 1 40); do
+            sleep 15
+            st=$(gh api repos/${{ github.repository }}/pages/builds/latest --jq '.status+" "+.commit' || true)
+            curl -fsS -H 'Cache-Control: no-cache' -o live.html "$URL?v=$RANDOM$i" || : > live.html
+            live=$(git hash-object live.html)
+            echo "Versuch $i: Build=$st  live=$live  erwartet=$want"
+            if [ "$live" = "$want" ]; then
+              if [ -n "$MARKER" ] && ! grep -qF "$MARKER" live.html; then echo "Marker fehlt"; exit 1; fi
+              echo "LIVE OK: $URL zeigt die aktuelle index.html"; exit 0
+            fi
+          done
+          echo "Live-Seite noch nicht aktuell"; exit 1
