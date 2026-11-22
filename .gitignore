@@ -1,1 +1,3 @@
 video/out/
+.bt_cache/
+__pycache__/
