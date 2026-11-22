@@ -1,0 +1,17 @@
+name: Telegram senden
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: "Nachricht an Lucas' Telegram-Bot"
+        required: true
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+          TEXT: ${{ inputs.text }}
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" -d chat_id="$TG_CHAT" --data-urlencode text="$TEXT" "https://api.telegram.org/bot$TG_TOKEN/sendMessage"
