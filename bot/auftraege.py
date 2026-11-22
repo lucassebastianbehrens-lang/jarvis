@@ -63,11 +63,14 @@ def http(url, data=None, headers=None, timeout=30):
         return json.load(r)
 
 
-def usd_eur():
+def eur_rates():
+    """Wechselkurse: 1 EUR = x Fremdwährung (EZB-Kurse über frankfurter.app)."""
     try:
-        return float(http("https://api.frankfurter.app/latest?from=USD&to=EUR")["rates"]["EUR"])
+        r = http("https://api.frankfurter.app/latest?from=EUR")["rates"]
+        r["EUR"] = 1.0
+        return r
     except Exception:
-        return 0.92
+        return {"EUR": 1.0, "USD": 1.08, "GBP": 0.85, "AUD": 1.65, "CAD": 1.5}
 
 
 # ---------- KI ----------
@@ -128,8 +131,11 @@ def scout_freelancer(eur):
                 continue
             seen.add(p["id"])
             b, cur = p.get("budget") or {}, p.get("currency") or {}
-            rate = float(cur.get("exchange_rate") or 1) * eur          # → USD → EUR
-            lo, hi = float(b.get("minimum") or 0) * rate, float(b.get("maximum") or b.get("minimum") or 0) * rate
+            code = (cur.get("code") or "").upper()
+            if code not in eur:                                  # unbekannte Währung → lieber auslassen
+                continue
+            lo = float(b.get("minimum") or 0) / eur[code]
+            hi = float(b.get("maximum") or b.get("minimum") or 0) / eur[code]
             out.append({"id": "fl-%s" % p["id"], "quelle": "Freelancer.com", "plattform": True,
                         "titel": p.get("title", ""), "text": (p.get("description") or p.get("preview_description") or "")[:2500],
                         "url": "https://www.freelancer.com/projects/" + (p.get("seo_url") or str(p["id"])),
@@ -175,6 +181,8 @@ def prefilter(items, known):
             continue
         if it["plattform"] and it["gebote"] > 60:          # hoffnungslos überlaufen
             continue
+        if re.search(r"translat|übersetz", txt, re.I) and not re.search(r"german|deutsch", txt, re.I):
+            continue                                        # Übersetzungen nur Deutsch ↔ Englisch (Lucas kann prüfen)
         if it["stunden"]:                                   # Stundenjobs = Anstellung, kein KI-Festpreisauftrag
             continue
         if not re.search(r"\b(the|and|for|need|write|to|my|of|with|ich|und|für|der|die|ein)\b", txt, re.I):   # nur Englisch/Deutsch
@@ -193,7 +201,9 @@ RATE_SYS = ("Du bewertest Aufträge für einen Ein-Personen-Dienstleister, der d
             "Hausaufgaben/Prüfungen, keine Fake-Bewertungen, keine Accounts) und in unter 2 Stunden prüfbar ist. "
             "Unter 40 Punkte: Daueranstellungen/Assistenzjobs, Stundenjobs ohne klares Ergebnis, Aufträge mit "
             "aktuellen Echtdaten (Preise, Kurse, Kontaktlisten, Marktrecherche vor Ort), Sprachen außer Deutsch/Englisch, "
-            "Zugriff auf Kundensysteme, Design mit Markenvorgaben. "
+            "Zugriff auf Kundensysteme, Design mit Markenvorgaben, Übersetzungen außer Deutsch↔Englisch. "
+            "Bonus-Punkte, wenn das Ergebnis schon allein aus der Auftragsbeschreibung erstellt werden kann "
+            "(z. B. Texte, Artikel, Vorlagen, Formeln, Skripte) – Abzug, wenn erst Dateien vom Kunden nötig sind. "
             "Schätze einen fairen Festpreis in Euro (mind. 15). Antworte NUR mit JSON-Liste: "
             '[{"id":"…","punkte":0-100,"preis_eur":Zahl,"warum":"1 Satz Deutsch"}]')
 
@@ -210,6 +220,12 @@ WORK_SYS = ("Du bist Lucas' KI-Team und bereitest einen bezahlten Auftrag vollst
             '"sprache":"de|en|…","schritte":["…"]}')
 
 
+def sprache(txt):
+    de = len(re.findall(r"\b(und|der|die|das|ich|wir|für|mit|nicht|eine?n?|bitte|suchen)\b", txt, re.I))
+    en = len(re.findall(r"\b(the|and|for|with|need|looking|you|will|please|our|we)\b", txt, re.I))
+    return "Deutsch" if de > en else "Englisch"
+
+
 def paypal(eur):
     return f"https://paypal.me/{PAYPAL_ME}/{int(round(eur))}EUR"
 
@@ -220,7 +236,8 @@ def prepare(it, rating):
     if hi:
         preis = min(max(preis, lo or preis), hi)            # im Budget des Kunden bleiben
     preis = max(15, round(preis))
-    j = ai(WORK_SYS, f"Quelle: {it['quelle']}\nTitel: {it['titel']}\nBudget des Kunden: {lo}–{hi} EUR\n"
+    lang = sprache(it["titel"] + " " + it["text"])
+    j = ai(WORK_SYS, f"SPRACHE für angebot und ergebnis: {lang}. schritte: Deutsch, Du-Form an Lucas.\nQuelle: {it['quelle']}\nTitel: {it['titel']}\nBudget des Kunden: {lo}–{hi} EUR\n"
                      f"Preis (exakt so nennen): {preis} EUR Festpreis\n\nOriginalauftrag:\n{it['text']}",
            want_json=True)
     angebot = j.get("angebot", "").strip()
@@ -294,7 +311,7 @@ def main():
     heute = now().strftime("%d.%m.%Y")
     schon = [a for a in state["auftraege"] if a.get("datum") == heute]
 
-    items = fake_items() if FAKE else scout_freelancer(usd_eur()) + scout_reddit()
+    items = fake_items() if FAKE else scout_freelancer(eur_rates()) + scout_reddit()
     roh = len(items)
     cand = prefilter(items, known)
     print(f"Gefunden: {roh} Aufträge, nach Filter: {len(cand)}")
