@@ -1,15 +1,7 @@
 {
  "start": 1000.0,
- "cash": 837.0230953346774,
- "open": {
-  "PEPE/EUR": {
-   "price": 3.108e-06,
-   "qty": 48069498.06949807,
-   "cost": 150.0,
-   "t": 1795294800,
-   "hi": 3.135e-06
-  }
- },
+ "cash": 984.4849331725152,
+ "open": {},
  "closed": [
   {
    "pair": "ETH/EUR",
@@ -80,54 +72,64 @@
    "t_in": 1795311900,
    "t_out": 1795313700,
    "why": "Signal"
+  },
+  {
+   "pair": "PEPE/EUR",
+   "in": 3.108e-06,
+   "out": 3.08e-06,
+   "pnl": -2.54,
+   "pct": -1.69,
+   "t_in": 1795294800,
+   "t_out": 1795315500,
+   "why": "Signal"
   }
  ],
  "daily": {
-  "2026-11-22": -12.96
+  "2026-11-22": -15.5
  },
  "last_ts": {
-  "BTC/EUR": 1795314600,
-  "ETH/EUR": 1795314600,
-  "SOL/EUR": 1795314600,
-  "XRP/EUR": 1795314600,
-  "ADA/EUR": 1795314600,
-  "DOGE/EUR": 1795314600,
-  "DOT/EUR": 1795314600,
-  "LINK/EUR": 1795314600,
-  "AVAX/EUR": 1795314600,
-  "LTC/EUR": 1795314600,
-  "TRX/EUR": 1795314600,
-  "ATOM/EUR": 1795314600,
-  "BCH/EUR": 1795314600,
-  "XLM/EUR": 1795314600,
-  "NEAR/EUR": 1795314600,
-  "SHIB/EUR": 1795314600,
-  "PEPE/EUR": 1795314600,
-  "POL/EUR": 1795314600,
-  "SUI/EUR": 1795314600,
-  "UNI/EUR": 1795314600
+  "BTC/EUR": 1795318200,
+  "ETH/EUR": 1795318200,
+  "SOL/EUR": 1795318200,
+  "XRP/EUR": 1795318200,
+  "ADA/EUR": 1795318200,
+  "DOGE/EUR": 1795318200,
+  "DOT/EUR": 1795318200,
+  "LINK/EUR": 1795318200,
+  "AVAX/EUR": 1795318200,
+  "LTC/EUR": 1795318200,
+  "TRX/EUR": 1795318200,
+  "ATOM/EUR": 1795318200,
+  "BCH/EUR": 1795318200,
+  "XLM/EUR": 1795318200,
+  "NEAR/EUR": 1795318200,
+  "SHIB/EUR": 1795318200,
+  "PEPE/EUR": 1795318200,
+  "POL/EUR": 1795318200,
+  "SUI/EUR": 1795318200,
+  "UNI/EUR": 1795318200
  },
  "prices": {
-  "BTC/EUR": 54346.7,
-  "ETH/EUR": 1523.64,
-  "SOL/EUR": 63.43,
-  "XRP/EUR": 0.841,
-  "ADA/EUR": 0.129916,
-  "DOGE/EUR": 0.0497845,
-  "DOT/EUR": 0.5946,
-  "LINK/EUR": 7.78059,
-  "AVAX/EUR": 5.961,
-  "LTC/EUR": 35.97,
-  "TRX/EUR": 0.278279,
-  "ATOM/EUR": 1.0525,
-  "BCH/EUR": 180.44,
-  "XLM/EUR": 0.116167,
-  "NEAR/EUR": 2.6245,
-  "SHIB/EUR": 3.289e-06,
-  "PEPE/EUR": 3.089e-06,
-  "POL/EUR": 0.06837,
-  "SUI/EUR": 0.584,
-  "UNI/EUR": 4.2655
+  "BTC/EUR": 53988.8,
+  "ETH/EUR": 1512.92,
+  "SOL/EUR": 63.23,
+  "XRP/EUR": 0.83614,
+  "ADA/EUR": 0.12891,
+  "DOGE/EUR": 0.0493451,
+  "DOT/EUR": 0.5861,
+  "LINK/EUR": 7.75753,
+  "AVAX/EUR": 5.941,
+  "LTC/EUR": 35.79,
+  "TRX/EUR": 0.277813,
+  "ATOM/EUR": 1.0529,
+  "BCH/EUR": 178.78,
+  "XLM/EUR": 0.115575,
+  "NEAR/EUR": 2.6036,
+  "SHIB/EUR": 3.262e-06,
+  "PEPE/EUR": 3.059e-06,
+  "POL/EUR": 0.06821,
+  "SUI/EUR": 0.5796,
+  "UNI/EUR": 4.2481
  },
  "equity": [
   [
@@ -197,11 +199,15 @@
   [
    1795315540,
    984.92
+  ],
+  [
+   1795319189,
+   984.48
   ]
  ],
  "started": 1795259130,
  "strategy": "EMA 9/21 + Trendfilter EMA 100 + RSI 45\u201370, SL -3,5 %, ab +1,5 % abgesichert, TP +2,5 % (viele kleine Gewinne)",
- "value": 984.92,
- "updated": 1795315540,
+ "value": 984.48,
+ "updated": 1795319189,
  "errors": []
 }
