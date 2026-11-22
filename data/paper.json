@@ -266,11 +266,15 @@
   [
    1795337178,
    978.28
+  ],
+  [
+   1795337869,
+   978.28
   ]
  ],
  "started": 1795259130,
  "strategy": "EMA 9/21 + Trendfilter EMA 100 + RSI 45\u201370, SL -3,5 %, ab +1,5 % abgesichert, TP +2,5 % (viele kleine Gewinne)",
  "value": 978.28,
- "updated": 1795337178,
+ "updated": 1795337869,
  "errors": []
 }
