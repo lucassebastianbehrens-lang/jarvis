@@ -1,10 +1,89 @@
 {
- "auftraege": [],
- "stand": "22.11.2026 11:21",
+ "auftraege": [
+  {
+   "id": "fl-40829697",
+   "t": 1795343135,
+   "datum": "22.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/content-writing/Quick-Indonesian-English-Translation",
+   "titel": "Indonesian‑English Übersetzung",
+   "original": "Quick Indonesian-English Translation",
+   "auftrag": "I have a short Indonesian document—roughly 500 words—that I need rendered into clear, natural US English within two days. The text is a straightforward letter, so no specialised jargon is involved, but accuracy matters; every nuance should read as if originally written in English.\n\nPlease mirror the existing layout as closely as possible. Whenever a heading, paragraph break, or emphasis appears in the Indonesian file, I’d like to see it reflected in the English version so I can drop the translation straight back into my template without re-formatting.\n\nDeliverables  \n• one clean .docx that preserves the original structure  \n• a matching, ready-to-share PDF  \n\nKindly proof-read your work, avoid machine-generated phrasing, and make sure US spelling is consistent throughout. If you can meet the 48-hour turnaround and these presentation details, I’m ready to hire immediately.",
+   "punkte": 80,
+   "warum": "KI kann 500‑Wort‑Übersetzung mit Format übernehmen.",
+   "preis_eur": 45496,
+   "lieferzeit": "48 Stunden",
+   "angebot": "Vielen Dank für Ihre Anfrage. Ich übersetze das 500‑Wörter‑Dokument präzise ins US‑Englische, behalte die Originalstruktur bei und liefere in 48 h ein .docx sowie ein PDF. Der Preis beträgt 45496 EUR Festpreis.",
+   "ergebnis": "[Annahme: Übersetzte 500‑Wörter des indonesischen Dokuments, erstellt .docx und PDF, Originallayout beibehalten, US‑Englische Rechtschreibung, final proofread]",
+   "schritte": [
+    "1. Prüfen Sie, ob die Übersetzung sämtlich Kapitel und Formatierungen exakt übernommen hat.",
+    "2. Kontrollieren Sie die US‑Englischen Rechtschreibregeln (z. B. colour vs color).",
+    "3. Öffnen Sie die PDF, um sicherzustellen, dass das Layout gleich bleibt.",
+    "4. Signieren oder schließen Sie das Angebot."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  },
+  {
+   "id": "fl-40829916",
+   "t": 1795343188,
+   "datum": "22.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/marketing/Marketing-Material-Translation-Project",
+   "titel": "Übersetzung von Marketingmaterialien",
+   "original": "Marketing Material Translation Project",
+   "auftrag": "I have a set of business-focused marketing materials that need to be translated accurately and fluently into the target language while preserving brand voice and persuasive tone. The content includes product descriptions, short promotional blurbs, and a brief company overview.\n\nScope\n• Translate text between languages with attention to nuance, idioms, and cultural relevance.  \n• Maintain consistent terminology, style, and formatting across all documents.  \n• Deliver the final copy in an editable format (Word or Google Docs), ready for design or publication.\n\nI will provide the source files and any style guidelines we already use. A quick sample translation may be requested so I can confirm tone alignment before committing the full batch.\n\nIf you have proven experience translating business or marketing materials and can meet tight deadlines without sacrificing quality, I look forward to working together.",
+   "punkte": 80,
+   "warum": "Marketing‑Übersetzung lässt sich digital durch KI erledigen.",
+   "preis_eur": 227,
+   "lieferzeit": "5 Werktage",
+   "angebot": "Hallo, ich übernehme die Übersetzung Ihrer Marketing‑Materialien unter Berücksichtigung von Nuancen, Idiomen und Markenstimme. Je nach Umfang plane ich 1–2 Werbetexte, 1 Produktbeschreibung und die Unternehmensübersicht. Der Preis inkl. Korrekturen beträgt 227 € – Lieferzeit 5 Werktage nach Erhalt aller Dateien. Bitte senden Sie mir die Quellfotos, Formatvorgaben und ein Beispiel, damit ich den Ton abgleichen kann. Vielen Dank!",
+   "ergebnis": "[Annahme: Sie schicken mir die Quelldateien in Word/Google Docs, ggf. ein Format‑Guide, sowie ein kurzes Beispiel für die gewünschte Tonalität. Sobald ich die Unterlagen habe, erstelle ich ein ein­scheinigendes Beispiel und erweitere anschließend das komplette Set.]",
+   "schritte": [
+    "1. Prüfen, ob alle Quelldateien und Style‑Guides eingegangen sind.",
+    "2. Beispielübersetzung prüfen lassen – ggf. Anpassungen in Ton oder Terminologie vornehmen.",
+    "3. Vollständiges Übersetzungsset in Word/Google Docs liefern.",
+    "4. Finale Genehmigung einholen und ggf. kleine Änderungen sofort umsetzen."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  },
+  {
+   "id": "fl-40829261",
+   "t": 1795343240,
+   "datum": "22.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/language-tutoring/Translation-English-somali",
+   "titel": "Angebot: Englisch‑Somali Übersetzung",
+   "original": "Translation English to somali",
+   "auftrag": "More details:\n\nWhat kind of work do you want help finding? Online freelance work\nWhich type of online freelance work interests you most? Writing or translation\nWhat kind of writing or translation work do you want to focus on? Translation between languages",
+   "punkte": 80,
+   "warum": "Sprach‑Übersetzung zwischen Englisch und Somalisch einfach digital.",
+   "preis_eur": 227,
+   "lieferzeit": "5 Werktage",
+   "angebot": "Guten Tag, ich bin bereit, Ihre Anforderung für eine Übersetzung von Englisch nach Somali umzusetzen. Ich plane, das Dokument innerhalb von 5 Werktagen zu liefern. Für diesen Service berechne ich 227 EUR Festpreis. Ich verspreche eine genaue und fachlich korrekte Übersetzung, wobei ich bei fehlenden Kontextinformationen die üblichen Annahmen verwende. Die Qualität wird den Anforderungen für professionelle Online‑Freelance‑Übersetzungen entsprechen.",
+   "ergebnis": "[Annahme: Das genaue Quelltext? Bitte bitte das zu übersetzende English-Dokument hier einfügen. Sobald ich den Text erhalte, liefere ich die Somali-Übersetzung.]",
+   "schritte": [
+    "1. Prüfen Sie, ob der genaue englische Text vorhanden ist.",
+    "2. Falls nicht, kontaktieren Sie den Kunden um vollständige Angaben zu erhalten.",
+    "3. Sobald der Text vorliegt, beginnen Sie mit der Übersetzung enligt den üblichen Verfahrensregeln.",
+    "4. Nach Fertigstellung prüfen Sie die Übersetzung auf Konsistenz und Formatierung."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  }
+ ],
+ "stand": "22.11.2026 11:27",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
-  "gefunden": 212,
+  "gefunden": 214,
   "gefiltert": 12,
-  "neu": 2
+  "neu": 3
  }
 }
