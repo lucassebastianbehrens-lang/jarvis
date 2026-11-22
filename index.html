@@ -334,7 +334,7 @@ async function paperLoad(){try{const r=await fetch(PAPER+'?t='+Date.now());if(!r
  const cl=P.closed.slice(-5).reverse().map(t=>`<div><span>${esc(t.pair)} <span class="m">· ${esc(t.why)}</span><br><span class="m">${new Date(t.t_out*1e3).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}</span></span><span class="${t.pnl<0?'neg':'pos'}">${(t.pnl>=0?'+':'')+eur(t.pnl)}</span></div>`).join('');
  $('#btr').innerHTML=(op||'<p class="m">Keine offenen Trades.</p>')+(cl?'<p class="m" style="margin-top:12px">Letzte abgeschlossene Trades</p>'+cl:'');
  S.botLast={mode:'TEST',state:$('#b2').textContent,profit:(pl>=0?'+':'')+eur(pl),open:Object.keys(P.open).length};save();
- $('#bmsg').textContent='Spielgeld-Bot (Cloud) · Kontowert '+eur(P.value)+' von '+eur(P.start)+' · '+P.strategy+' · Stand '+new Date(P.updated*1e3).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
+ $('#bmsg').textContent='Spielgeld-Bot (Cloud) · Kontowert '+eur(P.value)+' von '+eur(P.start)+' · '+P.strategy+(P.gate?' · Echtgeld-Freigabe: '+(P.gate.passed?'ERREICHT ✓':P.gate.trades+'/'+P.gate.need.trades+' Trades, '+P.gate.wr+'/'+P.gate.need.wr+' % Treffer, '+eur(P.gate.value)+'/'+eur(P.gate.need.value)):'')+' · Stand '+new Date(P.updated*1e3).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
  catch(e){$('#bmsg').textContent='Spielgeld-Bot: '+e.message}}
 
 let AV=true,AP=null;
