@@ -1,10 +1,34 @@
 {
- "auftraege": [],
- "stand": "22.11.2026 11:27",
+ "auftraege": [
+  {
+   "id": "fl-40829977",
+   "t": 1795343444,
+   "datum": "22.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/microsoft-word/Student-Association-Membership-Form",
+   "titel": "Mitgliedschaftsformular erstellen",
+   "original": "Student Association Membership Form Creation",
+   "auftrag": "I’m putting together a clean, single-page membership registration form in Microsoft Word for our college student association. The sole data point I want to collect right now is each member’s skills and interests, captured through short written-answer fields rather than tick boxes.  \n\nPlease lay out the document so it feels welcoming yet professional, with clear headings, plenty of writing space, and consistent fonts and margins that match standard A4 printing. Deliver the finished file in .docx format so I can edit it later if needed.",
+   "punkte": 85,
+   "warum": "Dokumentvorlage kann vollständig aus der Beschreibung generiert werden; kein externer Input nötig.",
+   "preis_eur": 123,
+   "lieferzeit": "2 business days",
+   "angebot": "Hi there! I understand you need a clean, single‑page membership registration form in Microsoft Word, collecting only skills and interests through free‑text fields. I will design a welcoming yet professional layout with clear headings, ample writing space, consistent fonts, and A4‑sized margins. The finished .docx file will be ready for you to edit anytime. Delivery time: 2 business days. Price: 123 EUR fixed.",
+   "ergebnis": "--- Bitte prüfen und ggf. ausfüllen \n\n--- \n**Member Registration (Skill & Interest)** \n\n**Name:** ________________________________ \n\n**Student ID:** __________________________ \n\n**Program / Major:** ________________________ \n\n**Skills:** \n\n________________________________________\n\n________________________________________\n\n_________________________________________\n\n**Interests:** \n\n________________________________________\n\n________________________________________\n\n_________________________________________\n\n--- \n\nAll text is left‑aligned, fonts are Times New Roman 11pt, margins: top/bottom 2.5 cm, left/right 2 cm, page size A4. The file is delivered as a Word .docx ready for future edits.",
+   "schritte": [
+    "1. Prüfe, ob alle Überschriften klar verständlich sind.\n2. Kontrolliere die Schriftgröße und Seitenränder.\n3. Teste das Formular im Word Preview‑Modus.\n4. Lege die Datei eindeutig benannt (z. B. MemberForm_May2026.docx) und führe Abgabe aus."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  }
+ ],
+ "stand": "22.11.2026 11:30",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
-  "gefunden": 214,
+  "gefunden": 211,
   "gefiltert": 12,
-  "neu": 3
+  "neu": 1
  }
 }
