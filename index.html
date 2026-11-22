@@ -41,7 +41,7 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 @keyframes bob{50%{transform:translateY(-5px)}}@media(prefers-reduced-motion:reduce){.office .bot.work{animation:none}}
 .agc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.agc div{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:6px 8px;font-size:13px}.agc b{display:block}.agc i{font-style:normal;color:var(--mut)}
 .prog{height:6px;background:#1a0c0c;border-radius:6px;overflow:hidden;margin:6px 0}.prog i{display:block;height:100%;background:linear-gradient(90deg,#c77dff,#ff3fa4);width:0;transition:width .4s}
-details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;margin:6px 0}details.camp summary{cursor:pointer}details.camp pre{white-space:pre-wrap;font:14px/1.45 'Share Tech Mono',monospace;margin:4px 0 10px}
+details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;margin:6px 0}details.camp summary{cursor:pointer}.ks-bld>summary{font-weight:700;color:#c77dff;letter-spacing:1px}.ks-bld[open]{padding-bottom:12px}.ks-bld .ag-top>b{display:none}.ks-bld .ag-top{justify-content:flex-end}.ks-map .bld text{fill:#e9dcff}details.camp pre{white-space:pre-wrap;font:14px/1.45 'Share Tech Mono',monospace;margin:4px 0 10px}
 @media(max-width:520px){.agc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ring.live svg{animation:pl 1s ease-in-out infinite}@keyframes pl{50%{filter:drop-shadow(0 0 14px #ff2a2a)}}
 .ring{cursor:pointer}button.rec{background:var(--red);color:#fff;animation:pl 1s infinite}
@@ -61,6 +61,7 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 .ks-feed{background:var(--pan);border:1px solid var(--ln);border-radius:12px;padding:8px 10px;max-height:420px;overflow:auto;font:13px/1.4 'Share Tech Mono',monospace}.ks-feed div{padding:5px 0;border-bottom:1px solid var(--ln)}.ks-feed i{color:var(--org);font-style:normal}
 .ks-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}.ks-card{background:var(--pan);border:1px solid var(--ln);border-left:3px solid var(--c,#ff6a1a);border-radius:10px;padding:8px 10px;font-size:14px}.ks-card pre{white-space:pre-wrap;font:13px/1.4 'Share Tech Mono',monospace;margin:4px 0;max-height:140px;overflow:auto}
 .ks-grades{display:flex;gap:4px;margin-top:6px}.ks-grades button{flex:1;min-height:36px;padding:0;font-size:15px}.ks-g{display:inline-block;min-width:26px;text-align:center;border-radius:6px;padding:0 6px;font-weight:700;color:#050506}
+.au-card{background:var(--pan);border:1px solid var(--ln);border-left:3px solid #39ff6a;border-radius:10px;padding:10px 12px;margin:8px 0}.au-card pre{white-space:pre-wrap;font:13px/1.45 'Share Tech Mono',monospace;max-height:260px;overflow:auto;background:#0b0809;border:1px solid var(--ln);border-radius:8px;padding:8px;margin:4px 0}.au-card ol{margin:4px 0 6px 18px;padding:0}.au-st{display:inline-block;border-radius:6px;padding:0 6px;font-size:12px;font-weight:700;color:#050506;background:#39ff6a}
 .ks-sel{background:var(--pan);border:1px solid var(--ln);border-radius:12px;padding:10px 12px;margin:10px 0}
 @media(max-width:760px){.ks-wrap{grid-template-columns:1fr}.ks-feed{max-height:180px}.ks-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
@@ -68,7 +69,7 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="hud"><div class="ring" id="core" title="Tippen zum Sprechen"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#3a1414" stroke-width="1"/><circle class="spin" cx="50" cy="50" r="42" fill="none" stroke="#ff6a1a" stroke-width="1" stroke-dasharray="2 4"/><circle cx="50" cy="50" r="36" fill="none" stroke="#2a0c0c" stroke-width="6"/><circle id="arc" cx="50" cy="50" r="36" fill="none" stroke="#ff2a2a" stroke-width="6" stroke-linecap="round" transform="rotate(-90 50 50)" stroke-dasharray="0 227" style="filter:drop-shadow(0 0 4px #ff2a2a)"/></svg><div><b id="pct" class="mono">0%</b><span class="m">Aufgaben erledigt</span></div></div>
 <div class="tiles"><div class="tile"><small>Saldo</small><b id="h1" class="mono"></b></div><div class="tile"><small>Monat</small><b id="h2" class="mono"></b></div><div class="tile"><small>Offen</small><b id="h3" class="mono"></b></div><div class="tile"><small>Apps</small><b id="h4" class="mono"></b></div><div class="bars" id="bars" title="Ausgaben letzte 30 Tage"></div></div></div>
 <nav>
-<button data-t="chat" class="on">Chat</button><button data-t="dash">Übersicht</button><button data-t="agency">Agentur</button><button data-t="team">KI-Team</button><button data-t="kstadt" id="ksNav">KI-Stadt</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
+<button data-t="chat" class="on">Chat</button><button data-t="dash">Übersicht</button><button data-t="kstadt" id="ksNav">KI-Stadt</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
 </nav>
 <main>
 <section id="chat" class="on"><div id="log"></div>
@@ -77,15 +78,6 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="voice"><label><input type="checkbox" id="tts" checked> Jarvis spricht</label><label><input type="checkbox" id="auto" checked> Briefing beim ersten Öffnen am Tag</label><label><input type="checkbox" id="wake"> „Hey Jarvis“ dauerhaft hören</label></div>
 <div class="m" id="vs"></div></section>
 
-<section id="agency"><div class="ag-top"><b>JARVIS AGENTUR</b><span class="ag-on mono" id="agOn">● 6 Agenten online</span></div>
-<div class="chips" id="agCl"></div>
-<svg class="office" id="office" viewBox="50 -30 500 340" role="img" aria-label="Büro mit 6 KI-Agenten"></svg>
-<div class="agc" id="agCards"></div>
-<div class="row"><input id="agGoal" placeholder="Auftrag, z. B. Launch-Kampagne für die Hunde-Schondecke"><button class="p" id="agRun" style="flex:0 0 auto">Kampagne starten</button></div>
-<div class="m mono" id="agStep">Wähle einen Kunden und gib einen Auftrag ein.</div><div class="prog"><i id="agBar"></i></div>
-<h3>Kampagnen</h3><div id="agCamps"></div>
-<details class="camp"><summary>+ Kunde hinzufügen / entfernen</summary><div class="row"><input id="agNn" placeholder="Name"><input id="agNd" placeholder="Was macht der Kunde?"><button id="agAdd" style="flex:0 0 auto">Hinzufügen</button></div><button class="s" id="agDel">Ausgewählten Kunden entfernen</button></details>
-</section>
 <section id="dash"><div class="db-hi"><b id="dbHi">Deine Woche</b><div class="m" id="dbSub"></div></div>
 <div class="kpi"><div><small>Umsatz Monat</small><b class="mono pos" id="k1"></b></div><div><small>Ausgaben Monat</small><b class="mono neg" id="k2"></b></div><div><small>Gewinn Monat</small><b class="mono" id="k3"></b></div><div><small id="k4l">Monatsziel</small><b class="mono" id="k4"></b><div class="prog"><i id="k4b"></i></div></div></div>
 <div class="card"><h3>Einnahmen &amp; Ausgaben · 6 Monate</h3><svg id="dbChart" viewBox="0 0 600 180" style="width:100%;height:auto"></svg></div>
@@ -93,7 +85,32 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="card"><h3>KC-Kundentrichter</h3><div class="fun" id="dbFun"></div></div>
 <div class="card"><h3>KI-Team · heute</h3><div class="tl" id="dbTl"></div></div>
 <div class="row"><input id="dbGoal" inputmode="decimal" placeholder="Monatsziel Gewinn in €"><button id="dbGs" style="flex:0 0 auto">Ziel speichern</button></div></section>
-<section id="team"><div class="ag-top"><b>KI-TEAM</b><span class="ag-on mono" id="tmOn"></span></div>
+<section id="kstadt"><div class="ag-top"><b>KI-STADT</b><span class="ag-on mono" id="ksOn"></span></div>
+<h3>Stadtplan · 17 KI-Bewohner</h3>
+<svg class="office" id="office" viewBox="-215 -45 1030 640" role="img" aria-label="KI-Stadt: Agentur mit 6 Marketing-Agenten, Trading-Viertel mit 4 Trading-Agenten und KI-Team-Haus mit 7 Helfern"></svg>
+<div class="agc" id="agCards"></div>
+<p class="m">Jeder Bot aus dem KI-Team wohnt hier in einem eigenen Haus. Läuft ein Bot, geht sein Agent nach Hause und arbeitet. Fertige Ergebnisse landen auf der To-do-Liste unten – benote sie wie ein Lehrer (1 = sehr gut, 6 = ungenügend). Gute Ergebnisse werden zum Vorbild, Kritik zu Regeln, und nach 3 Kritikpunkten schreibt Jarvis die Aufgabe des Bots selbst besser. Je besser der Notenschnitt, desto höher das Haus. In der Stadt stehen außerdem das Agentur-Gebäude und die KI-Team-Zentrale – tippe sie an oder öffne sie unten.</p>
+<div class="ks-kpi"><div><small>Bots aktiv</small><b class="mono" id="ksK1">–</b></div><div><small>Arbeiten gerade</small><b class="mono" id="ksK2">–</b></div><div><small>Zu benoten</small><b class="mono" id="ksK3">–</b></div><div><small>Notenschnitt 7 Tage</small><b class="mono" id="ksK4">–</b></div></div>
+<div class="ks-wrap"><div class="ks-map"><svg id="ksMap" viewBox="0 0 440 290" role="img" aria-label="KI-Stadt mit den Bots als Häusern"></svg></div><div class="ks-feed" id="ksFeed"></div></div>
+<div id="ksSel"></div>
+<h3>To-do-Liste · zu benoten</h3><div class="ks-board" id="ksTodo"></div>
+<details class="camp"><summary>Benotete Ergebnisse</summary><div class="ks-board" id="ksDone"></div></details>
+<h3>Gebäude der Stadt</h3>
+<details class="camp ks-bld" id="ksAuB"><summary>💼 Auftragsbüro · bezahlte Aufgaben für die KIs</summary>
+<div id="auftr"><p class="m">Jeden Morgen (und nachmittags nochmal) durchsucht der Auftrags-Scout öffentliche Auftragsbörsen nach Aufgaben, die die KIs komplett erledigen können – Texte, Übersetzungen, Recherche, Tabellen. Für die besten schreibt er Angebot, Preis und schon den fertigen Entwurf. Findet er nichts, macht er ein eigenes Tagesangebot zum Posten. Du prüfst, schickst ab – das Geld kommt per PayPal.</p>
+<div class="ks-kpi"><div><small>Neu</small><b class="mono" id="auK1">–</b></div><div><small>Gesendet</small><b class="mono" id="auK2">–</b></div><div><small>Bezahlt</small><b class="mono pos" id="auK3">–</b></div><div><small>Letzter Lauf</small><b class="mono" id="auK4" style="font-size:15px">–</b></div></div>
+<div class="row"><button class="s" id="auLoad">↻ Aktualisieren</button><a class="s" href="https://github.com/lucassebastianbehrens-lang/jarvis/actions/workflows/auftraege.yml" target="_blank" rel="noopener"><button class="s">Jetzt neu suchen (GitHub)</button></a><label style="display:flex;align-items:center;gap:6px;text-transform:none"><input type="checkbox" id="auAll" style="width:auto"> Erledigte zeigen</label></div>
+<div class="m" id="auMsg"></div><div id="auList"></div></div></details>
+<details class="camp ks-bld" id="ksAgB"><summary>🏢 Agentur-Gebäude · Kampagnen mit 6 Agenten</summary>
+<div id="agency"><div class="ag-top"><b>JARVIS AGENTUR</b><span class="ag-on mono" id="agOn">● 6 Agenten online</span></div>
+<div class="chips" id="agCl"></div>
+<div class="row"><input id="agGoal" placeholder="Auftrag, z. B. Launch-Kampagne für die Hunde-Schondecke"><button class="p" id="agRun" style="flex:0 0 auto">Kampagne starten</button></div>
+<div class="m mono" id="agStep">Wähle einen Kunden und gib einen Auftrag ein.</div><div class="prog"><i id="agBar"></i></div>
+<h3>Kampagnen</h3><div id="agCamps"></div>
+<details class="camp"><summary>+ Kunde hinzufügen / entfernen</summary><div class="row"><input id="agNn" placeholder="Name"><input id="agNd" placeholder="Was macht der Kunde?"><button id="agAdd" style="flex:0 0 auto">Hinzufügen</button></div><button class="s" id="agDel">Ausgewählten Kunden entfernen</button></details>
+</div></details>
+<details class="camp ks-bld" id="ksTmB"><summary>🏠 KI-Team-Zentrale · Bots anlegen, Zeitpläne &amp; Skills</summary>
+<div id="team"><div class="ag-top"><b>KI-TEAM</b><span class="ag-on mono" id="tmOn"></span></div>
 <p class="m">Jeder Bot hat eine eigene Aufgabe, ein Gedächtnis und einen Zeitplan. Bots laufen, solange Jarvis geöffnet ist – Verpasstes holen sie beim Öffnen nach.</p>
 <div class="chips" id="tmPre"></div><div id="tmList"></div>
 <details class="camp" id="tmNew"><summary>+ Eigenen Bot anlegen</summary>
@@ -104,15 +121,8 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <select id="tbK"></select>
 <button class="p" id="tbAdd">Bot anlegen</button></details>
 <h3>Skills</h3><p class="m">Skills sind gespeicherte Arbeitsanleitungen. Im Chat startest du sie mit »nutz den <i>name</i> skill: …«. Unter jeder Antwort kannst du 👍/👎 geben – Jarvis merkt sich dein Feedback und schreibt den Skill einmal am Tag (oder nach 3 Hinweisen) selbst besser.</p><div class="skl" id="skList"></div>
-<details class="camp" id="skNew"><summary>+ Skill anlegen</summary><label>Name (kurz, mit Bindestrich)</label><input id="skN" placeholder="z. B. kc-post"><label>Wann benutzen</label><input id="skD" placeholder="z. B. Social-Media-Post für einen Handwerksbetrieb"><label>Anleitung</label><textarea id="skI"></textarea><button class="p" id="skAdd">Skill speichern</button></details></section>
-<section id="kstadt"><div class="ag-top"><b>KI-STADT</b><span class="ag-on mono" id="ksOn"></span></div>
-<p class="m">Jeder Bot aus dem KI-Team wohnt hier in einem eigenen Haus. Läuft ein Bot, geht sein Agent nach Hause und arbeitet. Fertige Ergebnisse landen auf der To-do-Liste unten – benote sie wie ein Lehrer (1 = sehr gut, 6 = ungenügend). Gute Ergebnisse werden zum Vorbild, Kritik zu Regeln, und nach 3 Kritikpunkten schreibt Jarvis die Aufgabe des Bots selbst besser. Je besser der Notenschnitt, desto höher das Haus.</p>
-<div class="ks-kpi"><div><small>Bots aktiv</small><b class="mono" id="ksK1">–</b></div><div><small>Arbeiten gerade</small><b class="mono" id="ksK2">–</b></div><div><small>Zu benoten</small><b class="mono" id="ksK3">–</b></div><div><small>Notenschnitt 7 Tage</small><b class="mono" id="ksK4">–</b></div></div>
-<div class="ks-wrap"><div class="ks-map"><svg id="ksMap" viewBox="0 0 440 290" role="img" aria-label="KI-Stadt mit den Bots als Häusern"></svg></div><div class="ks-feed" id="ksFeed"></div></div>
-<div id="ksSel"></div>
-<h3>To-do-Liste · zu benoten</h3><div class="ks-board" id="ksTodo"></div>
-<details class="camp"><summary>Benotete Ergebnisse</summary><div class="ks-board" id="ksDone"></div></details>
-<p class="m">Die Stadt arbeitet, solange Jarvis geöffnet ist – verpasste Läufe holen die Bots beim Öffnen nach. Bots und Zeitpläne verwaltest du im Reiter KI-Team.</p></section>
+<details class="camp" id="skNew"><summary>+ Skill anlegen</summary><label>Name (kurz, mit Bindestrich)</label><input id="skN" placeholder="z. B. kc-post"><label>Wann benutzen</label><input id="skD" placeholder="z. B. Social-Media-Post für einen Handwerksbetrieb"><label>Anleitung</label><textarea id="skI"></textarea><button class="p" id="skAdd">Skill speichern</button></details></div></details>
+<p class="m">Die Stadt arbeitet, solange Jarvis geöffnet ist – verpasste Läufe holen die Bots beim Öffnen nach. Bots und Zeitpläne verwaltest du unten in der KI-Team-Zentrale, Kampagnen im Agentur-Gebäude.</p></section>
 <section id="fin"><div class="m">Saldo</div><div class="big" id="sal"></div><div class="m" id="mon"></div>
 <div class="row"><input id="fd" type="date"><input id="fv" inputmode="decimal" placeholder="Betrag €"><input id="ft" placeholder="Wofür?"></div>
 <div class="row"><button class="p" id="fout">− Ausgabe</button><button id="fin2">+ Einnahme</button></div><div class="list" id="fl"></div></section>
@@ -239,7 +249,7 @@ function local(t){let m;
  if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
  if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
  if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
- if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• telegram Einkaufsliste: Milch, Brot (schickt es an deinen Telegram-Bot)\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• Tab KI-Team: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
+ if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• telegram Einkaufsliste: Milch, Brot (schickt es an deinen Telegram-Bot)\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• KI-Stadt → KI-Team-Zentrale: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
 function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
  return g+', Lucas. Heute ist '+new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'. '+(o.length?o.length+(o.length>1?' offene Aufgaben: ':' offene Aufgabe: ')+o.slice(0,3).map(x=>x.t).join(', ')+'.':'Keine offenen Aufgaben.')+' Bilanz diesen Monat: '+eur(mm)+'. Saldo: '+eur(saldo())+'.'}
 async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),safe(news)]);return [briefBase(),w,k,n].filter(Boolean).join('\n')}
@@ -394,26 +404,58 @@ S.agency??={sel:'DS',camps:[],clients:[{id:'DS',n:'Pfotenfahrt',d:'Online-Shop f
 let agBusy=null,agDone={};
 const iso=(x,y,z=0)=>[300+(x-y)*40,62+(x+y)*20-z];
 const P=a=>a.map(p=>p.join(',')).join(' ');
-function office(){const D=[[1.3,1.2],[3.1,1.0],[4.9,1.2],[1.1,3.6],[3,3.4],[4.9,3.6]];let g='';
- g+=`<defs><radialGradient id="flG"><stop offset="0" stop-color="#2a1236"/><stop offset="1" stop-color="#0d0812"/></radialGradient></defs>`;
- g+=`<polygon points="${P([iso(0,0),iso(6,0),iso(6,6),iso(0,6)])}" fill="url(#flG)" stroke="#3b1f4a"/>`;
- g+=`<polygon points="${P([iso(0,0),iso(0,6),iso(0,6,90),iso(0,0,90)])}" fill="#170d1f" stroke="#3b1f4a"/><polygon points="${P([iso(0,0),iso(6,0),iso(6,0,90),iso(0,0,90)])}" fill="#1d1028" stroke="#3b1f4a"/>`;
- const bars=[18,28,24,40,52];bars.forEach((h,i)=>{const b=iso(0,1+i*.35,20);g+=`<polygon points="${P([[b[0],b[1]],[b[0]-10,b[1]+5],[b[0]-10,b[1]+5-h],[b[0],b[1]-h]])}" fill="#b45cff" opacity=".85"/>`});
- const w=iso(3.2,0,62);g+=`<text x="${w[0]}" y="${w[1]}" fill="#d9a6ff" font-size="22" font-weight="700" transform="rotate(26.6 ${w[0]} ${w[1]})" text-anchor="middle" font-family="Rajdhani,sans-serif" letter-spacing="2">JARVIS AGENTUR</text>`;
- [[.4,.4],[5.6,.4],[.4,5.4],[5.5,5.5],[3,2.8]].forEach(([x,y])=>{const p=iso(x,y);g+=`<rect x="${p[0]-6}" y="${p[1]-10}" width="12" height="10" fill="#e8743b"/><circle cx="${p[0]}" cy="${p[1]-18}" r="10" fill="#2f9e44"/><circle cx="${p[0]-6}" cy="${p[1]-24}" r="6" fill="#40c057"/>`});
- const c=iso(3,5.2);g+=`<rect x="${c[0]-34}" y="${c[1]-14}" width="68" height="16" rx="6" fill="#e86fb0"/><rect x="${c[0]-34}" y="${c[1]-24}" width="68" height="10" rx="5" fill="#f48cc6"/>`;
- AG.forEach((a,i)=>{const [x,y]=D[i],t=[iso(x-.45,y-.25,22),iso(x+.45,y-.25,22),iso(x+.45,y+.25,22),iso(x-.45,y+.25,22)],act=agBusy===a.k,done=agDone[a.k];
-  g+=`<polygon points="${P(t)}" fill="#f1e4ff"/><polygon points="${P([t[3],t[2],[t[2][0],t[2][1]+22],[t[3][0],t[3][1]+22]])}" fill="#a58bbf"/><polygon points="${P([t[2],t[1],[t[1][0],t[1][1]+22],[t[2][0],t[2][1]+22]])}" fill="#7d6596"/>`;
-  const m=iso(x,y-.15,40);g+=`<rect x="${m[0]-12}" y="${m[1]-12}" width="24" height="16" rx="2" fill="#111" stroke="${act?a.c:'#333'}"/>`;
-  const r=iso(x,y+.55,30);g+=`<g class="bot${act?' work':''}" style="transform-box:fill-box"><ellipse cx="${r[0]}" cy="${r[1]+32}" rx="16" ry="5" fill="${a.c}" opacity="${act?.6:.18}"/>
+const TA=[{k:'scanner',n:'Scanner',c:'#2ee6e6',d:'sucht Tokens'},{k:'analyst',n:'Analyst',c:'#ffd21f',d:'prüft Sicherheit'},{k:'executor',n:'Executor',c:'#39ff6a',d:'führt Trades aus'},{k:'risk',n:'Risk',c:'#ff3b3b',d:'bewacht Stop-Loss'}];
+const HT=[{k:'FOT',n:'Foto',c:'#5cc8ff',d:'Fotos & Belege'},{k:'COD',n:'Coding',c:'#b45cff',d:'Code & Fehler'},{k:'BUH',n:'Buchhaltung',c:'#ffd21f',d:'Einnahmen & Belege'},{k:'SHO',n:'Shop',c:'#39ff6a',d:'Shopify & Produkte'},{k:'MOT',n:'Motive',c:'#ff3fa4',d:'Motiv-Ideen'},{k:'GES',n:'Gesundheit',c:'#2ee6e6',d:'Tracker & Tipps'},{k:'TER',n:'Termine',c:'#ff8a1f',d:'Tag & Woche planen'}];
+const BEW=AG.length+TA.length+HT.length;
+function taAct(k){const A=(AP&&AP.agents)||{},a=A[k]||{};return k==='scanner'?(a.pools||0)>0:k==='analyst'?!!a.passed:k==='executor'?(a.open||0)>0:(a.watching||0)>0}
+function taVal(k){const a=((AP&&AP.agents)||{})[k]||{};return k==='scanner'?(a.pools||0)+' Tokens':k==='analyst'?(a.score??'–')+' Pkt':k==='executor'?(a.trades||0)+' Trades':(a.watching||0)+' bewacht'}
+function office(){let g='';
+ const quad=(x0,y0,x1,y1,z=0)=>P([iso(x0,y0,z),iso(x1,y0,z),iso(x1,y1,z),iso(x0,y1,z)]);
+ g+=`<defs><radialGradient id="flG"><stop offset="0" stop-color="#2a1236"/><stop offset="1" stop-color="#0d0812"/></radialGradient><radialGradient id="flT"><stop offset="0" stop-color="#0f2a22"/><stop offset="1" stop-color="#07110e"/></radialGradient><radialGradient id="flH"><stop offset="0" stop-color="#2e1a0a"/><stop offset="1" stop-color="#110a05"/></radialGradient></defs>`;
+ g+=`<polygon points="${quad(-.4,-.4,12.9,12.9)}" fill="#08080b" stroke="#22222c"/>`;
+ // Straßen
+ g+=`<polygon points="${quad(6.1,-.4,7.4,12.9)}" fill="#15151c"/><polygon points="${quad(-.4,6.1,12.9,7.4)}" fill="#15151c"/>`;
+ g+=`<polyline points="${P([iso(6.75,-.4),iso(6.75,12.9)])}" stroke="#ffd21f" stroke-width="1.5" stroke-dasharray="8 10" opacity=".5" fill="none"/><polyline points="${P([iso(-.4,6.75),iso(12.9,6.75)])}" stroke="#ffd21f" stroke-width="1.5" stroke-dasharray="8 10" opacity=".5" fill="none"/>`;
+ [[6.75,6.75]].forEach(([x,y])=>{const p=iso(x,y);g+=`<circle cx="${p[0]}" cy="${p[1]}" r="9" fill="#ff2a2a" opacity=".7"><animate attributeName="opacity" values=".2;.9;.2" dur="2s" repeatCount="indefinite"/></circle>`});
+ const tree=(x,y)=>{const p=iso(x,y);return `<rect x="${p[0]-5}" y="${p[1]-9}" width="10" height="9" fill="#e8743b"/><circle cx="${p[0]}" cy="${p[1]-17}" r="9" fill="#2f9e44"/><circle cx="${p[0]-5}" cy="${p[1]-23}" r="6" fill="#40c057"/>`};
+ const desk=(x,y,c,act)=>{const t=[iso(x-.45,y-.25,22),iso(x+.45,y-.25,22),iso(x+.45,y+.25,22),iso(x-.45,y+.25,22)];const m=iso(x,y-.15,40);
+  return `<polygon points="${P(t)}" fill="#f1e4ff"/><polygon points="${P([t[3],t[2],[t[2][0],t[2][1]+22],[t[3][0],t[3][1]+22]])}" fill="#a58bbf"/><polygon points="${P([t[2],t[1],[t[1][0],t[1][1]+22],[t[2][0],t[2][1]+22]])}" fill="#7d6596"/><rect x="${m[0]-12}" y="${m[1]-12}" width="24" height="16" rx="2" fill="#111" stroke="${act?c:'#333'}"/>`};
+ const bot=(x,y,a,act,done,sub)=>{const r=iso(x,y+.55,30);let s=`<g class="bot${act?' work':''}" style="transform-box:fill-box"><title>${esc(a.n)} – ${esc(a.d)}</title><ellipse cx="${r[0]}" cy="${r[1]+32}" rx="16" ry="5" fill="${a.c}" opacity="${act?.6:.18}"/>
    <rect x="${r[0]-12}" y="${r[1]+2}" width="24" height="22" rx="9" fill="${a.c}" ${act?`style="filter:drop-shadow(0 0 8px ${a.c})"`:''}/><rect x="${r[0]-15}" y="${r[1]-22}" width="30" height="24" rx="11" fill="#fff"/><rect x="${r[0]-11}" y="${r[1]-17}" width="22" height="14" rx="6" fill="#16202a"/>
    <circle cx="${r[0]-5}" cy="${r[1]-10}" r="3" fill="${a.c}"/><circle cx="${r[0]+5}" cy="${r[1]-10}" r="3" fill="${a.c}"/></g>`;
-  const lb=[r[0],r[1]-34],tw=a.n.length*8+18;g+=`<rect x="${lb[0]-tw/2}" y="${lb[1]-13}" width="${tw}" height="20" rx="10" fill="#0b0b10" stroke="${a.c}"/><text x="${lb[0]}" y="${lb[1]+2}" fill="#fff" font-size="12" font-weight="700" text-anchor="middle" font-family="Rajdhani,sans-serif">${a.n}${done?' ✓':''}</text>`});
+  const lb=[r[0],r[1]-34],txt=a.n+(done?' ✓':''),tw=txt.length*8+18;s+=`<rect x="${lb[0]-tw/2}" y="${lb[1]-13}" width="${tw}" height="20" rx="10" fill="#0b0b10" stroke="${a.c}"/><text x="${lb[0]}" y="${lb[1]+2}" fill="#fff" font-size="12" font-weight="700" text-anchor="middle" font-family="Rajdhani,sans-serif">${esc(txt)}</text>`;
+  if(sub)s+=`<text x="${r[0]}" y="${r[1]+50}" fill="${a.c}" font-size="11" text-anchor="middle" font-family="Share Tech Mono,monospace">${esc(sub)}</text>`;return s};
+ const sign=(x,y,txt,c)=>{const p=iso(x,y,58),w=txt.length*11+26;return `<rect x="${p[0]-w/2}" y="${p[1]-16}" width="${w}" height="26" rx="6" fill="#0b0b10" stroke="${c}" style="filter:drop-shadow(0 0 6px ${c})"/><text x="${p[0]}" y="${p[1]+3}" fill="${c}" font-size="16" font-weight="700" text-anchor="middle" font-family="Rajdhani,sans-serif" letter-spacing="2">${txt}</text>`};
+ // 1) Agentur (Marketing)
+ g+=`<polygon points="${quad(0,0,6,6)}" fill="url(#flG)" stroke="#3b1f4a"/>`;
+ g+=`<polygon points="${P([iso(0,0),iso(0,6),iso(0,6,90),iso(0,0,90)])}" fill="#170d1f" stroke="#3b1f4a"/><polygon points="${P([iso(0,0),iso(6,0),iso(6,0,90),iso(0,0,90)])}" fill="#1d1028" stroke="#3b1f4a"/>`;
+ [18,28,24,40,52].forEach((h,i)=>{const b=iso(0,1+i*.35,20);g+=`<polygon points="${P([[b[0],b[1]],[b[0]-10,b[1]+5],[b[0]-10,b[1]+5-h],[b[0],b[1]-h]])}" fill="#b45cff" opacity=".85"/>`});
+ const w=iso(3.2,0,62);g+=`<text x="${w[0]}" y="${w[1]}" fill="#d9a6ff" font-size="22" font-weight="700" transform="rotate(26.6 ${w[0]} ${w[1]})" text-anchor="middle" font-family="Rajdhani,sans-serif" letter-spacing="2">AGENTUR</text>`;
+ [[.4,.4],[5.6,.4],[.4,5.4],[5.5,5.5]].forEach(([x,y])=>g+=tree(x,y));
+ const D=[[1.3,1.2],[3.1,1.0],[4.9,1.2],[1.1,3.6],[3,3.4],[4.9,3.6]];
+ AG.forEach((a,i)=>{const [x,y]=D[i],act=agBusy===a.k;g+=desk(x,y,a.c,act)+bot(x,y,a,act,agDone[a.k])});
+ // 2) Trading-Viertel
+ g+=`<polygon points="${quad(7.5,0,12.5,6)}" fill="url(#flT)" stroke="#1f4a3b"/>`;
+ g+=`<polygon points="${P([iso(7.5,0),iso(12.5,0),iso(12.5,0,90),iso(7.5,0,90)])}" fill="#0c1d17" stroke="#1f4a3b"/>`;
+ const tw=iso(10,0,62);g+=`<text x="${tw[0]}" y="${tw[1]}" fill="#5fe39a" font-size="22" font-weight="700" transform="rotate(26.6 ${tw[0]} ${tw[1]})" text-anchor="middle" font-family="Rajdhani,sans-serif" letter-spacing="2">TRADING</text>`;
+ if(AP&&AP.equity&&AP.equity.length>1){const E=AP.equity.slice(-12),ys=E.map(e=>e[1]),lo=Math.min(...ys),hi=Math.max(...ys)||1;g+=`<polyline fill="none" stroke="${AP.value>=AP.start?'#5fe39a':'#ff2a2a'}" stroke-width="2" points="${P(E.map((e,i)=>iso(8+i*.33,0,24+(e[1]-lo)/((hi-lo)||1)*26)))}"/>`}
+ else [14,22,18,30,26,38].forEach((h,i)=>{const b=iso(8+i*.6,0,20);g+=`<rect x="${b[0]-3}" y="${b[1]-h}" width="6" height="${h}" fill="${i%2?'#ff2a2a':'#5fe39a'}" opacity=".8"/>`});
+ const TD=[[8.8,1.3],[11.2,1.3],[8.8,3.8],[11.2,3.8]];
+ TA.forEach((a,i)=>{const [x,y]=TD[i],act=taAct(a.k);g+=desk(x,y,a.c,act)+bot(x,y,a,act,false,AP?taVal(a.k):'')});
+ g+=tree(12.2,5.6)+tree(7.8,5.6);
+ // 3) KI-Team-Haus (Helfer)
+ g+=`<polygon points="${quad(0,7.5,12.5,12.5)}" fill="url(#flH)" stroke="#4a3b1f"/>`;
+ g+=`<polygon points="${P([iso(0,7.5),iso(0,12.5),iso(0,12.5,40),iso(0,7.5,40)])}" fill="#1d150a" stroke="#4a3b1f"/>`;
+ const HD=[[1.4,8.6],[4.6,8.6],[7.8,8.6],[11,8.6],[3,11.1],[6.2,11.1],[9.4,11.1]];
+ HT.forEach((a,i)=>{const [x,y]=HD[i];g+=desk(x,y,a.c,true)+bot(x,y,a,false,false,a.k)});
+ g+=tree(.4,12.1)+tree(12.1,12.1);
+ g+=sign(1.2,12.2,'KI-TEAM','#ffb347');
  $('#office').innerHTML=g}
 function agRender(){const A=S.agency,cl=A.clients.find(c=>c.id===A.sel)||A.clients[0];if(cl)A.sel=cl.id;
  $('#agCl').innerHTML=A.clients.map(c=>`<button data-c="${esc(c.id)}" class="${c.id===A.sel?'on':''}">${esc(c.n)}</button>`).join('');
- office();$('#agCards').innerHTML=AG.map(a=>`<div style="border-left:3px solid ${a.c}"><b style="color:${a.c}">${a.n}</b><i>${agBusy===a.k?'arbeitet …':agDone[a.k]?'fertig ✓':a.d}</i></div>`).join('');
- $('#agOn').textContent=agBusy?'● '+AG.find(a=>a.k===agBusy).n+' arbeitet':'● 6 Agenten online';
+ if(!AP&&!agentsLoad.busy){agentsLoad.busy=1;agentsLoad().finally(()=>agentsLoad.busy=0)}office();const hd=t=>`<div style="grid-column:1/-1;background:none;border:0;padding:4px 0 0;color:var(--mut);letter-spacing:2px" class="mono">${t}</div>`,cd=(a,t)=>`<div style="border-left:3px solid ${a.c}"><b style="color:${a.c}">${a.n}</b><i>${t}</i></div>`;
+ $('#agCards').innerHTML=hd('AGENTUR · MARKETING')+AG.map(a=>cd(a,agBusy===a.k?'arbeitet …':agDone[a.k]?'fertig ✓':a.d)).join('')+hd('TRADING-VIERTEL · SPIELGELD')+TA.map(a=>cd(a,AP?taVal(a.k)+(taAct(a.k)?' · aktiv':''):a.d)).join('')+hd('KI-TEAM · HELFER')+HT.map(a=>cd(a,a.k+' · '+a.d)).join('');
+ $('#agOn').textContent=agBusy?'● '+AG.find(a=>a.k===agBusy).n+' arbeitet':'● '+BEW+' KI-Bewohner online';
  const cs=A.camps.filter(c=>c.client===A.sel);
  $('#agCamps').innerHTML=cs.map(c=>`<details class="camp"${c===cs[0]?' open':''}><summary><b>${esc(c.goal)}</b> <span class="m">· ${new Date(c.t).toLocaleDateString('de-DE')}</span></summary>${c.img?`<a href="${esc(c.img)}" target="_blank" rel="noopener"><img src="${esc(c.img)}" alt="Werbebild" style="width:100%;max-width:360px;border-radius:8px;margin:6px 0"></a>`:''}
   ${AG.filter(a=>c.steps[a.k]).map(a=>`<div style="color:${a.c};font-weight:700">${a.n}</div><pre>${link(esc(c.steps[a.k]))}</pre>`).join('')}
@@ -427,13 +469,14 @@ async function agRun(){const goal=$('#agGoal').value.trim();if(!goal||agBusy)ret
   ads:()=>`Strategie:\n${camp.steps.strategy}\n\nErstelle 2 Anzeigen-Varianten (Überschrift, Text, Call-to-Action), Zielgruppen-Einstellungen für Meta und TikTok, Tagesbudget in €.`,
   email:()=>`Auftrag: ${goal}\nSchreibe eine Launch-E-Mail: 3 Betreff-Varianten und einen Text mit max. 120 Wörtern.`,
   analytics:()=>`Strategie:\n${camp.steps.strategy}\n\nNenne 5 Kennzahlen mit Zielwerten für 4 Wochen. Danach „Checkliste:“ mit 5 Aufgaben, jede Zeile beginnt mit „- “.`};
- for(const [i,a] of AG.entries()){agBusy=a.k;$('#agStep').textContent=`Schritt ${i+1} von 6 · ${a.n} ${a.d} …`;$('#agBar').style.width=(i/6*100)+'%';agRender();
+ ksLog({n:'Agentur'},'startet Kampagne „'+goal.slice(0,40)+'“ für '+cl.n);
+ for(const [i,a] of AG.entries()){agBusy=a.k;ksLog({n:'Agentur'},a.n+'-Agent '+a.d);ksRefresh();$('#agStep').textContent=`Schritt ${i+1} von 6 · ${a.n} ${a.d} …`;$('#agBar').style.width=(i/6*100)+'%';agRender();
   try{const out=await ai([sys(a.n),{role:'user',content:jobs[a.k]()}]);
    if(a.k==='design'){const pr=out.replace(/^["'\s]+|["'\s]+$/g,'').slice(0,300);camp.img='https://image.pollinations.ai/prompt/'+encodeURIComponent(pr)+'?width=1024&height=1024&nologo=true&seed='+Math.floor(Math.random()*1e6);camp.steps.design='Bild-Prompt: '+pr+'\n(Bild kostenlos über Pollinations, lädt 10–30 Sek.)'}
    else camp.steps[a.k]=out}
-  catch(e){camp.steps[a.k]='Fehler: '+e.message;agBusy=null;$('#agStep').textContent='Abgebrochen: KI nicht erreichbar ('+e.message+'). Einstellungen → KI prüfen.';save();return agRender()}
+  catch(e){camp.steps[a.k]='Fehler: '+e.message;agBusy=null;ksLog({n:'Agentur'},'Kampagne abgebrochen');ksRefresh();$('#agStep').textContent='Abgebrochen: KI nicht erreichbar ('+e.message+'). Einstellungen → KI prüfen.';save();return agRender()}
   agDone[a.k]=1;save()}
- agBusy=null;$('#agBar').style.width='100%';$('#agStep').textContent='✓ Kampagne fertig – alle 6 Agenten haben geliefert.';$('#agGoal').value='';save();agRender();say('Kampagne für '+cl.n+' ist fertig.')}
+ agBusy=null;$('#agBar').style.width='100%';$('#agStep').textContent='✓ Kampagne fertig – alle 6 Agenten haben geliefert.';$('#agGoal').value='';ksLog({n:'Agentur'},'Kampagne für '+cl.n+' fertig ✓');save();agRender();ksRefresh();say('Kampagne für '+cl.n+' ist fertig.')}
 $('#agRun').onclick=agRun;
 $('#agCl').onclick=e=>{const c=e.target.dataset.c;if(c&&!agBusy){S.agency.sel=c;agDone={};save();agRender()}};
 $('#agCamps').onclick=e=>{const d=e.target.dataset,A=S.agency,id=d.cp||d.td||d.dl,c=A.camps.find(x=>x.id===id);if(!c)return;
@@ -442,7 +485,7 @@ $('#agCamps').onclick=e=>{const d=e.target.dataset,A=S.agency,id=d.cp||d.td||d.d
  if(d.dl){A.camps=A.camps.filter(x=>x!==c);save();agRender()}};
 $('#agAdd').onclick=()=>{const n=$('#agNn').value.trim(),d=$('#agNd').value.trim();if(!n)return;const id=n.slice(0,12);S.agency.clients.push({id,n,d:d||n});S.agency.sel=id;$('#agNn').value=$('#agNd').value='';save();agRender()};
 $('#agDel').onclick=()=>{const A=S.agency;if(A.clients.length<2)return;A.clients=A.clients.filter(c=>c.id!==A.sel);A.sel=A.clients[0].id;save();agRender()};
-document.querySelector('[data-t=agency]').addEventListener('click',agRender);
+document.querySelector('[data-t=kstadt]').addEventListener('click',agRender);$('#ksAgB').addEventListener('toggle',e=>{(S.kstadt??={log:[]}).ag=e.target.open;save();if(e.target.open)agRender()});if((S.kstadt||{}).ag)$('#ksAgB').open=true;
 
 S.team??=[];let tmRun=new Set();
 const TPRE=[{n:'Recherche-Bot',task:'Such die angesagtesten neuen KI-Tools und -Apps dieser Woche. Gib 5 Punkte mit je einem Satz Nutzen, mit Quelle.',tool:'web',sched:'daily',time:'08:00',q:'neue KI Tools'},
@@ -471,16 +514,18 @@ $('#tmPre').onclick=e=>{const i=e.target.dataset.pre;if(i!=null)tmAdd({...TPRE[i
 $('#tbAdd').onclick=()=>{const n=$('#tbN').value.trim(),t=$('#tbT').value.trim();if(!n||!t)return;tmAdd({n,task:t,tool:$('#tbW').value,skill:$('#tbK').value,sched:$('#tbS').value,time:$('#tbZ').value||'08:00'});$('#tbN').value=$('#tbT').value='';$('#tmNew').open=false};
 $('#tmList').onclick=e=>{const d=e.target.dataset,b=S.team.find(x=>x.id===(d.run||d.tog||d.mem||d.del));if(!b)return;
  if(d.run)tmExec(b);if(d.tog){b.on=!b.on;save();tmRender()}if(d.mem){b.mem='';save();tmRender()}if(d.del&&confirm('Bot „'+b.n+'“ mit allen Ergebnissen und Noten löschen?')){S.team=S.team.filter(x=>x!==b);save();tmRender()}};
-document.querySelector('[data-t=team]').addEventListener('click',tmRender);
+document.querySelector('[data-t=kstadt]').addEventListener('click',tmRender);$('#ksTmB').addEventListener('toggle',e=>{S.kstadt.tm=e.target.open;save();if(e.target.open)tmRender()});
 const tmTick=()=>{for(const b of S.team)if(tmDue(b))tmExec(b)};setTimeout(tmTick,4000);setInterval(tmTick,6e4);
 
 // ===== KI-STADT: Bots als Häuser, Agenten laufen durch die Stadt, Ergebnisse benoten → Bots lernen =====
-S.kstadt??={log:[]};
+S.kstadt??={log:[]};if(S.kstadt.tm)$('#ksTmB').open=true;
 const KSC=['#ff2a2a','#ff6a1a','#c77dff','#39ff6a','#3fb6ff','#ffd23f','#ff3fa4','#5fe39a'],KGC=['','#39ff6a','#a6f04a','#ffd23f','#ff9a3f','#ff5a3f','#ff2a2a'];
 const KN=10,KW=44,KH=22,KX=220,KY=62,ksRoad=(i,j)=>i%3===0||j%3===0,ksHall=(i,j)=>i>=4&&i<6&&j>=4&&j<6;
+// Gebäude: Agentur und KI-Team-Zentrale arbeiten mit in der Stadt
+const KSB=[{k:'ag',i:1,j:7,n:'Agentur',c:'#b45cff',h:34},{k:'tm',i:7,j:1,n:'KI-Team',c:'#3fb6ff',h:26},{k:'au',i:1,j:1,n:'Auftragsbüro',c:'#39ff6a',h:30}];
 const ksP=(i,j)=>[(i-j)*KW/2+KX,(i+j)*KH/2+KY];
 // Bauplätze: erst ein Haus pro Block (vordere Blöcke zuerst, damit nichts hinter dem Notenamt verschwindet), dann auffüllen
-const ksLots=[];{const B=[];for(const bi of [1,4,7])for(const bj of [1,4,7])if(!(bi===4&&bj===4))B.push([bi,bj]);B.sort((a,b)=>(b[0]+b[1])-(a[0]+a[1])||Math.abs(a[0]-a[1])-Math.abs(b[0]-b[1]));
+const ksLots=[];{const B=[];for(const bi of [1,4,7])for(const bj of [1,4,7])if(!(bi===4&&bj===4)&&!KSB.some(x=>x.i===bi&&x.j===bj))B.push([bi,bj]);B.sort((a,b)=>(b[0]+b[1])-(a[0]+a[1])||Math.abs(a[0]-a[1])-Math.abs(b[0]-b[1]));
  for(const [di,dj] of [[1,1],[0,1],[1,0],[0,0]])for(const [bi,bj] of B)ksLots.push([bi+di,bj+dj])}
 const ksDoor=([i,j])=>[[i-1,j],[i+1,j],[i,j-1],[i,j+1]].find(([a,c])=>a>=0&&c>=0&&a<KN&&c<KN&&ksRoad(a,c));
 function ksLog(b,txt){S.kstadt.log.unshift({t:Date.now(),n:b.n,txt});S.kstadt.log=S.kstadt.log.slice(0,60)}
@@ -515,6 +560,9 @@ function ksDraw(){const svg=$('#ksMap');if(!svg)return;let g='';
   items.push({s:lot[0]+lot[1],svg:`<g class="hs${ksSelId===b.id?' sel':''}" data-ks="${b.id}">${ksBox(lot[0],lot[1],lot[0]+1,lot[1]+1,h,col)}${run?`<circle cx="${ksP(lot[0]+.5,lot[1]+.5)[0]}" cy="${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" r="5" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="6 4"><animateTransform attributeName="transform" type="rotate" from="0 ${ksP(lot[0]+.5,lot[1]+.5)[0]} ${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" to="360 ${ksP(lot[0]+.5,lot[1]+.5)[0]} ${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" dur="1.2s" repeatCount="indefinite"/></circle>`:''}<text x="${ksP(lot[0]+.5,lot[1]+.5)[0]}" y="${ksP(lot[0]+.5,lot[1]+.5)[1]-h-(run?16:4)}" text-anchor="middle">${esc(b.n.replace(/-?Bot$/i,'')).slice(0,14)}${av?' · '+ksFmt(av):''}</text><title>${esc(b.n)} – ${run?'arbeitet':tmNext(b)}${av?' – Schnitt '+ksFmt(av):''}</title></g>`})});
  const open=S.team.reduce((n,b)=>n+(b.out||[]).filter(o=>!o.g&&!/^Fehler/.test(o.txt)).length,0);
  items.push({s:8.5,svg:`<g>${ksBox(4,4,6,6,30,'#ff6a1a',.1)}<text x="${KX}" y="${ksP(5,5)[1]-44}" text-anchor="middle">Notenamt${open?' · '+open+' offen':''}</text></g>`});
+ for(const B of KSB){const busy=B.k==='ag'?!!agBusy:B.k==='tm'?tmRun.size>0:auOpen()>0,c=ksP(B.i+1,B.j+1),top=c[1]-B.h-10;
+  const lab=B.k==='ag'?(agBusy?'Agentur · '+AG.find(a=>a.k===agBusy).n+' arbeitet':'Agentur · '+S.agency.camps.length+(S.agency.camps.length===1?' Kampagne':' Kampagnen')):B.k==='tm'?'KI-Team · '+S.team.length+(S.team.length===1?' Bot':' Bots')+(tmRun.size?' · '+tmRun.size+' aktiv':''):'Auftragsbüro'+(auOpen()?' · '+auOpen()+' neu':'');
+  items.push({s:B.i+B.j+1,svg:`<g class="hs bld" data-ksb="${B.k}" role="button" aria-label="${B.n} öffnen">${ksBox(B.i,B.j,B.i+2,B.j+2,B.h,B.c,.12)}${busy?`<circle cx="${c[0]}" cy="${top-6}" r="6" fill="none" stroke="${B.c}" stroke-width="2" stroke-dasharray="7 4"><animateTransform attributeName="transform" type="rotate" from="0 ${c[0]} ${top-6}" to="360 ${c[0]} ${top-6}" dur="1.4s" repeatCount="indefinite"/></circle>`:''}<text x="${c[0]}" y="${top-(busy?16:0)}" text-anchor="middle">${esc(lab)}</text></g>`})}
  items.sort((a,b)=>a.s-b.s).forEach(x=>g+=x.svg);
  svg.innerHTML=g+'<g id="ksAgents"></g>';ksAgentsSync()}
 function ksAgentsSync(){const L=$('#ksAgents');if(!L)return;const ids=new Set();
@@ -558,7 +606,8 @@ function ksRefresh(){const open=[];S.team.forEach((b,k)=>(b.out||[]).forEach(o=>
   <div class="m">Schnitt: ${ksFmt(ksAvg(gr.slice(0,10)))}${tr} · ${gr.length} benotet · ${(b.best||[]).length} Vorbilder · ${(b.learn||[]).length} offene Kritikpunkte${b.improving?' · lernt gerade …':''}</div>
   <div class="m" style="margin-top:4px">Aufgabe: ${esc(b.task)}</div>${(b.learn||[]).length?`<div class="m">Kritik: ${b.learn.map(esc).join(' · ')}</div>`:''}${b.errAt?`<div class="m neg">Letzter Lauf fehlgeschlagen: ${esc(b.lastErr||'')}</div>`:''}
   <div class="row"><button class="s" data-ksrun="${b.id}">▶ Jetzt arbeiten</button><button class="s" data-ksimp="${b.id}"${(b.learn||[]).length?'':' disabled'}>🧠 Aus Kritik lernen</button>${b.taskOld?`<button class="s" data-ksundo="${b.id}">↶ Alte Aufgabe zurück</button>`:''}<button class="s" data-kstog="${b.id}">${b.on?'Pausieren':'Aktivieren'}</button></div></div>`}
-$('#kstadt').addEventListener('click',e=>{const t=e.target.closest('[data-ks],button');if(!t)return;const d=t.dataset;
+$('#kstadt').addEventListener('click',e=>{const t=e.target.closest('[data-ks],[data-ksb],button');if(!t)return;const d=t.dataset;
+ if(d.ksb){const el=$({ag:'#ksAgB',tm:'#ksTmB',au:'#ksAuB'}[d.ksb]);el.open=true;return el.scrollIntoView({behavior:'smooth',block:'start'})}
  if(d.ks){ksSelId=ksSelId===d.ks?null:d.ks;return ksRefresh()}
  if(d.kspre!=null)return tmAdd({...TPRE[d.kspre]});
  const id=(d.ksg||d.ksun||'').split('|'),b=S.team.find(x=>x.id===(id[0]||d.ksrun||d.ksimp||d.ksundo||d.kstog));if(!b)return;
@@ -569,6 +618,39 @@ $('#kstadt').addEventListener('click',e=>{const t=e.target.closest('[data-ks],bu
  if(d.ksundo&&b.taskOld){b.task=b.taskOld;delete b.taskOld;b.learn=b.learnOld||[];b.v=Math.max(1,(b.v||2)-1);ksLog(b,'Aufgabe zurückgesetzt');save();ksRefresh()}});
 document.querySelector('[data-t=kstadt]').addEventListener('click',()=>{ksRefresh();if(!ksRaf){ksT0=0;ksRaf=requestAnimationFrame(ksLoop)}});
 setTimeout(ksRefresh,500);
+
+// ===== AUFTRAGSBÜRO: vom Auftrags-Scout (GitHub Actions, bot/auftraege.py) gefundene bezahlte Aufgaben =====
+const AUFTR='https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/data/auftraege.json';
+S.auftr??={st:{}};var AU=null;
+function auSt(a){return S.auftr.st[a.id]||'neu'}
+function auOpen(){return AU&&Array.isArray(AU.auftraege)?AU.auftraege.filter(a=>auSt(a)==='neu').length:0}
+const AUS={neu:['Neu','#39ff6a'],gesendet:['Gesendet','#3fb6ff'],bezahlt:['Bezahlt','#ffd23f'],abgelehnt:['Abgelehnt','#777']};
+async function auLoad(){try{const r=await fetch(AUFTR+'?t='+Date.now());if(r.status===404)throw Error('Der Auftrags-Scout war noch nicht unterwegs – er startet täglich morgens, oder tippe „Jetzt neu suchen“.');if(!r.ok)throw Error('HTTP '+r.status);
+  const prev=auOpen(),j=await r.json();if(!j||!Array.isArray(j.auftraege))throw Error('Auftragsdaten unvollständig');AU=j;const n=auOpen();if(AU&&n>prev&&prev>=0&&S.auftr.seen!==AU.stand){S.auftr.seen=AU.stand;save();if(n)push('💼 '+n+' neue Aufträge im Auftragsbüro',true)}$('#auMsg').textContent=''}
+ catch(e){$('#auMsg').textContent=e.message}auRender();if(typeof ksRefresh==='function')ksRefresh()}
+function auRender(){const L=$('#auList');if(!L)return;const A=AU&&Array.isArray(AU.auftraege)?AU.auftraege:[],all=$('#auAll').checked,cnt=k=>A.filter(a=>auSt(a)===k).length;
+ $('#auK1').textContent=cnt('neu');$('#auK2').textContent=cnt('gesendet');$('#auK3').textContent=eur(A.filter(a=>auSt(a)==='bezahlt').reduce((s,a)=>s+(S.auftr.paid?.[a.id]??a.preis_eur),0));
+ $('#auK4').textContent=AU?AU.stand+(AU.letzter_lauf?' · '+AU.letzter_lauf.gefunden+' geprüft':''):'–';
+ const vis=A.filter(a=>all||['neu','gesendet'].includes(auSt(a)));
+ L.innerHTML=vis.map(a=>{const st=auSt(a),[sl,sc]=AUS[st];return `<div class="au-card" style="border-left-color:${sc}">
+  <div class="ag-top"><b style="color:${sc};letter-spacing:0">${esc(a.titel)}</b><span class="au-st" style="background:${sc}">${sl}</span></div>
+  <div class="m">${esc(a.quelle)} · ${esc(a.datum)} · <b class="pos">${eur(a.preis_eur)}</b>${a.lieferzeit?' · Lieferung '+esc(a.lieferzeit):''}${a.punkte?' · passt '+a.punkte+'/100':''}</div>
+  ${a.warum?`<div class="m">${esc(a.warum)}</div>`:''}
+  <details><summary>Auftrag im Original</summary><b>${esc(a.original)}</b><pre>${esc(a.auftrag)}</pre></details>
+  ${(a.schritte||[]).length?`<b>So gehst du vor</b><ol>${a.schritte.map(x=>'<li>'+esc(x)+'</li>').join('')}</ol>`:''}
+  <b>Angebot</b><pre>${link(esc(a.angebot))}</pre>
+  <details><summary>Fertiger Entwurf vom KI-Team</summary><pre>${link(esc(a.ergebnis))}</pre></details>
+  <div class="m">Zahlung: ${esc(a.zahlung)}</div>
+  <div class="row">${a.url?`<a href="${esc(a.url)}" target="_blank" rel="noopener"><button class="s">Auftrag öffnen</button></a>`:''}<button class="s" data-auc="angebot|${esc(a.id)}">Angebot kopieren</button><button class="s" data-auc="ergebnis|${esc(a.id)}">Entwurf kopieren</button>${a.paypal?`<button class="s" data-auc="paypal|${esc(a.id)}">PayPal-Link kopieren</button>`:''}</div>
+  <div class="row">${st!=='gesendet'&&st!=='bezahlt'?`<button class="s" data-aus="gesendet|${esc(a.id)}">✉ Gesendet</button>`:''}${st!=='bezahlt'?`<button class="s" data-aus="bezahlt|${esc(a.id)}">✓ Bezahlt</button>`:''}${st==='neu'?`<button class="s" data-aus="abgelehnt|${esc(a.id)}">Passt nicht</button>`:''}${st!=='neu'?`<button class="s" data-aus="neu|${esc(a.id)}">↶ Zurücksetzen</button>`:''}</div></div>`}).join('')||`<p class="m">${AU?'Gerade keine offenen Aufträge – der Scout sucht wieder morgen früh.':'Noch keine Daten.'}</p>`}
+$('#auftr').addEventListener('click',e=>{const t=e.target.closest('button');if(!t||!AU)return;const d=t.dataset,[k,id]=(d.auc||d.aus||'').split('|'),a=AU.auftraege.find(x=>x.id===id);if(!a)return;
+ if(d.auc){navigator.clipboard?.writeText(a[k]||'').then(()=>{t.textContent='Kopiert ✓';setTimeout(auRender,1500)},()=>{prompt('Kopieren:',a[k]||'')})}
+ if(d.aus){if(k==='bezahlt'){const v=parseFloat((prompt('Wie viel ist auf PayPal angekommen (€)?',a.preis_eur)||'').replace(',','.'));if(!(v>0))return;(S.auftr.paid??={})[a.id]=v;S.fin.unshift({d:today(),v,t:'Auftrag: '+a.titel.slice(0,60)+' (PayPal)'});push('💶 '+eur(v)+' für „'+a.titel.slice(0,40)+'“ verbucht',true)}
+  if(auSt(a)==='bezahlt'&&k!=='bezahlt'&&S.auftr.paid?.[a.id]){const i=S.fin.findIndex(x=>x.t==='Auftrag: '+a.titel.slice(0,60)+' (PayPal)');if(i>=0)S.fin.splice(i,1);delete S.auftr.paid[a.id]}
+  if(k==='neu')delete S.auftr.st[a.id];else S.auftr.st[a.id]=k;save();render();auRender();ksRefresh()}});
+$('#auLoad').onclick=auLoad;$('#auAll').onchange=auRender;
+$('#ksAuB').addEventListener('toggle',e=>{S.kstadt.au=e.target.open;save();if(e.target.open)auLoad()});if(S.kstadt.au)$('#ksAuB').open=true;
+setTimeout(auLoad,1500);setInterval(()=>{if(!document.hidden)auLoad()},30*6e4);
 
 
 S.skills??=[{n:'kc-post',d:'Social-Media-Post für einen Handwerks- oder Gastrobetrieb (KC)',i:'Schreibe einen Facebook/Instagram-Post für den genannten Betrieb aus der Region Börde/Harz. Aufbau: Hook in Zeile 1, 2–4 kurze Sätze mit konkretem Nutzen oder Einblick in die Arbeit, klare Handlungsaufforderung (Anfrage, Bewerbung oder Anruf), 3–5 regionale Hashtags. Du-Form nur, wenn der Betrieb das will, sonst Sie. Keine Übertreibungen, keine erfundenen Zahlen. Gib zusätzlich eine Bildidee in einer Zeile.'},
@@ -601,7 +683,7 @@ function skRender(){$('#skList').innerHTML=S.skills.map((k,i)=>`<div><span><code
 $('#skList').onclick=e=>{const d=e.target.dataset;if(d.skx!=null){S.skills.splice(d.skx,1);save();skRender()}
  if(d.skt!=null){const k=S.skills[d.skt];$$('nav button,section').forEach(x=>x.classList.remove('on'));$('[data-t=chat]').classList.add('on');$('#chat').classList.add('on');$('#in').value='nutz den '+k.n+' skill: ';$('#in').focus();render()}};
 $('#skAdd').onclick=()=>{const n=$('#skN').value.trim().replace(/\s+/g,'-'),i=$('#skI').value.trim();if(!n||!i)return;S.skills=S.skills.filter(k=>k.n!==n);S.skills.push({n,d:$('#skD').value.trim()||n,i});$('#skN').value=$('#skD').value=$('#skI').value='';$('#skNew').open=false;save();skRender()};
-document.querySelector('[data-t=team]').addEventListener('click',skRender);skRender();
+document.querySelector('[data-t=kstadt]').addEventListener('click',skRender);skRender();
 
 const BIZ=[['KC','Handwerk sichtbar'],['ET','Finanz-Vorlagen'],['TT','KI-Miniserien']];
 function dashRender(){const mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)),inc=mm.filter(x=>x.v>0).reduce((a,x)=>a+x.v,0),out=mm.filter(x=>x.v<0).reduce((a,x)=>a+x.v,0),pr=inc+out,g=+S.dash.goal||0;
@@ -616,7 +698,7 @@ function dashRender(){const mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsW
  const F=Object.entries(S.dash.fun),f0=Math.max(1,F[0][1]);
  $('#dbFun').innerHTML=F.map(([k,v],i)=>`<div><span>${k}</span><span class="bar"><i style="width:${Math.min(100,v/f0*100)}%"></i></span><span class="mono"><button class="s" data-fm="${k}">−</button> ${v} <button class="s" data-fp="${k}">+</button>${i?` <span class="m">${F[i-1][1]?Math.round(v/F[i-1][1]*100):0} %</span>`:''}</span></div>`).join('');
  const t0=new Date();t0.setHours(0,0,0,0);
- $('#dbTl').innerHTML=[...S.team].sort((a,b)=>(a.time||'').localeCompare(b.time||'')).map(b=>`<div><span class="t">${b.sched==='hourly'?'stdl.':esc(b.time||'')}</span><span style="flex:1">${esc(b.n)}</span><span class="${b.last>=t0.getTime()?'ok':'m'}">${tmRun.has(b.id)?'arbeitet …':b.last>=t0.getTime()?'✓ erledigt':b.on?'geplant':'pausiert'}</span></div>`).join('')||'<p class="m">Noch keine Bots – im KI-Team anlegen.</p>'}
+ $('#dbTl').innerHTML=[...S.team].sort((a,b)=>(a.time||'').localeCompare(b.time||'')).map(b=>`<div><span class="t">${b.sched==='hourly'?'stdl.':esc(b.time||'')}</span><span style="flex:1">${esc(b.n)}</span><span class="${b.last>=t0.getTime()?'ok':'m'}">${tmRun.has(b.id)?'arbeitet …':b.last>=t0.getTime()?'✓ erledigt':b.on?'geplant':'pausiert'}</span></div>`).join('')||'<p class="m">Noch keine Bots – in der KI-Stadt (KI-Team-Zentrale) anlegen.</p>'}
 $('#dbFun').onclick=e=>{const d=e.target.dataset,k=d.fp||d.fm;if(!k)return;S.dash.fun[k]=Math.max(0,S.dash.fun[k]+(d.fp?1:-1));save();dashRender()};
 $('#dbGs').onclick=()=>{const v=parseFloat($('#dbGoal').value.replace(',','.'));if(v>=0){S.dash.goal=v;$('#dbGoal').value='';save();dashRender()}};
 document.querySelector('[data-t=dash]').addEventListener('click',dashRender);
