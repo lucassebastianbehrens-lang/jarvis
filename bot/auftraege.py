@@ -175,6 +175,10 @@ def prefilter(items, known):
             continue
         if it["plattform"] and it["gebote"] > 60:          # hoffnungslos überlaufen
             continue
+        if it["stunden"]:                                   # Stundenjobs = Anstellung, kein KI-Festpreisauftrag
+            continue
+        if not re.search(r"\b(the|and|for|need|write|to|my|of|with|ich|und|für|der|die|ein)\b", txt, re.I):   # nur Englisch/Deutsch
+            continue
         # Vorsortierung: frisch, wenig Konkurrenz, Budget vorhanden
         age_h = (time.time() - it["zeit"]) / 3600
         it["_vor"] = (it["budget_eur"][1] or 20) / (1 + it["gebote"] / 10) / (1 + age_h / 24)
@@ -187,15 +191,21 @@ RATE_SYS = ("Du bewertest Aufträge für einen Ein-Personen-Dienstleister, der d
             "Tabellen, kleine Skripte) erledigt. Gib jedem Auftrag 0–100 Punkte: hoch nur, wenn eine KI das Ergebnis "
             "komplett digital liefern kann, der Auftrag seriös und legal ist, keine Täuschung verlangt (keine "
             "Hausaufgaben/Prüfungen, keine Fake-Bewertungen, keine Accounts) und in unter 2 Stunden prüfbar ist. "
+            "Unter 40 Punkte: Daueranstellungen/Assistenzjobs, Stundenjobs ohne klares Ergebnis, Aufträge mit "
+            "aktuellen Echtdaten (Preise, Kurse, Kontaktlisten, Marktrecherche vor Ort), Sprachen außer Deutsch/Englisch, "
+            "Zugriff auf Kundensysteme, Design mit Markenvorgaben. "
             "Schätze einen fairen Festpreis in Euro (mind. 15). Antworte NUR mit JSON-Liste: "
             '[{"id":"…","punkte":0-100,"preis_eur":Zahl,"warum":"1 Satz Deutsch"}]')
 
-WORK_SYS = ("Du bist Lucas' KI-Team und bereitest einen bezahlten Auftrag vollständig vor. Schreibe in der Sprache "
-            "des Auftrags. Liefere: 1) ein kurzes, ehrliches Angebot (max. 120 Wörter, freundlich, konkret, nennt "
-            "Lieferzeit und Preis, verspricht nichts Unmögliches, kein Hinweis auf ‚KI-Agentur‘ nötig, aber auch "
-            "keine Lüge, falls gefragt), 2) das fertige Ergebnis bzw. einen vollständigen ersten Entwurf, so gut "
-            "wie möglich direkt lieferbar (bei fehlenden Infos: sinnvolle Annahmen in [eckigen Klammern]), "
-            "3) 2–4 kurze Schritte für Lucas auf Deutsch. Antworte NUR mit JSON: "
+WORK_SYS = ("Du bist Lucas' KI-Team und bereitest einen bezahlten Auftrag vollständig vor. "
+            "REGELN: Angebot und Ergebnis in DERSELBEN SPRACHE wie der Originalauftrag (im Zweifel Englisch). "
+            "Nichts erfinden: keine ausgedachte Berufserfahrung, Referenzen, Abschlüsse oder Bewertungen; keine "
+            "erfundenen Fakten, Zahlen, Firmen oder Quellen – wo echte Daten nötig sind, Platzhalter [PRÜFEN: …]. "
+            "Den vorgegebenen Preis exakt übernehmen. Liefere: 1) ein kurzes, ehrliches Angebot an den Kunden "
+            "(max. 120 Wörter, freundlich, konkret, zeigt Verständnis der Aufgabe, nennt Lieferzeit und Preis, "
+            "verspricht nichts Unmögliches), 2) das fertige Ergebnis bzw. einen vollständigen ersten Entwurf, so gut "
+            "wie möglich direkt lieferbar (fehlende Infos als [Annahme: …]), 3) 2–4 kurze Anweisungen an LUCAS auf "
+            "Deutsch (nicht an den Kunden), z. B. was er vor dem Absenden prüfen soll. Antworte NUR mit JSON: "
             '{"titel":"kurzer deutscher Titel","angebot":"…","ergebnis":"…","preis_eur":Zahl,"lieferzeit":"…",'
             '"sprache":"de|en|…","schritte":["…"]}')
 
@@ -205,14 +215,14 @@ def paypal(eur):
 
 
 def prepare(it, rating):
-    j = ai(WORK_SYS, f"Quelle: {it['quelle']}\nTitel: {it['titel']}\nBudget: {it['budget_eur']} EUR "
-                     f"{'(Stundensatz)' if it['stunden'] else ''}\nVorgeschlagener Preis: {rating.get('preis_eur')} EUR\n\n{it['text']}",
-           want_json=True)
-    preis = float(j.get("preis_eur") or rating.get("preis_eur") or 30)
+    preis = float(rating.get("preis_eur") or 30)
     lo, hi = it["budget_eur"]
     if hi:
         preis = min(max(preis, lo or preis), hi)            # im Budget des Kunden bleiben
     preis = max(15, round(preis))
+    j = ai(WORK_SYS, f"Quelle: {it['quelle']}\nTitel: {it['titel']}\nBudget des Kunden: {lo}–{hi} EUR\n"
+                     f"Preis (exakt so nennen): {preis} EUR Festpreis\n\nOriginalauftrag:\n{it['text']}",
+           want_json=True)
     angebot = j.get("angebot", "").strip()
     if not it["plattform"]:
         angebot += ("\n\nZahlung: 50 % vorab, Rest nach Lieferung, per PayPal: " + paypal(preis / 2)

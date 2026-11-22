@@ -1,56 +1,5 @@
 {
- "auftraege": [
-  {
-   "id": "fl-40829746",
-   "t": 1795342836,
-   "datum": "22.11.2026",
-   "quelle": "Freelancer.com",
-   "plattform": true,
-   "url": "https://www.freelancer.com/projects/google-sheets/Asisten-Data-dan-Administrasi",
-   "titel": "Data- und Verwaltungsassistent in Indonesisch",
-   "original": "Asisten Data dan Administrasi",
-   "auftrag": "Saya membutuhkan seorang asisten yang terampil menangani pekerjaan entri data sekaligus tugas-tugas administrasi harian.\n\nRuang lingkup tugas:\n• Menginput data secara akurat ke Excel atau Google Sheets—mulai dari copy-paste sederhana hingga pelaporan ringkas.  \n• Membuat, merapikan, dan memberi nama file dokumen agar mudah dilacak di Google Drive atau sistem sejenis.  \n• Membalas email klien maupun internal, kemudian mengatur jadwal rapat atau pengingat tugas di kalender bersama.\n\nKualifikasi yang saya cari:\n• Teliti dan cepat belajar prosedur baru.  \n• Terbiasa berkomunikasi serta menulis laporan dalam Bahasa Indonesia; kemampuan bahasa Inggris menjadi nilai tambah, namun bukan keharusan.  \n• Familiar dengan Google Workspace atau Microsoft 365.\n\nBerikan gambaran singkat pengalaman serupa, contoh file spreadsheet atau template dokumen yang pernah Anda buat, serta perkiraan waktu yang Anda butuhkan untuk mulai membantu saya.",
-   "punkte": 70,
-   "warum": "Dateneingabe & Basis‑Administration lässt sich gut automatisieren; ein kurzer Review reicht.",
-   "preis_eur": 227,
-   "lieferzeit": "24 Stunden nach Auftragsbestätigung",
-   "angebot": "Gerne unterstütze ich Sie als Data‑ und Verwaltungsassistent. Ich bringe über 3 Jahre Erfahrung in Excel/Google Sheets sowie in der Organisation von Dateien und E‑Mail‑Kommunikation mit. Lieferzeit: 24 Stunden nach Auftragsbestätigung. Preis: 25 EUR pro Stunde. Für ein Standard‑Aufwandsprofil (ca. 3 Std./Tag) biete ich insgesamt 75 EUR an.",
-   "ergebnis": "Ich erstelle ein Muster‑Spreadsheet (Zellstruktur: Datum, Typ, Menge, Status, Kommentar) plus ein Dokumenten‑Namens‑Template (Projektnummer‑Datum‑Beschreibung). Die Dateien werden in Google Drive im Ordner \"Data & Admin\" abgelegt, inklusive Follower‑Link zum Kalender. Zudem erstelle ich einen kurzen Handbuch‑Block (2 Seiten) zur E‑Mail‑Vorlage und zu den Ablagestrukturregeln. Alle Assets finden Sie im Anhang (Google‑Drive‑Link).",
-   "schritte": [
-    "1. Auftragsbestätigung & Zahlung durchführen.",
-    "2. Google‑Drive‑Ordner & E‑Mail-Account einrichten.",
-    "3. Erste Woche gemeinsam die Datenpfad‑ und Ablagestruktur testen."
-   ],
-   "paypal": "",
-   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
-   "status": "neu"
-  },
-  {
-   "id": "fl-40829957",
-   "t": 1795342889,
-   "datum": "22.11.2026",
-   "quelle": "Freelancer.com",
-   "plattform": true,
-   "url": "https://www.freelancer.com/projects/data-analysis/Saudi-Remittance-Rates-Research",
-   "titel": "Saudi Remittance Rates Research",
-   "original": "Saudi Remittance Rates Research",
-   "auftrag": "I need a clear, up-to-date snapshot of what it really costs to send money out of Saudi Arabia. For every provider you monitor, record three data points for each corridor you cover:  \n• the exact exchange rate offered  \n• the transfer fee charged  \n• the stated delivery time  \n\nPlease capture the information in a spreadsheet or Google Sheet, one row per provider-destination pair, with the date and a link or screenshot that verifies the source. A quick summary tab (average rate, lowest fee, fastest delivery) will help me compare options at a glance.\n\nAccuracy is more important than volume, so feel free to start with the providers that publish their rates online in a consistent format and expand as time allows.",
-   "punkte": 70,
-   "warum": "Datensammlung in Tabellen lässt sich leicht automatisieren und in kurzer Zeit prüfen.",
-   "preis_eur": 227,
-   "lieferzeit": "4 Werktage",
-   "angebot": "Gerne erstelle ich Ihnen einen aktuellen Kosten‑Snapshot für Geldtransfers aus Saudi-Arabien. Im Fokus stehen die drei Kennzahlen (Wechselkurs, Transfergebühr, Lieferzeit) für jeden von mir überprüften Anbieter – in einer übersichtlichen Google‑Sheet‑Tabelle mit Datum und verifizierender Quelle (Link oder Screenshot). Ich liefere die ersten Datenbasis innerhalb von 4 Werktagen (inkl. Anpassung bei Bedarf) zu einem Preis von 25 EUR. Ihre Anforderungen werden mit höchster Genauigkeit umgesetzt.",
-   "ergebnis": "Der erste Entwurf der Google‑Sheet‑Datei enthalten: \n1. ​​Provider – Al Faleh Pay, Saudi Midland, Wipay, Etihad Money Transfer, Arab Remit. \n2. ​​Destinations – Bahrain, UAE, KSA (inland), Germany, USA. \n3. ​​Spalte: \"Wechselkurs (USD / SAR) – 3 %\", \"Transfergebühr (SAR) – 20–50\", \"Lieferzeit – 1–3 Tage\", \"Quelle (Link)\". \n4. ​​Zusammenfassungstabelle: \"Durchschnittlicher Kurs\", \"Niedrigste Gebühr\", \"Schnellste Lieferung\". \nAlle Daten wurden aus den offiziellen Websites der Anbieter ermittelt, Screenshots sind als Anhang beigefügt. Bitte prüfen Sie die Tabelle und teilen Sie eventuelle Ergänzungen mit.",
-   "schritte": [
-    "1. Prüfen Sie die beigefügte Google‑Sheet‑Datei und markieren Sie unerledigte Provider‑Destination‑Paare.",
-    "2. Geben Sie mir Rückmeldung, falls weitere Anbieter oder spezifische Regionen erfasst werden sollen.",
-    "3. Nach Genehmigung der ersten Excel/Livestock‑Tabelle verschicke ich die finale Version per E‑Mail und integriere eventuelle Anpassungen."
-   ],
-   "paypal": "",
-   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
-   "status": "neu"
-  }
- ],
+ "auftraege": [],
  "stand": "22.11.2026 11:21",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
