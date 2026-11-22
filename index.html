@@ -41,7 +41,7 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 @keyframes bob{50%{transform:translateY(-5px)}}@media(prefers-reduced-motion:reduce){.office .bot.work{animation:none}}
 .agc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.agc div{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:6px 8px;font-size:13px}.agc b{display:block}.agc i{font-style:normal;color:var(--mut)}
 .prog{height:6px;background:#1a0c0c;border-radius:6px;overflow:hidden;margin:6px 0}.prog i{display:block;height:100%;background:linear-gradient(90deg,#c77dff,#ff3fa4);width:0;transition:width .4s}
-details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;margin:6px 0}details.camp summary{cursor:pointer}.ks-bld>summary{font-weight:700;color:#c77dff;letter-spacing:1px}.ks-bld[open]{padding-bottom:12px}details.camp pre{white-space:pre-wrap;font:14px/1.45 'Share Tech Mono',monospace;margin:4px 0 10px}
+details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;margin:6px 0}details.camp summary{cursor:pointer}.ks-bld>summary{font-weight:700;color:#c77dff;letter-spacing:1px}.ks-bld[open]{padding-bottom:12px}.ks-bld .ag-top>b{display:none}.ks-bld .ag-top{justify-content:flex-end}.ks-map .bld text{fill:#e9dcff}details.camp pre{white-space:pre-wrap;font:14px/1.45 'Share Tech Mono',monospace;margin:4px 0 10px}
 @media(max-width:520px){.agc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ring.live svg{animation:pl 1s ease-in-out infinite}@keyframes pl{50%{filter:drop-shadow(0 0 14px #ff2a2a)}}
 .ring{cursor:pointer}button.rec{background:var(--red);color:#fff;animation:pl 1s infinite}
@@ -85,7 +85,7 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="card"><h3>KI-Team · heute</h3><div class="tl" id="dbTl"></div></div>
 <div class="row"><input id="dbGoal" inputmode="decimal" placeholder="Monatsziel Gewinn in €"><button id="dbGs" style="flex:0 0 auto">Ziel speichern</button></div></section>
 <section id="kstadt"><div class="ag-top"><b>KI-STADT</b><span class="ag-on mono" id="ksOn"></span></div>
-<p class="m">Jeder Bot aus dem KI-Team wohnt hier in einem eigenen Haus. Läuft ein Bot, geht sein Agent nach Hause und arbeitet. Fertige Ergebnisse landen auf der To-do-Liste unten – benote sie wie ein Lehrer (1 = sehr gut, 6 = ungenügend). Gute Ergebnisse werden zum Vorbild, Kritik zu Regeln, und nach 3 Kritikpunkten schreibt Jarvis die Aufgabe des Bots selbst besser. Je besser der Notenschnitt, desto höher das Haus.</p>
+<p class="m">Jeder Bot aus dem KI-Team wohnt hier in einem eigenen Haus. Läuft ein Bot, geht sein Agent nach Hause und arbeitet. Fertige Ergebnisse landen auf der To-do-Liste unten – benote sie wie ein Lehrer (1 = sehr gut, 6 = ungenügend). Gute Ergebnisse werden zum Vorbild, Kritik zu Regeln, und nach 3 Kritikpunkten schreibt Jarvis die Aufgabe des Bots selbst besser. Je besser der Notenschnitt, desto höher das Haus. In der Stadt stehen außerdem das Agentur-Gebäude und die KI-Team-Zentrale – tippe sie an oder öffne sie unten.</p>
 <div class="ks-kpi"><div><small>Bots aktiv</small><b class="mono" id="ksK1">–</b></div><div><small>Arbeiten gerade</small><b class="mono" id="ksK2">–</b></div><div><small>Zu benoten</small><b class="mono" id="ksK3">–</b></div><div><small>Notenschnitt 7 Tage</small><b class="mono" id="ksK4">–</b></div></div>
 <div class="ks-wrap"><div class="ks-map"><svg id="ksMap" viewBox="0 0 440 290" role="img" aria-label="KI-Stadt mit den Bots als Häusern"></svg></div><div class="ks-feed" id="ksFeed"></div></div>
 <div id="ksSel"></div>
@@ -430,13 +430,14 @@ async function agRun(){const goal=$('#agGoal').value.trim();if(!goal||agBusy)ret
   ads:()=>`Strategie:\n${camp.steps.strategy}\n\nErstelle 2 Anzeigen-Varianten (Überschrift, Text, Call-to-Action), Zielgruppen-Einstellungen für Meta und TikTok, Tagesbudget in €.`,
   email:()=>`Auftrag: ${goal}\nSchreibe eine Launch-E-Mail: 3 Betreff-Varianten und einen Text mit max. 120 Wörtern.`,
   analytics:()=>`Strategie:\n${camp.steps.strategy}\n\nNenne 5 Kennzahlen mit Zielwerten für 4 Wochen. Danach „Checkliste:“ mit 5 Aufgaben, jede Zeile beginnt mit „- “.`};
- for(const [i,a] of AG.entries()){agBusy=a.k;$('#agStep').textContent=`Schritt ${i+1} von 6 · ${a.n} ${a.d} …`;$('#agBar').style.width=(i/6*100)+'%';agRender();
+ ksLog({n:'Agentur'},'startet Kampagne „'+goal.slice(0,40)+'“ für '+cl.n);
+ for(const [i,a] of AG.entries()){agBusy=a.k;ksLog({n:'Agentur'},a.n+'-Agent '+a.d);ksRefresh();$('#agStep').textContent=`Schritt ${i+1} von 6 · ${a.n} ${a.d} …`;$('#agBar').style.width=(i/6*100)+'%';agRender();
   try{const out=await ai([sys(a.n),{role:'user',content:jobs[a.k]()}]);
    if(a.k==='design'){const pr=out.replace(/^["'\s]+|["'\s]+$/g,'').slice(0,300);camp.img='https://image.pollinations.ai/prompt/'+encodeURIComponent(pr)+'?width=1024&height=1024&nologo=true&seed='+Math.floor(Math.random()*1e6);camp.steps.design='Bild-Prompt: '+pr+'\n(Bild kostenlos über Pollinations, lädt 10–30 Sek.)'}
    else camp.steps[a.k]=out}
-  catch(e){camp.steps[a.k]='Fehler: '+e.message;agBusy=null;$('#agStep').textContent='Abgebrochen: KI nicht erreichbar ('+e.message+'). Einstellungen → KI prüfen.';save();return agRender()}
+  catch(e){camp.steps[a.k]='Fehler: '+e.message;agBusy=null;ksLog({n:'Agentur'},'Kampagne abgebrochen');ksRefresh();$('#agStep').textContent='Abgebrochen: KI nicht erreichbar ('+e.message+'). Einstellungen → KI prüfen.';save();return agRender()}
   agDone[a.k]=1;save()}
- agBusy=null;$('#agBar').style.width='100%';$('#agStep').textContent='✓ Kampagne fertig – alle 6 Agenten haben geliefert.';$('#agGoal').value='';save();agRender();say('Kampagne für '+cl.n+' ist fertig.')}
+ agBusy=null;$('#agBar').style.width='100%';$('#agStep').textContent='✓ Kampagne fertig – alle 6 Agenten haben geliefert.';$('#agGoal').value='';ksLog({n:'Agentur'},'Kampagne für '+cl.n+' fertig ✓');save();agRender();ksRefresh();say('Kampagne für '+cl.n+' ist fertig.')}
 $('#agRun').onclick=agRun;
 $('#agCl').onclick=e=>{const c=e.target.dataset.c;if(c&&!agBusy){S.agency.sel=c;agDone={};save();agRender()}};
 $('#agCamps').onclick=e=>{const d=e.target.dataset,A=S.agency,id=d.cp||d.td||d.dl,c=A.camps.find(x=>x.id===id);if(!c)return;
@@ -445,7 +446,7 @@ $('#agCamps').onclick=e=>{const d=e.target.dataset,A=S.agency,id=d.cp||d.td||d.d
  if(d.dl){A.camps=A.camps.filter(x=>x!==c);save();agRender()}};
 $('#agAdd').onclick=()=>{const n=$('#agNn').value.trim(),d=$('#agNd').value.trim();if(!n)return;const id=n.slice(0,12);S.agency.clients.push({id,n,d:d||n});S.agency.sel=id;$('#agNn').value=$('#agNd').value='';save();agRender()};
 $('#agDel').onclick=()=>{const A=S.agency;if(A.clients.length<2)return;A.clients=A.clients.filter(c=>c.id!==A.sel);A.sel=A.clients[0].id;save();agRender()};
-document.querySelector('[data-t=kstadt]').addEventListener('click',agRender);$('#ksAgB').addEventListener('toggle',e=>{if(e.target.open)agRender()});
+document.querySelector('[data-t=kstadt]').addEventListener('click',agRender);$('#ksAgB').addEventListener('toggle',e=>{(S.kstadt??={log:[]}).ag=e.target.open;save();if(e.target.open)agRender()});if((S.kstadt||{}).ag)$('#ksAgB').open=true;
 
 S.team??=[];let tmRun=new Set();
 const TPRE=[{n:'Recherche-Bot',task:'Such die angesagtesten neuen KI-Tools und -Apps dieser Woche. Gib 5 Punkte mit je einem Satz Nutzen, mit Quelle.',tool:'web',sched:'daily',time:'08:00',q:'neue KI Tools'},
@@ -474,16 +475,18 @@ $('#tmPre').onclick=e=>{const i=e.target.dataset.pre;if(i!=null)tmAdd({...TPRE[i
 $('#tbAdd').onclick=()=>{const n=$('#tbN').value.trim(),t=$('#tbT').value.trim();if(!n||!t)return;tmAdd({n,task:t,tool:$('#tbW').value,skill:$('#tbK').value,sched:$('#tbS').value,time:$('#tbZ').value||'08:00'});$('#tbN').value=$('#tbT').value='';$('#tmNew').open=false};
 $('#tmList').onclick=e=>{const d=e.target.dataset,b=S.team.find(x=>x.id===(d.run||d.tog||d.mem||d.del));if(!b)return;
  if(d.run)tmExec(b);if(d.tog){b.on=!b.on;save();tmRender()}if(d.mem){b.mem='';save();tmRender()}if(d.del&&confirm('Bot „'+b.n+'“ mit allen Ergebnissen und Noten löschen?')){S.team=S.team.filter(x=>x!==b);save();tmRender()}};
-document.querySelector('[data-t=kstadt]').addEventListener('click',tmRender);$('#ksTmB').addEventListener('toggle',e=>{if(e.target.open)tmRender()});
+document.querySelector('[data-t=kstadt]').addEventListener('click',tmRender);$('#ksTmB').addEventListener('toggle',e=>{S.kstadt.tm=e.target.open;save();if(e.target.open)tmRender()});
 const tmTick=()=>{for(const b of S.team)if(tmDue(b))tmExec(b)};setTimeout(tmTick,4000);setInterval(tmTick,6e4);
 
 // ===== KI-STADT: Bots als Häuser, Agenten laufen durch die Stadt, Ergebnisse benoten → Bots lernen =====
-S.kstadt??={log:[]};
+S.kstadt??={log:[]};if(S.kstadt.tm)$('#ksTmB').open=true;
 const KSC=['#ff2a2a','#ff6a1a','#c77dff','#39ff6a','#3fb6ff','#ffd23f','#ff3fa4','#5fe39a'],KGC=['','#39ff6a','#a6f04a','#ffd23f','#ff9a3f','#ff5a3f','#ff2a2a'];
 const KN=10,KW=44,KH=22,KX=220,KY=62,ksRoad=(i,j)=>i%3===0||j%3===0,ksHall=(i,j)=>i>=4&&i<6&&j>=4&&j<6;
+// Gebäude: Agentur und KI-Team-Zentrale arbeiten mit in der Stadt
+const KSB=[{k:'ag',i:1,j:7,n:'Agentur',c:'#b45cff',h:34},{k:'tm',i:7,j:1,n:'KI-Team',c:'#3fb6ff',h:26}];
 const ksP=(i,j)=>[(i-j)*KW/2+KX,(i+j)*KH/2+KY];
 // Bauplätze: erst ein Haus pro Block (vordere Blöcke zuerst, damit nichts hinter dem Notenamt verschwindet), dann auffüllen
-const ksLots=[];{const B=[];for(const bi of [1,4,7])for(const bj of [1,4,7])if(!(bi===4&&bj===4))B.push([bi,bj]);B.sort((a,b)=>(b[0]+b[1])-(a[0]+a[1])||Math.abs(a[0]-a[1])-Math.abs(b[0]-b[1]));
+const ksLots=[];{const B=[];for(const bi of [1,4,7])for(const bj of [1,4,7])if(!(bi===4&&bj===4)&&!KSB.some(x=>x.i===bi&&x.j===bj))B.push([bi,bj]);B.sort((a,b)=>(b[0]+b[1])-(a[0]+a[1])||Math.abs(a[0]-a[1])-Math.abs(b[0]-b[1]));
  for(const [di,dj] of [[1,1],[0,1],[1,0],[0,0]])for(const [bi,bj] of B)ksLots.push([bi+di,bj+dj])}
 const ksDoor=([i,j])=>[[i-1,j],[i+1,j],[i,j-1],[i,j+1]].find(([a,c])=>a>=0&&c>=0&&a<KN&&c<KN&&ksRoad(a,c));
 function ksLog(b,txt){S.kstadt.log.unshift({t:Date.now(),n:b.n,txt});S.kstadt.log=S.kstadt.log.slice(0,60)}
@@ -518,6 +521,9 @@ function ksDraw(){const svg=$('#ksMap');if(!svg)return;let g='';
   items.push({s:lot[0]+lot[1],svg:`<g class="hs${ksSelId===b.id?' sel':''}" data-ks="${b.id}">${ksBox(lot[0],lot[1],lot[0]+1,lot[1]+1,h,col)}${run?`<circle cx="${ksP(lot[0]+.5,lot[1]+.5)[0]}" cy="${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" r="5" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="6 4"><animateTransform attributeName="transform" type="rotate" from="0 ${ksP(lot[0]+.5,lot[1]+.5)[0]} ${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" to="360 ${ksP(lot[0]+.5,lot[1]+.5)[0]} ${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" dur="1.2s" repeatCount="indefinite"/></circle>`:''}<text x="${ksP(lot[0]+.5,lot[1]+.5)[0]}" y="${ksP(lot[0]+.5,lot[1]+.5)[1]-h-(run?16:4)}" text-anchor="middle">${esc(b.n.replace(/-?Bot$/i,'')).slice(0,14)}${av?' · '+ksFmt(av):''}</text><title>${esc(b.n)} – ${run?'arbeitet':tmNext(b)}${av?' – Schnitt '+ksFmt(av):''}</title></g>`})});
  const open=S.team.reduce((n,b)=>n+(b.out||[]).filter(o=>!o.g&&!/^Fehler/.test(o.txt)).length,0);
  items.push({s:8.5,svg:`<g>${ksBox(4,4,6,6,30,'#ff6a1a',.1)}<text x="${KX}" y="${ksP(5,5)[1]-44}" text-anchor="middle">Notenamt${open?' · '+open+' offen':''}</text></g>`});
+ for(const B of KSB){const busy=B.k==='ag'?!!agBusy:tmRun.size>0,c=ksP(B.i+1,B.j+1),top=c[1]-B.h-10;
+  const lab=B.k==='ag'?(agBusy?'Agentur · '+AG.find(a=>a.k===agBusy).n+' arbeitet':'Agentur · '+S.agency.camps.length+(S.agency.camps.length===1?' Kampagne':' Kampagnen')):'KI-Team · '+S.team.length+(S.team.length===1?' Bot':' Bots')+(tmRun.size?' · '+tmRun.size+' aktiv':'');
+  items.push({s:B.i+B.j+1,svg:`<g class="hs bld" data-ksb="${B.k}" role="button" aria-label="${B.n} öffnen">${ksBox(B.i,B.j,B.i+2,B.j+2,B.h,B.c,.12)}${busy?`<circle cx="${c[0]}" cy="${top-6}" r="6" fill="none" stroke="${B.c}" stroke-width="2" stroke-dasharray="7 4"><animateTransform attributeName="transform" type="rotate" from="0 ${c[0]} ${top-6}" to="360 ${c[0]} ${top-6}" dur="1.4s" repeatCount="indefinite"/></circle>`:''}<text x="${c[0]}" y="${top-(busy?16:0)}" text-anchor="middle">${esc(lab)}</text></g>`})}
  items.sort((a,b)=>a.s-b.s).forEach(x=>g+=x.svg);
  svg.innerHTML=g+'<g id="ksAgents"></g>';ksAgentsSync()}
 function ksAgentsSync(){const L=$('#ksAgents');if(!L)return;const ids=new Set();
@@ -561,7 +567,8 @@ function ksRefresh(){const open=[];S.team.forEach((b,k)=>(b.out||[]).forEach(o=>
   <div class="m">Schnitt: ${ksFmt(ksAvg(gr.slice(0,10)))}${tr} · ${gr.length} benotet · ${(b.best||[]).length} Vorbilder · ${(b.learn||[]).length} offene Kritikpunkte${b.improving?' · lernt gerade …':''}</div>
   <div class="m" style="margin-top:4px">Aufgabe: ${esc(b.task)}</div>${(b.learn||[]).length?`<div class="m">Kritik: ${b.learn.map(esc).join(' · ')}</div>`:''}${b.errAt?`<div class="m neg">Letzter Lauf fehlgeschlagen: ${esc(b.lastErr||'')}</div>`:''}
   <div class="row"><button class="s" data-ksrun="${b.id}">▶ Jetzt arbeiten</button><button class="s" data-ksimp="${b.id}"${(b.learn||[]).length?'':' disabled'}>🧠 Aus Kritik lernen</button>${b.taskOld?`<button class="s" data-ksundo="${b.id}">↶ Alte Aufgabe zurück</button>`:''}<button class="s" data-kstog="${b.id}">${b.on?'Pausieren':'Aktivieren'}</button></div></div>`}
-$('#kstadt').addEventListener('click',e=>{const t=e.target.closest('[data-ks],button');if(!t)return;const d=t.dataset;
+$('#kstadt').addEventListener('click',e=>{const t=e.target.closest('[data-ks],[data-ksb],button');if(!t)return;const d=t.dataset;
+ if(d.ksb){const el=$(d.ksb==='ag'?'#ksAgB':'#ksTmB');el.open=true;return el.scrollIntoView({behavior:'smooth',block:'start'})}
  if(d.ks){ksSelId=ksSelId===d.ks?null:d.ks;return ksRefresh()}
  if(d.kspre!=null)return tmAdd({...TPRE[d.kspre]});
  const id=(d.ksg||d.ksun||'').split('|'),b=S.team.find(x=>x.id===(id[0]||d.ksrun||d.ksimp||d.ksundo||d.kstog));if(!b)return;
