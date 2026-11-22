@@ -1,5 +1,6 @@
 name: App veröffentlichen
-# Baut GitHub Pages neu, sobald sich die Jarvis-App ändert, und prüft danach die Live-Seite.
+# Die Live-App (GitHub Pages) kommt aus dem Zweig gh-pages.
+# Dieser Workflow kopiert die App-Dateien aus main nach gh-pages und prüft danach die Live-Seite.
 on:
   push:
     branches: [main]
@@ -11,37 +12,48 @@ on:
         required: false
         default: ''
 permissions:
-  contents: read
+  contents: write
   pages: write
 concurrency:
   group: app-veroeffentlichen
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
-  build:
+  live:
     runs-on: ubuntu-latest
     steps:
-      - name: Pages-Neubau anfordern
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+      - name: App-Dateien aus main nach gh-pages kopieren
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api -X POST repos/${{ github.repository }}/pages/builds
-          echo "Neubau angefordert für ${{ github.sha }}"
+          git fetch --depth=1 origin main
+          for f in index.html sw.js manifest.json icon.svg icon-192.png icon-512.png; do
+            git show origin/main:$f > "$f"
+          done
+          git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
+          git add index.html sw.js manifest.json icon.svg icon-192.png icon-512.png
+          if git diff --cached --quiet; then echo "gh-pages ist schon aktuell"; else
+            git commit -m "App live: Stand main $(git rev-parse --short origin/main)"
+            for i in 1 2 3; do git push origin HEAD:gh-pages && break; git pull --rebase origin gh-pages; done
+          fi
+          gh api -X POST repos/${{ github.repository }}/pages/builds || true
       - name: Live-Seite prüfen
         env:
-          GH_TOKEN: ${{ github.token }}
           MARKER: ${{ inputs.marker }}
         run: |
           URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-          want=$(gh api "repos/${{ github.repository }}/contents/index.html?ref=${{ github.sha }}" --jq .sha)
+          want=$(git hash-object index.html)
           for i in $(seq 1 40); do
             sleep 15
-            st=$(gh api repos/${{ github.repository }}/pages/builds/latest --jq '.status+" "+.commit' || true)
             curl -fsS -H 'Cache-Control: no-cache' -o live.html "$URL?v=$RANDOM$i" || : > live.html
             live=$(git hash-object live.html)
-            echo "Versuch $i: Build=$st  live=$live  erwartet=$want"
+            echo "Versuch $i: live=$live erwartet=$want"
             if [ "$live" = "$want" ]; then
               if [ -n "$MARKER" ] && ! grep -qF "$MARKER" live.html; then echo "Marker fehlt"; exit 1; fi
-              echo "LIVE OK: $URL zeigt die aktuelle index.html"; exit 0
+              echo "LIVE OK: $URL zeigt die aktuelle App"; exit 0
             fi
           done
           echo "Live-Seite noch nicht aktuell"; exit 1
