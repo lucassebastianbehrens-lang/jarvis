@@ -41,7 +41,7 @@ a{color:var(--org)}.done{text-decoration:line-through;color:var(--mut)}
 @keyframes bob{50%{transform:translateY(-5px)}}@media(prefers-reduced-motion:reduce){.office .bot.work{animation:none}}
 .agc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.agc div{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:6px 8px;font-size:13px}.agc b{display:block}.agc i{font-style:normal;color:var(--mut)}
 .prog{height:6px;background:#1a0c0c;border-radius:6px;overflow:hidden;margin:6px 0}.prog i{display:block;height:100%;background:linear-gradient(90deg,#c77dff,#ff3fa4);width:0;transition:width .4s}
-details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;margin:6px 0}details.camp summary{cursor:pointer}details.camp pre{white-space:pre-wrap;font:14px/1.45 'Share Tech Mono',monospace;margin:4px 0 10px}
+details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;margin:6px 0}details.camp summary{cursor:pointer}.ks-bld>summary{font-weight:700;color:#c77dff;letter-spacing:1px}.ks-bld[open]{padding-bottom:12px}details.camp pre{white-space:pre-wrap;font:14px/1.45 'Share Tech Mono',monospace;margin:4px 0 10px}
 @media(max-width:520px){.agc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ring.live svg{animation:pl 1s ease-in-out infinite}@keyframes pl{50%{filter:drop-shadow(0 0 14px #ff2a2a)}}
 .ring{cursor:pointer}button.rec{background:var(--red);color:#fff;animation:pl 1s infinite}
@@ -68,7 +68,7 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="hud"><div class="ring" id="core" title="Tippen zum Sprechen"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#3a1414" stroke-width="1"/><circle class="spin" cx="50" cy="50" r="42" fill="none" stroke="#ff6a1a" stroke-width="1" stroke-dasharray="2 4"/><circle cx="50" cy="50" r="36" fill="none" stroke="#2a0c0c" stroke-width="6"/><circle id="arc" cx="50" cy="50" r="36" fill="none" stroke="#ff2a2a" stroke-width="6" stroke-linecap="round" transform="rotate(-90 50 50)" stroke-dasharray="0 227" style="filter:drop-shadow(0 0 4px #ff2a2a)"/></svg><div><b id="pct" class="mono">0%</b><span class="m">Aufgaben erledigt</span></div></div>
 <div class="tiles"><div class="tile"><small>Saldo</small><b id="h1" class="mono"></b></div><div class="tile"><small>Monat</small><b id="h2" class="mono"></b></div><div class="tile"><small>Offen</small><b id="h3" class="mono"></b></div><div class="tile"><small>Apps</small><b id="h4" class="mono"></b></div><div class="bars" id="bars" title="Ausgaben letzte 30 Tage"></div></div></div>
 <nav>
-<button data-t="chat" class="on">Chat</button><button data-t="dash">Übersicht</button><button data-t="agency">Agentur</button><button data-t="team">KI-Team</button><button data-t="kstadt" id="ksNav">KI-Stadt</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
+<button data-t="chat" class="on">Chat</button><button data-t="dash">Übersicht</button><button data-t="kstadt" id="ksNav">KI-Stadt</button><button data-t="fin">Finanzen</button><button data-t="bot">Trading</button><button data-t="todo">Aufgaben</button><button data-t="lab">App-Werkstatt</button><button data-t="go">Zugriff</button><button data-t="cfg">Einstellungen</button>
 </nav>
 <main>
 <section id="chat" class="on"><div id="log"></div>
@@ -77,15 +77,6 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="voice"><label><input type="checkbox" id="tts" checked> Jarvis spricht</label><label><input type="checkbox" id="auto" checked> Briefing beim ersten Öffnen am Tag</label><label><input type="checkbox" id="wake"> „Hey Jarvis“ dauerhaft hören</label></div>
 <div class="m" id="vs"></div></section>
 
-<section id="agency"><div class="ag-top"><b>JARVIS AGENTUR</b><span class="ag-on mono" id="agOn">● 6 Agenten online</span></div>
-<div class="chips" id="agCl"></div>
-<svg class="office" id="office" viewBox="50 -30 500 340" role="img" aria-label="Büro mit 6 KI-Agenten"></svg>
-<div class="agc" id="agCards"></div>
-<div class="row"><input id="agGoal" placeholder="Auftrag, z. B. Launch-Kampagne für die Hunde-Schondecke"><button class="p" id="agRun" style="flex:0 0 auto">Kampagne starten</button></div>
-<div class="m mono" id="agStep">Wähle einen Kunden und gib einen Auftrag ein.</div><div class="prog"><i id="agBar"></i></div>
-<h3>Kampagnen</h3><div id="agCamps"></div>
-<details class="camp"><summary>+ Kunde hinzufügen / entfernen</summary><div class="row"><input id="agNn" placeholder="Name"><input id="agNd" placeholder="Was macht der Kunde?"><button id="agAdd" style="flex:0 0 auto">Hinzufügen</button></div><button class="s" id="agDel">Ausgewählten Kunden entfernen</button></details>
-</section>
 <section id="dash"><div class="db-hi"><b id="dbHi">Deine Woche</b><div class="m" id="dbSub"></div></div>
 <div class="kpi"><div><small>Umsatz Monat</small><b class="mono pos" id="k1"></b></div><div><small>Ausgaben Monat</small><b class="mono neg" id="k2"></b></div><div><small>Gewinn Monat</small><b class="mono" id="k3"></b></div><div><small id="k4l">Monatsziel</small><b class="mono" id="k4"></b><div class="prog"><i id="k4b"></i></div></div></div>
 <div class="card"><h3>Einnahmen &amp; Ausgaben · 6 Monate</h3><svg id="dbChart" viewBox="0 0 600 180" style="width:100%;height:auto"></svg></div>
@@ -93,7 +84,26 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <div class="card"><h3>KC-Kundentrichter</h3><div class="fun" id="dbFun"></div></div>
 <div class="card"><h3>KI-Team · heute</h3><div class="tl" id="dbTl"></div></div>
 <div class="row"><input id="dbGoal" inputmode="decimal" placeholder="Monatsziel Gewinn in €"><button id="dbGs" style="flex:0 0 auto">Ziel speichern</button></div></section>
-<section id="team"><div class="ag-top"><b>KI-TEAM</b><span class="ag-on mono" id="tmOn"></span></div>
+<section id="kstadt"><div class="ag-top"><b>KI-STADT</b><span class="ag-on mono" id="ksOn"></span></div>
+<p class="m">Jeder Bot aus dem KI-Team wohnt hier in einem eigenen Haus. Läuft ein Bot, geht sein Agent nach Hause und arbeitet. Fertige Ergebnisse landen auf der To-do-Liste unten – benote sie wie ein Lehrer (1 = sehr gut, 6 = ungenügend). Gute Ergebnisse werden zum Vorbild, Kritik zu Regeln, und nach 3 Kritikpunkten schreibt Jarvis die Aufgabe des Bots selbst besser. Je besser der Notenschnitt, desto höher das Haus.</p>
+<div class="ks-kpi"><div><small>Bots aktiv</small><b class="mono" id="ksK1">–</b></div><div><small>Arbeiten gerade</small><b class="mono" id="ksK2">–</b></div><div><small>Zu benoten</small><b class="mono" id="ksK3">–</b></div><div><small>Notenschnitt 7 Tage</small><b class="mono" id="ksK4">–</b></div></div>
+<div class="ks-wrap"><div class="ks-map"><svg id="ksMap" viewBox="0 0 440 290" role="img" aria-label="KI-Stadt mit den Bots als Häusern"></svg></div><div class="ks-feed" id="ksFeed"></div></div>
+<div id="ksSel"></div>
+<h3>To-do-Liste · zu benoten</h3><div class="ks-board" id="ksTodo"></div>
+<details class="camp"><summary>Benotete Ergebnisse</summary><div class="ks-board" id="ksDone"></div></details>
+<h3>Gebäude der Stadt</h3>
+<details class="camp ks-bld" id="ksAgB"><summary>🏢 Agentur-Gebäude · Kampagnen mit 6 Agenten</summary>
+<div id="agency"><div class="ag-top"><b>JARVIS AGENTUR</b><span class="ag-on mono" id="agOn">● 6 Agenten online</span></div>
+<div class="chips" id="agCl"></div>
+<svg class="office" id="office" viewBox="50 -30 500 340" role="img" aria-label="Büro mit 6 KI-Agenten"></svg>
+<div class="agc" id="agCards"></div>
+<div class="row"><input id="agGoal" placeholder="Auftrag, z. B. Launch-Kampagne für die Hunde-Schondecke"><button class="p" id="agRun" style="flex:0 0 auto">Kampagne starten</button></div>
+<div class="m mono" id="agStep">Wähle einen Kunden und gib einen Auftrag ein.</div><div class="prog"><i id="agBar"></i></div>
+<h3>Kampagnen</h3><div id="agCamps"></div>
+<details class="camp"><summary>+ Kunde hinzufügen / entfernen</summary><div class="row"><input id="agNn" placeholder="Name"><input id="agNd" placeholder="Was macht der Kunde?"><button id="agAdd" style="flex:0 0 auto">Hinzufügen</button></div><button class="s" id="agDel">Ausgewählten Kunden entfernen</button></details>
+</div></details>
+<details class="camp ks-bld" id="ksTmB"><summary>🏠 KI-Team-Zentrale · Bots anlegen, Zeitpläne &amp; Skills</summary>
+<div id="team"><div class="ag-top"><b>KI-TEAM</b><span class="ag-on mono" id="tmOn"></span></div>
 <p class="m">Jeder Bot hat eine eigene Aufgabe, ein Gedächtnis und einen Zeitplan. Bots laufen, solange Jarvis geöffnet ist – Verpasstes holen sie beim Öffnen nach.</p>
 <div class="chips" id="tmPre"></div><div id="tmList"></div>
 <details class="camp" id="tmNew"><summary>+ Eigenen Bot anlegen</summary>
@@ -104,15 +114,8 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <select id="tbK"></select>
 <button class="p" id="tbAdd">Bot anlegen</button></details>
 <h3>Skills</h3><p class="m">Skills sind gespeicherte Arbeitsanleitungen. Im Chat startest du sie mit »nutz den <i>name</i> skill: …«. Unter jeder Antwort kannst du 👍/👎 geben – Jarvis merkt sich dein Feedback und schreibt den Skill einmal am Tag (oder nach 3 Hinweisen) selbst besser.</p><div class="skl" id="skList"></div>
-<details class="camp" id="skNew"><summary>+ Skill anlegen</summary><label>Name (kurz, mit Bindestrich)</label><input id="skN" placeholder="z. B. kc-post"><label>Wann benutzen</label><input id="skD" placeholder="z. B. Social-Media-Post für einen Handwerksbetrieb"><label>Anleitung</label><textarea id="skI"></textarea><button class="p" id="skAdd">Skill speichern</button></details></section>
-<section id="kstadt"><div class="ag-top"><b>KI-STADT</b><span class="ag-on mono" id="ksOn"></span></div>
-<p class="m">Jeder Bot aus dem KI-Team wohnt hier in einem eigenen Haus. Läuft ein Bot, geht sein Agent nach Hause und arbeitet. Fertige Ergebnisse landen auf der To-do-Liste unten – benote sie wie ein Lehrer (1 = sehr gut, 6 = ungenügend). Gute Ergebnisse werden zum Vorbild, Kritik zu Regeln, und nach 3 Kritikpunkten schreibt Jarvis die Aufgabe des Bots selbst besser. Je besser der Notenschnitt, desto höher das Haus.</p>
-<div class="ks-kpi"><div><small>Bots aktiv</small><b class="mono" id="ksK1">–</b></div><div><small>Arbeiten gerade</small><b class="mono" id="ksK2">–</b></div><div><small>Zu benoten</small><b class="mono" id="ksK3">–</b></div><div><small>Notenschnitt 7 Tage</small><b class="mono" id="ksK4">–</b></div></div>
-<div class="ks-wrap"><div class="ks-map"><svg id="ksMap" viewBox="0 0 440 290" role="img" aria-label="KI-Stadt mit den Bots als Häusern"></svg></div><div class="ks-feed" id="ksFeed"></div></div>
-<div id="ksSel"></div>
-<h3>To-do-Liste · zu benoten</h3><div class="ks-board" id="ksTodo"></div>
-<details class="camp"><summary>Benotete Ergebnisse</summary><div class="ks-board" id="ksDone"></div></details>
-<p class="m">Die Stadt arbeitet, solange Jarvis geöffnet ist – verpasste Läufe holen die Bots beim Öffnen nach. Bots und Zeitpläne verwaltest du im Reiter KI-Team.</p></section>
+<details class="camp" id="skNew"><summary>+ Skill anlegen</summary><label>Name (kurz, mit Bindestrich)</label><input id="skN" placeholder="z. B. kc-post"><label>Wann benutzen</label><input id="skD" placeholder="z. B. Social-Media-Post für einen Handwerksbetrieb"><label>Anleitung</label><textarea id="skI"></textarea><button class="p" id="skAdd">Skill speichern</button></details></div></details>
+<p class="m">Die Stadt arbeitet, solange Jarvis geöffnet ist – verpasste Läufe holen die Bots beim Öffnen nach. Bots und Zeitpläne verwaltest du unten in der KI-Team-Zentrale, Kampagnen im Agentur-Gebäude.</p></section>
 <section id="fin"><div class="m">Saldo</div><div class="big" id="sal"></div><div class="m" id="mon"></div>
 <div class="row"><input id="fd" type="date"><input id="fv" inputmode="decimal" placeholder="Betrag €"><input id="ft" placeholder="Wofür?"></div>
 <div class="row"><button class="p" id="fout">− Ausgabe</button><button id="fin2">+ Einnahme</button></div><div class="list" id="fl"></div></section>
@@ -239,7 +242,7 @@ function local(t){let m;
  if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
  if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
  if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
- if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• telegram Einkaufsliste: Milch, Brot (schickt es an deinen Telegram-Bot)\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• Tab KI-Team: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
+ if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• telegram Einkaufsliste: Milch, Brot (schickt es an deinen Telegram-Bot)\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• KI-Stadt → KI-Team-Zentrale: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
 function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
  return g+', Lucas. Heute ist '+new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'. '+(o.length?o.length+(o.length>1?' offene Aufgaben: ':' offene Aufgabe: ')+o.slice(0,3).map(x=>x.t).join(', ')+'.':'Keine offenen Aufgaben.')+' Bilanz diesen Monat: '+eur(mm)+'. Saldo: '+eur(saldo())+'.'}
 async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),safe(news)]);return [briefBase(),w,k,n].filter(Boolean).join('\n')}
@@ -442,7 +445,7 @@ $('#agCamps').onclick=e=>{const d=e.target.dataset,A=S.agency,id=d.cp||d.td||d.d
  if(d.dl){A.camps=A.camps.filter(x=>x!==c);save();agRender()}};
 $('#agAdd').onclick=()=>{const n=$('#agNn').value.trim(),d=$('#agNd').value.trim();if(!n)return;const id=n.slice(0,12);S.agency.clients.push({id,n,d:d||n});S.agency.sel=id;$('#agNn').value=$('#agNd').value='';save();agRender()};
 $('#agDel').onclick=()=>{const A=S.agency;if(A.clients.length<2)return;A.clients=A.clients.filter(c=>c.id!==A.sel);A.sel=A.clients[0].id;save();agRender()};
-document.querySelector('[data-t=agency]').addEventListener('click',agRender);
+document.querySelector('[data-t=kstadt]').addEventListener('click',agRender);$('#ksAgB').addEventListener('toggle',e=>{if(e.target.open)agRender()});
 
 S.team??=[];let tmRun=new Set();
 const TPRE=[{n:'Recherche-Bot',task:'Such die angesagtesten neuen KI-Tools und -Apps dieser Woche. Gib 5 Punkte mit je einem Satz Nutzen, mit Quelle.',tool:'web',sched:'daily',time:'08:00',q:'neue KI Tools'},
@@ -471,7 +474,7 @@ $('#tmPre').onclick=e=>{const i=e.target.dataset.pre;if(i!=null)tmAdd({...TPRE[i
 $('#tbAdd').onclick=()=>{const n=$('#tbN').value.trim(),t=$('#tbT').value.trim();if(!n||!t)return;tmAdd({n,task:t,tool:$('#tbW').value,skill:$('#tbK').value,sched:$('#tbS').value,time:$('#tbZ').value||'08:00'});$('#tbN').value=$('#tbT').value='';$('#tmNew').open=false};
 $('#tmList').onclick=e=>{const d=e.target.dataset,b=S.team.find(x=>x.id===(d.run||d.tog||d.mem||d.del));if(!b)return;
  if(d.run)tmExec(b);if(d.tog){b.on=!b.on;save();tmRender()}if(d.mem){b.mem='';save();tmRender()}if(d.del&&confirm('Bot „'+b.n+'“ mit allen Ergebnissen und Noten löschen?')){S.team=S.team.filter(x=>x!==b);save();tmRender()}};
-document.querySelector('[data-t=team]').addEventListener('click',tmRender);
+document.querySelector('[data-t=kstadt]').addEventListener('click',tmRender);$('#ksTmB').addEventListener('toggle',e=>{if(e.target.open)tmRender()});
 const tmTick=()=>{for(const b of S.team)if(tmDue(b))tmExec(b)};setTimeout(tmTick,4000);setInterval(tmTick,6e4);
 
 // ===== KI-STADT: Bots als Häuser, Agenten laufen durch die Stadt, Ergebnisse benoten → Bots lernen =====
@@ -601,7 +604,7 @@ function skRender(){$('#skList').innerHTML=S.skills.map((k,i)=>`<div><span><code
 $('#skList').onclick=e=>{const d=e.target.dataset;if(d.skx!=null){S.skills.splice(d.skx,1);save();skRender()}
  if(d.skt!=null){const k=S.skills[d.skt];$$('nav button,section').forEach(x=>x.classList.remove('on'));$('[data-t=chat]').classList.add('on');$('#chat').classList.add('on');$('#in').value='nutz den '+k.n+' skill: ';$('#in').focus();render()}};
 $('#skAdd').onclick=()=>{const n=$('#skN').value.trim().replace(/\s+/g,'-'),i=$('#skI').value.trim();if(!n||!i)return;S.skills=S.skills.filter(k=>k.n!==n);S.skills.push({n,d:$('#skD').value.trim()||n,i});$('#skN').value=$('#skD').value=$('#skI').value='';$('#skNew').open=false;save();skRender()};
-document.querySelector('[data-t=team]').addEventListener('click',skRender);skRender();
+document.querySelector('[data-t=kstadt]').addEventListener('click',skRender);skRender();
 
 const BIZ=[['KC','Handwerk sichtbar'],['ET','Finanz-Vorlagen'],['TT','KI-Miniserien']];
 function dashRender(){const mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)),inc=mm.filter(x=>x.v>0).reduce((a,x)=>a+x.v,0),out=mm.filter(x=>x.v<0).reduce((a,x)=>a+x.v,0),pr=inc+out,g=+S.dash.goal||0;
@@ -616,7 +619,7 @@ function dashRender(){const mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsW
  const F=Object.entries(S.dash.fun),f0=Math.max(1,F[0][1]);
  $('#dbFun').innerHTML=F.map(([k,v],i)=>`<div><span>${k}</span><span class="bar"><i style="width:${Math.min(100,v/f0*100)}%"></i></span><span class="mono"><button class="s" data-fm="${k}">−</button> ${v} <button class="s" data-fp="${k}">+</button>${i?` <span class="m">${F[i-1][1]?Math.round(v/F[i-1][1]*100):0} %</span>`:''}</span></div>`).join('');
  const t0=new Date();t0.setHours(0,0,0,0);
- $('#dbTl').innerHTML=[...S.team].sort((a,b)=>(a.time||'').localeCompare(b.time||'')).map(b=>`<div><span class="t">${b.sched==='hourly'?'stdl.':esc(b.time||'')}</span><span style="flex:1">${esc(b.n)}</span><span class="${b.last>=t0.getTime()?'ok':'m'}">${tmRun.has(b.id)?'arbeitet …':b.last>=t0.getTime()?'✓ erledigt':b.on?'geplant':'pausiert'}</span></div>`).join('')||'<p class="m">Noch keine Bots – im KI-Team anlegen.</p>'}
+ $('#dbTl').innerHTML=[...S.team].sort((a,b)=>(a.time||'').localeCompare(b.time||'')).map(b=>`<div><span class="t">${b.sched==='hourly'?'stdl.':esc(b.time||'')}</span><span style="flex:1">${esc(b.n)}</span><span class="${b.last>=t0.getTime()?'ok':'m'}">${tmRun.has(b.id)?'arbeitet …':b.last>=t0.getTime()?'✓ erledigt':b.on?'geplant':'pausiert'}</span></div>`).join('')||'<p class="m">Noch keine Bots – in der KI-Stadt (KI-Team-Zentrale) anlegen.</p>'}
 $('#dbFun').onclick=e=>{const d=e.target.dataset,k=d.fp||d.fm;if(!k)return;S.dash.fun[k]=Math.max(0,S.dash.fun[k]+(d.fp?1:-1));save();dashRender()};
 $('#dbGs').onclick=()=>{const v=parseFloat($('#dbGoal').value.replace(',','.'));if(v>=0){S.dash.goal=v;$('#dbGoal').value='';save();dashRender()}};
 document.querySelector('[data-t=dash]').addEventListener('click',dashRender);
