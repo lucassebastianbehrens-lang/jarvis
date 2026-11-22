@@ -61,6 +61,7 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 .ks-feed{background:var(--pan);border:1px solid var(--ln);border-radius:12px;padding:8px 10px;max-height:420px;overflow:auto;font:13px/1.4 'Share Tech Mono',monospace}.ks-feed div{padding:5px 0;border-bottom:1px solid var(--ln)}.ks-feed i{color:var(--org);font-style:normal}
 .ks-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}.ks-card{background:var(--pan);border:1px solid var(--ln);border-left:3px solid var(--c,#ff6a1a);border-radius:10px;padding:8px 10px;font-size:14px}.ks-card pre{white-space:pre-wrap;font:13px/1.4 'Share Tech Mono',monospace;margin:4px 0;max-height:140px;overflow:auto}
 .ks-grades{display:flex;gap:4px;margin-top:6px}.ks-grades button{flex:1;min-height:36px;padding:0;font-size:15px}.ks-g{display:inline-block;min-width:26px;text-align:center;border-radius:6px;padding:0 6px;font-weight:700;color:#050506}
+.au-card{background:var(--pan);border:1px solid var(--ln);border-left:3px solid #39ff6a;border-radius:10px;padding:10px 12px;margin:8px 0}.au-card pre{white-space:pre-wrap;font:13px/1.45 'Share Tech Mono',monospace;max-height:260px;overflow:auto;background:#0b0809;border:1px solid var(--ln);border-radius:8px;padding:8px;margin:4px 0}.au-card ol{margin:4px 0 6px 18px;padding:0}.au-st{display:inline-block;border-radius:6px;padding:0 6px;font-size:12px;font-weight:700;color:#050506;background:#39ff6a}
 .ks-sel{background:var(--pan);border:1px solid var(--ln);border-radius:12px;padding:10px 12px;margin:10px 0}
 @media(max-width:760px){.ks-wrap{grid-template-columns:1fr}.ks-feed{max-height:180px}.ks-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
@@ -92,6 +93,11 @@ details.camp{background:var(--pan);border:1px solid var(--ln);border-radius:8px;
 <h3>To-do-Liste · zu benoten</h3><div class="ks-board" id="ksTodo"></div>
 <details class="camp"><summary>Benotete Ergebnisse</summary><div class="ks-board" id="ksDone"></div></details>
 <h3>Gebäude der Stadt</h3>
+<details class="camp ks-bld" id="ksAuB"><summary>💼 Auftragsbüro · bezahlte Aufgaben für die KIs</summary>
+<div id="auftr"><p class="m">Jeden Morgen (und nachmittags nochmal) durchsucht der Auftrags-Scout öffentliche Auftragsbörsen nach Aufgaben, die die KIs komplett erledigen können – Texte, Übersetzungen, Recherche, Tabellen. Für die besten schreibt er Angebot, Preis und schon den fertigen Entwurf. Findet er nichts, macht er ein eigenes Tagesangebot zum Posten. Du prüfst, schickst ab – das Geld kommt per PayPal.</p>
+<div class="ks-kpi"><div><small>Neu</small><b class="mono" id="auK1">–</b></div><div><small>Gesendet</small><b class="mono" id="auK2">–</b></div><div><small>Bezahlt</small><b class="mono pos" id="auK3">–</b></div><div><small>Letzter Lauf</small><b class="mono" id="auK4" style="font-size:15px">–</b></div></div>
+<div class="row"><button class="s" id="auLoad">↻ Aktualisieren</button><a class="s" href="https://github.com/lucassebastianbehrens-lang/jarvis/actions/workflows/auftraege.yml" target="_blank" rel="noopener"><button class="s">Jetzt neu suchen (GitHub)</button></a><label style="display:flex;align-items:center;gap:6px;text-transform:none"><input type="checkbox" id="auAll" style="width:auto"> Erledigte zeigen</label></div>
+<div class="m" id="auMsg"></div><div id="auList"></div></div></details>
 <details class="camp ks-bld" id="ksAgB"><summary>🏢 Agentur-Gebäude · Kampagnen mit 6 Agenten</summary>
 <div id="agency"><div class="ag-top"><b>JARVIS AGENTUR</b><span class="ag-on mono" id="agOn">● 6 Agenten online</span></div>
 <div class="chips" id="agCl"></div>
@@ -483,7 +489,7 @@ S.kstadt??={log:[]};if(S.kstadt.tm)$('#ksTmB').open=true;
 const KSC=['#ff2a2a','#ff6a1a','#c77dff','#39ff6a','#3fb6ff','#ffd23f','#ff3fa4','#5fe39a'],KGC=['','#39ff6a','#a6f04a','#ffd23f','#ff9a3f','#ff5a3f','#ff2a2a'];
 const KN=10,KW=44,KH=22,KX=220,KY=62,ksRoad=(i,j)=>i%3===0||j%3===0,ksHall=(i,j)=>i>=4&&i<6&&j>=4&&j<6;
 // Gebäude: Agentur und KI-Team-Zentrale arbeiten mit in der Stadt
-const KSB=[{k:'ag',i:1,j:7,n:'Agentur',c:'#b45cff',h:34},{k:'tm',i:7,j:1,n:'KI-Team',c:'#3fb6ff',h:26}];
+const KSB=[{k:'ag',i:1,j:7,n:'Agentur',c:'#b45cff',h:34},{k:'tm',i:7,j:1,n:'KI-Team',c:'#3fb6ff',h:26},{k:'au',i:1,j:1,n:'Auftragsbüro',c:'#39ff6a',h:30}];
 const ksP=(i,j)=>[(i-j)*KW/2+KX,(i+j)*KH/2+KY];
 // Bauplätze: erst ein Haus pro Block (vordere Blöcke zuerst, damit nichts hinter dem Notenamt verschwindet), dann auffüllen
 const ksLots=[];{const B=[];for(const bi of [1,4,7])for(const bj of [1,4,7])if(!(bi===4&&bj===4)&&!KSB.some(x=>x.i===bi&&x.j===bj))B.push([bi,bj]);B.sort((a,b)=>(b[0]+b[1])-(a[0]+a[1])||Math.abs(a[0]-a[1])-Math.abs(b[0]-b[1]));
@@ -521,8 +527,8 @@ function ksDraw(){const svg=$('#ksMap');if(!svg)return;let g='';
   items.push({s:lot[0]+lot[1],svg:`<g class="hs${ksSelId===b.id?' sel':''}" data-ks="${b.id}">${ksBox(lot[0],lot[1],lot[0]+1,lot[1]+1,h,col)}${run?`<circle cx="${ksP(lot[0]+.5,lot[1]+.5)[0]}" cy="${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" r="5" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="6 4"><animateTransform attributeName="transform" type="rotate" from="0 ${ksP(lot[0]+.5,lot[1]+.5)[0]} ${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" to="360 ${ksP(lot[0]+.5,lot[1]+.5)[0]} ${ksP(lot[0]+.5,lot[1]+.5)[1]-h-8}" dur="1.2s" repeatCount="indefinite"/></circle>`:''}<text x="${ksP(lot[0]+.5,lot[1]+.5)[0]}" y="${ksP(lot[0]+.5,lot[1]+.5)[1]-h-(run?16:4)}" text-anchor="middle">${esc(b.n.replace(/-?Bot$/i,'')).slice(0,14)}${av?' · '+ksFmt(av):''}</text><title>${esc(b.n)} – ${run?'arbeitet':tmNext(b)}${av?' – Schnitt '+ksFmt(av):''}</title></g>`})});
  const open=S.team.reduce((n,b)=>n+(b.out||[]).filter(o=>!o.g&&!/^Fehler/.test(o.txt)).length,0);
  items.push({s:8.5,svg:`<g>${ksBox(4,4,6,6,30,'#ff6a1a',.1)}<text x="${KX}" y="${ksP(5,5)[1]-44}" text-anchor="middle">Notenamt${open?' · '+open+' offen':''}</text></g>`});
- for(const B of KSB){const busy=B.k==='ag'?!!agBusy:tmRun.size>0,c=ksP(B.i+1,B.j+1),top=c[1]-B.h-10;
-  const lab=B.k==='ag'?(agBusy?'Agentur · '+AG.find(a=>a.k===agBusy).n+' arbeitet':'Agentur · '+S.agency.camps.length+(S.agency.camps.length===1?' Kampagne':' Kampagnen')):'KI-Team · '+S.team.length+(S.team.length===1?' Bot':' Bots')+(tmRun.size?' · '+tmRun.size+' aktiv':'');
+ for(const B of KSB){const busy=B.k==='ag'?!!agBusy:B.k==='tm'?tmRun.size>0:auOpen()>0,c=ksP(B.i+1,B.j+1),top=c[1]-B.h-10;
+  const lab=B.k==='ag'?(agBusy?'Agentur · '+AG.find(a=>a.k===agBusy).n+' arbeitet':'Agentur · '+S.agency.camps.length+(S.agency.camps.length===1?' Kampagne':' Kampagnen')):B.k==='tm'?'KI-Team · '+S.team.length+(S.team.length===1?' Bot':' Bots')+(tmRun.size?' · '+tmRun.size+' aktiv':''):'Auftragsbüro'+(auOpen()?' · '+auOpen()+' neu':'');
   items.push({s:B.i+B.j+1,svg:`<g class="hs bld" data-ksb="${B.k}" role="button" aria-label="${B.n} öffnen">${ksBox(B.i,B.j,B.i+2,B.j+2,B.h,B.c,.12)}${busy?`<circle cx="${c[0]}" cy="${top-6}" r="6" fill="none" stroke="${B.c}" stroke-width="2" stroke-dasharray="7 4"><animateTransform attributeName="transform" type="rotate" from="0 ${c[0]} ${top-6}" to="360 ${c[0]} ${top-6}" dur="1.4s" repeatCount="indefinite"/></circle>`:''}<text x="${c[0]}" y="${top-(busy?16:0)}" text-anchor="middle">${esc(lab)}</text></g>`})}
  items.sort((a,b)=>a.s-b.s).forEach(x=>g+=x.svg);
  svg.innerHTML=g+'<g id="ksAgents"></g>';ksAgentsSync()}
@@ -568,7 +574,7 @@ function ksRefresh(){const open=[];S.team.forEach((b,k)=>(b.out||[]).forEach(o=>
   <div class="m" style="margin-top:4px">Aufgabe: ${esc(b.task)}</div>${(b.learn||[]).length?`<div class="m">Kritik: ${b.learn.map(esc).join(' · ')}</div>`:''}${b.errAt?`<div class="m neg">Letzter Lauf fehlgeschlagen: ${esc(b.lastErr||'')}</div>`:''}
   <div class="row"><button class="s" data-ksrun="${b.id}">▶ Jetzt arbeiten</button><button class="s" data-ksimp="${b.id}"${(b.learn||[]).length?'':' disabled'}>🧠 Aus Kritik lernen</button>${b.taskOld?`<button class="s" data-ksundo="${b.id}">↶ Alte Aufgabe zurück</button>`:''}<button class="s" data-kstog="${b.id}">${b.on?'Pausieren':'Aktivieren'}</button></div></div>`}
 $('#kstadt').addEventListener('click',e=>{const t=e.target.closest('[data-ks],[data-ksb],button');if(!t)return;const d=t.dataset;
- if(d.ksb){const el=$(d.ksb==='ag'?'#ksAgB':'#ksTmB');el.open=true;return el.scrollIntoView({behavior:'smooth',block:'start'})}
+ if(d.ksb){const el=$({ag:'#ksAgB',tm:'#ksTmB',au:'#ksAuB'}[d.ksb]);el.open=true;return el.scrollIntoView({behavior:'smooth',block:'start'})}
  if(d.ks){ksSelId=ksSelId===d.ks?null:d.ks;return ksRefresh()}
  if(d.kspre!=null)return tmAdd({...TPRE[d.kspre]});
  const id=(d.ksg||d.ksun||'').split('|'),b=S.team.find(x=>x.id===(id[0]||d.ksrun||d.ksimp||d.ksundo||d.kstog));if(!b)return;
@@ -579,6 +585,39 @@ $('#kstadt').addEventListener('click',e=>{const t=e.target.closest('[data-ks],[d
  if(d.ksundo&&b.taskOld){b.task=b.taskOld;delete b.taskOld;b.learn=b.learnOld||[];b.v=Math.max(1,(b.v||2)-1);ksLog(b,'Aufgabe zurückgesetzt');save();ksRefresh()}});
 document.querySelector('[data-t=kstadt]').addEventListener('click',()=>{ksRefresh();if(!ksRaf){ksT0=0;ksRaf=requestAnimationFrame(ksLoop)}});
 setTimeout(ksRefresh,500);
+
+// ===== AUFTRAGSBÜRO: vom Auftrags-Scout (GitHub Actions, bot/auftraege.py) gefundene bezahlte Aufgaben =====
+const AUFTR='https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/data/auftraege.json';
+S.auftr??={st:{}};var AU=null;
+function auSt(a){return S.auftr.st[a.id]||'neu'}
+function auOpen(){return AU&&Array.isArray(AU.auftraege)?AU.auftraege.filter(a=>auSt(a)==='neu').length:0}
+const AUS={neu:['Neu','#39ff6a'],gesendet:['Gesendet','#3fb6ff'],bezahlt:['Bezahlt','#ffd23f'],abgelehnt:['Abgelehnt','#777']};
+async function auLoad(){try{const r=await fetch(AUFTR+'?t='+Date.now());if(r.status===404)throw Error('Der Auftrags-Scout war noch nicht unterwegs – er startet täglich morgens, oder tippe „Jetzt neu suchen“.');if(!r.ok)throw Error('HTTP '+r.status);
+  const prev=auOpen(),j=await r.json();if(!j||!Array.isArray(j.auftraege))throw Error('Auftragsdaten unvollständig');AU=j;const n=auOpen();if(AU&&n>prev&&prev>=0&&S.auftr.seen!==AU.stand){S.auftr.seen=AU.stand;save();if(n)push('💼 '+n+' neue Aufträge im Auftragsbüro',true)}$('#auMsg').textContent=''}
+ catch(e){$('#auMsg').textContent=e.message}auRender();if(typeof ksRefresh==='function')ksRefresh()}
+function auRender(){const L=$('#auList');if(!L)return;const A=AU&&Array.isArray(AU.auftraege)?AU.auftraege:[],all=$('#auAll').checked,cnt=k=>A.filter(a=>auSt(a)===k).length;
+ $('#auK1').textContent=cnt('neu');$('#auK2').textContent=cnt('gesendet');$('#auK3').textContent=eur(A.filter(a=>auSt(a)==='bezahlt').reduce((s,a)=>s+(S.auftr.paid?.[a.id]??a.preis_eur),0));
+ $('#auK4').textContent=AU?AU.stand+(AU.letzter_lauf?' · '+AU.letzter_lauf.gefunden+' geprüft':''):'–';
+ const vis=A.filter(a=>all||['neu','gesendet'].includes(auSt(a)));
+ L.innerHTML=vis.map(a=>{const st=auSt(a),[sl,sc]=AUS[st];return `<div class="au-card" style="border-left-color:${sc}">
+  <div class="ag-top"><b style="color:${sc};letter-spacing:0">${esc(a.titel)}</b><span class="au-st" style="background:${sc}">${sl}</span></div>
+  <div class="m">${esc(a.quelle)} · ${esc(a.datum)} · <b class="pos">${eur(a.preis_eur)}</b>${a.lieferzeit?' · Lieferung '+esc(a.lieferzeit):''}${a.punkte?' · passt '+a.punkte+'/100':''}</div>
+  ${a.warum?`<div class="m">${esc(a.warum)}</div>`:''}
+  <details><summary>Auftrag im Original</summary><b>${esc(a.original)}</b><pre>${esc(a.auftrag)}</pre></details>
+  ${(a.schritte||[]).length?`<b>So gehst du vor</b><ol>${a.schritte.map(x=>'<li>'+esc(x)+'</li>').join('')}</ol>`:''}
+  <b>Angebot</b><pre>${link(esc(a.angebot))}</pre>
+  <details><summary>Fertiger Entwurf vom KI-Team</summary><pre>${link(esc(a.ergebnis))}</pre></details>
+  <div class="m">Zahlung: ${esc(a.zahlung)}</div>
+  <div class="row">${a.url?`<a href="${esc(a.url)}" target="_blank" rel="noopener"><button class="s">Auftrag öffnen</button></a>`:''}<button class="s" data-auc="angebot|${esc(a.id)}">Angebot kopieren</button><button class="s" data-auc="ergebnis|${esc(a.id)}">Entwurf kopieren</button>${a.paypal?`<button class="s" data-auc="paypal|${esc(a.id)}">PayPal-Link kopieren</button>`:''}</div>
+  <div class="row">${st!=='gesendet'&&st!=='bezahlt'?`<button class="s" data-aus="gesendet|${esc(a.id)}">✉ Gesendet</button>`:''}${st!=='bezahlt'?`<button class="s" data-aus="bezahlt|${esc(a.id)}">✓ Bezahlt</button>`:''}${st==='neu'?`<button class="s" data-aus="abgelehnt|${esc(a.id)}">Passt nicht</button>`:''}${st!=='neu'?`<button class="s" data-aus="neu|${esc(a.id)}">↶ Zurücksetzen</button>`:''}</div></div>`}).join('')||`<p class="m">${AU?'Gerade keine offenen Aufträge – der Scout sucht wieder morgen früh.':'Noch keine Daten.'}</p>`}
+$('#auftr').addEventListener('click',e=>{const t=e.target.closest('button');if(!t||!AU)return;const d=t.dataset,[k,id]=(d.auc||d.aus||'').split('|'),a=AU.auftraege.find(x=>x.id===id);if(!a)return;
+ if(d.auc){navigator.clipboard?.writeText(a[k]||'').then(()=>{t.textContent='Kopiert ✓';setTimeout(auRender,1500)},()=>{prompt('Kopieren:',a[k]||'')})}
+ if(d.aus){if(k==='bezahlt'){const v=parseFloat((prompt('Wie viel ist auf PayPal angekommen (€)?',a.preis_eur)||'').replace(',','.'));if(!(v>0))return;(S.auftr.paid??={})[a.id]=v;S.fin.unshift({d:today(),v,t:'Auftrag: '+a.titel.slice(0,60)+' (PayPal)'});push('💶 '+eur(v)+' für „'+a.titel.slice(0,40)+'“ verbucht',true)}
+  if(auSt(a)==='bezahlt'&&k!=='bezahlt'&&S.auftr.paid?.[a.id]){const i=S.fin.findIndex(x=>x.t==='Auftrag: '+a.titel.slice(0,60)+' (PayPal)');if(i>=0)S.fin.splice(i,1);delete S.auftr.paid[a.id]}
+  if(k==='neu')delete S.auftr.st[a.id];else S.auftr.st[a.id]=k;save();render();auRender();ksRefresh()}});
+$('#auLoad').onclick=auLoad;$('#auAll').onchange=auRender;
+$('#ksAuB').addEventListener('toggle',e=>{S.kstadt.au=e.target.open;save();if(e.target.open)auLoad()});if(S.kstadt.au)$('#ksAuB').open=true;
+setTimeout(auLoad,1500);setInterval(()=>{if(!document.hidden)auLoad()},30*6e4);
 
 
 S.skills??=[{n:'kc-post',d:'Social-Media-Post für einen Handwerks- oder Gastrobetrieb (KC)',i:'Schreibe einen Facebook/Instagram-Post für den genannten Betrieb aus der Region Börde/Harz. Aufbau: Hook in Zeile 1, 2–4 kurze Sätze mit konkretem Nutzen oder Einblick in die Arbeit, klare Handlungsaufforderung (Anfrage, Bewerbung oder Anruf), 3–5 regionale Hashtags. Du-Form nur, wenn der Betrieb das will, sonst Sie. Keine Übertreibungen, keine erfundenen Zahlen. Gib zusätzlich eine Bildidee in einer Zeile.'},

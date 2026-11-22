@@ -1,0 +1,32 @@
+name: Auftrags-Scout
+on:
+  schedule:
+    - cron: "17 5 * * *"    # täglich ca. 6:17 / 7:17 Uhr (Berlin)
+    - cron: "43 15 * * *"   # Nachmittags-Runde, falls morgens nichts dabei war
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: auftraege
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 bot/auftraege.py
+        env:
+          PAYPAL_ME: ${{ vars.PAYPAL_ME }}
+          AI_URL: ${{ secrets.AI_URL }}
+          AI_KEY: ${{ secrets.AI_KEY }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+      - run: |
+          git config user.name "jarvis-bot"
+          git config user.email "jarvis-bot@users.noreply.github.com"
+          git add data/auftraege.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "Auftrags-Scout Update"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
