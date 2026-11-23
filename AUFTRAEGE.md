@@ -26,6 +26,16 @@ Du findest alles in **Jarvis → KI-Stadt → Auftragsbüro** und bekommst eine 
 4. Zusage? **Entwurf kopieren**, durchlesen, ggf. anpassen, liefern.
 5. Geld auf PayPal angekommen → **✓ Bezahlt** – Jarvis bucht es automatisch unter Finanzen.
 
+## Was der Scout zeigt (seit 23.11.2026)
+
+- **Nur schnelle Einmal-Aufträge** bis 250 €: Formulare, Vorlagen (Word/Excel/PowerPoint), kurze Texte,
+  Produktbeschreibungen, Lebenslauf/Anschreiben, Korrekturlesen, Zusammenfassungen. Prüfen dauert ca. 15 Minuten.
+- **Automatisch aussortiert** (Haftungsrisiko oder viel Eigenarbeit): Recht/Verträge/Datenschutz/AGB, Steuern und
+  Buchhaltung, Gesundheit/Ernährung, Finanz- und Anlageberatung, Werbekampagnen und Massen-/Kalt-Mails (UWG),
+  personenbezogene Daten und Lead-Listen, Zugriff auf Kundenkonten, Websites/Live-Code, Erfolgsgarantien,
+  Dauerbetreuung, Schul- und Uni-Aufgaben.
+- Im Angebot steht immer, dass der Kunde das Ergebnis vor dem Einsatz prüft.
+
 ## Gut zu wissen
 
 - Jarvis verschickt nichts selbst – Plattformen verbieten Bots, und du haftest für das, was rausgeht.

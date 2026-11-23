@@ -29,24 +29,38 @@ TZ = ZoneInfo("Europe/Berlin")
 UA = "Mozilla/5.0 (compatible; jarvis-auftrags-scout/1.0; +https://github.com/lucassebastianbehrens-lang/jarvis)"
 PER_DAY = 3            # so viele Aufträge werden täglich fertig vorbereitet (mind. 1)
 MIN_EUR, MAX_AGE_H = 10, 72
+MAX_EUR = 250         # nur kleine, schnelle Aufträge – große Profi-Projekte gewinnt ein neues Konto nicht
 KEEP = 60              # so viele Aufträge bleiben in der Datei
 
 # Was eine KI gut allein liefern kann (Texte, Übersetzung, Recherche, Tabellen, Code-Kleinkram)
+# Nur Sachen, die in ~15 Min geprüft sind und bei denen ein Fehler niemandem schadet (Vorlagen, Texte, Formeln, Formulare)
 FL_QUERIES = ["article writing", "blog post", "product description", "translation german", "german",
-              "proofreading", "copywriting", "excel formula", "data entry", "web research",
-              "seo content", "email template", "resume", "python script", "summary"]
+              "proofreading", "copywriting", "excel formula", "excel template", "word template", "form design",
+              "email template", "resume", "summary", "powerpoint"]
 REDDIT = [("forhire", r"\[hiring\]"), ("slavelabour", r"\[task\]"), ("HireaWriter", r"\[hiring\]|\[task\]"),
           ("freelance_forhire", r"\[hiring\]")]
 GOOD = re.compile(r"writ|text|blog|article|artikel|copy|translat|übersetz|proofread|korrektur|lektor|description|beschreib|"
                   r"research|recherch|excel|spreadsheet|sheet|data entry|daten|summar|zusammenfass|seo|email|newsletter|"
                   r"resume|cv|lebenslauf|bewerbung|script|python|formula|caption|social media post|product listing|etsy|"
-                  r"prompt|chatgpt|ai |ki ", re.I)
+                  r"prompt|chatgpt|ai |ki |form\b|forms\b|formular|template|vorlage|word\b|docx|powerpoint|pptx|presentation|präsentation|"
+                  r"checklist|checkliste|letter|brief\b|flyer text", re.I)
 BAD = re.compile(r"\b(phone calls?|cold call\w*|calls? (customers|clients|leads)|video calls?|anruf\w*|telefon\w*|"
                  r"on.?site|vor ort|in person|driver|delivery driver|babysit\w*|cleaning service|house ?clean\w*|"
                  r"upfront|vorkasse|deposit|crypto|bitcoin|usdt|nft|forex|whatsapp group|telegram group|"
-                 r"homework|hausaufgabe\w*|assignments?|exams?|prüfung\w*|thesis|dissertation|essay for (my|a) class|"
+                 r"homework|hausaufgabe\w*|school|schule|class project|assignments?|exams?|prüfung\w*|thesis|dissertation|essay for (my|a) class|"
                  r"fake reviews?|bewertungen schreiben|5.?star reviews?|upvotes?|captchas?|account creation|create accounts|verify accounts?|"
                  r"onlyfans|nsfw|adult|dating|gambling|casino|voice ?over|face ?time|show (your )?face)\b", re.I)
+# Haftungs-Risiko oder viel Eigenarbeit: Recht, Steuern, Gesundheit, Finanzen, Zugriff auf Kundenkonten,
+# Werbekampagnen/Massenmails (UWG/Spam), personenbezogene Daten, Dauerbetreuung, Programmierung im Live-Betrieb
+RISK = re.compile(r"\b(legal|lawyer|contract|vertrag\w*|terms (of|and) (service|conditions)|privacy policy|datenschutz\w*|"
+                  r"gdpr|dsgvo|impressum|agb|compliance|tax\w*|steuer\w*|accounting|bookkeep\w*|buchhalt\w*|invoice\w*|payroll|"
+                  r"medical|medizin\w*|health|gesundheit\w*|doctor|supplement\w*|nutrition|diet|therapy|pharma\w*|"
+                  r"financial advice|invest\w*|trading|insurance|versicherung\w*|loan|kredit\w*|mortgage|"
+                  r"google ads|facebook ads|meta ads|ad campaign|ppc|campaign|outreach|cold email\w*|mass email|lead list|"
+                  r"leads?|scrap\w*|email list|contact list|personal data|login|password|admin access|account access|"
+                  r"manage (my|our)|ongoing|long.?term|monthly|per month|daily|weekly|30.?day|retainer|full.?time|part.?time|"
+                  r"wordpress|shopify|website|web ?site|app development|api|backend|server|security|hack\w*|pentest|"
+                  r"guarantee\w*|garantie\w*|ranking|first page|seo results)\b", re.I)
 
 
 def now():
@@ -173,11 +187,13 @@ def prefilter(items, known):
     keep = []
     for it in items:
         txt = it["titel"] + " " + it["text"]
-        if it["id"] in known or BAD.search(txt) or not GOOD.search(txt):
+        if it["id"] in known or BAD.search(txt) or RISK.search(txt) or not GOOD.search(txt):
             continue
         if time.time() - it["zeit"] > MAX_AGE_H * 3600:
             continue
         if it["budget_eur"][1] and it["budget_eur"][1] < MIN_EUR:
+            continue
+        if (it["budget_eur"][0] or 0) > MAX_EUR:            # Profi-Projekt → aussortieren
             continue
         if it["plattform"] and it["gebote"] > 60:          # hoffnungslos überlaufen
             continue
@@ -204,7 +220,12 @@ RATE_SYS = ("Du bewertest Aufträge für einen Ein-Personen-Dienstleister, der d
             "Zugriff auf Kundensysteme, Design mit Markenvorgaben, Übersetzungen außer Deutsch↔Englisch. "
             "Bonus-Punkte, wenn das Ergebnis schon allein aus der Auftragsbeschreibung erstellt werden kann "
             "(z. B. Texte, Artikel, Vorlagen, Formeln, Skripte) – Abzug, wenn erst Dateien vom Kunden nötig sind. "
-            "Schätze einen fairen Festpreis in Euro (mind. 15). Antworte NUR mit JSON-Liste: "
+            "WICHTIG (Lucas hat nur ~30 Min am Abend und darf nicht haften): Hohe Punkte NUR für einmalige Aufträge, die in "
+            "höchstens 48 h lieferbar sind und deren Ergebnis Lucas in 15 Minuten prüfen kann (Vorlagen, Formulare, Texte, "
+            "Excel-Formeln, Lebenslauf, Zusammenfassungen, Korrekturlesen). Unter 40 Punkte, wenn ein Fehler Schaden anrichten "
+            "kann: Recht/Verträge/Datenschutz, Steuern/Buchhaltung, Gesundheit, Finanz- oder Anlageberatung, Werbekampagnen, "
+            "Massen-/Kalt-Mails, personenbezogene Daten, Zugriff auf Kundenkonten, Live-Code/Websites, Erfolgsgarantien. "
+            "Schätze einen fairen Festpreis in Euro (15–150). Antworte NUR mit JSON-Liste: "
             '[{"id":"…","punkte":0-100,"preis_eur":Zahl,"warum":"1 Satz Deutsch"}]')
 
 WORK_SYS = ("Du bist Lucas' KI-Team und bereitest einen bezahlten Auftrag vollständig vor. "
@@ -213,7 +234,7 @@ WORK_SYS = ("Du bist Lucas' KI-Team und bereitest einen bezahlten Auftrag vollst
             "erfundenen Fakten, Zahlen, Firmen oder Quellen – wo echte Daten nötig sind, Platzhalter [PRÜFEN: …]. "
             "Den vorgegebenen Preis exakt übernehmen. Liefere: 1) ein kurzes, ehrliches Angebot an den Kunden "
             "(max. 120 Wörter, freundlich, konkret, zeigt Verständnis der Aufgabe, nennt Lieferzeit und Preis, "
-            "verspricht nichts Unmögliches), 2) das fertige Ergebnis bzw. einen vollständigen ersten Entwurf, so gut "
+            "verspricht nichts Unmögliches, ehrlich: der Kunde prüft das Ergebnis vor dem Einsatz), 2) das fertige Ergebnis bzw. einen vollständigen ersten Entwurf, so gut "
             "wie möglich direkt lieferbar (fehlende Infos als [Annahme: …]), 3) 2–4 kurze Anweisungen an LUCAS auf "
             "Deutsch (nicht an den Kunden), z. B. was er vor dem Absenden prüfen soll. Antworte NUR mit JSON: "
             '{"titel":"kurzer deutscher Titel","angebot":"…","ergebnis":"…","preis_eur":Zahl,"lieferzeit":"…",'
@@ -235,7 +256,7 @@ def prepare(it, rating):
     lo, hi = it["budget_eur"]
     if hi:
         preis = min(max(preis, lo or preis), hi)            # im Budget des Kunden bleiben
-    preis = max(15, round(preis))
+    preis = min(MAX_EUR, max(15, round(preis)))
     lang = sprache(it["titel"] + " " + it["text"])
     j = ai(WORK_SYS, f"SPRACHE für angebot und ergebnis: {lang}. schritte: Deutsch, Du-Form an Lucas.\nQuelle: {it['quelle']}\nTitel: {it['titel']}\nBudget des Kunden: {lo}–{hi} EUR\n"
                      f"Preis (exakt so nennen): {preis} EUR Festpreis\n\nOriginalauftrag:\n{it['text']}",

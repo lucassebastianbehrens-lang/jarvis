@@ -64,7 +64,8 @@
    ],
    "paypal": "",
    "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
-   "status": "neu"
+   "status": "neu",
+   "aussortiert": true
   },
   {
    "id": "fl-40830486",
@@ -87,7 +88,8 @@
    ],
    "paypal": "",
    "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
-   "status": "neu"
+   "status": "neu",
+   "aussortiert": true
   },
   {
    "id": "fl-40829977",
