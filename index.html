@@ -799,5 +799,166 @@ $('#tts').checked=S.tts!==false;$('#wake').checked=!!S.wake;if(S.wake)listen(fal
 $('#fd').value=today();fill();render();
 try{if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js')}catch(e){}
 const tick=()=>$('#clk').textContent=new Date().toLocaleTimeString('de-DE');tick();setInterval(tick,1000);
+/* === Jarvis-Erweiterung 23.11.2026: PIN-Sperre, Fixkosten, Ideen-Eingang, Schicht-Wochenplan === */
+{
+const SHEET='https://claude.ai/artifact/BTeAV6EMY8soigYkuvvsFU';
+const IDEEN='https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/data/ideen.json';
+const css=document.createElement('style');css.textContent=`
+#lock{position:fixed;inset:0;z-index:9999;background:radial-gradient(ellipse at 50% 35%,#2a0808 0,#050506 65%);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+#lock.on{display:flex}#lock b{font:700 26px Rajdhani,system-ui;letter-spacing:6px;color:var(--red);text-shadow:var(--glow)}
+#lock input{width:200px;text-align:center;font-size:26px;letter-spacing:10px}
+.wk>div{display:grid;grid-template-columns:62px 92px 1fr;gap:8px;padding:6px 0;border-bottom:1px solid var(--ln);align-items:start}
+.wk .td{color:var(--red);font-weight:700}.wk .sh{font-size:13px;color:var(--mut)}
+.warn{color:var(--org)}`;document.head.appendChild(css);
+
+/* ---------- PIN-Sperre ---------- */
+const sha=async t=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode('jarvis|'+t)))].map(b=>b.toString(16).padStart(2,'0')).join('');
+document.body.insertAdjacentHTML('beforeend','<div id="lock"><b>JARVIS</b><div class="m">Gesperrt – PIN eingeben</div><input id="lkIn" type="password" inputmode="numeric" autocomplete="off" maxlength="8"><button class="p" id="lkGo">Entsperren</button><div class="m" id="lkR"></div></div>');
+const lock=()=>{if(!S.pin)return;$('#lock').classList.add('on');$('#lkIn').value='';setTimeout(()=>$('#lkIn').focus(),50)};
+let fails=0;
+const tryUnlock=async()=>{const v=$('#lkIn').value;if(!v)return;
+ if(await sha(v)===S.pin){fails=0;$('#lock').classList.remove('on');$('#lkR').textContent=''}
+ else{fails++;$('#lkIn').value='';$('#lkR').textContent=fails>=5?'Zu viele Versuche – 30 s warten.':'Falsche PIN.';if(fails>=5){$('#lkGo').disabled=true;setTimeout(()=>{$('#lkGo').disabled=false;fails=0},30000)}}};
+$('#lkGo').onclick=tryUnlock;$('#lkIn').onkeydown=e=>{if(e.key==='Enter')tryUnlock()};
+let hidAt=0;document.addEventListener('visibilitychange',()=>{if(document.hidden)hidAt=Date.now();else if(S.pin&&Date.now()-hidAt>5*60e3)lock()});
+lock();
+const cfgH=[...document.querySelectorAll('#cfg h3')].find(h=>h.textContent==='Sicherung');
+cfgH.insertAdjacentHTML('beforebegin',`<h3>App-Sperre</h3><p class="m">PIN beim Öffnen und nach 5 Minuten im Hintergrund. Schützt deine Schlüssel, falls jemand dein Handy in die Hand bekommt.</p>
+<div class="row"><input id="pinA" type="password" inputmode="numeric" maxlength="8" placeholder="Neue PIN (4–8 Ziffern)"><input id="pinB" type="password" inputmode="numeric" maxlength="8" placeholder="PIN wiederholen"></div>
+<div class="row"><button class="p" id="pinS">PIN setzen</button><button id="pinX">PIN entfernen</button><button id="pinL">Jetzt sperren</button></div><div class="m" id="pinR"></div>`);
+const pinMsg=t=>$('#pinR').textContent=t;
+$('#pinS').onclick=async()=>{const a=$('#pinA').value,b=$('#pinB').value;if(!/^\d{4,8}$/.test(a))return pinMsg('Bitte 4–8 Ziffern.');if(a!==b)return pinMsg('Die PINs sind nicht gleich.');S.pin=await sha(a);save();$('#pinA').value=$('#pinB').value='';pinMsg('PIN gesetzt ✓')};
+$('#pinX').onclick=async()=>{if(!S.pin)return pinMsg('Keine PIN gesetzt.');const v=prompt('Aktuelle PIN zum Entfernen:');if(v&&await sha(v)===S.pin){delete S.pin;save();pinMsg('PIN entfernt.')}else pinMsg('Falsche PIN.')};
+$('#pinL').onclick=()=>S.pin?lock():pinMsg('Erst eine PIN setzen.');
+
+/* ---------- Fixkosten ---------- */
+S.fix??=[
+ {n:'Claude Pro',v:22,r:'m',tag:27,note:'Mail: Vorteile enden 27.11. – gekündigt?'},
+ {n:'Grok Bot Premium',v:17.5,r:'m',tag:13,neu:{ab:'2026-12-13',v:35}},
+ {n:'Xbox Game Pass Ultimate',v:17.99,r:'m',tag:10},
+ {n:'netcup VPS',v:9.5,r:'m',tag:null},
+ {n:'YouTube Premium Lite',v:7.99,r:'m',tag:9,note:'YouTube pausiert – noch nötig?'},
+ {n:'Finanzguru Plus',v:2.99,r:'m',tag:5},
+ {n:'vfm Versicherung',v:40,r:'j',tag:22,mon:10}];
+const RH={m:['monatlich',1],q:['vierteljährlich',3],j:['jährlich',12]};
+const curV=x=>x.neu&&today()>=x.neu.ab?x.neu.v:x.v;
+const perMon=x=>curV(x)/RH[x.r][1];
+const fixSum=()=>S.fix.reduce((a,x)=>a+perMon(x),0);
+const nextDue=x=>{if(!x.tag)return null;const n=new Date();n.setHours(0,0,0,0);for(let i=0;i<400;i++){const d=new Date(n.getTime()+i*864e5);if(d.getDate()!==x.tag)continue;
+ if(x.r==='j'&&d.getMonth()+1!==x.mon)continue;if(x.r==='q'&&x.mon&&(d.getMonth()+1-x.mon)%3)continue;return d}return null};
+const dd=d=>d.toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'});
+const days=d=>Math.round((d-new Date(today()))/864e5);
+function fixHints(n=7){const out=[];for(const x of S.fix){const d=nextDue(x);if(d&&days(d)<=n)out.push(`${x.n} ${eur(curV(x))} am ${dd(d)}`)}return out}
+function fixWarn(){return S.fix.filter(x=>x.neu&&today()<x.neu.ab&&days(new Date(x.neu.ab))<=30).map(x=>`⚠ ${x.n}: ab ${new Date(x.neu.ab).toLocaleDateString('de-DE')} ${eur(x.neu.v)} statt ${eur(x.v)}`)}
+$('#fin').insertAdjacentHTML('afterbegin',`<div class="card"><h3>Fixkosten · <span id="fxS"></span> / Monat</h3><div class="m" id="fxW"></div><div class="list" id="fxL"></div>
+<details class="camp"><summary>+ Fixkosten eintragen</summary><div class="row"><input id="fxN" placeholder="Was? z. B. Miete"><input id="fxV" inputmode="decimal" placeholder="Betrag €"></div>
+<div class="row"><select id="fxR"><option value="m">monatlich</option><option value="q">vierteljährlich</option><option value="j">jährlich</option></select><input id="fxT" inputmode="numeric" placeholder="Abbuchungstag (1–31)"><input id="fxM" inputmode="numeric" placeholder="Monat (nur jährlich)"></div>
+<button class="p" id="fxA">Speichern</button></details><p class="m"><a href="${SHEET}" target="_blank" rel="noopener">Ausführliche Tabelle öffnen</a></p></div>`);
+function fixRender(){$('#fxS').textContent=eur(fixSum());$('#fxW').innerHTML=fixWarn().map(t=>`<div class="warn">${esc(t)}</div>`).join('');
+ $('#fxL').innerHTML=S.fix.map((x,i)=>{const d=nextDue(x);return `<div><span>${esc(x.n)}<br><span class="m">${RH[x.r][0]}${d?' · nächste: '+dd(d):''}${x.note?' · '+esc(x.note):''}</span></span><span class="neg">${eur(curV(x))} <button class="s" data-fxd="${i}">✕</button></span></div>`}).join('')}
+$('#fxL').onclick=e=>{const i=e.target.dataset.fxd;if(i!=null&&confirm(S.fix[i].n+' aus den Fixkosten entfernen?')){S.fix.splice(i,1);save();fixRender();dashExtra()}};
+$('#fxA').onclick=()=>{const n=$('#fxN').value.trim(),v=parseFloat($('#fxV').value.replace(/\./g,'').replace(',','.')),t=parseInt($('#fxT').value)||null,m=parseInt($('#fxM').value)||null,r=$('#fxR').value;
+ if(!n||!(v>0))return alert('Bitte Name und Betrag eintragen.');S.fix.push({n,v,r,tag:t&&t<=31?t:null,mon:r!=='m'?m:undefined});$('#fxN').value=$('#fxV').value=$('#fxT').value=$('#fxM').value='';save();fixRender();dashExtra()};
+
+/* ---------- Schicht-Wochenplan (3-Wochen-Rhythmus, Start 28.09.2026 = Spätwoche) ---------- */
+S.shift??={start:'2026-09-28',off:0,h:15};
+const WN=['Mo','Di','Mi','Do','Fr','Sa','So'];
+const SH=[ // je Woche: [Schicht, freie Stunden, Zeitfenster]
+ {name:'Spätschicht-Woche',d:[['Spät 13–22',1.5,'08:30'],['Spät 13–22',1.5,'08:30'],['Spät 13–22',1.5,'08:30'],['Spät 13–22',1.5,'08:30'],['Spät 13–22',1.5,'08:30'],['frei',3,'10:00'],['frei',2.5,'10:00']]},
+ {name:'Frühschicht-Woche + WE-Dienst',d:[['Früh 5:30–14',1.5,'16:00'],['Früh 5:30–14',1.5,'16:00'],['Früh 5:30–14',1.5,'16:00'],['Früh 5:30–14',1.5,'16:00'],['Früh 5:30–14',1.5,'16:00'],['Dienst 7–17:45',.5,'19:00'],['Dienst 7–17:45',.5,'19:00']]},
+ {name:'Kurz-Früh + 4 Tage frei',d:[['Früh 5:30–12:30',2,'14:00'],['Früh 5:30–12:30',2,'14:00'],['Früh 5:30–12:30',2,'14:00'],['frei',3,'10:00'],['frei',3,'10:00'],['frei',3,'10:00'],['frei',3,'10:00']]}];
+const TASK={KC:['Akquise: 2 Briefe an Betriebe vorbereiten / 1 Besuch','KC: Posts für Kunden planen + Monatsbericht','KC: Google-Profil-Checks erstellen'],
+ ET:['Etsy: 1 neue Vorlage bauen','Etsy: SEO + Titel von 3 Listings verbessern','Etsy: Pinterest-Pins für Vorlagen'],
+ TT:['TikTok: Folgen prüfen + freigeben, Kommentare lesen','TikTok: Story-Ideen für nächste Woche (Idee: … an Jarvis)']};
+const SHARE={KC:.5,ET:.3,TT:.2};
+const monday=d=>{const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x};
+function weekPlan(ref=new Date()){const m=monday(ref),w=((Math.round((m-monday(S.shift.start))/6048e5)+S.shift.off)%3+3)%3,W=SH[w];
+ const cap=W.d.reduce((a,x)=>a+x[1],0),f=S.shift.h/cap,got={KC:0,ET:0,TT:0},idx={KC:0,ET:0,TT:0};
+ const rows=W.d.map((x,i)=>{let h=Math.min(4,Math.max(.5,Math.round(x[1]*f*2)/2));const tot=Object.values(got).reduce((a,b)=>a+b,0)+h;
+  const b=Object.keys(SHARE).sort((a,c)=>(got[a]-SHARE[a]*tot)-(got[c]-SHARE[c]*tot))[0];got[b]+=h;const t=TASK[b][idx[b]++%TASK[b].length];
+  const day=new Date(m.getTime()+i*864e5);return{wd:WN[i],date:day,shift:x[0],from:x[2],h,b,t}});
+ return{name:W.name,w,rows,total:rows.reduce((a,r)=>a+r.h,0)}}
+const fmtH=h=>String(h).replace('.',',')+' h';
+
+/* ---------- Ideen-Eingang ---------- */
+let ideen=[],ideenAt=0;
+async function ideenLoad(){if(Date.now()-ideenAt<60e3)return;ideenAt=Date.now();try{const r=await fetch(IDEEN+'?t='+Date.now(),{cache:'no-store'});if(r.ok){ideen=await r.json();dashExtra()}}catch(e){}}
+
+/* ---------- Übersicht ---------- */
+$('#dash .kpi').insertAdjacentHTML('afterend',`<div class="card"><h3 id="wkH">Diese Woche</h3><div class="m" id="wkS"></div><div class="wk" id="wkL"></div>
+<div class="row"><button class="s" id="wkP">◀ Vorwoche</button><button class="s" id="wkN">Nächste Woche ▶</button><button class="s" id="wkF">Rhythmus stimmt nicht? Woche verschieben</button></div></div>
+<div class="card"><h3>Fixkosten · <span id="dfS"></span> / Monat</h3><div id="dfW"></div><div class="m" id="dfN"></div></div>
+<div class="card"><h3>💡 Ideen-Eingang</h3><div class="list" id="idL"></div><p class="m">Schick deinem Telegram-Bot „Idee: …“ – landet hier und nachts in Obsidian (00 Inbox).</p></div>`);
+let wkOff=0;
+function dashExtra(){if(!$('#wkL'))return;const P=weekPlan(new Date(Date.now()+wkOff*6048e5)),td=today();
+ $('#wkH').textContent=(wkOff?wkOff>0?'Nächste Woche':'Vorwoche':'Diese Woche')+' · '+P.name;$('#wkS').textContent=`${fmtH(P.total)} geplant · KC ${fmtH(P.rows.filter(r=>r.b==='KC').reduce((a,r)=>a+r.h,0))} · ET ${fmtH(P.rows.filter(r=>r.b==='ET').reduce((a,r)=>a+r.h,0))} · TT ${fmtH(P.rows.filter(r=>r.b==='TT').reduce((a,r)=>a+r.h,0))}`;
+ $('#wkL').innerHTML=P.rows.map(r=>{const iso=new Date(r.date.getTime()-r.date.getTimezoneOffset()*6e4).toISOString().slice(0,10);return `<div><span class="${iso===td?'td':''}">${r.wd} ${r.date.getDate()}.${r.date.getMonth()+1}.</span><span class="sh">${esc(r.shift)}<br>ab ${r.from} · ${fmtH(r.h)}</span><span><b>${r.b}</b> ${esc(r.t)}</span></div>`}).join('');
+ $('#dfS').textContent=eur(fixSum());$('#dfW').innerHTML=fixWarn().map(t=>`<div class="warn">${esc(t)}</div>`).join('');
+ const nx=fixHints(7);$('#dfN').textContent=nx.length?'Nächste 7 Tage: '+nx.join(' · '):'In den nächsten 7 Tagen keine Abbuchung.';
+ $('#idL').innerHTML=[...ideen].reverse().slice(0,8).map(x=>`<div><span>${esc(x.text)}<br><span class="m">${esc(x.zeit)}${x.vault?' · in Obsidian ✓':''}</span></span></div>`).join('')||'<p class="m">Noch keine Ideen.</p>'}
+$('#wkP').onclick=()=>{wkOff--;dashExtra()};$('#wkN').onclick=()=>{wkOff++;dashExtra()};
+$('#wkF').onclick=()=>{S.shift.off=(S.shift.off+1)%3;save();dashExtra();alert('Rhythmus verschoben: diese Woche ist jetzt „'+weekPlan().name+'“. So oft tippen, bis es stimmt.')};
+
+/* ---------- Einbinden ---------- */
+const _render=render;render=function(){_render();try{fixRender();dashExtra();if($('#dash').classList.contains('on'))ideenLoad()}catch(e){console.log(e)}};
+const _bb=briefBase;briefBase=function(){let t=_bb();try{const P=weekPlan(),r=P.rows[(new Date().getDay()+6)%7];t+=` Heute (${r.shift}): ab ${r.from} ${fmtH(r.h)} ${r.b} – ${r.t}.`;
+ const nx=fixHints(3);if(nx.length)t+=' Abbuchungen bald: '+nx.join(', ')+'.';const w=fixWarn();if(w.length)t+=' '+w.join(' ').replace(/⚠ /g,'Achtung: ')+'.'}catch(e){}return t};
+render();ideenLoad();
+}
+
+/* === KI-Kette: mehrere kostenlose Anbieter, automatischer Wechsel bei Limit (nach Video 23.11.) === */
+{
+const PROV=[
+ {id:'groq',n:'Groq',u:'https://api.groq.com/openai/v1',m:'openai/gpt-oss-120b',pref:[/gpt-oss-120b/,/llama-4/,/llama/],k:'https://console.groq.com/keys'},
+ {id:'cerebras',n:'Cerebras',u:'https://api.cerebras.ai/v1',m:'gpt-oss-120b',pref:[/gpt-oss-120b/,/qwen-3/,/llama/],k:'https://cloud.cerebras.ai/'},
+ {id:'gemini',n:'Google Gemini',u:'https://generativelanguage.googleapis.com/v1beta/openai',m:'gemini-2.5-flash',pref:[/gemini-[\d.]+-flash$/,/flash/],k:'https://aistudio.google.com/apikey'},
+ {id:'openrouter',n:'OpenRouter (Gratis-Modelle)',u:'https://openrouter.ai/api/v1',m:'',pref:[/deepseek.*:free$/,/llama.*:free$/,/:free$/],k:'https://openrouter.ai/keys'},
+ {id:'mistral',n:'Mistral',u:'https://api.mistral.ai/v1',m:'mistral-small-latest',pref:[/mistral-small-latest/,/small/],k:'https://console.mistral.ai/api-keys'}];
+S.chain??={on:true,p:{}};
+for(const p of PROV)S.chain.p[p.id]??={key:'',model:p.m,on:true};
+// vorhandenen Groq-Schlüssel übernehmen
+if(!S.chain.p.groq.key&&S.cfg.mode==='api'&&/groq\.com/.test(S.cfg.url)&&S.cfg.key){S.chain.p.groq.key=S.cfg.key;save()}
+S.aiUse??={};const cool={};
+const useDay=()=>{const d=today();if(S.aiUse.d!==d)S.aiUse={d,p:{}};return S.aiUse.p};
+const active=()=>S.cfg.mode!=='ollama'&&S.chain.on?PROV.filter(p=>S.chain.p[p.id].on&&S.chain.p[p.id].key&&S.chain.p[p.id].model):[];
+async function call(p,msgs){const c=S.chain.p[p.id],ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),45e3);
+ try{const r=await fetch(p.u+'/chat/completions',{method:'POST',signal:ctl.signal,headers:{'Content-Type':'application/json',Authorization:'Bearer '+c.key},body:JSON.stringify({model:c.model,messages:msgs})});
+  if(!r.ok){let d='';try{d=(await r.json()).error?.message||''}catch(e){}const e=Error(p.n+' '+r.status+(d?' – '+String(d).slice(0,120):''));e.st=r.status;e.ra=+(r.headers.get('retry-after')||0);throw e}
+  const j=await r.json(),t=(j.choices?.[0]?.message?.content||'').trim();if(!t)throw Error(p.n+': leere Antwort');
+  const u=useDay();u[p.id]??={r:0,t:0};u[p.id].r++;u[p.id].t+=j.usage?.total_tokens||0;save();return t}finally{clearTimeout(to)}}
+const _ai=ai;
+ai=async function(msgs){const L=active();if(!L.length)return _ai(msgs);let last;
+ for(const p of L){if((cool[p.id]||0)>Date.now())continue;
+  try{const kw=document.querySelector('#st');if(kw)kw.textContent='KI denkt … ('+p.n+')';const t=await call(p,msgs);S.chain.last=p.n;return t}
+  catch(e){last=e;cool[p.id]=Date.now()+(e.st===429?Math.max(60,e.ra||0)*1e3:e.st===401||e.st===403?36e5:30e3)}}
+ try{S.chain.last='Pollinations (ohne Schlüssel)';return await aiFree(msgs)}catch(e){throw last||e}};
+async function pickModel(p){const c=S.chain.p[p.id];const r=await fetch(p.u+'/models',{headers:{Authorization:'Bearer '+c.key}});if(!r.ok)throw Error('Schlüssel abgelehnt ('+r.status+')');
+ const ids=((await r.json()).data||[]).map(x=>String(x.id).replace(/^models\//,''));if(c.model&&ids.includes(c.model))return c.model;
+ for(const re of p.pref){const f=ids.find(i=>re.test(i));if(f)return f}return ids[0]||c.model}
+
+const H=[...document.querySelectorAll('#cfg h3')].find(h=>h.textContent==='Telegram');
+H.insertAdjacentHTML('beforebegin',`<h3>KI-Kette (kostenlos, wechselt automatisch)</h3><p class="m">Ist ein Anbieter am Limit, nimmt Jarvis sofort den nächsten – nie wieder „hängt“ Jarvis mitten in der Aufgabe. Pro Anbieter einen kostenlosen Schlüssel holen (Link) und hier einfügen. Reihenfolge = Priorität. Ganz am Ende springt die schlüssellose KI ein.</p>
+<label style="display:flex;align-items:center;gap:6px;text-transform:none"><input type="checkbox" id="chOn" style="width:auto"> KI-Kette benutzen</label><div id="chL"></div><div class="row"><button class="p" id="chT">Alle testen + Modelle wählen</button></div><div class="m" id="chR"></div>`);
+function chainRender(){$('#chOn').checked=S.chain.on;const u=useDay();
+ $('#chL').innerHTML=PROV.map(p=>{const c=S.chain.p[p.id],x=u[p.id]||{r:0,t:0},cd=(cool[p.id]||0)>Date.now();
+  return `<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><b>${p.n}</b><span class="m">${c.key?(cd?'⏸ Pause (Limit)':'✓ bereit'):'kein Schlüssel'} · heute ${x.r} Antw. · ${(x.t/1000).toFixed(1).replace('.',',')}k Tokens</span></div>
+  <div class="row"><input type="password" data-chk="${p.id}" placeholder="API-Schlüssel" value="${c.key?'••••••••':''}"><input data-chm="${p.id}" placeholder="Modell (automatisch)" value="${esc(c.model||'')}"><label style="flex:0 0 auto;display:flex;align-items:center;gap:4px;text-transform:none"><input type="checkbox" data-cho="${p.id}" ${c.on?'checked':''} style="width:auto"> an</label></div>
+  <a href="${p.k}" target="_blank" rel="noopener" class="m">Kostenlosen Schlüssel holen ↗</a></div>`}).join('')+(S.chain.last?`<p class="m">Letzte Antwort kam von: ${esc(S.chain.last)}</p>`:'')}
+$('#chOn').onchange=()=>{S.chain.on=$('#chOn').checked;save()};
+$('#chL').onchange=e=>{const d=e.target.dataset;if(d.chk){const v=e.target.value.trim();if(v&&!/^•+$/.test(v)){S.chain.p[d.chk].key=v;save();e.target.value='••••••••'}else if(!v){S.chain.p[d.chk].key='';save()}}
+ if(d.chm){S.chain.p[d.chm].model=e.target.value.trim();save()}if(d.cho){S.chain.p[d.cho].on=e.target.checked;save()}};
+$('#chT').onclick=async()=>{$('#chR').textContent='Teste …';const out=[];
+ for(const p of PROV){const c=S.chain.p[p.id];if(!c.key)continue;try{c.model=await pickModel(p);save();const t=await call(p,[{role:'user',content:'Antworte nur mit: OK'}]);out.push('✓ '+p.n+' ('+c.model+')')}catch(e){out.push('✗ '+p.n+': '+e.message)}}
+ $('#chR').textContent=out.join(' · ')||'Noch kein Schlüssel eingetragen.';chainRender()};
+document.querySelector('[data-t=cfg]').addEventListener('click',chainRender);chainRender();
+
+/* Skills aus dem Video: Interview, Ideen schärfen, Plan */
+const SKV=[
+ {n:'interview-me',d:'Wenn ein Auftrag noch unklar ist: Jarvis fragt nach, bis er genau weiß, was du willst',i:'Stelle Lucas genau EINE kurze Frage auf einmal, um herauszufinden, was er wirklich will (Ziel, Zielgruppe, Umfang, Budget, Frist). Biete wenn möglich 2–3 Antwortmöglichkeiten an. Wenn du zu ca. 95 % sicher bist, fasse das Ergebnis in 5 Stichpunkten zusammen und frage „Soll ich so loslegen?“.'},
+ {n:'idee-schaerfen',d:'Aus einer groben Idee 3 konkrete, umsetzbare Varianten machen',i:'Nimm die grobe Idee. 1) Denke breit: 6 sehr unterschiedliche Richtungen in je einer Zeile. 2) Bewerte jede kurz nach Aufwand (h), Kosten (€) und Ertragschance. 3) Mach aus den 3 besten je einen konkreten Vorschlag mit ersten 3 Schritten. Passe alles an Lucas an: Schichtarbeit, ca. 15 h/Woche, kleines Budget, Geschäfte KC, ET, TT.'},
+ {n:'plan-schritte',d:'Vorhaben in einen Plan mit kleinen Schritten zerlegen (Ziel, Schritte, Prüfpunkte)',i:'Schreibe einen kompakten Plan: Ziel (1 Satz), Was NICHT dazugehört, dann nummerierte Schritte zu je max. 1 Stunde mit Prüfpunkt „fertig, wenn …“. Am Ende die 3 Schritte für diese Woche markieren. Deutsch, Beträge in Euro.'}];
+for(const k of SKV)if(!S.skills.some(x=>x.n===k.n))S.skills.push(k);save();
+}
+
 }
 </script></body></html>
