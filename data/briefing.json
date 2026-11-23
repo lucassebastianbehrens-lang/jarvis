@@ -1,13 +1,12 @@
 {
- "t": 1795468958,
+ "t": 1795469226,
  "datum": "Montag, 23.11.2026",
- "fazit": "Zuhause ist das Team von 11 Bots hat 52 Aufträge erfolgreich abgewickelt, die Krypto‑ und Memecoin‑Bots bleiben auf dem Simulation‑Level, neue Projekte wie „Futuristic Streetwear Prompts“ und Tools wie \\\"erkamyaman/rust-anything\\\" werden aktiv. Wichtig: Starte heute das neue Auftrags‑Projekt „Futuristic Streetwear Prompts“ und beobachte die ersten 28 Trades blind.",
+ "fazit": "",
  "zeilen": [
-  "🤖 11 Bots haben 52 Aufträge erledigt, alle fehlerfrei.",
+  "🤖 11 Bots haben 57 Aufträge erledigt, alle fehlerfrei.",
   "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
-  "📈 Memecoin-Bot: 938,80 € (-16,32 € in 24 h), 28 Trades – Spielgeld",
+  "📈 Memecoin-Bot: 938,80 € (-16,32 € in 24 h), 27 Trades – Spielgeld",
   "🔭 3 neue Aufträge gefunden, z. B. „Futuristic Streetwear Prompts“.",
-  "📚 6 neue Tools/Trends entdeckt – Top: erkamyaman/rust-anything.",
   "🛡️ Wächter: alles läuft."
  ],
  "bots": [
@@ -26,7 +25,13 @@
   {
    "name": "Baumeister Bob",
    "icon": "🏗️",
-   "ok": 11,
+   "ok": 12,
+   "fehler": 0
+  },
+  {
+   "name": "Forscherin Frieda",
+   "icon": "📚",
+   "ok": 4,
    "fehler": 0
   },
   {
@@ -48,8 +53,8 @@
    "fehler": 0
   },
   {
-   "name": "Forscherin Frieda",
-   "icon": "📚",
+   "name": "Butler Bruno",
+   "icon": "🎩",
    "ok": 1,
    "fehler": 0
   },
@@ -70,12 +75,6 @@
    "icon": "📺",
    "ok": 1,
    "fehler": 0
-  },
-  {
-   "name": "Butler Bruno",
-   "icon": "🎩",
-   "ok": 0,
-   "fehler": 0
   }
  ],
  "trading": {
@@ -89,39 +88,26 @@
   "Memecoin-Bot": {
    "wert": 938.8,
    "diff": -16.32,
-   "trades": 28,
-   "gewinner": 17,
-   "pnl": -16.32
+   "trades": 27,
+   "gewinner": 16,
+   "pnl": -28.07
   }
  },
- "neu": [
-  {
-   "titel": "erkamyaman/rust-anything",
-   "nutzen": "",
-   "url": "https://github.com/erkamyaman/rust-anything"
-  },
-  {
-   "titel": "erkamyaman/rust-anything",
-   "nutzen": "",
-   "url": "https://github.com/erkamyaman/rust-anything"
-  },
-  {
-   "titel": "EL4CTEO/fast-anything",
-   "nutzen": "",
-   "url": "https://github.com/EL4CTEO/fast-anything"
-  },
-  {
-   "titel": "EL4CTEO/fast-anything",
-   "nutzen": "",
-   "url": "https://github.com/EL4CTEO/fast-anything"
-  },
-  {
-   "titel": "EL4CTEO/fast-anything",
-   "nutzen": "",
-   "url": "https://github.com/EL4CTEO/fast-anything"
-  }
- ],
+ "neu": [],
  "verlauf": [
+  {
+   "t": 1795468958,
+   "datum": "Montag, 23.11.2026",
+   "fazit": "Zuhause ist das Team von 11 Bots hat 52 Aufträge erfolgreich abgewickelt, die Krypto‑ und Memecoin‑Bots bleiben auf dem Simulation‑Level, neue Projekte wie „Futuristic Streetwear Prompts“ und Tools wie \\\"erkamyaman/rust-anything\\\" werden aktiv. Wichtig: Starte heute das neue Auftrags‑Projekt „Futuristic Streetwear Prompts“ und beobachte die ersten 28 Trades blind.",
+   "zeilen": [
+    "🤖 11 Bots haben 52 Aufträge erledigt, alle fehlerfrei.",
+    "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
+    "📈 Memecoin-Bot: 938,80 € (-16,32 € in 24 h), 28 Trades – Spielgeld",
+    "🔭 3 neue Aufträge gefunden, z. B. „Futuristic Streetwear Prompts“.",
+    "📚 6 neue Tools/Trends entdeckt – Top: erkamyaman/rust-anything.",
+    "🛡️ Wächter: alles läuft."
+   ]
+  },
   {
    "t": 1795468598,
    "datum": "Montag, 23.11.2026",
