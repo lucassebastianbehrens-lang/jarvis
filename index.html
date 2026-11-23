@@ -219,10 +219,10 @@ S.city??={n:'Halberstadt',lat:51.896,lon:11.047};S.mem??=[];
 const WC=c=>c==0?'klar':c<=3?'bewölkt':c<=48?'neblig':c<=57?'Nieselregen':c<=67?'Regen':c<=77?'Schnee':c<=82?'Regenschauer':c<=86?'Schneeschauer':'Gewitter';
 const safe=async f=>{try{return await f()}catch(e){return null}};
 async function wx(){const c=S.city,d=await (await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${c.lat}&longitude=${c.lon}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe%2FBerlin&forecast_days=1`)).json();
- return `Wetter ${c.n}: ${Math.round(d.current.temperature_2m)} °C, ${WC(d.current.weather_code)}. Heute ${Math.round(d.daily.temperature_2m_min[0])} bis ${Math.round(d.daily.temperature_2m_max[0])} °C, Regenrisiko ${d.daily.precipitation_probability_max[0]} %.`}
+ const r=d.daily.precipitation_probability_max[0];return `Wetter: ${Math.round(d.daily.temperature_2m_min[0])} bis ${Math.round(d.daily.temperature_2m_max[0])} °C, ${WC(d.current.weather_code)}${r>=50?', Regen '+r+' %':''}.`}
 async function kurse(){const d=await (await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=eur&include_24hr_change=true')).json(),n={bitcoin:'Bitcoin',ethereum:'Ethereum',solana:'Solana'};
- return 'Kurse: '+Object.entries(d).map(([k,v])=>`${n[k]} ${eur(v.eur)} (${v.eur_24h_change>=0?'+':''}${(v.eur_24h_change||0).toLocaleString('de-DE',{maximumFractionDigits:1})} %)`).join(', ')+'.'}
-async function news(){const d=await (await fetch('https://www.tagesschau.de/api2u/homepage')).json();const t=(d.news||[]).filter(x=>x.title).slice(0,3).map(x=>x.title);if(!t.length)throw Error('leer');return 'Nachrichten: '+t.join(' · ')+'.'}
+ const b=d.bitcoin;return `Bitcoin ${eur(b.eur)} (${b.eur_24h_change>=0?'+':''}${(b.eur_24h_change||0).toLocaleString('de-DE',{maximumFractionDigits:1})} %).`}
+async function news(){const d=await (await fetch('https://www.tagesschau.de/api2u/homepage')).json();const t=(d.news||[]).filter(x=>x.title).slice(0,1).map(x=>x.title);if(!t.length)throw Error('leer');return 'News: '+t[0]+'.'}
 async function stadt(q){const d=await (await fetch('https://geocoding-api.open-meteo.com/v1/search?count=1&language=de&name='+encodeURIComponent(q))).json(),r=(d.results||[])[0];if(!r)return 'Ort nicht gefunden: '+q;S.city={n:r.name,lat:r.latitude,lon:r.longitude};save();return 'Wetter-Ort ist jetzt '+r.name+'.'}
 async function websuche(q,raw){const [w,n]=await Promise.all([safe(async()=>{const d=await (await fetch('https://de.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=3&srsearch='+encodeURIComponent(q))).json();
   const hits=d.query.search;const top=hits[0]?await safe(async()=>(await (await fetch('https://de.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(hits[0].title))).json()).extract):null;
@@ -267,7 +267,7 @@ function local(t){let m;
  if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
  if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• telegram Einkaufsliste: Milch, Brot (schickt es an deinen Telegram-Bot)\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• KI-Stadt → KI-Team-Zentrale: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
 function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
- return g+', Lucas. Heute ist '+new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'. '+(o.length?o.length+(o.length>1?' offene Aufgaben: ':' offene Aufgabe: ')+o.slice(0,3).map(x=>x.t).join(', ')+'.':'Keine offenen Aufgaben.')+' Bilanz diesen Monat: '+eur(mm)+'. Saldo: '+eur(saldo())+'.'}
+ return g+', Lucas. '+(o.length?'Offen: '+o.slice(0,2).map(x=>x.t).join(', ')+(o.length>2?' (+'+(o.length-2)+')':'')+'.':'Nichts offen.')+(mm?' Monat: '+eur(mm)+'.':'')}
 async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),safe(news)]);return [briefBase(),w,k,n].filter(Boolean).join('\n')}
 function say(t){if(!$('#tts').checked||!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/[•⏰*#]/g,''));u.lang='de-DE';u.rate=1.05;
  const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('de')&&/male|Mann|Markus|Yannick|Conrad/i.test(v.name))||speechSynthesis.getVoices().find(v=>v.lang.startsWith('de'));if(v)u.voice=v;
@@ -904,8 +904,8 @@ $('#wkF').onclick=()=>{S.shift.off=(S.shift.off+1)%3;save();dashExtra();alert('R
 
 /* ---------- Einbinden ---------- */
 const _render=render;render=function(){_render();try{fixRender();dashExtra();if($('#dash').classList.contains('on'))ideenLoad()}catch(e){console.log(e)}};
-const _bb=briefBase;briefBase=function(){let t=_bb();try{const P=weekPlan(),r=P.rows[(new Date().getDay()+6)%7];t+=` Heute (${r.shift}): ab ${r.from} ${fmtH(r.h)} ${r.b} – ${r.t}.`;
- const nx=fixHints(3);if(nx.length)t+=' Abbuchungen bald: '+nx.join(', ')+'.';const w=fixWarn();if(w.length)t+=' '+w.join(' ').replace(/⚠ /g,'Achtung: ')+'.'}catch(e){}return t};
+const _bb=briefBase;briefBase=function(){let t=_bb();try{const P=weekPlan(),r=P.rows[(new Date().getDay()+6)%7];t+=` Heute: ${r.b} ${fmtH(r.h)} ab ${r.from}.`;
+ const nx=fixHints(2);if(nx.length)t+=' Abbuchung: '+nx.join(', ')+'.'}catch(e){}return t};
 render();ideenLoad();
 }
 

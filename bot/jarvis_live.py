@@ -6,6 +6,10 @@
 - "Merk dir: …"      -> Langzeit-Gedächtnis (fließt in jede Antwort ein), /gedaechtnis, "Vergiss …"
 - Sprachnachricht    -> wird abgetippt (Groq Whisper) und wie Text behandelt
 - Herzschlag         -> prüft alle 30 Min still Bots/Server und meldet sich nur bei Problemen
+- "Such …"           -> Websuche über eigene SearXNG-Suche auf dem Server (kein Schlüssel nötig)
+- Foto vom Kassenbon -> Händler/Betrag/Kategorie erkannt, in ausgaben.json gespeichert (/ausgaben)
+- "Aufgabe: …"       -> Warteschlange; Jarvis arbeitet sie im Herzschlag selbst ab (Entwürfe, Pläne, Texte) (/aufgaben)
+- 👍/👎 unter Antworten -> Jarvis lernt, was dir gefällt
 - /hilfe             -> Befehle
 Nur Nachrichten aus Lucas' eigenem Chat (TG_CHAT) werden beantwortet.
 Konfiguration: /etc/jarvis/telegram.env (TG_TOKEN, TG_CHAT, optional GROQ_KEY)."""
@@ -18,6 +22,9 @@ GROQ = os.environ.get("GROQ_KEY", "")
 BASE = "/var/lib/jarvis/agents"
 F_IDEEN, F_HIST = f"{BASE}/ideen.json", "/var/lib/jarvis/live-verlauf.json"
 F_ERI, F_MEM, F_HB = "/var/lib/jarvis/erinnerungen.json", "/var/lib/jarvis/gedaechtnis.json", "/var/lib/jarvis/herzschlag.json"
+F_AUS, F_Q, F_LERN = f"{BASE}/ausgaben.json", "/var/lib/jarvis/aufgaben.json", "/var/lib/jarvis/lernen.json"
+SEARX = os.environ.get("SEARX_URL", "http://127.0.0.1:8888")
+VISION = "meta-llama/llama-4-scout-17b-16e-instruct"
 TZ = ZoneInfo("Europe/Berlin")
 PAT = re.compile(r"^\s*(?:💡|/idee(?:@\w+)?|idee)\s*[:\-–]?\s*", re.I)
 SYSTEM = ("Du bist Jarvis, der persönliche Assistent von Lucas. Antworte immer auf Deutsch, kurz und konkret "
@@ -178,11 +185,134 @@ def herzschlag():
     du = shutil.disk_usage("/")
     if du.free / du.total < 0.1:
         probleme["disk"] = f"💾 Festplatte fast voll: nur noch {du.free // 2**30} GB frei."
+    try:
+        aufgabe_abarbeiten()
+    except Exception as e:
+        print("Warteschlange:", e)
     for k, msg in probleme.items():
         if time.time() - hb["gemeldet"].get(k, 0) > 6 * 3600:
             say("💓 Herzschlag: " + msg)
             hb["gemeldet"][k] = time.time()
     store(F_HB, hb)
+
+
+# ---------- Websuche (SearXNG) ----------
+def websuche(frage):
+    url = SEARX + "/search?" + urllib.parse.urlencode({"q": frage, "format": "json", "language": "de"})
+    with urllib.request.urlopen(url, timeout=25) as r:
+        res = json.load(r).get("results", [])[:6]
+    if not res:
+        return say("Dazu habe ich nichts gefunden.")
+    quellen = "\n".join(f"[{i+1}] {x.get('title','')}: {x.get('content','')[:300]} ({x.get('url','')})" for i, x in enumerate(res))
+    ant = ki([{"role": "system", "content": SYSTEM + " Beantworte die Frage NUR mit den Suchergebnissen, nenne Zahlen konkret, markiere Quellen mit [1], [2]. Max. 5 Sätze."},
+              {"role": "user", "content": f"Frage: {frage}\n\nSuchergebnisse:\n{quellen}"}])
+    links = "\n".join(f"[{i+1}] {x.get('url','')}" for i, x in enumerate(res[:3]))
+    say(f"🔎 {ant}\n\n{links}")
+
+
+# ---------- Kassenbon ----------
+def eur(v):
+    return f"{float(v):,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")
+
+def kassenbon(m):
+    if not GROQ:
+        return say("Für Kassenbons brauche ich den Groq-Schlüssel auf dem Server.")
+    fid = m["photo"][-1]["file_id"]
+    path = tg("getFile", file_id=fid)["result"]["file_path"]
+    with urllib.request.urlopen(f"https://api.telegram.org/file/bot{TOKEN}/{path}", timeout=60) as r:
+        import base64
+        b64 = base64.b64encode(r.read()).decode()
+    frage = ('Das ist vermutlich ein Kassenbon oder eine Rechnung. Antworte NUR mit JSON: {"bon": true/false, "haendler": "", "betrag": 0.0, "datum": "YYYY-MM-DD", '
+             '"kategorie": "Lebensmittel|Auto|Haushalt|Freizeit|Business|Gesundheit|Sonstiges", "posten": ["max 5 wichtigste"]}. Betrag = Gesamtsumme in Euro.')
+    j = post_json("https://api.groq.com/openai/v1/chat/completions",
+                  {"model": VISION, "response_format": {"type": "json_object"},
+                   "messages": [{"role": "user", "content": [{"type": "text", "text": frage},
+                                                             {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + b64}}]}]},
+                  {"Authorization": "Bearer " + GROQ})
+    d = json.loads(j["choices"][0]["message"]["content"])
+    if not d.get("bon"):
+        return say("Auf dem Foto erkenne ich keinen Kassenbon. Schick mir gern ein schärferes Bild.")
+    d["zeit"] = datetime.now(TZ).strftime("%Y-%m-%d %H:%M")
+    aus = load(F_AUS, []) + [d]
+    store(F_AUS, aus[-1000:])
+    monat = datetime.now(TZ).strftime("%Y-%m")
+    summe = sum(float(x.get("betrag") or 0) for x in aus if str(x.get("datum", ""))[:7] == monat)
+    betrag = eur(d.get('betrag') or 0)
+    say(f"🧾 {d.get('haendler','?')} · {betrag} · {d.get('kategorie','Sonstiges')} – gespeichert.\nAusgaben diesen Monat: {eur(summe)}")
+
+
+def ausgaben_text():
+    aus = load(F_AUS, [])
+    monat = datetime.now(TZ).strftime("%Y-%m")
+    akt = [x for x in aus if str(x.get("datum", ""))[:7] == monat]
+    if not akt:
+        return "Diesen Monat noch keine Kassenbons. Schick mir einfach ein Foto."
+    kat = {}
+    for x in akt:
+        kat[x.get("kategorie", "Sonstiges")] = kat.get(x.get("kategorie", "Sonstiges"), 0) + float(x.get("betrag") or 0)
+    zeilen = "\n".join(f"• {k}: {eur(v)}" for k, v in sorted(kat.items(), key=lambda a: -a[1]))
+    return f"🧾 Ausgaben {monat} ({len(akt)} Bons): {eur(sum(kat.values()))}\n{zeilen}"
+
+
+# ---------- Aufgaben-Warteschlange ----------
+def aufgabe_neu(text):
+    q = load(F_Q, [])
+    q.append({"id": uuid.uuid4().hex[:5], "text": text[:1000], "status": "bereit", "zeit": datetime.now(TZ).strftime("%Y-%m-%d %H:%M")})
+    store(F_Q, q)
+    say(f"📋 In die Warteschlange gelegt ({sum(1 for x in q if x['status'] == 'bereit')} offen). Ich fange sofort an und schicke dir das Ergebnis.")
+    aufgabe_abarbeiten()
+
+
+def aufgabe_abarbeiten():
+    q = load(F_Q, [])
+    for a in q:
+        if a["status"] == "bereit":
+            a["status"] = "in Arbeit"
+            store(F_Q, q)
+            try:
+                erg = ki([{"role": "system", "content": SYSTEM + gedaechtnis_text() + lern_text() +
+                           " Du arbeitest eine Aufgabe aus der Warteschlange selbstständig ab. Liefere ein fertiges, direkt nutzbares Ergebnis "
+                           "(Entwurf, Plan, Text, Liste). Was du nicht selbst tun darfst (senden, bezahlen, veröffentlichen), bereitest du nur vor und schreibst am Ende „👉 Du musst: …“."},
+                          {"role": "user", "content": a["text"]}])
+                a["status"], a["ergebnis"] = "fertig", erg[:6000]
+                say(f"✅ Aufgabe erledigt: {a['text'][:80]}\n\n{erg}")
+            except Exception as e:
+                a["status"], a["fehler"] = "blockiert", str(e)[:200]
+                say(f"⛔ Aufgabe blockiert: {a['text'][:80]} ({e})")
+            store(F_Q, q[-100:])
+            return
+
+
+def aufgaben_text():
+    q = load(F_Q, [])
+    sym = {"bereit": "⏳", "in Arbeit": "⚙️", "fertig": "✅", "blockiert": "⛔"}
+    offen = [a for a in q if a["status"] != "fertig"] + [a for a in q if a["status"] == "fertig"][-3:]
+    return "\n".join(f"{sym.get(a['status'], '•')} {a['text'][:70]}" for a in offen) or "Keine Aufgaben. Schreib „Aufgabe: …“."
+
+
+# ---------- Lernen aus 👍/👎 ----------
+def lern_text():
+    l = load(F_LERN, [])
+    gut = [x["a"][:120] for x in l if x["ok"]][-5:]
+    schlecht = [x["a"][:120] for x in l if not x["ok"]][-5:]
+    t = ""
+    if gut:
+        t += " Antworten wie diese fand Lucas gut: " + " | ".join(gut) + "."
+    if schlecht:
+        t += " Antworten wie diese fand er schlecht – mach es anders (kürzer/konkreter): " + " | ".join(schlecht) + "."
+    return t
+
+
+def feedback(cb):
+    ok = cb.get("data") == "gut"
+    text = (cb.get("message") or {}).get("text", "")
+    l = load(F_LERN, []) + [{"ok": ok, "a": text[:300]}]
+    store(F_LERN, l[-100:])
+    tg("answerCallbackQuery", callback_query_id=cb["id"], text="Danke, gemerkt 👍" if ok else "Verstanden – mache ich besser 👎")
+    try:
+        tg("editMessageReplyMarkup", chat_id=CHAT, message_id=cb["message"]["message_id"], reply_markup='{"inline_keyboard":[]}')
+    except Exception:
+        pass
 
 
 def status():
@@ -197,6 +327,11 @@ def status():
 
 def handle(m):
     txt = (m.get("text") or m.get("caption") or "").strip()
+    if m.get("photo") and not txt:
+        try:
+            return kassenbon(m)
+        except Exception as e:
+            return say(f"Den Bon konnte ich nicht lesen ({e}).")
     v = m.get("voice") or m.get("audio")
     if v and not txt:
         try:
@@ -210,7 +345,7 @@ def handle(m):
         return say("Ich verstehe bisher nur Text. Schreib mir einfach.")
     low = txt.lower()
     if low.startswith("/start") or low.startswith("/hilfe") or low == "hilfe":
-        return say("Jarvis ist live 🟢\n• Schreib mir einfach – ich antworte sofort\n• „Idee: …“ speichert eine Idee (landet nachts in Obsidian)\n• /status – Server & Bots\n• „Erinnere mich morgen um 7 an …“ · /erinnerungen\n• „Merk dir: …“ · /gedaechtnis · „Vergiss …“\n• Sprachnachrichten gehen auch 🎙")
+        return say("Jarvis ist live 🟢\n• Schreib mir einfach – ich antworte sofort\n• „Idee: …“ speichert eine Idee (landet nachts in Obsidian)\n• /status – Server & Bots\n• „Erinnere mich morgen um 7 an …“ · /erinnerungen\n• „Merk dir: …“ · /gedaechtnis · „Vergiss …“\n• Sprachnachrichten gehen auch 🎙\n• „Such …“ – Websuche\n• Foto vom Kassenbon · /ausgaben\n• „Aufgabe: …“ – ich erledige es selbst · /aufgaben")
     if low.startswith("/status"):
         return say(status())
     if re.match(r"^\s*(?:bitte\s+)?erinnere?\s+mich", low):
@@ -232,6 +367,19 @@ def handle(m):
         neu = [x for x in mem if w not in x.lower()]
         store(F_MEM, neu)
         return say(f"🗑 {len(mem) - len(neu)} Eintrag/Einträge vergessen." if len(neu) != len(mem) else "Dazu habe ich nichts gespeichert.")
+    if low.startswith("/ausgaben"):
+        return say(ausgaben_text())
+    if low.startswith("/aufgaben"):
+        return say(aufgaben_text())
+    m4 = re.match(r"^\s*(?:/aufgabe|aufgabe)\s*[:\-]?\s*(.+)", txt, re.I | re.S)
+    if m4:
+        return aufgabe_neu(m4.group(1).strip())
+    m5 = re.match(r"^\s*(?:/such(?:e)?|such(?:e)?(?:\s+mal)?|google)\s*[:\-]?\s*(.+)", txt, re.I | re.S)
+    if m5:
+        try:
+            return websuche(m5.group(1).strip())
+        except Exception as e:
+            return say(f"Die Suche ist gerade nicht erreichbar ({e}).")
     if PAT.match(txt):
         idee = PAT.sub("", txt, count=1).strip()
         if not idee:
@@ -242,13 +390,14 @@ def handle(m):
         return say("📥 Idee gespeichert – landet heute Nacht in deinem Obsidian (00 Inbox).")
     hist = load(F_HIST, [])[-10:]
     jetzt = datetime.now(TZ).strftime("%A, %d.%m.%Y %H:%M")
-    msgs = [{"role": "system", "content": SYSTEM + f" Jetzt ist {jetzt}." + gedaechtnis_text()}] + hist + [{"role": "user", "content": txt}]
+    msgs = [{"role": "system", "content": SYSTEM + f" Jetzt ist {jetzt}." + gedaechtnis_text() + lern_text()}] + hist + [{"role": "user", "content": txt}]
     try:
         tg("sendChatAction", chat_id=CHAT, action="typing")
         ant = ki(msgs)
     except Exception as e:
         ant = f"Die KI ist gerade nicht erreichbar ({e}). Versuch es gleich nochmal."
-    say(ant)
+    tg("sendMessage", chat_id=CHAT, text=ant[:3900],
+       reply_markup='{"inline_keyboard":[[{"text":"👍","callback_data":"gut"},{"text":"👎","callback_data":"schlecht"}]]}')
     store(F_HIST, (hist + [{"role": "user", "content": txt}, {"role": "assistant", "content": ant}])[-20:])
 
 
@@ -268,9 +417,16 @@ def main():
         try:
             erinnerungen_faellig()
             herzschlag()
-            res = tg("getUpdates", offset=off, timeout=20, allowed_updates='["message"]')
+            res = tg("getUpdates", offset=off, timeout=20, allowed_updates='["message","callback_query"]')
             for u in res.get("result", []):
                 off = u["update_id"] + 1
+                cb = u.get("callback_query")
+                if cb and str((cb.get("message") or {}).get("chat", {}).get("id")) == CHAT:
+                    try:
+                        feedback(cb)
+                    except Exception as e:
+                        print("Feedback:", e)
+                    continue
                 m = u.get("message") or {}
                 if str(m.get("chat", {}).get("id")) == CHAT:
                     try:

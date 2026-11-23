@@ -86,6 +86,23 @@ SVC
 systemctl daemon-reload
 systemctl enable --now jarvis-agents
 
+echo ">> Eigene Websuche (SearXNG, ohne Schlüssel)"
+mkdir -p /etc/searxng
+if [ ! -f /etc/searxng/settings.yml ]; then
+cat > /etc/searxng/settings.yml <<SX
+use_default_settings: true
+server:
+  secret_key: "$(openssl rand -hex 32)"
+  limiter: false
+  image_proxy: false
+search:
+  formats: [html, json]
+  default_lang: de
+SX
+fi
+docker rm -f searxng >/dev/null 2>&1 || true
+docker run -d --name searxng --restart unless-stopped -p 127.0.0.1:8888:8080 -v /etc/searxng:/etc/searxng searxng/searxng:latest >/dev/null
+
 echo ">> Jarvis live (Telegram, rund um die Uhr)"
 if ! grep -q '^TG_TOKEN=' /etc/jarvis/telegram.env && [ -r /dev/tty ]; then
   echo "Telegram-Bot-Token einfügen (steht in GitHub > Settings > Secrets als TG_TOKEN bzw. bei @BotFather), Enter = später:"
