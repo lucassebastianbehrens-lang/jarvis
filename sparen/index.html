@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Was ist günstiger? – Rechner für den Alltag</title>
+<meta name="description" content="Kostenlose Rechner: Laden oder Tanken, was kostet Standby, Wasserkocher oder Herd. Eigene Werte eintragen, sofort Ergebnis in Euro.">
+<style>
+:root{--bg:#0f1628;--card:#18223b;--ln:#2a3756;--tx:#eef2fa;--mut:#9fb0cf;--y:#ffcd3c;--g:#46d98a;--r:#ff6b6b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:38px 18px 10px;text-align:center}h1{margin:0;font-size:34px}h1 span{color:var(--y)}header p{color:var(--mut);margin:8px auto 0;max-width:560px}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:14px}nav a{color:var(--tx);text-decoration:none;background:var(--card);border:1px solid var(--ln);padding:8px 14px;border-radius:999px;font-size:14px}
+main{max-width:720px;margin:0 auto;padding:0 14px 40px}
+section{background:var(--card);border:1px solid var(--ln);border-radius:18px;padding:20px;margin:18px 0}
+h2{margin:0 0 4px;font-size:22px}.sub{color:var(--mut);margin:0 0 14px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label{display:block;font-size:13px;color:var(--mut)}input{width:100%;margin-top:4px;padding:10px;border-radius:10px;border:1px solid var(--ln);background:#0c1324;color:var(--tx);font-size:16px}
+.res{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.box{background:#0c1324;border-radius:14px;padding:14px;text-align:center}
+.box b{display:block;font-size:26px}.win{outline:2px solid var(--g)}.verdict{margin-top:12px;background:var(--y);color:#141414;border-radius:12px;padding:12px;font-weight:700;text-align:center}
+.note{font-size:12px;color:var(--mut);margin-top:10px}footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
+</style></head><body>
+<header><h1>Was ist <span>günstiger?</span></h1><p>Kostenlose Alltags-Rechner. Trag deine eigenen Werte ein – das Ergebnis rechnet sofort in Euro.</p></header>
+<nav><a href="#laden">⚡ Laden vs Tanken</a><a href="#standby">🔌 Standby-Kosten</a><a href="#wasser">🫖 Wasserkocher vs Herd</a></nav>
+<main>
+<section id="laden"><h2>⚡ Laden oder Tanken?</h2><p class="sub">Was kosten 100 km mit E-Auto und mit Benziner/Diesel?</p>
+<div class="grid">
+<label>Strecke pro Jahr (km)<input id="l_km" type="text" inputmode="decimal" value="12000"></label>
+<label>E-Auto Verbrauch (kWh/100 km)<input id="l_ev" type="text" inputmode="decimal" value="17"></label>
+<label>Strompreis (€/kWh)<input id="l_sp" type="text" inputmode="decimal" value="0,35"></label>
+<label>Verbrenner Verbrauch (l/100 km)<input id="l_vb" type="text" inputmode="decimal" value="7"></label>
+<label>Spritpreis (€/l)<input id="l_pp" type="text" inputmode="decimal" value="1,75"></label></div>
+<div class="res"><div class="box" id="l_a">E-Auto<b>–</b></div><div class="box" id="l_b">Verbrenner<b>–</b></div></div><div class="verdict" id="l_v"></div>
+<p class="note">Nur Energiekosten. Steuer, Versicherung, Wartung und Kaufpreis sind nicht enthalten. Werte sind Beispiele – trag deine eigenen ein.</p></section>
+
+<section id="standby"><h2>🔌 Was kostet Standby im Jahr?</h2><p class="sub">Fernseher, Konsole, Router, Ladegeräte … alles, was nie ganz aus ist.</p>
+<div class="grid">
+<label>Anzahl Geräte<input id="s_n" type="text" inputmode="decimal" value="8"></label>
+<label>Standby je Gerät (Watt)<input id="s_w" type="text" inputmode="decimal" value="2"></label>
+<label>Stunden im Standby pro Tag<input id="s_h" type="text" inputmode="decimal" value="20"></label>
+<label>Strompreis (€/kWh)<input id="s_sp" type="text" inputmode="decimal" value="0,35"></label></div>
+<div class="res"><div class="box">Strom pro Jahr<b id="s_kwh">–</b></div><div class="box">Kosten pro Jahr<b id="s_eur">–</b></div></div><div class="verdict" id="s_v"></div>
+<p class="note">Rechnung: Geräte × Watt × Stunden × 365 ÷ 1000 = kWh pro Jahr. Den echten Standby-Wert zeigt ein Strommessgerät.</p></section>
+
+<section id="wasser"><h2>🫖 Wasserkocher oder Herd?</h2><p class="sub">Wie viel Strom braucht es, Wasser zum Kochen zu bringen?</p>
+<div class="grid">
+<label>Wassermenge (Liter)<input id="w_l" type="text" inputmode="decimal" value="1"></label>
+<label>Starttemperatur (°C)<input id="w_t" type="text" inputmode="decimal" value="15"></label>
+<label>Wirkungsgrad Wasserkocher (%)<input id="w_k" type="text" inputmode="decimal" value="85"></label>
+<label>Wirkungsgrad Herd (%)<input id="w_h" type="text" inputmode="decimal" value="60"></label>
+<label>Mal pro Woche<input id="w_x" type="text" inputmode="decimal" value="10"></label>
+<label>Strompreis (€/kWh)<input id="w_sp" type="text" inputmode="decimal" value="0,35"></label></div>
+<div class="res"><div class="box" id="w_a">Wasserkocher<b>–</b></div><div class="box" id="w_b">Herd<b>–</b></div></div><div class="verdict" id="w_v"></div>
+<p class="note">Physik: 4,186 kJ erwärmen 1 Liter um 1 °C. Die Wirkungsgrade sind Richtwerte (Ceran-Herd verliert mehr Wärme; Induktion liegt näher am Wasserkocher).</p></section>
+
+<section id="vorlagen"><h2>📒 Finanz-Vorlagen</h2><p class="sub">Haushaltsbuch, 50/30/20-Planer, Schulden-Schneeball, Spar-Challenge – fertige Tabellen zum Sofort-Loslegen.</p>
+<div class="verdict" style="background:#2a3756;color:var(--tx)">Bald hier erhältlich</div></section>
+</main>
+<footer>Alle Rechner kostenlos, ohne Anmeldung, ohne Tracking. Angaben ohne Gewähr – Beispielwerte bitte durch eigene ersetzen.</footer>
+<script>
+const v=id=>parseFloat(document.getElementById(id).value.replace(',','.'))||0,eur=x=>x.toLocaleString('de-DE',{style:'currency',currency:'EUR'}),
+num=(x,d=1)=>x.toLocaleString('de-DE',{maximumFractionDigits:d}),set=(id,h)=>document.getElementById(id).innerHTML=h;
+function laden(){const a=v('l_ev')*v('l_sp'),b=v('l_vb')*v('l_pp'),j=v('l_km')/100;
+ set('l_a',`E-Auto<b>${eur(a)}</b>pro 100 km · ${eur(a*j)}/Jahr`);set('l_b',`Verbrenner<b>${eur(b)}</b>pro 100 km · ${eur(b*j)}/Jahr`);
+ document.getElementById('l_a').classList.toggle('win',a<b);document.getElementById('l_b').classList.toggle('win',b<a);
+ set('l_v',a===b?'Gleich teuer':`${a<b?'Laden':'Tanken'} ist günstiger: ${eur(Math.abs(b-a)*j)} Ersparnis pro Jahr`)}
+function standby(){const k=v('s_n')*v('s_w')*v('s_h')*365/1000,e=k*v('s_sp');set('s_kwh',num(k)+' kWh');set('s_eur',eur(e));
+ set('s_v',`Ganz ausschalten (Steckerleiste) spart ca. ${eur(e)} pro Jahr`)}
+function wasser(){const kwh=4.186*v('w_l')*Math.max(0,100-v('w_t'))/3600,kk=kwh/(v('w_k')/100||1),hh=kwh/(v('w_h')/100||1),n=v('w_x')*52,p=v('w_sp');
+ set('w_a',`Wasserkocher<b>${num(kk*1000,0)} Wh</b>${eur(kk*p*n)}/Jahr`);set('w_b',`Herd<b>${num(hh*1000,0)} Wh</b>${eur(hh*p*n)}/Jahr`);
+ document.getElementById('w_a').classList.toggle('win',kk<hh);document.getElementById('w_b').classList.toggle('win',hh<kk);
+ set('w_v',kk===hh?'Gleich':`${kk<hh?'Wasserkocher':'Herd'} spart ca. ${eur(Math.abs(hh-kk)*p*n)} pro Jahr`)}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>{laden();standby();wasser()}));laden();standby();wasser();
+</script></body></html>
