@@ -315,6 +315,21 @@ def feedback(cb):
         pass
 
 
+def sprechen(text):
+    """Antwort als Sprachnachricht mit natürlicher Microsoft-Neural-Stimme (edge-tts, kostenlos)."""
+    import tempfile
+    d = tempfile.mkdtemp()
+    t = re.sub(r"https?://\S+", "Link", text)[:1500]
+    subprocess.run(["edge-tts", "--voice", os.environ.get("JARVIS_VOICE", "de-DE-SeraphinaMultilingualNeural"), "--rate", "+5%",
+                    "--text", t, "--write-media", f"{d}/a.mp3"], check=True, timeout=90)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{d}/a.mp3", "-c:a", "libopus", "-b:a", "48k", f"{d}/a.ogg"], check=True, timeout=60)
+    b = "----jv" + uuid.uuid4().hex
+    body = (f"--{b}\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n{CHAT}\r\n--{b}\r\n"
+            f"Content-Disposition: form-data; name=\"voice\"; filename=\"a.ogg\"\r\nContent-Type: audio/ogg\r\n\r\n").encode() + open(f"{d}/a.ogg", "rb").read() + f"\r\n--{b}--\r\n".encode()
+    req = urllib.request.Request(f"https://api.telegram.org/bot{TOKEN}/sendVoice", body, {"Content-Type": "multipart/form-data; boundary=" + b})
+    urllib.request.urlopen(req, timeout=60).read()
+
+
 def status():
     du = shutil.disk_usage("/")
     up = subprocess.run(["uptime", "-p"], capture_output=True, text=True).stdout.strip()
@@ -341,6 +356,7 @@ def handle(m):
         if not txt:
             return say("Sprachnachrichten kann ich erst abtippen, wenn ein Groq-Schlüssel auf dem Server hinterlegt ist." if not GROQ else "Ich konnte die Sprachnachricht nicht verstehen.")
         say("🎙 " + txt)
+        m["_stimme"] = True
     if not txt:
         return say("Ich verstehe bisher nur Text. Schreib mir einfach.")
     low = txt.lower()
@@ -396,6 +412,11 @@ def handle(m):
         ant = ki(msgs)
     except Exception as e:
         ant = f"Die KI ist gerade nicht erreichbar ({e}). Versuch es gleich nochmal."
+    if m.get("_stimme"):
+        try:
+            sprechen(ant)
+        except Exception as e:
+            print("Stimme:", e)
     tg("sendMessage", chat_id=CHAT, text=ant[:3900],
        reply_markup='{"inline_keyboard":[[{"text":"👍","callback_data":"gut"},{"text":"👎","callback_data":"schlecht"}]]}')
     store(F_HIST, (hist + [{"role": "user", "content": txt}, {"role": "assistant", "content": ant}])[-20:])

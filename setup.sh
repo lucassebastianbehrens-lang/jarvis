@@ -7,7 +7,8 @@ export DEBIAN_FRONTEND=noninteractive
 
 echo ">> 1/7 System aktualisieren"
 apt-get update -qq && apt-get upgrade -y -qq
-apt-get install -y -qq curl ufw gpg debian-keyring debian-archive-keyring apt-transport-https openssl python3 tzdata
+apt-get install -y -qq curl ufw gpg debian-keyring debian-archive-keyring apt-transport-https openssl python3 tzdata ffmpeg python3-pip pipx
+pipx install edge-tts >/dev/null 2>&1 && ln -sf /root/.local/bin/edge-tts /usr/local/bin/edge-tts || pip3 install -q --break-system-packages edge-tts
 
 echo ">> 2/7 Docker installieren"
 command -v docker >/dev/null || curl -fsSL https://get.docker.com | sh
