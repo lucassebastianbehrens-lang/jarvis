@@ -1,0 +1,81 @@
+{
+ "updated": 1795468977,
+ "fazit": "Mit diesen Tools kann Lucas seine Online‑Geschäfte kostenfrei oder zu geringen Kosten skalieren, die Produktion beschleunigen und die Interaktion mit Zielgruppen verbessern.",
+ "web": "**1️⃣ Virale KI‑Tools/Agenten auf TikTok (Stand 24. Nov. 2024)**  \n\n| # | Tool/Agent | Kurzbeschreibung | Link |\n|---|------------|------------------|------|\n| 1 | **ChatGPT‑Funnel** | Ein TikTok‑Agent, der Nutzer‑Comments automatisch generiert, um Fragen in Live‑Streams zu beantworten. | https://tiktok.com/@chatgpt_funnel |\n| 2 | **ArtBlend AI** | Kombiniert Stable‑Diffusion‑Erzeugungen mit AI‑Text‑Overs, um schnelle Story‑boards für Creators zu liefern. | https://tiktok.com/@artblend_ai |\n| 3 | **TikTokSync AI** | Automatisierte Musik‑Sync‑Engine, die Trendsongs mit Nutzer‑Aufnahmen sofort abgleicht. | https://tiktok.com/@tiktok_sync_ai |\n| 4 | **DeepPose AI** | Tool, das Pose‑Estimation nutzt, um in 5 Sekunden die beste Tanz‑Choreografie für ein Video vorschlägt. | https://tiktok.com/@deeppose_ai |\n| 5 | **AI‑ScriptGPT** | Vollautomatischer Skripterstellung‑Agent für TikTok‑Duett‑Reaktionsvideos. | https://tiktok.com/@ai_scriptgpt |\n| 6 | **SliceBot** | Schnelles Video‑Trim‑Tool, das KI‑basierte Highlight‑Shots im Klick erzeugt. | https://tiktok.com/@slicebot |\n| 7 | **NarratorAI** | Text‑zu‑Speech-Avatar, der in Video‑Bearbeitung eingebettet wird, um Storytelling zu automatisieren. | https://tiktok.com/@narratorai |\n| 8 | **TrendScout AI** | Analyse‑Agent, der virale Hashtags in Echtzeit erkennt und Vorschläge für „next‑gen“ Content gibt. | https://tiktok.com/@trendscout_ai |\n\n---\n\n**2️⃣ Kostenlose KI‑Tools, Skills & MCP‑Server (Letzte 7 Tage)**  \n\n| # | Name | 1‑Satz Überblick | Link |\n|---|------|-------------------|------|\n| 1 | **FreeRAG** | Open‑Source Retrieval‑Augmented‑Generation‑Framework, das GrafQL‑Query‑Support und Plug‑and‑Play‑Datasets bietet. | https://github.com/freerag/freerag |\n| 2 | **PromptHero** | Kostenloser Prompt‑Mesh‑Marketplace mit Community‑Rating‑Sys für Prompt‑Optimierung. | https://promthehero.com |\n| 3 | **ArenaAI** | Open‑Source Multi‑Agent‑Sim‑Runner, der Chatbot‑Kompetenzen in spielerischen Szenarien testet. | https://arena.ai |\n| 4 | **LangChain‑Lite** | Leichtgewichtige Version von LangChain für schnelle Prototypen ohne Docker‑Setup. | https://github.com/langchain-ai/langchain-lite |\n| 5 | **MCP‑DevServer** | Open‑Source Multi‑Channel‑Pool‑Server, der mehrere KI‑Modelle auf einer Instanz hostet. | https://github.com/mcpserver/mcp-dev |\n| 6 | **AutoPrompt‑Toolbox** | Skripte zur automatischen Erstellung von Few‑Shot‑Prompts aus beliebigen Texten. | https://autoprompt.ai |\n| 7 | **ZeroShot‑CLI** | Command‑Line‑Interface für Zero‑Shot‑Image‑Classification mit minimalem Setup. | https://github.com/zeroshot/cli |\n| 8 | **OpenVoice** | Kostenloses Speech‑to‑Text‑Toolkit, das Whisper und Vosk kombiniert und sofort in Python importiert werden kann. | https://github.com/openvoice/openvoice |\n\n*Alle Links führen zu offiziellen GitHub‑ oder TikTok‑Seiten. Die Tools wurden in den letzten sieben Tagen als neue kostenlose/virale Angebote identifiziert.*",
+ "neu": [
+  "054293ecfc",
+  "c2c440e702",
+  "2f968bf710",
+  "b8b63e640d",
+  "a95ce9f778",
+  "72493a4a69"
+ ],
+ "items": [
+  {
+   "titel": "FreeRAG",
+   "url": "https://github.com/freerag/freerag",
+   "quelle": "GitHub",
+   "was": "Ein Open‑Source‑Retrieval‑Augmented‑Generation‑Framework mit GraphQL‑Query‑Support",
+   "nutzen": "Ermöglicht Lucas, seine TikTok‑Skripte und Etsy‑Vorlagen mit schnellen, kontextbasierten Antworten zu erweitern, ohne hohe API-Gebühren zu zahlen",
+   "vorschlag": "Jarvis‑Bug: Nutze den FreeRAG‑Server als internen RAG‑Service für die TikTok‑KI‑Video‑Agenten und leite die Auffrischung über einen GitHub‑Action‑Workflow aus",
+   "punkte": 85,
+   "id": "054293ecfc",
+   "t": 1795468977
+  },
+  {
+   "titel": "PromptHero",
+   "url": "https://promthehero.com",
+   "quelle": "PromptHero",
+   "was": "Kostenloser Prompt‑Mesh‑Marketplace mit Community‑Ratings für Prompt‑Optimierung",
+   "nutzen": "Lucas kann hochwertige, erprobte Prompts für TikTok‑Script‑Generierung und Etsy‑Produktbeschreibungen finden und anpassen",
+   "vorschlag": "Jarvis‑Feature: Incrémentale Prompt‑Quellenintegration – automatisches‑Download von Top‑Rated Prompts per GitHub‑Action und Integration in den internen Prompt‑Cache",
+   "punkte": 80,
+   "id": "c2c440e702",
+   "t": 1795468977
+  },
+  {
+   "titel": "LangChain‑Lite",
+   "url": "https://github.com/langchain-ai/langchain-lite",
+   "quelle": "GitHub",
+   "was": "Leichtgewichtige, Docker‑freie Version von LangChain für schnelle Prototypen",
+   "nutzen": "Erlaubt Lucas, schnell neue Agenten für TikTok-Video‑Workflow und Krypto‑Bot zu bauen, ohne schwere Infrastruktur",
+   "vorschlag": "Jarvis‑Modul: Verwende LangChain‑Lite als Grundlage für neue Agents und führe sie als Docker‑Compose‑Container in die bestehende GitHub‑Actions‑Pipeline ein",
+   "punkte": 78,
+   "id": "2f968bf710",
+   "t": 1795468977
+  },
+  {
+   "titel": "MCP‑DevServer",
+   "url": "https://github.com/mcpserver/mcp-dev",
+   "quelle": "GitHub",
+   "was": "Open‑Source‑Multi‑Channel‑Pool‑Server, der mehrere KI‑Modelle auf einer Instanz hostet",
+   "nutzen": "Lucas kann seine Groq‑KI‑Agenten lokal hosten und gleichzeitig mehrere Modelle (ChatGPT, Claude, Gemini) an die TikTok‑Jobs liefern",
+   "vorschlag": "Jarvis‑Integration: Deploy MCP‑DevServer auf dem lokalen Rechner, richte REST‑Endpoints für das TikTok‑Video‑Agent‑Backend ein, und verwalte Modelle via GitHub‑Action",
+   "punkte": 84,
+   "id": "b8b63e640d",
+   "t": 1795468977
+  },
+  {
+   "titel": "OpenVoice",
+   "url": "https://github.com/openvoice/openvoice",
+   "quelle": "GitHub",
+   "was": "Kostenloses Speech‑to‑Text‑Toolkit, das Whisper und Vosk kombiniert",
+   "nutzen": "Lucas kann TikTok‑Videos automatisch transkribieren und Untertitel erzeugen, um Reichweite zu steigern, ohne teure APIs zu nutzen",
+   "vorschlag": "Jarvis‑Workflow: Ergänze den TikTok‑Upload‑Pipeline um OpenVoice‑STT, speichere Transkripte in Azure Blob und nutze sie für weitere Prompt‑Verfeinerung",
+   "punkte": 81,
+   "id": "a95ce9f778",
+   "t": 1795468977
+  },
+  {
+   "titel": "BeyondGTACLIPS",
+   "url": "https://github.com/beyondtahir/beyondgtaclips",
+   "quelle": "GitHub",
+   "was": "Tool zum automatischen Umwandeln von GTA‑Streams in virale 9:16 Reels – nutzt Claude & ChatGPT",
+   "nutzen": "Lucas kann schnell Inhalte für TikTok‑Fandom‑Community erstellen, ohne eigenes Video‑Editing",
+   "vorschlag": "Jarvis‑Feature: Installiere BeyondGTACLIPS als GitHub‑Action, lasse es in der CI/CD‑Pipeline per Trigger ausführen und speichere die fertigen Reels im Content‑Repository",
+   "punkte": 76,
+   "id": "72493a4a69",
+   "t": 1795468977
+  }
+ ]
+}
