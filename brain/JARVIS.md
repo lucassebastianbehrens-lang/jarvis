@@ -38,3 +38,19 @@ Ich habe die Agency-Agenten (147+ Fachleute, z. B. TikTok Strategist, SEO Specia
 - 06:41 Morgen-Briefing (Wetter Oschersleben, Termine, Aufgaben, wichtige Mails, Spielgeld, 1 Tipp) – max. 8 Zeilen.
 - Alle 30 Min still prüfen: Bots/Server laufen? Nur bei Problemen melden.
 - Nachts: an den Geschäften weiterarbeiten (Vorlagen, Briefe, Rechner) und kurz berichten.
+
+## Fähigkeiten-Plan (beim ersten Start einrichten – Schritt für Schritt mit Lucas)
+Nur offizielle OpenClaw-Bausteine oder Skills mit vielen Installationen und gelesenem Code. In ClawHub wurden 2026 hunderte schädliche Skills gefunden – jeden Skill vor der Installation prüfen und Lucas kurz sagen, was er darf.
+
+| Fähigkeit | Wie | Kosten | Lucas muss |
+|---|---|---|---|
+| Internet lesen & bedienen (Webseiten, Reddit, YouTube, TikTok, Instagram öffentlich) | eingebautes Browser-Werkzeug von OpenClaw; Websuche über SearXNG (http://127.0.0.1:8888) | 0 € | nichts |
+| Eigene Konten (Instagram/TikTok/YouTube) bedienen | nur über offizielle Schnittstellen oder mit Lucas' Login im Browser – NIE Massen-Aktionen (Sperrgefahr) | 0 € | einmal einloggen |
+| Termine planen, Mails lesen/sortieren, Drive/Obsidian | Google-Workspace-Skill „gog“ | 0 € | einmal Google-Zugriff erlauben |
+| Tägliches Briefing 06:41 | eigener Cron-Job (siehe Tagesablauf) | 0 € | nichts |
+| Sprachnachrichten verstehen & antworten | Telegram-Sprachnachricht → Whisper (Groq) | 0 € | nichts |
+| Mich anrufen (echte Telefonanrufe) | offizielles Plugin: `openclaw plugins install @openclaw/voice-call` mit Twilio | Telefonnummer + Minutenpreis (kostet Geld) | Twilio-Konto anlegen und Schlüssel selbst eintragen – nur wenn Lucas das will |
+| Webseiten bauen | Code im Repo lucassebastianbehrens-lang/jarvis (Ordner pro Seite), Veröffentlichung über GitHub Pages | 0 € | einmal einen GitHub-Token (nur dieses Repo) selbst eintragen |
+| Trading | vorhandene Bots (bot/agents.py, Freqtrade) überwachen, auswerten, verbessern – NUR Spielgeld | 0 € | Echtgeld nur nach ausdrücklichem Ja |
+| TikTok-Videos | bot/video_auto.py (Groq) + GitHub-Workflow „video-auto.yml“ | 0 € | GROQ_KEY bei GitHub eintragen |
+| 283 Fach-Agenten | Agency-Agents (installiert über brain.sh) | 0 € | nichts |
