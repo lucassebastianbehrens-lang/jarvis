@@ -269,9 +269,18 @@ function local(t){let m;
 function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
  return g+', Lucas. '+(o.length?'Offen: '+o.slice(0,2).map(x=>x.t).join(', ')+(o.length>2?' (+'+(o.length-2)+')':'')+'.':'Nichts offen.')+(mm?' Monat: '+eur(mm)+'.':'')}
 async function brief(){const [w,k,n]=await Promise.all([safe(wx),safe(kurse),safe(news)]);return [briefBase(),w,k,n].filter(Boolean).join('\n')}
-function say(t){if(!$('#tts').checked||!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/[•⏰*#]/g,''));u.lang='de-DE';u.rate=1.05;
- const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('de')&&/male|Mann|Markus|Yannick|Conrad/i.test(v.name))||speechSynthesis.getVoices().find(v=>v.lang.startsWith('de'));if(v)u.voice=v;
- u.onstart=()=>$('#core').classList.add('live');u.onend=()=>$('#core').classList.remove('live');speechSynthesis.speak(u)}
+function bestVoice(){const vs=speechSynthesis.getVoices().filter(v=>/^de/i.test(v.lang));if(S.voice){const f=vs.find(v=>v.name===S.voice);if(f)return f}
+ const sc=v=>(/natural|neural|online|wavenet|premium|enhanced|seraphina|florian|katja|conrad|amala|killian/i.test(v.name)?10:0)+(/google/i.test(v.name)?5:0)+(/microsoft/i.test(v.name)?3:0)+(v.localService?0:2);
+ return vs.sort((a,b)=>sc(b)-sc(a))[0]}
+function say(t){if(!$('#tts').checked||!window.speechSynthesis)return;speechSynthesis.cancel();
+ // menschlicher: Sätze einzeln, Zeichen/Links nicht vorlesen, Euro aussprechen; Mikro pausiert, damit Jarvis sich nicht selbst hört
+ const txt=String(t).replace(/https?:\S+/g,'Link').replace(/(\d),(\d\d) ?€/g,'$1 Euro $2').replace(/€/g,' Euro').replace(/[•⏰*#_`>|~]/g,' ').replace(/\p{Extended_Pictographic}/gu,'').replace(/\s+/g,' ').trim().slice(0,1500);
+ if(!txt)return;const ch=[];for(const p of (txt.match(/[^.!?;:]+[.!?;:]*/g)||[txt])){let x=p.trim();while(x.length>180){let i=x.lastIndexOf(',',180);if(i<50)i=x.lastIndexOf(' ',180);if(i<1)i=180;ch.push(x.slice(0,i+1));x=x.slice(i+1).trim()}if(x)ch.push(x)}
+ const v=bestVoice();window.jvSpk=true;try{window.jvStop&&window.jvStop()}catch(e){}$('#core').classList.add('live');let i=0;
+ const done=()=>{window.jvSpk=false;$('#core').classList.remove('live');const f=window.jvAfterSay;window.jvAfterSay=null;if(f)setTimeout(f,250);else if($('#wake')?.checked&&window.jvListen)setTimeout(()=>window.jvListen(false),700)};
+ const next=()=>{if(i>=ch.length)return done();const u=new SpeechSynthesisUtterance(ch[i++]);u.lang='de-DE';u.rate=S.vrate||1;u.pitch=S.vpitch||1;if(v)u.voice=v;
+  let ok=0;const fin=()=>{if(ok)return;ok=1;setTimeout(next,ch[i-1].match(/[.!?]$/)?180:60)};u.onend=fin;u.onerror=fin;setTimeout(fin,1500+u.text.length*110/(u.rate||1));speechSynthesis.speak(u)};
+ next()}
 
 S.tg??={t:'',c:'',team:true};
 const tgApi=async(m,p)=>{const r=await fetch(`https://api.telegram.org/bot${S.tg.t}/${m}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p||{})});const j=await r.json();if(!j.ok)throw Error(j.description||'Telegram-Fehler');return j.result};
@@ -780,15 +789,15 @@ document.querySelector('[data-t=dash]').addEventListener('click',dashRender);
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec,listening=false;
 const vs=t=>$('#vs').textContent=t;
 function ask(t){$('#in').value=t;$('#send').click()}
-function listen(once){if(!SR){vs('Spracherkennung geht nur in Chrome/Edge.');return}
+function listen(once){if(window.jvSpk)return;if(!SR){vs('Spracherkennung geht nur in Chrome/Edge.');return}
  try{rec&&rec.abort()}catch(e){}rec=new SR();rec.lang='de-DE';rec.interimResults=false;rec.continuous=!once;
  rec.onstart=()=>{listening=true;$('#core').classList.add('live');$('#mic').classList.add('rec');vs(once?'Ich höre …':'Warte auf „Hey Jarvis“ …')};
  rec.onresult=e=>{const t=e.results[e.results.length-1][0].transcript.trim();
-  if(once)return ask(t);const m=t.match(/(?:hey |hallo |ok )?jarvis[,.!]?\s*(.*)/i);if(m){beep();m[1]?ask(m[1]):(say('Ja?'),setTimeout(()=>listen(true),900))}};
+  if(once)return ask(t);const m=t.match(/(?:hey |hallo |ok )?jarvis[,.!]?\s*(.*)/i);if(m){beep();m[1]?ask(m[1]):(window.jvAfterSay=()=>listen(true),say('Ja?'))}};
  rec.onerror=e=>{if(e.error==='not-allowed'){$('#wake').checked=S.wake=false;save()}vs(e.error==='not-allowed'?'Mikrofon blockiert – im Browser erlauben (am besten Seite über https öffnen).':'Sprache: '+e.error)};
  rec.onend=()=>{listening=false;$('#core').classList.remove('live');$('#mic').classList.remove('rec');if($('#wake').checked&&!once)setTimeout(()=>listen(false),300);else if($('#wake').checked)setTimeout(()=>listen(false),1500);else vs('')};
  rec.start()}
-$('#mic').onclick=()=>listening?rec.stop():listen(true);$('#core').onclick=()=>listen(true);
+window.jvListen=listen;window.jvStop=()=>{try{rec&&rec.abort()}catch(e){}};$('#mic').onclick=()=>{if(window.jvSpk){speechSynthesis.cancel();window.jvSpk=false}listening?rec.stop():listen(true)};$('#core').onclick=()=>listen(true);
 $('#wake').onchange=()=>{S.wake=$('#wake').checked;save();S.wake?listen(false):rec&&rec.abort()};
 $('#tts').onchange=()=>{S.tts=$('#tts').checked;save()};
 $('#brf').onclick=()=>ask('briefing');
@@ -823,10 +832,19 @@ $('#lkGo').onclick=tryUnlock;$('#lkIn').onkeydown=e=>{if(e.key==='Enter')tryUnlo
 let hidAt=0;document.addEventListener('visibilitychange',()=>{if(document.hidden)hidAt=Date.now();else if(S.pin&&Date.now()-hidAt>5*60e3)lock()});
 lock();
 const cfgH=[...document.querySelectorAll('#cfg h3')].find(h=>h.textContent==='Sicherung');
-cfgH.insertAdjacentHTML('beforebegin',`<h3>App-Sperre</h3><p class="m">PIN beim Öffnen und nach 5 Minuten im Hintergrund. Schützt deine Schlüssel, falls jemand dein Handy in die Hand bekommt.</p>
+cfgH.insertAdjacentHTML('beforebegin',`<h3>Stimme</h3><p class="m">Am natürlichsten klingen Stimmen mit „Natural“, „Online“ oder „Google“ im Namen. Tipp: In Microsoft Edge gibt es kostenlose sehr menschliche Stimmen (z. B. „Seraphina“, „Florian“, „Katja Online (Natural)“).</p>
+<div class="row"><select id="vSel"></select><button class="s" id="vTest">▶ Probe</button></div>
+<div class="row"><label style="flex:1;text-transform:none">Tempo <input type="range" id="vRate" min="0.8" max="1.25" step="0.05"></label><label style="flex:1;text-transform:none">Tonhöhe <input type="range" id="vPitch" min="0.8" max="1.2" step="0.05"></label></div>
+<h3>App-Sperre</h3><p class="m">PIN beim Öffnen und nach 5 Minuten im Hintergrund. Schützt deine Schlüssel, falls jemand dein Handy in die Hand bekommt.</p>
 <div class="row"><input id="pinA" type="password" inputmode="numeric" maxlength="8" placeholder="Neue PIN (4–8 Ziffern)"><input id="pinB" type="password" inputmode="numeric" maxlength="8" placeholder="PIN wiederholen"></div>
 <div class="row"><button class="p" id="pinS">PIN setzen</button><button id="pinX">PIN entfernen</button><button id="pinL">Jetzt sperren</button></div><div class="m" id="pinR"></div>`);
 const pinMsg=t=>$('#pinR').textContent=t;
+const vFill=()=>{if(!window.speechSynthesis)return;const vs=speechSynthesis.getVoices().filter(v=>/^de/i.test(v.lang)),cur=bestVoice();
+ $('#vSel').innerHTML=vs.map(v=>`<option ${cur&&v.name===cur.name?'selected':''}>${esc(v.name)}</option>`).join('')||'<option>Keine deutsche Stimme gefunden</option>'};
+if(window.speechSynthesis){vFill();speechSynthesis.addEventListener('voiceschanged',vFill)}
+$('#vRate').value=S.vrate||1;$('#vPitch').value=S.vpitch||1;
+$('#vSel').onchange=()=>{S.voice=$('#vSel').value;save()};$('#vRate').oninput=()=>{S.vrate=+$('#vRate').value;save()};$('#vPitch').oninput=()=>{S.vpitch=+$('#vPitch').value;save()};
+$('#vTest').onclick=()=>{const t=$('#tts').checked;$('#tts').checked=true;say('Hallo Lucas. So klinge ich jetzt. Heute sind es drei offene Aufgaben, und dein Spielgeld liegt bei 1.024,50 €.');$('#tts').checked=t};
 $('#pinS').onclick=async()=>{const a=$('#pinA').value,b=$('#pinB').value;if(!/^\d{4,8}$/.test(a))return pinMsg('Bitte 4–8 Ziffern.');if(a!==b)return pinMsg('Die PINs sind nicht gleich.');S.pin=await sha(a);save();$('#pinA').value=$('#pinB').value='';pinMsg('PIN gesetzt ✓')};
 $('#pinX').onclick=async()=>{if(!S.pin)return pinMsg('Keine PIN gesetzt.');const v=prompt('Aktuelle PIN zum Entfernen:');if(v&&await sha(v)===S.pin){delete S.pin;save();pinMsg('PIN entfernt.')}else pinMsg('Falsche PIN.')};
 $('#pinL').onclick=()=>S.pin?lock():pinMsg('Erst eine PIN setzen.');
