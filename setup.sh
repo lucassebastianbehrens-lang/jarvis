@@ -86,6 +86,48 @@ SVC
 systemctl daemon-reload
 systemctl enable --now jarvis-agents
 
+echo ">> Jarvis live (Telegram, rund um die Uhr)"
+if ! grep -q '^TG_TOKEN=' /etc/jarvis/telegram.env && [ -r /dev/tty ]; then
+  echo "Telegram-Bot-Token einfügen (steht in GitHub > Settings > Secrets als TG_TOKEN bzw. bei @BotFather), Enter = später:"
+  read -r T </dev/tty || T=""
+  if [ -n "$T" ]; then
+    echo "Deine Telegram-Chat-ID (Zahl, Jarvis-App > Einstellungen > Telegram):"; read -r C </dev/tty || C=""
+    echo "Groq-API-Schlüssel (optional, Enter = ohne):"; read -r G </dev/tty || G=""
+    { echo "TG_TOKEN=$T"; echo "TG_CHAT=$C"; [ -n "$G" ] && echo "GROQ_KEY=$G"; } >> /etc/jarvis/telegram.env
+  fi
+fi
+curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/bot/jarvis_live.py -o /opt/jarvis/jarvis_live.py
+cat > /etc/systemd/system/jarvis-live.service <<'SVC'
+[Unit]
+Description=Jarvis live (Telegram)
+After=network-online.target
+[Service]
+EnvironmentFile=-/etc/jarvis/telegram.env
+ExecStart=/usr/bin/python3 /opt/jarvis/jarvis_live.py
+Restart=always
+RestartSec=10
+UMask=0022
+[Install]
+WantedBy=multi-user.target
+SVC
+sed -i 's#^ExecStart=/usr/bin/python3 /opt/jarvis/agents.py#EnvironmentFile=-/etc/jarvis/telegram.env\nExecStart=/usr/bin/python3 /opt/jarvis/agents.py#' /etc/systemd/system/jarvis-agents.service
+cat > /usr/local/bin/jarvis-update <<'UPD'
+#!/usr/bin/env bash
+# holt neue Versionen von GitHub und startet nur bei Änderungen neu
+R=https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/bot
+for f in agents.py:jarvis-agents jarvis_live.py:jarvis-live; do
+  n=${f%%:*}; s=${f##*:}
+  curl -fsSL "$R/$n" -o "/tmp/$n" && python3 -m py_compile "/tmp/$n" && ! cmp -s "/tmp/$n" "/opt/jarvis/$n" && cp "/tmp/$n" "/opt/jarvis/$n" && systemctl restart "$s"
+done
+exit 0
+UPD
+chmod 755 /usr/local/bin/jarvis-update
+echo '*/30 * * * * root /usr/local/bin/jarvis-update >/dev/null 2>&1' > /etc/cron.d/jarvis-update
+echo '17 4 * * 0 root apt-get update -qq && apt-get upgrade -y -qq >/dev/null 2>&1' > /etc/cron.d/jarvis-system
+systemctl daemon-reload
+systemctl enable --now jarvis-live
+systemctl restart jarvis-agents
+
 echo ">> 7/7 https-Adresse einrichten"
 cat > /etc/caddy/Caddyfile <<CADDY
 $DOMAIN {
@@ -116,4 +158,5 @@ echo "Beide Bots laufen im TEST-Modus mit je 1.000 EUR Spielgeld:"
 echo " - Freqtrade (20 große Kryptos in EUR)"
 echo " - Agenten-Bot (Solana-Memecoins, alle 15 Sekunden)"
 echo "Agenten-Log ansehen: journalctl -u jarvis-agents -f"
+echo "Jarvis live: schreib deinem Telegram-Bot /status"
 echo "Zugang später nochmal anzeigen: cat /root/jarvis-bot-zugang.txt"
