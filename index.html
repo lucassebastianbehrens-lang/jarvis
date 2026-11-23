@@ -199,7 +199,7 @@ input[type=text],input[type=password],select,textarea.f{width:100%;background:va
 
 <dialog id="dlgCfg">
   <div class="row" style="justify-content:space-between"><h2>Einstellungen</h2><button class="x" data-close aria-label="Schließen">✕</button></div>
-  <p class="muted small">Alles bleibt nur auf diesem Gerät gespeichert. Ohne Schlüssel antwortet Jarvis trotzdem (langsamer, ohne Websuche).</p>
+  <p class="muted small">Alles bleibt nur auf diesem Gerät gespeichert. Der Groq-Schlüssel ist Jarvis’ Denkmotor – ohne ihn kann er nicht antworten.</p>
   <label for="cGroq">Groq-Schlüssel (kostenlos: schnell, Websuche, Spracherkennung) – <a href="https://console.groq.com/keys" target="_blank" rel="noopener">hier holen</a></label>
   <input type="password" id="cGroq" autocomplete="off" placeholder="gsk_…">
   <label for="cGh">GitHub-Token (damit Jarvis Bots starten, Aufträge anlegen und das Gedächtnis sichern kann) – <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">hier anlegen</a></label>
@@ -505,7 +505,7 @@ $("#cTest").onclick=()=>{cfg.voice=$("#cVoice").value;speak("Guten Abend Lucas. 
 (function greet(){
   const h=new Date().getHours(),g=h<11?"Guten Morgen":h<18?"Hallo":"Guten Abend";
   for(const m of hist.slice(-6))bubble(m.role==="user"?"me":"ai",m.role==="user"?esc(m.content):fmt(m.content));
-  if(!hist.length)bubble("ai",`${g} Lucas. Ich bin Jarvis. Frag mich alles – ich recherchiere im Netz, plane Projekte, merke mir, was dir wichtig ist, und schicke meine Bots los.${cfg.groq?"":"\n\nTipp: Mit einem kostenlosen Groq-Schlüssel (⚙️) werde ich schneller und kann im Internet suchen."}`);
+  if(!hist.length)bubble("ai",`${g} Lucas. Ich bin Jarvis. Frag mich alles – ich recherchiere im Netz, plane Projekte, merke mir, was dir wichtig ist, und schicke meine Bots los.${cfg.groq?"":"\n\nEinmalig nötig: Trag in ⚙️ deinen kostenlosen Groq-Schlüssel ein – das ist mein Denkmotor."}`);
 })();
 if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 pullBrain().then(renderBrain);loadAll();
