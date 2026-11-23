@@ -1,0 +1,70 @@
+name: Jarvis macht TikTok-Videos selbst
+# Täglich: Groq-KI schreibt die Folge, GitHub rendert, Jarvis prüft automatisch und schickt das Video per Telegram.
+# Die Claude-Aufgaben laden danach nur noch hoch (spart Claude-Nutzung). Braucht das Secret GROQ_KEY.
+on:
+  schedule:
+    - cron: "5 8 * * *"    # 09:05 Berlin: Simulation
+    - cron: "20 9 * * *"   # 10:20 Berlin: Früchte-Serie
+  workflow_dispatch:
+    inputs:
+      modus:
+        description: "sim oder tt"
+        default: "sim"
+permissions:
+  contents: write
+concurrency:
+  group: video-auto
+  cancel-in-progress: false
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GROQ_KEY: ${{ secrets.GROQ_KEY }}
+      TG_TOKEN: ${{ secrets.TG_TOKEN }}
+      TG_CHAT: ${{ secrets.TG_CHAT }}
+      MODUS: ${{ inputs.modus || (github.event.schedule == '5 8 * * *' && 'sim' || 'tt') }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Schlüssel vorhanden?
+        id: key
+        run: if [ -z "$GROQ_KEY" ]; then echo "GROQ_KEY fehlt – übersprungen"; echo "ok=0" >> $GITHUB_OUTPUT; else echo "ok=1" >> $GITHUB_OUTPUT; fi
+      - if: steps.key.outputs.ok == '1'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core && pip install -q edge-tts pillow cairosvg
+      - name: Folge schreiben (Groq)
+        if: steps.key.outputs.ok == '1'
+        id: spec
+        run: python3 bot/video_auto.py "$MODUS"
+      - name: Rendern
+        if: steps.key.outputs.ok == '1'
+        run: python3 video/$MODUS.py ${{ steps.spec.outputs.spec }}
+      - name: Qualitätsprüfung
+        if: steps.key.outputs.ok == '1'
+        id: check
+        run: |
+          ID=$(basename ${{ steps.spec.outputs.spec }} .json)
+          echo "id=$ID" >> $GITHUB_OUTPUT
+          if [ "$MODUS" = sim ]; then python3 bot/video_check.py video/out/$ID.mp4 18 70; else python3 bot/video_check.py video/out/$ID.mp4 40 120; fi
+      - name: Speichern + Release
+        if: steps.key.outputs.ok == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
+          git add video/sim video/tt && git commit -qm "Jarvis: neue Folge ${{ steps.check.outputs.id }} (selbst geschrieben)" || true
+          for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+          TAG="jarvis-video-$(date +%Y%m%d)-$MODUS"
+          cd video/out; shopt -s nullglob; F=(*.mp4 *.jpg *.txt)
+          gh release create "$TAG" "${F[@]}" --title "Jarvis-Video $MODUS $(date +%d.%m.%Y)" --notes "Von Jarvis selbst geschrieben, gerendert und geprüft: ${{ steps.check.outputs.id }}"
+          echo "URL=$(gh release view "$TAG" --json assets -q '.assets[]|select(.name|endswith(".mp4")).url' 2>/dev/null)" >> $GITHUB_ENV
+      - name: Telegram
+        if: always() && steps.key.outputs.ok == '1'
+        run: |
+          ID="${{ steps.check.outputs.id }}"
+          if [ "${{ steps.check.outcome }}" = success ] && [ -f "video/out/$ID.mp4" ]; then
+            CAP=$(head -c 900 "video/out/$ID.txt" 2>/dev/null || echo "$ID")
+            curl -s -F chat_id="$TG_CHAT" -F video=@"video/out/$ID.mp4" --form-string caption="🎬 Jarvis hat selbst gemacht: $ID ✅ geprüft
+          $CAP" "https://api.telegram.org/bot$TG_TOKEN/sendVideo" >/dev/null || true
+          else
+            curl -s --form-string chat_id="$TG_CHAT" --form-string text="⚠️ Jarvis-Video ($MODUS) heute nicht geschafft – Claude übernimmt." "https://api.telegram.org/bot$TG_TOKEN/sendMessage" >/dev/null || true
+          fi
