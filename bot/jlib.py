@@ -63,7 +63,7 @@ def wf_file(run):
 
 
 def ki(system, user, search=False, json_mode=False):
-    """KI-Antwort: Groq (mit Websuche über groq/compound), sonst Pollinations ohne Schlüssel."""
+    """KI-Antwort über Groq (mit Websuche über groq/compound). Ohne GROQ_KEY: leerer Text."""
     msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
     if GROQ:
         models = ["groq/compound", "groq/compound-mini"] if search else ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"]
@@ -77,12 +77,7 @@ def ki(system, user, search=False, json_mode=False):
                 return j["choices"][0]["message"]["content"].strip()
             except Exception as e:
                 print("Groq", m, e)
-    try:
-        j = http("https://text.pollinations.ai/openai", {"model": "openai", "messages": msgs}, timeout=150)
-        return j["choices"][0]["message"]["content"].strip()
-    except Exception as e:
-        print("Pollinations", e)
-        return ""
+    return ""  # ohne GROQ_KEY keine KI (Pollinations verlangt inzwischen Bezahlung und erfindet Links)
 
 
 def parse_json(text):
