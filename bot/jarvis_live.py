@@ -91,7 +91,7 @@ def parse_zeit(txt):
     m = re.search(r"in (\d+|\w+)\s*(min(?:uten|ute)?|std|stunden?|h|tag(?:en|e)?)\b", t)
     if m:
         n = float(m.group(1)) if m.group(1).isdigit() else WORT.get(m.group(1))
-        if n:
+        if n is not None:
             e = m.group(2)
             d = timedelta(minutes=n) if e.startswith("min") else timedelta(days=n) if e.startswith("tag") else timedelta(hours=n)
             return now + d, txt[:m.start()] + txt[m.end():]

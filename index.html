@@ -264,7 +264,7 @@ function local(t){let m;
  if(m=t.match(/^(?:timer|erinnere mich in)\s+(\d+)\s*(?:min\w*)?\s*(?:an\s+)?(.*)$/i)){const n=+m[1],w=m[2]||'Timer';try{Notification?.permission==='default'&&Notification.requestPermission()}catch(e){};setTimeout(()=>{beep();push('⏰ '+w);say('Lucas, Erinnerung: '+w);S.chat.push({role:'assistant',content:'⏰ '+w});save();render()},n*6e4);return 'Timer gestellt: '+n+' Min – '+w}
  if(/^(briefing|status|guten morgen)$/i.test(t))return brief();
  if(/^(trading|bot)( status)?$/i.test(t)){const b=S.botLast;return b?'Bot '+b.state+' im '+b.mode+'-Modus. Gewinn gesamt '+b.profit+', '+b.open+' offene Trades.':'Bot noch nicht verbunden – Trading-Tab öffnen.'}
- if(/^(uhrzeit|wie spät)/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
+ if(/^(uhrzeit|wie spät)/i.test(t)&&!/\sin\s/i.test(t))return 'Es ist '+new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr.';
  if(/^hilfe$/i.test(t))return 'Ohne KI (0 Tokens):\n• ausgabe 12,50 tanken / einnahme 500 lohn / saldo\n• aufgabe Reifen wechseln / aufgaben\n• timer 10 nudeln / erinnere mich in 30 min an Wäsche\n• briefing / uhrzeit / bot status\n• telegram Einkaufsliste: Milch, Brot (schickt es an deinen Telegram-Bot)\n• wetter / kurse / nachrichten / stadt Oschersleben\n• merke dir … / was weißt du / vergiss …\n• suche … (Wikipedia + Tagesschau) / öffne https://…\n• bild ein roter BMW E46 bei Nacht\n• 📎 Bild/Video: Jarvis schaut es sich an\n• KI-Stadt → KI-Team-Zentrale: Bots mit eigener Aufgabe, Gedächtnis und Zeitplan\nSprache: 🎙 oder „Hey Jarvis …“. Alles andere beantwortet die KI.'}
 function briefBase(){const h=new Date().getHours(),g=h<11?'Guten Morgen':h<18?'Hallo':'Guten Abend',o=S.todo.filter(x=>!x.ok),mo=today().slice(0,7),mm=S.fin.filter(x=>x.d.startsWith(mo)).reduce((a,x)=>a+x.v,0);
  return g+', Lucas. '+(o.length?'Offen: '+o.slice(0,2).map(x=>x.t).join(', ')+(o.length>2?' (+'+(o.length-2)+')':'')+'.':'Nichts offen.')+(mm?' Monat: '+eur(mm)+'.':'')}
@@ -381,7 +381,7 @@ async function paperLoad(){try{const r=await fetch(PAPER+'?t='+Date.now());if(!r
 
 let AV=true,AP=null;
 const agoT=t=>new Date(t*1e3).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-function achart(){const g=$('#achart');if(!AP||!g.clientWidth)return;const W=g.clientWidth,H=g.clientHeight,E=AP.equity.length>1?AP.equity:[[AP.started,AP.start],[AP.updated,AP.value]];
+function achart(){const g=$('#achart');if(!AP||!g.clientWidth)return;const W=g.clientWidth,H=g.clientHeight,E=(AP.equity||[]).length>1?AP.equity:[[AP.started,AP.start],[AP.updated,AP.value]];
  const xs=E.map(e=>e[0]),ys=E.map(e=>e[1]),x0=Math.min(...xs),x1=Math.max(...xs)||x0+1,y0=Math.min(...ys,AP.start),y1=Math.max(...ys,AP.start),dy=(y1-y0)||1;
  const X=t=>(t-x0)/((x1-x0)||1)*(W-8)+4,Y=v=>H-6-(v-y0)/dy*(H-16),c=AP.value>=AP.start?'#5fe39a':'#ff2a2a';
  const d=E.map((e,i)=>(i?'L':'M')+X(e[0]).toFixed(1)+','+Y(e[1]).toFixed(1)).join('');

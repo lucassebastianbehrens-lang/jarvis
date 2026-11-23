@@ -7,7 +7,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 echo ">> 1/7 System aktualisieren"
 apt-get update -qq && apt-get upgrade -y -qq
-apt-get install -y -qq curl ufw gpg debian-keyring debian-archive-keyring apt-transport-https openssl
+apt-get install -y -qq curl ufw gpg debian-keyring debian-archive-keyring apt-transport-https openssl python3 tzdata
 
 echo ">> 2/7 Docker installieren"
 command -v docker >/dev/null || curl -fsSL https://get.docker.com | sh
@@ -69,7 +69,7 @@ echo ">> 6/7 Agenten-Bot (Memecoins, Spielgeld) einrichten"
 mkdir -p /opt/jarvis /var/lib/jarvis/agents /etc/jarvis
 [ -f /etc/jarvis/telegram.env ] || printf '# Telegram-Benachrichtigungen (optional)\n# TG_TOKEN=123456:ABC...\n# TG_CHAT=123456789\n' > /etc/jarvis/telegram.env
 chmod 600 /etc/jarvis/telegram.env
-curl -fsSL https://lucassebastianbehrens-lang.github.io/jarvis/bot/agents.py -o /opt/jarvis/agents.py
+curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/bot/agents.py -o /opt/jarvis/agents.py
 chmod 755 /var/lib/jarvis /var/lib/jarvis/agents
 cat > /etc/systemd/system/jarvis-agents.service <<'SVC'
 [Unit]
@@ -110,7 +110,7 @@ if ! grep -q '^TG_TOKEN=' /etc/jarvis/telegram.env && [ -r /dev/tty ]; then
   if [ -n "$T" ]; then
     echo "Deine Telegram-Chat-ID (Zahl, Jarvis-App > Einstellungen > Telegram):"; read -r C </dev/tty || C=""
     echo "Groq-API-Schlüssel (optional, Enter = ohne):"; read -r G </dev/tty || G=""
-    { echo "TG_TOKEN=$T"; echo "TG_CHAT=$C"; [ -n "$G" ] && echo "GROQ_KEY=$G"; } >> /etc/jarvis/telegram.env
+    { echo "TG_TOKEN=$T"; echo "TG_CHAT=$C"; if [ -n "$G" ]; then echo "GROQ_KEY=$G"; fi; } >> /etc/jarvis/telegram.env
   fi
 fi
 curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/bot/jarvis_live.py -o /opt/jarvis/jarvis_live.py
