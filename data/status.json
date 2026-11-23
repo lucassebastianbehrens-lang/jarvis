@@ -1,0 +1,74 @@
+{
+ "updated": 1795468784,
+ "ok": true,
+ "checks": [
+  {
+   "name": "Trader Toni",
+   "ok": true,
+   "info": "ok · vor 4 Min"
+  },
+  {
+   "name": "Meme-Makler Max",
+   "ok": true,
+   "info": "läuft gerade"
+  },
+  {
+   "name": "Forscherin Frieda",
+   "ok": true,
+   "info": "wartet auf den nächsten Einsatz"
+  },
+  {
+   "name": "Butler Bruno",
+   "ok": true,
+   "info": "wartet auf den nächsten Einsatz"
+  },
+  {
+   "name": "Scout Sam",
+   "ok": true,
+   "info": "ok · vor 5 h"
+  },
+  {
+   "name": "Postbote Paul",
+   "ok": true,
+   "info": "ok · vor 2 h"
+  },
+  {
+   "name": "Regisseurin Rita",
+   "ok": true,
+   "info": "ok · vor 7 h"
+  },
+  {
+   "name": "YouTuber Yannik",
+   "ok": true,
+   "info": "ok · vor 12 h"
+  },
+  {
+   "name": "Baumeister Bob",
+   "ok": true,
+   "info": "ok · vor 3 Min"
+  },
+  {
+   "name": "Funker Fritz",
+   "ok": true,
+   "info": "ok · vor 16 h"
+  },
+  {
+   "name": "Spielgeld-Daten",
+   "ok": true,
+   "info": "zuletzt vor 3 Min aktualisiert"
+  },
+  {
+   "name": "Jarvis-App online",
+   "ok": true,
+   "info": "erreichbar"
+  }
+ ],
+ "repariert": [],
+ "verlauf": [
+  {
+   "t": 1795468784,
+   "ok": 12,
+   "n": 12
+  }
+ ]
+}
