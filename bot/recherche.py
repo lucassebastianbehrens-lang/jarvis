@@ -29,6 +29,7 @@ try:
 except Exception as e:
     print("HN", e)
 
+roh = list({r["url"]: r for r in roh}.values())
 web = ki("Du bist ein Trend-Scout. Antworte auf Deutsch, knapp, mit Quellen-Links.",
          "Recherchiere im Web (Stand heute): 1) welche neuen KI-Tools, KI-Agenten oder Automatisierungen gerade auf "
          "TikTok viral gehen, 2) neue kostenlose KI-Tools/Skills/MCP-Server der letzten 7 Tage. "
@@ -47,9 +48,10 @@ try:
 except Exception as e:
     print("KI-Auswertung", e)
     res = {"items": [{"titel": r["titel"], "url": r["url"], "quelle": r["quelle"], "was": r["text"], "nutzen": "",
-                      "vorschlag": "", "punkte": 50} for r in sorted(roh, key=lambda x: -x["score"])[:6]], "fazit": ""}
+                      "vorschlag": "", "punkte": None} for r in sorted(roh, key=lambda x: -x["score"])[:6]], "fazit": ""}
 
 alt = load("recherche.json", {"items": []})
+alt["items"] = [i for i in alt["items"] if i.get("nutzen")]  # Rohfunde ohne KI-Bewertung nicht behalten
 bekannt = {i["id"] for i in alt["items"]}
 neu = []
 for i in res.get("items", []):
