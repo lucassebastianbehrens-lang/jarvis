@@ -647,7 +647,7 @@ const AUFTR='https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis
 S.auftr??={st:{}};S.auftr.own??=[];S.auftr.ed??={};var AU=null;
 // Auftragstext eingefügt → KI startet automatisch (2 s Zeit, um Link/Preis/Kunde noch zu ergänzen)
 setTimeout(()=>{const t=$('#auTxt');if(t)t.addEventListener('paste',()=>{clearTimeout(auAutoT);$('#auOwnMsg').textContent='Eingefügt – das KI-Team startet gleich automatisch …';auAutoT=setTimeout(()=>{if($('#auTxt').value.trim().length>=15)$('#auMake').click()},2500)})},0);
-const auAll=()=>[...S.auftr.own,...(AU&&Array.isArray(AU.auftraege)?AU.auftraege:[])];
+const auAll=()=>[...S.auftr.own,...(AU&&Array.isArray(AU.auftraege)?AU.auftraege.filter(a=>!a.aussortiert):[])];
 const auTxt=(a,k)=>k==='ergebnis'?(S.auftr.ed[a.id]??a.ergebnis??''):(a[k]||'');
 function auSt(a){return S.auftr.st[a.id]||'neu'}
 function auOpen(){return auAll().filter(a=>auSt(a)==='neu').length}
