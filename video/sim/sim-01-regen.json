@@ -1,21 +1,67 @@
 {
   "id": "sim-01-regen",
-  "titel": ["RENNEN", "GEHEN"],
-  "frage": ["Wer wird im Regen", "WENIGER NASS?"],
-  "a": {"name": "RENNEN", "kmh": 18, "rennt": true},
-  "b": {"name": "GEHEN", "kmh": 5},
-  "modell": {"distanz_m": 100, "tropfen_pro_m3": 500, "fallgeschw_ms": 9,
-             "flaeche_oben_m2": 0.1, "flaeche_vorne_m2": 0.7},
+  "titel": [
+    "RENNEN",
+    "GEHEN"
+  ],
+  "frage": [
+    "Wer wird im Regen",
+    "WENIGER NASS?"
+  ],
+  "a": {
+    "name": "RENNEN",
+    "kmh": 18,
+    "rennt": true
+  },
+  "b": {
+    "name": "GEHEN",
+    "kmh": 5
+  },
+  "modell": {
+    "distanz_m": 100,
+    "tropfen_pro_m3": 500,
+    "fallgeschw_ms": 9,
+    "flaeche_oben_m2": 0.1,
+    "flaeche_vorne_m2": 0.7
+  },
   "lines": [
-    {"phase": "intro", "t": "Rennen oder gehen: Wer wird im Regen weniger nass?"},
-    {"phase": "intro", "t": "Zwei Leute, hundert Meter, genau gleicher Regen."},
-    {"phase": "race", "t": "Oben rennt einer mit achtzehn Kilometern pro Stunde, unten geht einer gemütlich mit fünf."},
-    {"phase": "race", "t": "Von vorne laufen beide in gleich viele Tropfen hinein, egal wie schnell sie sind."},
-    {"phase": "race", "t": "Aber von oben regnet es, solange du draußen bist. Und der Geher ist viel länger draußen."},
-    {"phase": "race", "t": "Der Läufer ist nach zwanzig Sekunden im Trockenen, der Geher braucht über eine Minute."},
-    {"phase": "result", "t": "Ergebnis: Wer rennt, wird ungefähr ein Drittel weniger nass. Rennen lohnt sich also."}
+    {
+      "phase": "intro",
+      "t": "Rennen oder gehen: Wer wird im Regen weniger nass?"
+    },
+    {
+      "phase": "intro",
+      "t": "Zwei Leute, hundert Meter, genau gleicher Regen."
+    },
+    {
+      "phase": "race",
+      "t": "Oben rennt einer mit achtzehn Kilometern pro Stunde, unten geht einer gemütlich mit fünf."
+    },
+    {
+      "phase": "race",
+      "t": "Von vorne laufen beide in gleich viele Tropfen hinein, egal wie schnell sie sind."
+    },
+    {
+      "phase": "race",
+      "t": "Aber von oben regnet es, solange du draußen bist. Und der Geher ist viel länger draußen."
+    },
+    {
+      "phase": "race",
+      "t": "Der Läufer ist nach zwanzig Sekunden im Trockenen, der Geher braucht über eine Minute."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Wer rennt, wird ungefähr ein Drittel weniger nass. Rennen lohnt sich also."
+    }
   ],
   "caption": "Rennen oder gehen – wer wird im Regen weniger nass? 🌧️ Die Simulation zeigt es.",
-  "hashtags": ["#simulation", "#wusstestdu", "#regen", "#physik", "#lernenmittiktok"],
-  "quelle": "Vereinfachtes Physik-Modell: Nässe = Tropfendichte × (Fläche oben × Fallgeschwindigkeit × Zeit + Fläche vorne × Strecke)."
+  "hashtags": [
+    "#simulation",
+    "#wusstestdu",
+    "#regen",
+    "#physik",
+    "#lernenmittiktok"
+  ],
+  "quelle": "Vereinfachtes Physik-Modell: Nässe = Tropfendichte × (Fläche oben × Fallgeschwindigkeit × Zeit + Fläche vorne × Strecke).",
+  "ergebnis": "{p} % weniger nass"
 }

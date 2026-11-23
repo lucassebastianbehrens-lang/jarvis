@@ -12,6 +12,30 @@ BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 BG, GRID, WHITE, YEL = (12, 20, 38), (32, 46, 74), (240, 244, 250), (255, 205, 60)
 RAIN = (120, 160, 210)
 F = {s: ImageFont.truetype(BOLD, s) for s in (30, 36, 44, 52, 64, 80, 96)}
+# Jede Folge klingt und sieht etwas anders aus (keine 1:1-Kopien -> kein „unoriginal“-Filter)
+VOICES = ["de-DE-ConradNeural", "de-DE-KillianNeural", "de-DE-FlorianMultilingualNeural",
+          "de-DE-SeraphinaMultilingualNeural", "de-DE-AmalaNeural", "de-DE-KatjaNeural"]
+THEMES = [((12, 20, 38), (32, 46, 74)), ((24, 14, 36), (54, 36, 78)), ((10, 28, 30), (28, 62, 66)),
+          ((30, 22, 14), (70, 52, 34)), ((16, 16, 20), (44, 44, 56))]
+PAIRS = [((240, 70, 70), (70, 215, 130)), ((255, 140, 40), (70, 160, 255)), ((230, 80, 200), (90, 220, 220)),
+         ((255, 200, 50), (150, 110, 255))]
+
+
+def car(d, x, y, col, phase):
+    d.rounded_rectangle([x - 60, y - 52, x + 60, y - 18], 10, fill=col)
+    d.rounded_rectangle([x - 34, y - 80, x + 30, y - 50], 10, fill=col)
+    d.rectangle([x - 26, y - 74, x + 22, y - 54], fill=(30, 40, 60))
+    for wx in (x - 34, x + 34):
+        d.ellipse([wx - 16, y - 34, wx + 16, y - 2], fill=(20, 20, 24))
+        a = phase * 2 * math.pi
+        d.line([(wx, y - 18), (wx + math.cos(a) * 12, y - 18 + math.sin(a) * 12)], fill=(160, 160, 170), width=4)
+
+
+def bike(d, x, y, col, phase):
+    for wx in (x - 34, x + 34):
+        d.ellipse([wx - 24, y - 48, wx + 24, y], outline=WHITE, width=6)
+    d.line([(x - 34, y - 24), (x, y - 24), (x + 34, y - 24), (x + 10, y - 56), (x - 10, y - 24)], fill=col, width=7)
+    figure(d, x - 4, y - 36, phase, col, False)
 
 
 def num(x):
@@ -47,13 +71,17 @@ def build(spec_path):
     sp = json.load(open(spec_path)); vid = sp["id"]
     tmp = os.path.join(OUT, vid + "_tmp"); os.makedirs(tmp, exist_ok=True)
     print("▶", vid)
-    voice = sp.get("voice", "de-DE-ConradNeural")
+    h_ = sum(map(ord, vid))
+    voice = sp.get("voice") or VOICES[h_ % len(VOICES)]
+    global BG, GRID
+    BG, GRID = THEMES[h_ % len(THEMES)]
+    cols = PAIRS[(h_ // 7) % len(PAIRS)]
     sh("ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono", "-t", "0.2", f"{tmp}/gap.mp3")
     t0, alist, caps, ph = 0.4, [], [], {}
     sh("ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono", "-t", "0.4", f"{tmp}/pre.mp3"); alist.append(f"{tmp}/pre.mp3")
     for i, ln in enumerate(sp["lines"]):
         mp3 = f"{tmp}/l{i}.mp3"
-        ws = tts(ln["t"], voice, ln.get("rate", "+8%"), mp3)
+        ws = tts(ln["t"], voice, ln.get("rate", f"+{4 + h_ % 9}%"), mp3)
         for k in range(0, len(ws), 3):
             c = ws[k:k + 3]
             caps.append((t0 + c[0][0], t0 + c[-1][1] + 0.05, " ".join(x[2] for x in c)))
@@ -71,18 +99,32 @@ def build(spec_path):
 
     # ---- Physik (Modell): Nässe = Regen von oben (Zeit) + Regen von vorne (Strecke) ----
     m = sp["modell"]
-    D, rho, vr, At, Af = m["distanz_m"], m["tropfen_pro_m3"], m["fallgeschw_ms"], m["flaeche_oben_m2"], m["flaeche_vorne_m2"]
     L = []
-    for key, col in (("a", (240, 70, 70)), ("b", (70, 215, 130))):
-        p = sp[key]; v = p["kmh"] / 3.6
-        L.append({"name": p["name"], "col": col, "v": v, "T": D / v, "rate": rho * (At * vr + Af * v), "run": p.get("rennt", False)})
-    for l in L:
-        l["total"] = l["rate"] * l["T"]
+    if m.get("typ", "regen") == "regen":  # Nässe = Regen von oben (Zeit) + Regen von vorne (Strecke)
+        D, rho, vr, At, Af = m["distanz_m"], m["tropfen_pro_m3"], m["fallgeschw_ms"], m["flaeche_oben_m2"], m["flaeche_vorne_m2"]
+        for key, col in zip(("a", "b"), cols):
+            p = sp[key]; v = p["kmh"] / 3.6
+            L.append({"name": p["name"], "col": col, "T": D / v, "rate": rho * (At * vr + Af * v), "run": p.get("rennt", False),
+                      "fig": "laeufer" if p.get("rennt") else "geher", "info": f"{p['kmh']} km/h"})
+        einheit, label, regen, weniger_gut = "", m.get("zaehler", "Tropfen abbekommen"), True, True
+        for l in L:
+            l["total"] = l["rate"] * l["T"]
+    else:  # generisch: jede Seite braucht dauer_s (Simulationszeit) und kommt am Ende auf „menge“
+        D = 100
+        for key, col in zip(("a", "b"), cols):
+            p = sp[key]
+            L.append({"name": p["name"], "col": col, "T": float(p["dauer_s"]), "total": float(p["menge"]),
+                      "rate": float(p["menge"]) / float(p["dauer_s"]), "run": p.get("figur") == "laeufer",
+                      "fig": p.get("figur", "geher"), "info": p.get("info", "")})
+        einheit, label = m.get("einheit", ""), m.get("zaehler", "")
+        regen, weniger_gut = m.get("wetter") == "regen", m.get("besser", "weniger") == "weniger"
     rs, re_ = ph.get("race", (2, total - 6))
     tmax = max(l["T"] for l in L)
     k = tmax / max(1.0, re_ - rs)  # Simulationssekunden pro Videosekunde
-    win, lose = sorted(L, key=lambda l: l["total"])
-    pct = round((1 - win["total"] / lose["total"]) * 100)
+    win, lose = sorted(L, key=lambda l: l["total"], reverse=not weniger_gut)
+    big = max(l["total"] for l in L)
+    pct = round(abs(1 - win["total"] / lose["total"]) * 100)
+    fmt = (lambda x: (f"{x:,.1f}".replace(",", "X").replace(".", ",").replace("X", ".") if big < 100 else num(x)) + (" " + einheit if einheit else ""))
     print(f"   {L[0]['name']}: {num(L[0]['total'])} · {L[1]['name']}: {num(L[1]['total'])} · Gewinner {win['name']} −{pct} %")
 
     rnd = random.Random(7)
@@ -106,31 +148,37 @@ def build(spec_path):
         text_c(d, (W / 2, 290), sp["frage"][0], F[52], WHITE)
         text_c(d, (W / 2, 356), sp["frage"][1], F[64], YEL)
         # Regen
-        for dr in drops:
+        for dr in (drops if regen else []):
             dr[1] = (dr[1] + dr[2]) % H
             d.line([(dr[0], dr[1]), (dr[0] - 3, dr[1] + 26)], fill=RAIN, width=3)
         st = max(0.0, (t - rs) * k)  # Simulationszeit
         for l, ly in zip(L, lanes):
-            tt_ = min(st, l["T"]); pos = l["v"] * tt_
+            tt_ = min(st, l["T"])
             got = l["rate"] * tt_
             d.rectangle([X0 - 20, ly + 2, X1 + 60, ly + 8], fill=GRID)
-            for mm in (0, D / 2, D):
-                xx = X0 + (X1 - X0) * mm / D
+            for i_, mm in enumerate(sp.get("skala", [f"0 m", f"{int(D/2)} m", f"{int(D)} m"])):
+                xx = X0 + (X1 - X0) * i_ / 2
                 d.line([(xx, ly + 8), (xx, ly + 28)], fill=GRID, width=4)
-                text_c(d, (xx, ly + 34), f"{int(mm)} m", F[30], (130, 150, 180))
+                text_c(d, (xx, ly + 34), mm, F[30], (130, 150, 180))
             # Dach / Ziel
             d.rectangle([X1 + 10, ly - 210, X1 + 90, ly - 196], fill=(170, 180, 200))
             d.line([(X1 + 20, ly - 196), (X1 + 20, ly + 4)], fill=(170, 180, 200), width=6)
             d.line([(X1 + 80, ly - 196), (X1 + 80, ly + 4)], fill=(170, 180, 200), width=6)
-            d.text((X0 - 20, ly - 250), f"{l['name']}  {sp['a' if l is L[0] else 'b']['kmh']} km/h", font=F[36], fill=l["col"])
-            xx = X0 + (X1 - X0) * pos / D + 50
-            figure(d, xx, ly, (t * (2.2 if l["run"] else 1.1)) % 1 if tt_ < l["T"] else 0, l["col"], l["run"])
+            d.text((X0 - 20, ly - 250), f"{l['name']}  {l['info']}", font=F[36], fill=l["col"])
+            xx = X0 + (X1 - X0) * (tt_ / l["T"]) + 50
+            phs = (t * (2.2 if l["run"] else 1.1)) % 1 if tt_ < l["T"] else 0
+            if l["fig"] == "auto":
+                car(d, xx, ly, l["col"], phs)
+            elif l["fig"] == "rad":
+                bike(d, xx, ly, l["col"], phs)
+            else:
+                figure(d, xx, ly, phs, l["col"], l["run"])
             # Zähler + Nässe-Balken
             box = [X0 - 20, ly + 80, X1 + 90, ly + 160]
             d.rounded_rectangle(box, 18, fill=(22, 34, 60))
-            frac = got / lose["total"]
+            frac = got / big
             d.rounded_rectangle([box[0], box[1], box[0] + (box[2] - box[0]) * frac, box[3]], 18, fill=(40, 110, 200))
-            d.text((box[0] + 24, box[1] + 18), f"Tropfen abbekommen: {num(got)}", font=F[36], fill=WHITE)
+            d.text((box[0] + 24, box[1] + 18), f"{label}: {fmt(got)}" if label else fmt(got), font=F[36], fill=WHITE)
             if tt_ >= l["T"]:
                 d.text((box[2] - 190, ly - 300 + 52), "IM ZIEL", font=F[36], fill=YEL)
         # Ergebnis
@@ -140,7 +188,7 @@ def build(spec_path):
             y = 1480 + (1 - a) * 80
             d.rounded_rectangle([90, y, W - 90, y + 250], 30, fill=(255, 205, 60))
             text_c(d, (W / 2, y + 34), f"{win['name']} GEWINNT", F[80], (20, 20, 30))
-            text_c(d, (W / 2, y + 150), f"{pct} % weniger nass", F[64], (20, 20, 30))
+            text_c(d, (W / 2, y + 150), sp.get("ergebnis", "{p} % weniger").replace("{p}", str(pct)), F[64], (20, 20, 30))
             if thumb is None and a >= 1:
                 thumb = im.copy()
         # Untertitel
