@@ -833,19 +833,22 @@ $('#pinL').onclick=()=>S.pin?lock():pinMsg('Erst eine PIN setzen.');
 
 /* ---------- Fixkosten ---------- */
 S.fix??=[
- {n:'Claude Pro',v:22,r:'m',tag:27,note:'Mail: Vorteile enden 27.11. – gekündigt?'},
- {n:'Grok Bot Premium',v:17.5,r:'m',tag:13,neu:{ab:'2026-12-13',v:35}},
+ {n:'Claude Pro',v:22,r:'m',tag:27,ende:'2026-11-27',note:'gekündigt'},
+ {n:'Grok Bot Premium',v:17.5,r:'m',tag:13,ende:'2026-12-13',note:'gekündigt'},
  {n:'Xbox Game Pass Ultimate',v:17.99,r:'m',tag:10},
  {n:'netcup VPS',v:9.5,r:'m',tag:null},
- {n:'YouTube Premium Lite',v:7.99,r:'m',tag:9,note:'YouTube pausiert – noch nötig?'},
+ {n:'YouTube Premium Lite',v:7.99,r:'m',tag:9,ende:'2026-12-09',note:'gekündigt'},
  {n:'Finanzguru Plus',v:2.99,r:'m',tag:5},
  {n:'vfm Versicherung',v:40,r:'j',tag:22,mon:10}];
+// Kündigungen laut Google Play (22.11.2026) auch in schon gespeicherten Daten nachtragen
+for(const [n,e] of [['Claude Pro','2026-11-27'],['Grok Bot Premium','2026-12-13'],['YouTube Premium Lite','2026-12-09']]){const x=S.fix.find(f=>f.n===n);if(x&&!x.ende){x.ende=e;x.note='gekündigt';delete x.neu}}
+const live=x=>!x.ende||today()<x.ende;
 const RH={m:['monatlich',1],q:['vierteljährlich',3],j:['jährlich',12]};
 const curV=x=>x.neu&&today()>=x.neu.ab?x.neu.v:x.v;
 const perMon=x=>curV(x)/RH[x.r][1];
-const fixSum=()=>S.fix.reduce((a,x)=>a+perMon(x),0);
-const nextDue=x=>{if(!x.tag)return null;const n=new Date();n.setHours(0,0,0,0);for(let i=0;i<400;i++){const d=new Date(n.getTime()+i*864e5);if(d.getDate()!==x.tag)continue;
- if(x.r==='j'&&d.getMonth()+1!==x.mon)continue;if(x.r==='q'&&x.mon&&(d.getMonth()+1-x.mon)%3)continue;return d}return null};
+const fixSum=()=>S.fix.filter(x=>live(x)&&!(x.ende)).reduce((a,x)=>a+perMon(x),0);
+const nextDue=x=>{if(!x.tag)return null;const E=x.ende?new Date(x.ende+'T00:00'):null;const n=new Date();n.setHours(0,0,0,0);for(let i=0;i<400;i++){const d=new Date(n.getTime()+i*864e5);if(d.getDate()!==x.tag)continue;
+ if(E&&d>=E)return null;if(x.r==='j'&&d.getMonth()+1!==x.mon)continue;if(x.r==='q'&&x.mon&&(d.getMonth()+1-x.mon)%3)continue;return d}return null};
 const dd=d=>d.toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'});
 const days=d=>Math.round((d-new Date(today()))/864e5);
 function fixHints(n=7){const out=[];for(const x of S.fix){const d=nextDue(x);if(d&&days(d)<=n)out.push(`${x.n} ${eur(curV(x))} am ${dd(d)}`)}return out}
@@ -855,7 +858,7 @@ $('#fin').insertAdjacentHTML('afterbegin',`<div class="card"><h3>Fixkosten · <s
 <div class="row"><select id="fxR"><option value="m">monatlich</option><option value="q">vierteljährlich</option><option value="j">jährlich</option></select><input id="fxT" inputmode="numeric" placeholder="Abbuchungstag (1–31)"><input id="fxM" inputmode="numeric" placeholder="Monat (nur jährlich)"></div>
 <button class="p" id="fxA">Speichern</button></details><p class="m"><a href="${SHEET}" target="_blank" rel="noopener">Ausführliche Tabelle öffnen</a></p></div>`);
 function fixRender(){$('#fxS').textContent=eur(fixSum());$('#fxW').innerHTML=fixWarn().map(t=>`<div class="warn">${esc(t)}</div>`).join('');
- $('#fxL').innerHTML=S.fix.map((x,i)=>{const d=nextDue(x);return `<div><span>${esc(x.n)}<br><span class="m">${RH[x.r][0]}${d?' · nächste: '+dd(d):''}${x.note?' · '+esc(x.note):''}</span></span><span class="neg">${eur(curV(x))} <button class="s" data-fxd="${i}">✕</button></span></div>`}).join('')}
+ $('#fxL').innerHTML=S.fix.map((x,i)=>{const d=nextDue(x);return `<div style="${live(x)?'':'opacity:.45'}"><span>${esc(x.n)}<br><span class="m">${RH[x.r][0]}${x.ende?' · endet '+new Date(x.ende).toLocaleDateString('de-DE'):''}${d?' · nächste: '+dd(d):''}${x.note?' · '+esc(x.note):''}</span></span><span class="neg">${eur(curV(x))} <button class="s" data-fxd="${i}">✕</button></span></div>`}).join('')}
 $('#fxL').onclick=e=>{const i=e.target.dataset.fxd;if(i!=null&&confirm(S.fix[i].n+' aus den Fixkosten entfernen?')){S.fix.splice(i,1);save();fixRender();dashExtra()}};
 $('#fxA').onclick=()=>{const n=$('#fxN').value.trim(),v=parseFloat($('#fxV').value.replace(/\./g,'').replace(',','.')),t=parseInt($('#fxT').value)||null,m=parseInt($('#fxM').value)||null,r=$('#fxR').value;
  if(!n||!(v>0))return alert('Bitte Name und Betrag eintragen.');S.fix.push({n,v,r,tag:t&&t<=31?t:null,mon:r!=='m'?m:undefined});$('#fxN').value=$('#fxV').value=$('#fxT').value=$('#fxM').value='';save();fixRender();dashExtra()};
