@@ -1,0 +1,16 @@
+[
+ {"wf": "spielgeld-bot.yml", "name": "Trader Toni", "haus": "Börse", "icon": "📈", "farbe": "#2ecc71", "job": "Handelt alle 15 Min mit 1.000 € Spielgeld (echte Kraken-Kurse)", "max_h": 2},
+ {"wf": "agenten-test.yml", "name": "Meme-Makler Max", "haus": "Zockerbude", "icon": "🎰", "farbe": "#f1c40f", "job": "4 Agenten handeln Solana-Memecoins mit Spielgeld", "max_h": 3},
+ {"wf": "waechter.yml", "name": "Wächter Willi", "haus": "Wachturm", "icon": "🛡️", "farbe": "#3498db", "job": "Prüft jede Stunde alle Bots und startet kaputte neu", "max_h": 3},
+ {"wf": "recherche.yml", "name": "Forscherin Frieda", "haus": "Bibliothek", "icon": "📚", "farbe": "#9b59b6", "job": "Sucht jede Nacht neue KI-Tools, Skills und TikTok-Trends", "max_h": 26},
+ {"wf": "briefing.yml", "name": "Butler Bruno", "haus": "Villa", "icon": "🎩", "farbe": "#e67e22", "job": "Schreibt um 6 Uhr dein Tages-Briefing", "max_h": 26},
+ {"wf": "auftraege.yml", "name": "Scout Sam", "haus": "Auftragsbüro", "icon": "🔭", "farbe": "#1abc9c", "job": "Sucht täglich Aufträge mit wenig Eigenarbeit", "max_h": 26},
+ {"wf": "ideen.yml", "name": "Postbote Paul", "haus": "Post", "icon": "📮", "farbe": "#e74c3c", "job": "Sammelt deine Ideen aus Telegram", "max_h": 2},
+ {"wf": "video-auto.yml", "name": "Regisseurin Rita", "haus": "Filmstudio", "icon": "🎬", "farbe": "#ff4d6d", "job": "Macht täglich TikTok-Videos (Simulation + Früchte-Drama)", "max_h": 26},
+ {"wf": "backtest.yml", "name": "Tüftler Theo", "haus": "Labor", "icon": "🧪", "farbe": "#00bcd4", "job": "Testet Trading-Strategien an 12 Monaten Kursdaten"},
+ {"wf": "videos.yml", "name": "Cutter Carl", "haus": "Schnitthaus", "icon": "✂️", "farbe": "#ff8a65", "job": "Erzeugt Videos auf Zuruf"},
+ {"wf": "lang-videos.yml", "name": "YouTuber Yannik", "haus": "Sendezentrale", "icon": "📺", "farbe": "#ef5350", "job": "Erzeugt lange YouTube-Videos"},
+ {"wf": "maskottchen.yml", "name": "Zeichnerin Zoe", "haus": "Atelier", "icon": "🎨", "farbe": "#ab47bc", "job": "Zeichnet die Maskottchen"},
+ {"wf": "app-veroeffentlichen.yml", "name": "Baumeister Bob", "haus": "Bauhof", "icon": "🏗️", "farbe": "#8d6e63", "job": "Bringt neue Jarvis-Versionen live"},
+ {"wf": "telegram-send.yml", "name": "Funker Fritz", "haus": "Funkturm", "icon": "📡", "farbe": "#78909c", "job": "Schickt dir Nachrichten auf Telegram"}
+]

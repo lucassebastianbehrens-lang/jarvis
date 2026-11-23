@@ -1,0 +1,93 @@
+{
+ "t": 1795468598,
+ "datum": "Montag, 23.11.2026",
+ "fazit": "",
+ "zeilen": [
+  "🤖 8 Bots haben 48 Aufträge erledigt, alle fehlerfrei.",
+  "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
+  "📈 Memecoin-Bot: 938,80 € (-16,32 € in 24 h), 28 Trades – Spielgeld",
+  "🔭 5 neue Aufträge gefunden, z. B. „Futuristic Streetwear Prompts“.",
+  "🛡️ Wächter: alles läuft."
+ ],
+ "bots": [
+  {
+   "name": "Trader Toni",
+   "icon": "📈",
+   "ok": 16,
+   "fehler": 0
+  },
+  {
+   "name": "Meme-Makler Max",
+   "icon": "🎰",
+   "ok": 14,
+   "fehler": 0
+  },
+  {
+   "name": "Baumeister Bob",
+   "icon": "🏗️",
+   "ok": 10,
+   "fehler": 0
+  },
+  {
+   "name": "Postbote Paul",
+   "icon": "📮",
+   "ok": 2,
+   "fehler": 0
+  },
+  {
+   "name": "Scout Sam",
+   "icon": "🔭",
+   "ok": 2,
+   "fehler": 0
+  },
+  {
+   "name": "Funker Fritz",
+   "icon": "📡",
+   "ok": 2,
+   "fehler": 0
+  },
+  {
+   "name": "Regisseurin Rita",
+   "icon": "🎬",
+   "ok": 1,
+   "fehler": 0
+  },
+  {
+   "name": "YouTuber Yannik",
+   "icon": "📺",
+   "ok": 1,
+   "fehler": 0
+  }
+ ],
+ "trading": {
+  "Krypto-Bot": {
+   "wert": 1000.0,
+   "diff": 0.0,
+   "trades": 0,
+   "gewinner": 0,
+   "pnl": 0
+  },
+  "Memecoin-Bot": {
+   "wert": 938.8,
+   "diff": -16.32,
+   "trades": 28,
+   "gewinner": 17,
+   "pnl": -16.32
+  }
+ },
+ "neu": [],
+ "verlauf": [
+  {
+   "t": 1795468317,
+   "datum": "Montag, 23.11.2026",
+   "fazit": "",
+   "zeilen": [
+    "🤖 9 Bots haben 58 Aufträge erledigt, alle fehlerfrei.",
+    "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h). 0 Trades – Spielgeld",
+    "📈 Memecoin-Bot: 938,80 € (-16,32 € in 24 h). 28 Trades – Spielgeld",
+    "🔭 5 neue Aufträge gefunden, z. B. „Futuristic Streetwear Prompts“.",
+    "🛡️ Wächter: alles läuft."
+   ]
+  }
+ ]
+}

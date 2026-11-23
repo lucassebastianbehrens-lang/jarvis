@@ -10,3 +10,9 @@ Weiter aktiv im Hintergrund (unverändert): alle GitHub-Workflows (Spielgeld-Bot
 Wiederherstellen: `git checkout archiv/jarvis-v1 -- index.html sw.js` und pushen.
 
 Nachfolger: OpenJarvis – Installation siehe `openjarvis.sh`.
+
+## Jarvis v2 (seit 23.11.2026 live)
+Neue eigene App unter https://lucassebastianbehrens-lang.github.io/jarvis/ – Chat mit Gedächtnis und Stimme,
+KI-Stadt (jeder Bot ein Haus), Tages-Briefing, Trading, „Neu entdeckt“.
+Neue Bots: `bot/waechter.py` (stündlich, repariert selbst), `bot/recherche.py` (nachts), `bot/briefing.py` (6 Uhr).
+Bewohner der Stadt: `data/bots.json`. Gedächtnis wird nur verschlüsselt gesichert (`data/gehirn.enc`).
