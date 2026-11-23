@@ -50,8 +50,13 @@ except Exception as e:
     res = {"items": [{"titel": r["titel"], "url": r["url"], "quelle": r["quelle"], "was": r["text"], "nutzen": "",
                       "vorschlag": "", "punkte": None} for r in sorted(roh, key=lambda x: -x["score"])[:6]], "fazit": ""}
 
+echt = {r["url"] for r in roh}
+res["items"] = [i for i in res.get("items", []) if i.get("url") in echt or (i.get("url") and i["url"] in web)]
+if not res["items"]:  # nichts Belegbares → echte Rohfunde zeigen statt erfundener
+    res = {"fazit": "", "items": [{"titel": r["titel"], "url": r["url"], "quelle": r["quelle"], "was": r["text"],
+                                   "nutzen": "", "vorschlag": "", "punkte": None} for r in sorted(roh, key=lambda x: -x["score"])[:6]]}
 alt = load("recherche.json", {"items": []})
-alt["items"] = [i for i in alt["items"] if i.get("nutzen")]  # Rohfunde ohne KI-Bewertung nicht behalten
+alt["items"] = []  if not alt.get("v2") else alt["items"]
 bekannt = {i["id"] for i in alt["items"]}
 neu = []
 for i in res.get("items", []):
@@ -59,6 +64,6 @@ for i in res.get("items", []):
     i["t"] = now
     if i["id"] not in bekannt:
         neu.append(i)
-store("recherche.json", {"updated": now, "fazit": res.get("fazit", ""), "web": web[:3000],
+store("recherche.json", {"v2": 1, "updated": now, "fazit": res.get("fazit", ""), "web": web[:3000],
                          "neu": [i["id"] for i in neu], "items": (neu + alt["items"])[:60]})
 print(f"{len(roh)} Funde, {len(neu)} neue Vorschläge")
