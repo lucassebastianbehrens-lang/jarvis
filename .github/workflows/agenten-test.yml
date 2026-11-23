@@ -1,5 +1,7 @@
 name: Agenten-Test
 on:
+  schedule:
+    - cron: "41 * * * *"   # stündlich selbst starten (spart die stündliche Claude-Aufgabe)
   workflow_dispatch:
     inputs:
       minuten:
@@ -7,6 +9,9 @@ on:
         default: "60"
 permissions:
   contents: write
+concurrency:
+  group: agenten-test
+  cancel-in-progress: false
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -16,7 +21,7 @@ jobs:
       - name: Agenten-Bot Live-Test (Spielgeld)
         env:
           AGENTS_OUT: data/agents.json
-          MIN: ${{ inputs.minuten }}
+          MIN: ${{ inputs.minuten || '55' }}
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
         run: |
