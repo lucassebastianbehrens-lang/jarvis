@@ -4,7 +4,7 @@ name: App veröffentlichen
 on:
   push:
     branches: [main]
-    paths: ['index.html', 'sw.js', 'manifest.json', 'icon*']
+    paths: ['index.html', 'sw.js', 'manifest.json', 'icon*', 'sparen/**']
   workflow_dispatch:
     inputs:
       marker:
@@ -34,7 +34,8 @@ jobs:
             git show origin/main:$f > "$f"
           done
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
-          git add index.html sw.js manifest.json icon.svg icon-192.png icon-512.png
+          git checkout origin/main -- sparen 2>/dev/null || true
+          git add index.html sw.js manifest.json icon.svg icon-192.png icon-512.png sparen
           if git diff --cached --quiet; then echo "gh-pages ist schon aktuell"; else
             git commit -m "App live: Stand main $(git rev-parse --short origin/main)"
             for i in 1 2 3; do git push origin HEAD:gh-pages && break; git pull --rebase origin gh-pages; done
