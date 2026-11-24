@@ -3,7 +3,17 @@ Aufruf: python3 bot/bild_check.py video/out/<id>.mp4   Exit 1 = Mensch/Freizügi
 import base64, json, os, subprocess, sys, tempfile, urllib.request
 
 KEY = os.environ.get("GROQ_KEY", "")
-MODELL = "meta-llama/llama-4-scout-17b-16e-instruct"
+BEVORZUGT = ["meta-llama/llama-4-scout-17b-16e-instruct", "meta-llama/llama-4-maverick-17b-128e-instruct"]
+
+
+def bildmodelle():
+    """Welche Bild-Modelle hat dieses Groq-Konto gerade? (Modelle verschwinden immer wieder.)"""
+    req = urllib.request.Request("https://api.groq.com/openai/v1/models", headers={"Authorization": "Bearer " + KEY, "User-Agent": "jarvis-bot"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        ids = [m["id"] for m in json.load(r).get("data", [])]
+    print("Groq-Modelle:", ", ".join(sorted(ids)))
+    kandidaten = [m for m in BEVORZUGT if m in ids] + [m for m in ids if any(k in m.lower() for k in ("scout", "maverick", "vision", "-vl", "vl-", "llava", "gemma-3")) and m not in BEVORZUGT]
+    return kandidaten
 FRAGE = ("These are frames from a family-friendly cartoon series whose characters must ALL be fruit or vegetable mascots "
          "(heads/bodies are real fruits or vegetables). For each frame: does it show a human being or a human-looking face/body "
          "(e.g. a woman or man with human skin, human hair, human face), or anything revealing/sexualized? "
@@ -21,9 +31,9 @@ def frames(mp4, n=6):
     return out
 
 
-def pruefen(bilder):
+def pruefen(bilder, modell):
     inhalt = [{"type": "text", "text": FRAGE}] + [{"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(open(b, "rb").read()).decode()}} for b in bilder]
-    body = {"model": MODELL, "messages": [{"role": "user", "content": inhalt}], "response_format": {"type": "json_object"}, "temperature": 0}
+    body = {"model": modell, "messages": [{"role": "user", "content": inhalt}], "response_format": {"type": "json_object"}, "temperature": 0}
     req = urllib.request.Request("https://api.groq.com/openai/v1/chat/completions", json.dumps(body).encode(),
                                  {"Content-Type": "application/json", "Authorization": "Bearer " + KEY, "User-Agent": "jarvis-bot"})
     with urllib.request.urlopen(req, timeout=120) as r:
@@ -36,13 +46,24 @@ if __name__ == "__main__":
         print("Kein GROQ_KEY – Bildprüfung übersprungen (Claude prüft dann von Hand).")
         sys.exit(0)
     bilder = frames(sys.argv[1])
-    befund = []
-    for teil in (bilder[:3], bilder[3:]):  # Groq erlaubt nur wenige Bilder pro Anfrage
+    befund, fehler = [], ""
+    try:
+        modelle = bildmodelle()
+    except Exception as e:
+        modelle, fehler = BEVORZUGT, str(e)
+    for m in modelle:
         try:
-            befund += pruefen(teil)
+            befund = []
+            for teil in (bilder[:3], bilder[3:]):  # Groq erlaubt nur wenige Bilder pro Anfrage
+                befund += pruefen(teil, m)
+            print("Geprüft mit", m)
+            break
         except Exception as e:
-            print("Bildprüfung nicht möglich:", e)
-            sys.exit(0)
+            fehler = f"{m}: {e}"
+            befund = []
+    if not befund:
+        print("Bildprüfung nicht möglich:", fehler or "kein Bildmodell verfügbar", "– Claude prüft von Hand.")
+        sys.exit(0)
     for b in befund:
         print(("✕" if b.get("mensch") or b.get("freizuegig") else "✓"), b.get("was", ""))
     schlecht = [b for b in befund if b.get("mensch") or b.get("freizuegig")]
