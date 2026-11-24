@@ -33,9 +33,9 @@ def main():
     try:
         plan = parse_json(ki("Du planst Recherchen. Antworte nur mit gültigem JSON.",
                              f"Auftrag von Lucas: {AUFGABE}\n\nBraucht der Auftrag aktuelle Infos aus dem Internet? "
-                             'Wenn ja: 2–4 präzise, unterschiedliche Suchfragen (Deutsch oder Englisch, je nachdem, wo die besten Quellen sind). '
+                             'Wenn ja: 2–3 präzise, unterschiedliche Suchfragen (Deutsch oder Englisch, je nachdem, wo die besten Quellen sind). '
                              'Wenn nein (z. B. Text schreiben, rechnen): leere Liste. JSON: {"suchen": ["..."]}', json_mode=True))
-        suchen = [s for s in plan.get("suchen", []) if isinstance(s, str)][:4]
+        suchen = [s for s in plan.get("suchen", []) if isinstance(s, str)][:3]
     except Exception as e:
         print("Plan", e)
         suchen = [AUFGABE]
@@ -44,7 +44,7 @@ def main():
     for s in suchen:
         text, links = websuche(s)
         if text:
-            funde.append(f"### Suche: {s}\n{text[:4000]}")
+            funde.append(f"### Suche: {s}\n{text[:2200]}")
             quellen += [u for u in links if u not in quellen]
         print("Suche:", s, "→", len(links), "Links")
 

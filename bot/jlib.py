@@ -72,30 +72,37 @@ def ki(system, user, search=False, json_mode=False):
         versuche = ([("groq/compound", {}), ("groq/compound-mini", {}),
                      ("openai/gpt-oss-120b", {"tools": [{"type": "browser_search"}], "tool_choice": "required"}),
                      ("openai/gpt-oss-20b", {"tools": [{"type": "browser_search"}], "tool_choice": "required"})]
-                    if search else [("openai/gpt-oss-120b", {}), ("llama-3.3-70b-versatile", {})])
+                    if search else [("openai/gpt-oss-120b", {}), ("openai/gpt-oss-20b", {}),
+                                    ("meta-llama/llama-4-scout-17b-16e-instruct", {}), ("qwen/qwen3-32b", {})])
         for m, extra in versuche:
             if m in _GESPERRT:
                 continue
-            try:
-                body = {"model": m, "messages": msgs, **extra}
-                if json_mode and not search:
-                    body["response_format"] = {"type": "json_object"}
-                j = http("https://api.groq.com/openai/v1/chat/completions", body,
-                         {"Authorization": "Bearer " + GROQ}, timeout=150)
-                msg = j["choices"][0]["message"]
-                QUELLEN.clear()
-                for t in msg.get("executed_tools") or []:
-                    sr = t.get("search_results") or {}
-                    for r in (sr.get("results") if isinstance(sr, dict) else sr) or []:
-                        if isinstance(r, dict) and r.get("url"):
-                            QUELLEN.append({"titel": r.get("title", ""), "url": r["url"]})
-                return (msg.get("content") or "").strip()
-            except urllib.error.HTTPError as e:
-                print("Groq", m, e.code, e.read()[:200])
-                if e.code in (403, 404):
-                    _GESPERRT.add(m)  # nicht bei jeder Suche erneut probieren
-            except Exception as e:
-                print("Groq", m, e)
+            for versuch in range(2):  # bei Rate-Limit kurz warten und einmal wiederholen
+              try:
+                  body = {"model": m, "messages": msgs, **extra}
+                  if json_mode and not search:
+                      body["response_format"] = {"type": "json_object"}
+                  j = http("https://api.groq.com/openai/v1/chat/completions", body,
+                           {"Authorization": "Bearer " + GROQ}, timeout=150)
+                  msg = j["choices"][0]["message"]
+                  QUELLEN.clear()
+                  for t in msg.get("executed_tools") or []:
+                      sr = t.get("search_results") or {}
+                      for r in (sr.get("results") if isinstance(sr, dict) else sr) or []:
+                          if isinstance(r, dict) and r.get("url"):
+                              QUELLEN.append({"titel": r.get("title", ""), "url": r["url"]})
+                  return (msg.get("content") or "").strip()
+              except urllib.error.HTTPError as e:
+                  print("Groq", m, e.code, e.read()[:160])
+                  if e.code in (403, 404):
+                      _GESPERRT.add(m)  # nicht bei jeder Suche erneut probieren
+                  if e.code == 429 and versuch == 0:
+                      time.sleep(min(30, float(e.headers.get("retry-after") or 12)))
+                      continue
+                  break
+              except Exception as e:
+                  print("Groq", m, e)
+                  break
     return ""  # ohne GROQ_KEY keine KI (Pollinations verlangt inzwischen Bezahlung und erfindet Links)
 
 
