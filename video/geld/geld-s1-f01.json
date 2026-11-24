@@ -4,7 +4,13 @@
  "episode": 1,
  "title": "12 Euro 💚",
  "caption": "Folge 1: Er hatte nur 12 € – und gab trotzdem alles zurück. 🥝💸 Kommentiere für Teil 2!",
- "hashtags": ["#kontostand", "#kiserie", "#armvsreich", "#drama", "#fyp"],
+ "hashtags": [
+  "#kontostand",
+  "#kiserie",
+  "#armvsreich",
+  "#drama",
+  "#fyp"
+ ],
  "end": "KOMMENTIERE FÜR TEIL 2!",
  "voices": {
   "Erzähler": "de-DE-FlorianMultilingualNeural",
@@ -14,60 +20,120 @@
   "Frau Birne": "de-DE-KatjaNeural"
  },
  "figuren": {
-  "Kalle": "a small kiwi fruit character (the whole body is a fuzzy brown kiwi with big cartoon eyes), worn-out beige t-shirt with stains, small old backpack, black headband with a small blank glowing green panel on the forehead",
-  "Anton": "a golden pineapple character (the whole body is a shiny pineapple with green crown leaves and calm cartoon eyes), elegant black shirt, gold watch, black headband with a small blank glowing green panel on the forehead",
-  "Melli": "a round watermelon character (the whole body is a green striped watermelon with cartoon eyes and a smug grin), brown leather jacket, white sneakers, black headband with a small blank glowing green panel on the forehead",
-  "Frau Birne": "a pear character (the whole body is a yellow-green pear with round glasses and kind cartoon eyes), beige blazer, lanyard, black headband with a small blank glowing green panel on the forehead"
+  "Kalle": "a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, no human face, fruit toy photo",
+  "Anton": "a real whole golden pineapple standing upright like a little character, two calm googly eyes and a small painted smile on the pineapple skin, green crown leaves on top, a thin black band around it with a small blank glowing green panel, a tiny gold watch, tiny stubby stick arms and legs, the pineapple itself is the whole character, no hair, no human face, fruit toy photo",
+  "Melli": "a real whole round green striped watermelon standing upright like a little character, two googly eyes and a smug painted grin on the rind, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the watermelon itself is the whole character, no hair, no human face, fruit toy photo",
+  "Frau Birne": "a real whole yellow-green pear standing upright like a little character, two kind googly eyes behind tiny round glasses and a small painted smile on the pear skin, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the pear itself is the whole character, no hair, no human face, fruit toy photo"
  },
- "konten": {"Kalle": 12, "Anton": 4800000, "Melli": 50000, "Frau Birne": 3200},
+ "konten": {
+  "Kalle": 12,
+  "Anton": 4800000,
+  "Melli": 50000,
+  "Frau Birne": 3200
+ },
  "scenes": [
   {
-   "p": "a small kiwi fruit character (the whole body is a fuzzy brown kiwi with big cartoon eyes), worn-out beige t-shirt with stains, small old backpack, black headband with a small blank glowing green panel on the forehead, pushing a rusty old bicycle past a huge modern villa with palm trees and sports cars, golden hour, he looks down at a black leather wallet on the sidewalk",
-   "konto": {"Kalle": 12},
+   "p": "a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, no human face, fruit toy photo, next to a tiny rusty old toy bicycle on a sidewalk in front of a huge modern villa with palm trees and sports cars, golden hour, a black leather wallet lying on the ground",
+   "konto": {
+    "Kalle": 12
+   },
    "lines": [
-    {"s": "Erzähler", "t": "Auf Kalles Anzeige standen zwölf Euro. Mehr hatte er nicht."},
-    {"s": "Erzähler", "t": "Und dann lag da diese Geldbörse. Prall gefüllt."}
+    {
+     "s": "Erzähler",
+     "t": "Auf Kalles Anzeige standen zwölf Euro. Mehr hatte er nicht."
+    },
+    {
+     "s": "Erzähler",
+     "t": "Und dann lag da diese Geldbörse. Prall gefüllt."
+    }
    ]
   },
   {
-   "p": "a small kiwi fruit character (the whole body is a fuzzy brown kiwi with big cartoon eyes), worn-out beige t-shirt with stains, black headband with a small blank glowing green panel on the forehead, holding up a black wallet to a golden pineapple character (the whole body is a shiny pineapple with green crown leaves and calm cartoon eyes), elegant black shirt, gold watch, black headband with a small blank glowing green panel on the forehead, in front of a villa gate, sunset",
-   "konto": {"Kalle": 12, "Anton": 4800000},
+   "p": "a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, no human face, fruit toy photo, holding up a black wallet, next to a real whole golden pineapple standing upright like a little character, two calm googly eyes and a small painted smile on the pineapple skin, green crown leaves on top, a thin black band around it with a small blank glowing green panel, a tiny gold watch, tiny stubby stick arms and legs, the pineapple itself is the whole character, no hair, no human face, fruit toy photo, in front of a villa gate, sunset",
+   "konto": {
+    "Kalle": 12,
+    "Anton": 4800000
+   },
    "lines": [
-    {"s": "Kalle", "t": "Entschuldigung! Die haben Sie verloren."},
-    {"s": "Anton", "t": "Da sind über tausend Euro drin. Und du gibst sie einfach zurück?"},
-    {"s": "Kalle", "t": "Ist ja nicht meins."}
+    {
+     "s": "Kalle",
+     "t": "Entschuldigung! Die haben Sie verloren."
+    },
+    {
+     "s": "Anton",
+     "t": "Da sind über tausend Euro drin. Und du gibst sie einfach zurück?"
+    },
+    {
+     "s": "Kalle",
+     "t": "Ist ja nicht meins."
+    }
    ]
   },
   {
-   "p": "a round watermelon character (the whole body is a green striped watermelon with cartoon eyes and a smug grin), brown leather jacket, white sneakers, black headband with a small blank glowing green panel on the forehead, leaning on a black car in front of a red brick school, laughing and pointing at a small kiwi fruit character (the whole body is a fuzzy brown kiwi with big cartoon eyes), worn-out beige t-shirt with stains, old bicycle, looking sad",
-   "konto": {"Kalle": 12, "Melli": 50000},
+   "p": "a real whole round green striped watermelon standing upright like a little character, two googly eyes and a smug painted grin on the rind, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the watermelon itself is the whole character, no hair, no human face, fruit toy photo, laughing next to a shiny black toy car in front of a red brick school, next to a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, no human face, fruit toy photo, looking sad beside a tiny rusty bicycle",
+   "konto": {
+    "Kalle": 12,
+    "Melli": 50000
+   },
    "lines": [
-    {"s": "Melli", "t": "Siehst du die Zahl, Kalle? Fünfzigtausend. Und du? Zwölf!"},
-    {"s": "Melli", "t": "Mit dem Rad kommst du nicht mal bis zum Bäcker."}
+    {
+     "s": "Melli",
+     "t": "Siehst du die Zahl, Kalle? Fünfzigtausend. Und du? Zwölf!"
+    },
+    {
+     "s": "Melli",
+     "t": "Mit dem Rad kommst du nicht mal bis zum Bäcker."
+    }
    ]
   },
   {
-   "p": "school classroom, a small kiwi fruit character (the whole body is a fuzzy brown kiwi with big cartoon eyes), worn-out beige t-shirt with stains, black headband with a small blank glowing green panel on the forehead, sitting at a wooden desk with an open old lunch box with one dry slice of bread, behind him a round watermelon character (the whole body is a green striped watermelon with cartoon eyes and a smug grin), brown leather jacket, black headband with a small blank glowing green panel on the forehead, biting into a huge sandwich",
-   "konto": {"Kalle": 12, "Melli": 50000},
+   "p": "a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, no human face, fruit toy photo, on a wooden school desk next to an open old tin lunch box with one dry slice of bread, sunny classroom, in the background a real whole round green striped watermelon standing upright like a little character, two googly eyes and a smug painted grin on the rind, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the watermelon itself is the whole character, no hair, no human face, fruit toy photo, next to a huge sandwich",
+   "konto": {
+    "Kalle": 12,
+    "Melli": 50000
+   },
    "lines": [
-    {"s": "Erzähler", "t": "In der Pause gab es für Kalle wieder nur trockenes Brot."},
-    {"s": "Kalle", "t": "Egal. Irgendwann repariere ich nicht nur Fahrräder. Irgendwann hab ich eine eigene Werkstatt."}
+    {
+     "s": "Erzähler",
+     "t": "In der Pause gab es für Kalle wieder nur trockenes Brot."
+    },
+    {
+     "s": "Kalle",
+     "t": "Egal. Irgendwann repariere ich nicht nur Fahrräder. Irgendwann hab ich eine eigene Werkstatt."
+    }
    ]
   },
   {
-   "p": "luxurious dining room with crystal chandelier and marble table, a golden pineapple character (the whole body is a shiny pineapple with green crown leaves and calm cartoon eyes), elegant black shirt, gold watch, black headband with a small blank glowing green panel on the forehead, gently putting a hand on the shoulder of a small kiwi fruit character (the whole body is a fuzzy brown kiwi with big cartoon eyes), worn-out beige t-shirt with stains, black headband with a small blank glowing green panel on the forehead, with a tear, warm plate of food in front of him",
-   "konto": {"Kalle": 12, "Anton": 4800000},
+   "p": "a real whole golden pineapple standing upright like a little character, two calm googly eyes and a small painted smile on the pineapple skin, green crown leaves on top, a thin black band around it with a small blank glowing green panel, a tiny gold watch, tiny stubby stick arms and legs, the pineapple itself is the whole character, no hair, no human face, fruit toy photo, and a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, no human face, fruit toy photo with a tear, sitting on a marble dining table with a warm plate of food, luxurious dining room with crystal chandelier",
+   "konto": {
+    "Kalle": 12,
+    "Anton": 4800000
+   },
    "lines": [
-    {"s": "Anton", "t": "Iss ruhig, Kalle. Ehrlichkeit wie deine sieht man selten."},
-    {"s": "Kalle", "t": "So ein Essen hatte ich noch nie."}
+    {
+     "s": "Anton",
+     "t": "Iss ruhig, Kalle. Ehrlichkeit wie deine sieht man selten."
+    },
+    {
+     "s": "Kalle",
+     "t": "So ein Essen hatte ich noch nie."
+    }
    ]
   },
   {
-   "p": "close-up of a golden pineapple character (the whole body is a shiny pineapple with green crown leaves and calm cartoon eyes), elegant black shirt, black headband with a small blank glowing green panel on the forehead, mysterious smile, holding an old faded photo face down, dim warm light",
-   "konto": {"Anton": 4800000},
+   "p": "a real whole golden pineapple standing upright like a little character, two calm googly eyes and a small painted smile on the pineapple skin, green crown leaves on top, a thin black band around it with a small blank glowing green panel, a tiny gold watch, tiny stubby stick arms and legs, the pineapple itself is the whole character, no hair, no human face, fruit toy photo, close-up, mysterious smile, an old faded photo lying face down next to him, dim warm light",
+   "konto": {
+    "Anton": 4800000
+   },
    "lines": [
-    {"s": "Anton", "t": "Morgen zeige ich dir etwas, das niemand über diese Anzeigen weiß."},
-    {"s": "Erzähler", "t": "Kalle ahnte nicht, dass dieses Foto alles verändern würde."}
+    {
+     "s": "Anton",
+     "t": "Morgen zeige ich dir etwas, das niemand über diese Anzeigen weiß."
+    },
+    {
+     "s": "Erzähler",
+     "t": "Kalle ahnte nicht, dass dieses Foto alles verändern würde."
+    }
    ]
   }
  ]

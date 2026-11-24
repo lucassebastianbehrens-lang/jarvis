@@ -6,6 +6,7 @@
  "closed": [],
  "daily": {},
  "last_ts": {
+<<<<<<< HEAD
   "BTC/EUR": 1795536000,
   "ETH/EUR": 1795536000,
   "SOL/EUR": 1795536000,
@@ -88,6 +89,90 @@
   "MANA/EUR": 0.05021,
   "GRT/EUR": 0.01463,
   "TAO/EUR": 164.369
+=======
+  "BTC/EUR": 1795497300,
+  "ETH/EUR": 1795497300,
+  "SOL/EUR": 1795497300,
+  "XRP/EUR": 1795497300,
+  "ADA/EUR": 1795497300,
+  "DOGE/EUR": 1795497300,
+  "DOT/EUR": 1795497300,
+  "LINK/EUR": 1795497300,
+  "AVAX/EUR": 1795497300,
+  "LTC/EUR": 1795497300,
+  "TRX/EUR": 1795497300,
+  "ATOM/EUR": 1795497300,
+  "BCH/EUR": 1795497300,
+  "XLM/EUR": 1795497300,
+  "NEAR/EUR": 1795497300,
+  "SHIB/EUR": 1795497300,
+  "PEPE/EUR": 1795497300,
+  "POL/EUR": 1795497300,
+  "SUI/EUR": 1795497300,
+  "UNI/EUR": 1795497300,
+  "ARB/EUR": 1795497300,
+  "OP/EUR": 1795497300,
+  "APT/EUR": 1795497300,
+  "INJ/EUR": 1795497300,
+  "FET/EUR": 1795497300,
+  "RENDER/EUR": 1795497300,
+  "TIA/EUR": 1795497300,
+  "SEI/EUR": 1795497300,
+  "WIF/EUR": 1795497300,
+  "BONK/EUR": 1795497300,
+  "FIL/EUR": 1795497300,
+  "ICP/EUR": 1795497300,
+  "AAVE/EUR": 1795497300,
+  "HBAR/EUR": 1795497300,
+  "ALGO/EUR": 1795497300,
+  "ETC/EUR": 1795497300,
+  "SAND/EUR": 1795497300,
+  "MANA/EUR": 1795497300,
+  "GRT/EUR": 1795497300,
+  "TAO/EUR": 1795497300
+ },
+ "prices": {
+  "BTC/EUR": 55545.9,
+  "ETH/EUR": 1563.72,
+  "SOL/EUR": 65.65,
+  "XRP/EUR": 0.8731,
+  "ADA/EUR": 0.136616,
+  "DOGE/EUR": 0.0518695,
+  "DOT/EUR": 0.6301,
+  "LINK/EUR": 8.32345,
+  "AVAX/EUR": 6.253,
+  "LTC/EUR": 38.35,
+  "TRX/EUR": 0.283462,
+  "ATOM/EUR": 1.1964,
+  "BCH/EUR": 185.63,
+  "XLM/EUR": 0.119529,
+  "NEAR/EUR": 2.7701,
+  "SHIB/EUR": 3.368e-06,
+  "PEPE/EUR": 3.279e-06,
+  "POL/EUR": 0.07128,
+  "SUI/EUR": 0.6194,
+  "UNI/EUR": 4.4984,
+  "ARB/EUR": 0.1065,
+  "OP/EUR": 0.0657,
+  "APT/EUR": 0.3536,
+  "INJ/EUR": 5.761,
+  "FET/EUR": 0.1001,
+  "RENDER/EUR": 1.188,
+  "TIA/EUR": 0.3132,
+  "SEI/EUR": 0.03156,
+  "WIF/EUR": 0.1161,
+  "BONK/EUR": 2.048e-06,
+  "FIL/EUR": 0.519,
+  "ICP/EUR": 1.924,
+  "AAVE/EUR": 89.59,
+  "HBAR/EUR": 0.0485,
+  "ALGO/EUR": 0.07427,
+  "ETC/EUR": 5.377,
+  "SAND/EUR": 0.0308,
+  "MANA/EUR": 0.05312,
+  "GRT/EUR": 0.01545,
+  "TAO/EUR": 175.2875
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
  },
  "equity": [
   [
@@ -221,10 +306,13 @@
   [
    1795498620,
    1000.0
+<<<<<<< HEAD
   ],
   [
    1795537436,
    1000.0
+=======
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   ]
  ],
  "started": 1795337924,
@@ -252,6 +340,10 @@
    "trades": 100
   }
  },
+<<<<<<< HEAD
  "updated": 1795537436,
+=======
+ "updated": 1795498620,
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
  "errors": []
 }

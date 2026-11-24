@@ -9,7 +9,7 @@ Eigene Figuren und eigene Handlung – nichts aus der Vorlage kopieren.
 - Länge 45–70 s, 5–7 Szenen, **Hook in Sekunde 1**, **Cliffhanger am Ende**, `end` = „KOMMENTIERE FÜR TEIL X“.
 - **Die Beträge zeichnet der Renderer selbst** (LED-Grafik oben im Bild). Jede Szene hat `konto` = {Figur: Betrag in Euro als ganze Zahl} für die Figuren im Bild (max. 3).
   Beträge ändern sich nur, wenn die Handlung es zeigt (Geschenk, Verdienst, Verlust) – dann zeigt die Grafik automatisch ▲/▼.
-- Bildprompts: Figurenbeschreibung aus `figuren` immer **zuerst** und wörtlich. Keine Menschen, keine Schrift/Zahlen im Bild (die Anzeige ist im Bild leer, die Zahl kommt von uns).
+- Bildprompts: Figurenbeschreibung aus `figuren` immer **zuerst** und wörtlich. **Keine Kleidung** (T-Shirt, Jacke, Rucksack, Bluse …) – sonst malt der Bildgenerator Menschen; die Frucht ist die ganze Figur, Requisiten liegen daneben. Keine Menschen, keine Schrift/Zahlen im Bild (die Anzeige ist im Bild leer, die Zahl kommt von uns).
 - Running Gag: Melli tippt bei jedem Auftritt auf ihre Anzeige („Siehst du die Zahl?“).
 
 ## Figuren

@@ -257,11 +257,20 @@
    "status": "neu"
   }
  ],
+<<<<<<< HEAD
  "stand": "24.11.2026 16:56",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
   "gefunden": 236,
   "gefiltert": 12,
   "neu": 0
+=======
+ "stand": "24.11.2026 03:38",
+ "paypal_me": "LucasBehrenski",
+ "letzter_lauf": {
+  "gefunden": 235,
+  "gefiltert": 12,
+  "neu": 3
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
  }
 }

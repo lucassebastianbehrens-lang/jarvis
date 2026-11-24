@@ -6,18 +6,28 @@ on:
   schedule:
     - cron: "7 4,6,9,13 * * *"    # Simulation: 05:07 / 07:07 / 10:07 / 14:07 Berlin (Ersatztermine)
     - cron: "37 5,8,11,15 * * *"  # Früchte-Serie: 06:37 / 09:37 / 12:37 / 16:37 Berlin (Ersatztermine)
+<<<<<<< HEAD
     - cron: "52 6,10,14,17 * * *" # Kontostand-Serie: 07:52 / 11:52 / 15:52 / 18:52 Berlin (Ersatztermine)
   workflow_dispatch:
     inputs:
       modus:
         description: "sim, tt oder geld"
+=======
+  workflow_dispatch:
+    inputs:
+      modus:
+        description: "sim oder tt"
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
         default: "sim"
       idee:
         description: "Optional: eigene Idee für ein Simulations-Video (z. B. „Duschen vs Baden – wer spart mehr Wasser?“)"
         default: ""
+<<<<<<< HEAD
       spec:
         description: "Optional: fertige Folge nur rendern statt neu schreiben (z. B. video/geld/geld-s1-f01.json)"
         default: ""
+=======
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
 permissions:
   contents: write
 concurrency:
@@ -32,7 +42,11 @@ jobs:
       TG_TOKEN: ${{ secrets.TG_TOKEN }}
       TG_CHAT: ${{ secrets.TG_CHAT }}
       IDEE: ${{ inputs.idee }}
+<<<<<<< HEAD
       MODUS: ${{ inputs.modus || (github.event.schedule == '7 4,6,9,13 * * *' && 'sim' || (github.event.schedule == '52 6,10,14,17 * * *' && 'geld' || 'tt')) }}
+=======
+      MODUS: ${{ inputs.modus || (github.event.schedule == '7 4,6,9,13 * * *' && 'sim' || 'tt') }}
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
     steps:
       - uses: actions/checkout@v4
       - name: Schlüssel vorhanden + heute noch offen?
@@ -49,6 +63,7 @@ jobs:
       - name: Folge schreiben (Groq)
         if: steps.key.outputs.ok == '1'
         id: spec
+<<<<<<< HEAD
         env:
           SPEC_IN: ${{ inputs.spec }}
         run: |
@@ -79,13 +94,30 @@ jobs:
             echo "❌ Runde $RUNDE durchgefallen – verbessere und versuche erneut"
           done
           exit 1
+=======
+        run: python3 bot/video_auto.py "$MODUS"
+      - name: Rendern
+        if: steps.key.outputs.ok == '1'
+        run: python3 video/$MODUS.py ${{ steps.spec.outputs.spec }}
+      - name: Qualitätsprüfung
+        if: steps.key.outputs.ok == '1'
+        id: check
+        run: |
+          ID=$(basename ${{ steps.spec.outputs.spec }} .json)
+          echo "id=$ID" >> $GITHUB_OUTPUT
+          if [ "$MODUS" = sim ]; then python3 bot/video_check.py video/out/$ID.mp4 18 70; else python3 bot/video_check.py video/out/$ID.mp4 40 120 && python3 bot/bild_check.py video/out/$ID.mp4; fi
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
       - name: Speichern + Release
         if: steps.key.outputs.ok == '1'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
+<<<<<<< HEAD
           git add video/sim video/tt video/geld && git commit -qm "Jarvis: neue Folge ${{ steps.check.outputs.id }} (selbst geschrieben)" || true
+=======
+          git add video/sim video/tt && git commit -qm "Jarvis: neue Folge ${{ steps.check.outputs.id }} (selbst geschrieben)" || true
+>>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
           for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
           TAG="jarvis-video-$(TZ=Europe/Berlin date +%Y%m%d)-$MODUS"
           gh release view "$TAG" >/dev/null 2>&1 && TAG="$TAG-$(TZ=Europe/Berlin date +%H%M)"  # Zusatz-Video per Knopf
