@@ -1,6 +1,6 @@
 {
- "updated": 1795522146,
- "lagebild": "",
+ "updated": 1795522229,
+ "lagebild": "Am meisten los: Russland (33), Ukraine (19), USA (25). Wichtigste Meldung: Kriegsfolgen im Gazastreifen: Verschmutztes Wasser, Asbest in den Trümmern. Außerdem: Sanktionspaket: Keine Athleten mehr unter russischer Flagge.",
  "orte": [
   {
    "land": "Russland",
@@ -861,7 +861,7 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54996,
+   "wert": 55003,
    "einheit": "€",
    "pct": -1.73,
    "verlauf": [
@@ -877,15 +877,15 @@
   },
   {
    "name": "Ethereum",
-   "wert": 1550.24,
+   "wert": 1550.39,
    "einheit": "€",
-   "pct": -1.33
+   "pct": -1.35
   },
   {
    "name": "Solana",
-   "wert": 64.53,
+   "wert": 64.55,
    "einheit": "€",
-   "pct": -2.39
+   "pct": -2.4
   },
   {
    "name": "EUR/CHF",
