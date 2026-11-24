@@ -2,7 +2,7 @@
 # Baut EIN fertig geprüftes Video für einen bestimmten Tag und legt es als Release
 # „jarvis-video-<JJJJMMTT>-<modus>“ ab. Die täglichen Upload-Aufgaben (Simulation 17:30,
 # Früchte-Serie 18:30) nehmen sich am jeweiligen Abend genau dieses Release.
-#   bash bot/video_tag.sh <sim|tt|geld> <JJJJMMTT> [spec]
+#   bash bot/video_tag.sh <sim|tt|geld|zt> <JJJJMMTT> [spec]
 # Gibt es das Release für den Tag schon, passiert nichts (Exit 0). Exit 1 = Video durchgefallen.
 set -uo pipefail
 MODUS=$1; TAG_DATUM=$2; SPEC=${3:-}
@@ -33,10 +33,11 @@ for RUNDE in 1 2 3; do
   # Prüfung 1: Technik (Länge, Ton, kein schwarzes/eingefrorenes Bild)
   if [ $OK = 1 ]; then
     if [ "$MODUS" = sim ]; then python3 bot/video_check.py video/out/$ID.mp4 18 70 || OK=0
+    elif [ "$MODUS" = zt ]; then python3 bot/video_check.py video/out/$ID.mp4 22 80 || OK=0
     else python3 bot/video_check.py video/out/$ID.mp4 40 120 || OK=0; fi
   fi
   # Prüfung 2: Bilder (nur Obst-/Gemüse-Figuren, nichts Anzügliches)
-  if [ $OK = 1 ] && [ "$MODUS" != sim ]; then python3 bot/bild_check.py video/out/$ID.mp4 || OK=0; fi
+  if [ $OK = 1 ] && [ "$MODUS" != sim ] && [ "$MODUS" != zt ]; then python3 bot/bild_check.py video/out/$ID.mp4 || OK=0; fi
   # Prüfung 3: Datei vollständig abspielbar
   if [ $OK = 1 ]; then ffmpeg -v error -i video/out/$ID.mp4 -f null - 2> /tmp/err.txt; [ -s /tmp/err.txt ] && { cat /tmp/err.txt; OK=0; }; fi
   echo "::endgroup::"
@@ -45,7 +46,7 @@ for RUNDE in 1 2 3; do
 done
 [ $OK = 1 ] || exit 1
 
-git add video/sim video/tt video/geld
+git add video/sim video/tt video/geld video/zt
 git commit -qm "Jarvis: Folge $ID für $TAG_DATUM vorproduziert" || true
 for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
 F=(); for e in mp4 jpg txt; do [ -f "video/out/$ID.$e" ] && F+=("video/out/$ID.$e"); done

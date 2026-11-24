@@ -1,0 +1,19 @@
+{
+ "id": "zt-01-ueber-nacht",
+ "series": "Stell dir vor",
+ "episode": 1,
+ "title": "Über Nacht",
+ "caption": "Stell dir vor, dein Video hängt seit Wochen bei 300 Aufrufen … und dann wachst du auf. 📱 Was wäre dein erstes Video? 👇",
+ "hashtags": ["#stelldirvor", "#kiserie", "#viral", "#zeichentrick", "#fyp"],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Du wachst auf und dein Video, das immer bei 300 Aufrufen hing, hat über Nacht 48.000",
+ "scenes": [
+  {"bg": "schreibtisch", "pose": "traurig", "prop": "handy", "zahl": 300, "zahl_label": "Aufrufe", "text": "Stell dir vor, deine Videos bleiben immer bei dreihundert Aufrufen hängen."},
+  {"bg": "schreibtisch", "pose": "denken", "prop": "handy", "text": "Du lädst trotzdem noch eins hoch. Einfach so. Und gehst schlafen."},
+  {"bg": "bett", "pose": "schlafen", "prop": "keins", "text": "Dein Handy liegt neben dir. Es vibriert. Immer wieder."},
+  {"bg": "bett", "pose": "staunen", "prop": "handy", "zahl": 12925, "zahl_label": "Aufrufe", "pause": 0.6, "text": "Am Morgen siehst du zuerst nur die Benachrichtigungen."},
+  {"bg": "bett", "pose": "schock", "prop": "keins", "zahl": 48000, "zahl_label": "Aufrufe", "pause": 1.2, "text": "Dann die Zahl. Du denkst, das ist ein Fehler."},
+  {"bg": "zimmer", "pose": "freude", "prop": "keins", "text": "Ist es nicht. Fremde Menschen schreiben dir. Über ihr eigenes Leben."},
+  {"bg": "zimmer", "pose": "zeigen", "prop": "keins", "text": "Und jetzt ehrlich: Was wäre dein erstes Video, wenn morgen alle zuschauen?"}
+ ]
+}

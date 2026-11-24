@@ -9,10 +9,11 @@ on:
     - cron: "7 4,6,9,13 * * *"    # Simulation: 05:07 / 07:07 / 10:07 / 14:07 Berlin (Ersatztermine)
     - cron: "37 5,8,11,15 * * *"  # Früchte-Serie: 06:37 / 09:37 / 12:37 / 16:37 Berlin (Ersatztermine)
     - cron: "52 6,10,14,17 * * *" # Kontostand-Serie: 07:52 / 11:52 / 15:52 / 18:52 Berlin (Ersatztermine)
+    - cron: "22 7,11,15,18 * * *" # Zeichentrick „Stell dir vor“: 08:22 / 12:22 / 16:22 / 19:22 Berlin (Ersatztermine)
   workflow_dispatch:
     inputs:
       modus:
-        description: "sim, tt oder geld"
+        description: "sim, tt, geld oder zt (Zeichentrick)"
         default: "sim"
       idee:
         description: "Optional: eigene Idee für ein Simulations-Video (z. B. „Duschen vs Baden – wer spart mehr Wasser?“)"
@@ -43,7 +44,7 @@ jobs:
       TG_CHAT: ${{ secrets.TG_CHAT }}
       IDEE: ${{ inputs.idee }}
       GH_TOKEN: ${{ github.token }}
-      MODUS: ${{ inputs.modus || (github.event.schedule == '7 4,6,9,13 * * *' && 'sim' || (github.event.schedule == '52 6,10,14,17 * * *' && 'geld' || 'tt')) }}
+      MODUS: ${{ inputs.modus || (github.event.schedule == '7 4,6,9,13 * * *' && 'sim' || (github.event.schedule == '52 6,10,14,17 * * *' && 'geld' || (github.event.schedule == '22 7,11,15,18 * * *' && 'zt' || 'tt'))) }}
     steps:
       - uses: actions/checkout@v4
       - name: Welche Tage fehlen noch im Vorrat?
@@ -87,7 +88,7 @@ jobs:
       - name: Telegram
         if: always() && steps.key.outputs.ok == '1'
         run: |
-          NAME=$([ "$MODUS" = sim ] && echo "Simulation" || ([ "$MODUS" = tt ] && echo "Früchte-Serie" || echo "Kontostand"))
+          NAME=$(case "$MODUS" in sim) echo "Simulation";; tt) echo "Früchte-Serie";; zt) echo "Zeichentrick";; *) echo "Kontostand";; esac)
           if [ -s video/out/fertig.txt ]; then
             T="🎬 Vorrat $NAME: $(wc -l < video/out/fertig.txt) neue Videos fertig + geprüft
           $(sed 's/^/• /' video/out/fertig.txt)"

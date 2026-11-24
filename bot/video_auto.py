@@ -7,6 +7,7 @@ Ablauf (nach Lucas' Vorlage „Viral Studio“, 24.11.2026):
   python3 bot/video_auto.py sim   -> nächstes Thema aus video/sim/THEMEN.md als Spec (video/sim/sim-NN-*.json)
   python3 bot/video_auto.py tt    -> nächste Folge der Früchte-Serie nach der Serien-Bibel (video/tt/tt-s1-fNN.json)
   python3 bot/video_auto.py geld  -> nächste Folge „Kontostand“ (LED-Geldanzeige, video/geld/geld-s1-fNN.json)
+  python3 bot/video_auto.py zt    -> nächste Zeichentrick-Folge „Stell dir vor“ (Finn per Code gezeichnet, video/zt/zt-NN-*.json)
 Gibt den Pfad der neuen Spec aus (und schreibt ihn nach $GITHUB_OUTPUT als spec=...)."""
 import glob, json, os, re, sys, time, urllib.error, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -312,10 +313,93 @@ def geld():
                  "Beträge ändern sich nur, wenn die Handlung es zeigt. Keine Zahlen oder Schrift in den Bildprompts.")
 
 
+ZT_BG = {"zimmer", "bett", "schreibtisch", "strasse", "schule", "kueche", "nacht"}
+ZT_POSE = {"neutral", "staunen", "schock", "freude", "traurig", "denken", "zeigen", "schlafen"}
+ZT_PROP = {"keins", "handy", "wecker", "geld", "brief", "laptop"}
+
+
+def zt_schreiben(thema, nr, bibel, vorlage, feedback=None):
+    return ki("Du schreibst die deutsche Zeichentrick-Reihe „Stell dir vor“ für TikTok. Antworte NUR mit einem JSON-Objekt im exakt gleichen Format wie die Vorlage. "
+              "Halte dich strikt an die Serien-Bibel: ruhig, Du-Ansprache, ein einziger Moment, echt statt übertrieben. Familienfreundlich, keine Marken, keine echten Personen.",
+              f"SERIEN-BIBEL:\n{bibel}\n\nVORLAGE (Format):\n{vorlage}\n\nTHEMA: {thema}\n\n"
+              f"Schreibe Folge {nr}: 5–8 scenes, insgesamt 70–130 Wörter in text. Szene 1 sofort der Moment (Sekunde 0–3). "
+              "Höchstens 3 Szenen mit zahl, die Zahlen steigen. Vor der größten Zahl pause 0.8–1.5. Letzte Szene: Frage an den Zuschauer, "
+              "auf die jeder von sich selbst erzählt. bg/pose/prop NUR aus den erlaubten Werten der Bibel. "
+              "Felder: id (leer lassen), series, episode, title, caption (mit Frage + 👇), hashtags (5), end (z. B. „TEIL 2? SCHREIB'S IN DIE KOMMENTARE“), thema, scenes."
+              + (f"\n\nDER PRÜFER HAT FOLGENDES BEMÄNGELT – unbedingt beheben:\n- " + "\n- ".join(feedback) if feedback else ""))
+
+
+def zt_sauber(sp):
+    sc = [s for s in sp.get("scenes", []) if isinstance(s, dict) and str(s.get("text", "")).strip()]
+    assert 4 <= len(sc) <= 9, "Szenenzahl ungültig"
+    for s in sc:
+        s["bg"] = s.get("bg") if s.get("bg") in ZT_BG else "zimmer"
+        s["pose"] = s.get("pose") if s.get("pose") in ZT_POSE else "neutral"
+        s["prop"] = s.get("prop") if s.get("prop") in ZT_PROP else "keins"
+        s["text"] = sprechbar(s["text"])
+        if s.get("zahl") is not None:
+            try:
+                s["zahl"] = max(0, int(float(str(s["zahl"]).replace(".", "").replace(",", ".").replace("€", ""))))
+            except ValueError:
+                s.pop("zahl")
+        try:
+            s["pause"] = min(2.0, max(0.0, float(s.get("pause", 0) or 0)))
+        except (TypeError, ValueError):
+            s["pause"] = 0
+    woerter = sum(len(s["text"].split()) for s in sc)
+    assert 55 <= woerter <= 170, f"Textlänge {woerter} Wörter"
+    sp["scenes"] = sc
+    return sp
+
+
+def zt():
+    """Zeichentrick „Stell dir vor“: Thema aus video/zt/THEMEN.md, schreiben, 3× prüfen, Format absichern."""
+    bibel = open("video/zt/00-BIBEL.md", encoding="utf-8").read()
+    themen = open("video/zt/THEMEN.md", encoding="utf-8").read()
+    idee = os.environ.get("IDEE", "").strip()
+    m = None
+    if idee:
+        thema = idee
+    else:
+        if not re.search(r"^- \[ \] .+$", themen, re.M):
+            neu = ki("Du findest Themen für die TikTok-Reihe „Stell dir vor“. Antworte NUR mit JSON.",
+                     f"{bibel}\n\nBisherige Themen:\n{themen}\n\nDenk dir 8 neue Themen aus, die BEIDE Fragen bestehen "
+                     "(Kann mir das passieren? Wie sieht mein Leben dann aus?). Jedes ein einziger Moment in einem Satz, Du-Form, Alltag. "
+                     '{"themen": ["..."]}', 0.9).get("themen", [])
+            themen = themen.rstrip() + "\n" + "".join(f"- [ ] {str(t).strip()}\n" for t in neu if str(t).strip())
+            open("video/zt/THEMEN.md", "w", encoding="utf-8").write(themen)
+        m = re.search(r"^- \[ \] (.+)$", themen, re.M)
+        thema = m.group(1).strip()
+    files = sorted(glob.glob("video/zt/zt-*.json"))
+    nr = 1 + max([int(re.search(r"zt-(\d+)", p).group(1)) for p in files] or [0])
+    vorlage = open(files[0], encoding="utf-8").read() if files else ""
+    try:
+        sp = zt_sauber(zt_schreiben(thema, nr, bibel, vorlage))
+    except (AssertionError, KeyError, ValueError, TypeError, AttributeError) as e:
+        print("Format-Fehler, neuer Versuch:", repr(e))
+        sp = zt_sauber(zt_schreiben(thema, nr, bibel, vorlage, [f"Formatfehler: {e!r}"]))
+    for runde in range(1, PRUEFRUNDEN + 1):
+        probleme = pruefen("Zeichentrick", sp, "Muss zur Bibel passen: EIN Moment, Du-Ansprache, ruhig und echt, Szene 1 sofort spannend, "
+                           "Zahlen steigen glaubwürdig, Schluss-Frage lädt ein, von sich zu erzählen. Rechtschreibung.\nBIBEL:\n" + bibel)[0]
+        print(f"Prüfrunde {runde}/{PRUEFRUNDEN}:", probleme or "ok")
+        if not probleme:
+            break
+        try:
+            sp = zt_sauber(zt_schreiben(thema, nr, bibel, vorlage, probleme))
+        except (AssertionError, KeyError, ValueError, TypeError, AttributeError) as e:
+            print("Verbesserung fehlgeschlagen:", repr(e)); break
+    sp["id"], sp["episode"], sp["series"], sp["thema"] = f"zt-{nr:02d}-{slug(thema)[:24].strip('-')}", nr, "Stell dir vor", thema
+    path = f"video/zt/{sp['id']}.json"
+    json.dump(sp, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    if m:
+        open("video/zt/THEMEN.md", "w", encoding="utf-8").write(themen.replace(m.group(0), f"- [x] {thema} ({sp['id']})", 1))
+    return path
+
+
 if __name__ == "__main__":
     if not (KEY or ki_router.anbieter()):
         raise SystemExit("Kein KI-Schlüssel (GROQ_KEY, GEMINI_KEY oder OPENROUTER_KEY) – GitHub → Settings → Secrets → Actions")
-    p = {"sim": sim, "tt": tt, "geld": geld}[sys.argv[1]]()
+    p = {"sim": sim, "tt": tt, "geld": geld, "zt": zt}[sys.argv[1]]()
     print(p)
     if os.environ.get("GITHUB_OUTPUT"):
         open(os.environ["GITHUB_OUTPUT"], "a").write(f"spec={p}\n")
