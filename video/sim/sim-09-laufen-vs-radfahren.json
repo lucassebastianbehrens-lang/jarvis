@@ -1,0 +1,105 @@
+{
+  "id": "sim-09-laufen-vs-radfahren",
+  "titel": [
+    "LAUFEN",
+    "RADFAHREN"
+  ],
+  "frage": [
+    "30 Minuten Training –",
+    "WER VERBRENNT MEHR?"
+  ],
+  "a": {
+    "name": "LAUFEN",
+    "figur": "laeufer",
+    "dauer_s": 60.0,
+    "menge": 280.0,
+    "info": "4 km Strecke"
+  },
+  "b": {
+    "name": "RADFAHREN",
+    "figur": "rad",
+    "dauer_s": 60.0,
+    "menge": 210.0,
+    "info": "8 km Strecke"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "kcal",
+    "zaehler": "Kalorien",
+    "besser": "mehr"
+  },
+  "skala": [
+    "0 kcal",
+    "210 kcal",
+    "280 kcal"
+  ],
+  "ergebnis": "etwa {p} % mehr",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Welches Training verbrennt mehr in 30 Minuten?"
+    },
+    {
+      "phase": "intro",
+      "t": "Der Haken: Viele denken, Radfahren ist immer kalorienärmer."
+    },
+    {
+      "phase": "race",
+      "t": "Laufen (8 Kilometer pro Stunde) verbrennt ca. 280 kcal und legt 4 km zurück."
+    },
+    {
+      "phase": "race",
+      "t": "Radfahren (16 Kilometer pro Stunde) verbrennt ca. 210 kcal und legt 8 km zurück."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Laufen verbrennt etwa 33 Prozent mehr Kalorien."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Welches Training verbrennt mehr in 30 Minuten?",
+    "Laufen verbrennt rund 33 % mehr Kalorien!",
+    "Radfahren ist immer kalorienärmer – stimmt das?"
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Laufen vs Radfahren – wer verbrennt in 30 Minuten mehr Kalorien? 🏃‍♂️🚴‍♀️ Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#fitness",
+    "#kalorien",
+    "#laufen",
+    "#radfahren"
+  ],
+  "quelle": "Umweltbundesamt (2023); American College of Sports Medicine (ACSM) Richtwerte; Verbraucherzentrale (2022)",
+  "fakten": [
+    {
+      "satz": "MET-Wert für moderates Laufen (ca. 8 km/h) liegt bei etwa 8,0",
+      "wert": "8,0 MET",
+      "quelle": "Umweltbundesamt (2023)"
+    },
+    {
+      "satz": "MET-Wert für moderates Radfahren (ca. 16 km/h) liegt bei etwa 6,0",
+      "wert": "6,0 MET",
+      "quelle": "Umweltbundesamt (2023)"
+    },
+    {
+      "satz": "Energieverbrauch beim Laufen: 8 MET × 70 kg × 0,5 h ≈ 280 kcal",
+      "wert": "≈ 280 kcal",
+      "quelle": "American College of Sports Medicine (ACSM) Richtwerte"
+    },
+    {
+      "satz": "Energieverbrauch beim Radfahren: 6 MET × 70 kg × 0,5 h ≈ 210 kcal",
+      "wert": "≈ 210 kcal",
+      "quelle": "American College of Sports Medicine (ACSM) Richtwerte"
+    },
+    {
+      "satz": "Zurückgelegte Strecke in 30 min: Laufen ca. 4 km, Radfahren ca. 8 km (bei den genannten Durchschnittsgeschwindigkeiten)",
+      "wert": "4 km / 8 km",
+      "quelle": "Verbraucherzentrale (2022)"
+    }
+  ]
+}
