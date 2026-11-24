@@ -13,7 +13,7 @@
 - /hilfe             -> Befehle
 Nur Nachrichten aus Lucas' eigenem Chat (TG_CHAT) werden beantwortet.
 Konfiguration: /etc/jarvis/telegram.env (TG_TOKEN, TG_CHAT, optional GROQ_KEY)."""
-import json, os, re, time, shutil, subprocess, uuid, urllib.request, urllib.parse
+import json, os, re, time, shutil, subprocess, threading, uuid, urllib.request, urllib.parse
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -54,7 +54,7 @@ def load(path, default):
 
 
 def store(path, obj):
-    tmp = path + ".tmp"
+    tmp = f"{path}.{threading.get_ident()}.tmp"  # eigene Datei je Helfer, sonst Kollision
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=1)
     os.replace(tmp, path)
@@ -68,7 +68,7 @@ def post_json(url, body, headers):
 
 def ki(msgs):
     if GROQ:
-        for model in ("openai/gpt-oss-120b", "llama-3.1-8b-instant"):
+        for model in ("openai/gpt-oss-120b", "openai/gpt-oss-20b", "llama-3.1-8b-instant"):
             try:
                 j = post_json("https://api.groq.com/openai/v1/chat/completions",
                               {"model": model, "messages": msgs}, {"Authorization": "Bearer " + GROQ})
@@ -185,8 +185,14 @@ def herzschlag():
     du = shutil.disk_usage("/")
     if du.free / du.total < 0.1:
         probleme["disk"] = f"💾 Festplatte fast voll: nur noch {du.free // 2**30} GB frei."
-    try:
-        aufgabe_abarbeiten()
+    try:  # liegengebliebene Aufträge (z. B. nach Neustart) an freie Helfer geben
+        q = load(F_Q, [])
+        for a in q:
+            if a["status"] == "in Arbeit" and not _belegt:
+                a["status"] = "bereit"
+        store(F_Q, q)
+        for _ in range(min(3 - len(_belegt), sum(1 for a in q if a["status"] == "bereit"))):
+            im_hintergrund("Warteschlange", lambda name: aufgabe_abarbeiten(name))
     except Exception as e:
         print("Warteschlange:", e)
     for k, msg in probleme.items():
@@ -255,31 +261,64 @@ def ausgaben_text():
 
 
 # ---------- Aufgaben-Warteschlange ----------
+# ---------- Leibgarde: Hintergrund-Helfer nur für Lucas ----------
+# Bis zu 3 Aufträge laufen parallel in eigenen Threads – der Chat bleibt immer frei und antwortet sofort.
+Q_LOCK, FREI, NAMEN = threading.Lock(), threading.Semaphore(3), ["Ben", "Lea", "Kai"]
+_belegt = set()
+
+
+def im_hintergrund(titel, fn):
+    def lauf():
+        with FREI:
+            with Q_LOCK:
+                name = next((n for n in NAMEN if n not in _belegt), "Ben")
+                _belegt.add(name)
+            try:
+                fn(name)
+            except Exception as e:
+                say(f"⛔ {name}: {titel[:60]} hat nicht geklappt ({e}).")
+            finally:
+                _belegt.discard(name)
+    threading.Thread(target=lauf, daemon=True).start()
+
+
 def aufgabe_neu(text):
-    q = load(F_Q, [])
-    q.append({"id": uuid.uuid4().hex[:5], "text": text[:1000], "status": "bereit", "zeit": datetime.now(TZ).strftime("%Y-%m-%d %H:%M")})
-    store(F_Q, q)
-    say(f"📋 In die Warteschlange gelegt ({sum(1 for x in q if x['status'] == 'bereit')} offen). Ich fange sofort an und schicke dir das Ergebnis.")
-    aufgabe_abarbeiten()
+    with Q_LOCK:
+      q = load(F_Q, [])
+      q.append({"id": uuid.uuid4().hex[:5], "text": text[:1000], "status": "bereit", "zeit": datetime.now(TZ).strftime("%Y-%m-%d %H:%M")})
+      store(F_Q, q)
+    frei = 3 - len(_belegt)
+    say(f"🛡️ {'Ein Helfer fängt sofort an' if frei > 0 else 'Alle 3 Helfer sind beschäftigt – deiner ist als Nächstes dran'}. "
+        "Du kannst mir währenddessen ganz normal weiter schreiben.")
+    im_hintergrund(text, lambda name: aufgabe_abarbeiten(name))
 
 
-def aufgabe_abarbeiten():
-    q = load(F_Q, [])
-    for a in q:
-        if a["status"] == "bereit":
-            a["status"] = "in Arbeit"
-            store(F_Q, q)
+def aufgabe_abarbeiten(name="Jarvis"):
+    with Q_LOCK:
+        q = load(F_Q, [])
+        a = next((x for x in q if x["status"] == "bereit"), None)
+        if not a:
+            return
+        a["status"] = "in Arbeit"
+        store(F_Q, q)
+    for _ in [a]:
             try:
                 erg = ki([{"role": "system", "content": SYSTEM + gedaechtnis_text() + lern_text() +
                            " Du arbeitest eine Aufgabe aus der Warteschlange selbstständig ab. Liefere ein fertiges, direkt nutzbares Ergebnis "
                            "(Entwurf, Plan, Text, Liste). Was du nicht selbst tun darfst (senden, bezahlen, veröffentlichen), bereitest du nur vor und schreibst am Ende „👉 Du musst: …“."},
                           {"role": "user", "content": a["text"]}])
-                a["status"], a["ergebnis"] = "fertig", erg[:6000]
-                say(f"✅ Aufgabe erledigt: {a['text'][:80]}\n\n{erg}")
+                status, extra = "fertig", {"ergebnis": erg[:6000]}
+                say(f"✅ {name} ist fertig: {a['text'][:80]}\n\n{erg}")
             except Exception as e:
-                a["status"], a["fehler"] = "blockiert", str(e)[:200]
-                say(f"⛔ Aufgabe blockiert: {a['text'][:80]} ({e})")
-            store(F_Q, q[-100:])
+                status, extra = "blockiert", {"fehler": str(e)[:200]}
+                say(f"⛔ {name}: Aufgabe blockiert: {a['text'][:80]} ({e})")
+            with Q_LOCK:  # frisch laden – andere Helfer haben die Datei inzwischen evtl. geändert
+                q = load(F_Q, [])
+                for x in q:
+                    if x["id"] == a["id"]:
+                        x["status"] = status
+                        x.update(extra)
+                store(F_Q, q[-100:])
             return
 
 
@@ -361,7 +400,7 @@ def handle(m):
         return say("Ich verstehe bisher nur Text. Schreib mir einfach.")
     low = txt.lower()
     if low.startswith("/start") or low.startswith("/hilfe") or low == "hilfe":
-        return say("Jarvis ist live 🟢\n• Schreib mir einfach – ich antworte sofort\n• „Idee: …“ speichert eine Idee (landet nachts in Obsidian)\n• /status – Server & Bots\n• „Erinnere mich morgen um 7 an …“ · /erinnerungen\n• „Merk dir: …“ · /gedaechtnis · „Vergiss …“\n• Sprachnachrichten gehen auch 🎙\n• „Such …“ – Websuche\n• Foto vom Kassenbon · /ausgaben\n• „Aufgabe: …“ – ich erledige es selbst · /aufgaben")
+        return say("Jarvis ist live 🟢\n• Schreib mir einfach – ich antworte sofort\n• „Idee: …“ speichert eine Idee (landet nachts in Obsidian)\n• /status – Server & Bots\n• „Erinnere mich morgen um 7 an …“ · /erinnerungen\n• „Merk dir: …“ · /gedaechtnis · „Vergiss …“\n• Sprachnachrichten gehen auch 🎙\n• „Such …“ – Websuche\n• Foto vom Kassenbon · /ausgaben\n• „Aufgabe: …“ – meine Hintergrund-Helfer (bis zu 3 parallel) erledigen es, du kannst weiter schreiben · /aufgaben")
     if low.startswith("/status"):
         return say(status())
     if re.match(r"^\s*(?:bitte\s+)?erinnere?\s+mich", low):
@@ -392,10 +431,9 @@ def handle(m):
         return aufgabe_neu(m4.group(1).strip())
     m5 = re.match(r"^\s*(?:/such(?:e)?|such(?:e)?(?:\s+mal)?|google)\s*[:\-]?\s*(.+)", txt, re.I | re.S)
     if m5:
-        try:
-            return websuche(m5.group(1).strip())
-        except Exception as e:
-            return say(f"Die Suche ist gerade nicht erreichbar ({e}).")
+        frage = m5.group(1).strip()
+        say("🔎 Ich suche im Hintergrund – schreib ruhig weiter.")
+        return im_hintergrund(frage, lambda name: websuche(frage))
     if PAT.match(txt):
         idee = PAT.sub("", txt, count=1).strip()
         if not idee:
