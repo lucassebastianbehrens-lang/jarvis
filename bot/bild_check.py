@@ -12,7 +12,7 @@ def bildmodelle():
     with urllib.request.urlopen(req, timeout=30) as r:
         ids = [m["id"] for m in json.load(r).get("data", [])]
     print("Groq-Modelle:", ", ".join(sorted(ids)))
-    kandidaten = [m for m in BEVORZUGT if m in ids] + [m for m in ids if any(k in m.lower() for k in ("scout", "maverick", "vision", "-vl", "vl-", "llava", "gemma-3")) and m not in BEVORZUGT]
+    kandidaten = [m for m in BEVORZUGT if m in ids] + [m for m in ids if any(k in m.lower() for k in ("scout", "maverick", "vision", "-vl", "vl-", "llava", "gemma-3", "qwen")) and m not in BEVORZUGT]
     return kandidaten
 FRAGE = ("These are frames from a family-friendly cartoon series whose characters must ALL be fruit or vegetable mascots "
          "(heads/bodies are real fruits or vegetables). For each frame: does it show a human being or a human-looking face/body "
