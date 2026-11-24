@@ -1,42 +1,92 @@
 {
- "t": 1795469226,
- "datum": "Montag, 23.11.2026",
- "fazit": "",
+ "t": 1795535075,
+ "datum": "Dienstag, 24.11.2026",
+ "fazit": "14 Bots haben 84 Aufträge erledigt (davon 4 fehlerhaft), der Memecoin‑Bot hat 48,48 € Gewinn gemacht und 3 neue Aufträge – u. a. ein Liebesgedicht‑Entwurf – wurden gefunden. Wichtig ist heute, den gerade neu gestarteten Meme‑Makler Max im Blick zu behalten.",
  "zeilen": [
-  "🤖 11 Bots haben 57 Aufträge erledigt, alle fehlerfrei.",
+  "🤖 14 Bots haben 84 Aufträge erledigt, 4 mit Fehler.",
   "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
-  "📈 Memecoin-Bot: 938,80 € (-16,32 € in 24 h), 27 Trades – Spielgeld",
-  "🔭 3 neue Aufträge gefunden, z. B. „Futuristic Streetwear Prompts“.",
-  "🛡️ Wächter: alles läuft."
+  "📈 Memecoin-Bot: 987,28 € (+48,48 € in 24 h), 10 Trades – Spielgeld",
+  "🔭 3 neue Aufträge gefunden, z. B. „Romantic Love Poem Draft“.",
+  "📚 11 neue Tools/Trends entdeckt – Top: INK-Q/agy-fast.",
+  "🛡️ Wächter: 1 Problem(e) – Meme-Makler Max: letzter Lauf vor 4 h (erwartet alle 3 h) → selbst gestartet",
+  "🔧 Selbst repariert: Meme-Makler Max."
  ],
  "bots": [
   {
-   "name": "Trader Toni",
-   "icon": "📈",
-   "ok": 17,
+   "name": "Baumeister Bob",
+   "icon": "🏗️",
+   "ok": 19,
    "fehler": 0
   },
   {
-   "name": "Meme-Makler Max",
-   "icon": "🎰",
+   "name": "Prüferin Paula",
+   "icon": "✅",
    "ok": 14,
    "fehler": 0
   },
   {
-   "name": "Baumeister Bob",
-   "icon": "🏗️",
-   "ok": 12,
+   "name": "YouTuber Yannik",
+   "icon": "📺",
+   "ok": 10,
+   "fehler": 0
+  },
+  {
+   "name": "Agentin Ada",
+   "icon": "🛰️",
+   "ok": 6,
+   "fehler": 0
+  },
+  {
+   "name": "Regisseurin Rita",
+   "icon": "🎬",
+   "ok": 2,
+   "fehler": 3
+  },
+  {
+   "name": "Meme-Makler Max",
+   "icon": "🎰",
+   "ok": 5,
    "fehler": 0
   },
   {
    "name": "Forscherin Frieda",
    "icon": "📚",
+   "ok": 5,
+   "fehler": 0
+  },
+  {
+   "name": "Leibgarde",
+   "icon": "🛡️",
+   "ok": 4,
+   "fehler": 0
+  },
+  {
+   "name": "Funker Fritz",
+   "icon": "📡",
    "ok": 4,
    "fehler": 0
   },
   {
    "name": "Postbote Paul",
    "icon": "📮",
+   "ok": 3,
+   "fehler": 0
+  },
+  {
+   "name": "Trader Toni",
+   "icon": "📈",
+   "ok": 2,
+   "fehler": 1
+  },
+  {
+   "name": "Butler Bruno",
+   "icon": "🎩",
+   "ok": 2,
+   "fehler": 0
+  },
+  {
+   "name": "Wächter Willi",
+   "icon": "🛡️",
    "ok": 2,
    "fehler": 0
   },
@@ -44,36 +94,6 @@
    "name": "Scout Sam",
    "icon": "🔭",
    "ok": 2,
-   "fehler": 0
-  },
-  {
-   "name": "Funker Fritz",
-   "icon": "📡",
-   "ok": 2,
-   "fehler": 0
-  },
-  {
-   "name": "Butler Bruno",
-   "icon": "🎩",
-   "ok": 1,
-   "fehler": 0
-  },
-  {
-   "name": "Wächter Willi",
-   "icon": "🛡️",
-   "ok": 1,
-   "fehler": 0
-  },
-  {
-   "name": "Regisseurin Rita",
-   "icon": "🎬",
-   "ok": 1,
-   "fehler": 0
-  },
-  {
-   "name": "YouTuber Yannik",
-   "icon": "📺",
-   "ok": 1,
    "fehler": 0
   }
  ],
@@ -86,15 +106,53 @@
    "pnl": 0
   },
   "Memecoin-Bot": {
-   "wert": 938.8,
-   "diff": -16.32,
-   "trades": 27,
-   "gewinner": 16,
-   "pnl": -28.07
+   "wert": 987.28,
+   "diff": 48.48,
+   "trades": 10,
+   "gewinner": 9,
+   "pnl": 48.48
   }
  },
- "neu": [],
+ "neu": [
+  {
+   "titel": "INK-Q/agy-fast",
+   "nutzen": "",
+   "url": "https://github.com/INK-Q/agy-fast"
+  },
+  {
+   "titel": "danielwh2/sprite-stacking",
+   "nutzen": "",
+   "url": "https://github.com/danielwh2/sprite-stacking"
+  },
+  {
+   "titel": "erkamyaman/safe-anything",
+   "nutzen": "",
+   "url": "https://github.com/erkamyaman/safe-anything"
+  },
+  {
+   "titel": "w01fb0ss/PiBot",
+   "nutzen": "",
+   "url": "https://github.com/w01fb0ss/PiBot"
+  },
+  {
+   "titel": "qianyiai/kurocat",
+   "nutzen": "",
+   "url": "https://github.com/qianyiai/kurocat"
+  }
+ ],
  "verlauf": [
+  {
+   "t": 1795469226,
+   "datum": "Montag, 23.11.2026",
+   "fazit": "",
+   "zeilen": [
+    "🤖 11 Bots haben 57 Aufträge erledigt, alle fehlerfrei.",
+    "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
+    "📈 Memecoin-Bot: 938,80 € (-16,32 € in 24 h), 27 Trades – Spielgeld",
+    "🔭 3 neue Aufträge gefunden, z. B. „Futuristic Streetwear Prompts“.",
+    "🛡️ Wächter: alles läuft."
+   ]
+  },
   {
    "t": 1795468958,
    "datum": "Montag, 23.11.2026",
