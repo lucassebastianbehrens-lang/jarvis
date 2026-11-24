@@ -1,0 +1,105 @@
+{
+  "id": "sim-03-auto-vs-fahrrad-in-der-stadt",
+  "titel": [
+    "AUTO",
+    "FAHRRAD"
+  ],
+  "frage": [
+    "5 km im Berufsverkehr –",
+    "WER IST SCHNELLER?"
+  ],
+  "a": {
+    "name": "AUTO",
+    "figur": "auto",
+    "dauer_s": 1800.0,
+    "menge": 30.0,
+    "info": "30 min inkl. 10 min Parkplatzsuche"
+  },
+  "b": {
+    "name": "FAHRRAD",
+    "figur": "rad",
+    "dauer_s": 1500.0,
+    "menge": 25.0,
+    "info": "25 min, keine Parkplatzsuche"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "min",
+    "zaehler": "Zeit",
+    "besser": "weniger"
+  },
+  "skala": [
+    "Start",
+    "Mitte",
+    "Ziel"
+  ],
+  "ergebnis": "etwa {p} % weniger Zeit",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Nur 5 Minuten Unterschied bei 5 km!"
+    },
+    {
+      "phase": "intro",
+      "t": "Der Haken: Autos brauchen extra Zeit zum Parken."
+    },
+    {
+      "phase": "race",
+      "t": "Auto fährt 15 km/h → 20 min Fahrzeit + 10 min Parkplatzsuche = 30 min."
+    },
+    {
+      "phase": "race",
+      "t": "Fahrrad fährt 12 km/h → rund 25 min, kein Parkplatz nötig."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Das Fahrrad ist etwa 17 % schneller (weniger Zeit)."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Welches kommt schneller an?",
+    "Nur 5 Minuten Unterschied bei 5 km!",
+    "Mythos: Auto ist immer schneller im Stadtverkehr."
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Auto vs Fahrrad – wer ist bei 5 km im Berufsverkehr schneller? 🚗🚲 Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#auto",
+    "#fahrrad",
+    "#verkehr",
+    "#umwelt"
+  ],
+  "quelle": "Durchschnittliche Fahrgeschwindigkeit Auto 15 km/h (Umweltbundesamt, Verkehrszählungen 2023); Durchschnittliche Fahrgeschwindigkeit Fahrrad 12 km/h (ADFC 2022); CO2‑Emissionen Auto 120 g CO2/km (Umweltbundesamt, Emissionsfaktoren 2022); Energieverbrauch Radfahrer 0.05 kWh/km (Physik‑Berechnung 75 kg Person); Parkplatzsuche 10 min (Verbraucherzentrale, Studie Parkplatzsuche 2021).",
+  "fakten": [
+    {
+      "satz": "Durchschnittliche Fahrgeschwindigkeit eines Autos im Berufsverkehr in deutschen Innenstädten",
+      "wert": "15 km/h",
+      "quelle": "Umweltbundesamt, Verkehrszählungen 2023"
+    },
+    {
+      "satz": "Durchschnittliche Fahrgeschwindigkeit eines Fahrrads im Berufsverkehr in deutschen Innenstädten",
+      "wert": "12 km/h",
+      "quelle": "Allgemeiner Deutscher Fahrrad-Club (ADFC) 2022"
+    },
+    {
+      "satz": "CO2‑Emissionen eines durchschnittlichen Benzinautos pro gefahrenem Kilometer (inkl. Leerlauf)",
+      "wert": "120 g CO2/km",
+      "quelle": "Umweltbundesamt, Emissionsfaktoren 2022"
+    },
+    {
+      "satz": "Energieverbrauch eines Radfahrers pro Kilometer (mechanisch umgesetzt)",
+      "wert": "0.05 kWh/km",
+      "quelle": "Physik‑Berechnung basierend auf 0,25 kcal/kg·km für 75 kg Person"
+    },
+    {
+      "satz": "Durchschnittliche Suchzeit für einen Parkplatz im Stadtzentrum",
+      "wert": "10 min",
+      "quelle": "Verbraucherzentrale, Studie Parkplatzsuche 2021"
+    }
+  ]
+}
