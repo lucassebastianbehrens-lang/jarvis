@@ -73,9 +73,14 @@ jobs:
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
           mkdir -p video/out; FEHLER=0
           for D in ${{ steps.key.outputs.tage }}; do
-            bash bot/video_tag.sh "$MODUS" "$D" "$SPEC_IN" || { FEHLER=$((FEHLER + 1)); echo "⚠️ $D nicht geschafft"; }
+            if ! bash bot/video_tag.sh "$MODUS" "$D" "$SPEC_IN"; then
+              FEHLER=$((FEHLER + 1)); echo "⚠️ $D nicht geschafft"
+              # Serien (Früchte, Kontostand) nur der Reihe nach füllen, sonst stimmt die Folgen-Reihenfolge nicht mehr
+              [ "$MODUS" != sim ] && break
+            fi
             SPEC_IN=""; IDEE=""
             find video/out -mindepth 1 -maxdepth 1 ! -name fertig.txt -exec rm -rf {} +   # Platz für das nächste Video
+            sleep 45   # Groq-Gratislimit schonen
           done
           echo "fehler=$FEHLER" >> $GITHUB_OUTPUT
           [ -s video/out/fertig.txt ] || exit 1

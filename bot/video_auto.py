@@ -8,7 +8,7 @@ Ablauf (nach Lucas' Vorlage „Viral Studio“, 24.11.2026):
   python3 bot/video_auto.py tt    -> nächste Folge der Früchte-Serie nach der Serien-Bibel (video/tt/tt-s1-fNN.json)
   python3 bot/video_auto.py geld  -> nächste Folge „Kontostand“ (LED-Geldanzeige, video/geld/geld-s1-fNN.json)
 Gibt den Pfad der neuen Spec aus (und schreibt ihn nach $GITHUB_OUTPUT als spec=...)."""
-import glob, json, os, re, sys, urllib.request
+import glob, json, os, re, sys, time, urllib.error, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ki_router
 
@@ -22,22 +22,33 @@ PRUEFRUNDEN = 3  # so oft wird jede Folge geprüft und verbessert, bevor sie ger
 
 def ki(system, user, temp=0.8):
     last = None
-    for m in (MODELS if KEY else []):
-        try:
-            body = {"model": m, "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
-                    "response_format": {"type": "json_object"}, "temperature": temp}
-            req = urllib.request.Request("https://api.groq.com/openai/v1/chat/completions", json.dumps(body).encode(),
-                                         {"Content-Type": "application/json", "Authorization": "Bearer " + KEY, "User-Agent": "jarvis-bot"})  # ohne User-Agent: Groq antwortet 403
-            with urllib.request.urlopen(req, timeout=120) as r:
-                txt = json.load(r)["choices"][0]["message"]["content"]
+    for runde in range(3):  # bei Groq-Limit (429) warten und es noch einmal versuchen – wichtig beim Wochen-Vorrat
+        limit = 0
+        for m in (MODELS if KEY else []):
+            try:
+                body = {"model": m, "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+                        "response_format": {"type": "json_object"}, "temperature": temp}
+                req = urllib.request.Request("https://api.groq.com/openai/v1/chat/completions", json.dumps(body).encode(),
+                                             {"Content-Type": "application/json", "Authorization": "Bearer " + KEY, "User-Agent": "jarvis-bot"})  # ohne User-Agent: Groq antwortet 403
+                with urllib.request.urlopen(req, timeout=120) as r:
+                    txt = json.load(r)["choices"][0]["message"]["content"]
+                return json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
+            except urllib.error.HTTPError as e:
+                last = e
+                print("Modell", m, "Fehler:", e)
+                if e.code == 429:
+                    limit = max(limit, min(90, float(e.headers.get("retry-after") or 30)))
+            except Exception as e:
+                last = e
+                print("Modell", m, "Fehler:", e)
+        # Groq weg -> KI-Weiche (Gemini, OpenRouter, Ollama) statt Abbruch
+        txt = ki_router.weiter([{"role": "system", "content": system}, {"role": "user", "content": user}], json_mode=True, temp=temp)
+        if txt and "{" in txt:
             return json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
-        except Exception as e:
-            last = e
-            print("Modell", m, "Fehler:", e)
-    # Groq weg -> KI-Weiche (Gemini, OpenRouter, Ollama) statt Abbruch
-    txt = ki_router.weiter([{"role": "system", "content": system}, {"role": "user", "content": user}], json_mode=True, temp=temp)
-    if txt and "{" in txt:
-        return json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
+        if not limit or runde == 2:
+            break
+        print(f"Groq-Limit – warte {limit + 30 * runde:.0f} s")
+        time.sleep(limit + 30 * runde)
     raise SystemExit(f"KI nicht erreichbar: {last}")
 
 
