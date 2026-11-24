@@ -101,7 +101,7 @@ Dialogue: 1,{ts(0)},{ts(t0)},Ki,,0,0,0,,KI-generiert
     open(f"{tmp}/s.ass", "w").write(ass)
     clips = []
     for i, ((s, e), sc) in enumerate(zip(scenes, sp["scenes"])):
-        p = f"{tmp}/i{i}.jpg"; img(sc["p"], p, seed=sum(map(ord, vid)) + i * 7)
+        p = f"{tmp}/i{i}.jpg"; img(sc["p"], p, seed=sc.get("seed", sum(map(ord, vid)) + i * 7))  # "seed" in der Szene = festes, geprüftes Bild
         seg = (e - s) + (2.5 if i == len(scenes) - 1 else 0); fr = int(seg * FPS) + 2
         z = "min(zoom+0.0009,1.15)" if i % 2 == 0 else "if(eq(on,1),1.15,max(zoom-0.0009,1))"
         c = f"{tmp}/c{i}.mp4"
