@@ -73,7 +73,7 @@ def ki(system, user, search=False, json_mode=False):
                      ("openai/gpt-oss-120b", {"tools": [{"type": "browser_search"}], "tool_choice": "required"}),
                      ("openai/gpt-oss-20b", {"tools": [{"type": "browser_search"}], "tool_choice": "required"})]
                     if search else [("openai/gpt-oss-120b", {}), ("openai/gpt-oss-20b", {}),
-                                    ("meta-llama/llama-4-scout-17b-16e-instruct", {}), ("qwen/qwen3-32b", {})])
+                                    ("qwen/qwen3.8-27b", {})])
         for m, extra in versuche:
             if m in _GESPERRT:
                 continue

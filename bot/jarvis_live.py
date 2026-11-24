@@ -24,7 +24,7 @@ F_IDEEN, F_HIST = f"{BASE}/ideen.json", "/var/lib/jarvis/live-verlauf.json"
 F_ERI, F_MEM, F_HB = "/var/lib/jarvis/erinnerungen.json", "/var/lib/jarvis/gedaechtnis.json", "/var/lib/jarvis/herzschlag.json"
 F_AUS, F_Q, F_LERN = f"{BASE}/ausgaben.json", "/var/lib/jarvis/aufgaben.json", "/var/lib/jarvis/lernen.json"
 SEARX = os.environ.get("SEARX_URL", "http://127.0.0.1:8888")
-VISION = "meta-llama/llama-4-scout-17b-16e-instruct"
+VISION = "qwen/qwen3.8-27b"  # Groq-Bildmodell (llama-4-scout gibt es nicht mehr)
 TZ = ZoneInfo("Europe/Berlin")
 PAT = re.compile(r"^\s*(?:💡|/idee(?:@\w+)?|idee)\s*[:\-–]?\s*", re.I)
 SYSTEM = ("Du bist Jarvis, der persönliche Assistent von Lucas. Antworte immer auf Deutsch, kurz und konkret "
@@ -68,7 +68,7 @@ def post_json(url, body, headers):
 
 def ki(msgs):
     if GROQ:
-        for model in ("openai/gpt-oss-120b", "openai/gpt-oss-20b", "llama-3.1-8b-instant"):
+        for model in ("openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.8-27b"):
             try:
                 j = post_json("https://api.groq.com/openai/v1/chat/completions",
                               {"model": model, "messages": msgs}, {"Authorization": "Bearer " + GROQ})

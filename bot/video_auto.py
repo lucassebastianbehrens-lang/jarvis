@@ -5,7 +5,7 @@ Gibt den Pfad der neuen Spec aus (und schreibt ihn nach $GITHUB_OUTPUT als spec=
 import glob, json, os, re, sys, urllib.request
 
 KEY = os.environ.get("GROQ_KEY", "")
-MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "meta-llama/llama-4-scout-17b-16e-instruct"]
+MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.8-27b"]
 VERBOTEN = re.compile(r"\b(man|woman|women|men|girl|boy|human|person|people|sexy|bikini|bra|crop top|cleavage|naked)\b", re.I)
 
 

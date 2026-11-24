@@ -24,7 +24,7 @@
 
 ## Feste Regeln (nie brechen)
 1. Kein echtes Geld bewegen, nichts kaufen, nichts bezahlen – Geld kommt nur REIN (PayPal-Rechnungen/Zahlungslinks, Etsy).
-2. Nichts öffentlich posten ohne Lucas' Freigabe – Ausnahme: die täglichen Simulations-Videos (von Lucas freigegeben, nur nach bestandener Qualitätsprüfung).
+2. Nichts öffentlich posten ohne Lucas' Freigabe – Ausnahmen (von Lucas freigegeben, nur nach bestandener Qualitäts- UND Bildprüfung): die täglichen Simulations-Videos und **mindestens 1 Video pro Tag der Früchte-Serie auf TikTok „tägliche ki Serie“** (Anordnung 24.11.2026; Folgen der Reihe nach, sonst Teaser „Was bisher geschah“).
 3. Keine Nachrichten/Mails an Fremde ohne Lucas' Ja.
 4. Nichts löschen – höchstens nach „04 Archiv“ verschieben.
 5. Passwörter, Schlüssel, Codes nie wiederholen oder weitergeben. Neue Schlüssel trägt Lucas selbst ein.
@@ -63,3 +63,5 @@ Nur offizielle OpenClaw-Bausteine oder Skills mit vielen Installationen und gele
 - **Leibgarde** (Ben, Lea, Kai): persönliche Hintergrund-Bots nur für Lucas. App: Knopf „🛡️ Im Hintergrund“ oder im Chat „… im Hintergrund“ → GitHub-Workflow hintergrund.yml (eigene Warteschlange, läuft parallel zu allen Bots, mit Websuche + Quellen). Telegram: „Aufgabe: …“ → bis zu 3 Helfer parallel auf dem Server, Chat bleibt frei.
 - **Websuche**: Groq „browser_search“ mit gpt-oss (groq/compound ist für Lucas' Konto gesperrt). Bots: jlib.ki(search=True), Quellen in jlib.QUELLEN.
 - **App v4**: Antworten erscheinen live (Streaming), schöne Formatierung, Partikel-Kern, Gesprächs-Archiv (IndexedDB, unbegrenzt) mit automatischer Erinnerung an passende alte Gespräche, Schnellstart mit letztem Stand.
+- **TikTok täglich (24.11.2026):** Aufgabe „TT: Tägliche Folge auf TikTok hochladen“ (12:33) veröffentlicht 18:30; „TikTok-Sicherung“ (16:47) prüft und startet sie notfalls neu. Bildprüfung `bot/bild_check.py` (Groq-Bildmodell, findet Menschen statt Obst) läuft automatisch in video-auto.yml und als Workflow „Bild-Prüfung (Video)“.
+- **Groq-Modelle (Stand 24.11.2026):** gpt-oss-120b, gpt-oss-20b, qwen/qwen3.8-27b (auch Bilder), whisper. Llama-Modelle und groq/compound sind weg. Groq-Anfragen brauchen einen User-Agent, sonst 403.
