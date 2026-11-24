@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
  "updated": 1795541575,
  "ok": false,
  "checks": [
@@ -12,122 +11,71 @@
    "name": "Trader Toni",
    "ok": true,
    "info": "ok · vor 1 h"
-=======
- "updated": 1795499798,
- "ok": false,
- "checks": [
-  {
-   "name": "Trader Toni",
-   "ok": true,
-   "info": "ok · vor 20 Min"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Meme-Makler Max",
    "ok": false,
-<<<<<<< HEAD
    "info": "letzter Lauf vor 5 h (erwartet alle 3 h) → selbst gestartet"
-=======
-   "info": "letzter Lauf vor 4 h (erwartet alle 3 h) → selbst gestartet"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Forscherin Frieda",
    "ok": true,
-<<<<<<< HEAD
    "info": "ok · vor 6 h"
   },
   {
    "name": "Agentin Ada",
    "ok": false,
    "info": "letzter Lauf vor 5 h (erwartet alle 3 h) → selbst gestartet"
-=======
-   "info": "ok · vor 8 h"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Butler Bruno",
    "ok": true,
-<<<<<<< HEAD
    "info": "ok · vor 2 h"
-=======
-   "info": "ok · vor 8 h"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Scout Sam",
    "ok": true,
-<<<<<<< HEAD
    "info": "ok · vor 2 h"
   },
   {
    "name": "Postbote Paul",
    "ok": false,
    "info": "letzter Lauf vor 2 h (erwartet alle 2 h) → selbst gestartet"
-=======
-   "info": "ok · vor 3 h"
-  },
-  {
-   "name": "Postbote Paul",
-   "ok": true,
-   "info": "ok · vor 2 h"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Regisseurin Rita",
    "ok": true,
-<<<<<<< HEAD
    "info": "ok · vor 3 h"
-=======
-   "info": "ok · vor 16 h"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "YouTuber Yannik",
    "ok": true,
-<<<<<<< HEAD
    "info": "ok · vor 2 h"
-=======
-   "info": "ok · vor 20 h"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Baumeister Bob",
    "ok": true,
-<<<<<<< HEAD
    "info": "ok · vor 22 Min"
-=======
-   "info": "ok · vor 9 h"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Funker Fritz",
    "ok": true,
-<<<<<<< HEAD
    "info": "ok · vor 2 h"
   },
   {
    "name": "Prüferin Paula",
    "ok": true,
    "info": "ok · vor 23 Min"
-=======
-   "info": "ok · vor 15 Min"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Spielgeld-Daten",
    "ok": true,
-<<<<<<< HEAD
    "info": "zuletzt vor 69 Min aktualisiert"
-=======
-   "info": "zuletzt vor 20 Min aktualisiert"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   },
   {
    "name": "Jarvis-App online",
    "ok": true,
    "info": "erreichbar"
-<<<<<<< HEAD
   },
   {
    "name": "KI-Motor (Groq)",
@@ -139,12 +87,6 @@
   "Meme-Makler Max",
   "Agentin Ada",
   "Postbote Paul"
-=======
-  }
- ],
- "repariert": [
-  "Meme-Makler Max"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
  ],
  "verlauf": [
   {
@@ -156,14 +98,11 @@
    "t": 1795499798,
    "ok": 11,
    "n": 12
-<<<<<<< HEAD
   },
   {
    "t": 1795541575,
    "ok": 13,
    "n": 16
-=======
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   }
  ]
 }

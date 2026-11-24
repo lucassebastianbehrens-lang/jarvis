@@ -6,10 +6,7 @@ Ablauf (nach Lucas' Vorlage „Viral Studio“, 24.11.2026):
   4. Prüfen – zweiter KI-Durchgang als strenger Prüfer; bei Fehlern wird einmal neu geschrieben
   python3 bot/video_auto.py sim   -> nächstes Thema aus video/sim/THEMEN.md als Spec (video/sim/sim-NN-*.json)
   python3 bot/video_auto.py tt    -> nächste Folge der Früchte-Serie nach der Serien-Bibel (video/tt/tt-s1-fNN.json)
-<<<<<<< HEAD
   python3 bot/video_auto.py geld  -> nächste Folge „Kontostand“ (LED-Geldanzeige, video/geld/geld-s1-fNN.json)
-=======
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
 Gibt den Pfad der neuen Spec aus (und schreibt ihn nach $GITHUB_OUTPUT als spec=...)."""
 import glob, json, os, re, sys, urllib.request
 
@@ -18,12 +15,9 @@ MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.8-27b"]
 VERBOTEN = re.compile(r"\b(man|woman|women|men|girl|boy|human|person|people|sexy|bikini|bra|crop top|cleavage|naked)\b", re.I)
 
 
-<<<<<<< HEAD
 PRUEFRUNDEN = 3  # so oft wird jede Folge geprüft und verbessert, bevor sie gerendert wird
 
 
-=======
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
 def ki(system, user, temp=0.8):
     last = None
     for m in MODELS:
@@ -202,7 +196,6 @@ def sim():
     except (AssertionError, KeyError, ValueError, TypeError, AttributeError) as e:  # Formfehler der KI → 1× mit Hinweis neu
         print("Format-Fehler, neuer Versuch:", repr(e))
         sp = sim_schreiben(thema, sid, fk, regeln, vorlage, [f"Formatfehler: {e!r} – alle Pflichtfelder korrekt füllen"])
-<<<<<<< HEAD
     # 3 Prüfrunden: prüfen → verbessern → nochmal prüfen (Lucas will 3-fache Kontrolle vor dem Posten)
     for runde in range(1, PRUEFRUNDEN + 1):
         probleme, hook = pruefen("Simulations", sp, "FAKTEN:\n" + json.dumps(fk, ensure_ascii=False))
@@ -213,13 +206,6 @@ def sim():
             sp = sim_schreiben(thema, sid, fk, regeln, vorlage, probleme)
         except (AssertionError, KeyError, ValueError, TypeError, AttributeError) as e:
             print("Verbesserung fehlgeschlagen:", repr(e)); break
-=======
-    probleme, hook = pruefen("Simulations", sp, "FAKTEN:\n" + json.dumps(fk, ensure_ascii=False))
-    if probleme:
-        print("Prüfer:", probleme)
-        sp = sim_schreiben(thema, sid, fk, regeln, vorlage, probleme)
-        hook = pruefen("Simulations", sp, "FAKTEN:\n" + json.dumps(fk, ensure_ascii=False))[1]
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
     sp = sim_fertig(sp, hook)
     sp["fakten"] = fk["fakten"]
     path = f"video/sim/{sp['id']}.json"
@@ -229,7 +215,6 @@ def sim():
     return path
 
 
-<<<<<<< HEAD
 def serie(ordner, prefix, bibel_datei, name, max_folgen, extra=""):
     """Nächste Folge einer Serie nach ihrer Bibel schreiben, 3× prüfen, Format absichern."""
     bibel = open(bibel_datei, encoding="utf-8").read()
@@ -260,32 +245,6 @@ def serie(ordner, prefix, bibel_datei, name, max_folgen, extra=""):
     ep.setdefault("series", f01.get("series"))
     if "konten" in f01:
         konten_sichern(ep, letzte)
-=======
-def tt():
-    bibel = open("video/tt/00-STAFFEL-1-BIBEL.md", encoding="utf-8").read()
-    files = sorted(glob.glob("video/tt/tt-s1-f*.json"))
-    letzte = json.load(open(files[-1], encoding="utf-8"))
-    f01 = json.load(open("video/tt/tt-s1-f01.json", encoding="utf-8"))
-    nr = int(re.search(r"f(\d+)", files[-1]).group(1)) + 1
-    if nr > 14:
-        raise SystemExit("Staffel 1 ist fertig – Staffel 2 muss geplant werden.")
-    def schreiben(feedback=None):
-        return ki("Du schreibst die deutsche KI-Miniserie „Früchte-Drama“ für TikTok. Antworte NUR mit einem JSON-Objekt im exakt gleichen Format wie die letzte Folge. "
-            "Halte dich strikt an die Serien-Bibel. Familienfreundlich, nichts Anzügliches. Bildprompts auf Englisch, Dialoge auf Deutsch.",
-            f"SERIEN-BIBEL:\n{bibel}\n\nLETZTE FOLGE (Format-Vorlage):\n{json.dumps(letzte, ensure_ascii=False)}\n\n"
-            f"Schreibe Folge {nr} genau nach dem Folgenplan-Eintrag F{nr:02d}. 5–7 scenes, 140–170 Wörter Dialog insgesamt, Sekunde 1 Konflikt, "
-            f"Ende Cliffhanger, end = „Folge mir für Teil {nr + 1}“. Jeder Bildprompt p beginnt mit der exakten Figurenbeschreibung aus "
-            f"„figuren“ der Figuren in der Szene. Verbotene Wörter in p: man, woman, girl, boy, human, person, people, sexy." +
-            (f"\n\nDER PRÜFER HAT FOLGENDES BEMÄNGELT – unbedingt beheben:\n- " + "\n- ".join(feedback) if feedback else ""))
-
-    ep = schreiben()
-    probleme = pruefen("Serien-Folge", ep, f"Muss zur Serien-Bibel passen (Folgenplan F{nr:02d}, Figuren, Ton), Sekunde 1 Konflikt, Ende Cliffhanger.\nBIBEL:\n{bibel[:6000]}")[0]
-    if probleme:
-        print("Prüfer:", probleme)
-        ep = schreiben(probleme)
-    ep["id"], ep["episode"], ep["voices"], ep["figuren"] = f"tt-s1-f{nr:02d}", nr, f01["voices"], f01["figuren"]
-    ep.setdefault("series", f01.get("series"))
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
     sc = ep["scenes"]
     assert 4 <= len(sc) <= 8, "Szenenzahl ungültig"
     for s in sc:
@@ -296,16 +255,11 @@ def tt():
                 l["s"] = "Erzähler"
     woerter = sum(len(l["t"].split()) for s in sc for l in s["lines"])
     assert 90 <= woerter <= 260, f"Dialoglänge {woerter} Wörter"
-<<<<<<< HEAD
     path = f"{ordner}/{ep['id']}.json"
-=======
-    path = f"video/tt/{ep['id']}.json"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
     json.dump(ep, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return path
 
 
-<<<<<<< HEAD
 def konten_sichern(ep, letzte):
     """Kontostand-Format: Startwerte = Endstand der letzten Folge; je Szene nur bekannte Figuren, ganze Euro ≥ 0, max. 3 Anzeigen."""
     stand = dict(letzte.get("konten", {}))
@@ -345,12 +299,6 @@ if __name__ == "__main__":
     if not KEY:
         raise SystemExit("GROQ_KEY fehlt (GitHub → Settings → Secrets → Actions)")
     p = {"sim": sim, "tt": tt, "geld": geld}[sys.argv[1]]()
-=======
-if __name__ == "__main__":
-    if not KEY:
-        raise SystemExit("GROQ_KEY fehlt (GitHub → Settings → Secrets → Actions)")
-    p = {"sim": sim, "tt": tt}[sys.argv[1]]()
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
     print(p)
     if os.environ.get("GITHUB_OUTPUT"):
         open(os.environ["GITHUB_OUTPUT"], "a").write(f"spec={p}\n")

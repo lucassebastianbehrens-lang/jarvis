@@ -1,33 +1,15 @@
 {
-<<<<<<< HEAD
  "updated": 1795541592,
  "lagebild": "Die anhaltenden militärischen Auseinandersetzungen zwischen Russland und der Ukraine, einschließlich Drohnenangriffen auf russische Schiffe und Brücken, stehen derzeit weltweit im Fokus. Parallel dazu wird in Deutschland künftig die Produktion ukrainischer Drohnen ausgebaut, ein Schritt, der die deutsche Rüstungsindustrie unmittelbar betrifft. Diese Entwicklungen prägen das aktuelle Lagebild und haben direkte Auswirkungen auf die Wirtschaftslage in Deutschland.",
-=======
- "updated": 1795522596,
- "lagebild": "Der Krieg zwischen Russland und der Ukraine bestimmt derzeit die globale Lage, mit militärischen Übungen der „Koalition der Willigen“ in Polen und Deutschlands Plan, künftig ukrainische Drohnen zu liefern. Gleichzeitig sorgt das Sanktionen‑Paket gegen Russland für erhebliche Spannungen auf den europäischen Märkten. Für Lucas in Deutschland bedeutet das spürbare Druck auf Preise, Spritkosten und die Börse.",
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
-<<<<<<< HEAD
    "anzahl": 31,
    "heiss": 20,
    "meldungen": [
     {
-=======
-   "anzahl": 33,
-   "heiss": 20,
-   "meldungen": [
-    {
-     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehören zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
-     "quelle": "tagesschau"
-    },
-    {
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
      "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
      "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
@@ -52,7 +34,6 @@
      "quelle": "tagesschau"
     },
     {
-<<<<<<< HEAD
      "titel": "Deutschland baut künftig ukrainische Drohnen",
      "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
@@ -62,11 +43,6 @@
      "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
      "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
-=======
-     "titel": "Kritik aus den USA nach Treffen Trumps mit Xi und Putin",
-     "text": "Erstmals in der Geschichte saß ein US-Präsident allein mit dem chinesischen und dem russischen Staatschef an einem Tisch. Große Deals blieben offenbar aus, die Debatte zu Hause in den USA ist groß: War das Diplomatie - oder Inszenierung? Vo",
-     "url": "https://www.tagesschau.de/ausland/us-reaktionen-dreiergipfel-100.html",
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "quelle": "tagesschau"
     }
    ]
@@ -117,7 +93,6 @@
    ]
   },
   {
-<<<<<<< HEAD
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
@@ -167,12 +142,6 @@
    "lat": 39.8,
    "lon": -98.6,
    "anzahl": 23,
-=======
-   "land": "USA",
-   "lat": 39.8,
-   "lon": -98.6,
-   "anzahl": 25,
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "heiss": 7,
    "meldungen": [
     {
@@ -200,71 +169,15 @@
      "quelle": "tagesschau"
     },
     {
-<<<<<<< HEAD
-=======
-     "titel": "Kritik aus den USA nach Treffen Trumps mit Xi und Putin",
-     "text": "Erstmals in der Geschichte saß ein US-Präsident allein mit dem chinesischen und dem russischen Staatschef an einem Tisch. Große Deals blieben offenbar aus, die Debatte zu Hause in den USA ist groß: War das Diplomatie - oder Inszenierung? Vo",
-     "url": "https://www.tagesschau.de/ausland/us-reaktionen-dreiergipfel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "titel": "Iran greift erneut US-Stützpunkt in Bahrain an",
      "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
      "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
      "quelle": "tagesschau"
-<<<<<<< HEAD
     },
     {
      "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
      "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
      "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
-=======
-    }
-   ]
-  },
-  {
-   "land": "Deutschland",
-   "lat": 51.2,
-   "lon": 10.4,
-   "anzahl": 25,
-   "heiss": 4,
-   "meldungen": [
-    {
-     "titel": "Pistorius will Militärpakt mit Polen ausbauen",
-     "text": "Patriot-Systeme und Eurofighter-Kampfjets sowie eine Zusammenarbeit der Armeen beim Aufbau von gemeinsamen Verteidigungsstellungen: Polen und Deutschland arbeiten bereits militärisch zusammen. Das möchten beide Länder nun intensivieren.",
-     "url": "https://www.tagesschau.de/ausland/europa/polen-deutschland-militaer-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "COP31: Beschlusstext \"für Deutschland nicht zustimmungsfähig\"",
-     "text": "Die Weltklimakonferenz in Antalya ist schon in der Verlängerung, um ein Beschlusspapier wird heftig gerungen. Nun hat Umweltminister Schneider den Entwurf scharf zurückgewiesen - und erhebt Vorwürfe gegen einige Staaten.",
-     "url": "https://www.tagesschau.de/ausland/weltklimakonferenz-cop-droht-zu-scheitern-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Deutschland baut künftig ukrainische Drohnen",
-     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "\"Ausgleich kalter Progression nicht enthalten\", Christoph Mestmacher, ARD Berlin, zum Start der Haushaltswoche",
-     "text": "\"Ausgleich kalter Progression nicht enthalten\", Christoph Mestmacher, ARD Berlin, zum Start der Haushaltswoche",
-     "url": "https://www.tagesschau.de/video/video-1688922.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Worum es in der Haushaltswoche im Bundestag geht",
-     "text": "2027 will die Bundesregierung in ihrem Haushalt 560 Milliarden Euro ausgeben. Doch dafür muss der Bundestag dem Etat zustimmen. Deshalb geht es in dieser Woche noch einmal ums Ganze. Von Jan-Peter Bartels.",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/bundestag-haushaltswoche-114.html",
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "quelle": "tagesschau"
     }
    ]
@@ -273,11 +186,7 @@
    "land": "Iran",
    "lat": 32.4,
    "lon": 53.7,
-<<<<<<< HEAD
    "anzahl": 13,
-=======
-   "anzahl": 12,
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "heiss": 6,
    "meldungen": [
     {
@@ -322,11 +231,7 @@
    "land": "Israel",
    "lat": 31.0,
    "lon": 34.9,
-<<<<<<< HEAD
    "anzahl": 10,
-=======
-   "anzahl": 9,
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "heiss": 6,
    "meldungen": [
     {
@@ -399,17 +304,10 @@
      "quelle": "tagesschau"
     },
     {
-<<<<<<< HEAD
      "titel": "Hamas-Anführer bei Angriff Israels im Gazastreifen getötet",
      "text": "Sowohl die Islamistenorganisation als auch der amtierende israelische Premier Netanjahu bestätigten die Attacke. Bei dem Getöteten soll es sich um den Chef des internen Sicherheitsapparats der Terrororganisation handeln.",
      "url": "https://www.dw.com/de/hamas-anführer-bei-angriff-israels-im-gazastreifen-getötet/a-80034053?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
-=======
-     "titel": "Angriff auf Krankenhaus mit sechs Toten galt laut Israel Hamas",
-     "text": "Bei einem Angriff Israels auf eine Klinik in Gaza sind nach Behördenangaben sechs Menschen gestorben. Laut Israel nutzte die Hamas die Gebäude als Kommando- und Folterzentrum. Ein Mitglied der Terrororganisation sei Ziel des Angriffs gewese",
-     "url": "https://www.tagesschau.de/ausland/asien/gaza-israel-angriff-krankenhaus-100.html",
-     "quelle": "tagesschau"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
     },
     {
      "titel": "Gaza: Humanitäre Lage verschärft sich, politische Lösung bleibt aus",
@@ -423,38 +321,19 @@
    "land": "China",
    "lat": 35.9,
    "lon": 104.2,
-<<<<<<< HEAD
    "anzahl": 11,
    "heiss": 1,
    "meldungen": [
     {
-=======
-   "anzahl": 12,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Kritik aus den USA nach Treffen Trumps mit Xi und Putin",
-     "text": "Erstmals in der Geschichte saß ein US-Präsident allein mit dem chinesischen und dem russischen Staatschef an einem Tisch. Große Deals blieben offenbar aus, die Debatte zu Hause in den USA ist groß: War das Diplomatie - oder Inszenierung? Vo",
-     "url": "https://www.tagesschau.de/ausland/us-reaktionen-dreiergipfel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "titel": "Treffen von Trump, Xi und Putin: Rüstung, KI - und ein heikles Thema",
      "text": "Heute beginnt im chinesischen Shenzhen das APEC-Treffen. Erstmals wird es zu einem Dreiertreffen von Xi, Trump und Putin kommen. Um was könnte es dabei gehen? Von Christoph Kober.",
      "url": "https://www.tagesschau.de/ausland/asien/apec-trump-putin-xi-100.html",
      "quelle": "tagesschau"
     },
     {
-<<<<<<< HEAD
      "titel": "Weniger Hybridautos aus China - EU reguliert den Import",
      "text": "Die EU will mit Importquoten verhindern, dass günstige chinesische Hybrid-Autos Europas Autobauern Konkurrenz machen. Die Importe hatten sich in den vergangenen zwei Jahren mehr als versechsfacht.",
      "url": "https://www.tagesschau.de/wirtschaft/hybridautos-china-europa-importe-100.html",
-=======
-     "titel": "Affäre von Ex-Nvidia-Chef wohl in Kontakt zu Chinas Geheimdienst",
-     "text": "Alice Huang, Geliebte des ehemaligen Nvidia-Chefs, hatte offenbar mehr als ein Jahr lang Kontakt zu einem Mitarbeiter des chinesischen Geheimdienstes. Die Chinesin steht im Mittelpunkt des Skandals um den US-Chipkonzern.",
-     "url": "https://www.tagesschau.de/wirtschaft/unternehmen/nvidia-skandal-kontakt-chinesischer-geheimdienst-100.html",
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "quelle": "tagesschau"
     },
     {
@@ -471,7 +350,6 @@
     },
     {
      "titel": "Studie: Mehrheit der Deutschen gegen mehr Waffen für Ukraine",
-<<<<<<< HEAD
      "text": "Deutschland auf Rückzug? Einer Umfrage zufolge wünschen sich viele Bürger mehr außenpolitische Zurückhaltung. Die Mehrheit lehnt Waffenhilfen für die Ukraine ab und setzt auf Neutralität gegenüber China und den USA.",
      "url": "https://www.dw.com/de/studie-mehrheit-der-deutschen-gegen-mehr-waffen-für-ukraine/a-80020315?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
@@ -526,11 +404,6 @@
      "text": "Die EU-Kommission ermittelt wegen möglicher Wettbewerbsverstöße gegen den größten europäischen Coca-Cola-Abfüller. Das Unternehmen habe Supermärkten und Tankstellen womöglich Auflagen für Preise und Weiterverkauf gemacht.",
      "url": "https://www.tagesschau.de/wirtschaft/verbraucher/eu-ermittlungen-coca-cola-abfueller-100.html",
      "quelle": "tagesschau"
-=======
-     "text": "Immer mehr Deutsche finden, das Land solle sich außenpolitisch zurückhalten. Eine Mehrheit ist gegen Waffen-Hilfen für die Ukraine. Und dafür, dass das Land eine neutrale Position im Streit der USA mit China einnimmt.",
-     "url": "https://www.dw.com/de/studie-mehrheit-der-deutschen-gegen-mehr-waffen-für-ukraine/a-80020315?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
     }
    ]
   },
@@ -613,54 +486,6 @@
    ]
   },
   {
-<<<<<<< HEAD
-=======
-   "land": "Belgien/EU",
-   "lat": 50.8,
-   "lon": 4.4,
-   "anzahl": 6,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
-     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
-     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
-     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
-     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Warum Burnham die Nähe zur EU sucht",
-     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "EU-Kommission ermittelt gegen Coca-Cola-Abfüller wegen Wettbewerbsverstößen",
-     "text": "Die EU-Kommission ermittelt wegen möglicher Wettbewerbsverstöße gegen den größten europäischen Coca-Cola-Abfüller. Das Unternehmen habe Supermärkten und Tankstellen womöglich Auflagen für Preise und Weiterverkauf gemacht.",
-     "url": "https://www.tagesschau.de/wirtschaft/verbraucher/eu-ermittlungen-coca-cola-abfueller-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Deutsche Experten vor dem EU-Westbalkan-Gipfel: Unter der Regierung der Studentenliste muss sich Serbien zwischen Aufbruch und Kontinuität entscheiden",
-     "text": "Serbiens neue Führung sorgt in der Europäischen Union für Hoffnung und Skepsis zugleich. Deutsche Westbalkan-Experten sehen Chancen für Reformen, aber offene Fragen bei EU-Kurs, Kosovo und Russland.",
-     "url": "https://www.dw.com/de/deutsche-experten-vor-dem-eu-westbalkan-gipfel-unter-der-regierung-der-studentenliste-muss-sich-serbien-zwischen-aufbruch-und-kontinuität-entscheiden/a-80019985?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "land": "Frankreich",
    "lat": 46.2,
    "lon": 2.2,
@@ -694,42 +519,6 @@
    ]
   },
   {
-<<<<<<< HEAD
-=======
-   "land": "Japan",
-   "lat": 36.2,
-   "lon": 138.3,
-   "anzahl": 4,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehören zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
-     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
-     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mehr als 20 Verletzte nach Erdbeben in Zentraljapan",
-     "text": "Mehrere Regionen in Japan wurden in der Nacht von einem Erdbeben der Stärke 5,7 erschüttert. Am stärksten betroffen war die Präfektur Aichi. Medien berichten über mehr als 20 Verletzte. Laut Behörden könnten weitere Beben folgen.",
-     "url": "https://www.tagesschau.de/ausland/asien/japan-erdbeben-aichi-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
-     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
-     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "land": "Südafrika",
    "lat": -30.6,
    "lon": 22.9,
@@ -775,11 +564,7 @@
    "land": "Großbritannien",
    "lat": 54.0,
    "lon": -2.5,
-<<<<<<< HEAD
    "anzahl": 4,
-=======
-   "anzahl": 5,
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "heiss": 0,
    "meldungen": [
     {
@@ -805,33 +590,17 @@
      "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
      "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
      "quelle": "tagesschau"
-<<<<<<< HEAD
-=======
-    },
-    {
-     "titel": "Eisweinlese, Truthähne \"Freedom\" und \"Feathers\", Mond am London Eye",
-     "text": "Eisweinlese, Truthähne \"Freedom\" und \"Feathers\", Mond am London Eye",
-     "url": "https://www.tagesschau.de/multimedia/bilder/blickpunkte-10586.html",
-     "quelle": "tagesschau"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
     }
    ]
   },
   {
-<<<<<<< HEAD
    "land": "Japan",
    "lat": 36.2,
    "lon": 138.3,
-=======
-   "land": "Türkei",
-   "lat": 39.0,
-   "lon": 35.2,
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "anzahl": 3,
    "heiss": 0,
    "meldungen": [
     {
-<<<<<<< HEAD
      "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
      "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
      "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
@@ -847,23 +616,6 @@
      "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
      "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
      "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
-=======
-     "titel": "Gesuchtes Tier in Istanbul wohl doch keine Löwin",
-     "text": "Nach der Sichtung eines verdächtigen Tieres hatten Behörden in Istanbul einen Tag lang nach einer angeblich freilaufenden Löwin gesucht. Nun gaben sie vorerst Entwarnung: Es streunt wohl doch keine Großkatze durch die türkische Metropole.",
-     "url": "https://www.tagesschau.de/ausland/europa/loewe-istanbul-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
-     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
-     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "UN-Klimakonferenz COP31 ist in Antalya gescheitert",
-     "text": "Der türkische Entwurf für den Abschlusstext des Klimagipfels hat Öl, Kohle und Gas nicht erwähnt. Zu viele Delegationen haben ihre Zustimmung verweigert.",
-     "url": "https://www.dw.com/de/un-klimakonferenz-cop31-ist-in-antalya-gescheitert/a-80012944?maca=de-rss-de-all-1119-rdf",
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "quelle": "DW"
     }
    ]
@@ -877,11 +629,7 @@
    "meldungen": [
     {
      "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-<<<<<<< HEAD
      "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-=======
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehören zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
      "quelle": "tagesschau"
     },
@@ -900,7 +648,6 @@
    ]
   },
   {
-<<<<<<< HEAD
    "land": "Afghanistan",
    "lat": 33.9,
    "lon": 67.7,
@@ -923,24 +670,6 @@
      "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
      "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
      "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
-=======
-   "land": "Taiwan",
-   "lat": 23.7,
-   "lon": 121.0,
-   "anzahl": 2,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehören zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
-     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
-     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
      "quelle": "tagesschau"
     }
    ]
@@ -988,7 +717,6 @@
    ]
   },
   {
-<<<<<<< HEAD
    "land": "Taiwan",
    "lat": 23.7,
    "lon": 121.0,
@@ -1031,8 +759,6 @@
    ]
   },
   {
-=======
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "land": "Indien",
    "lat": 21.0,
    "lon": 78.0,
@@ -1069,24 +795,6 @@
    ]
   },
   {
-<<<<<<< HEAD
-=======
-   "land": "Afghanistan",
-   "lat": 33.9,
-   "lon": 67.7,
-   "anzahl": 1,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
-     "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
-     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "land": "Libanon",
    "lat": 33.9,
    "lon": 35.9,
@@ -1104,7 +812,6 @@
  ],
  "ohne_land": [
   {
-<<<<<<< HEAD
    "titel": "Steinmeier appelliert an Wirtschaft: Chancen in Afrika nutzen",
    "url": "https://www.tagesschau.de/ausland/afrika/steinmeier-deutsch-afrikanischer-wirtschaftsgipfel-100.html",
    "quelle": "tagesschau"
@@ -1120,14 +827,11 @@
    "quelle": "tagesschau"
   },
   {
-=======
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "titel": "Landminen-Monitor: Zahl der Opfer von Landminen gestiegen",
    "url": "https://www.tagesschau.de/ausland/europa/landminen-monitor-102.html",
    "quelle": "tagesschau"
   },
   {
-<<<<<<< HEAD
    "titel": "Vergewaltigungsvorwurf: Anzeige gegen Depardieu und Houellebecq",
    "url": "https://www.tagesschau.de/ausland/europa/frankreich-vergewaltigungsvorwuerfe-depardieu-houellebecq-100.html",
    "quelle": "tagesschau"
@@ -1135,15 +839,6 @@
   {
    "titel": "Zehn Jahre Friedensvertrag: Kolumbien so polarisiert wie lange nicht",
    "url": "https://www.tagesschau.de/ausland/amerika/kolumbien-zehn-jahre-friedensvertrag-100.html",
-=======
-   "titel": "Zehn Jahre Friedensvertrag: Kolumbien so polarisiert wie lange nicht",
-   "url": "https://www.tagesschau.de/ausland/amerika/kolumbien-zehn-jahre-friedensvertrag-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "Vergewaltigungsvorwurf: Anzeige gegen Depardieu und Houellebecq",
-   "url": "https://www.tagesschau.de/ausland/europa/frankreich-vergewaltigungsvorwuerfe-depardieu-houellebecq-100.html",
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "quelle": "tagesschau"
   },
   {
@@ -1155,38 +850,14 @@
    "titel": "Erdbeben erschüttert Perus Andenregion",
    "url": "https://www.tagesschau.de/ausland/amerika/peru-erdbeben-102.html",
    "quelle": "tagesschau"
-<<<<<<< HEAD
-=======
-  },
-  {
-   "titel": "\"Palisades Fire\" - Angeklagter im zweiten Anlauf schuldig gesprochen",
-   "url": "https://www.tagesschau.de/ausland/amerika/prozess-pacific-palisades-feuer-kalifornien-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "Internationaler Gerichtshof: Vorgehen Myanmars gegen Rohingya war Völkermord",
-   "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "\"Keine Klimagerechtigkeit ohne Entmilitarisierung\"",
-   "url": "https://www.tagesschau.de/ausland/asien/cop31-krieg-emissionen-100.html",
-   "quelle": "tagesschau"
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-<<<<<<< HEAD
    "wert": 54666,
    "einheit": "€",
    "pct": -3.58,
-=======
-   "wert": 54966,
-   "einheit": "€",
-   "pct": -1.65,
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    "verlauf": [
     59030,
     57416,
@@ -1195,16 +866,11 @@
     54815,
     55754,
     56132,
-<<<<<<< HEAD
     54946
-=======
-    55179
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
    ]
   },
   {
    "name": "Ethereum",
-<<<<<<< HEAD
    "wert": 1534.33,
    "einheit": "€",
    "pct": -4.89
@@ -1238,41 +904,6 @@
   "CHF": 0.9183,
   "GBP": 0.837,
   "USD": 1.0963
-=======
-   "wert": 1548.31,
-   "einheit": "€",
-   "pct": -1.33
-  },
-  {
-   "name": "Solana",
-   "wert": 64.39,
-   "einheit": "€",
-   "pct": -2.42
-  },
-  {
-   "name": "EUR/CHF",
-   "wert": 0.9186,
-   "einheit": "",
-   "pct": 0.0
-  },
-  {
-   "name": "EUR/GBP",
-   "wert": 0.83673,
-   "einheit": "",
-   "pct": 0.0
-  },
-  {
-   "name": "EUR/USD",
-   "wert": 1.0939,
-   "einheit": "",
-   "pct": 0.0
-  }
- ],
- "fx": {
-  "CHF": 0.9186,
-  "GBP": 0.83673,
-  "USD": 1.0939
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
  },
  "fehler": []
 }

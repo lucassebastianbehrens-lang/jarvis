@@ -8,11 +8,7 @@
  {"wf": "briefing.yml", "name": "Butler Bruno", "haus": "Villa", "icon": "🎩", "farbe": "#e67e22", "job": "Schreibt um 6 Uhr dein Tages-Briefing", "max_h": 26},
  {"wf": "auftraege.yml", "name": "Scout Sam", "haus": "Auftragsbüro", "icon": "🔭", "farbe": "#1abc9c", "job": "Sucht täglich Aufträge mit wenig Eigenarbeit", "max_h": 26},
  {"wf": "ideen.yml", "name": "Postbote Paul", "haus": "Post", "icon": "📮", "farbe": "#e74c3c", "job": "Sammelt deine Ideen aus Telegram", "max_h": 2},
-<<<<<<< HEAD
  {"wf": "video-auto.yml", "name": "Regisseurin Rita", "haus": "Filmstudio", "icon": "🎬", "farbe": "#ff4d6d", "job": "Macht täglich TikTok-Videos (Simulation + Früchte-Drama + Kontostand)", "max_h": 26},
-=======
- {"wf": "video-auto.yml", "name": "Regisseurin Rita", "haus": "Filmstudio", "icon": "🎬", "farbe": "#ff4d6d", "job": "Macht täglich TikTok-Videos (Simulation + Früchte-Drama)", "max_h": 26},
->>>>>>> 3d29b45 (Früchte-Serie: Folge 2 Avo als echte Avocado (Bild war zu menschenähnlich))
  {"wf": "backtest.yml", "name": "Tüftler Theo", "haus": "Labor", "icon": "🧪", "farbe": "#00bcd4", "job": "Testet Trading-Strategien an 12 Monaten Kursdaten"},
  {"wf": "videos.yml", "name": "Cutter Carl", "haus": "Schnitthaus", "icon": "✂️", "farbe": "#ff8a65", "job": "Erzeugt Videos auf Zuruf"},
  {"wf": "lang-videos.yml", "name": "YouTuber Yannik", "haus": "Sendezentrale", "icon": "📺", "farbe": "#ef5350", "job": "Erzeugt lange YouTube-Videos"},
