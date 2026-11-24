@@ -1,4 +1,6 @@
 name: Jarvis macht TikTok-Videos selbst
+# VORRAT: Jarvis hält für Simulation und Früchte-Serie immer 7 Tage fertig geprüfte Videos bereit
+# (Release „jarvis-video-<Tag>-<modus>“ je Tag). Die Upload-Aufgaben holen sich abends das Video des Tages.
 # Täglich: Groq-KI schreibt die Folge, GitHub rendert, Jarvis prüft automatisch und schickt das Video per Telegram.
 # Die Claude-Aufgaben laden danach nur noch hoch (spart Claude-Nutzung). Braucht das Secret GROQ_KEY.
 # GitHub lässt geplante Läufe oft ausfallen → je Video 4 Termine; schon erledigt (Release von heute da) = übersprungen.
@@ -18,6 +20,9 @@ on:
       spec:
         description: "Optional: fertige Folge nur rendern statt neu schreiben (z. B. video/geld/geld-s1-f01.json)"
         default: ""
+      tage:
+        description: "Wie viele Tage im Voraus fertig haben (Vorrat). 7 = eine Woche"
+        default: "7"
 permissions:
   contents: write
 concurrency:
@@ -26,7 +31,7 @@ concurrency:
 jobs:
   video:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 340
     env:
       GROQ_KEY: ${{ secrets.GROQ_KEY }}
       GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
@@ -34,74 +39,51 @@ jobs:
       TG_TOKEN: ${{ secrets.TG_TOKEN }}
       TG_CHAT: ${{ secrets.TG_CHAT }}
       IDEE: ${{ inputs.idee }}
+      GH_TOKEN: ${{ github.token }}
       MODUS: ${{ inputs.modus || (github.event.schedule == '7 4,6,9,13 * * *' && 'sim' || (github.event.schedule == '52 6,10,14,17 * * *' && 'geld' || 'tt')) }}
     steps:
       - uses: actions/checkout@v4
-      - name: Schlüssel vorhanden + heute noch offen?
+      - name: Welche Tage fehlen noch im Vorrat?
         id: key
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           if [ -z "$GROQ_KEY$GEMINI_KEY$OPENROUTER_KEY" ]; then echo "Kein KI-Schlüssel – übersprungen"; echo "ok=0" >> $GITHUB_OUTPUT; exit 0; fi
-          if [ "${{ github.event_name }}" = schedule ] && gh release view "jarvis-video-$(TZ=Europe/Berlin date +%Y%m%d)-$MODUS" >/dev/null 2>&1; then
-            echo "Heutiges $MODUS-Video gibt es schon – Ersatztermin übersprungen"; echo "ok=0" >> $GITHUB_OUTPUT; exit 0; fi
-          echo "ok=1" >> $GITHUB_OUTPUT
+          N="${{ inputs.tage }}"; [ -z "$N" ] && N=7; [ "$MODUS" = geld ] && [ -z "${{ inputs.tage }}" ] && N=1
+          [ -n "${{ inputs.spec }}" ] && N=1
+          FEHLT=""
+          for i in $(seq 0 $((N - 1))); do
+            D=$(TZ=Europe/Berlin date -d "+$i day" +%Y%m%d)
+            gh release view "jarvis-video-$D-$MODUS" >/dev/null 2>&1 || FEHLT="$FEHLT $D"
+          done
+          echo "Fehlende Tage ($MODUS):${FEHLT:- keine}"
+          echo "tage=$FEHLT" >> $GITHUB_OUTPUT
+          [ -n "$FEHLT" ] && echo "ok=1" >> $GITHUB_OUTPUT || echo "ok=0" >> $GITHUB_OUTPUT
       - if: steps.key.outputs.ok == '1'
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core && pip install -q edge-tts pillow cairosvg
-      - name: Folge schreiben (Groq)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core && pip install -q edge-tts pillow cairosvg numpy
+      - name: Videos für die fehlenden Tage bauen (je 3-fach geprüft)
         if: steps.key.outputs.ok == '1'
-        id: spec
+        id: bau
         env:
           SPEC_IN: ${{ inputs.spec }}
         run: |
-          if [ -n "$SPEC_IN" ]; then echo "spec=$SPEC_IN" >> $GITHUB_OUTPUT; else python3 bot/video_auto.py "$MODUS"; fi
-      - name: Rendern + 3-fache Prüfung (bei Fehler neue Bilder, neu rendern)
-        if: steps.key.outputs.ok == '1'
-        id: check
-        run: |
-          SPEC=${{ steps.spec.outputs.spec }}; ID=$(basename $SPEC .json)
-          echo "id=$ID" >> $GITHUB_OUTPUT
-          for RUNDE in 1 2 3; do
-            echo "::group::Runde $RUNDE/3"
-            export SEED_SHIFT=$(( (RUNDE - 1) * 1000 ))
-            rm -rf video/out/${ID}_tmp/i*.jpg video/out/${ID}_tmp/c*.mp4 video/out/$ID.mp4
-            OK=1
-            python3 video/$MODUS.py $SPEC || OK=0
-            # Prüfung 1: Technik (Länge, Ton, kein schwarzes/eingefrorenes Bild)
-            if [ $OK = 1 ]; then
-              if [ "$MODUS" = sim ]; then python3 bot/video_check.py video/out/$ID.mp4 18 70 || OK=0
-              else python3 bot/video_check.py video/out/$ID.mp4 40 120 || OK=0; fi
-            fi
-            # Prüfung 2: Bilder (KI-Bilderkennung: nur Obst-/Gemüse-Figuren, nichts Anzügliches)
-            if [ $OK = 1 ] && [ "$MODUS" != sim ]; then python3 bot/bild_check.py video/out/$ID.mp4 || OK=0; fi
-            # Prüfung 3: Endkontrolle – Datei vollständig abspielbar
-            if [ $OK = 1 ]; then ffmpeg -v error -i video/out/$ID.mp4 -f null - 2> err.txt; [ -s err.txt ] && { cat err.txt; OK=0; }; fi
-            echo "::endgroup::"
-            if [ $OK = 1 ]; then echo "✅ Alle 3 Prüfungen bestanden (Runde $RUNDE)"; exit 0; fi
-            echo "❌ Runde $RUNDE durchgefallen – verbessere und versuche erneut"
-          done
-          exit 1
-      - name: Speichern + Release
-        if: steps.key.outputs.ok == '1'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
-          git add video/sim video/tt video/geld && git commit -qm "Jarvis: neue Folge ${{ steps.check.outputs.id }} (selbst geschrieben)" || true
-          for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
-          TAG="jarvis-video-$(TZ=Europe/Berlin date +%Y%m%d)-$MODUS"
-          gh release view "$TAG" >/dev/null 2>&1 && TAG="$TAG-$(TZ=Europe/Berlin date +%H%M)"  # Zusatz-Video per Knopf
-          cd video/out; shopt -s nullglob; F=(*.mp4 *.jpg *.txt)
-          gh release create "$TAG" "${F[@]}" --title "Jarvis-Video $MODUS $(date +%d.%m.%Y)" --notes "Von Jarvis selbst geschrieben, gerendert und geprüft: ${{ steps.check.outputs.id }}"
-          echo "URL=$(gh release view "$TAG" --json assets -q '.assets[]|select(.name|endswith(".mp4")).url' 2>/dev/null)" >> $GITHUB_ENV
+          mkdir -p video/out; FEHLER=0
+          for D in ${{ steps.key.outputs.tage }}; do
+            bash bot/video_tag.sh "$MODUS" "$D" "$SPEC_IN" || { FEHLER=$((FEHLER + 1)); echo "⚠️ $D nicht geschafft"; }
+            SPEC_IN=""; IDEE=""
+            find video/out -mindepth 1 -maxdepth 1 ! -name fertig.txt -exec rm -rf {} +   # Platz für das nächste Video
+          done
+          echo "fehler=$FEHLER" >> $GITHUB_OUTPUT
+          [ -s video/out/fertig.txt ] || exit 1
       - name: Telegram
         if: always() && steps.key.outputs.ok == '1'
         run: |
-          ID="${{ steps.check.outputs.id }}"
-          if [ "${{ steps.check.outcome }}" = success ] && [ -f "video/out/$ID.mp4" ]; then
-            CAP=$(head -c 900 "video/out/$ID.txt" 2>/dev/null || echo "$ID")
-            curl -s -F chat_id="$TG_CHAT" -F video=@"video/out/$ID.mp4" --form-string caption="🎬 Jarvis hat selbst gemacht: $ID ✅ geprüft
-          $CAP" "https://api.telegram.org/bot$TG_TOKEN/sendVideo" >/dev/null || true
+          NAME=$([ "$MODUS" = sim ] && echo "Simulation" || ([ "$MODUS" = tt ] && echo "Früchte-Serie" || echo "Kontostand"))
+          if [ -s video/out/fertig.txt ]; then
+            T="🎬 Vorrat $NAME: $(wc -l < video/out/fertig.txt) neue Videos fertig + geprüft
+          $(sed 's/^/• /' video/out/fertig.txt)"
+            [ "${{ steps.bau.outputs.fehler }}" != "0" ] && T="$T
+          ⚠️ ${{ steps.bau.outputs.fehler }} Tag(e) nicht geschafft – nächster Lauf versucht es erneut."
           else
-            curl -s --form-string chat_id="$TG_CHAT" --form-string text="⚠️ Jarvis-Video ($MODUS) heute nicht geschafft – Claude übernimmt." "https://api.telegram.org/bot$TG_TOKEN/sendMessage" >/dev/null || true
+            T="⚠️ Vorrat $NAME: heute kein Video geschafft – nächster Lauf versucht es erneut."
           fi
+          curl -s --form-string chat_id="$TG_CHAT" --form-string text="$T" "https://api.telegram.org/bot$TG_TOKEN/sendMessage" >/dev/null || true
