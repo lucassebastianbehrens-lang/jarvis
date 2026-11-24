@@ -26,6 +26,14 @@ def ki(system, user):
     raise SystemExit(f"KI nicht erreichbar: {last}")
 
 
+def saeubern(p):
+    """Verbotene Wörter raus, ohne Verneinungen zu zerstören ("no human face" darf nicht zu "no face" werden)."""
+    p = re.sub(r"\bno\s+(?:human|person|people|man|woman|women|men)\b[^,]*,?\s*", "", p, flags=re.I)  # STYLE verbietet Menschen schon
+    p = VERBOTEN.sub("", p)
+    p = re.sub(r"\b(apron|dress|skirt|blouse|lipstick|high heels)\b", "tiny accessory", p, flags=re.I)  # Kleidung lockt Menschen-Bilder
+    return re.sub(r"\s{2,}", " ", re.sub(r"\bno\s+,", "", p)).strip(" ,")
+
+
 def slug(t):
     t = t.lower().translate(str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"}))
     return re.sub(r"[^a-z0-9]+", "-", t).strip("-")[:30]
@@ -83,8 +91,7 @@ def tt():
     sc = ep["scenes"]
     assert 4 <= len(sc) <= 8, "Szenenzahl ungültig"
     for s in sc:
-        if VERBOTEN.search(s["p"]):
-            s["p"] = VERBOTEN.sub("", s["p"])
+        s["p"] = saeubern(s["p"])
         assert s.get("lines"), "Szene ohne Text"
         for l in s["lines"]:
             if l["s"] not in ep["voices"]:

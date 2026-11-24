@@ -34,6 +34,12 @@ with tempfile.TemporaryDirectory() as d:
     check("Lage: Feed → Länder + Hotspot", gespeichert["orte"][0]["heiss"] >= 1 and len(gespeichert["orte"]) == 2, str(gespeichert.get("orte"))[:200])
     check("Lage: Lagebild auch ohne KI", "Wichtigste Meldung" in gespeichert["lagebild"])
 
+# Videofabrik: Bildprompts säubern, ohne Verneinungen zu zerstören
+import video_auto
+sp = video_auto.saeubern("a walking red onion, wearing a floral apron, no human face, no human skin, sexy")
+check("Video: 'no human face' wird nicht zu 'no face'", "no face" not in sp and "no skin" not in sp, sp)
+check("Video: Schürze/Verbotenes entfernt", "apron" not in sp and "sexy" not in sp, sp)
+
 # Telegram-Jarvis: Leibgarde parallel, Chat frei
 import jarvis_live as J
 with tempfile.TemporaryDirectory() as d:

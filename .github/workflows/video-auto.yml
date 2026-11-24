@@ -44,7 +44,7 @@ jobs:
         run: |
           ID=$(basename ${{ steps.spec.outputs.spec }} .json)
           echo "id=$ID" >> $GITHUB_OUTPUT
-          if [ "$MODUS" = sim ]; then python3 bot/video_check.py video/out/$ID.mp4 18 70; else python3 bot/video_check.py video/out/$ID.mp4 40 120; fi
+          if [ "$MODUS" = sim ]; then python3 bot/video_check.py video/out/$ID.mp4 18 70; else python3 bot/video_check.py video/out/$ID.mp4 40 120 && python3 bot/bild_check.py video/out/$ID.mp4; fi
       - name: Speichern + Release
         if: steps.key.outputs.ok == '1'
         env:
