@@ -1,0 +1,105 @@
+{
+  "id": "sim-07-laden-vs-tanken",
+  "titel": [
+    "LADEN",
+    "TANKEN"
+  ],
+  "frage": [
+    "100 km Fahrt –",
+    "WER KOSTET WENIGER?"
+  ],
+  "a": {
+    "name": "E‑Auto",
+    "figur": "auto",
+    "dauer_s": 68.0,
+    "menge": 68.0,
+    "info": "17 kWh, 6,8 €"
+  },
+  "b": {
+    "name": "Benziner",
+    "figur": "auto",
+    "dauer_s": 126.0,
+    "menge": 126.0,
+    "info": "7 L, 12,6 €"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "EUR",
+    "zaehler": "Kosten",
+    "besser": "weniger"
+  },
+  "skala": [
+    "0 €",
+    "6,8 €",
+    "12,6 €"
+  ],
+  "ergebnis": "etwa {p} % günstiger",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Nur 6,80 € für 100 km – das ist weniger als die Hälfte!"
+    },
+    {
+      "phase": "intro",
+      "t": "Der Stromverbrauch liegt bei 17 kWh, Benzin bei 7 Liter."
+    },
+    {
+      "phase": "race",
+      "t": "E‑Auto: 17 kWh × 0,40 € gleich 6,8 € für 100 km."
+    },
+    {
+      "phase": "race",
+      "t": "Benziner: 7 L × 1,80 € gleich 12,6 € für 100 km."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Das E‑Auto ist etwa 46 Prozent günstiger."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Wie viel kostet eine 100‑km‑Strecke wirklich?",
+    "Nur 6,80 € für 100 km – das ist weniger als die Hälfte!",
+    "Mythos: Elektro ist teurer – wir prüfen das!"
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Laden vs. Tanken – wer spart bei 100 km mehr? ⚡️⛽️ Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#laden",
+    "#tanken",
+    "#eauto",
+    "#kosten"
+  ],
+  "quelle": "Durchschnittlicher Stromverbrauch 17 kWh/100 km (Herstellerangaben, 2023); Durchschnittlicher Kraftstoffverbrauch 7 L/100 km (ADAC‑Durchschnitt 2023); Strompreis 0,40 €/kWh (Verbraucherzentrale 2024); Benzinpreis 1,80 €/L (Verbraucherzentrale 2024).",
+  "fakten": [
+    {
+      "satz": "Durchschnittlicher Stromverbrauch eines modernen E‑Autos liegt bei etwa 17 kWh pro 100 km",
+      "wert": "17 kWh/100 km",
+      "quelle": "Herstellerangaben (z. B. VW ID.3, 2023)"
+    },
+    {
+      "satz": "Durchschnittlicher Kraftstoffverbrauch eines typischen Benziners liegt bei etwa 7 L pro 100 km",
+      "wert": "7 L/100 km",
+      "quelle": "ADAC‑Durchschnittsverbrauch 2023"
+    },
+    {
+      "satz": "Durchschnittlicher Strompreis für private Haushalte in Deutschland (2024)",
+      "wert": "0,40 EUR/kWh",
+      "quelle": "Verbraucherzentrale, 2024"
+    },
+    {
+      "satz": "Durchschnittlicher Benzinpreis in Deutschland (2024)",
+      "wert": "1,80 EUR/L",
+      "quelle": "Verbraucherzentrale, 2024"
+    },
+    {
+      "satz": "CO₂‑Emissionen des deutschen Strommixes (Well‑to‑Wheel) 2023",
+      "wert": "400 g CO₂/kWh",
+      "quelle": "Umweltbundesamt, 2023"
+    }
+  ]
+}
