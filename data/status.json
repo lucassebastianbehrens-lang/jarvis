@@ -1,70 +1,92 @@
 {
- "updated": 1795499798,
+ "updated": 1795541575,
  "ok": false,
  "checks": [
   {
+   "name": "Leibgarde",
+   "ok": true,
+   "info": "ok · vor 5 h"
+  },
+  {
    "name": "Trader Toni",
    "ok": true,
-   "info": "ok · vor 20 Min"
+   "info": "ok · vor 1 h"
   },
   {
    "name": "Meme-Makler Max",
    "ok": false,
-   "info": "letzter Lauf vor 4 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 5 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Forscherin Frieda",
    "ok": true,
-   "info": "ok · vor 8 h"
+   "info": "ok · vor 6 h"
+  },
+  {
+   "name": "Agentin Ada",
+   "ok": false,
+   "info": "letzter Lauf vor 5 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Butler Bruno",
    "ok": true,
-   "info": "ok · vor 8 h"
+   "info": "ok · vor 2 h"
   },
   {
    "name": "Scout Sam",
    "ok": true,
-   "info": "ok · vor 3 h"
+   "info": "ok · vor 2 h"
   },
   {
    "name": "Postbote Paul",
-   "ok": true,
-   "info": "ok · vor 2 h"
+   "ok": false,
+   "info": "letzter Lauf vor 2 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Regisseurin Rita",
    "ok": true,
-   "info": "ok · vor 16 h"
+   "info": "ok · vor 3 h"
   },
   {
    "name": "YouTuber Yannik",
    "ok": true,
-   "info": "ok · vor 20 h"
+   "info": "ok · vor 2 h"
   },
   {
    "name": "Baumeister Bob",
    "ok": true,
-   "info": "ok · vor 9 h"
+   "info": "ok · vor 22 Min"
   },
   {
    "name": "Funker Fritz",
    "ok": true,
-   "info": "ok · vor 15 Min"
+   "info": "ok · vor 2 h"
+  },
+  {
+   "name": "Prüferin Paula",
+   "ok": true,
+   "info": "ok · vor 23 Min"
   },
   {
    "name": "Spielgeld-Daten",
    "ok": true,
-   "info": "zuletzt vor 20 Min aktualisiert"
+   "info": "zuletzt vor 69 Min aktualisiert"
   },
   {
    "name": "Jarvis-App online",
    "ok": true,
    "info": "erreichbar"
+  },
+  {
+   "name": "KI-Motor (Groq)",
+   "ok": true,
+   "info": "antwortet in 0.4 s"
   }
  ],
  "repariert": [
-  "Meme-Makler Max"
+  "Meme-Makler Max",
+  "Agentin Ada",
+  "Postbote Paul"
  ],
  "verlauf": [
   {
@@ -76,6 +98,11 @@
    "t": 1795499798,
    "ok": 11,
    "n": 12
+  },
+  {
+   "t": 1795541575,
+   "ok": 13,
+   "n": 16
   }
  ]
 }
