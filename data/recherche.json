@@ -1,17 +1,71 @@
 {
  "v2": 1,
- "updated": 1795469206,
+ "updated": 1795518637,
  "fazit": "",
  "web": "",
  "neu": [
-  "d388bcaca9",
-  "ac980b887d",
-  "99096aaa72",
-  "46d395811f",
-  "50fb52d593",
-  "a891b76437"
+  "f4eacbb653",
+  "8ae8a78245",
+  "bb1bcc191a",
+  "bee697c87c",
+  "cdc14addb9"
  ],
  "items": [
+  {
+   "titel": "INK-Q/agy-fast",
+   "url": "https://github.com/INK-Q/agy-fast",
+   "quelle": "GitHub",
+   "was": "Non-invasive MCP accelerator plugin for Google Antigravity (CLI/Desktop/IDE): cuts LLM turns (-34%), token quota (-31%), and upload traffic (-40%) without affecting native UI or diffs.",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "f4eacbb653",
+   "t": 1795518637
+  },
+  {
+   "titel": "danielwh2/sprite-stacking",
+   "url": "https://github.com/danielwh2/sprite-stacking",
+   "quelle": "GitHub",
+   "was": "Agent skill: turn four pixel art views into fake-3D sprites you can spin. Works with Claude Code, Codex, Cursor, OpenCode, Gemini CLI, Pi.",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "8ae8a78245",
+   "t": 1795518637
+  },
+  {
+   "titel": "erkamyaman/safe-anything",
+   "url": "https://github.com/erkamyaman/safe-anything",
+   "quelle": "GitHub",
+   "was": "Find the holes before someone else does. A fast, 100% Rust vulnerability scanner: XSS, SQL injection, leaked secrets, dependency CVEs and AI agent setups.",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "bb1bcc191a",
+   "t": 1795518637
+  },
+  {
+   "titel": "w01fb0ss/PiBot",
+   "url": "https://github.com/w01fb0ss/PiBot",
+   "quelle": "GitHub",
+   "was": "Open-source, local-first AI agent team for your desktop: multi-agent group chats, computer use, browser, MCP, routines and approvals. macOS, Windows, Linux + Android. Built on pi.",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "bee697c87c",
+   "t": 1795518637
+  },
+  {
+   "titel": "qianyiai/kurocat",
+   "url": "https://github.com/qianyiai/kurocat",
+   "quelle": "GitHub",
+   "was": "KuroCat — Free open-source desktop typing cat pet & OBS overlay (Bongo Cat alternative, Tauri v2 + Rust + MCP)｜轻量级透明置顶桌面打字小黑猫伴侣（6款猫咪+鲸鱼娘大肥鱼 / 输密码防偷窥 / OBS透明源 / AI捏猫 / Win·Mac·Linux·Android）",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "cdc14addb9",
+   "t": 1795518637
+  },
   {
    "titel": "erkamyaman/rust-anything",
    "url": "https://github.com/erkamyaman/rust-anything",
