@@ -1,6 +1,6 @@
 {
- "updated": 1795541592,
- "lagebild": "Die anhaltenden militärischen Auseinandersetzungen zwischen Russland und der Ukraine, einschließlich Drohnenangriffen auf russische Schiffe und Brücken, stehen derzeit weltweit im Fokus. Parallel dazu wird in Deutschland künftig die Produktion ukrainischer Drohnen ausgebaut, ein Schritt, der die deutsche Rüstungsindustrie unmittelbar betrifft. Diese Entwicklungen prägen das aktuelle Lagebild und haben direkte Auswirkungen auf die Wirtschaftslage in Deutschland.",
+ "updated": 1795551690,
+ "lagebild": "Der Russland‑Ukraine‑Konflikt bleibt das wichtigste weltweite Thema, mit Angriffen auf Städte, Brücken und Schiffe sowie einer wachsenden militärischen Koalition in Polen. In Deutschland wird künftig ukrainische Drohnen gebaut, und ein neues Sanktionspaket gegen Russland wurde beschlossen. Lucas spürt die Folgen: die Energie‑ und Spritpreise steigen und die Börsenkurse werden volatiler.",
  "orte": [
   {
    "land": "Russland",
@@ -93,56 +93,11 @@
    ]
   },
   {
-   "land": "Deutschland",
-   "lat": 51.2,
-   "lon": 10.4,
-   "anzahl": 32,
-   "heiss": 4,
-   "meldungen": [
-    {
-     "titel": "Pistorius will Militärpakt mit Polen ausbauen",
-     "text": "Patriot-Systeme und Eurofighter-Kampfjets sowie eine Zusammenarbeit der Armeen beim Aufbau von gemeinsamen Verteidigungsstellungen: Polen und Deutschland arbeiten bereits militärisch zusammen. Das möchten beide Länder nun intensivieren.",
-     "url": "https://www.tagesschau.de/ausland/europa/polen-deutschland-militaer-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "COP31: Beschlusstext \"für Deutschland nicht zustimmungsfähig\"",
-     "text": "Die Weltklimakonferenz in Antalya ist schon in der Verlängerung, um ein Beschlusspapier wird heftig gerungen. Nun hat Umweltminister Schneider den Entwurf scharf zurückgewiesen - und erhebt Vorwürfe gegen einige Staaten.",
-     "url": "https://www.tagesschau.de/ausland/weltklimakonferenz-cop-droht-zu-scheitern-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Deutschland baut künftig ukrainische Drohnen",
-     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Berliner Linke schließt Emde aus Fraktion aus",
-     "text": "Wochenlang diskutierten Grüne, SPD und Linke in Berlin über die Personalie Emde. Die Abgeordnete steht wegen ihrer Positionen zu Israel in der Kritik. Nun hat die Fraktion mit der nötigen Mehrheit für ihren Ausschluss gestimmt.",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/emde-ausschluss-berlin-linke-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Beratungen im Bundestag über Haushalt für 2027",
-     "text": "Beratungen im Bundestag über Haushalt für 2027",
-     "url": "https://www.tagesschau.de/video/video-1689106.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 23,
-   "heiss": 7,
+   "anzahl": 25,
+   "heiss": 8,
    "meldungen": [
     {
      "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
@@ -178,6 +133,51 @@
      "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
      "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
      "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Deutschland",
+   "lat": 51.2,
+   "lon": 10.4,
+   "anzahl": 32,
+   "heiss": 4,
+   "meldungen": [
+    {
+     "titel": "Pistorius will Militärpakt mit Polen ausbauen",
+     "text": "Patriot-Systeme und Eurofighter-Kampfjets sowie eine Zusammenarbeit der Armeen beim Aufbau von gemeinsamen Verteidigungsstellungen: Polen und Deutschland arbeiten bereits militärisch zusammen. Das möchten beide Länder nun intensivieren.",
+     "url": "https://www.tagesschau.de/ausland/europa/polen-deutschland-militaer-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "COP31: Beschlusstext \"für Deutschland nicht zustimmungsfähig\"",
+     "text": "Die Weltklimakonferenz in Antalya ist schon in der Verlängerung, um ein Beschlusspapier wird heftig gerungen. Nun hat Umweltminister Schneider den Entwurf scharf zurückgewiesen - und erhebt Vorwürfe gegen einige Staaten.",
+     "url": "https://www.tagesschau.de/ausland/weltklimakonferenz-cop-droht-zu-scheitern-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Deutschland baut künftig ukrainische Drohnen",
+     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
+     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
+     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "tagesschau 20:00 Uhr",
+     "text": "Zahl der erfassten Straftaten gegen Frauen erneut gestiegen, Beginn der Haushaltswoche im Bundestag, Frostiger Auftakt der ersten Tarifrunde bei Autobauer Volkswagen, Berliner Linke stimmt für Fraktionsausschluss von Abgeordneter Emde, Bund",
+     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689306.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Bundestagsdebatte über den Haushalt 2027",
+     "text": "Bundestagsdebatte über den Haushalt 2027",
+     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689286.html",
      "quelle": "tagesschau"
     }
    ]
@@ -363,51 +363,6 @@
    ]
   },
   {
-   "land": "Belgien/EU",
-   "lat": 50.8,
-   "lon": 4.4,
-   "anzahl": 7,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
-     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
-     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
-     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
-     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
-     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
-     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Warum Burnham die Nähe zur EU sucht",
-     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "EU-Kommission ermittelt gegen Coca-Cola-Abfüller wegen Wettbewerbsverstößen",
-     "text": "Die EU-Kommission ermittelt wegen möglicher Wettbewerbsverstöße gegen den größten europäischen Coca-Cola-Abfüller. Das Unternehmen habe Supermärkten und Tankstellen womöglich Auflagen für Preise und Weiterverkauf gemacht.",
-     "url": "https://www.tagesschau.de/wirtschaft/verbraucher/eu-ermittlungen-coca-cola-abfueller-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "Polen",
    "lat": 52.1,
    "lon": 19.4,
@@ -482,6 +437,51 @@
      "text": "Ein Walkadaver sorgt an der Westküste Australiens für Aufregung. Direkt am beliebten Stadtstrand von Perth lockt der tote Buckelwal offenbar auch Haie an. Die Behörden haben reagiert - zwei Wochen nach einem tödlichen Haiangriff. Von F. Bah",
      "url": "https://www.tagesschau.de/ausland/ozeanien/australien-perth-gestrandeter-wal-hai-100.html",
      "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Belgien/EU",
+   "lat": 50.8,
+   "lon": 4.4,
+   "anzahl": 6,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
+     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
+     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
+     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
+     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
+     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
+     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Warum Burnham die Nähe zur EU sucht",
+     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
+     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
+     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Deutsche Experten vor dem EU-Westbalkan-Gipfel: Unter der Regierung der Studentenliste muss sich Serbien zwischen Aufbruch und Kontinuität entscheiden",
+     "text": "Serbiens neue Führung sorgt in der Europäischen Union für Hoffnung und Skepsis zugleich. Deutsche Westbalkan-Experten sehen Chancen für Reformen, aber offene Fragen bei EU-Kurs, Kosovo und Russland.",
+     "url": "https://www.dw.com/de/deutsche-experten-vor-dem-eu-westbalkan-gipfel-unter-der-regierung-der-studentenliste-muss-sich-serbien-zwischen-aufbruch-und-kontinuität-entscheiden/a-80019985?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   },
@@ -855,9 +855,9 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54666,
+   "wert": 54368,
    "einheit": "€",
-   "pct": -3.58,
+   "pct": -3.17,
    "verlauf": [
     59030,
     57416,
@@ -866,38 +866,38 @@
     54815,
     55754,
     56132,
-    54946
+    54672
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1534.33,
+   "wert": 1525.34,
    "einheit": "€",
-   "pct": -4.89
+   "pct": -3.84
   },
   {
    "name": "Solana",
-   "wert": 63.44,
+   "wert": 62.97,
    "einheit": "€",
-   "pct": -6.68
+   "pct": -6.16
   },
   {
    "name": "EUR/CHF",
    "wert": 0.9183,
    "einheit": "",
-   "pct": -0.03
+   "pct": 0.0
   },
   {
    "name": "EUR/GBP",
    "wert": 0.837,
    "einheit": "",
-   "pct": 0.03
+   "pct": 0.0
   },
   {
    "name": "EUR/USD",
    "wert": 1.0963,
    "einheit": "",
-   "pct": 0.22
+   "pct": 0.0
   }
  ],
  "fx": {
