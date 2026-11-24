@@ -1,6 +1,6 @@
-// Jarvis v4: Netz zuerst, bei Funkloch die zuletzt geladene App.
-const C="jarvis-v4";
-self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(["./","manifest.json","icon.svg","icon-192.png"])).catch(()=>{}))});
+// Jarvis v5: Netz zuerst, bei Funkloch die zuletzt geladene App.
+const C="jarvis-v5";
+self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(["./","manifest.json","icon.svg","icon-192.png","css/app.css"])).catch(()=>{}))});
 self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 self.addEventListener("fetch",e=>{const u=new URL(e.request.url);if(e.request.method!=="GET"||u.origin!==location.origin)return;
   e.respondWith(fetch(e.request).then(r=>{const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp));return r}).catch(()=>caches.match(e.request)))});
