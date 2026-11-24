@@ -16,7 +16,15 @@ W, H, FPS = 1080, 1920, 30
 BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 BG, GRID, WHITE, YEL = (12, 20, 38), (32, 46, 74), (240, 244, 250), (255, 205, 60)
 RAIN = (120, 160, 210)
-F = {s: ImageFont.truetype(BOLD, s) for s in (30, 36, 44, 52, 64, 80, 96)}
+F = {s: ImageFont.truetype(BOLD, s) for s in (24, 30, 36, 40, 44, 48, 52, 56, 64, 72, 80, 96)}
+
+
+def passend(d, text, max_w, start):
+    """Größte Schrift (<= start), mit der text in max_w Pixel passt – nichts läuft mehr aus dem Bild."""
+    for g in sorted((g for g in F if g <= start), reverse=True):
+        if d.textlength(text, font=F[g]) <= max_w:
+            return F[g]
+    return F[24]
 # Jede Folge klingt und sieht etwas anders aus (keine 1:1-Kopien -> kein „unoriginal“-Filter)
 VOICES = ["de-DE-ConradNeural", "de-DE-KillianNeural", "de-DE-FlorianMultilingualNeural",
           "de-DE-SeraphinaMultilingualNeural", "de-DE-AmalaNeural", "de-DE-KatjaNeural"]
@@ -189,13 +197,14 @@ def build(spec_path):
         # Titel: fliegt in der ersten halben Sekunde von oben herein
         dy = (1 - ease_out_back(t / 0.5)) * -160
         tw = [sp["titel"][0], " vs ", sp["titel"][1]]
-        widths = [d.textlength(x, font=F[96] if i != 1 else F[52]) for i, x in enumerate(tw)]
+        gross = passend(d, tw[0] + tw[2], W - 140 - d.textlength(" vs ", font=F[52]), 96)
+        widths = [d.textlength(x, font=gross if i != 1 else F[52]) for i, x in enumerate(tw)]
         x = (W - sum(widths)) / 2
         for i, (s_, wdt) in enumerate(zip(tw, widths)):
-            schatten_text(d, (x, 150 + dy + (26 if i == 1 else 0)), s_, F[96] if i != 1 else F[52], [L[0]["col"], WHITE, L[1]["col"]][i], False); x += wdt
+            schatten_text(d, (x, 150 + dy + (26 if i == 1 else 0)), s_, gross if i != 1 else F[52], [L[0]["col"], WHITE, L[1]["col"]][i], False); x += wdt
         fy = (1 - ease_out_back((t - 0.25) / 0.5)) * 60
-        schatten_text(d, (W / 2, 290 + fy), sp["frage"][0], F[52], WHITE)
-        schatten_text(d, (W / 2, 356 + fy), sp["frage"][1], F[64], YEL)
+        schatten_text(d, (W / 2, 290 + fy), sp["frage"][0], passend(d, sp["frage"][0], W - 120, 52), WHITE)
+        schatten_text(d, (W / 2, 356 + fy), sp["frage"][1], passend(d, sp["frage"][1], W - 120, 64), YEL)
         # Regen
         for dr in (drops if regen else []):
             dr[1] = (dr[1] + dr[2]) % H
@@ -250,15 +259,16 @@ def build(spec_path):
                     d.rectangle([px, py, px + sz, py + sz * 1.6], fill=cc)
             d.rounded_rectangle([96, y + 12, W - 84, y + 262], 30, fill=(0, 0, 0))
             d.rounded_rectangle([90, y, W - 90, y + 250], 30, fill=(255, 205, 60), outline=WHITE, width=5)
-            text_c(d, (W / 2, y + 34), f"{win['name']} GEWINNT", F[80], (20, 20, 30))
-            text_c(d, (W / 2, y + 150), sp.get("ergebnis", "{p} % weniger").replace("{p}", str(pct)), F[64], (20, 20, 30))
+            gw = f"{win['name']} GEWINNT"; eg = sp.get("ergebnis", "{p} % weniger").replace("{p}", str(pct))
+            text_c(d, (W / 2, y + 34), gw, passend(d, gw, W - 240, 80), (20, 20, 30))
+            text_c(d, (W / 2, y + 150), eg, passend(d, eg, W - 240, 64), (20, 20, 30))
             if thumb is None and a >= 1:
                 thumb = im.copy()
         # Untertitel
         # Untertitel im TikTok-Stil: das gerade gesprochene Wort leuchtet gelb, Zeile springt kurz an
         cur = next((c for c in caps if c[0] <= t <= c[1]), None)
         if cur and t < r0:
-            fnt = F[64]; sp_w = d.textlength(" ", font=fnt)
+            fnt = passend(d, cur[2], W - 160, 64); sp_w = d.textlength(" ", font=fnt)
             ws_ = [w for _, w in cur[3]]; ww = [d.textlength(w, font=fnt) for w in ws_]
             tot = sum(ww) + sp_w * (len(ws_) - 1)
             cy = 1420 - (1 - ease_out_back((t - cur[0]) / 0.18)) * 18

@@ -7,7 +7,14 @@
 set -uo pipefail
 MODUS=$1; TAG_DATUM=$2; SPEC=${3:-}
 TAG="jarvis-video-$TAG_DATUM-$MODUS"
-if gh release view "$TAG" >/dev/null 2>&1; then echo "⏭  $TAG gibt es schon"; exit 0; fi
+NEU_RENDERN=0
+if gh release view "$TAG" >/dev/null 2>&1; then
+  if [ "${NEU:-0}" != 1 ]; then echo "⏭  $TAG gibt es schon"; exit 0; fi
+  # NEU=1: vorhandenes Vorrats-Video mit der aktuellen Grafik neu rendern und ersetzen
+  ALT=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq '.assets[].name' | grep '\.mp4$' | head -1)
+  SPEC=$(ls video/$MODUS/"${ALT%.mp4}".json 2>/dev/null) || { echo "⏭  $TAG: Spec nicht gefunden"; exit 0; }
+  NEU_RENDERN=1
+fi
 
 git pull -q --rebase origin main || true
 if [ -z "$SPEC" ]; then
@@ -43,6 +50,10 @@ git commit -qm "Jarvis: Folge $ID für $TAG_DATUM vorproduziert" || true
 for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
 F=(); for e in mp4 jpg txt; do [ -f "video/out/$ID.$e" ] && F+=("video/out/$ID.$e"); done
 TAG_ANZEIGE="${TAG_DATUM:6:2}.${TAG_DATUM:4:2}.${TAG_DATUM:0:4}"
+if [ $NEU_RENDERN = 1 ]; then
+  gh release upload "$TAG" "${F[@]}" --clobber && echo "$TAG_ANZEIGE $ID (neu gerendert)" >> video/out/fertig.txt
+  exit 0
+fi
 gh release create "$TAG" "${F[@]}" --title "Jarvis-Video $MODUS für $TAG_ANZEIGE" \
   --notes "Vorproduziert und 3-fach geprüft: $ID – wird am $TAG_ANZEIGE abends hochgeladen."
 echo "$TAG_ANZEIGE $ID" >> video/out/fertig.txt

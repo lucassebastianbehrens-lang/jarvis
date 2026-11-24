@@ -23,6 +23,9 @@ on:
       tage:
         description: "Wie viele Tage im Voraus fertig haben (Vorrat). 7 = eine Woche"
         default: "7"
+      neu:
+        description: "1 = vorhandene Vorrats-Videos mit aktueller Grafik neu rendern"
+        default: "0"
 permissions:
   contents: write
 concurrency:  # je Serie eigene Warteschlange (Simulation und Früchte-Serie bauen parallel)
@@ -52,7 +55,8 @@ jobs:
           FEHLT=""
           for i in $(seq 0 $((N - 1))); do
             D=$(TZ=Europe/Berlin date -d "+$i day" +%Y%m%d)
-            gh release view "jarvis-video-$D-$MODUS" >/dev/null 2>&1 || FEHLT="$FEHLT $D"
+            if [ "${{ inputs.neu }}" = 1 ]; then FEHLT="$FEHLT $D"; else
+              gh release view "jarvis-video-$D-$MODUS" >/dev/null 2>&1 || FEHLT="$FEHLT $D"; fi
           done
           echo "Fehlende Tage ($MODUS):${FEHLT:- keine}"
           echo "tage=$FEHLT" >> $GITHUB_OUTPUT
@@ -64,6 +68,7 @@ jobs:
         id: bau
         env:
           SPEC_IN: ${{ inputs.spec }}
+          NEU: ${{ inputs.neu }}
         run: |
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
           mkdir -p video/out; FEHLER=0
