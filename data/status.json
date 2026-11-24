@@ -1,31 +1,31 @@
 {
- "updated": 1795468784,
- "ok": true,
+ "updated": 1795499798,
+ "ok": false,
  "checks": [
   {
    "name": "Trader Toni",
    "ok": true,
-   "info": "ok · vor 4 Min"
+   "info": "ok · vor 20 Min"
   },
   {
    "name": "Meme-Makler Max",
-   "ok": true,
-   "info": "läuft gerade"
+   "ok": false,
+   "info": "letzter Lauf vor 4 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Forscherin Frieda",
    "ok": true,
-   "info": "wartet auf den nächsten Einsatz"
+   "info": "ok · vor 8 h"
   },
   {
    "name": "Butler Bruno",
    "ok": true,
-   "info": "wartet auf den nächsten Einsatz"
+   "info": "ok · vor 8 h"
   },
   {
    "name": "Scout Sam",
    "ok": true,
-   "info": "ok · vor 5 h"
+   "info": "ok · vor 3 h"
   },
   {
    "name": "Postbote Paul",
@@ -35,27 +35,27 @@
   {
    "name": "Regisseurin Rita",
    "ok": true,
-   "info": "ok · vor 7 h"
+   "info": "ok · vor 16 h"
   },
   {
    "name": "YouTuber Yannik",
    "ok": true,
-   "info": "ok · vor 12 h"
+   "info": "ok · vor 20 h"
   },
   {
    "name": "Baumeister Bob",
    "ok": true,
-   "info": "ok · vor 3 Min"
+   "info": "ok · vor 9 h"
   },
   {
    "name": "Funker Fritz",
    "ok": true,
-   "info": "ok · vor 16 h"
+   "info": "ok · vor 15 Min"
   },
   {
    "name": "Spielgeld-Daten",
    "ok": true,
-   "info": "zuletzt vor 3 Min aktualisiert"
+   "info": "zuletzt vor 20 Min aktualisiert"
   },
   {
    "name": "Jarvis-App online",
@@ -63,11 +63,18 @@
    "info": "erreichbar"
   }
  ],
- "repariert": [],
+ "repariert": [
+  "Meme-Makler Max"
+ ],
  "verlauf": [
   {
    "t": 1795468784,
    "ok": 12,
+   "n": 12
+  },
+  {
+   "t": 1795499798,
+   "ok": 11,
    "n": 12
   }
  ]
