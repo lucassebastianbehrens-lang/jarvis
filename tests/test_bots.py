@@ -78,6 +78,8 @@ video_auto.ki = _str_lines
 sp3 = video_auto.sim_schreiben("x", "sim-97-x", fk, "", "")
 check("Video: Zeilen als Text + Hashtags als Text werden repariert", sp3["lines"][-1]["phase"] == "result" and len(sp3["hashtags"]) == 3)
 video_auto.ki = _alt_fake
+check("Video: Sprechtext ohne Pfeile/Formeln", video_auto.sprechbar("Auto 15 km/h → 20 min + 10 min = 30 min") == "Auto 15 Kilometer pro Stunde, 20 Minuten plus 10 Minuten gleich 30 Minuten")
+check("Video: Info-Zeile gekürzt ohne Wortbruch", video_auto.kurz("30 min inkl. 10 min Parkplatzsuche") == "30 min inkl. 10 min")
 check("Video: unbekannte Figur → geher, Zahlen als float", sp2["a"]["figur"] == "geher" and sp2["a"]["dauer_s"] == 3.0)
 def _ki_weg(*a, **k): raise SystemExit("offline")
 video_auto.ki = _ki_weg

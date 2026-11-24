@@ -105,9 +105,9 @@ def sim_schreiben(thema, sid, fk, regeln, vorlage, feedback=""):
             "Benutze NUR die gelieferten Fakten für Zahlen und nenne ihre Quellen im Feld quelle. Keine Marken, keine echten Personen, familienfreundlich.",
             f"Thema: {thema}\n\nFAKTEN (nur diese Zahlen verwenden):\n{json.dumps(fk, ensure_ascii=False)}\n\nRegeln und Format:\n{regeln}\n\n"
             f"Pflichtfelder: id, titel [2 kurze GROSSE Wörter], frage [Zeile1, Zeile2 GROSS], "
-            f"modell {{typ:'generisch', einheit, zaehler, besser:'weniger'|'mehr'}}, a und b je {{name, figur (geher|laeufer|auto|rad), dauer_s, menge, info}}, "
+            f"modell {{typ:'generisch', einheit, zaehler, besser:'weniger'|'mehr'}}, a und b je {{name, figur (geher|laeufer|auto|rad), dauer_s, menge, info (max. 25 Zeichen)}}, "
             f"skala [3 kurze Beschriftungen], ergebnis (mit {{p}}), lines (5–7, je {{phase: intro|race|result, t}}; 1. Zeile = Frage, "
-            f"mind. 2 race-Zeilen, letzte = result mit Ergebnis), "
+            f"mind. 2 race-Zeilen, letzte = result mit Ergebnis; Zahlen und Einheiten ausgeschrieben sprechbar, keine Pfeile/Formeln), "
             f"hooks [3 verschiedene Einstiegssätze für Sekunde 1, je max. 10 Wörter: 1× Frage, 1× überraschende Zahl, 1× Behauptung/Mythos], "
             f"kommentar_frage (kurze Frage an die Zuschauer, die zum Kommentieren bringt, z. B. „Was hättest du getippt?“, max. 8 Wörter), "
             f"caption (≤150 Zeichen, mit Emoji), hashtags (5, erstes #simulation), quelle.\n"
@@ -136,6 +136,21 @@ def sim_schreiben(thema, sid, fk, regeln, vorlage, feedback=""):
     return sp
 
 
+def sprechbar(t):
+    """Symbole, die die KI-Stimme falsch oder gar nicht vorliest, in Wörter umwandeln."""
+    t = str(t).replace("\u202f", " ").replace("\u00a0", " ")
+    for a, b in ((" → ", ", "), ("→", ", "), (" + ", " plus "), (" = ", " gleich "), (" ≈ ", " etwa "), ("≈", "etwa "),
+                 ("km/h", "Kilometer pro Stunde"), (" %", " Prozent"), ("%", " Prozent")):
+        t = t.replace(a, b)
+    t = re.sub(r"(\d)\s*min\b", r"\1 Minuten", t)
+    return re.sub(r"\s{2,}", " ", t).strip()
+
+
+def kurz(t, n=26):
+    t = str(t).strip()
+    return t if len(t) <= n else t[:n].rsplit(" ", 1)[0].rstrip(",;–-")
+
+
 def sim_fertig(sp, hook):
     """Stärksten Hook nach vorn, Kommentar-Frage ans Ende (Engagement), Faktenliste in die Quelle."""
     if sp.get("hooks"):
@@ -145,6 +160,10 @@ def sim_fertig(sp, hook):
         sp["lines"].append({"phase": "result", "t": fr.rstrip("?") + "? Schreib es in die Kommentare."})
         if fr not in sp["caption"]:
             sp["caption"] = (sp["caption"] + " " + fr.rstrip("?") + "? 👇")[:220]
+    for l in sp["lines"]:
+        l["t"] = sprechbar(l["t"])
+    for k in ("a", "b"):  # lange Info-Zeile überlappt sonst „IM ZIEL“
+        sp[k]["info"] = kurz(sp[k].get("info", ""))
     return sp
 
 
