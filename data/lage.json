@@ -1,20 +1,14 @@
 {
- "updated": 1795522596,
- "lagebild": "Der Krieg zwischen Russland und der Ukraine bestimmt derzeit die globale Lage, mit militärischen Übungen der „Koalition der Willigen“ in Polen und Deutschlands Plan, künftig ukrainische Drohnen zu liefern. Gleichzeitig sorgt das Sanktionen‑Paket gegen Russland für erhebliche Spannungen auf den europäischen Märkten. Für Lucas in Deutschland bedeutet das spürbare Druck auf Preise, Spritkosten und die Börse.",
+ "updated": 1795541592,
+ "lagebild": "Die anhaltenden militärischen Auseinandersetzungen zwischen Russland und der Ukraine, einschließlich Drohnenangriffen auf russische Schiffe und Brücken, stehen derzeit weltweit im Fokus. Parallel dazu wird in Deutschland künftig die Produktion ukrainischer Drohnen ausgebaut, ein Schritt, der die deutsche Rüstungsindustrie unmittelbar betrifft. Diese Entwicklungen prägen das aktuelle Lagebild und haben direkte Auswirkungen auf die Wirtschaftslage in Deutschland.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
-   "anzahl": 33,
+   "anzahl": 31,
    "heiss": 20,
    "meldungen": [
-    {
-     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehören zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
      "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
@@ -40,9 +34,15 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Kritik aus den USA nach Treffen Trumps mit Xi und Putin",
-     "text": "Erstmals in der Geschichte saß ein US-Präsident allein mit dem chinesischen und dem russischen Staatschef an einem Tisch. Große Deals blieben offenbar aus, die Debatte zu Hause in den USA ist groß: War das Diplomatie - oder Inszenierung? Vo",
-     "url": "https://www.tagesschau.de/ausland/us-reaktionen-dreiergipfel-100.html",
+     "titel": "Deutschland baut künftig ukrainische Drohnen",
+     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
+     "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -93,55 +93,10 @@
    ]
   },
   {
-   "land": "USA",
-   "lat": 39.8,
-   "lon": -98.6,
-   "anzahl": 25,
-   "heiss": 7,
-   "meldungen": [
-    {
-     "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
-     "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
-     "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "US-Repräsentantenhaus: Demokraten so stark wie zuletzt 1992",
-     "text": "Die Demokraten haben ihre Mehrheit im US-Repräsentantenhaus weiter ausgebaut. Ab Januar stellen sie dort mindestens 258 Abgeordnete - zuletzt gelang ihnen dies vor mehr als 30 Jahren zu Zeiten von Bill Clinton.",
-     "url": "https://www.tagesschau.de/ausland/amerika/demokraten-mehrheit-repraesentantenhaus-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mexiko nimmt einen der meistgesuchten Drogenbosse fest",
-     "text": "Die USA fordern von Mexiko schon länger ein hartes Vorgehen gegen Kartelle. Nun ist den Behörden offenbar ein hochrangiger Drogenboss ins Netz gegangen. Der Mann zählte auf der Liste des FBI zu den meistgesuchten Verbrechern.",
-     "url": "https://www.tagesschau.de/ausland/amerika/mexiko-drogenkartell-chef-festnahme-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Offenbar Hackerangriffe auf FBI und US-Agrarministerium",
-     "text": "Hacker sind Medienberichten zufolge in ein Zahlungssystem des US-Agrarministeriums und in eine Datenbank des FBI eingedrungen. Die Angriffe reihen sich in eine Serie von Systemausfällen und Technikpannen in den USA.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-hackerangriffe-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Kritik aus den USA nach Treffen Trumps mit Xi und Putin",
-     "text": "Erstmals in der Geschichte saß ein US-Präsident allein mit dem chinesischen und dem russischen Staatschef an einem Tisch. Große Deals blieben offenbar aus, die Debatte zu Hause in den USA ist groß: War das Diplomatie - oder Inszenierung? Vo",
-     "url": "https://www.tagesschau.de/ausland/us-reaktionen-dreiergipfel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Iran greift erneut US-Stützpunkt in Bahrain an",
-     "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 25,
+   "anzahl": 32,
    "heiss": 4,
    "meldungen": [
     {
@@ -169,15 +124,60 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "\"Ausgleich kalter Progression nicht enthalten\", Christoph Mestmacher, ARD Berlin, zum Start der Haushaltswoche",
-     "text": "\"Ausgleich kalter Progression nicht enthalten\", Christoph Mestmacher, ARD Berlin, zum Start der Haushaltswoche",
-     "url": "https://www.tagesschau.de/video/video-1688922.html",
+     "titel": "Berliner Linke schließt Emde aus Fraktion aus",
+     "text": "Wochenlang diskutierten Grüne, SPD und Linke in Berlin über die Personalie Emde. Die Abgeordnete steht wegen ihrer Positionen zu Israel in der Kritik. Nun hat die Fraktion mit der nötigen Mehrheit für ihren Ausschluss gestimmt.",
+     "url": "https://www.tagesschau.de/inland/innenpolitik/emde-ausschluss-berlin-linke-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Worum es in der Haushaltswoche im Bundestag geht",
-     "text": "2027 will die Bundesregierung in ihrem Haushalt 560 Milliarden Euro ausgeben. Doch dafür muss der Bundestag dem Etat zustimmen. Deshalb geht es in dieser Woche noch einmal ums Ganze. Von Jan-Peter Bartels.",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/bundestag-haushaltswoche-114.html",
+     "titel": "Beratungen im Bundestag über Haushalt für 2027",
+     "text": "Beratungen im Bundestag über Haushalt für 2027",
+     "url": "https://www.tagesschau.de/video/video-1689106.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "USA",
+   "lat": 39.8,
+   "lon": -98.6,
+   "anzahl": 23,
+   "heiss": 7,
+   "meldungen": [
+    {
+     "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
+     "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
+     "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "US-Repräsentantenhaus: Demokraten so stark wie zuletzt 1992",
+     "text": "Die Demokraten haben ihre Mehrheit im US-Repräsentantenhaus weiter ausgebaut. Ab Januar stellen sie dort mindestens 258 Abgeordnete - zuletzt gelang ihnen dies vor mehr als 30 Jahren zu Zeiten von Bill Clinton.",
+     "url": "https://www.tagesschau.de/ausland/amerika/demokraten-mehrheit-repraesentantenhaus-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Mexiko nimmt einen der meistgesuchten Drogenbosse fest",
+     "text": "Die USA fordern von Mexiko schon länger ein hartes Vorgehen gegen Kartelle. Nun ist den Behörden offenbar ein hochrangiger Drogenboss ins Netz gegangen. Der Mann zählte auf der Liste des FBI zu den meistgesuchten Verbrechern.",
+     "url": "https://www.tagesschau.de/ausland/amerika/mexiko-drogenkartell-chef-festnahme-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Offenbar Hackerangriffe auf FBI und US-Agrarministerium",
+     "text": "Hacker sind Medienberichten zufolge in ein Zahlungssystem des US-Agrarministeriums und in eine Datenbank des FBI eingedrungen. Die Angriffe reihen sich in eine Serie von Systemausfällen und Technikpannen in den USA.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-hackerangriffe-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Iran greift erneut US-Stützpunkt in Bahrain an",
+     "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
+     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
+     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -186,7 +186,7 @@
    "land": "Iran",
    "lat": 32.4,
    "lon": 53.7,
-   "anzahl": 12,
+   "anzahl": 13,
    "heiss": 6,
    "meldungen": [
     {
@@ -231,7 +231,7 @@
    "land": "Israel",
    "lat": 31.0,
    "lon": 34.9,
-   "anzahl": 9,
+   "anzahl": 10,
    "heiss": 6,
    "meldungen": [
     {
@@ -304,10 +304,10 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Angriff auf Krankenhaus mit sechs Toten galt laut Israel Hamas",
-     "text": "Bei einem Angriff Israels auf eine Klinik in Gaza sind nach Behördenangaben sechs Menschen gestorben. Laut Israel nutzte die Hamas die Gebäude als Kommando- und Folterzentrum. Ein Mitglied der Terrororganisation sei Ziel des Angriffs gewese",
-     "url": "https://www.tagesschau.de/ausland/asien/gaza-israel-angriff-krankenhaus-100.html",
-     "quelle": "tagesschau"
+     "titel": "Hamas-Anführer bei Angriff Israels im Gazastreifen getötet",
+     "text": "Sowohl die Islamistenorganisation als auch der amtierende israelische Premier Netanjahu bestätigten die Attacke. Bei dem Getöteten soll es sich um den Chef des internen Sicherheitsapparats der Terrororganisation handeln.",
+     "url": "https://www.dw.com/de/hamas-anführer-bei-angriff-israels-im-gazastreifen-getötet/a-80034053?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     },
     {
      "titel": "Gaza: Humanitäre Lage verschärft sich, politische Lösung bleibt aus",
@@ -321,15 +321,9 @@
    "land": "China",
    "lat": 35.9,
    "lon": 104.2,
-   "anzahl": 12,
+   "anzahl": 11,
    "heiss": 1,
    "meldungen": [
-    {
-     "titel": "Kritik aus den USA nach Treffen Trumps mit Xi und Putin",
-     "text": "Erstmals in der Geschichte saß ein US-Präsident allein mit dem chinesischen und dem russischen Staatschef an einem Tisch. Große Deals blieben offenbar aus, die Debatte zu Hause in den USA ist groß: War das Diplomatie - oder Inszenierung? Vo",
-     "url": "https://www.tagesschau.de/ausland/us-reaktionen-dreiergipfel-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "Treffen von Trump, Xi und Putin: Rüstung, KI - und ein heikles Thema",
      "text": "Heute beginnt im chinesischen Shenzhen das APEC-Treffen. Erstmals wird es zu einem Dreiertreffen von Xi, Trump und Putin kommen. Um was könnte es dabei gehen? Von Christoph Kober.",
@@ -337,9 +331,9 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Affäre von Ex-Nvidia-Chef wohl in Kontakt zu Chinas Geheimdienst",
-     "text": "Alice Huang, Geliebte des ehemaligen Nvidia-Chefs, hatte offenbar mehr als ein Jahr lang Kontakt zu einem Mitarbeiter des chinesischen Geheimdienstes. Die Chinesin steht im Mittelpunkt des Skandals um den US-Chipkonzern.",
-     "url": "https://www.tagesschau.de/wirtschaft/unternehmen/nvidia-skandal-kontakt-chinesischer-geheimdienst-100.html",
+     "titel": "Weniger Hybridautos aus China - EU reguliert den Import",
+     "text": "Die EU will mit Importquoten verhindern, dass günstige chinesische Hybrid-Autos Europas Autobauern Konkurrenz machen. Die Importe hatten sich in den vergangenen zwei Jahren mehr als versechsfacht.",
+     "url": "https://www.tagesschau.de/wirtschaft/hybridautos-china-europa-importe-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -356,9 +350,60 @@
     },
     {
      "titel": "Studie: Mehrheit der Deutschen gegen mehr Waffen für Ukraine",
-     "text": "Immer mehr Deutsche finden, das Land solle sich außenpolitisch zurückhalten. Eine Mehrheit ist gegen Waffen-Hilfen für die Ukraine. Und dafür, dass das Land eine neutrale Position im Streit der USA mit China einnimmt.",
+     "text": "Deutschland auf Rückzug? Einer Umfrage zufolge wünschen sich viele Bürger mehr außenpolitische Zurückhaltung. Die Mehrheit lehnt Waffenhilfen für die Ukraine ab und setzt auf Neutralität gegenüber China und den USA.",
      "url": "https://www.dw.com/de/studie-mehrheit-der-deutschen-gegen-mehr-waffen-für-ukraine/a-80020315?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
+    },
+    {
+     "titel": "ASEAN und China: Die Grenzen diplomatischer Einigung",
+     "text": "Die Philippinen wollten 2026 einen Verhaltenskodex für das Südchinesische Meer abschließen. Doch China und die ASEAN-Staaten streiten weiter über zentrale Fragen. Warum eine Einigung so schwierig ist.",
+     "url": "https://www.dw.com/de/asean-und-china-die-grenzen-diplomatischer-einigung/a-80002867?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
+   "land": "Belgien/EU",
+   "lat": 50.8,
+   "lon": 4.4,
+   "anzahl": 7,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
+     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
+     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
+     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
+     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
+     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
+     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Warum Burnham die Nähe zur EU sucht",
+     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
+     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
+     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "EU-Kommission ermittelt gegen Coca-Cola-Abfüller wegen Wettbewerbsverstößen",
+     "text": "Die EU-Kommission ermittelt wegen möglicher Wettbewerbsverstöße gegen den größten europäischen Coca-Cola-Abfüller. Das Unternehmen habe Supermärkten und Tankstellen womöglich Auflagen für Preise und Weiterverkauf gemacht.",
+     "url": "https://www.tagesschau.de/wirtschaft/verbraucher/eu-ermittlungen-coca-cola-abfueller-100.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -441,51 +486,6 @@
    ]
   },
   {
-   "land": "Belgien/EU",
-   "lat": 50.8,
-   "lon": 4.4,
-   "anzahl": 6,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
-     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
-     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
-     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
-     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Warum Burnham die Nähe zur EU sucht",
-     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "EU-Kommission ermittelt gegen Coca-Cola-Abfüller wegen Wettbewerbsverstößen",
-     "text": "Die EU-Kommission ermittelt wegen möglicher Wettbewerbsverstöße gegen den größten europäischen Coca-Cola-Abfüller. Das Unternehmen habe Supermärkten und Tankstellen womöglich Auflagen für Preise und Weiterverkauf gemacht.",
-     "url": "https://www.tagesschau.de/wirtschaft/verbraucher/eu-ermittlungen-coca-cola-abfueller-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Deutsche Experten vor dem EU-Westbalkan-Gipfel: Unter der Regierung der Studentenliste muss sich Serbien zwischen Aufbruch und Kontinuität entscheiden",
-     "text": "Serbiens neue Führung sorgt in der Europäischen Union für Hoffnung und Skepsis zugleich. Deutsche Westbalkan-Experten sehen Chancen für Reformen, aber offene Fragen bei EU-Kurs, Kosovo und Russland.",
-     "url": "https://www.dw.com/de/deutsche-experten-vor-dem-eu-westbalkan-gipfel-unter-der-regierung-der-studentenliste-muss-sich-serbien-zwischen-aufbruch-und-kontinuität-entscheiden/a-80019985?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
    "land": "Frankreich",
    "lat": 46.2,
    "lon": 2.2,
@@ -514,39 +514,6 @@
      "titel": "Philippe Diallo: Europäische Integrität gegen das System Infantino",
      "text": "Frankreichs Verbandspräsident und UEFA-Kandidat Philippe Diallo fordert FIFA-Präsident Gianni Infantino heraus. Seine Chancen sind gering, doch Justiz und Politik könnten auf seiner Seite sein.",
      "url": "https://www.dw.com/de/philippe-diallo-europäische-integrität-gegen-das-system-infantino/a-79978574?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Japan",
-   "lat": 36.2,
-   "lon": 138.3,
-   "anzahl": 4,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehören zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
-     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
-     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mehr als 20 Verletzte nach Erdbeben in Zentraljapan",
-     "text": "Mehrere Regionen in Japan wurden in der Nacht von einem Erdbeben der Stärke 5,7 erschüttert. Am stärksten betroffen war die Präfektur Aichi. Medien berichten über mehr als 20 Verletzte. Laut Behörden könnten weitere Beben folgen.",
-     "url": "https://www.tagesschau.de/ausland/asien/japan-erdbeben-aichi-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
-     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
-     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -597,7 +564,7 @@
    "land": "Großbritannien",
    "lat": 54.0,
    "lon": -2.5,
-   "anzahl": 5,
+   "anzahl": 4,
    "heiss": 0,
    "meldungen": [
     {
@@ -623,38 +590,32 @@
      "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
      "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Eisweinlese, Truthähne \"Freedom\" und \"Feathers\", Mond am London Eye",
-     "text": "Eisweinlese, Truthähne \"Freedom\" und \"Feathers\", Mond am London Eye",
-     "url": "https://www.tagesschau.de/multimedia/bilder/blickpunkte-10586.html",
-     "quelle": "tagesschau"
     }
    ]
   },
   {
-   "land": "Türkei",
-   "lat": 39.0,
-   "lon": 35.2,
+   "land": "Japan",
+   "lat": 36.2,
+   "lon": 138.3,
    "anzahl": 3,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "Gesuchtes Tier in Istanbul wohl doch keine Löwin",
-     "text": "Nach der Sichtung eines verdächtigen Tieres hatten Behörden in Istanbul einen Tag lang nach einer angeblich freilaufenden Löwin gesucht. Nun gaben sie vorerst Entwarnung: Es streunt wohl doch keine Großkatze durch die türkische Metropole.",
-     "url": "https://www.tagesschau.de/ausland/europa/loewe-istanbul-102.html",
+     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
+     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
+     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
-     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
-     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
+     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
+     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
+     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "UN-Klimakonferenz COP31 ist in Antalya gescheitert",
-     "text": "Der türkische Entwurf für den Abschlusstext des Klimagipfels hat Öl, Kohle und Gas nicht erwähnt. Zu viele Delegationen haben ihre Zustimmung verweigert.",
-     "url": "https://www.dw.com/de/un-klimakonferenz-cop31-ist-in-antalya-gescheitert/a-80012944?maca=de-rss-de-all-1119-rdf",
+     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
+     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
+     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -668,7 +629,7 @@
    "meldungen": [
     {
      "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehören zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
+     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
      "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
      "quelle": "tagesschau"
     },
@@ -687,22 +648,28 @@
    ]
   },
   {
-   "land": "Taiwan",
-   "lat": 23.7,
-   "lon": 121.0,
-   "anzahl": 2,
+   "land": "Afghanistan",
+   "lat": 33.9,
+   "lon": 67.7,
+   "anzahl": 3,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehören zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
+     "titel": "Taliban lassen Abschiebeflug verschieben",
+     "text": "Ein für heute geplanter Abschiebeflug nach Kabul wurde nach NDR-Informationen von afghanischer Seite abgesagt. Die Taliban wollen offenbar Druck machen, um die Einreise weiterer Konsularbeamte nach Deutschland zu erzwingen. Von P. Hornung.",
+     "url": "https://www.tagesschau.de/inland/innenpolitik/afghanistan-taliban-abschiebeflug-gestoppt-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
-     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
-     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
+     "titel": "Müssen Geflüchtete bei Taliban-Diplomaten vorsprechen?",
+     "text": "Seit 2024 gibt es Sammelabschiebungen nach Afghanistan und Absprachen mit den Taliban. Taliban-Vertreter sind in Konsulaten in Deutschland aktiv. Dort müssen Geflüchtete vorsprechen, auf Anordnung deutscher Behörden. Ist das zulässig? Von M",
+     "url": "https://www.tagesschau.de/inland/innenpolitik/afghanistan-gefluechtete-taliban-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
+     "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
+     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -750,6 +717,48 @@
    ]
   },
   {
+   "land": "Taiwan",
+   "lat": 23.7,
+   "lon": 121.0,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
+     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
+     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
+     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
+     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Türkei",
+   "lat": 39.0,
+   "lon": 35.2,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
+     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
+     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Gesuchtes Tier in Istanbul wohl doch keine Löwin",
+     "text": "Nach der Sichtung eines verdächtigen Tieres hatten Behörden in Istanbul einen Tag lang nach einer angeblich freilaufenden Löwin gesucht. Nun gaben sie vorerst Entwarnung: Es streunt wohl doch keine Großkatze durch die türkische Metropole.",
+     "url": "https://www.tagesschau.de/ausland/europa/loewe-istanbul-102.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
    "land": "Indien",
    "lat": 21.0,
    "lon": 78.0,
@@ -786,21 +795,6 @@
    ]
   },
   {
-   "land": "Afghanistan",
-   "lat": 33.9,
-   "lon": 67.7,
-   "anzahl": 1,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
-     "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
-     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "Libanon",
    "lat": 33.9,
    "lon": 35.9,
@@ -818,18 +812,33 @@
  ],
  "ohne_land": [
   {
+   "titel": "Steinmeier appelliert an Wirtschaft: Chancen in Afrika nutzen",
+   "url": "https://www.tagesschau.de/ausland/afrika/steinmeier-deutsch-afrikanischer-wirtschaftsgipfel-100.html",
+   "quelle": "tagesschau"
+  },
+  {
+   "titel": "UN-Bericht: Partner und Verwandte Haupttäter bei Femiziden",
+   "url": "https://www.tagesschau.de/ausland/europa/un-bericht-femizide-unodc-100.html",
+   "quelle": "tagesschau"
+  },
+  {
+   "titel": "Urteil des EGMR: Pushbacks an Grenze zu Belarus waren teils legal",
+   "url": "https://www.tagesschau.de/ausland/europa/emgr-urteil-pushbacks-100.html",
+   "quelle": "tagesschau"
+  },
+  {
    "titel": "Landminen-Monitor: Zahl der Opfer von Landminen gestiegen",
    "url": "https://www.tagesschau.de/ausland/europa/landminen-monitor-102.html",
    "quelle": "tagesschau"
   },
   {
-   "titel": "Zehn Jahre Friedensvertrag: Kolumbien so polarisiert wie lange nicht",
-   "url": "https://www.tagesschau.de/ausland/amerika/kolumbien-zehn-jahre-friedensvertrag-100.html",
+   "titel": "Vergewaltigungsvorwurf: Anzeige gegen Depardieu und Houellebecq",
+   "url": "https://www.tagesschau.de/ausland/europa/frankreich-vergewaltigungsvorwuerfe-depardieu-houellebecq-100.html",
    "quelle": "tagesschau"
   },
   {
-   "titel": "Vergewaltigungsvorwurf: Anzeige gegen Depardieu und Houellebecq",
-   "url": "https://www.tagesschau.de/ausland/europa/frankreich-vergewaltigungsvorwuerfe-depardieu-houellebecq-100.html",
+   "titel": "Zehn Jahre Friedensvertrag: Kolumbien so polarisiert wie lange nicht",
+   "url": "https://www.tagesschau.de/ausland/amerika/kolumbien-zehn-jahre-friedensvertrag-100.html",
    "quelle": "tagesschau"
   },
   {
@@ -841,29 +850,14 @@
    "titel": "Erdbeben erschüttert Perus Andenregion",
    "url": "https://www.tagesschau.de/ausland/amerika/peru-erdbeben-102.html",
    "quelle": "tagesschau"
-  },
-  {
-   "titel": "\"Palisades Fire\" - Angeklagter im zweiten Anlauf schuldig gesprochen",
-   "url": "https://www.tagesschau.de/ausland/amerika/prozess-pacific-palisades-feuer-kalifornien-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "Internationaler Gerichtshof: Vorgehen Myanmars gegen Rohingya war Völkermord",
-   "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "\"Keine Klimagerechtigkeit ohne Entmilitarisierung\"",
-   "url": "https://www.tagesschau.de/ausland/asien/cop31-krieg-emissionen-100.html",
-   "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54966,
+   "wert": 54666,
    "einheit": "€",
-   "pct": -1.65,
+   "pct": -3.58,
    "verlauf": [
     59030,
     57416,
@@ -872,44 +866,44 @@
     54815,
     55754,
     56132,
-    55179
+    54946
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1548.31,
+   "wert": 1534.33,
    "einheit": "€",
-   "pct": -1.33
+   "pct": -4.89
   },
   {
    "name": "Solana",
-   "wert": 64.39,
+   "wert": 63.44,
    "einheit": "€",
-   "pct": -2.42
+   "pct": -6.68
   },
   {
    "name": "EUR/CHF",
-   "wert": 0.9186,
+   "wert": 0.9183,
    "einheit": "",
-   "pct": 0.0
+   "pct": -0.03
   },
   {
    "name": "EUR/GBP",
-   "wert": 0.83673,
+   "wert": 0.837,
    "einheit": "",
-   "pct": 0.0
+   "pct": 0.03
   },
   {
    "name": "EUR/USD",
-   "wert": 1.0939,
+   "wert": 1.0963,
    "einheit": "",
-   "pct": 0.0
+   "pct": 0.22
   }
  ],
  "fx": {
-  "CHF": 0.9186,
-  "GBP": 0.83673,
-  "USD": 1.0939
+  "CHF": 0.9183,
+  "GBP": 0.837,
+  "USD": 1.0963
  },
  "fehler": []
 }
