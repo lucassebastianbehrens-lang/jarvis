@@ -117,6 +117,39 @@ input[type=text],input[type=password],select,textarea.f{width:100%;background:va
 .mem span{flex:1}
 .x{background:none;border:0;color:var(--muted);font-size:1.1rem}
 .toast{position:fixed;left:50%;bottom:calc(var(--nav) + 80px);transform:translateX(-50%);background:var(--panel2);border:1px solid var(--ember);border-radius:12px;padding:10px 16px;z-index:50;max-width:90vw}
+/* Werkzeug-Leiste */
+.tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 0}
+.tools .btn{border-radius:999px;font-size:.9rem}
+/* Lage-Zentrale */
+.globe{position:relative;border-radius:16px;border:1px solid var(--line);overflow:hidden;background:radial-gradient(70% 60% at 50% 50%,#2a0b11 0%,#0e0507 70%)}
+#globeCv{display:block;width:100%;touch-action:none;cursor:grab}
+.globe .tag{position:absolute;left:12px;top:10px;font-family:var(--disp);letter-spacing:.14em;font-size:.75rem;color:var(--ember)}
+.globe .tag2{position:absolute;right:12px;top:10px;font-size:.75rem;color:var(--muted)}
+.mkt{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:10px}
+.mkt div{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px}
+.mkt b{display:block;font-family:var(--disp);font-size:1.15rem}
+.lands{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.lands button.on{border-color:var(--red);color:#fff;box-shadow:0 0 10px #ff2e3a55}
+.news p{margin:10px 0 0}.news a{color:var(--text);text-decoration:none;font-weight:700}
+/* Erfolgs-Feier */
+dialog.fx{max-width:none;max-height:none;width:100vw;height:100dvh;border:0;border-radius:0;padding:0;margin:0}dialog.fx::backdrop{background:transparent}
+.fx[open]{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:radial-gradient(60% 50% at 50% 50%,#3a0c12ee,#050203f5);animation:fxIn .4s ease-out}
+.fx canvas{position:absolute;inset:0;width:100%;height:100%}
+.fx .t{position:relative;text-align:center;font-family:var(--disp);font-weight:700;font-size:clamp(2rem,8vw,4.2rem);letter-spacing:.08em;color:#fff;text-shadow:0 0 18px var(--ember),0 0 40px var(--red);margin-top:-190px}
+.fx .s{position:relative;text-align:center;color:var(--text);font-size:1.1rem;margin-top:8px}
+.fx .orb{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#fff 0 7%,#ffb3a0 12%,var(--red) 30%,#5a0a12 60%,transparent 72%);box-shadow:0 0 80px var(--red);animation:breathe .9s ease-in-out infinite}
+@keyframes fxIn{from{opacity:0}}
+/* Ablauf (Onboarding) */
+.steps{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.steps li{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--panel2);opacity:.45;transition:opacity .3s}
+.steps li.on,.steps li.ok{opacity:1}.steps li.ok{border-color:#2a5a40}
+.steps li>b{flex:none;width:22px;text-align:center}
+.steps li .out{margin-top:6px;white-space:pre-wrap;font-size:.88rem;color:var(--muted)}
+pre.box{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:.9rem;max-height:40dvh;overflow:auto}
+input[type=number],input[type=datetime-local],input[type=tel]{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px}
+/* Werkstatt */
+.build{width:100%;height:60dvh;border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:12px}
+dialog.wide{width:min(980px,96vw)}
 @media (min-width:900px){nav{top:0;bottom:auto;left:auto;right:0;flex-direction:column;width:96px;height:100dvh;border-top:0;border-left:1px solid var(--line);justify-content:flex-start;padding-top:80px}nav button{flex:none}main,header{margin-right:96px}.composer{bottom:16px}.toast{bottom:90px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
 </style>
@@ -134,6 +167,7 @@ input[type=text],input[type=password],select,textarea.f{width:100%;background:va
 <section class="tab on" id="t-jarvis" aria-label="Jarvis">
   <div class="core-wrap"><button class="core" id="core" aria-label="Zum Sprechen tippen"></button></div>
   <p class="core-hint" id="coreHint">Tipp auf den Kern und sprich – oder schreib unten.</p>
+  <div class="tools"><button class="btn" id="tKunde">🤝 Neuer Kunde</button><button class="btn" id="tCall">📞 Call vorbereiten</button><button class="btn" id="tBau">🛠 Bauen</button></div>
   <div id="chat" aria-live="polite"></div>
   <div class="composer">
     <button class="iconbtn" id="btnWeb" title="Im Internet recherchieren" aria-pressed="false" aria-label="Internet-Recherche umschalten">🌐</button>
@@ -149,6 +183,13 @@ input[type=text],input[type=password],select,textarea.f{width:100%;background:va
   <div class="legend"><span>🚶 läuft herum = aktiv</span><span>⚙️ = arbeitet im Haus</span><span><b style="color:var(--red)">!</b> = Problem</span><span>z = schläft</span><span>Antippen = Details</span></div>
   <div class="sr" id="town"></div>
   <div class="panel"><h3>Gerade in der Stadt</h3><ul class="ticker" id="ticker"></ul></div>
+</section>
+
+<section class="tab" id="t-lage" aria-label="Lage-Zentrale">
+  <div class="row" style="justify-content:space-between;margin:6px 0 12px"><h2>Lage-Zentrale</h2><span class="muted small" id="lageInfo"></span></div>
+  <div class="globe"><canvas id="globeCv" role="img" aria-label="Globus: rote Punkte zeigen Länder mit aktuellen Nachrichten. Antippen zeigt die Meldungen."></canvas><span class="tag">WELTLAGE · LIVE</span><span class="tag2">ziehen = drehen · Punkt antippen</span></div>
+  <div class="panel"><h3>Lagebild</h3><p class="fazit" id="lagebild"></p><div class="lands" id="lands"></div><div class="news" id="news"></div></div>
+  <div class="panel"><h3>Märkte</h3><div class="mkt" id="mkt"></div><div id="btcSpark"></div></div>
 </section>
 
 <section class="tab" id="t-briefing" aria-label="Tages-Briefing">
@@ -173,6 +214,7 @@ input[type=text],input[type=password],select,textarea.f{width:100%;background:va
 <nav role="tablist">
   <button role="tab" aria-selected="true" data-t="jarvis"><b>◉</b>Jarvis</button>
   <button role="tab" aria-selected="false" data-t="stadt"><b>🏙️</b>Stadt</button>
+  <button role="tab" aria-selected="false" data-t="lage"><b>🛰️</b>Lage</button>
   <button role="tab" aria-selected="false" data-t="briefing"><b>☀️</b>Briefing</button>
   <button role="tab" aria-selected="false" data-t="trading"><b>📈</b>Trading</button>
   <button role="tab" aria-selected="false" data-t="neu"><b>✨</b>Neu</button>
@@ -214,6 +256,45 @@ input[type=text],input[type=password],select,textarea.f{width:100%;background:va
   <div class="row" style="margin-top:10px"><input type="text" id="memNew" placeholder="Neue Erinnerung …" style="flex:1"><button class="btn" id="memAdd">Merken</button></div>
 </dialog>
 
+<dialog id="dlgKunde">
+  <div class="row" style="justify-content:space-between"><h2>🤝 Neuer Kunde</h2><button class="x" data-close aria-label="Schließen">✕</button></div>
+  <form id="kForm" method="dialog">
+    <p class="muted small">Jarvis legt den Kunden an, schreibt den Rechnungsentwurf, das Projekt-Board, den Kick-off-Termin und die Willkommensnachricht. Senden und Rechnung verschicken machst du selbst mit einem Tipp.</p>
+    <label for="kFirma">Firma</label><input type="text" id="kFirma" required placeholder="z. B. Tischlerei Müller">
+    <label for="kName">Ansprechpartner</label><input type="text" id="kName" placeholder="z. B. Herr Müller">
+    <label for="kLeist">Leistung</label><select id="kLeist"><option>Social-Media-Betreuung (Handwerk sichtbar)</option><option>Webseite</option><option>Finanz-Vorlage / Excel</option><option>Sonstiges</option></select>
+    <label for="kPreis">Preis in € (pro Monat bzw. einmalig)</label><input type="number" id="kPreis" min="0" step="1" placeholder="z. B. 290">
+    <label for="kStart">Kick-off-Termin</label><input type="datetime-local" id="kStart">
+    <label for="kTel">Handynummer des Kunden (optional, für WhatsApp)</label><input type="tel" id="kTel" placeholder="z. B. 0171 2345678">
+    <div class="row" style="margin-top:16px"><button class="btn go" id="kGo" value="go">Kunde an Bord holen</button></div>
+  </form>
+  <div id="kRun" hidden><div class="row" style="justify-content:space-between"><b id="kTitel"></b><span id="kPct" class="muted">0 %</span></div><div class="bar"><i id="kBar" style="width:0"></i></div><ol class="steps" id="kSteps"></ol></div>
+</dialog>
+
+<dialog id="dlgCall">
+  <div class="row" style="justify-content:space-between"><h2>📞 Call vorbereiten</h2><button class="x" data-close aria-label="Schließen">✕</button></div>
+  <div id="cForm">
+    <p class="muted small">Jarvis recherchiert vorher im Netz und schreibt dir alles, was du vor dem Gespräch wissen musst. Dazu ein Kalender-Wecker 5 Minuten vorher.</p>
+    <label for="cWer">Mit wem?</label><input type="text" id="cWer" placeholder="z. B. Frau Schulz, Malerbetrieb Schulz">
+    <label for="cWeb">Firma / Webseite (optional)</label><input type="text" id="cWeb" placeholder="z. B. maler-schulz.de">
+    <label for="cWas">Worum geht's?</label><input type="text" id="cWas" placeholder="z. B. Erstgespräch Social-Media-Betreuung">
+    <label for="cWann">Wann?</label><input type="datetime-local" id="cWann">
+    <div class="row" style="margin-top:16px"><button class="btn go" id="cGo">Vorbereiten</button></div>
+  </div>
+  <div id="cOut" hidden><pre class="box" id="cText"></pre>
+    <div class="row" style="margin-top:12px"><button class="btn go" id="cIcs">⏰ Wecker in Kalender (5 Min vorher)</button><button class="btn" id="cRead">🔊 Vorlesen</button><button class="btn" id="cCopy">Kopieren</button></div>
+    <p class="muted small">Ist die App zur Call-Zeit offen, meldet sich Jarvis zusätzlich 5 Minuten vorher selbst und liest dir das Briefing vor.</p></div>
+</dialog>
+
+<dialog id="dlgBau" class="wide">
+  <div class="row" style="justify-content:space-between"><h2>🛠 Jarvis baut</h2><button class="x" data-close aria-label="Schließen">✕</button></div>
+  <p class="muted small">Beschreib eine kleine App, ein Spiel, einen Rechner oder eine 3D-Ansicht – Jarvis baut sie als eine Datei. Sie läuft abgeschirmt (kein Zugriff auf deine Daten).</p>
+  <div class="row"><textarea class="f" id="bWas" rows="2" style="flex:1" placeholder="z. B. Ein 3D-Modell eines BMW E46 als Drahtgitter, das sich dreht"></textarea></div>
+  <div class="row" style="margin-top:10px"><button class="btn go" id="bGo">Bauen</button><button class="btn" id="bMehr" hidden>Verbessern</button><button class="btn" id="bDl" hidden>⬇ Herunterladen</button><select id="bAlt" style="width:auto;flex:1;min-width:140px"></select></div>
+  <p class="muted small" id="bInfo"></p>
+  <iframe class="build" id="bFrame" sandbox="allow-scripts" title="Gebaute App" hidden></iframe>
+</dialog>
+
 <script>
 "use strict";
 const REPO="lucassebastianbehrens-lang/jarvis", RAW=`https://raw.githubusercontent.com/${REPO}/main/data/`, API="https://api.github.com/repos/"+REPO;
@@ -222,12 +303,13 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const eur=n=>(n??0).toLocaleString("de-DE",{style:"currency",currency:"EUR"});
 const ls={get:(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 let cfg=ls.get("jv_cfg",{talk:false}), brain=ls.get("jv_brain",{mem:[],proj:[],t:0}), hist=ls.get("jv_hist",[]);
-const D={bots:[],runs:[],status:null,briefing:null,paper:null,agents:null,rech:null};
-function toast(t,ms=3200){const e=document.createElement("div");e.className="toast";e.textContent=t;document.body.append(e);setTimeout(()=>e.remove(),ms)}
+const D={bots:[],runs:[],status:null,briefing:null,paper:null,agents:null,rech:null,lage:null};
+const LAND="103ffffffffffffffffffffffffff8,003ffffff800ffffffffffffffff80,01ffffffe008ffffffffffffffffe0,0003ff5ffe0003ffffffffffffffe0,000000201b0000ffffffeffffffff8,000000000e000000013fe3ffffff00,000000000200000000020002000000,000000000000000000000000000000,000000000000000000000000000000,000000000000000000000000000000,000000000c00000000000000000000,000000001800000000000000000000,000000001c00000000000000000000,000000001c00000000000000000008,000000001c00000000000000000804,000000000e00000000000000000002,000000000f80000000000000003c00,000000000fc0000038000000187e00,000000000fe000003c0000003ffe00,000000000ff000007e0000003ffe00,0000000007f800007f1000003ffe00,0000000007fc0000ff1000001ffc00,000000000ffe0000ff10000007f801,000000001ffe0000ffc80000039000,000000003ffe00007f80000000d000,000000003fff0000ff800000001400,000000007fff0000ff800001003800,000000007ffe0001ff80000268e200,000000007fe00001ffc00006e00000,000000003fe00001fff00008600000,000000003f8000f3fff00004000000,00000000df0000fffff80000000000,00000001000001ffffc00603000000,00000007000003ffffb80607080000,0000003e200001ffffbe0f1e080000,00000072200003ffff7f1f9f000000,000000e0000001ffff7e3fffe80000,000003f0000001fffefbfffff00000,000007fd8000007ffff7fffff80000,000007ffc000007f00fffffff10000,00001fffe000000f00fffffff26000,00001fffe000007057f3ffffe20000,00001ffff0000078b937fffffe0000,00001ffffe00000f7df7ffffffd000,00003ffffcc0001ffffffffffff000,00007fffff000037fffffffffff000,00007fffbf800051fffffffffff080,0180fffc3f0000209fffffffffc0c0,0fe7fff03a000003c3ffffffffff30,17fffffc081c0003dfffffffffffff,effffffe1a3f0e00ff3fffffffffff,07fdfb45b81fe0003f00d7fffffff7,00003fb3e03ff000000617fffe3c00,0000038f807ff8000001007fc03400,00000231cffff800d0000000000000,00000003fffffe0000000010000000,000000000000000000000000000000";
+function toast(t,ms=3200){const e=document.createElement("div");e.className="toast";e.setAttribute("role","status");e.textContent=t;($$("dialog[open]").at(-1)||document.body).append(e);setTimeout(()=>e.remove(),ms)}
 function ago(ts){const m=Math.round((Date.now()/1000-ts)/60);if(m<1)return"gerade";if(m<60)return`vor ${m} Min`;const h=Math.round(m/60);return h<48?`vor ${h} h`:`vor ${Math.round(h/24)} T`}
 
 /* ---------- Tabs ---------- */
-function show(t){$$("nav button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t===t));$$("section.tab").forEach(s=>s.classList.toggle("on",s.id==="t-"+t));location.hash=t;scrollTo(0,0);if(t==="stadt")try{cityStart()}catch(e){}}
+function show(t){$$("nav button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t===t));$$("section.tab").forEach(s=>s.classList.toggle("on",s.id==="t-"+t));location.hash=t;scrollTo(0,0);if(t==="stadt")try{cityStart()}catch(e){}if(t==="lage")try{globeStart()}catch(e){}}
 $$("nav button").forEach(b=>b.onclick=()=>show(b.dataset.t));
 if(location.hash&&$("#t-"+location.hash.slice(1)))show(location.hash.slice(1));
 
@@ -239,12 +321,12 @@ async function gh(path,body,method){const r=await fetch(API+path,{method:method|
 let lastLoad=0;
 async function loadAll(){
   lastLoad=Date.now();$("#stamp").textContent="aktualisiere …";
-  const jobs={bots:"bots.json",status:"status.json",briefing:"briefing.json",paper:"paper.json",agents:"agents.json",rech:"recherche.json"};
+  const jobs={bots:"bots.json",status:"status.json",briefing:"briefing.json",paper:"paper.json",agents:"agents.json",rech:"recherche.json",lage:"lage.json"};
   await Promise.all(Object.entries(jobs).map(async([k,f])=>{try{D[k]=await getJSON(f)}catch(e){console.warn(e)}}));
   try{D.runs=(await gh("/actions/runs?per_page=100")).workflow_runs||[]}catch(e){console.warn(e)}
   $("#stamp").textContent="Stand "+new Date().toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"});
   const st=D.status;$("#pulse").className="pulse "+(st?(st.ok?"ok":"bad"):"");
-  renderTown();renderBriefing();renderTrading();renderNeu();
+  renderTown();renderBriefing();renderTrading();renderNeu();renderLage();
 }
 setInterval(loadAll,60*60*1000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&Date.now()-lastLoad>10*60*1000)loadAll()});
@@ -517,6 +599,149 @@ async function auftrag(titel,text){
   const r=await gh("/issues",{title:"Jarvis: "+titel,body:text+"\n\n_Freigegeben von Lucas in der Jarvis-App._",labels:["jarvis-auftrag"]});
   toast("Auftrag angelegt – Claude baut es ein.");return r}
 
+/* ---------- Lage-Zentrale (Globus) ---------- */
+const Globe={rot:-10,tilt:22,sel:null,run:false,drag:null,spots:[]};
+const LANDPTS=(()=>{const pts=[];LAND.split(",").forEach((row,r)=>{const la=-84+r*3;[...row].forEach((h,i)=>{const b=parseInt(h,16);for(let k=0;k<4;k++)if(b&(8>>k))pts.push([la,-180+(i*4+k)*3+1.5])})});return pts})();
+const globeStart=(()=>{let cv,g,W,H,R,last=0;const RM=matchMedia("(prefers-reduced-motion: reduce)").matches,rad=Math.PI/180;
+  function proj(la,lo){const p=la*rad,l=(lo-Globe.rot)*rad,t=Globe.tilt*rad,cp=Math.cos(p);
+    return[W/2+R*cp*Math.sin(l),H/2-R*(Math.cos(t)*Math.sin(p)-Math.sin(t)*cp*Math.cos(l)),Math.sin(t)*Math.sin(p)+Math.cos(t)*cp*Math.cos(l)]}
+  function resize(){const r=cv.parentElement.getBoundingClientRect();if(!r.width)return false;const d=devicePixelRatio||1;W=r.width;H=Math.min(W*.8,460);
+    cv.width=W*d;cv.height=H*d;cv.style.height=H+"px";g.setTransform(d,0,0,d,0,0);R=Math.min(W,H)*.42;return true}
+  function draw(t){g.clearRect(0,0,W,H);
+    const gl=g.createRadialGradient(W/2-R*.3,H/2-R*.3,R*.1,W/2,H/2,R*1.05);gl.addColorStop(0,"#3a0f15");gl.addColorStop(1,"#120507");
+    g.fillStyle=gl;g.beginPath();g.arc(W/2,H/2,R,0,7);g.fill();g.strokeStyle="#ff2e3a55";g.lineWidth=1.2;g.stroke();
+    g.strokeStyle="#ff2e3a18";g.lineWidth=1;for(let lo=-180;lo<180;lo+=30){g.beginPath();let pen=false;for(let la=-90;la<=90;la+=5){const[x,y,z]=proj(la,lo);if(z>0){pen?g.lineTo(x,y):g.moveTo(x,y);pen=true}else pen=false}g.stroke()}
+    for(let la=-60;la<=60;la+=30){g.beginPath();let pen=false;for(let lo=-180;lo<=180;lo+=5){const[x,y,z]=proj(la,lo);if(z>0){pen?g.lineTo(x,y):g.moveTo(x,y);pen=true}else pen=false}g.stroke()}
+    for(const[la,lo]of LANDPTS){const[x,y,z]=proj(la,lo);if(z>0){g.fillStyle=`rgba(255,${120+z*60|0},${90+z*40|0},${.25+z*.6})`;g.fillRect(x-1.1,y-1.1,2.2,2.2)}}
+    const home=proj(51.2,10.4);Globe.spots=[];
+    for(const o of D.lage?.orte||[]){const[x,y,z]=proj(o.lat,o.lon);if(z<=0)continue;
+      const r=4+Math.min(10,o.anzahl*1.5),hot=o.heiss>0,ph=(t/900+o.lat)%1;
+      if(o.land!=="Deutschland"&&home[2]>0){g.strokeStyle=hot?"#ff2e3a88":"#ff7a4555";g.lineWidth=1.2;g.beginPath();g.moveTo(home[0],home[1]);
+        const mx=(home[0]+x)/2,my=(home[1]+y)/2,dx=mx-W/2,dy=my-H/2,k=.35;g.quadraticCurveTo(mx+dx*k,my+dy*k,x,y);g.stroke()}
+      if(!RM){g.strokeStyle=`rgba(255,46,58,${1-ph})`;g.lineWidth=2;g.beginPath();g.arc(x,y,r+ph*14,0,7);g.stroke()}
+      g.fillStyle=hot?"#ff2e3a":"#ff9a5a";g.shadowColor=g.fillStyle;g.shadowBlur=14;g.beginPath();g.arc(x,y,r*.55,0,7);g.fill();g.shadowBlur=0;
+      if(Globe.sel===o.land||o===D.lage.orte[0]){g.fillStyle="#fff";g.font="600 12px Chakra Petch,sans-serif";g.textAlign="center";g.fillText(o.land.toUpperCase(),x,y-r-8)}
+      Globe.spots.push({o,x,y,r:r+8})}}
+  function loop(t){if(!$("#t-lage").classList.contains("on")||document.hidden){Globe.run=false;return}
+    const dt=Math.min(.05,(t-last)/1000||0);last=t;if(!Globe.drag&&!RM)Globe.rot+=dt*6;draw(t);requestAnimationFrame(loop)}
+  return function(){if(!cv){cv=$("#globeCv");g=cv.getContext("2d");
+      cv.addEventListener("pointerdown",e=>{Globe.drag={x:e.clientX,y:e.clientY,r:Globe.rot,tl:Globe.tilt,m:0};cv.setPointerCapture(e.pointerId)});
+      cv.addEventListener("pointermove",e=>{const d=Globe.drag;if(!d)return;d.m=Math.max(d.m,Math.abs(e.clientX-d.x)+Math.abs(e.clientY-d.y));
+        Globe.rot=d.r-(e.clientX-d.x)*.4;Globe.tilt=Math.max(-60,Math.min(70,d.tl+(e.clientY-d.y)*.3));if(RM)draw(0)});
+      cv.addEventListener("pointerup",e=>{const d=Globe.drag;Globe.drag=null;if(d&&d.m<6){const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+        const s=Globe.spots.find(s=>Math.hypot(s.x-x,s.y-y)<s.r);if(s)pickLand(s.o.land)}});
+      new ResizeObserver(()=>{if(resize()&&RM)draw(0)}).observe(cv.parentElement)}
+    if(Globe.run||!$("#t-lage").classList.contains("on")||!resize())return;if(RM){draw(0);return}Globe.run=true;requestAnimationFrame(loop)}
+})();
+function pickLand(n){Globe.sel=n;const o=(D.lage?.orte||[]).find(x=>x.land===n);if(o)Globe.rot=o.lon;
+  $$("#lands button").forEach(b=>b.classList.toggle("on",b.dataset.land===n));
+  const list=o?o.meldungen:(D.lage?.ohne_land||[]);
+  $("#news").innerHTML=`<h3 style="margin-top:14px">${esc(o?o.land:"Sonstige Meldungen")}</h3>`+list.map(m=>`<p><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.titel)}</a><br><span class="muted small">${esc(m.text||"")} · ${esc(m.quelle)}</span></p>`).join("")}
+function renderLage(){const L=D.lage;
+  if(!L){$("#lagebild").textContent="Agentin Ada meldet sich nach ihrer ersten Runde (alle 2 Stunden).";$("#mkt").innerHTML="";return}
+  $("#lageInfo").textContent="Stand "+ago(L.updated);
+  $("#lagebild").textContent=L.lagebild||(L.orte.length?`${L.orte.length} Länder in den Nachrichten. Am meisten los: ${L.orte.slice(0,3).map(o=>o.land).join(", ")}.`:"Gerade keine Meldungen geladen.");
+  $("#lands").innerHTML=L.orte.map(o=>`<button class="chip" data-land="${esc(o.land)}">${o.heiss?"🔴":"🟠"} ${esc(o.land)} · ${o.anzahl}</button>`).join("")+(L.ohne_land?.length?`<button class="chip" data-land="">🌐 Sonstiges</button>`:"");
+  $$("#lands button").forEach(b=>b.onclick=()=>pickLand(b.dataset.land));
+  if(L.orte[0])pickLand(Globe.sel&&L.orte.some(o=>o.land===Globe.sel)?Globe.sel:L.orte[0].land);
+  $("#mkt").innerHTML=(L.maerkte||[]).map(m=>`<div><span class="muted small">${esc(m.name)}</span><b>${m.einheit==="€"?eur(m.wert):m.wert.toLocaleString("de-DE",{maximumFractionDigits:4})}</b><span class="small ${m.pct>=0?"pos":"neg"}">${m.pct>=0?"▲ +":"▼ "}${m.pct.toLocaleString("de-DE")} %</span></div>`).join("")||`<p class="muted small">Keine Marktdaten.</p>`;
+  const v=L.maerkte?.[0]?.verlauf;$("#btcSpark").innerHTML=v?.length>1?`<p class="muted small" style="margin:12px 0 0">Bitcoin, 7 Tage</p>`+spark(v.map((y,i)=>[i,y])):"";
+  globeStart()}
+
+/* ---------- Erfolgs-Feier ---------- */
+function feiern(titel,sub){const d=document.createElement("dialog");d.className="fx";d.setAttribute("aria-label",titel);
+  d.innerHTML=`<canvas></canvas><div class="orb"></div><div><div class="t">${esc(titel)}</div><div class="s">${esc(sub||"")}</div></div>`;document.body.append(d);d.showModal();d.oncancel=()=>end();
+  const cv=d.querySelector("canvas"),g=cv.getContext("2d"),W=cv.width=innerWidth,H=cv.height=innerHeight,P=[];
+  for(let i=0;i<160;i++){const a=Math.random()*7,v=1+Math.random()*5;P.push({x:W/2,y:H/2,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1})}
+  let alive=true;(function f(){if(!alive)return;g.clearRect(0,0,W,H);for(const p of P){p.x+=p.vx;p.y+=p.vy;p.vx*=.985;p.vy*=.985;p.l*=.988;
+    g.fillStyle=`rgba(255,${140+Math.random()*80|0},80,${p.l})`;g.fillRect(p.x,p.y,2,2)}requestAnimationFrame(f)})();
+  const end=()=>{alive=false;d.remove()};d.onclick=end;setTimeout(end,4200);try{navigator.vibrate?.([60,40,120])}catch(e){}}
+
+/* ---------- Kalender-Datei (.ics) ---------- */
+function ics(titel,start,minuten,text,alarm){const z=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d+/,""),e=s=>String(s).replace(/\\/g,"\\\\").replace(/\n/g,"\\n").replace(/[,;]/g,m=>"\\"+m);
+  const a=new Date(start),b=new Date(a.getTime()+minuten*60000);
+  const body=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Jarvis//DE","BEGIN:VEVENT","UID:"+Date.now()+"@jarvis","DTSTAMP:"+z(new Date()),"DTSTART:"+z(a),"DTEND:"+z(b),"SUMMARY:"+e(titel),"DESCRIPTION:"+e(text.slice(0,1800)),
+    "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+e(titel),"TRIGGER:-PT"+alarm+"M","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const u=URL.createObjectURL(new Blob([body],{type:"text/calendar"})),l=document.createElement("a");l.href=u;l.download=titel.replace(/[^\wäöüÄÖÜß -]/g,"").slice(0,40)+".ics";l.click();setTimeout(()=>URL.revokeObjectURL(u),5000)}
+const dtLocal=d=>{const x=new Date(d.getTime()-d.getTimezoneOffset()*60000);return x.toISOString().slice(0,16)};
+
+/* ---------- Kunden-Onboarding ---------- */
+$("#tKunde").onclick=()=>{$("#kForm").hidden=false;$("#kRun").hidden=true;const d=new Date(Date.now()+2*864e5);d.setHours(10,0,0,0);$("#kStart").value=dtLocal(d);$("#dlgKunde").showModal()};
+$("#kForm").onsubmit=e=>{e.preventDefault();onboarding({firma:$("#kFirma").value.trim(),name:$("#kName").value.trim(),leist:$("#kLeist").value,preis:+$("#kPreis").value||0,start:$("#kStart").value,tel:$("#kTel").value.trim()})};
+async function onboarding(k){if(!k.firma)return toast("Bitte die Firma eintragen.");
+  $("#kForm").hidden=true;$("#kRun").hidden=false;$("#kTitel").textContent=k.firma;
+  brain.kunden=brain.kunden||[];const nr=`RE-${new Date().getFullYear()}-${String(brain.kunden.length+1).padStart(3,"0")}`;
+  const S=[["👤","Kunde anlegen"],["🧾","Rechnungsentwurf"],["📋","Projekt-Board"],["📅","Kick-off-Termin"],["💬","Willkommensnachricht"]];
+  $("#kSteps").innerHTML=S.map(([i,t],j)=>`<li id="ks${j}"><b>${i}</b><div style="flex:1"><b>${t}</b><div class="out"></div></div></li>`).join("");
+  const step=async(j,fn)=>{const li=$("#ks"+j);li.classList.add("on");li.querySelector("b").textContent="…";try{await fn(li.querySelector(".out"))}catch(x){li.querySelector(".out").textContent="✕ "+x.message}
+    li.classList.add("ok");li.querySelector("b").textContent="✓";const p=Math.round((j+1)/S.length*100);$("#kPct").textContent=p+" %";$("#kBar").style.width=p+"%";await new Promise(r=>setTimeout(r,450))};
+  const anrede=k.name||"Team "+k.firma, start=k.start?new Date(k.start):null;
+  await step(0,async o=>{brain.kunden.push({...k,nr,t:Date.now()});saveBrain();o.textContent=`${k.firma} · ${k.leist} · ${k.preis?eur(k.preis):"Preis offen"}`});
+  await step(1,async o=>{const txt=`Rechnung ${nr}\nAn: ${k.firma}${k.name?", "+k.name:""}\nLeistung: ${k.leist}\nBetrag: ${eur(k.preis)}\nZahlbar innerhalb von 14 Tagen.\n(Steuerangaben je nach deinem Status ergänzen.)`;
+    o.innerHTML=`${esc(txt)}\n<span class="row" style="margin-top:6px"><a class="btn" href="https://www.paypal.com/invoice/create" target="_blank" rel="noopener">In PayPal anlegen</a><button class="btn" type="button" data-cp>Kopieren</button></span>`;
+    o.querySelector("[data-cp]").onclick=()=>navigator.clipboard.writeText(txt).then(()=>toast("Kopiert."))});
+  await step(2,async o=>{const s=["Zugänge & Logo vom Kunden holen","Kick-off-Gespräch führen","Ziele & Zielgruppe festhalten","Ersten Inhaltsplan (2 Wochen) erstellen","Erste Lieferung an den Kunden","Rechnung "+nr+" bezahlt? prüfen"];
+    brain.proj.push({titel:"Kunde: "+k.firma,schritte:s.map(x=>({x,ok:false})),t:Date.now()});saveBrain();o.textContent=s.length+" Schritte angelegt (🧠 → Projekte)."});
+  await step(3,async o=>{if(!start){o.textContent="Kein Termin angegeben – übersprungen.";return}
+    o.innerHTML=`${start.toLocaleString("de-DE",{dateStyle:"full",timeStyle:"short"})}\n<button class="btn" type="button" style="margin-top:6px">📅 In Kalender eintragen</button>`;
+    o.querySelector("button").onclick=()=>ics(`Kick-off: ${k.firma}`,start,45,`${k.leist}\nAnsprechpartner: ${k.name||"-"}\nTel: ${k.tel||"-"}`,30)});
+  await step(4,async o=>{let msg=`Hallo ${anrede},\n\nwillkommen an Bord! Ich freue mich auf die Zusammenarbeit bei ${k.leist}.${start?` Unser Kick-off ist am ${start.toLocaleString("de-DE",{weekday:"long",day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})} Uhr.`:""} Bis dahin schicken Sie mir gern Ihr Logo und ein paar Fotos Ihrer Arbeit.\n\nViele Grüße\nLucas`;
+    try{const r=await llm([{role:"system",content:"Schreib eine kurze, herzliche, professionelle WhatsApp-Willkommensnachricht auf Deutsch (Sie-Form, max. 5 Sätze, ohne Emojis-Flut, Absender Lucas). Nur die Nachricht."},{role:"user",content:`Kunde: ${k.firma}, Ansprechpartner: ${k.name||"unbekannt"}, Leistung: ${k.leist}, Kick-off: ${start?start.toLocaleString("de-DE"):"noch offen"}. Bitte um Logo und Fotos.`}]);
+      const t=r.text.replace(/<think>[\s\S]*?<\/think>/g,"").trim();if(t.length>40)msg=t}catch(e){}
+    const tel=k.tel.replace(/[^\d+]/g,"").replace(/^00/,"+").replace(/^0/,"+49").replace(/^\+/,"");
+    o.innerHTML=`${esc(msg)}\n<span class="row" style="margin-top:6px">${tel?`<a class="btn go" href="https://wa.me/${tel}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">Per WhatsApp senden</a>`:""}<button class="btn" type="button" data-cp>Kopieren</button></span>`;
+    o.querySelector("[data-cp]").onclick=()=>navigator.clipboard.writeText(msg).then(()=>toast("Kopiert."))});
+  feiern("KUNDE AN BORD",k.firma+(k.preis?" · "+eur(k.preis):""));speak(`Neuer Kunde an Bord: ${k.firma}. Rechnung, Projekt und Willkommensnachricht liegen bereit.`)}
+
+/* ---------- Call-Vorbereitung ---------- */
+let calls=ls.get("jv_calls",[]);
+$("#tCall").onclick=()=>{$("#cForm").hidden=false;$("#cOut").hidden=true;const d=new Date(Date.now()+36e5);d.setMinutes(0,0,0);$("#cWann").value=dtLocal(d);$("#dlgCall").showModal()};
+$("#cGo").onclick=async e=>{const wer=$("#cWer").value.trim(),web=$("#cWeb").value.trim(),was=$("#cWas").value.trim(),wann=$("#cWann").value;if(!wer)return toast("Mit wem ist der Call?");
+  e.target.disabled=true;e.target.textContent="Recherchiere …";
+  try{const r=await llm([{role:"system",content:context()},{role:"user",content:`Ich habe gleich einen Call mit ${wer}${web?" ("+web+")":""}. Thema: ${was||"Erstgespräch"}.
+Recherchiere im Internet und schreib mir: „Alles, was du vor dem Gespräch wissen musst“ – kurz, auf Deutsch, in diesen Abschnitten:
+1. Wer ist das? (3 Stichpunkte, nur belegbare Fakten, sonst „nicht gefunden“)
+2. Was die wollen / wo der Schuh drückt (2–3 Punkte)
+3. Mein Ziel für den Call (1 Satz)
+4. 3 gute Fragen
+5. Mögliche Einwände + kurze Antwort
+Keine Aktionszeilen.`}],true);
+    const t=r.text.replace(/<think>[\s\S]*?<\/think>/g,"").replace(/\[\[[\s\S]*?\]\]/g,"").trim();
+    const c={wer,was,wann,text:t,id:Date.now()};calls=[c,...calls.filter(x=>new Date(x.wann)>Date.now())].slice(0,10);ls.set("jv_calls",calls);planCalls();
+    $("#cText").textContent=t;$("#cForm").hidden=true;$("#cOut").hidden=false;
+    $("#cIcs").onclick=()=>{if(!wann)return toast("Bitte eine Uhrzeit angeben.");ics(`Call: ${wer}`,new Date(wann),30,t,5);toast("Termin mit Wecker 5 Min vorher – in deinem Kalender speichern.")};
+    $("#cRead").onclick=()=>speak(t);$("#cCopy").onclick=()=>navigator.clipboard.writeText(t).then(()=>toast("Kopiert."));
+    if("Notification"in window&&Notification.permission==="default")Notification.requestPermission().catch(()=>{})}
+  catch(x){toast(x.message)}e.target.disabled=false;e.target.textContent="Vorbereiten"};
+const callTimers=[];
+function planCalls(){callTimers.splice(0).forEach(clearTimeout);
+  for(const c of calls){const ms=new Date(c.wann).getTime()-5*60000-Date.now();if(ms<0||ms>864e5)continue;
+    callTimers.push(setTimeout(()=>{feiern("CALL IN 5 MIN",c.wer);
+      try{if(Notification.permission==="granted")new Notification("Jarvis: Call in 5 Minuten",{body:c.wer+" – "+(c.was||""),icon:"icon-192.png"})}catch(e){}
+      setTimeout(()=>speak(`Lucas, in fünf Minuten ist dein Call mit ${c.wer}. Hier das Wichtigste. ${c.text}`),1500)},ms))}}
+planCalls();
+
+/* ---------- Werkstatt: Jarvis baut ---------- */
+let bauten=ls.get("jv_bauten",[]),bau=null;
+function bauListe(){$("#bAlt").innerHTML=`<option value="">Frühere Bauten (${bauten.length})</option>`+bauten.map((b,i)=>`<option value="${i}">${esc(b.titel.slice(0,40))}</option>`).join("")}
+const SHIM=`<script>try{localStorage.length}catch(e){const m=()=>{const d={};return{getItem:k=>k in d?d[k]:null,setItem:(k,v)=>{d[k]=String(v)},removeItem:k=>{delete d[k]},clear:()=>{for(const k in d)delete d[k]},key:i=>Object.keys(d)[i]??null,get length(){return Object.keys(d).length}}};Object.defineProperty(window,"localStorage",{value:m()});Object.defineProperty(window,"sessionStorage",{value:m()})}<\/script>`;
+function bauZeigen(b){bau=b;$("#bFrame").hidden=false;$("#bFrame").srcdoc=SHIM+b.html;$("#bMehr").hidden=$("#bDl").hidden=false;$("#bInfo").textContent=`„${b.titel}“ · ${Math.round(b.html.length/1024)} KB`}
+async function bauen(wunsch,alt){$("#bGo").disabled=$("#bMehr").disabled=true;$("#bInfo").textContent=alt?"Ich verbessere …":"Ich baue … (dauert 10–40 Sekunden)";
+  const sys=`Du bist ein Spitzen-Frontend-Entwickler. Liefere GENAU EINE vollständige, lauffähige HTML-Datei (<!doctype html> … </html>) mit eingebettetem CSS und JavaScript, sonst nichts – kein Text davor oder danach.
+Regeln: läuft offline und ohne externe Dateien; einzig erlaubte Fremdquelle: https://cdn.jsdelivr.net (z. B. three.js als ES-Modul). Keine Formulare, die Daten verschicken. Deutsche Texte. Dunkles, modernes Design mit Rot/Orange-Akzenten, mobil bedienbar (Touch).`;
+  const msgs=[{role:"system",content:sys},...(alt?[{role:"user",content:alt.titel},{role:"assistant",content:alt.html},{role:"user",content:"Verbessere die Datei: "+wunsch+". Gib wieder die komplette Datei aus."}]:[{role:"user",content:wunsch}])];
+  try{let t=(await llm(msgs)).text.replace(/<think>[\s\S]*?<\/think>/g,"");const m=t.match(/```(?:html)?\s*([\s\S]*?)```/);if(m)t=m[1];
+    const a=t.search(/<!doctype html|<html/i),z=t.toLowerCase().lastIndexOf("</html>");if(a<0)throw new Error("Jarvis hat keinen Bauplan geliefert – bitte nochmal.");
+    const html=t.slice(a,z>a?z+7:undefined);const b={titel:alt?alt.titel+" (verbessert)":wunsch.slice(0,80),html,t:Date.now()};
+    bauten=[b,...bauten].slice(0,12);while(bauten.length){try{localStorage.setItem("jv_bauten",JSON.stringify(bauten));break}catch(e){bauten.pop()}}
+    bauListe();bauZeigen(b);toast("Fertig gebaut.")}
+  catch(e){$("#bInfo").textContent=e.message}$("#bGo").disabled=$("#bMehr").disabled=false}
+$("#tBau").onclick=()=>{bauListe();$("#dlgBau").showModal()};
+$("#bGo").onclick=()=>{const w=$("#bWas").value.trim();if(w)bauen(w)};
+$("#bMehr").onclick=()=>{const w=$("#bWas").value.trim();if(!bau)return;if(!w)return toast("Schreib oben, was besser werden soll.");bauen(w,bau)};
+$("#bAlt").onchange=e=>{const b=bauten[e.target.value];if(b)bauZeigen(b)};
+$("#bDl").onclick=()=>{if(!bau)return;const u=URL.createObjectURL(new Blob([bau.html],{type:"text/html"})),l=document.createElement("a");l.href=u;l.download=bau.titel.replace(/[^\wäöüÄÖÜß -]/g,"").slice(0,40)+".html";l.click()};
+
 /* ---------- Gedächtnis ---------- */
 function saveBrain(){brain.t=Date.now();ls.set("jv_brain",brain);renderBrain();clearTimeout(saveBrain.t);saveBrain.t=setTimeout(pushBrain,4000)}
 function remember(text){text=text.trim();if(!text||brain.mem.some(m=>m.x.toLowerCase()===text.toLowerCase()))return false;brain.mem.push({x:text,t:Date.now()});saveBrain();return true}
@@ -558,6 +783,8 @@ Deine Regeln: Was du selbst kannst, erledigst du sofort und meldest danach kurz.
 
 GEDÄCHTNIS (was du über Lucas weißt):
 ${brain.mem.map(m=>"- "+m.x).join("\n")||"- (noch leer)"}
+KUNDEN: ${(brain.kunden||[]).map(k=>`${k.firma} (${k.leist}, ${eur(k.preis)})`).join("; ")||"(noch keine)"}
+WELTLAGE: ${D.lage?.lagebild||(D.lage?.orte||[]).slice(0,4).map(o=>o.land+": "+(o.meldungen[0]?.titel||"")).join("; ")||"?"}
 PROJEKTE:
 ${brain.proj.map(p=>`- ${p.titel}: `+p.schritte.map(s=>(s.ok?"✓ ":"○ ")+s.x).join("; ")).join("\n")||"- (keine)"}
 LIVE-DATEN: Krypto-Spielgeld ${P?eur(P.value):"?"}; Memecoin-Spielgeld ${A?eur((A.equity?.at(-1)||[0,A.cash])[1]):"?"}; Wächter: ${S?(S.ok?"alles ok":S.checks.filter(c=>!c.ok).map(c=>c.name+": "+c.info).join("; ")):"?"}.
@@ -567,6 +794,7 @@ AKTIONEN – schreibe sie als eigene Zeilen ans Ende deiner Antwort, nur wenn si
 [[MERKEN: Fakt]]  → wenn Lucas dir etwas Dauerhaftes über sich, seine Pläne oder Vorlieben erzählt (auch ohne „merk dir“).
 [[PROJEKT: Titel | Schritt 1; Schritt 2; Schritt 3]] → wenn Lucas ein Vorhaben plant (3–8 konkrete Schritte).
 [[STARTE: datei.yml]] → wenn ein Bot jetzt arbeiten soll (Lucas bestätigt per Knopf).
+[[BAUEN: Beschreibung]] → wenn Lucas eine kleine App, ein Spiel, einen Rechner oder eine Ansicht sofort sehen will (du baust sie selbst in der Werkstatt).
 [[AUFTRAG: was in Jarvis eingebaut/programmiert werden soll]] → wenn Lucas eine neue Funktion für dich will (geht an Claude, Lucas bestätigt).
 Erwähne die Aktionszeilen nicht im Text.`}
 const needsWeb=t=>/aktuell|heute|neueste|news|nachrichten|preis|kostet|kurs|wetter|wer ist|was gibt es neu|trend|202[5-9]|recherchier|such im netz|google/i.test(t);
@@ -590,7 +818,7 @@ async function ask(text){
   try{
     const r=await llm([{role:"system",content:context()},...hist.slice(-16)],web);
     let out=r.text.replace(/<think>[\s\S]*?<\/think>/g,"").trim();const acts=[];
-    out=out.replace(/\[\[(MERKEN|PROJEKT|STARTE|AUFTRAG):\s*([\s\S]*?)\]\]/g,(_,k,v)=>{acts.push([k,v.trim()]);return""}).trim();
+    out=out.replace(/\[\[(MERKEN|PROJEKT|STARTE|AUFTRAG|BAUEN):\s*([\s\S]*?)\]\]/g,(_,k,v)=>{acts.push([k,v.trim()]);return""}).trim();
     hist.push({role:"assistant",content:out});hist=hist.slice(-40);ls.set("jv_hist",hist);
     wait.innerHTML=fmt(out)+(r.web?`<span class="src">🌐 mit Internet-Recherche</span>`:"");
     const chips=document.createElement("div");chips.className="chips";
@@ -599,6 +827,7 @@ async function ask(text){
       else if(k==="PROJEKT"){const[t,s=""]=v.split("|");brain.proj.push({titel:t.trim(),schritte:s.split(";").map(x=>({x:x.trim(),ok:false})).filter(x=>x.x),t:Date.now()});saveBrain();
         chips.insertAdjacentHTML("beforeend",`<button class="chip done" data-open-brain>📋 Projekt angelegt: ${esc(t.trim())}</button>`)}
       else if(k==="STARTE"){const b=D.bots.find(x=>x.wf===v)||{name:v,wf:v};chips.append(confirmChip(`▶ ${b.name} starten?`,async()=>{await startWf(b.wf);return`${b.name} arbeitet.`}))}
+      else if(k==="BAUEN"){const c=document.createElement("button");c.className="chip done";c.textContent="🛠 Ich baue: "+v.slice(0,50);c.onclick=()=>{bauListe();$("#dlgBau").showModal()};chips.append(c);$("#bWas").value=v;bauListe();$("#dlgBau").showModal();bauen(v)}
       else if(k==="AUFTRAG"){chips.append(confirmChip(`🛠 Einbauen: ${v.slice(0,60)}?`,async()=>{await auftrag(v.slice(0,80),v);return"An Claude übergeben."}))}
     }
     if(chips.children.length)wait.append(chips);
