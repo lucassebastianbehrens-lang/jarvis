@@ -1,6 +1,6 @@
 """Bild-Prüfung für die Früchte-Serie: 6 Standbilder → Groq-Bilderkennung → sind echte Menschen zu sehen?
 Aufruf: python3 bot/bild_check.py video/out/<id>.mp4   Exit 1 = Mensch/Freizügiges gefunden → nicht posten."""
-import base64, json, os, subprocess, sys, tempfile, urllib.request
+import base64, json, os, subprocess, sys, tempfile, time, urllib.error, urllib.request
 
 KEY = os.environ.get("GROQ_KEY", "")
 BEVORZUGT = ["meta-llama/llama-4-scout-17b-16e-instruct", "meta-llama/llama-4-maverick-17b-128e-instruct"]
@@ -26,7 +26,7 @@ def frames(mp4, n=6):
     out = []
     for i in range(n):
         p = f"{d}/f{i}.jpg"
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(dauer * (i + .5) / n), "-i", mp4, "-frames:v", "1", "-vf", "scale=360:-1", p], check=True)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(dauer * (i + .5) / n), "-i", mp4, "-frames:v", "1", "-vf", "scale=256:-1", "-q:v", "6", p], check=True)
         out.append(p)
     return out
 
@@ -36,8 +36,15 @@ def pruefen(bilder, modell):
     body = {"model": modell, "messages": [{"role": "user", "content": inhalt}], "response_format": {"type": "json_object"}, "temperature": 0}
     req = urllib.request.Request("https://api.groq.com/openai/v1/chat/completions", json.dumps(body).encode(),
                                  {"Content-Type": "application/json", "Authorization": "Bearer " + KEY, "User-Agent": "jarvis-bot"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        txt = json.load(r)["choices"][0]["message"]["content"]
+    for versuch in range(4):  # Gratis-Limit: kurz warten und nochmal
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                txt = json.load(r)["choices"][0]["message"]["content"]
+            break
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or versuch == 3:
+                raise
+            time.sleep(min(60, float(e.headers.get("retry-after") or 20)))
     return json.loads(txt[txt.find("{"):txt.rfind("}") + 1]).get("frames", [])
 
 
@@ -54,8 +61,10 @@ if __name__ == "__main__":
     for m in modelle:
         try:
             befund = []
-            for teil in (bilder[:3], bilder[3:]):  # Groq erlaubt nur wenige Bilder pro Anfrage
+            for teil in ([b] for b in bilder):  # Groq erlaubt nur wenige Bilder pro Anfrage
                 befund += pruefen(teil, m)
+            for i, b in enumerate(befund, 1):
+                b["nr"] = i
             print("Geprüft mit", m)
             break
         except Exception as e:
