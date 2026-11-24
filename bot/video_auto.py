@@ -111,9 +111,13 @@ def sim_schreiben(thema, sid, fk, regeln, vorlage, feedback=""):
     sp.setdefault("modell", {})["typ"] = "generisch"
     for k in ("a", "b"):
         p = sp[k]; p["dauer_s"] = float(p["dauer_s"]); p["menge"] = float(p["menge"])
-        assert p["dauer_s"] > 0 and p["menge"] > 0, "Werte ungültig"
+        assert p["dauer_s"] > 0 and p["menge"] >= 0, "dauer_s muss > 0 und menge ≥ 0 sein"
         if p.get("figur") not in ("geher", "laeufer", "auto", "rad"):
             p["figur"] = "geher"
+    mengen = sorted([sp["a"]["menge"], sp["b"]["menge"]])
+    assert mengen[1] > 0, "mindestens eine menge muss > 0 sein"  # 0 ist erlaubt (z. B. Fahrrad: 0 € Sprit)
+    if sp["modell"].get("besser") == "mehr":
+        assert mengen[0] > 0, "bei besser=mehr muss auch die kleinere menge > 0 sein"
     ph = [l.get("phase") for l in sp["lines"]]
     assert 4 <= len(ph) <= 8 and "race" in ph and ph[-1] == "result", "Sprechzeilen ungültig"
     assert len(sp["caption"]) <= 220 and len(sp["hashtags"]) >= 3
@@ -150,7 +154,11 @@ def sim():
     vorlage = open("video/sim/sim-02-treppe-aufzug.json", encoding="utf-8").read() if os.path.exists("video/sim/sim-02-treppe-aufzug.json") else ""
     regeln = themen.split("## Themen-Pool")[0]
     fk = fakten(thema)
-    sp = sim_schreiben(thema, sid, fk, regeln, vorlage)
+    try:
+        sp = sim_schreiben(thema, sid, fk, regeln, vorlage)
+    except (AssertionError, KeyError, ValueError, TypeError) as e:  # Formfehler der KI → 1× mit Hinweis neu
+        print("Format-Fehler, neuer Versuch:", repr(e))
+        sp = sim_schreiben(thema, sid, fk, regeln, vorlage, [f"Formatfehler: {e!r} – alle Pflichtfelder korrekt füllen"])
     probleme, hook = pruefen("Simulations", sp, "FAKTEN:\n" + json.dumps(fk, ensure_ascii=False))
     if probleme:
         print("Prüfer:", probleme)

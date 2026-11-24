@@ -64,6 +64,12 @@ check("Video: Prüfer zufrieden beim 2. Mal", video_auto.pruefen("Simulations", 
 sp2 = video_auto.sim_fertig(sp2, hook)
 check("Video: stärkster Hook steht vorn", sp2["lines"][0]["t"].startswith("Fast doppelt"), sp2["lines"][0]["t"])
 check("Video: Kommentar-Frage am Ende + in Caption", sp2["lines"][-1]["phase"] == "result" and "Kommentare" in sp2["lines"][-1]["t"] and "👇" in sp2["caption"])
+_alt_fake = video_auto.ki
+def _null_ki(system, user, temp=0.8):
+    r = _fake_ki(system, user, temp); r["a"]["menge"] = 0; return r
+video_auto.ki = _null_ki
+check("Video: menge 0 erlaubt (z. B. Fahrrad 0 € Sprit)", video_auto.sim_schreiben("x", "sim-98-x", fk, "", "")["a"]["menge"] == 0.0)
+video_auto.ki = _alt_fake
 check("Video: unbekannte Figur → geher, Zahlen als float", sp2["a"]["figur"] == "geher" and sp2["a"]["dauer_s"] == 3.0)
 def _ki_weg(*a, **k): raise SystemExit("offline")
 video_auto.ki = _ki_weg
