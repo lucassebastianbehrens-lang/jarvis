@@ -61,7 +61,7 @@ def store(path, obj):
 
 
 def post_json(url, body, headers):
-    req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json", **headers})
+    req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json", "User-Agent": "jarvis-bot", **headers})
     with urllib.request.urlopen(req, timeout=60) as r:
         return json.load(r)
 
@@ -164,7 +164,7 @@ def abtippen(file_id):
             f"--{b}\r\nContent-Disposition: form-data; name=\"language\"\r\n\r\nde\r\n"
             f"--{b}\r\nContent-Disposition: form-data; name=\"file\"; filename=\"sprache.ogg\"\r\nContent-Type: audio/ogg\r\n\r\n").encode() + audio + f"\r\n--{b}--\r\n".encode()
     req = urllib.request.Request("https://api.groq.com/openai/v1/audio/transcriptions", body,
-                                 {"Authorization": "Bearer " + GROQ, "Content-Type": "multipart/form-data; boundary=" + b})
+                                 {"Authorization": "Bearer " + GROQ, "User-Agent": "jarvis-bot", "Content-Type": "multipart/form-data; boundary=" + b})
     with urllib.request.urlopen(req, timeout=120) as r:
         return json.load(r).get("text", "").strip()
 

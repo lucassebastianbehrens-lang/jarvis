@@ -5,7 +5,7 @@ Gibt den Pfad der neuen Spec aus (und schreibt ihn nach $GITHUB_OUTPUT als spec=
 import glob, json, os, re, sys, urllib.request
 
 KEY = os.environ.get("GROQ_KEY", "")
-MODELS = ["openai/gpt-oss-120b", "llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
+MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "meta-llama/llama-4-scout-17b-16e-instruct"]
 VERBOTEN = re.compile(r"\b(man|woman|women|men|girl|boy|human|person|people|sexy|bikini|bra|crop top|cleavage|naked)\b", re.I)
 
 
@@ -16,7 +16,7 @@ def ki(system, user):
             body = {"model": m, "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
                     "response_format": {"type": "json_object"}, "temperature": 0.8}
             req = urllib.request.Request("https://api.groq.com/openai/v1/chat/completions", json.dumps(body).encode(),
-                                         {"Content-Type": "application/json", "Authorization": "Bearer " + KEY})
+                                         {"Content-Type": "application/json", "Authorization": "Bearer " + KEY, "User-Agent": "jarvis-bot"})  # ohne User-Agent: Groq antwortet 403
             with urllib.request.urlopen(req, timeout=120) as r:
                 txt = json.load(r)["choices"][0]["message"]["content"]
             return json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
