@@ -22,7 +22,7 @@
 - [x] Rennen vs Gehen im Regen – wer wird weniger nass? (sim-01)
 - [x] Treppe vs Aufzug – 5 Stockwerke, was ist schneller? (sim-02)
 - [x] Auto vs Fahrrad in der Stadt – 5 km im Berufsverkehr (sim-03-auto-vs-fahrrad-in-der-stadt)
-- [ ] Wasserkocher vs Herd – 1 Liter Wasser, Zeit & Strom
+- [x] Wasserkocher vs Herd – 1 Liter Wasser, Zeit & Strom (sim-04-wasserkocher-vs-herd)
 - [ ] Fön vs Lufttrocknen – Haare, Zeit & Strom
 - [ ] Spülmaschine vs Handspülen – Wasser pro Ladung
 - [ ] Laden vs Tanken – 100 km E-Auto vs Benziner, Kosten

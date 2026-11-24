@@ -1,0 +1,105 @@
+{
+  "id": "sim-04-wasserkocher-vs-herd",
+  "titel": [
+    "WASSERKOCHER",
+    "HERD"
+  ],
+  "frage": [
+    "1 Liter Wasser –",
+    "WAS IST BESSER?"
+  ],
+  "a": {
+    "name": "Wasserkocher",
+    "figur": "auto",
+    "dauer_s": 210.0,
+    "menge": 210.0,
+    "info": "3,5 min"
+  },
+  "b": {
+    "name": "Induktion",
+    "figur": "auto",
+    "dauer_s": 330.0,
+    "menge": 330.0,
+    "info": "5,5 min"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "s",
+    "zaehler": "Zeit",
+    "besser": "weniger"
+  },
+  "skala": [
+    "Kessel",
+    "Induktion",
+    "Kochfeld"
+  ],
+  "ergebnis": "etwa {p} % weniger Zeit",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "3,5 Minuten vs 5,5 Minuten – erstaunlich!"
+    },
+    {
+      "phase": "intro",
+      "t": "Hast du dich jemals gefragt, welcher Weg schneller ist?"
+    },
+    {
+      "phase": "race",
+      "t": "Der Wasserkocher erhitzt 1 Liter in ca. 3,5 Minuten, dank 85 Prozent Effizienz."
+    },
+    {
+      "phase": "race",
+      "t": "Die Induktion braucht ca. 5,5 Minuten, bei 70 Prozent Effizienz."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Der Wasserkocher ist etwa 36 Prozent schneller."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Hast du dich jemals gefragt?",
+    "3,5 min vs 5,5 min – erstaunlich!",
+    "Myth: Herd ist schneller!"
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Wasserkocher vs Herd – wer kocht schneller? 🍵🔥 Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#wusstestdu",
+    "#wasserkocher",
+    "#herd",
+    "#tiktok"
+  ],
+  "quelle": "Physik: spezifische Wärmekapazität 4,186 kJ/(kg·K); Hersteller‑Richtwerte (typische Werte); Hersteller‑Spezifikationen; Erfahrungswerte",
+  "fakten": [
+    {
+      "satz": "Energie, die benötigt wird, um 1 L Wasser von 20 °C auf 100 °C zu erwärmen",
+      "wert": "≈0,093 kWh (≈335 kJ)",
+      "quelle": "Physik, spezifische Wärmekapazität von Wasser 4,186 kJ/(kg·K)"
+    },
+    {
+      "satz": "Durchschnittlicher Wirkungsgrad von elektrischen Wasserkochern",
+      "wert": "≈85 % (typisch 80–90 %)",
+      "quelle": "Hersteller‑Richtwerte (z. B. Bosch, Philips)"
+    },
+    {
+      "satz": "Leistung und Aufheizzeit eines üblichen 2 kW‑Wasserkochers für 1 L",
+      "wert": "2 kW, ca. 3,5 min",
+      "quelle": "Hersteller‑Spezifikationen, z. B. Philips HD9350/90"
+    },
+    {
+      "satz": "Durchschnittlicher Wirkungsgrad von Induktionskochfeldern beim Erhitzen von Wasser",
+      "wert": "≈70 % (typisch 65–75 %)",
+      "quelle": "Hersteller‑Richtwerte, z. B. Bosch Induktionskochfeld"
+    },
+    {
+      "satz": "Leistung und Aufheizzeit eines 2 kW‑Induktionskochfeldes für 1 L Wasser",
+      "wert": "2 kW, ca. 5,5 min",
+      "quelle": "Erfahrungswerte, Hersteller‑Angaben"
+    }
+  ]
+}
