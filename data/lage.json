@@ -1,6 +1,6 @@
 {
- "updated": 1795551690,
- "lagebild": "Der Russland‑Ukraine‑Konflikt bleibt das wichtigste weltweite Thema, mit Angriffen auf Städte, Brücken und Schiffe sowie einer wachsenden militärischen Koalition in Polen. In Deutschland wird künftig ukrainische Drohnen gebaut, und ein neues Sanktionspaket gegen Russland wurde beschlossen. Lucas spürt die Folgen: die Energie‑ und Spritpreise steigen und die Börsenkurse werden volatiler.",
+ "updated": 1795559503,
+ "lagebild": "Der anhaltende Krieg in der Ukraine – mit Angriffen auf Kiew und der Entscheidung Deutschlands, künftig ukrainische Drohnen zu bauen – bestimmt weiterhin das weltpolitische Geschehen. Der UN‑Bericht, dem zufolge Partner und Verwandte die Haupttäter bei Femiziden sind, rückt das Thema Frauenrechte in den globalen Fokus. Für Lucas in Deutschland ist die deutsche Beteiligung an der Drohnenproduktion sowie die Ablehnung des COP‑31‑Beschlusstextes besonders relevant, weil sie direkte Auswirkungen auf Energiepreise und die Börse haben können.",
  "orte": [
   {
    "land": "Russland",
@@ -51,8 +51,8 @@
    "land": "Ukraine",
    "lat": 49.0,
    "lon": 31.3,
-   "anzahl": 19,
-   "heiss": 14,
+   "anzahl": 20,
+   "heiss": 15,
    "meldungen": [
     {
      "titel": "\"Koalition der Willigen\" absolviert Militärübung in Polen",
@@ -96,8 +96,8 @@
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 25,
-   "heiss": 8,
+   "anzahl": 26,
+   "heiss": 9,
    "meldungen": [
     {
      "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
@@ -141,7 +141,7 @@
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 32,
+   "anzahl": 30,
    "heiss": 4,
    "meldungen": [
     {
@@ -175,9 +175,9 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Bundestagsdebatte über den Haushalt 2027",
-     "text": "Bundestagsdebatte über den Haushalt 2027",
-     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689286.html",
+     "titel": "Linksfraktion in Berlin schließt umstrittene Abgeordnete Vanessa Emde aus",
+     "text": "Linksfraktion in Berlin schließt umstrittene Abgeordnete Vanessa Emde aus",
+     "url": "https://www.tagesschau.de/tagesthemen/video-1689336.html",
      "quelle": "tagesschau"
     }
    ]
@@ -186,7 +186,7 @@
    "land": "Iran",
    "lat": 32.4,
    "lon": 53.7,
-   "anzahl": 13,
+   "anzahl": 12,
    "heiss": 6,
    "meldungen": [
     {
@@ -363,6 +363,51 @@
    ]
   },
   {
+   "land": "Belgien/EU",
+   "lat": 50.8,
+   "lon": 4.4,
+   "anzahl": 7,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
+     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
+     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
+     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
+     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
+     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
+     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Warum Burnham die Nähe zur EU sucht",
+     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
+     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
+     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Europäischer Menschenrechtsgerichtshof erlaubt teilweise Pushbacks an EU-Außengrenzen",
+     "text": "Der Europäische Gerichtshof für Menschenrechte (EGMR) lässt Pushbacks unter gewissen Bedingungen zu. Was bedeutet das Urteil für die europäische Migrationspolitik?",
+     "url": "https://www.dw.com/de/europäischer-menschenrechtsgerichtshof-erlaubt-teilweise-pushbacks-an-eu-außengrenzen/a-80041604?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Polen",
    "lat": 52.1,
    "lon": 19.4,
@@ -437,51 +482,6 @@
      "text": "Ein Walkadaver sorgt an der Westküste Australiens für Aufregung. Direkt am beliebten Stadtstrand von Perth lockt der tote Buckelwal offenbar auch Haie an. Die Behörden haben reagiert - zwei Wochen nach einem tödlichen Haiangriff. Von F. Bah",
      "url": "https://www.tagesschau.de/ausland/ozeanien/australien-perth-gestrandeter-wal-hai-100.html",
      "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Belgien/EU",
-   "lat": 50.8,
-   "lon": 4.4,
-   "anzahl": 6,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
-     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
-     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
-     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
-     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
-     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
-     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Warum Burnham die Nähe zur EU sucht",
-     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Deutsche Experten vor dem EU-Westbalkan-Gipfel: Unter der Regierung der Studentenliste muss sich Serbien zwischen Aufbruch und Kontinuität entscheiden",
-     "text": "Serbiens neue Führung sorgt in der Europäischen Union für Hoffnung und Skepsis zugleich. Deutsche Westbalkan-Experten sehen Chancen für Reformen, aber offene Fragen bei EU-Kurs, Kosovo und Russland.",
-     "url": "https://www.dw.com/de/deutsche-experten-vor-dem-eu-westbalkan-gipfel-unter-der-regierung-der-studentenliste-muss-sich-serbien-zwischen-aufbruch-und-kontinuität-entscheiden/a-80019985?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
     }
    ]
   },
@@ -855,9 +855,9 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54368,
+   "wert": 54666,
    "einheit": "€",
-   "pct": -3.17,
+   "pct": -2.58,
    "verlauf": [
     59030,
     57416,
@@ -866,20 +866,20 @@
     54815,
     55754,
     56132,
-    54672
+    54947
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1525.34,
+   "wert": 1534.8,
    "einheit": "€",
-   "pct": -3.84
+   "pct": -2.35
   },
   {
    "name": "Solana",
-   "wert": 62.97,
+   "wert": 63.54,
    "einheit": "€",
-   "pct": -6.16
+   "pct": -3.97
   },
   {
    "name": "EUR/CHF",
