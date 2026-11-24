@@ -46,16 +46,32 @@ jobs:
         if: steps.key.outputs.ok == '1'
         id: spec
         run: python3 bot/video_auto.py "$MODUS"
-      - name: Rendern
-        if: steps.key.outputs.ok == '1'
-        run: python3 video/$MODUS.py ${{ steps.spec.outputs.spec }}
-      - name: Qualitätsprüfung
+      - name: Rendern + 3-fache Prüfung (bei Fehler neue Bilder, neu rendern)
         if: steps.key.outputs.ok == '1'
         id: check
         run: |
-          ID=$(basename ${{ steps.spec.outputs.spec }} .json)
+          SPEC=${{ steps.spec.outputs.spec }}; ID=$(basename $SPEC .json)
           echo "id=$ID" >> $GITHUB_OUTPUT
-          if [ "$MODUS" = sim ]; then python3 bot/video_check.py video/out/$ID.mp4 18 70; else python3 bot/video_check.py video/out/$ID.mp4 40 120 && python3 bot/bild_check.py video/out/$ID.mp4; fi
+          for RUNDE in 1 2 3; do
+            echo "::group::Runde $RUNDE/3"
+            export SEED_SHIFT=$(( (RUNDE - 1) * 1000 ))
+            rm -rf video/out/${ID}_tmp/i*.jpg video/out/${ID}_tmp/c*.mp4 video/out/$ID.mp4
+            OK=1
+            python3 video/$MODUS.py $SPEC || OK=0
+            # Prüfung 1: Technik (Länge, Ton, kein schwarzes/eingefrorenes Bild)
+            if [ $OK = 1 ]; then
+              if [ "$MODUS" = sim ]; then python3 bot/video_check.py video/out/$ID.mp4 18 70 || OK=0
+              else python3 bot/video_check.py video/out/$ID.mp4 40 120 || OK=0; fi
+            fi
+            # Prüfung 2: Bilder (KI-Bilderkennung: nur Obst-/Gemüse-Figuren, nichts Anzügliches)
+            if [ $OK = 1 ] && [ "$MODUS" = tt ]; then python3 bot/bild_check.py video/out/$ID.mp4 || OK=0; fi
+            # Prüfung 3: Endkontrolle – Datei vollständig abspielbar
+            if [ $OK = 1 ]; then ffmpeg -v error -i video/out/$ID.mp4 -f null - 2> err.txt; [ -s err.txt ] && { cat err.txt; OK=0; }; fi
+            echo "::endgroup::"
+            if [ $OK = 1 ]; then echo "✅ Alle 3 Prüfungen bestanden (Runde $RUNDE)"; exit 0; fi
+            echo "❌ Runde $RUNDE durchgefallen – verbessere und versuche erneut"
+          done
+          exit 1
       - name: Speichern + Release
         if: steps.key.outputs.ok == '1'
         env:

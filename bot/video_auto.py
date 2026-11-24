@@ -14,6 +14,9 @@ MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.8-27b"]
 VERBOTEN = re.compile(r"\b(man|woman|women|men|girl|boy|human|person|people|sexy|bikini|bra|crop top|cleavage|naked)\b", re.I)
 
 
+PRUEFRUNDEN = 3  # so oft wird jede Folge geprüft und verbessert, bevor sie gerendert wird
+
+
 def ki(system, user, temp=0.8):
     last = None
     for m in MODELS:
@@ -192,11 +195,16 @@ def sim():
     except (AssertionError, KeyError, ValueError, TypeError, AttributeError) as e:  # Formfehler der KI → 1× mit Hinweis neu
         print("Format-Fehler, neuer Versuch:", repr(e))
         sp = sim_schreiben(thema, sid, fk, regeln, vorlage, [f"Formatfehler: {e!r} – alle Pflichtfelder korrekt füllen"])
-    probleme, hook = pruefen("Simulations", sp, "FAKTEN:\n" + json.dumps(fk, ensure_ascii=False))
-    if probleme:
-        print("Prüfer:", probleme)
-        sp = sim_schreiben(thema, sid, fk, regeln, vorlage, probleme)
-        hook = pruefen("Simulations", sp, "FAKTEN:\n" + json.dumps(fk, ensure_ascii=False))[1]
+    # 3 Prüfrunden: prüfen → verbessern → nochmal prüfen (Lucas will 3-fache Kontrolle vor dem Posten)
+    for runde in range(1, PRUEFRUNDEN + 1):
+        probleme, hook = pruefen("Simulations", sp, "FAKTEN:\n" + json.dumps(fk, ensure_ascii=False))
+        print(f"Prüfrunde {runde}/{PRUEFRUNDEN}:", probleme or "ok")
+        if not probleme:
+            break
+        try:
+            sp = sim_schreiben(thema, sid, fk, regeln, vorlage, probleme)
+        except (AssertionError, KeyError, ValueError, TypeError, AttributeError) as e:
+            print("Verbesserung fehlgeschlagen:", repr(e)); break
     sp = sim_fertig(sp, hook)
     sp["fakten"] = fk["fakten"]
     path = f"video/sim/{sp['id']}.json"
@@ -224,9 +232,12 @@ def tt():
             (f"\n\nDER PRÜFER HAT FOLGENDES BEMÄNGELT – unbedingt beheben:\n- " + "\n- ".join(feedback) if feedback else ""))
 
     ep = schreiben()
-    probleme = pruefen("Serien-Folge", ep, f"Muss zur Serien-Bibel passen (Folgenplan F{nr:02d}, Figuren, Ton), Sekunde 1 Konflikt, Ende Cliffhanger.\nBIBEL:\n{bibel[:6000]}")[0]
-    if probleme:
-        print("Prüfer:", probleme)
+    for runde in range(1, PRUEFRUNDEN + 1):  # 3 Prüfrunden mit Verbesserung
+        probleme = pruefen("Serien-Folge", ep, f"Muss zur Serien-Bibel passen (Folgenplan F{nr:02d}, Figuren, Ton), Sekunde 1 Konflikt, Ende Cliffhanger, "
+                           f"Bildprompts zeigen nur Obst-/Gemüse-Figuren, Untertitel-Sätze kurz und fehlerfrei.\nBIBEL:\n{bibel[:6000]}")[0]
+        print(f"Prüfrunde {runde}/{PRUEFRUNDEN}:", probleme or "ok")
+        if not probleme:
+            break
         ep = schreiben(probleme)
     ep["id"], ep["episode"], ep["voices"], ep["figuren"] = f"tt-s1-f{nr:02d}", nr, f01["voices"], f01["figuren"]
     ep.setdefault("series", f01.get("series"))
