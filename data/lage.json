@@ -1,6 +1,6 @@
 {
- "updated": 1795522229,
- "lagebild": "Am meisten los: Russland (33), Ukraine (19), USA (25). Wichtigste Meldung: Kriegsfolgen im Gazastreifen: Verschmutztes Wasser, Asbest in den Trümmern. Außerdem: Sanktionspaket: Keine Athleten mehr unter russischer Flagge.",
+ "updated": 1795522596,
+ "lagebild": "Der Krieg zwischen Russland und der Ukraine bestimmt derzeit die globale Lage, mit militärischen Übungen der „Koalition der Willigen“ in Polen und Deutschlands Plan, künftig ukrainische Drohnen zu liefern. Gleichzeitig sorgt das Sanktionen‑Paket gegen Russland für erhebliche Spannungen auf den europäischen Märkten. Für Lucas in Deutschland bedeutet das spürbare Druck auf Preise, Spritkosten und die Börse.",
  "orte": [
   {
    "land": "Russland",
@@ -861,9 +861,9 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 55003,
+   "wert": 54966,
    "einheit": "€",
-   "pct": -1.73,
+   "pct": -1.65,
    "verlauf": [
     59030,
     57416,
@@ -872,20 +872,20 @@
     54815,
     55754,
     56132,
-    55233
+    55179
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1550.39,
+   "wert": 1548.31,
    "einheit": "€",
-   "pct": -1.35
+   "pct": -1.33
   },
   {
    "name": "Solana",
-   "wert": 64.55,
+   "wert": 64.39,
    "einheit": "€",
-   "pct": -2.4
+   "pct": -2.42
   },
   {
    "name": "EUR/CHF",
