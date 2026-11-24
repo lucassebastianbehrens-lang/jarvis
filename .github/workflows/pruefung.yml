@@ -1,0 +1,29 @@
+name: Qualitätsprüfung
+# Testet App und Bots bei jeder Änderung. Nur wenn alles grün ist, geht die App live (siehe app-veroeffentlichen.yml).
+on:
+  push:
+    branches: [main]
+    paths: ['index.html', 'css/**', 'js/**', 'sw.js', 'manifest.json', 'icon*', 'sparen/**', 'bot/**', 'video/*.py', 'tests/**', '.github/workflows/pruefung.yml']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pruefung-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: JavaScript-Syntax
+        run: for f in js/*.js sw.js; do node --check "$f"; done
+      - name: Bots (ohne Internet)
+        run: python3 tests/test_bots.py
+      - name: Browser vorbereiten
+        run: |
+          pip install -q playwright
+          python3 -m playwright install --with-deps chromium >/dev/null
+      - name: App im Browser durchklicken
+        run: python3 tests/test_app.py

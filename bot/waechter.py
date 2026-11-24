@@ -1,9 +1,10 @@
 """Wächter Willi – stündlicher Hintergrund-Check.
-Prüft: letzter Lauf jedes Bots (Fehler? zu alt?), Spielgeld-Daten frisch?, Live-Seite erreichbar?
+Prüft: letzter Lauf jedes Bots (Fehler? zu alt?), Spielgeld-Daten frisch?, Live-Seite erreichbar?, KI-Motor antwortet?
 Repariert selbst: fehlgeschlagene geplante Läufe werden einmal neu gestartet.
 Meldet per Telegram nur NEUE Probleme. Ergebnis → data/status.json (für den Jarvis-Tab)."""
 import calendar, time, urllib.request
-from jlib import REPO, gh, load, store, tg, runs_since, wf_file, path
+import jlib
+from jlib import REPO, gh, load, store, tg, runs_since, wf_file, path, ki
 
 now = int(time.time())
 bots = load("bots.json", [])
@@ -74,6 +75,14 @@ try:
     checks.append({"name": "Jarvis-App online", "ok": True, "info": "erreichbar"})
 except Exception as e:
     checks.append({"name": "Jarvis-App online", "ok": False, "info": f"nicht erreichbar ({e})"})
+
+# KI-Motor (Groq) – ohne ihn denken weder App noch Bots
+if jlib.GROQ:
+    t0 = time.time()
+    antwort = ki("Antworte nur mit dem Wort OK.", "Test")
+    checks.append({"name": "KI-Motor (Groq)", "ok": bool(antwort), "info": f"antwortet in {time.time() - t0:.1f} s" if antwort else "keine Antwort – Schlüssel/Limit prüfen"})
+else:
+    checks.append({"name": "KI-Motor (Groq)", "ok": False, "info": "GROQ_KEY fehlt in den GitHub-Secrets"})
 
 probleme = [c for c in checks if not c["ok"]]
 alte = {c["name"] for c in old.get("checks", []) if not c["ok"]}

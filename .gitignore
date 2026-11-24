@@ -1,3 +1,5 @@
 video/out/
 .bt_cache/
 __pycache__/
+*.pyc
+node_modules/

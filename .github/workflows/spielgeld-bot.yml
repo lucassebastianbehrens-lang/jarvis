@@ -18,7 +18,7 @@ jobs:
         env:
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
-      - name: Echtgeld (standardmäßig AUS, siehe ECHTGELD.md)
+      - name: Echtgeld (standardmäßig AUS, siehe docs/ECHTGELD.md)
         run: python3 bot/live.py
         env:
           TG_TOKEN: ${{ secrets.TG_TOKEN }}

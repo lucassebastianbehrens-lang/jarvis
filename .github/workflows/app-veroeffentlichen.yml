@@ -1,10 +1,11 @@
 name: App veröffentlichen
 # Die Live-App (GitHub Pages) kommt aus dem Zweig gh-pages.
-# Dieser Workflow kopiert die App-Dateien aus main nach gh-pages und prüft danach die Live-Seite.
+# Läuft erst, wenn die Qualitätsprüfung grün ist: kopiert genau den geprüften Stand nach gh-pages und prüft die Live-Seite.
 on:
-  push:
+  workflow_run:
+    workflows: ["Qualitätsprüfung"]
+    types: [completed]
     branches: [main]
-    paths: ['index.html', 'sw.js', 'manifest.json', 'icon*', 'sparen/**']
   workflow_dispatch:
     inputs:
       marker:
@@ -19,6 +20,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   live:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,16 +30,18 @@ jobs:
       - name: App-Dateien aus main nach gh-pages kopieren
         env:
           GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
         run: |
-          git fetch --depth=1 origin main
+          git fetch --depth=1 origin "$SHA"
           for f in index.html sw.js manifest.json icon.svg icon-192.png icon-512.png; do
-            git show origin/main:$f > "$f"
+            git show "$SHA:$f" > "$f"
           done
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
-          git checkout origin/main -- sparen 2>/dev/null || true
-          git add index.html sw.js manifest.json icon.svg icon-192.png icon-512.png sparen
+          rm -rf css js && git checkout "$SHA" -- css js
+          git checkout "$SHA" -- sparen 2>/dev/null || true
+          git add -A index.html sw.js manifest.json icon.svg icon-192.png icon-512.png css js sparen
           if git diff --cached --quiet; then echo "gh-pages ist schon aktuell"; else
-            git commit -m "App live: Stand main $(git rev-parse --short origin/main)"
+            git commit -m "App live: geprüfter Stand ${SHA:0:7}"
             for i in 1 2 3; do git push origin HEAD:gh-pages && break; git pull --rebase origin gh-pages; done
           fi
           gh api -X POST repos/${{ github.repository }}/pages/builds || true

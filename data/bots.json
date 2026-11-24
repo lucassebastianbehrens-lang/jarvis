@@ -1,5 +1,5 @@
 [
- {"wf": "hintergrund.yml", "name": "Leibgarde", "haus": "Leibgarde-Quartier", "icon": "🛡️", "farbe": "#ff2e3a", "job": "Ben, Lea und Kai arbeiten nur für deine Aufträge – sofort, parallel zu allen anderen Bots", "max_h": 2},
+ {"wf": "hintergrund.yml", "name": "Leibgarde", "haus": "Leibgarde-Quartier", "icon": "🛡️", "farbe": "#ff2e3a", "job": "Ben, Lea und Kai arbeiten nur für deine Aufträge – sofort, parallel zu allen anderen Bots (auf Abruf)"},
  {"wf": "spielgeld-bot.yml", "name": "Trader Toni", "haus": "Börse", "icon": "📈", "farbe": "#2ecc71", "job": "Handelt alle 15 Min mit 1.000 € Spielgeld (echte Kraken-Kurse)", "max_h": 2},
  {"wf": "agenten-test.yml", "name": "Meme-Makler Max", "haus": "Zockerbude", "icon": "🎰", "farbe": "#f1c40f", "job": "4 Agenten handeln Solana-Memecoins mit Spielgeld", "max_h": 3},
  {"wf": "waechter.yml", "name": "Wächter Willi", "haus": "Wachturm", "icon": "🛡️", "farbe": "#3498db", "job": "Prüft jede Stunde alle Bots und startet kaputte neu", "max_h": 3},
@@ -14,5 +14,6 @@
  {"wf": "lang-videos.yml", "name": "YouTuber Yannik", "haus": "Sendezentrale", "icon": "📺", "farbe": "#ef5350", "job": "Erzeugt lange YouTube-Videos"},
  {"wf": "maskottchen.yml", "name": "Zeichnerin Zoe", "haus": "Atelier", "icon": "🎨", "farbe": "#ab47bc", "job": "Zeichnet die Maskottchen"},
  {"wf": "app-veroeffentlichen.yml", "name": "Baumeister Bob", "haus": "Bauhof", "icon": "🏗️", "farbe": "#8d6e63", "job": "Bringt neue Jarvis-Versionen live"},
- {"wf": "telegram-send.yml", "name": "Funker Fritz", "haus": "Funkturm", "icon": "📡", "farbe": "#78909c", "job": "Schickt dir Nachrichten auf Telegram"}
+ {"wf": "telegram-send.yml", "name": "Funker Fritz", "haus": "Funkturm", "icon": "📡", "farbe": "#78909c", "job": "Schickt dir Nachrichten auf Telegram"},
+ {"wf": "pruefung.yml", "name": "Prüferin Paula", "haus": "Prüfstand", "icon": "✅", "farbe": "#3ddc8f", "job": "Testet App und Bots bei jeder Änderung – nur geprüfter Code geht live"}
 ]

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Jarvis-Gehirn: OpenClaw (selbst gehosteter KI-Agent, wie bei den TikTok-„Jarvis“-Videos) + 147 Agency-Agenten.
-# Auf dem netcup-Server NACH setup.sh ausführen:
-#   curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/brain.sh | bash
+# Auf dem netcup-Server NACH server/setup.sh ausführen:
+#   curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/server/brain.sh | bash
 set -euo pipefail
 echo ">> 1/5 Node.js 24"
 if ! node -v 2>/dev/null | grep -q '^v2[4-9]'; then

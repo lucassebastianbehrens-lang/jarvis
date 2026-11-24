@@ -53,7 +53,7 @@ Nur offizielle OpenClaw-Bausteine oder Skills mit vielen Installationen und gele
 | Webseiten bauen | Code im Repo lucassebastianbehrens-lang/jarvis (Ordner pro Seite), Veröffentlichung über GitHub Pages | 0 € | einmal einen GitHub-Token (nur dieses Repo) selbst eintragen |
 | Trading | vorhandene Bots (bot/agents.py, Freqtrade) überwachen, auswerten, verbessern – NUR Spielgeld | 0 € | Echtgeld nur nach ausdrücklichem Ja |
 | TikTok-Videos | bot/video_auto.py (Groq) + GitHub-Workflow „video-auto.yml“ | 0 € | GROQ_KEY bei GitHub eintragen |
-| 283 Fach-Agenten | Agency-Agents (installiert über brain.sh) | 0 € | nichts |
+| 283 Fach-Agenten | Agency-Agents (installiert über server/brain.sh) | 0 € | nichts |
 
 ## Neu (24.11.2026, aus Lucas' TikTok-Vorlagen)
 - **Lage-Zentrale** (Tab „Lage“): Globus mit Weltnachrichten pro Land (tagesschau + DW) und Märkten (Bitcoin, Ethereum, Solana, EUR-Kurse). Agentin Ada (bot/lage.py, lage.yml) aktualisiert alle 2 Stunden.

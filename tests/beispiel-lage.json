@@ -1,0 +1,7 @@
+{"updated": 1795520000, "lagebild": "Russland greift erneut ukrainische Städte an. Die EU berät über Zölle. Spritpreise in Deutschland steigen leicht.",
+ "orte": [{"land":"Ukraine","lat":49,"lon":31.3,"anzahl":5,"heiss":3,"meldungen":[{"titel":"Drohnenangriff auf Kiew","text":"In der Nacht…","url":"https://tagesschau.de/1","quelle":"tagesschau"}]},
+ {"land":"USA","lat":39.8,"lon":-98.6,"anzahl":3,"heiss":0,"meldungen":[{"titel":"Fed lässt Zinsen unverändert","text":"…","url":"https://tagesschau.de/2","quelle":"DW"}]},
+ {"land":"Deutschland","lat":51.2,"lon":10.4,"anzahl":4,"heiss":0,"meldungen":[{"titel":"Bundestag beschließt Haushalt","text":"…","url":"https://tagesschau.de/3","quelle":"tagesschau"}]},
+ {"land":"China","lat":35.9,"lon":104.2,"anzahl":2,"heiss":1,"meldungen":[{"titel":"Manöver vor Taiwan","text":"…","url":"https://tagesschau.de/4","quelle":"DW"}]}],
+ "ohne_land":[{"titel":"Wetter wird kalt","url":"https://x/5","quelle":"tagesschau"}],
+ "maerkte":[{"name":"Bitcoin","wert":81234,"einheit":"€","pct":-1.8,"verlauf":[80000,82000,81000,83000,82500,81900,81234]},{"name":"Ethereum","wert":2950.5,"einheit":"€","pct":2.1},{"name":"EUR/USD","wert":1.0842,"einheit":"","pct":0.1}],"fx":{}}

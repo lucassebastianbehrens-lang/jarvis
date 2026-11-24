@@ -9,7 +9,7 @@ Weiter aktiv im Hintergrund (unverändert): alle GitHub-Workflows (Spielgeld-Bot
 
 Wiederherstellen: `git checkout archiv/jarvis-v1 -- index.html sw.js` und pushen.
 
-Nachfolger: OpenJarvis – Installation siehe `openjarvis.sh`.
+Nachfolger: OpenJarvis – Installation siehe `server/openjarvis.sh`.
 
 ## Jarvis v2 (seit 23.11.2026 live)
 Neue eigene App unter https://lucassebastianbehrens-lang.github.io/jarvis/ – Chat mit Gedächtnis und Stimme,

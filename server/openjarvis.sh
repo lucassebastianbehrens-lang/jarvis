@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # OpenJarvis (Stanford, Apache-2.0) – Nachfolger von Jarvis v1. Installiert + richtet alles ein.
 # Auf dem netcup-Server als root ausführen:
-#   curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/openjarvis.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/server/openjarvis.sh | bash
 # Die Hintergrund-Dienste von Jarvis v1 (Trading-Bot, Videos, Aufträge, Telegram) laufen unverändert weiter.
 set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
