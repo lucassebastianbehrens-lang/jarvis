@@ -69,9 +69,15 @@ def fakten(thema):
            "(Verbraucherzentrale, Umweltbundesamt, Hersteller-Richtwerte, Physik). Lieber runde, vorsichtige Werte.",
            f"Thema: {thema}\nSammle 3–6 Kernfakten, die man für einen fairen Vergleich braucht. "
            '{"fakten": [{"satz": "...", "wert": "...", "quelle": "..."}], "annahmen": ["gleiche Bedingungen für A und B ..."]}', 0.2)
-    f = [x for x in r.get("fakten", []) if x.get("satz") and x.get("quelle")]
-    assert len(f) >= 2, "Zu wenige belegbare Fakten"
-    return {"fakten": f, "annahmen": r.get("annahmen", [])}
+    f = []
+    for x in r.get("fakten", []) if isinstance(r.get("fakten"), list) else []:
+        if isinstance(x, str):  # manche Modelle liefern nur Sätze
+            x = {"satz": x, "quelle": ""}
+        if isinstance(x, dict) and str(x.get("satz", "")).strip():
+            f.append({"satz": str(x["satz"]).strip(), "wert": str(x.get("wert", "")), "quelle": str(x.get("quelle", "")).strip() or "Richtwert"})
+    assert len(f) >= 2, "Zu wenige Fakten"
+    an = r.get("annahmen", [])
+    return {"fakten": f, "annahmen": [str(a) for a in an] if isinstance(an, list) else [str(an)]}
 
 
 def pruefen(art, spec, extra):
@@ -118,6 +124,11 @@ def sim_schreiben(thema, sid, fk, regeln, vorlage, feedback=""):
     assert mengen[1] > 0, "mindestens eine menge muss > 0 sein"  # 0 ist erlaubt (z. B. Fahrrad: 0 € Sprit)
     if sp["modell"].get("besser") == "mehr":
         assert mengen[0] > 0, "bei besser=mehr muss auch die kleinere menge > 0 sein"
+    sp["lines"] = [l if isinstance(l, dict) else {"phase": "race", "t": str(l)} for l in sp["lines"]]
+    if sp["lines"] and sp["lines"][-1].get("phase") != "result":
+        sp["lines"][-1]["phase"] = "result"
+    if isinstance(sp.get("hashtags"), str):
+        sp["hashtags"] = sp["hashtags"].split()
     ph = [l.get("phase") for l in sp["lines"]]
     assert 4 <= len(ph) <= 8 and "race" in ph and ph[-1] == "result", "Sprechzeilen ungültig"
     assert len(sp["caption"]) <= 220 and len(sp["hashtags"]) >= 3
@@ -153,10 +164,13 @@ def sim():
     sid = f"sim-{nr:02d}-{slug(thema.split('–')[0])}"
     vorlage = open("video/sim/sim-02-treppe-aufzug.json", encoding="utf-8").read() if os.path.exists("video/sim/sim-02-treppe-aufzug.json") else ""
     regeln = themen.split("## Themen-Pool")[0]
-    fk = fakten(thema)
+    try:
+        fk = fakten(thema)
+    except (AssertionError, AttributeError, TypeError):
+        fk = fakten(thema)
     try:
         sp = sim_schreiben(thema, sid, fk, regeln, vorlage)
-    except (AssertionError, KeyError, ValueError, TypeError) as e:  # Formfehler der KI → 1× mit Hinweis neu
+    except (AssertionError, KeyError, ValueError, TypeError, AttributeError) as e:  # Formfehler der KI → 1× mit Hinweis neu
         print("Format-Fehler, neuer Versuch:", repr(e))
         sp = sim_schreiben(thema, sid, fk, regeln, vorlage, [f"Formatfehler: {e!r} – alle Pflichtfelder korrekt füllen"])
     probleme, hook = pruefen("Simulations", sp, "FAKTEN:\n" + json.dumps(fk, ensure_ascii=False))

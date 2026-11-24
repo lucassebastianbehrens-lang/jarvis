@@ -69,6 +69,14 @@ def _null_ki(system, user, temp=0.8):
     r = _fake_ki(system, user, temp); r["a"]["menge"] = 0; return r
 video_auto.ki = _null_ki
 check("Video: menge 0 erlaubt (z. B. Fahrrad 0 € Sprit)", video_auto.sim_schreiben("x", "sim-98-x", fk, "", "")["a"]["menge"] == 0.0)
+video_auto.ki = lambda s_, u, t=0.8: {"fakten": ["Rad kostet 0 € Sprit", {"satz": "Auto ca. 7 l/100 km", "quelle": "ADAC-Richtwert"}], "annahmen": "gleiche Strecke"}
+fk2 = video_auto.fakten("Auto vs Fahrrad")
+check("Video: Fakten als reine Sätze werden akzeptiert", len(fk2["fakten"]) == 2 and fk2["fakten"][0]["quelle"] == "Richtwert", str(fk2))
+def _str_lines(system, user, temp=0.8):
+    r = _fake_ki(system, user, temp); r["lines"] = ["Frage?", "a", "b", "Ergebnis"]; r["hashtags"] = "#simulation #a #b"; return r
+video_auto.ki = _str_lines
+sp3 = video_auto.sim_schreiben("x", "sim-97-x", fk, "", "")
+check("Video: Zeilen als Text + Hashtags als Text werden repariert", sp3["lines"][-1]["phase"] == "result" and len(sp3["hashtags"]) == 3)
 video_auto.ki = _alt_fake
 check("Video: unbekannte Figur → geher, Zahlen als float", sp2["a"]["figur"] == "geher" and sp2["a"]["dauer_s"] == 3.0)
 def _ki_weg(*a, **k): raise SystemExit("offline")
