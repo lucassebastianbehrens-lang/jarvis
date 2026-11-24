@@ -13,22 +13,35 @@ STYLE = ("3D animated movie still, cute fruit and vegetable plush toy figurines:
 COLS = ["&H0066CCFF", "&H00FF99CC", "&H0099FF99", "&H00FFCC66", "&H00CC99FF", "&H0066FFFF"]
 
 
-def img(prompt, path, seed):
-    if os.path.exists(path):
-        return
-    url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(f"{prompt}, {STYLE}")
+def _hole(prompt, seed, versuche):
+    url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt)
            + f"?width=720&height=1280&nologo=true&seed={seed}")
-    for k in range(5):
+    for k in range(versuche):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "jarvis-tt"}), timeout=150) as r:
                 data = r.read()
             if len(data) > 15000:
-                open(path, "wb").write(data); time.sleep(16); return
+                return data
+            print(f"  Bild zu klein ({len(data)} B), Versuch {k + 1}")
         except urllib.error.HTTPError as e:
+            print(f"  Bild HTTP {e.code}, Versuch {k + 1}")
             time.sleep(int(e.headers.get("Retry-After") or 30) + 5); continue
         except Exception as e:
             print("  Bild:", e)
         time.sleep(20)
+    return None
+
+
+def img(prompt, path, seed):
+    if os.path.exists(path):
+        return
+    # 1. volle Beschreibung, 2. kurze Beschreibung mit neuem Startwert (lange Texte lehnt der Bilddienst manchmal ab)
+    kurz = prompt.split(", the character is literally")[0][:260]
+    for p, sd, n in ((f"{prompt}, {STYLE}", seed, 4), (f"{kurz}, cute vegetable plush toy figurine, not a person, 3D movie still", seed + 777, 4)):
+        data = _hole(p, sd, n)
+        if data:
+            open(path, "wb").write(data); time.sleep(16); return
+    print("  ⚠️ Bild fehlt – Farbverlauf als Platzhalter:", path)
     sh("ffmpeg", "-y", "-f", "lavfi", "-i", f"gradients=s={W}x{H}:c0=0xff7a59:c1=0x2b1055:d=1", "-frames:v", "1", path)
 
 
