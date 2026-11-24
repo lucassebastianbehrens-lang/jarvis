@@ -24,7 +24,7 @@
 - [x] Auto vs Fahrrad in der Stadt – 5 km im Berufsverkehr (sim-03-auto-vs-fahrrad-in-der-stadt)
 - [x] Wasserkocher vs Herd – 1 Liter Wasser, Zeit & Strom (sim-04-wasserkocher-vs-herd)
 - [x] Fön vs Lufttrocknen – Haare, Zeit & Strom (sim-05-foen-vs-lufttrocknen)
-- [ ] Spülmaschine vs Handspülen – Wasser pro Ladung
+- [x] Spülmaschine vs Handspülen – Wasser pro Ladung (sim-06-spuelmaschine-vs-handspuelen)
 - [ ] Laden vs Tanken – 100 km E-Auto vs Benziner, Kosten
 - [ ] Standby vs Aus – 10 Geräte ein Jahr, Stromkosten
 - [ ] Laufen vs Radfahren – 30 Minuten, Kalorien

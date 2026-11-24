@@ -1,0 +1,105 @@
+{
+  "id": "sim-06-spuelmaschine-vs-handspuelen",
+  "titel": [
+    "SPÜLMASCHINE",
+    "HANDSPÜLEN"
+  ],
+  "frage": [
+    "Wasserverbrauch pro Ladung –",
+    "WER SPART MEHR?"
+  ],
+  "a": {
+    "name": "Spülmaschine",
+    "figur": "auto",
+    "dauer_s": 10.0,
+    "menge": 10.0,
+    "info": "10 L pro Ladung"
+  },
+  "b": {
+    "name": "Handspülen",
+    "figur": "laeufer",
+    "dauer_s": 30.0,
+    "menge": 30.0,
+    "info": "30 L bei fließendem Wasser"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "L",
+    "zaehler": "Wasserverbrauch",
+    "besser": "weniger"
+  },
+  "skala": [
+    "10 L",
+    "20 L",
+    "30 L"
+  ],
+  "ergebnis": "etwa 67 % weniger Wasser",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "30 Liter fließen beim Handspülen – das ist viel!"
+    },
+    {
+      "phase": "intro",
+      "t": "Der Vergleich: 10 Liter im Gerät gegen 30 Liter bei fließendem Wasser."
+    },
+    {
+      "phase": "race",
+      "t": "Die Spülmaschine nutzt im Vollwaschprogramm etwa zehn Liter pro Ladung."
+    },
+    {
+      "phase": "race",
+      "t": "Handspülen unter fließendem Hahn verbraucht rund dreißig Liter pro voller Ladung."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Die Spülmaschine spart etwa 67 Prozent Wasser gegenüber Handspülen."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Wie viel Wasser braucht ein voller Geschirrspüler?",
+    "30 Liter fließen beim Handspülen – das ist viel!",
+    "Mythos: Handspülen spart immer Wasser."
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Spülmaschine vs Handspülen – wer spart mehr Wasser? 💧🚿 Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#wusstestdu",
+    "#wasser",
+    "#küche",
+    "#umwelttipp"
+  ],
+  "quelle": "Umweltbundesamt, 2023; Verbraucherzentrale, Handwaschstudie 2021",
+  "fakten": [
+    {
+      "satz": "Ein modernes, energieeffizientes Geschirrspülgerät verbraucht im Vollwaschprogramm etwa 10 Liter Wasser pro Ladung",
+      "wert": "≈10 L",
+      "quelle": "Umweltbundesamt, 2023"
+    },
+    {
+      "satz": "Ältere oder weniger effiziente Geschirrspüler benötigen typischerweise rund 15 Liter pro Vollwaschgang",
+      "wert": "≈15 L",
+      "quelle": "Verbraucherzentrale, 2022"
+    },
+    {
+      "satz": "Handwäsche einer vollen Geschirrmenge unter durchgehend fließendem Wasser verbraucht etwa 30 Liter",
+      "wert": "≈30 L",
+      "quelle": "Verbraucherzentrale, Handwaschstudie 2021"
+    },
+    {
+      "satz": "Wird beim Handspülen ein Becken verwendet und das Wasser nicht durchgehend läuft, sinkt der Verbrauch auf etwa 15 Liter pro Ladung",
+      "wert": "≈15 L",
+      "quelle": "Umweltbundesamt, Leitfaden Hauswirtschaft 2022"
+    },
+    {
+      "satz": "Pro Geschirrstück liegt der Wasserverbrauch bei einem Geschirrspüler bei ca. 0,2 Liter, beim Handspülen bei ca. 0,5 Liter (bei 50 Teilen)",
+      "wert": "0,2 L/Teil (Spülmaschine), 0,5 L/Teil (Hand)",
+      "quelle": "Hersteller‑Richtwerte (Bosch, 2023)"
+    }
+  ]
+}
