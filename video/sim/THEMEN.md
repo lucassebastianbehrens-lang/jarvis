@@ -23,7 +23,7 @@
 - [x] Treppe vs Aufzug – 5 Stockwerke, was ist schneller? (sim-02)
 - [x] Auto vs Fahrrad in der Stadt – 5 km im Berufsverkehr (sim-03-auto-vs-fahrrad-in-der-stadt)
 - [x] Wasserkocher vs Herd – 1 Liter Wasser, Zeit & Strom (sim-04-wasserkocher-vs-herd)
-- [ ] Fön vs Lufttrocknen – Haare, Zeit & Strom
+- [x] Fön vs Lufttrocknen – Haare, Zeit & Strom (sim-05-foen-vs-lufttrocknen)
 - [ ] Spülmaschine vs Handspülen – Wasser pro Ladung
 - [ ] Laden vs Tanken – 100 km E-Auto vs Benziner, Kosten
 - [ ] Standby vs Aus – 10 Geräte ein Jahr, Stromkosten

@@ -1,0 +1,109 @@
+{
+  "id": "sim-05-foen-vs-lufttrocknen",
+  "titel": [
+    "FÖN",
+    "LUFT"
+  ],
+  "frage": [
+    "Haare trocknen –",
+    "WER SPART MEHR?"
+  ],
+  "a": {
+    "name": "FÖN",
+    "figur": "auto",
+    "dauer_s": 6.0,
+    "menge": 0.2,
+    "info": "0,2 kWh Strom"
+  },
+  "b": {
+    "name": "LUFT",
+    "figur": "geher",
+    "dauer_s": 40.0,
+    "menge": 0.0,
+    "info": "0 kWh Strom"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "kWh",
+    "zaehler": "Stromverbrauch",
+    "besser": "weniger"
+  },
+  "skala": [
+    "0 kWh",
+    "0,1 kWh",
+    "0,2 kWh"
+  ],
+  "ergebnis": "etwa {p} % weniger Strom",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Spärest du Strom mit dem Fön?"
+    },
+    {
+      "phase": "intro",
+      "t": "Der Fön hat eine Leistung von rund achthundert Watt."
+    },
+    {
+      "phase": "race",
+      "t": "Mit dem Fön dauert es je nach Haar fünf bis acht Minuten, hier rechnen wir mit sechs."
+    },
+    {
+      "phase": "race",
+      "t": "Das ergibt einen Stromverbrauch von etwa null Komma zwei Kilowattstunden."
+    },
+    {
+      "phase": "race",
+      "t": "Beim Lufttrocknen vergehen dreißig bis fünfundvierzig Minuten, aber der Stromverbrauch ist praktisch null."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Lufttrocknen spart hundert Prozent Strom, dauert aber in etwa vierzig Minuten."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Spärest du Strom mit dem Fön?",
+    "Nur null Komma zwei Kilowattstunden",
+    "Lufttrocknen schont den Stromzähler"
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Fön vs. Luft: Wer spart Strom? 🌬️⚡ #simulation #wusstestdu #haare #stromsparen #nachhaltig Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#wusstestdu",
+    "#haare",
+    "#stromsparen",
+    "#nachhaltig"
+  ],
+  "quelle": "Fön: 1800 W (Hersteller-Richtwerte), 5-8 min (Verbraucherzentrale 2023), 0,15-0,24 kWh (Berechnung). Luft: 30-45 min, ~0 kWh (Verbraucherzentrale). CO2-Faktor: Umweltbundesamt 2022.",
+  "fakten": [
+    {
+      "satz": "Ein durchschnittlicher Haartrockner hat eine Leistungsaufnahme von 1800 W",
+      "wert": "≈1800 W",
+      "quelle": "Hersteller‑Richtwerte (z. B. Philips, Remington)"
+    },
+    {
+      "satz": "Zum Trocknen von schulterlangem, normalem Haar benötigt ein Haartrockner etwa 5–8 Minuten",
+      "wert": "5–8 min",
+      "quelle": "Verbraucherzentrale, Testberichte 2023"
+    },
+    {
+      "satz": "Der Stromverbrauch pro Trockenvorgang liegt bei ca. 0,15–0,24 kWh",
+      "wert": "0,15–0,24 kWh",
+      "quelle": "Berechnung: 1,8 kW·(5–8 min/60)"
+    },
+    {
+      "satz": "Bei einem deutschen Strommix von 0,40 kg CO₂/kWh verursacht ein Trockenvorgang ca. 0,06–0,10 kg CO₂‑Emissionen",
+      "wert": "0,06–0,10 kg CO₂",
+      "quelle": "Umweltbundesamt, Strom‑CO₂‑Faktor 2022"
+    },
+    {
+      "satz": "Lufttrocknen von derselben Haarmenge dauert etwa 30–45 Minuten und verbraucht praktisch keinen Strom",
+      "wert": "30–45 min, ≈0 kWh",
+      "quelle": "Verbraucherzentrale, Erfahrungswerte"
+    }
+  ]
+}
