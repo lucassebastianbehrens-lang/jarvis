@@ -78,11 +78,13 @@ def ki(system, user, search=False, json_mode=False):
             except Exception as e:
                 print("Groq", m, e)
     if not search and GH_TOKEN:  # Ersatz ohne eigenen Schlüssel: GitHub Models (kostenlos, braucht "models: read")
-        for m in ["openai/gpt-4.1-mini", "openai/gpt-4o-mini"]:
+        for url, m in [("https://models.github.ai/inference/chat/completions", "openai/gpt-4.1-mini"),
+                       ("https://models.inference.ai.azure.com/chat/completions", "gpt-4o-mini"),
+                       (f"https://models.github.ai/orgs/{REPO.split('/')[0]}/inference/chat/completions", "openai/gpt-4.1-mini")]:
             body = {"model": m, "messages": msgs}
             if json_mode:
                 body["response_format"] = {"type": "json_object"}
-            req = urllib.request.Request("https://models.github.ai/inference/chat/completions", json.dumps(body).encode(), {
+            req = urllib.request.Request(url, json.dumps(body).encode(), {
                 "Authorization": "Bearer " + GH_TOKEN, "Content-Type": "application/json",
                 "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "jarvis-bot"})
             raw = b""
@@ -91,9 +93,9 @@ def ki(system, user, search=False, json_mode=False):
                     raw = r.read()
                 return json.loads(raw)["choices"][0]["message"]["content"].strip()
             except urllib.error.HTTPError as e:
-                print("GitHub Models", m, e.code, e.read()[:300])
+                print("GitHub Models", url, e.code, e.read()[:300])
             except Exception as e:
-                print("GitHub Models", m, e, raw[:300])
+                print("GitHub Models", url, e, raw[:300])
     return ""  # ohne GROQ_KEY keine KI (Pollinations verlangt inzwischen Bezahlung und erfindet Links)
 
 
