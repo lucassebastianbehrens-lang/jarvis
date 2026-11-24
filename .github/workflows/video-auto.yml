@@ -25,8 +25,8 @@ on:
         default: "7"
 permissions:
   contents: write
-concurrency:
-  group: video-auto
+concurrency:  # je Serie eigene Warteschlange (Simulation und Früchte-Serie bauen parallel)
+  group: video-auto-${{ inputs.modus || github.event.schedule || 'x' }}
   cancel-in-progress: false
 jobs:
   video:
