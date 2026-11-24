@@ -31,7 +31,7 @@ async function llm(messages,web,onDelta){
   if(!cfg.groq)throw new Error("Trag in ⚙️ deinen kostenlosen Groq-Schlüssel ein – das ist mein Denkmotor.");
   const search={tools:[{type:"browser_search"}],tool_choice:"auto"};
   const list=web?[["openai/gpt-oss-120b",{...search,reasoning_effort:"medium"}],["openai/gpt-oss-20b",{...search,reasoning_effort:"medium"}],["groq/compound",{}]]
-                :[["openai/gpt-oss-120b",{reasoning_effort:"low"}],["openai/gpt-oss-20b",{reasoning_effort:"low"}],["meta-llama/llama-4-scout-17b-16e-instruct",{}]];
+                :[["openai/gpt-oss-120b",{reasoning_effort:"low"}],["openai/gpt-oss-20b",{reasoning_effort:"low"}],["qwen/qwen3.8-27b",{}]];
   let letzter="";
   for(const[m,extra]of list){if(GESPERRT.has(m))continue;const stream=!!onDelta&&!web; // Websuche ohne Streaming, damit die Quellen sicher mitkommen
     for(const x of [extra,{}]){ // bei 400 einmal ohne Zusatz-Optionen
