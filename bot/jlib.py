@@ -1,5 +1,5 @@
 """Gemeinsame Helfer für Jarvis-Bots (GitHub-API, KI, Telegram, JSON)."""
-import json, os, time, urllib.parse, urllib.request
+import json, os, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 REPO = os.environ.get("GITHUB_REPOSITORY", "lucassebastianbehrens-lang/jarvis")
@@ -79,15 +79,21 @@ def ki(system, user, search=False, json_mode=False):
                 print("Groq", m, e)
     if not search and GH_TOKEN:  # Ersatz ohne eigenen Schlüssel: GitHub Models (kostenlos, braucht "models: read")
         for m in ["openai/gpt-4.1-mini", "openai/gpt-4o-mini"]:
+            body = {"model": m, "messages": msgs}
+            if json_mode:
+                body["response_format"] = {"type": "json_object"}
+            req = urllib.request.Request("https://models.github.ai/inference/chat/completions", json.dumps(body).encode(), {
+                "Authorization": "Bearer " + GH_TOKEN, "Content-Type": "application/json",
+                "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "jarvis-bot"})
+            raw = b""
             try:
-                body = {"model": m, "messages": msgs}
-                if json_mode:
-                    body["response_format"] = {"type": "json_object"}
-                j = http("https://models.github.ai/inference/chat/completions", body,
-                         {"Authorization": "Bearer " + GH_TOKEN}, timeout=120)
-                return j["choices"][0]["message"]["content"].strip()
+                with urllib.request.urlopen(req, timeout=120) as r:
+                    raw = r.read()
+                return json.loads(raw)["choices"][0]["message"]["content"].strip()
+            except urllib.error.HTTPError as e:
+                print("GitHub Models", m, e.code, e.read()[:300])
             except Exception as e:
-                print("GitHub Models", m, e)
+                print("GitHub Models", m, e, raw[:300])
     return ""  # ohne GROQ_KEY keine KI (Pollinations verlangt inzwischen Bezahlung und erfindet Links)
 
 
