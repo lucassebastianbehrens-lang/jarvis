@@ -1,0 +1,72 @@
+{
+  "id": "sim-02-treppe-aufzug",
+  "titel": [
+    "TREPPE",
+    "AUFZUG"
+  ],
+  "frage": [
+    "Fünf Stockwerke hoch –",
+    "WER IST SCHNELLER?"
+  ],
+  "a": {
+    "name": "TREPPE",
+    "figur": "geher",
+    "dauer_s": 60,
+    "menge": 60,
+    "info": "15 m hoch"
+  },
+  "b": {
+    "name": "AUFZUG",
+    "figur": "geher",
+    "dauer_s": 50,
+    "menge": 50,
+    "info": "1 m/s"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "s",
+    "zaehler": "Zeit",
+    "besser": "weniger"
+  },
+  "skala": [
+    "Erdgeschoss",
+    "Mitte",
+    "5. Stock"
+  ],
+  "ergebnis": "etwa {p} % schneller",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Treppe oder Aufzug: Was ist fünf Stockwerke hoch schneller?"
+    },
+    {
+      "phase": "intro",
+      "t": "Der Haken: Der Aufzug steht gerade ganz oben."
+    },
+    {
+      "phase": "race",
+      "t": "Zu Fuß schafft man auf der Treppe etwa vierzig Zentimeter Höhe pro Sekunde, plus die Kurven."
+    },
+    {
+      "phase": "race",
+      "t": "Der Aufzug fährt einen Meter pro Sekunde, muss aber erst runterkommen und zweimal die Türen öffnen."
+    },
+    {
+      "phase": "race",
+      "t": "Die Treppe braucht etwa eine Minute, der Aufzug etwa fünfzig Sekunden."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Der Aufzug gewinnt knapp. Aber hält er nur einmal zwischendurch, ist die Treppe vorne."
+    }
+  ],
+  "caption": "Treppe oder Aufzug – wer ist 5 Stockwerke hoch schneller, wenn der Aufzug erst runterkommen muss? 🛗",
+  "hashtags": [
+    "#simulation",
+    "#wusstestdu",
+    "#treppe",
+    "#aufzug",
+    "#lernenmittiktok"
+  ],
+  "quelle": "Vereinfachtes Modell, 15 m Höhe. Treppe: ca. 0,55 m/s waagrecht bei 35° (Fujiyama & Tyler, UCL) = ca. 0,4 m/s Höhe + Podeste. Aufzug: 1,0 m/s (übliche Wohnhaus-Geschwindigkeit, hausjournal.net) + Türen/Anfahren geschätzt."
+}
