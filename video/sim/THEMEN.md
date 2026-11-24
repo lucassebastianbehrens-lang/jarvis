@@ -6,7 +6,12 @@
 - Stimme, Sprechtempo, Farben und Hintergrund wechseln automatisch je Folge (sim.py). Keine Folge gleicht der anderen.
 - Jede Zahl braucht eine Quelle (Feld `quelle` im Spec, wird in die Beschreibung geschrieben). Lieber runde, vorsichtige Werte als falsche.
 - KI-Kennzeichnung bei TikTok immer an. Familienfreundlich, keine Marken/Logos, keine echten Personen.
-- Erledigte Themen unten abhaken – nichts doppelt.
+- Erledigte Themen unten abhaken – nichts doppelt. Ist der Pool leer, denkt sich Jarvis selbst neue Themen aus (bot/video_auto.py).
+
+## Ablauf je Folge (seit 24.11.2026)
+1. Idee (Pool oder eigene Idee über den Workflow-Knopf „idee“) → 2. Fakten mit Quelle sammeln → 3. Skript nur aus diesen Fakten,
+3 Hook-Varianten für Sekunde 1 → 4. Prüfer-KI checkt Zahlen/Hook/Familientauglichkeit, wählt den besten Hook, bei Fehlern 1× neu schreiben
+→ Schluss-Frage an die Zuschauer („Was hättest du getippt?“) für mehr Kommentare → Rendern → video_check.py.
 
 ## Spec-Format (generisch)
 `modell.typ = "generisch"`, je Seite `a`/`b`: `name`, `figur` (geher|laeufer|auto|rad), `dauer_s` (wie lange es in der Simulation dauert), `menge` (Endwert), `info` (kleine Zeile).

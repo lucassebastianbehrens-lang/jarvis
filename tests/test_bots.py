@@ -38,6 +38,40 @@ with tempfile.TemporaryDirectory() as d:
 import video_auto
 sp = video_auto.saeubern("a walking red onion, wearing a floral apron, no human face, no human skin, sexy")
 check("Video: 'no human face' wird nicht zu 'no face'", "no face" not in sp and "no skin" not in sp, sp)
+
+# Videofabrik: Fakten → Skript → Prüfer → bester Hook + Kommentar-Frage (KI gemockt, ohne Internet)
+_ki_alt, _antworten = video_auto.ki, []
+def _fake_ki(system, user, temp=0.8):
+    _antworten.append(user)
+    if "Kernfakten" in user:
+        return {"fakten": [{"satz": "Wasserkocher braucht ca. 0,11 kWh pro Liter", "wert": "0,11", "quelle": "Verbraucherzentrale"},
+                           {"satz": "Elektroherd braucht ca. 0,19 kWh pro Liter", "wert": "0,19", "quelle": "Verbraucherzentrale"}]}
+    if "Reality Checker" in system:
+        return {"ok": len(_antworten) > 3, "probleme": ["Prozentwert passt nicht"], "bester_hook": 1}
+    return {"titel": ["KOCHER", "HERD"], "frage": ["Was ist", "SPARSAMER?"], "modell": {"einheit": "kWh", "zaehler": "Strom", "besser": "weniger"},
+            "a": {"name": "KOCHER", "figur": "xyz", "dauer_s": "3", "menge": 0.11}, "b": {"name": "HERD", "figur": "auto", "dauer_s": 6, "menge": 0.19},
+            "lines": [{"phase": "intro", "t": "Frage"}, {"phase": "race", "t": "a"}, {"phase": "race", "t": "b"}, {"phase": "result", "t": "Ergebnis"}],
+            "hooks": ["Kocht dein Herd heimlich Geld weg?", "Fast doppelt so viel Strom fürs gleiche Wasser!", "Herd ist sparsamer – stimmt nicht."],
+            "kommentar_frage": "Was hättest du getippt?", "caption": "Kocher oder Herd? ⚡", "hashtags": ["#simulation", "#strom", "#sparen"], "quelle": "VZ"}
+video_auto.ki = _fake_ki
+fk = video_auto.fakten("Wasserkocher vs Herd")
+sp = video_auto.sim_schreiben("Wasserkocher vs Herd", "sim-99-test", fk, "", "")
+probleme, hook = video_auto.pruefen("Simulations", sp, "")
+check("Video: Prüfer meldet Fehler → Neuschreiben", probleme == ["Prozentwert passt nicht"])
+sp2 = video_auto.sim_schreiben("Wasserkocher vs Herd", "sim-99-test", fk, "", "", probleme)
+check("Video: Prüfer-Kritik landet im neuen Auftrag", "Prozentwert passt nicht" in _antworten[-1])
+check("Video: Prüfer zufrieden beim 2. Mal", video_auto.pruefen("Simulations", sp2, "")[0] == [])
+sp2 = video_auto.sim_fertig(sp2, hook)
+check("Video: stärkster Hook steht vorn", sp2["lines"][0]["t"].startswith("Fast doppelt"), sp2["lines"][0]["t"])
+check("Video: Kommentar-Frage am Ende + in Caption", sp2["lines"][-1]["phase"] == "result" and "Kommentare" in sp2["lines"][-1]["t"] and "👇" in sp2["caption"])
+check("Video: unbekannte Figur → geher, Zahlen als float", sp2["a"]["figur"] == "geher" and sp2["a"]["dauer_s"] == 3.0)
+def _ki_weg(*a, **k): raise SystemExit("offline")
+video_auto.ki = _ki_weg
+check("Video: Prüfer offline blockiert nicht", video_auto.pruefen("x", {}, "") == ([], 0))
+video_auto.ki = lambda s, u, t=0.8: {"themen": ["Duschen vs Baden – wer spart Wasser?", "Rennen vs Gehen im Regen – wer wird weniger nass?", "kein Vergleich"]}
+neu = video_auto.neue_themen("## Themen-Pool\n- [x] Rennen vs Gehen im Regen – wer wird weniger nass? (sim-01)\n")
+check("Video: leerer Pool füllt sich ohne Dopplungen", "- [ ] Duschen vs Baden" in neu and neu.count("Rennen vs Gehen") == 1, neu)
+video_auto.ki = _ki_alt
 check("Video: Schürze/Verbotenes entfernt", "apron" not in sp and "sexy" not in sp, sp)
 
 # Telegram-Jarvis: Leibgarde parallel, Chat frei

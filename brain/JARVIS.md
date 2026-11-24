@@ -56,6 +56,7 @@ Nur offizielle OpenClaw-Bausteine oder Skills mit vielen Installationen und gele
 | 283 Fach-Agenten | Agency-Agents (installiert über server/brain.sh) | 0 € | nichts |
 
 ## Neu (24.11.2026, aus Lucas' TikTok-Vorlagen)
+- **Videofabrik 2.0** (bot/video_auto.py): Idee → Fakten mit Quelle → Skript nur aus diesen Fakten → 3 Hooks, Prüfer-KI wählt den besten und checkt Zahlen (bei Fehlern 1× neu schreiben) → Kommentar-Frage am Schluss. Leerer Themen-Pool füllt sich selbst. Eigene Idee: Workflow „video-auto“ → Feld „idee“.
 - **Lage-Zentrale** (Tab „Lage“): Globus mit Weltnachrichten pro Land (tagesschau + DW) und Märkten (Bitcoin, Ethereum, Solana, EUR-Kurse). Agentin Ada (bot/lage.py, lage.yml) aktualisiert alle 2 Stunden.
 - **Neuer Kunde**: Jarvis legt Kunde, Rechnungsentwurf, Projekt-Board, Kick-off-Termin (.ics) und Willkommensnachricht an, dann „KUNDE AN BORD“-Feier. Senden/Rechnung verschicken macht Lucas mit einem Tipp.
 - **Call vorbereiten**: Web-Recherche „Alles, was du vor dem Gespräch wissen musst“ + Kalender-Wecker 5 Min vorher; ist die App offen, meldet sich Jarvis selbst und liest vor.
