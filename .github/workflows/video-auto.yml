@@ -11,6 +11,7 @@ on:
         description: "sim oder tt"
         default: "sim"
 permissions:
+  models: read
   contents: write
 concurrency:
   group: video-auto

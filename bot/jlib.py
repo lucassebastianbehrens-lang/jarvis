@@ -77,6 +77,17 @@ def ki(system, user, search=False, json_mode=False):
                 return j["choices"][0]["message"]["content"].strip()
             except Exception as e:
                 print("Groq", m, e)
+    if not search and GH_TOKEN:  # Ersatz ohne eigenen Schlüssel: GitHub Models (kostenlos, braucht "models: read")
+        for m in ["openai/gpt-4.1-mini", "openai/gpt-4o-mini"]:
+            try:
+                body = {"model": m, "messages": msgs}
+                if json_mode:
+                    body["response_format"] = {"type": "json_object"}
+                j = http("https://models.github.ai/inference/chat/completions", body,
+                         {"Authorization": "Bearer " + GH_TOKEN}, timeout=120)
+                return j["choices"][0]["message"]["content"].strip()
+            except Exception as e:
+                print("GitHub Models", m, e)
     return ""  # ohne GROQ_KEY keine KI (Pollinations verlangt inzwischen Bezahlung und erfindet Links)
 
 
