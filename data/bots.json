@@ -3,6 +3,7 @@
  {"wf": "agenten-test.yml", "name": "Meme-Makler Max", "haus": "Zockerbude", "icon": "🎰", "farbe": "#f1c40f", "job": "4 Agenten handeln Solana-Memecoins mit Spielgeld", "max_h": 3},
  {"wf": "waechter.yml", "name": "Wächter Willi", "haus": "Wachturm", "icon": "🛡️", "farbe": "#3498db", "job": "Prüft jede Stunde alle Bots und startet kaputte neu", "max_h": 3},
  {"wf": "recherche.yml", "name": "Forscherin Frieda", "haus": "Bibliothek", "icon": "📚", "farbe": "#9b59b6", "job": "Sucht jede Nacht neue KI-Tools, Skills und TikTok-Trends", "max_h": 26},
+ {"wf": "lage.yml", "name": "Agentin Ada", "haus": "Geheimdienst", "icon": "🛰️", "farbe": "#ff5252", "job": "Beobachtet alle 2 Stunden Weltnachrichten und Märkte", "max_h": 3},
  {"wf": "briefing.yml", "name": "Butler Bruno", "haus": "Villa", "icon": "🎩", "farbe": "#e67e22", "job": "Schreibt um 6 Uhr dein Tages-Briefing", "max_h": 26},
  {"wf": "auftraege.yml", "name": "Scout Sam", "haus": "Auftragsbüro", "icon": "🔭", "farbe": "#1abc9c", "job": "Sucht täglich Aufträge mit wenig Eigenarbeit", "max_h": 26},
  {"wf": "ideen.yml", "name": "Postbote Paul", "haus": "Post", "icon": "📮", "farbe": "#e74c3c", "job": "Sammelt deine Ideen aus Telegram", "max_h": 2},

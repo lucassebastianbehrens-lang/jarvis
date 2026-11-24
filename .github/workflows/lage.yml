@@ -1,0 +1,34 @@
+name: Lage-Zentrale
+on:
+  schedule:
+    - cron: "17 */2 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [bot/lage.py, .github/workflows/lage.yml]
+permissions:
+  contents: write
+  actions: write
+  issues: read
+concurrency:
+  group: lage
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 bot/lage.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GROQ_KEY: ${{ secrets.GROQ_KEY }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+      - run: |
+          git config user.name "jarvis-bot"
+          git config user.email "jarvis-bot@users.noreply.github.com"
+          git add data/lage.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "Lage-Update"
+          for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
