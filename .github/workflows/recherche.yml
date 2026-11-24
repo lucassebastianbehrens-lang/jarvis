@@ -4,7 +4,6 @@ on:
     - cron: "23 1 * * *"
   workflow_dispatch:
 permissions:
-  models: read
   contents: write
   actions: write
   issues: read

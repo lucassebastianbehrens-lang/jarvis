@@ -137,6 +137,11 @@ def main():
         top = "\n".join(f"- [{', '.join(m['laender']) or 'Welt'}] {m['titel']}" for m in meldungen[:30])
         lagebild = ki("Du bist Jarvis' Nachrichtendienst. Schreib auf Deutsch ein Lagebild in genau 3 kurzen Sätzen: "
                       "was weltweit gerade am wichtigsten ist und was davon Lucas in Deutschland direkt betrifft (Preise, Sprit, Börse). Nur Fakten aus der Liste.", top)
+    if not lagebild and orte:  # ohne KI: Lagebild aus den Schlagzeilen
+        heiss = [m for m in meldungen if m["heiss"] and m["laender"]] or meldungen
+        lagebild = (f"Am meisten los: {', '.join(o['land'] + ' (' + str(o['anzahl']) + ')' for o in orte[:3])}. "
+                    f"Wichtigste Meldung: {heiss[0]['titel']}."
+                    + (f" Außerdem: {heiss[1]['titel']}." if len(heiss) > 1 else ""))
     markt, fx = maerkte()
     alt = load("lage.json", {})
     data = {
