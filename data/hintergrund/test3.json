@@ -1,0 +1,30 @@
+{
+ "id": "test3",
+ "bot": "Kai",
+ "aufgabe": "Was kostet aktuell ein Liter Super E10 im Schnitt in Sachsen-Anhalt?",
+ "ok": true,
+ "antwort": "**Der aktuelle Durchschnittspreis für einen Liter Super E10 in Sachsen‑Anhalt liegt bei etwa 1,90 € / Liter (Stand 24. Nov. 2026).**\n\n- Durchschnittlicher Preis: 1,897 € / l – https://tankpreisheute.de/bundesland/sachsen-anhalt/\n- Günstigster Preis im Land: 1,839 € / l (Globus SB Warenhaus) – https://tankpreisheute.de/bundesland/sachsen-anhalt/\n\n**Nächster Schritt:** Gib Bescheid, falls du die Preise für eine bestimmte Stadt oder einen Zeitraum brauchst.",
+ "quellen": [
+  "https://www.volksstimme.de/sachsen-anhalt/spritpreise-gestiegen-tanken-kosten-teuer-tankstelle-benzin-diesel-e10-adac-sachsen-anhalt-3789010",
+  "https://www.adac.de/verkehr/tanken-kraftstoff-antrieb/deutschland/kraftstoffpreisentwicklung/",
+  "https://presse.adac.de/meldungen/adac-ev/verkehr/2024-war-drittteuerstes-tankjahr.html",
+  "https://www.magdeburg-klickt.de/adac-benzin-in-berlin-mit-abstand-am-billigsten-sachsen-anhalt-und-brandenburg-am-teuersten-beim-tanken/",
+  "https://www.bild.de/regional/sachsen/regional/1-84-euro-fuer-e10-ist-tanken-bei-ihnen-auch-so-teuer-wie-in-sachsen-87688470.bild.html",
+  "https://www.t-online.de/mobilitaet/aktuelles/id_100472656/adac-benzin-und-diesel-hier-tanken-sie-sprit-jetzt-am-billigsten.html",
+  "https://www.mehr-tanken.de/aktuelle-und-historische-spritpreise-in-deutschland/",
+  "https://presse.adac.de/meldungen/adac-ev/verkehr/tanken-im-saarland-am-guenstigsten.html",
+  "https://www.benzinpreis-aktuell.de/super-e10-24",
+  "https://presse.adac.de/meldungen/adac-ev/verkehr/saarland-erneut-guenstigstes-bundesland-beim-tanken.html",
+  "https://presse.adac.de/meldungen/adac-ev/verkehr/benzin-in-berlin-mit-abstand-am-billigsten.html",
+  "https://presse.adac.de/meldungen/adac-ev/verkehr/spritpreise-in-den-bundeslaendern-ganz-im-westen-deutlich-guenstiger-als-im-osten.html",
+  "https://presse.adac.de/regionalclubs/niedersachsen-sachsen-anhalt/adac-spritpreisvergleich-sachsen-anhalt.html",
+  "https://www.spritkostenrechner.de/benzinpreisentwicklung",
+  "https://presse.adac.de/meldungen/adac-ev/verkehr/niedrigste-kraftstoffpreise-in-berlin-und-hamburg.html"
+ ],
+ "suchen": [
+  "Preis pro Liter Super E10 Sachsen-Anhalt 2024",
+  "current price of Super E10 per litre Saxony-Anhalt Germany"
+ ],
+ "start": 1795523240,
+ "ende": 1795523293
+}
