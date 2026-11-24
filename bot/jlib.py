@@ -1,5 +1,6 @@
 """Gemeinsame Helfer für Jarvis-Bots (GitHub-API, KI, Telegram, JSON)."""
 import json, os, time, urllib.error, urllib.parse, urllib.request
+import ki_router
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 REPO = os.environ.get("GITHUB_REPOSITORY", "lucassebastianbehrens-lang/jarvis")
@@ -65,7 +66,7 @@ def wf_file(run):
 
 
 def ki(system, user, search=False, json_mode=False):
-    """KI-Antwort über Groq (mit Websuche über groq/compound). Ohne GROQ_KEY: leerer Text."""
+    """KI-Antwort über Groq (mit Websuche), bei Ausfall über die KI-Weiche (ki_router). Ohne jeden Schlüssel: leerer Text."""
     msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
     if GROQ:
         # Websuche: 1) Compound-Systeme, 2) GPT-OSS mit eingebauter Browser-Suche (falls Compound fürs Konto gesperrt ist)
@@ -103,7 +104,9 @@ def ki(system, user, search=False, json_mode=False):
               except Exception as e:
                   print("Groq", m, e)
                   break
-    return ""  # ohne GROQ_KEY keine KI (Pollinations verlangt inzwischen Bezahlung und erfindet Links)
+    # Groq aus/kein Schlüssel -> KI-Weiche (Gemini, OpenRouter, Ollama). Websuche gibt es dort nicht, also ohne Quellen.
+    QUELLEN.clear()
+    return ki_router.weiter(msgs, json_mode=json_mode)
 
 
 def parse_json(text):

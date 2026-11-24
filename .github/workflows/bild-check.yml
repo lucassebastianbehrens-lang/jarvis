@@ -18,3 +18,5 @@ jobs:
       - run: curl -fsSL -o video.mp4 "${{ inputs.url }}" && python3 bot/bild_check.py video.mp4
         env:
           GROQ_KEY: ${{ secrets.GROQ_KEY }}
+          GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
+          OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}

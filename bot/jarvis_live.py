@@ -12,7 +12,7 @@
 - 👍/👎 unter Antworten -> Jarvis lernt, was dir gefällt
 - /hilfe             -> Befehle
 Nur Nachrichten aus Lucas' eigenem Chat (TG_CHAT) werden beantwortet.
-Konfiguration: /etc/jarvis/telegram.env (TG_TOKEN, TG_CHAT, optional GROQ_KEY)."""
+Konfiguration: /etc/jarvis/telegram.env (TG_TOKEN, TG_CHAT, optional GROQ_KEY, GEMINI_KEY, OPENROUTER_KEY, OLLAMA_URL)."""
 import json, os, re, time, shutil, subprocess, threading, uuid, urllib.request, urllib.parse
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -75,6 +75,14 @@ def ki(msgs):
                 return j["choices"][0]["message"]["content"].strip()
             except Exception as e:
                 print("Groq:", model, e)
+    try:  # KI-Weiche: Gemini / OpenRouter / Ollama (auf dem Server: OLLAMA_URL=http://127.0.0.1:11434)
+        import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import ki_router
+        txt = ki_router.weiter(msgs)
+        if txt:
+            return txt
+    except Exception as e:
+        print("KI-Weiche:", e)
     j = post_json("https://text.pollinations.ai/openai", {"model": "openai", "messages": msgs}, {})
     return j["choices"][0]["message"]["content"].strip()
 

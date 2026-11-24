@@ -58,7 +58,9 @@ Die Bausteine laden in Nummern-Reihenfolge; ein Baustein darf beim Laden nur Din
 | Tüftler Theo | `backtest.py` | auf Abruf | `data/backtest*.json` |
 | Telegram-Jarvis | `jarvis_live.py` | rund um die Uhr (Server) | Server-Dateien |
 
-Gemeinsame Werkzeuge aller Bots: **`bot/jlib.py`** (GitHub-API, KI mit Websuche + Quellen, Telegram, JSON speichern).
+Gemeinsame Werkzeuge aller Bots: **`bot/jlib.py`** (GitHub-API, KI mit Websuche + Quellen, Telegram, JSON speichern) und **`bot/ki_router.py`** (KI-Weiche mit Ausweich-Anbietern).
+
+Video-Grafik (`video/sim.py`): Verlaufs-Hintergrund mit Lichtschein, Einflug-Animationen, TikTok-Untertitel mit leuchtendem Wort, Konfetti beim Ergebnis; alles Wichtige bleibt außerhalb von TikToks Knöpfen (rechts) und Beschreibung (unten).
 
 ## 3. Datenbank – `data/`
 JSON-Dateien im Repo: Bots schreiben, die App liest sie über `raw.githubusercontent.com` (≈ 5 Min Cache).
@@ -70,6 +72,7 @@ Gesprächs-Archiv, Bauten und Einstellungen bleiben nur auf dem Gerät (IndexedD
 | Dienst | Wofür | Schlüssel |
 |---|---|---|
 | Groq | KI (gpt-oss-120b/20b), Websuche (`browser_search`), Spracherkennung | `GROQ_KEY` (GitHub-Secret + App ⚙️) |
+| **KI-Weiche** (`bot/ki_router.py`) | springt ein, wenn Groq ausfällt: Gemini → OpenRouter (Gratis-Modelle) → Ollama (eigene KI) – nie Claude | `GEMINI_KEY`, `OPENROUTER_KEY`, `OLLAMA_URL` (alle optional) |
 | GitHub REST | Bots starten, Daten lesen/schreiben, Leibgarde | `GITHUB_TOKEN` / App-Token ⚙️ |
 | Telegram | Nachrichten an Lucas | `TG_TOKEN`, `TG_CHAT` |
 | tagesschau, Deutsche Welle (RSS) | Weltnachrichten | – |

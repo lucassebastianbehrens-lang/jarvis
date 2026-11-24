@@ -115,6 +115,7 @@ if ! grep -q '^TG_TOKEN=' /etc/jarvis/telegram.env && [ -r /dev/tty ]; then
   fi
 fi
 curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/bot/jarvis_live.py -o /opt/jarvis/jarvis_live.py
+curl -fsSL https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/bot/ki_router.py -o /opt/jarvis/ki_router.py
 cat > /etc/systemd/system/jarvis-live.service <<'SVC'
 [Unit]
 Description=Jarvis live (Telegram)
@@ -133,7 +134,7 @@ cat > /usr/local/bin/jarvis-update <<'UPD'
 #!/usr/bin/env bash
 # holt neue Versionen von GitHub und startet nur bei Änderungen neu
 R=https://raw.githubusercontent.com/lucassebastianbehrens-lang/jarvis/main/bot
-for f in agents.py:jarvis-agents jarvis_live.py:jarvis-live; do
+for f in agents.py:jarvis-agents jarvis_live.py:jarvis-live ki_router.py:jarvis-live; do
   n=${f%%:*}; s=${f##*:}
   curl -fsSL "$R/$n" -o "/tmp/$n" && python3 -m py_compile "/tmp/$n" && ! cmp -s "/tmp/$n" "/opt/jarvis/$n" && cp "/tmp/$n" "/opt/jarvis/$n" && systemctl restart "$s"
 done

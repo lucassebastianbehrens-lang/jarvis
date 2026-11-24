@@ -9,6 +9,8 @@ Ablauf (nach Lucas' Vorlage „Viral Studio“, 24.11.2026):
   python3 bot/video_auto.py geld  -> nächste Folge „Kontostand“ (LED-Geldanzeige, video/geld/geld-s1-fNN.json)
 Gibt den Pfad der neuen Spec aus (und schreibt ihn nach $GITHUB_OUTPUT als spec=...)."""
 import glob, json, os, re, sys, urllib.request
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ki_router
 
 KEY = os.environ.get("GROQ_KEY", "")
 MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.8-27b"]
@@ -20,7 +22,7 @@ PRUEFRUNDEN = 3  # so oft wird jede Folge geprüft und verbessert, bevor sie ger
 
 def ki(system, user, temp=0.8):
     last = None
-    for m in MODELS:
+    for m in (MODELS if KEY else []):
         try:
             body = {"model": m, "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
                     "response_format": {"type": "json_object"}, "temperature": temp}
@@ -32,6 +34,10 @@ def ki(system, user, temp=0.8):
         except Exception as e:
             last = e
             print("Modell", m, "Fehler:", e)
+    # Groq weg -> KI-Weiche (Gemini, OpenRouter, Ollama) statt Abbruch
+    txt = ki_router.weiter([{"role": "system", "content": system}, {"role": "user", "content": user}], json_mode=True, temp=temp)
+    if txt and "{" in txt:
+        return json.loads(txt[txt.find("{"):txt.rfind("}") + 1])
     raise SystemExit(f"KI nicht erreichbar: {last}")
 
 
@@ -296,8 +302,8 @@ def geld():
 
 
 if __name__ == "__main__":
-    if not KEY:
-        raise SystemExit("GROQ_KEY fehlt (GitHub → Settings → Secrets → Actions)")
+    if not (KEY or ki_router.anbieter()):
+        raise SystemExit("Kein KI-Schlüssel (GROQ_KEY, GEMINI_KEY oder OPENROUTER_KEY) – GitHub → Settings → Secrets → Actions")
     p = {"sim": sim, "tt": tt, "geld": geld}[sys.argv[1]]()
     print(p)
     if os.environ.get("GITHUB_OUTPUT"):

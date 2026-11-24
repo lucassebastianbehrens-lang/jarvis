@@ -16,6 +16,24 @@ check("jlib: JSON aus KI-Text lesen", jlib.parse_json('Hier:\n```json\n{"a": [1,
 os.environ.pop("GROQ_KEY", None)
 check("jlib: ohne Schlüssel leere Antwort statt Absturz", jlib.ki("s", "u") == "" or not jlib.GROQ)
 
+# KI-Weiche: ohne Schlüssel leer, mit (nachgestellter) Ollama-KI kommt die Antwort von dort
+import ki_router, threading, http.server
+for k in ("GEMINI_KEY", "OPENROUTER_KEY", "OLLAMA_URL"):
+    os.environ.pop(k, None)
+check("KI-Weiche: ohne Schlüssel leer statt Absturz", ki_router.weiter([{"role": "user", "content": "hi"}]) == "")
+class _Fake(http.server.BaseHTTPRequestHandler):
+    def do_POST(self):
+        self.rfile.read(int(self.headers["Content-Length"]))
+        b = json.dumps({"choices": [{"message": {"content": "Hallo Lucas"}}]}).encode()
+        self.send_response(200); self.send_header("Content-Type", "application/json"); self.end_headers(); self.wfile.write(b)
+    def log_message(self, *a):
+        pass
+_srv = http.server.HTTPServer(("127.0.0.1", 0), _Fake)
+threading.Thread(target=_srv.serve_forever, daemon=True).start()
+os.environ["OLLAMA_URL"] = f"http://127.0.0.1:{_srv.server_port}"
+check("KI-Weiche: Groq weg → Ollama antwortet", jlib.ki("s", "u") == "Hallo Lucas")
+os.environ.pop("OLLAMA_URL"); _srv.shutdown()
+
 # Lage-Bot
 import lage
 L = lambda t: lage.laender_von({"titel": t, "text": ""})

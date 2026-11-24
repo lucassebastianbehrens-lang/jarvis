@@ -4,6 +4,11 @@ Aufruf: python3 video/sim.py video/sim/<id>.json   Ausgabe: video/out/<id>.mp4 +
 Lokaler Test ohne Netz: FAKE_TTS=1"""
 import json, math, os, random, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
+try:
+    import numpy  # noqa: F401  (nur für den Lichtschein; ohne numpy einfacher Ersatz)
+    _NP = True
+except ImportError:
+    _NP = False
 sys.path.insert(0, os.path.dirname(__file__))
 from long import tts, dur, sh, OUT
 
@@ -36,6 +41,45 @@ def bike(d, x, y, col, phase):
         d.ellipse([wx - 24, y - 48, wx + 24, y], outline=WHITE, width=6)
     d.line([(x - 34, y - 24), (x, y - 24), (x + 34, y - 24), (x + 10, y - 56), (x - 10, y - 24)], fill=col, width=7)
     figure(d, x - 4, y - 36, phase, col, False)
+
+
+def ease_out_back(a):
+    """Animation mit kleinem Überschwinger (wirkt „lebendig“)."""
+    a = max(0.0, min(1.0, a)); c = 1.70158
+    return 1 + (c + 1) * (a - 1) ** 3 + c * (a - 1) ** 2
+
+
+def hintergrund(bg, grid, glow):
+    """Einmal pro Video: Verlauf + Lichtschein + feines Raster + Vignette (pro Bild nur noch kopiert -> schnell)."""
+    from PIL import ImageFilter
+    im = Image.new("RGB", (W, H), bg); d = ImageDraw.Draw(im)
+    top = tuple(min(255, int(c * 1.6) + 8) for c in bg); bot = tuple(int(c * 0.45) for c in bg)
+    for y in range(0, H, 4):
+        f = y / H
+        d.rectangle([0, y, W, y + 4], fill=tuple(int(top[i] * (1 - f) + bot[i] * f) for i in range(3)))
+    for x in range(0, W, 90):
+        d.line([(x, 0), (x, H)], fill=tuple(int(c * 0.55 + g * 0.45) for c, g in zip(bg, grid)), width=1)
+    for y in range(0, H, 90):
+        d.line([(0, y), (W, y)], fill=tuple(int(c * 0.55 + g * 0.45) for c, g in zip(bg, grid)), width=1)
+    licht = Image.new("RGB", (W, H), (0, 0, 0)); ld = ImageDraw.Draw(licht)
+    for (cx, cy), col in zip(((W * 0.2, 560), (W * 0.8, 1300)), glow):
+        ld.ellipse([cx - 420, cy - 420, cx + 420, cy + 420], fill=tuple(int(c * 0.35) for c in col))
+    licht = licht.filter(ImageFilter.GaussianBlur(160))
+    if _NP:  # Licht dazuaddieren (heller Schein in den Spielerfarben)
+        import numpy as np
+        im = Image.fromarray(np.clip(np.asarray(im, dtype=np.int16) + np.asarray(licht, dtype=np.int16), 0, 255).astype(np.uint8))
+    else:
+        im = Image.blend(im, licht, 0.25)
+    vig = Image.new("L", (W, H), 0); ImageDraw.Draw(vig).ellipse([-260, -200, W + 260, H + 200], fill=255)
+    vig = vig.filter(ImageFilter.GaussianBlur(220))
+    return Image.composite(im, Image.new("RGB", (W, H), tuple(int(c * 0.3) for c in bg)), vig)
+
+
+def schatten_text(d, xy, t, font, fill, mitte=True):
+    """Text mit weichem Schlagschatten + Kontur (gut lesbar auf jedem Hintergrund)."""
+    x = xy[0] - (d.textlength(t, font=font) / 2 if mitte else 0)
+    d.text((x + 5, xy[1] + 7), t, font=font, fill=(0, 0, 0))
+    d.text((x, xy[1]), t, font=font, fill=fill, stroke_width=4, stroke_fill=(8, 10, 18))
 
 
 def num(x):
@@ -84,7 +128,7 @@ def build(spec_path):
         ws = tts(ln["t"], voice, ln.get("rate", f"+{4 + h_ % 9}%"), mp3)
         for k in range(0, len(ws), 3):
             c = ws[k:k + 3]
-            caps.append((t0 + c[0][0], t0 + c[-1][1] + 0.05, " ".join(x[2] for x in c)))
+            caps.append((t0 + c[0][0], t0 + c[-1][1] + 0.05, " ".join(x[2] for x in c), [(t0 + x[0], x[2]) for x in c]))
         d = dur(mp3)
         p = ln.get("phase", "intro")
         a, b = ph.get(p, (t0, t0))
@@ -129,8 +173,11 @@ def build(spec_path):
 
     rnd = random.Random(7)
     drops = [[rnd.uniform(0, W), rnd.uniform(0, H), rnd.uniform(18, 34)] for _ in range(230)]
-    X0, X1 = 120, 960
-    lanes = [830, 1300]
+    X0, X1 = 120, 860          # rechts bleibt Platz für TikToks Knöpfe
+    lanes = [720, 1170]        # alles Wichtige oberhalb von ~1550 px (unten liegt TikToks Beschreibung)
+    bgimg = hintergrund(BG, GRID, cols)
+    conf = [(rnd.uniform(90, W - 90), rnd.uniform(-300, 0), rnd.uniform(-4, 4), rnd.uniform(6, 13), rnd.choice([YEL, WHITE, cols[0], cols[1]]))
+            for _ in range(90)]
     ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
                            "-i", "-", "-i", f"{tmp}/voice.m4a", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
                            "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", os.path.join(OUT, vid + ".mp4")], stdin=subprocess.PIPE)
@@ -138,15 +185,17 @@ def build(spec_path):
     thumb = None
     for fi in range(n):
         t = fi / FPS
-        im = Image.new("RGB", (W, H), BG); d = ImageDraw.Draw(im)
-        # Titel
+        im = bgimg.copy(); d = ImageDraw.Draw(im)
+        # Titel: fliegt in der ersten halben Sekunde von oben herein
+        dy = (1 - ease_out_back(t / 0.5)) * -160
         tw = [sp["titel"][0], " vs ", sp["titel"][1]]
         widths = [d.textlength(x, font=F[96] if i != 1 else F[52]) for i, x in enumerate(tw)]
         x = (W - sum(widths)) / 2
         for i, (s_, wdt) in enumerate(zip(tw, widths)):
-            d.text((x, 150 + (26 if i == 1 else 0)), s_, font=F[96] if i != 1 else F[52], fill=[L[0]["col"], WHITE, L[1]["col"]][i]); x += wdt
-        text_c(d, (W / 2, 290), sp["frage"][0], F[52], WHITE)
-        text_c(d, (W / 2, 356), sp["frage"][1], F[64], YEL)
+            schatten_text(d, (x, 150 + dy + (26 if i == 1 else 0)), s_, F[96] if i != 1 else F[52], [L[0]["col"], WHITE, L[1]["col"]][i], False); x += wdt
+        fy = (1 - ease_out_back((t - 0.25) / 0.5)) * 60
+        schatten_text(d, (W / 2, 290 + fy), sp["frage"][0], F[52], WHITE)
+        schatten_text(d, (W / 2, 356 + fy), sp["frage"][1], F[64], YEL)
         # Regen
         for dr in (drops if regen else []):
             dr[1] = (dr[1] + dr[2]) % H
@@ -155,7 +204,8 @@ def build(spec_path):
         for l, ly in zip(L, lanes):
             tt_ = min(st, l["T"])
             got = l["rate"] * tt_
-            d.rectangle([X0 - 20, ly + 2, X1 + 60, ly + 8], fill=GRID)
+            d.rounded_rectangle([X0 - 30, ly - 4, X1 + 70, ly + 14], 9, fill=tuple(int(c * 0.35) for c in l["col"]))
+            d.rounded_rectangle([X0 - 30, ly - 4, X0 - 30 + (X1 + 100 - X0) * min(1, tt_ / l["T"]), ly + 14], 9, fill=l["col"])
             for i_, mm in enumerate(sp.get("skala", [f"0 m", f"{int(D/2)} m", f"{int(D)} m"])):
                 xx = X0 + (X1 - X0) * i_ / 2
                 d.line([(xx, ly + 8), (xx, ly + 28)], fill=GRID, width=4)
@@ -164,7 +214,10 @@ def build(spec_path):
             d.rectangle([X1 + 10, ly - 210, X1 + 90, ly - 196], fill=(170, 180, 200))
             d.line([(X1 + 20, ly - 196), (X1 + 20, ly + 4)], fill=(170, 180, 200), width=6)
             d.line([(X1 + 80, ly - 196), (X1 + 80, ly + 4)], fill=(170, 180, 200), width=6)
-            d.text((X0 - 20, ly - 250), f"{l['name']}  {l['info']}", font=F[36], fill=l["col"])
+            lab = f"{l['name']}  {l['info']}"
+            lf = next((F[g] for g in (44, 36, 30) if d.textlength(lab, font=F[g]) <= X1 - 60 - X0), F[30])
+            schatten_text(d, (X0 - 20, ly - 215), lab, lf, l["col"], False)
+            d.ellipse([xx_s := X0 + (X1 - X0) * (tt_ / l["T"]) + 50 - 70, ly - 6, xx_s + 140, ly + 18], fill=tuple(int(c * 0.25) for c in BG))  # Bodenschatten
             xx = X0 + (X1 - X0) * (tt_ / l["T"]) + 50
             phs = (t * (2.2 if l["run"] else 1.1)) % 1 if tt_ < l["T"] else 0
             if l["fig"] == "auto":
@@ -175,31 +228,48 @@ def build(spec_path):
                 figure(d, xx, ly, phs, l["col"], l["run"])
             # Zähler + Nässe-Balken
             box = [X0 - 20, ly + 80, X1 + 90, ly + 160]
-            d.rounded_rectangle(box, 18, fill=(22, 34, 60))
+            d.rounded_rectangle([box[0] + 6, box[1] + 10, box[2] + 6, box[3] + 10], 22, fill=(0, 0, 0))
+            d.rounded_rectangle(box, 22, fill=tuple(int(c * 0.6) + 10 for c in BG), outline=l["col"], width=4)
             frac = got / big
-            d.rounded_rectangle([box[0], box[1], box[0] + (box[2] - box[0]) * frac, box[3]], 18, fill=(40, 110, 200))
-            d.text((box[0] + 24, box[1] + 18), f"{label}: {fmt(got)}" if label else fmt(got), font=F[36], fill=WHITE)
+            if frac > 0.02:
+                bx1 = box[0] + (box[2] - box[0]) * frac
+                d.rounded_rectangle([box[0], box[1], bx1, box[3]], 22, fill=tuple(int(c * 0.75) for c in l["col"]))
+                d.rounded_rectangle([box[0] + 8, box[1] + 8, bx1 - 8, box[1] + 26], 9, fill=tuple(min(255, int(c * 1.15) + 20) for c in l["col"]))  # Glanzkante
+            schatten_text(d, (box[0] + 24, box[1] + 16), f"{label}: {fmt(got)}" if label else fmt(got), F[44], WHITE, False)
             if tt_ >= l["T"]:
-                d.text((box[2] - 190, ly - 300 + 52), "IM ZIEL", font=F[36], fill=YEL)
+                d.rounded_rectangle([X1 - 40, ly - 268, X1 + 130, ly - 218], 16, fill=YEL)  # Abzeichen über dem Ziel
+                text_c(d, (X1 + 45, ly - 262), "IM ZIEL", F[36], (20, 20, 30))
         # Ergebnis
         r0 = ph.get("result", (end0, end0))[0]
         if t >= r0:
             a = min(1, (t - r0) / 0.4)
-            y = 1480 + (1 - a) * 80
-            d.rounded_rectangle([90, y, W - 90, y + 250], 30, fill=(255, 205, 60))
+            y = 1340 + (1 - ease_out_back((t - r0) / 0.55)) * 260
+            for cx, cy, vx, sz, cc in conf:  # Konfetti
+                ct = t - r0; px, py = cx + vx * ct * 40, cy + ct * 520
+                if py < H:
+                    d.rectangle([px, py, px + sz, py + sz * 1.6], fill=cc)
+            d.rounded_rectangle([96, y + 12, W - 84, y + 262], 30, fill=(0, 0, 0))
+            d.rounded_rectangle([90, y, W - 90, y + 250], 30, fill=(255, 205, 60), outline=WHITE, width=5)
             text_c(d, (W / 2, y + 34), f"{win['name']} GEWINNT", F[80], (20, 20, 30))
             text_c(d, (W / 2, y + 150), sp.get("ergebnis", "{p} % weniger").replace("{p}", str(pct)), F[64], (20, 20, 30))
             if thumb is None and a >= 1:
                 thumb = im.copy()
         # Untertitel
+        # Untertitel im TikTok-Stil: das gerade gesprochene Wort leuchtet gelb, Zeile springt kurz an
         cur = next((c for c in caps if c[0] <= t <= c[1]), None)
         if cur and t < r0:
-            tw_ = d.textlength(cur[2], font=F[64])
-            d.rounded_rectangle([W / 2 - tw_ / 2 - 30, 1560, W / 2 + tw_ / 2 + 30, 1660], 24, fill=WHITE)
-            text_c(d, (W / 2, 1572), cur[2], F[64], (15, 15, 25))
+            fnt = F[64]; sp_w = d.textlength(" ", font=fnt)
+            ws_ = [w for _, w in cur[3]]; ww = [d.textlength(w, font=fnt) for w in ws_]
+            tot = sum(ww) + sp_w * (len(ws_) - 1)
+            cy = 1420 - (1 - ease_out_back((t - cur[0]) / 0.18)) * 18
+            d.rounded_rectangle([W / 2 - tot / 2 - 34, cy - 14, W / 2 + tot / 2 + 34, cy + 92], 26, fill=(10, 12, 20))
+            x = W / 2 - tot / 2
+            jetzt = max([i for i, (st_, _) in enumerate(cur[3]) if st_ <= t] or [0])
+            for i, (w, wd) in enumerate(zip(ws_, ww)):
+                d.text((x, cy), w, font=fnt, fill=YEL if i == jetzt else WHITE, stroke_width=3, stroke_fill=(0, 0, 0)); x += wd + sp_w
         if t >= end0:
-            d.rectangle([0, 1760, W, 1880], fill=(0, 0, 0))
-            text_c(d, (W / 2, 1785), sp.get("ende", "FOLGEN FÜR MEHR SIMULATIONEN"), F[52], YEL)
+            d.rounded_rectangle([60, 1620, W - 60, 1710], 26, fill=(0, 0, 0))
+            text_c(d, (W / 2, 1638), sp.get("ende", "FOLGEN FÜR MEHR SIMULATIONEN"), F[52], YEL)
         ff.stdin.write(im.tobytes())
     ff.stdin.close(); ff.wait()
     (thumb or im).convert("RGB").save(os.path.join(OUT, vid + ".jpg"), quality=90)
