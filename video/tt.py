@@ -33,6 +33,51 @@ def verlauf(path):
     im.save(path)
 
 
+FONT_LED = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
+FONT_NAME = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+
+
+def euro(n):
+    """12 -> €12, 4800000 -> €4.800.000 (deutsche Tausenderpunkte)."""
+    return "€" + f"{int(n):,}".replace(",", ".")
+
+
+def konto_bild(path, konto, vorher):
+    """„Kontostand“-Format: leuchtende LED-Anzeigen (Name + Betrag) oben im Bild, eine pro Figur der Szene.
+    Hat sich ein Betrag seit der letzten Szene geändert, erscheint darunter ▲ +€… (grün) bzw. ▼ −€… (rot)."""
+    from PIL import Image, ImageDraw, ImageFilter, ImageFont
+    led, nf, df = ImageFont.truetype(FONT_LED, 62), ImageFont.truetype(FONT_NAME, 30), ImageFont.truetype(FONT_NAME, 32)
+    teile = []
+    for name, wert in list(konto.items())[:3]:
+        txt = euro(wert)
+        tw = int(led.getlength(txt)); bw, bh = tw + 56, 104
+        tafel = Image.new("RGBA", (bw + 40, bh + 40), (0, 0, 0, 0)); d = ImageDraw.Draw(tafel)
+        d.rounded_rectangle([20, 20, 20 + bw, 20 + bh], 26, fill=(14, 16, 18, 235), outline=(70, 74, 80, 255), width=5)
+        d.rounded_rectangle([34, 32, 6 + bw, 8 + bh], 16, fill=(8, 34, 32, 255))
+        glow = Image.new("RGBA", tafel.size, (0, 0, 0, 0))
+        ImageDraw.Draw(glow).text((48, 34), txt, font=led, fill=(80, 255, 210, 255))
+        tafel.alpha_composite(glow.filter(ImageFilter.GaussianBlur(9)))
+        d.text((48, 34), txt, font=led, fill=(150, 255, 225, 255))
+        for y in range(34, 8 + bh, 5):   # LED-Raster wie eine Punktmatrix
+            d.line([(36, y), (4 + bw, y)], fill=(8, 34, 32, 110), width=1)
+        diff = int(wert) - int(vorher.get(name, wert))
+        teile.append((name, tafel, diff))
+    gap = 26
+    breite = sum(t.width for _, t, _ in teile) + gap * (len(teile) - 1)
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    x, y = (W - breite) // 2, 250
+    for name, tafel, diff in teile:
+        cx = x + tafel.width // 2
+        d.text((cx, y), name.upper(), font=nf, fill=(255, 255, 255, 255), anchor="mb", stroke_width=4, stroke_fill=(0, 0, 0, 200))
+        im.alpha_composite(tafel, (x, y + 2))
+        if diff:
+            col = (90, 240, 120, 255) if diff > 0 else (255, 90, 90, 255)
+            d.text((cx, y + tafel.height + 4), ("▲ +" if diff > 0 else "▼ −") + euro(abs(diff)), font=df, fill=col,
+                   anchor="mt", stroke_width=4, stroke_fill=(0, 0, 0, 220))
+        x += tafel.width + gap
+    im.save(path)
+
+
 def _hole(prompt, seed, versuche):
     url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt)
            + f"?width=720&height=1280&nologo=true&seed={seed}")
@@ -153,9 +198,19 @@ Dialogue: 1,{ts(0)},{ts(end0)},Ki,,0,0,0,,{{\\fad(400,300)}}KI-generiert
     ende = end0 - 0.0
     fl.append(f"[{last}]fps={FPS},format=yuv420p[base]")
     fl.append(f"[base][{len(clips)}:v]overlay=0:0[ov]")
-    fl.append(f"[ov]drawbox=0:0:{W}:{H}:color=black@0.45:t=fill:enable='gte(t,{ende:.2f})',ass={tmp}/s.ass[v]")
+    # „Kontostand“-Format: LED-Anzeigen je Szene (nur wenn die Szene ein Feld „konto“ hat)
+    kargs, stand, cur = [], dict(sp.get("konten", {})), "ov"
+    for i, ((s, e), sc) in enumerate(zip(scenes, sp["scenes"])):
+        if not sc.get("konto"):
+            continue
+        kp = f"{tmp}/k{i}.png"; konto_bild(kp, sc["konto"], stand); stand.update(sc["konto"])
+        n = len(clips) + 2 + len(kargs) // 4
+        kargs += ["-loop", "1", "-i", kp]
+        fl.append(f"[{n}:v]format=rgba,fade=in:st={s + 0.15:.2f}:d=0.35:alpha=1[k{i}]")
+        fl.append(f"[{cur}][k{i}]overlay=0:0:enable='between(t,{s:.2f},{e:.2f})'[o{i}]"); cur = f"o{i}"
+    fl.append(f"[{cur}]drawbox=0:0:{W}:{H}:color=black@0.45:t=fill:enable='gte(t,{ende:.2f})',ass={tmp}/s.ass[v]")
     out = os.path.join(OUT, vid + ".mp4")
-    sh("ffmpeg", "-y", *args, "-loop", "1", "-i", f"{tmp}/ov.png", "-i", f"{tmp}/voice.m4a",
+    sh("ffmpeg", "-y", *args, "-loop", "1", "-i", f"{tmp}/ov.png", "-i", f"{tmp}/voice.m4a", *kargs,
        "-filter_complex", ";".join(fl), "-map", "[v]", "-map", f"{len(clips) + 1}:a",
        "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-c:a", "copy", "-t", f"{t0:.3f}",
        "-movflags", "+faststart", out)

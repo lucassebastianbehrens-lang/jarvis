@@ -1,5 +1,5 @@
 """Schnelltests für die Bots – ohne Internet. Start: python3 tests/test_bots.py"""
-import json, os, sys, tempfile, time, pathlib
+import glob, json, os, sys, tempfile, time, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "bot"))
 fehler = []
@@ -88,6 +88,24 @@ video_auto.ki = lambda s, u, t=0.8: {"themen": ["Duschen vs Baden – wer spart 
 neu = video_auto.neue_themen("## Themen-Pool\n- [x] Rennen vs Gehen im Regen – wer wird weniger nass? (sim-01)\n")
 check("Video: leerer Pool füllt sich ohne Dopplungen", "- [ ] Duschen vs Baden" in neu and neu.count("Rennen vs Gehen") == 1, neu)
 video_auto.ki = _ki_alt
+# Kontostand-Serie: LED-Beträge werden abgesichert, Grafik entsteht
+ep = {"figuren": {"Kalle": "x", "Anton": "y"}, "scenes": [
+    {"konto": {"Kalle": "€27", "Fremder": 5, "Anton": -3}, "lines": [{"s": "Kalle", "t": "a"}]},
+    {"lines": [{"s": "Anton", "t": "b"}]}]}
+video_auto.konten_sichern(ep, {"konten": {"Kalle": 12, "Anton": 4800000}, "scenes": [{"konto": {"Kalle": 20}}]})
+check("Kontostand: Startwerte aus letzter Folge", ep["konten"]["Kalle"] == 20, ep["konten"])
+check("Kontostand: Beträge sauber, Fremde raus", ep["scenes"][0]["konto"] == {"Kalle": 27, "Anton": 0}, ep["scenes"][0])
+check("Kontostand: leere Szene zeigt Sprecher", ep["scenes"][1]["konto"] == {"Anton": 0}, ep["scenes"][1])
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "video"))
+import tt as _tt
+check("Kontostand: Euro-Format", _tt.euro(4800000) == "€4.800.000" and _tt.euro(12) == "€12")
+with tempfile.TemporaryDirectory() as d:
+    _tt.konto_bild(d + "/k.png", {"Kalle": 27, "Anton": 4800000}, {"Kalle": 12})
+    check("Kontostand: LED-Grafik erzeugt", os.path.getsize(d + "/k.png") > 5000)
+for f in sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "video", "geld", "geld-*.json"))):
+    g = json.load(open(f, encoding="utf-8"))
+    check(f"Kontostand: {os.path.basename(f)} hat konto + Stimmen", all(s.get("konto") for s in g["scenes"]) and
+          all(l["s"] in g["voices"] for s in g["scenes"] for l in s["lines"]))
 check("Video: Schürze/Verbotenes entfernt", "apron" not in sp and "sexy" not in sp, sp)
 
 # Telegram-Jarvis: Leibgarde parallel, Chat frei
