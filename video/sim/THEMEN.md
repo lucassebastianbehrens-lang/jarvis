@@ -26,7 +26,7 @@
 - [x] Fön vs Lufttrocknen – Haare, Zeit & Strom (sim-05-foen-vs-lufttrocknen)
 - [x] Spülmaschine vs Handspülen – Wasser pro Ladung (sim-06-spuelmaschine-vs-handspuelen)
 - [x] Laden vs Tanken – 100 km E-Auto vs Benziner, Kosten (sim-07-laden-vs-tanken)
-- [ ] Standby vs Aus – 10 Geräte ein Jahr, Stromkosten
+- [x] Standby vs Aus – 10 Geräte ein Jahr, Stromkosten (sim-08-standby-vs-aus)
 - [ ] Laufen vs Radfahren – 30 Minuten, Kalorien
 - [ ] Mikrowelle vs Backofen – Pizza aufwärmen, Strom
 - [ ] Rolltreppe gehen vs stehen – wer ist zuerst oben?

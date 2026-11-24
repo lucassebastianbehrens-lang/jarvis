@@ -1,0 +1,105 @@
+{
+  "id": "sim-08-standby-vs-aus",
+  "titel": [
+    "STANDBY",
+    "AUS"
+  ],
+  "frage": [
+    "10 Geräte das ganze Jahr –",
+    "WAS SPART MAN?"
+  ],
+  "a": {
+    "name": "STANDBY",
+    "figur": "rad",
+    "dauer_s": 88.0,
+    "menge": 88.0,
+    "info": "≈87,6 kWh"
+  },
+  "b": {
+    "name": "AUS",
+    "figur": "rad",
+    "dauer_s": 9.0,
+    "menge": 9.0,
+    "info": "≈8,8 kWh"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "kWh",
+    "zaehler": "Energieverbrauch",
+    "besser": "weniger"
+  },
+  "skala": [
+    "Standby",
+    "Mitte",
+    "Aus"
+  ],
+  "ergebnis": "etwa {p} % weniger",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Standby oder Aus – was spart mehr?"
+    },
+    {
+      "phase": "intro",
+      "t": "Ein Gerät im Standby verbraucht etwa 1 W, das klingt gering."
+    },
+    {
+      "phase": "race",
+      "t": "Im Standby ziehen zehn Geräte rund zehn Watt, das sind 87,6 kWh pro Jahr."
+    },
+    {
+      "phase": "race",
+      "t": "Im ausgeschalteten Zustand verbrauchen sie höchstens 0,1 W pro Gerät, also 1 W total, 8,8 kWh jährlich."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Das Ausschalten spart etwa 90 Prozent Energie im Vergleich zum Standby."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Standby oder Aus – was spart mehr?",
+    "Ein Gerät im Standby verbraucht 1 W, das klingt wenig…",
+    "Mythos: Standby kostet nichts."
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Standby vs. Aus – bei 10 Geräten spart Ausschalten bis zu 90 % Energie! ⚡️ Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#stromspar",
+    "#energie",
+    "#standby",
+    "#umwelt"
+  ],
+  "quelle": "Umweltbundesamt, 2023 (1 W Standby); Hersteller‑Richtwerte, 2021 (0,1 W im Aus‑Zustand); Bundesnetzagentur, 2023 (0,40 EUR/kWh); Berechnung nach oben genannten Werten (10 W·24 h·365 d ≈ 87,6 kWh, 1 W·24 h·365 d ≈ 8,8 kWh).",
+  "fakten": [
+    {
+      "satz": "Typischer Standby‑Verbrauch moderner Geräte liegt bei etwa 1 W pro Gerät",
+      "wert": "1 W",
+      "quelle": "Umweltbundesamt, 2023"
+    },
+    {
+      "satz": "Bei älteren Geräten kann der Standby‑Verbrauch bis zu 5 W betragen",
+      "wert": "5 W (max)",
+      "quelle": "Verbraucherzentrale, 2022"
+    },
+    {
+      "satz": "Im ausgeschalteten Zustand (ohne Netz‑Stecker) liegt der Restverbrauch meist ≤0,1 W pro Gerät",
+      "wert": "0,1 W",
+      "quelle": "Hersteller‑Richtwerte, 2021"
+    },
+    {
+      "satz": "Durchschnittlicher Strompreis für Haushalte in Deutschland 2023",
+      "wert": "0,40 EUR/kWh",
+      "quelle": "Bundesnetzagentur, 2023"
+    },
+    {
+      "satz": "Jährlicher Energieverbrauch bei 10 Geräten im Standby (1 W je Gerät)",
+      "wert": "≈87,6 kWh (≈35 EUR)",
+      "quelle": "Berechnung nach oben genannten Werten"
+    }
+  ]
+}
