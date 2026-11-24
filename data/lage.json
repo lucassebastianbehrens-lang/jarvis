@@ -1,5 +1,5 @@
 {
- "updated": 1795522006,
+ "updated": 1795522082,
  "lagebild": "",
  "orte": [
   {
@@ -861,9 +861,9 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 55023,
+   "wert": 54985,
    "einheit": "€",
-   "pct": -1.66,
+   "pct": -1.76,
    "verlauf": [
     59030,
     57416,
@@ -872,20 +872,20 @@
     54815,
     55754,
     56132,
-    55268
+    55217
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1550.49,
+   "wert": 1549.86,
    "einheit": "€",
-   "pct": -1.33
+   "pct": -1.38
   },
   {
    "name": "Solana",
-   "wert": 64.6,
+   "wert": 64.52,
    "einheit": "€",
-   "pct": -2.29
+   "pct": -2.46
   },
   {
    "name": "EUR/CHF",
