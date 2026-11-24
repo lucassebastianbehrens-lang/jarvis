@@ -21,7 +21,7 @@
  },
  "scenes": [
   {
-   "p": "a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater, the character is literally a walking red onion: the head is one big round red onion vegetable/fruit with shiny purple papery onion skin and a small dry sprout on top, tiny cartoon eyes and mouth painted on it, no hair at all, no nose, no human face, no human skin, toy-like mascot, like a living fruit plush toy, holding a pink strawberry towel in a cozy hallway, angry",
+   "p": "a cartoon red onion vegetable mascot: its whole body is one big round glossy purple red onion bulb with a dry sprout on top, short stubby green cartoon arms and legs, wearing a tiny floral apron, the character is literally a walking red onion, no human face, no human skin, no hair, no neck, toy-like mascot, holding a pink strawberry towel in a cozy hallway, angry",
    "lines": [
     {
      "s": "Rosa",
@@ -38,7 +38,7 @@
    ]
   },
   {
-   "p": "a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top, the character is literally a walking garlic bulb: the head is one big round garlic bulb vegetable/fruit with white garlic cloves texture and a pointy tip on top, tiny cartoon eyes and mouth painted on it, no hair at all, no nose, no human face, no human skin, toy-like mascot, like a living fruit plush toy, sitting on a bed at night lit by a phone screen, nervous",
+   "p": "a cartoon garlic vegetable mascot: its whole body is one big white garlic bulb with thick cartoon eyebrows, short muscular stubby cartoon arms and legs, wearing a tiny grey sweatband, the character is literally a walking garlic bulb, no human face, no human skin, no hair, no neck, toy-like mascot, sitting on a bed at night lit by a phone screen, nervous",
    "lines": [
     {
      "s": "Erzähler",
@@ -47,7 +47,7 @@
    ]
   },
   {
-   "p": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket, the character is literally a walking strawberry: the head is one big round strawberry vegetable/fruit with red bumpy strawberry skin, yellow seeds and green leaf crown on top, tiny cartoon eyes and mouth painted on it, no hair at all, no nose, no human face, no human skin, toy-like mascot, like a living fruit plush toy, holding a clipboard in an empty gym at sunrise, smug smile",
+   "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no human face, no human skin, no hair, no neck, toy-like mascot, holding a clipboard in an empty gym at sunrise, smug smile",
    "lines": [
     {
      "s": "Jessy",
@@ -64,7 +64,7 @@
    ]
   },
   {
-   "p": "an avocado character (head is a halved avocado, the pit is the nose, cartoon eyes), green hoodie, the character is literally a walking avocado: the head is one big round avocado vegetable/fruit with green avocado flesh and a brown pit, tiny cartoon eyes and mouth painted on it, no hair at all, no nose, no human face, no human skin, toy-like mascot, like a living fruit plush toy, running into a gym waving arms in panic, holding a protein shake",
+   "p": "a cartoon avocado vegetable mascot: its whole body is one big green avocado cut in half with a round brown pit in the belly, short stubby cartoon arms and legs, wearing a small green scarf, the character is literally a walking avocado, no human face, no human skin, no hair, no neck, toy-like mascot, running into a gym waving arms in panic, holding a protein shake",
    "lines": [
     {
      "s": "Avo",
@@ -89,7 +89,7 @@
    ]
   },
   {
-   "p": "a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater, the character is literally a walking red onion: the head is one big round red onion vegetable/fruit with shiny purple papery onion skin and a small dry sprout on top, tiny cartoon eyes and mouth painted on it, no hair at all, no nose, no human face, no human skin, toy-like mascot, like a living fruit plush toy, standing in a gym doorway holding a pink towel, serious",
+   "p": "a cartoon red onion vegetable mascot: its whole body is one big round glossy purple red onion bulb with a dry sprout on top, short stubby green cartoon arms and legs, wearing a tiny floral apron, the character is literally a walking red onion, no human face, no human skin, no hair, no neck, toy-like mascot, standing in a gym doorway holding a pink towel, serious",
    "lines": [
     {
      "s": "Erzähler",
@@ -102,7 +102,7 @@
    ]
   },
   {
-   "p": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket, the character is literally a walking strawberry: the head is one big round strawberry vegetable/fruit with red bumpy strawberry skin, yellow seeds and green leaf crown on top, tiny cartoon eyes and mouth painted on it, no hair at all, no nose, no human face, no human skin, toy-like mascot, like a living fruit plush toy, arms crossed in a gym, mysterious smile, dramatic close-up",
+   "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no human face, no human skin, no hair, no neck, toy-like mascot, arms crossed in a gym, mysterious smile, dramatic close-up",
    "lines": [
     {
      "s": "Jessy",
@@ -120,9 +120,9 @@
   }
  ],
  "figuren": {
-  "Gino": "a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top",
-  "Jessy": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket",
-  "Rosa": "a red onion character (head is a glossy purple red onion with big cartoon eyes and eyelashes), floral apron over a cozy sweater",
-  "Avo": "an avocado character (head is a halved avocado, the pit is the nose, cartoon eyes), green hoodie"
+  "Rosa": "a cartoon red onion vegetable mascot: its whole body is one big round glossy purple red onion bulb with a dry sprout on top, short stubby green cartoon arms and legs, wearing a tiny floral apron",
+  "Avo": "a cartoon avocado vegetable mascot: its whole body is one big green avocado cut in half with a round brown pit in the belly, short stubby cartoon arms and legs, wearing a small green scarf",
+  "Gino": "a cartoon garlic vegetable mascot: its whole body is one big white garlic bulb with thick cartoon eyebrows, short muscular stubby cartoon arms and legs, wearing a tiny grey sweatband",
+  "Jessy": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband"
  }
 }
