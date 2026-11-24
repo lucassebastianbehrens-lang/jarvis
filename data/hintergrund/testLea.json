@@ -1,0 +1,16 @@
+{
+ "id": "testLea",
+ "bot": "Lea",
+ "aufgabe": "Was kostet aktuell ein Liter Super E10 im Schnitt in Sachsen-Anhalt?",
+ "ok": true,
+ "antwort": "**Der aktuelle Durchschnittspreis für einen Liter Super E10 in Sachsen‑Anhalt lässt sich nicht exakt angeben, weil er täglich von vielen Faktoren (Rohölpreis, Steuern, regionale Wettbewerbssituation) abhängt und keine einheitliche Quelle aktuelle, gesicherte Zahlen liefert.**  \n\n- Die Preise variieren typischerweise zwischen **≈ 1,60 €** und **≈ 1,80 €** pro Liter, je nach Tankstelle und Standort.  \n- Offizielle Preisübersichten (z. B. von ADAC, TankenApp oder dem Ministerium für Wirtschaft, Wissenschaft und Digitalisierung) aktualisieren ihre Daten meist nur mit einem kurzen Verzögerungsintervall.  \n- Für eine tagesgenaue Angabe sollte man aktuelle Tankpreis‑Apps oder die jeweiligen Tankstellen‑Websites konsultieren.  \n- Regionale Preisunterschiede in Sachsen‑Anhalt können durch unterschiedliche Steuerlasten und Lieferwege entstehen.\n\n**Nächster Schritt:** Prüfe die aktuelle Preisübersicht in einer Tankpreis‑App (z. B. ADAC Tankstellen‑Suche) oder rufe deine bevorzugte Tankstelle direkt an, um den genauen Preis von Super E10 zu erfahren.",
+ "quellen": [],
+ "suchen": [
+  "aktueller Preis Liter Super E10 Sachsen-Anhalt",
+  "Super E10 Preis Sachsen-Anhalt heute",
+  "Benzinpreis Sachsen-Anhalt Super E10",
+  "Tagespreis Super E10 Sachsen-Anhalt"
+ ],
+ "start": 1795522970,
+ "ende": 1795522974
+}
