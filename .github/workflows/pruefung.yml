@@ -20,7 +20,10 @@ jobs:
       - name: JavaScript-Syntax
         run: for f in js/*.js sw.js; do node --check "$f"; done
       - name: Bots (ohne Internet)
-        run: python3 tests/test_bots.py
+        run: |
+          sudo apt-get install -y -qq fonts-dejavu-core >/dev/null || true
+          pip install -q pillow
+          python3 tests/test_bots.py
       - name: Browser vorbereiten
         run: |
           pip install -q playwright
