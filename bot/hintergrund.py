@@ -3,6 +3,7 @@ Arbeiten NUR für Lucas' Aufträge, parallel zu allen anderen Bots (eigene Warte
 Ablauf: Plan → mehrere Websuchen (Groq Compound) → Antwort mit echten Quellen-Links.
 Ergebnis → data/hintergrund/<id>.json (Jarvis-App zeigt es an) + Telegram-Nachricht."""
 import json, os, re, sys, time
+import jlib
 from jlib import ki, parse_json, store, path, tg
 
 AUFGABE = os.environ.get("AUFGABE", "").strip() or (sys.argv[1] if len(sys.argv) > 1 else "")
@@ -20,7 +21,8 @@ def websuche(frage):
     """Eine Websuche über Groq Compound → (Text, Quellen-Links)."""
     t = ki(ICH + " Recherchiere im Internet und antworte knapp mit den wichtigsten Fakten. "
            "Nenne zu jedem Fakt den Quellen-Link (volle URL).", frage, search=True)
-    return t, [u.rstrip(".,;:") for u in URL.findall(t)]
+    links = [q["url"] for q in jlib.QUELLEN] + [u.rstrip(".,;:") for u in URL.findall(t)]
+    return t, list(dict.fromkeys(links))
 
 
 def main():

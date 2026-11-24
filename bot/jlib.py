@@ -1,10 +1,12 @@
 """Gemeinsame Helfer für Jarvis-Bots (GitHub-API, KI, Telegram, JSON)."""
-import json, os, time, urllib.parse, urllib.request
+import json, os, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 REPO = os.environ.get("GITHUB_REPOSITORY", "lucassebastianbehrens-lang/jarvis")
 GH_TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN", "")
 GROQ = os.environ.get("GROQ_KEY", "")
+_GESPERRT = set()
+QUELLEN = []  # Quellen der letzten Websuche (titel, url)
 
 
 def path(*p):
@@ -66,15 +68,32 @@ def ki(system, user, search=False, json_mode=False):
     """KI-Antwort über Groq (mit Websuche über groq/compound). Ohne GROQ_KEY: leerer Text."""
     msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
     if GROQ:
-        models = ["groq/compound", "groq/compound-mini"] if search else ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"]
-        for m in models:
+        # Websuche: 1) Compound-Systeme, 2) GPT-OSS mit eingebauter Browser-Suche (falls Compound fürs Konto gesperrt ist)
+        versuche = ([("groq/compound", {}), ("groq/compound-mini", {}),
+                     ("openai/gpt-oss-120b", {"tools": [{"type": "browser_search"}], "tool_choice": "required"}),
+                     ("openai/gpt-oss-20b", {"tools": [{"type": "browser_search"}], "tool_choice": "required"})]
+                    if search else [("openai/gpt-oss-120b", {}), ("llama-3.3-70b-versatile", {})])
+        for m, extra in versuche:
+            if m in _GESPERRT:
+                continue
             try:
-                body = {"model": m, "messages": msgs}
+                body = {"model": m, "messages": msgs, **extra}
                 if json_mode and not search:
                     body["response_format"] = {"type": "json_object"}
                 j = http("https://api.groq.com/openai/v1/chat/completions", body,
                          {"Authorization": "Bearer " + GROQ}, timeout=150)
-                return j["choices"][0]["message"]["content"].strip()
+                msg = j["choices"][0]["message"]
+                QUELLEN.clear()
+                for t in msg.get("executed_tools") or []:
+                    sr = t.get("search_results") or {}
+                    for r in (sr.get("results") if isinstance(sr, dict) else sr) or []:
+                        if isinstance(r, dict) and r.get("url"):
+                            QUELLEN.append({"titel": r.get("title", ""), "url": r["url"]})
+                return (msg.get("content") or "").strip()
+            except urllib.error.HTTPError as e:
+                print("Groq", m, e.code, e.read()[:200])
+                if e.code in (403, 404):
+                    _GESPERRT.add(m)  # nicht bei jeder Suche erneut probieren
             except Exception as e:
                 print("Groq", m, e)
     return ""  # ohne GROQ_KEY keine KI (Pollinations verlangt inzwischen Bezahlung und erfindet Links)
