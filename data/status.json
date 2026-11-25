@@ -1,76 +1,81 @@
 {
- "updated": 1795573206,
+ "updated": 1795610502,
  "ok": false,
  "checks": [
   {
    "name": "Leibgarde",
    "ok": true,
-   "info": "ok · vor 14 h"
+   "info": "ok · vor 24 h"
+  },
+  {
+   "name": "Automaton Ava",
+   "ok": true,
+   "info": "ok · vor 19 Min"
   },
   {
    "name": "Trader Toni",
-   "ok": true,
-   "info": "ok · vor 1 h"
+   "ok": false,
+   "info": "letzter Lauf vor 3 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Meme-Makler Max",
    "ok": false,
-   "info": "letzter Lauf vor 3 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 7 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Forscherin Frieda",
    "ok": true,
-   "info": "ok · vor 15 h"
+   "info": "ok · vor 3 h"
   },
   {
    "name": "Agentin Ada",
-   "ok": false,
-   "info": "letzter Lauf vor 4 h (erwartet alle 3 h) → selbst gestartet"
+   "ok": true,
+   "info": "ok · vor 22 Min"
   },
   {
    "name": "Butler Bruno",
    "ok": true,
-   "info": "ok · vor 11 h"
+   "info": "ok · vor 21 h"
   },
   {
    "name": "Scout Sam",
    "ok": true,
-   "info": "ok · vor 2 h"
+   "info": "ok · vor 13 h"
   },
   {
    "name": "Postbote Paul",
    "ok": false,
-   "info": "letzter Lauf vor 2 h (erwartet alle 2 h) → selbst gestartet"
+   "info": "letzter Lauf vor 4 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Regisseurin Rita",
    "ok": true,
-   "info": "ok · vor 41 Min"
+   "info": "ok · vor 11 h"
   },
   {
    "name": "YouTuber Yannik",
    "ok": true,
-   "info": "ok · vor 10 h"
+   "info": "ok · vor 56 Min"
   },
   {
    "name": "Baumeister Bob",
    "ok": true,
-   "info": "ok · vor 40 Min"
+   "info": "ok · vor 21 Min"
   },
   {
    "name": "Funker Fritz",
    "ok": true,
-   "info": "ok · vor 39 Min"
+   "info": "ok · vor 50 Min"
   },
   {
    "name": "Prüferin Paula",
    "ok": true,
-   "info": "ok · vor 41 Min"
+   "info": "ok · vor 22 Min"
   },
   {
    "name": "Spielgeld-Daten",
-   "ok": true,
-   "info": "zuletzt vor 78 Min aktualisiert"
+   "ok": false,
+   "info": "zuletzt vor 176 Min aktualisiert"
   },
   {
    "name": "Jarvis-App online",
@@ -84,8 +89,8 @@
   }
  ],
  "repariert": [
+  "Trader Toni",
   "Meme-Makler Max",
-  "Agentin Ada",
   "Postbote Paul"
  ],
  "verlauf": [
@@ -108,6 +113,11 @@
    "t": 1795573206,
    "ok": 13,
    "n": 16
+  },
+  {
+   "t": 1795610502,
+   "ok": 13,
+   "n": 17
   }
  ]
 }
