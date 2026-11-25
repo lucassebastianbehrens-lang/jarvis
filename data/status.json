@@ -1,11 +1,11 @@
 {
- "updated": 1795541575,
+ "updated": 1795573206,
  "ok": false,
  "checks": [
   {
    "name": "Leibgarde",
    "ok": true,
-   "info": "ok · vor 5 h"
+   "info": "ok · vor 14 h"
   },
   {
    "name": "Trader Toni",
@@ -15,22 +15,22 @@
   {
    "name": "Meme-Makler Max",
    "ok": false,
-   "info": "letzter Lauf vor 5 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 3 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Forscherin Frieda",
    "ok": true,
-   "info": "ok · vor 6 h"
+   "info": "ok · vor 15 h"
   },
   {
    "name": "Agentin Ada",
    "ok": false,
-   "info": "letzter Lauf vor 5 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 4 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Butler Bruno",
    "ok": true,
-   "info": "ok · vor 2 h"
+   "info": "ok · vor 11 h"
   },
   {
    "name": "Scout Sam",
@@ -45,32 +45,32 @@
   {
    "name": "Regisseurin Rita",
    "ok": true,
-   "info": "ok · vor 3 h"
+   "info": "ok · vor 41 Min"
   },
   {
    "name": "YouTuber Yannik",
    "ok": true,
-   "info": "ok · vor 2 h"
+   "info": "ok · vor 10 h"
   },
   {
    "name": "Baumeister Bob",
    "ok": true,
-   "info": "ok · vor 22 Min"
+   "info": "ok · vor 40 Min"
   },
   {
    "name": "Funker Fritz",
    "ok": true,
-   "info": "ok · vor 2 h"
+   "info": "ok · vor 39 Min"
   },
   {
    "name": "Prüferin Paula",
    "ok": true,
-   "info": "ok · vor 23 Min"
+   "info": "ok · vor 41 Min"
   },
   {
    "name": "Spielgeld-Daten",
    "ok": true,
-   "info": "zuletzt vor 69 Min aktualisiert"
+   "info": "zuletzt vor 78 Min aktualisiert"
   },
   {
    "name": "Jarvis-App online",
@@ -101,6 +101,11 @@
   },
   {
    "t": 1795541575,
+   "ok": 13,
+   "n": 16
+  },
+  {
+   "t": 1795573206,
    "ok": 13,
    "n": 16
   }
