@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Was ist günstiger? – Rechner für den Alltag</title>
+<title>Was ist günstiger? – Spar-Rechner: Laden vs Tanken, Standby, Spülmaschine</title>
 <link rel="canonical" href="https://lucassebastianbehrens-lang.github.io/jarvis/sparen/">
 <meta property="og:title" content="Was ist günstiger? – Rechner für den Alltag">
-<meta property="og:description" content="Laden oder Tanken, Standby-Kosten, Wasserkocher oder Herd – eigene Werte eintragen, Ergebnis sofort in Euro.">
+<meta property="og:description" content="Laden oder Tanken, Standby-Kosten, Wasserkocher oder Herd, Spülmaschine oder Handspülen – eigene Werte eintragen, Ergebnis sofort in Euro.">
 <meta property="og:type" content="website"><meta name="robots" content="index,follow">
-<meta name="description" content="Kostenlose Rechner: Laden oder Tanken, was kostet Standby, Wasserkocher oder Herd. Eigene Werte eintragen, sofort Ergebnis in Euro.">
+<meta name="description" content="Kostenlose Rechner: Laden oder Tanken, was kostet Standby, Wasserkocher oder Herd, Spülmaschine oder Handspülen. Eigene Werte eintragen, sofort Ergebnis in Euro.">
 <style>
 :root{--bg:#0f1628;--card:#18223b;--ln:#2a3756;--tx:#eef2fa;--mut:#9fb0cf;--y:#ffcd3c;--g:#46d98a;--r:#ff6b6b}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
@@ -21,7 +21,7 @@ label{display:block;font-size:13px;color:var(--mut)}input{width:100%;margin-top:
 .note{font-size:12px;color:var(--mut);margin-top:10px}footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
 </style></head><body>
 <header><h1>Was ist <span>günstiger?</span></h1><p>Kostenlose Alltags-Rechner. Trag deine eigenen Werte ein – das Ergebnis rechnet sofort in Euro.</p></header>
-<nav><a href="#laden">⚡ Laden vs Tanken</a><a href="#standby">🔌 Standby-Kosten</a><a href="#wasser">🫖 Wasserkocher vs Herd</a></nav>
+<nav><a href="#laden">⚡ Laden vs Tanken</a><a href="#standby">🔌 Standby-Kosten</a><a href="#wasser">🫖 Wasserkocher vs Herd</a><a href="#spuelen">🍽️ Spülmaschine vs Hand</a></nav>
 <main>
 <section id="laden"><h2>⚡ Laden oder Tanken?</h2><p class="sub">Was kosten 100 km mit E-Auto und mit Benziner/Diesel?</p>
 <div class="grid">
@@ -53,12 +53,25 @@ label{display:block;font-size:13px;color:var(--mut)}input{width:100%;margin-top:
 <div class="res"><div class="box" id="w_a">Wasserkocher<b>–</b></div><div class="box" id="w_b">Herd<b>–</b></div></div><div class="verdict" id="w_v"></div>
 <p class="note">Physik: 4,186 kJ erwärmen 1 Liter um 1 °C. Die Wirkungsgrade sind Richtwerte (Ceran-Herd verliert mehr Wärme; Induktion liegt näher am Wasserkocher).</p></section>
 
+<section id="spuelen"><h2>🍽️ Spülmaschine oder Handspülen?</h2><p class="sub">Was kostet eine volle Ladung Geschirr – Wasser und Energie zusammen?</p>
+<div class="grid">
+<label>Spülgänge pro Woche<input id="d_n" type="text" inputmode="decimal" value="4"></label>
+<label>Spülmaschine: Wasser je Gang (Liter)<input id="d_ml" type="text" inputmode="decimal" value="10"></label>
+<label>Spülmaschine: Strom je Gang (kWh)<input id="d_mk" type="text" inputmode="decimal" value="0,8"></label>
+<label>Handspülen: Warmwasser je Ladung (Liter)<input id="d_hl" type="text" inputmode="decimal" value="20"></label>
+<label>Handspülen: Wassertemperatur (°C)<input id="d_ht" type="text" inputmode="decimal" value="45"></label>
+<label>Preis Warmwasser-Energie (€/kWh)<input id="d_wp" type="text" inputmode="decimal" value="0,35"></label>
+<label>Strompreis (€/kWh)<input id="d_sp" type="text" inputmode="decimal" value="0,35"></label>
+<label>Wasser + Abwasser (€/m³)<input id="d_wa" type="text" inputmode="decimal" value="4,5"></label></div>
+<div class="res"><div class="box" id="d_a">Spülmaschine<b>–</b></div><div class="box" id="d_b">Handspülen<b>–</b></div></div><div class="verdict" id="d_v"></div>
+<p class="note">Beispielwerte: Maschine ca. 10 Liter und unter 1 kWh je Spülgang (Umweltbundesamt, Verbraucherzentrale). Handspülen: laut Uni Bonn braucht die Maschine im Schnitt rund 50 % weniger Wasser – daher 20 Liter. Rechnung Hand: Liter × 4,186 kJ × (Temperatur − 12 °C) ÷ 3600 = kWh (ohne Verluste der Heizung). Warmwasser per Gas? Dann ca. 0,12 €/kWh eintragen. Wasserpreis je nach Gemeinde sehr verschieden.</p></section>
+
 <section id="vorlagen"><h2>📒 Finanz-Vorlagen</h2><p class="sub">Haushaltsbuch, 50/30/20-Planer, Schulden-Schneeball, Spar-Challenge – fertige Tabellen zum Sofort-Loslegen.</p>
 <div class="verdict" style="background:#2a3756;color:var(--tx)">Bald hier erhältlich</div></section>
 </main>
 <footer>Alle Rechner kostenlos, ohne Anmeldung, ohne Tracking. Angaben ohne Gewähr – Beispielwerte bitte durch eigene ersetzen.</footer>
 <script>
-const v=id=>parseFloat(document.getElementById(id).value.replace(',','.'))||0,eur=x=>x.toLocaleString('de-DE',{style:'currency',currency:'EUR'}),
+const v=id=>{let t=document.getElementById(id).value.trim().replace(/\s|€|%/g,'');if(t.includes(','))t=t.replace(/\./g,'').replace(',','.');else if(/^\d{1,3}(\.\d{3})+$/.test(t))t=t.replace(/\./g,'');return parseFloat(t)||0},eur=x=>x.toLocaleString('de-DE',{style:'currency',currency:'EUR'}),
 num=(x,d=1)=>x.toLocaleString('de-DE',{maximumFractionDigits:d}),set=(id,h)=>document.getElementById(id).innerHTML=h;
 function laden(){const a=v('l_ev')*v('l_sp'),b=v('l_vb')*v('l_pp'),j=v('l_km')/100;
  set('l_a',`E-Auto<b>${eur(a)}</b>pro 100 km · ${eur(a*j)}/Jahr`);set('l_b',`Verbrenner<b>${eur(b)}</b>pro 100 km · ${eur(b*j)}/Jahr`);
@@ -70,5 +83,9 @@ function wasser(){const kwh=4.186*v('w_l')*Math.max(0,100-v('w_t'))/3600,kk=kwh/
  set('w_a',`Wasserkocher<b>${num(kk*1000,0)} Wh</b>${eur(kk*p*n)}/Jahr`);set('w_b',`Herd<b>${num(hh*1000,0)} Wh</b>${eur(hh*p*n)}/Jahr`);
  document.getElementById('w_a').classList.toggle('win',kk<hh);document.getElementById('w_b').classList.toggle('win',hh<kk);
  set('w_v',kk===hh?'Gleich':`${kk<hh?'Wasserkocher':'Herd'} spart ca. ${eur(Math.abs(hh-kk)*p*n)} pro Jahr`)}
-document.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>{laden();standby();wasser()}));laden();standby();wasser();
+function spuelen(){const n=v('d_n')*52,m=v('d_mk')*v('d_sp')+v('d_ml')/1000*v('d_wa'),hk=4.186*v('d_hl')*Math.max(0,v('d_ht')-12)/3600,h=hk*v('d_wp')+v('d_hl')/1000*v('d_wa');
+ set('d_a',`Spülmaschine<b>${eur(m)}</b>je Ladung · ${eur(m*n)}/Jahr`);set('d_b',`Handspülen<b>${eur(h)}</b>je Ladung · ${eur(h*n)}/Jahr (${num(hk,2)} kWh Wärme)`);
+ document.getElementById('d_a').classList.toggle('win',m<h);document.getElementById('d_b').classList.toggle('win',h<m);
+ set('d_v',m===h?'Gleich teuer':`${m<h?'Spülmaschine':'Handspülen'} spart ca. ${eur(Math.abs(h-m)*n)} pro Jahr`)}
+const alle=()=>{laden();standby();wasser();spuelen()};document.querySelectorAll('input').forEach(i=>i.addEventListener('input',alle));alle();
 </script></body></html>
