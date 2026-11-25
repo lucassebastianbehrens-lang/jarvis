@@ -1,16 +1,16 @@
 {
- "updated": 1795573223,
- "lagebild": "Der Krieg in der Ukraine, insbesondere die Angriffe auf Brücken in Kiew, ist derzeit das weltweit wichtigste Thema. Diese Angriffe gefährden die Stadt Kiew und verursachen erhebliche Logistikprobleme für Russland. In Deutschland führt diese Situation zu steigenden Energie‑ und Spritpreisen sowie zu Turbulenzen an den Börsen, was Lucas direkt betrifft.",
+ "updated": 1795596181,
+ "lagebild": "Weltweit steht das mögliche neue Zöllesystem von Trump, das auch die EU betreffen soll, im Fokus, weil es die globale Wirtschaft stark beeinflussen kann. Diese Handelspolitik führt zu Preissteigerungen bei importierten Gütern und erhöht den Druck auf die Energiepreise. Für Lucas in Deutschland bedeutet das höhere Sprit‑ und Konsumgüterpreise sowie eine volatile Börsenlage.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
-   "anzahl": 31,
-   "heiss": 21,
+   "anzahl": 29,
+   "heiss": 20,
    "meldungen": [
     {
-     "titel": "Brücken Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
+     "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
      "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
      "quelle": "tagesschau"
@@ -34,15 +34,15 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Tote bei russischen Angriffen auf mehrere Brücken in Kiew",
-     "text": "Es ist eine Attacke ins Herz der ukrainischen Hauptstadt: Russland hat in Kiew erneut Brücken beschossen und beschädigt. Mehrere Menschen wurden getötet. Im Nachbarland Polen stürzten drei russische Flugobjekte ab.",
-     "url": "https://www.tagesschau.de/ausland/ukraine-russland-angriffe-bruecken-100.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Deutschland baut künftig ukrainische Drohnen",
      "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
+     "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -51,11 +51,11 @@
    "land": "Ukraine",
    "lat": 49.0,
    "lon": 31.3,
-   "anzahl": 21,
-   "heiss": 16,
+   "anzahl": 20,
+   "heiss": 15,
    "meldungen": [
     {
-     "titel": "Brücken Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
+     "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
      "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
      "quelle": "tagesschau"
@@ -73,12 +73,6 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Tote bei russischen Angriffen auf mehrere Brücken in Kiew",
-     "text": "Es ist eine Attacke ins Herz der ukrainischen Hauptstadt: Russland hat in Kiew erneut Brücken beschossen und beschädigt. Mehrere Menschen wurden getötet. Im Nachbarland Polen stürzten drei russische Flugobjekte ab.",
-     "url": "https://www.tagesschau.de/ausland/ukraine-russland-angriffe-bruecken-100.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Deutschland baut künftig ukrainische Drohnen",
      "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
@@ -88,6 +82,12 @@
      "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
      "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Krieg gegen die Ukraine: Tote nach Angriff auf Mehrfamilienhaus",
+     "text": "Das russische Militär geht weiter unvermindert gegen die Zivilbevölkerung in der Ukraine vor. Mindestens zehn Menschen wurden getötet, als in der Nacht zu Sonntag ein Wohnhaus in der Region Kiew angegriffen wurde.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-wohnhaeuser-104.html",
      "quelle": "tagesschau"
     }
    ]
@@ -100,15 +100,27 @@
    "heiss": 10,
    "meldungen": [
     {
-     "titel": "WHO: Lebenserwartung in Kuba erstmals seit Beginn der Aufzeichnungen gesunken",
-     "text": "Die Lebenserwartung in Kuba ist laut der WHO erstmals in der Geschichte gesunken, die Säuglingssterblichkeit hat sich mehr als verdoppelt. WHO-Chef Tedros macht dafür auch US-Sanktionen verantwortlich - und fordert deren sofortiges Ende.",
-     "url": "https://www.tagesschau.de/ausland/amerika/kuba-lebenserwartungen-who-100.html",
+     "titel": "Europas größte Satellitenfabrik eröffnet",
+     "text": "Die EU will bis 2030 ein eigenes sicheres Kommunikationsnetz im Weltraum aufbauen. Ziel ist es, unabhängiger von Anbietern wie dem US-Dienst Starlink zu werden. Helfen soll dabei Europas größte Satellitenfabrik - sie wurde nun eröffnet.",
+     "url": "https://www.tagesschau.de/ausland/satellitenfabrik-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
+     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
      "quelle": "tagesschau"
     },
     {
      "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
      "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
      "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "WHO: Lebenserwartung in Kuba erstmals seit Beginn der Aufzeichnungen gesunken",
+     "text": "Die Lebenserwartung in Kuba ist laut der WHO erstmals in der Geschichte gesunken, die Säuglingssterblichkeit hat sich mehr als verdoppelt. WHO-Chef Tedros macht dafür auch US-Sanktionen verantwortlich - und fordert deren sofortiges Ende.",
+     "url": "https://www.tagesschau.de/ausland/amerika/kuba-lebenserwartungen-who-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -122,18 +134,6 @@
      "text": "Die USA fordern von Mexiko schon länger ein hartes Vorgehen gegen Kartelle. Nun ist den Behörden offenbar ein hochrangiger Drogenboss ins Netz gegangen. Der Mann zählte auf der Liste des FBI zu den meistgesuchten Verbrechern.",
      "url": "https://www.tagesschau.de/ausland/amerika/mexiko-drogenkartell-chef-festnahme-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Offenbar Hackerangriffe auf FBI und US-Agrarministerium",
-     "text": "Hacker sind Medienberichten zufolge in ein Zahlungssystem des US-Agrarministeriums und in eine Datenbank des FBI eingedrungen. Die Angriffe reihen sich in eine Serie von Systemausfällen und Technikpannen in den USA.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-hackerangriffe-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Iran greift erneut US-Stützpunkt in Bahrain an",
-     "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -141,8 +141,8 @@
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 26,
-   "heiss": 4,
+   "anzahl": 32,
+   "heiss": 6,
    "meldungen": [
     {
      "titel": "COP31: Beschlusstext \"für Deutschland nicht zustimmungsfähig\"",
@@ -163,21 +163,66 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "tagesschau 20:00 Uhr",
-     "text": "Zahl der erfassten Straftaten gegen Frauen erneut gestiegen, Beginn der Haushaltswoche im Bundestag, Frostiger Auftakt der ersten Tarifrunde bei Autobauer Volkswagen, Berliner Linke stimmt für Fraktionsausschluss von Abgeordneter Emde, Bund",
-     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689306.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Linksfraktion in Berlin schließt umstrittene Abgeordnete Vanessa Emde aus",
      "text": "Linksfraktion in Berlin schließt umstrittene Abgeordnete Vanessa Emde aus",
      "url": "https://www.tagesschau.de/tagesthemen/video-1689336.html",
      "quelle": "tagesschau"
     },
     {
+     "titel": "Heftiger Schlagabtausch bei Generaldebatte erwartet",
+     "text": "Kanzler Merz im Fokus: Bei der Haushaltswoche im Bundestag wird heute der Etat des Kanzleramts verhandelt. Traditionell eine Gelegenheit für die Opposition, mit der Regierung abzurechnen. Heftig gestritten werden könnte über die neuen Schul",
+     "url": "https://www.tagesschau.de/inland/innenpolitik/generaldebatte-bundestag-150.html",
+     "quelle": "tagesschau"
+    },
+    {
      "titel": "Berliner Linke schließt Emde aus Fraktion aus",
      "text": "Wochenlang diskutierten Grüne, SPD und Linke in Berlin über die Personalie Emde. Die Abgeordnete steht wegen ihrer Positionen zu Israel in der Kritik. Nun hat die Fraktion mit der nötigen Mehrheit für ihren Ausschluss gestimmt.",
      "url": "https://www.tagesschau.de/inland/innenpolitik/emde-ausschluss-berlin-linke-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Israel",
+   "lat": 31.0,
+   "lon": 34.9,
+   "anzahl": 11,
+   "heiss": 7,
+   "meldungen": [
+    {
+     "titel": "Israel nach der Wahl: Schwierige Sondierungen zwischen Rivalen",
+     "text": "In Israel bleibt Gadi Eisenkot nicht mehr viel Zeit, eine Regierung zu bilden. Aktuell laufen die Gespräche mit Netanjahus Likud-Partei. Dabei gibt es große Differenzen - und kaum Alternativen. Von J. Segador.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-eisenkot-netanjahu-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
+     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israels Armee startet Einsatz in von Hamas kontrolliertem Gebiet",
+     "text": "Die israelische Armee hat eigenen Angaben zufolge eine Bodenoffensive mit Panzern im Zentrum des Gazastreifens begonnen. Das Land kontrolliert inzwischen rund 60 bis 70 Prozent des Gazastreifens militärisch.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-gaza-bodenoffensive-104.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israels Knesset: Eisenkot-Verbündeter als Parlamentspräsident gewählt",
+     "text": "Das israelische Parlament hat Matan Kahana zu seinem neuen Präsidenten und Sprecher gewählt - damit hat der Anti-Netanjahu-Block einen wichtigen Schritt gemacht. Von Bettina Meier.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-knesset-praesident-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israel: Netanjahu wirbt bei Eisenkot um Einheitsregierung",
+     "text": "Eisenkot oder Netanjahu? Die Parlamentswahl in Israel brachte keine eindeutige Antwort. Derzeit sucht Oppositionspolitiker Eisenkot nach Partnern für eine Koalition. Noch-Premier Netanjahu hat seine eigenen Vorstellungen. Von B. Meier.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-einheitsregierung-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israelischer Angriff im Gazastreifen: Ranghoher Hamas-Kommandeur tot",
+     "text": "Die israelische Armee hat im Gazastreifen einen ranghohen Kommandeur der Hamas getötet. Samir Abu Junis soll einer der wichtigsten Köpfe bei der Planung der Attacke auf Israel am 7. Oktober 2023 gewesen sein. Die Hamas bestätigte seinen Tod",
+     "url": "https://www.tagesschau.de/ausland/asien/hamas-kommandeur-gazastreifen-getoetet-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -228,47 +273,47 @@
    ]
   },
   {
-   "land": "Israel",
-   "lat": 31.0,
-   "lon": 34.9,
-   "anzahl": 10,
-   "heiss": 6,
+   "land": "China",
+   "lat": 35.9,
+   "lon": 104.2,
+   "anzahl": 14,
+   "heiss": 1,
    "meldungen": [
     {
-     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
-     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
+     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
+     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Israels Armee startet Einsatz in von Hamas kontrolliertem Gebiet",
-     "text": "Die israelische Armee hat eigenen Angaben zufolge eine Bodenoffensive mit Panzern im Zentrum des Gazastreifens begonnen. Das Land kontrolliert inzwischen rund 60 bis 70 Prozent des Gazastreifens militärisch.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-gaza-bodenoffensive-104.html",
+     "titel": "Treffen von Trump, Xi und Putin: Rüstung, KI - und ein heikles Thema",
+     "text": "Heute beginnt im chinesischen Shenzhen das APEC-Treffen. Erstmals wird es zu einem Dreiertreffen von Xi, Trump und Putin kommen. Um was könnte es dabei gehen? Von Christoph Kober.",
+     "url": "https://www.tagesschau.de/ausland/asien/apec-trump-putin-xi-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Israels Knesset: Eisenkot-Verbündeter als Parlamentspräsident gewählt",
-     "text": "Das israelische Parlament hat Matan Kahana zu seinem neuen Präsidenten und Sprecher gewählt - damit hat der Anti-Netanjahu-Block einen wichtigen Schritt gemacht. Von Bettina Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-knesset-praesident-100.html",
+     "titel": "US-Gericht spricht Huawei wegen Betrugs schuldig",
+     "text": "Der chinesische Technologiekonzern Huawei ist in den USA in einem jahrelangen Strafverfahren schuldig gesprochen worden. Eine Jury in Brooklyn befand das Unternehmen in zehn von zwölf Anklagepunkten für schuldig.",
+     "url": "https://www.tagesschau.de/wirtschaft/weltwirtschaft/huawei-geldwaesche-us-gericht-urteil-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Israel: Netanjahu wirbt bei Eisenkot um Einheitsregierung",
-     "text": "Eisenkot oder Netanjahu? Die Parlamentswahl in Israel brachte keine eindeutige Antwort. Derzeit sucht Oppositionspolitiker Eisenkot nach Partnern für eine Koalition. Noch-Premier Netanjahu hat seine eigenen Vorstellungen. Von B. Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-einheitsregierung-100.html",
+     "titel": "Weniger Hybridautos aus China - EU reguliert den Import",
+     "text": "Die EU will mit Importquoten verhindern, dass günstige chinesische Hybrid-Autos Europas Autobauern Konkurrenz machen. Die Importe hatten sich in den vergangenen zwei Jahren mehr als versechsfacht.",
+     "url": "https://www.tagesschau.de/wirtschaft/hybridautos-china-europa-importe-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Israelischer Angriff im Gazastreifen: Ranghoher Hamas-Kommandeur tot",
-     "text": "Die israelische Armee hat im Gazastreifen einen ranghohen Kommandeur der Hamas getötet. Samir Abu Junis soll einer der wichtigsten Köpfe bei der Planung der Attacke auf Israel am 7. Oktober 2023 gewesen sein. Die Hamas bestätigte seinen Tod",
-     "url": "https://www.tagesschau.de/ausland/asien/hamas-kommandeur-gazastreifen-getoetet-100.html",
-     "quelle": "tagesschau"
+     "titel": "News kompakt: Deutschland will Patriot-Flugabwehr massiv ausbauen",
+     "text": "Die Bundesregierung will erheblich in die Flugabwehr der Bundeswehr investieren. China lässt erstmals einen Ausländer in seine Weltraumstation. Der DW-Nachrichtenüberblick.",
+     "url": "https://www.dw.com/de/news-kompakt-deutschland-will-patriot-flugabwehr-massiv-ausbauen/a-80042756?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     },
     {
-     "titel": "EU: Israel soll Zugang für Helfer in den Gazastreifen gewähren",
-     "text": "Die EU fordert Israel auf, sofort Helfer in den Gazastreifen zu lassen. Dort hatte heftiger Regen die Zelte von Zehntausenden Vertriebenen überschwemmt. Auch die Kälte wird zunehmend zur Gefahr.",
-     "url": "https://www.tagesschau.de/ausland/asien/gaza-hilfsforderung-eu-100.html",
-     "quelle": "tagesschau"
+     "titel": "EU macht Ernst: Erste Importquoten für Hybridautos aus China",
+     "text": "Die EU verhängt ab Dezember Importquoten für Hybridautos aus China. Vergangenes Jahr waren mehr als 300.000 Hybridautos und Plugin-Hybride chinesischer Fabrikate in die EU gekommen.",
+     "url": "https://www.dw.com/de/eu-macht-ernst-erste-importquoten-für-hybridautos-aus-china/a-80030678?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   },
@@ -318,51 +363,6 @@
    ]
   },
   {
-   "land": "China",
-   "lat": 35.9,
-   "lon": 104.2,
-   "anzahl": 11,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Treffen von Trump, Xi und Putin: Rüstung, KI - und ein heikles Thema",
-     "text": "Heute beginnt im chinesischen Shenzhen das APEC-Treffen. Erstmals wird es zu einem Dreiertreffen von Xi, Trump und Putin kommen. Um was könnte es dabei gehen? Von Christoph Kober.",
-     "url": "https://www.tagesschau.de/ausland/asien/apec-trump-putin-xi-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Weniger Hybridautos aus China - EU reguliert den Import",
-     "text": "Die EU will mit Importquoten verhindern, dass günstige chinesische Hybrid-Autos Europas Autobauern Konkurrenz machen. Die Importe hatten sich in den vergangenen zwei Jahren mehr als versechsfacht.",
-     "url": "https://www.tagesschau.de/wirtschaft/hybridautos-china-europa-importe-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "EU macht Ernst: Erste Importquoten für Hybridautos aus China",
-     "text": "Die EU verhängt ab Dezember Importquoten für Hybridautos aus China. Vergangenes Jahr waren mehr als 300.000 Hybridautos und Plugin-Hybride chinesischer Fabrikate in die EU gekommen.",
-     "url": "https://www.dw.com/de/eu-macht-ernst-erste-importquoten-für-hybridautos-aus-china/a-80030678?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "Malaysia: \"Malakka-Datenstraße\" für KI in China",
-     "text": "Leistungsstarke KI-Chips sind in China aufgrund von US-Restriktionen schwer erhältlich. Daher nutzen chinesische Firmen Rechenkapazitäten vorwiegend in Südostasien für ihre KI-Agents. Dies soll nun beendet werden.",
-     "url": "https://www.dw.com/de/malaysia-malakka-datenstraße-für-ki-in-china/a-80029459?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "Studie: Mehrheit der Deutschen gegen mehr Waffen für Ukraine",
-     "text": "Deutschland auf Rückzug? Einer Umfrage zufolge wünschen sich viele Bürger mehr außenpolitische Zurückhaltung. Die Mehrheit lehnt Waffenhilfen für die Ukraine ab und setzt auf Neutralität gegenüber China und den USA.",
-     "url": "https://www.dw.com/de/studie-mehrheit-der-deutschen-gegen-mehr-waffen-für-ukraine/a-80020315?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "ASEAN und China: Die Grenzen diplomatischer Einigung",
-     "text": "Die Philippinen wollten 2026 einen Verhaltenskodex für das Südchinesische Meer abschließen. Doch China und die ASEAN-Staaten streiten weiter über zentrale Fragen. Warum eine Einigung so schwierig ist.",
-     "url": "https://www.dw.com/de/asean-und-china-die-grenzen-diplomatischer-einigung/a-80002867?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
    "land": "Belgien/EU",
    "lat": 50.8,
    "lon": 4.4,
@@ -388,15 +388,15 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Warum Burnham die Nähe zur EU sucht",
-     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
      "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
      "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "11KM-Podcast: Abschiebezentren in Ruanda: Die nächste Stufe der EU-Asylpolitik",
+     "text": "Deutschland und vier weitere EU-Staaten wollen abgelehnte Asylbewerber nach Ruanda abschieben. 11KM analysiert, wohin sich die europäische Migrationspolitik gerade entwickelt.",
+     "url": "https://www.tagesschau.de/inland/gesellschaft/podcast-11km-abschiebezentren-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -460,15 +460,15 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Tote bei russischen Angriffen auf mehrere Brücken in Kiew",
-     "text": "Es ist eine Attacke ins Herz der ukrainischen Hauptstadt: Russland hat in Kiew erneut Brücken beschossen und beschädigt. Mehrere Menschen wurden getötet. Im Nachbarland Polen stürzten drei russische Flugobjekte ab.",
-     "url": "https://www.tagesschau.de/ausland/ukraine-russland-angriffe-bruecken-100.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Polen wirft Russland gezielte Provokation vor",
      "text": "Mehrere Flugkörper sind in den polnischen Luftraum eingedrungen - nach Einschätzung der Regierung eine gezielte Provokation Russlands. Sie könnte in Zusammenhang mit einer Übung der Ukraine-Unterstützer stehen, die derzeit in Polen stattfin",
      "url": "https://www.tagesschau.de/ausland/europa/absturz-russische-flugobjekte-polen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Tote bei russischen Angriffen auf mehrere Brücken in Kiew",
+     "text": "Es ist eine Attacke ins Herz der ukrainischen Hauptstadt: Russland hat in Kiew erneut Brücken beschossen und beschädigt. Mehrere Menschen wurden getötet. Im Nachbarland Polen stürzten drei russische Flugobjekte ab.",
+     "url": "https://www.tagesschau.de/ausland/ukraine-russland-angriffe-bruecken-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -558,7 +558,7 @@
    "land": "Großbritannien",
    "lat": 54.0,
    "lon": -2.5,
-   "anzahl": 4,
+   "anzahl": 3,
    "heiss": 0,
    "meldungen": [
     {
@@ -577,12 +577,6 @@
      "titel": "Junge Menschen profitieren: EU und Großbritannien nähern sich wieder an",
      "text": "Großbritannien gehört seit Jahren nicht mehr zur Europäischen Union. Doch jetzt machen beide Seiten wieder Schritte aufeinander zu. Von einem der ersten Abkommen profitieren vor allem junge Menschen.",
      "url": "https://www.tagesschau.de/ausland/europa/eu-grossbritannien-abkommen-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Warum Burnham die Nähe zur EU sucht",
-     "text": "Der britische Premier Burnham lässt keinen Zweifel aufkommen: Er will London wieder näher an die EU führen, denn er hält den Brexit für gescheitert. Wie weit kann er dabei gehen? Ein EU-UK-Gipfel soll den Prozess beschleunigen. Von C. Pröss",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-uk-gipfel-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -610,33 +604,6 @@
      "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
      "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
      "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Südkorea",
-   "lat": 36.5,
-   "lon": 127.9,
-   "anzahl": 3,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
-     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
-     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Trump wertet Rückkehr des Nvidia-Chefs als eigenen Verdienst - News kompakt: Das Wichtigste kurz gefasst",
-     "text": "US-Präsident Trump sieht sich als Wegbereiter für die Rückkehr des Nvidia-Chefs Jensen Huang. Südkorea hat wegen russischer Militärflugzeuge zeitweise eine Evakuierungswarnung herausgegeben. Der DW-Nachrichtenüberblick.",
-     "url": "https://www.dw.com/de/trump-wertet-rückkehr-des-nvidia-chefs-als-eigenen-verdienst-news-kompakt-das-wichtigste-kurz-gefasst/a-80027604?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -707,6 +674,27 @@
      "text": "Nach dem Tod eines Mannes durch einen Parasiten sind in der Urlaubsregion Yucatán in Mexiko sechs Seen gesperrt worden. Solche Infektionen sind zwar selten, verlaufen aber meistens tödlich. So können Sie sich schützen.",
      "url": "https://www.dw.com/de/was-sie-über-hirnfressende-amöben-wissen-sollten/a-66427073?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
+    }
+   ]
+  },
+  {
+   "land": "Südkorea",
+   "lat": 36.5,
+   "lon": 127.9,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
+     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
+     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
+     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
+     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -806,13 +794,8 @@
  ],
  "ohne_land": [
   {
-   "titel": "Steinmeier appelliert an Wirtschaft: Chancen in Afrika nutzen",
-   "url": "https://www.tagesschau.de/ausland/afrika/steinmeier-deutsch-afrikanischer-wirtschaftsgipfel-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "UN-Bericht: Partner und Verwandte Haupttäter bei Femiziden",
-   "url": "https://www.tagesschau.de/ausland/europa/un-bericht-femizide-unodc-100.html",
+   "titel": "EU will Versorgung mit Arzneimitteln sicherstellen",
+   "url": "https://www.tagesschau.de/ausland/europa/eu-parlament-arzneimittel-100.html",
    "quelle": "tagesschau"
   },
   {
@@ -844,14 +827,19 @@
    "titel": "\"Palisades Fire\" - Angeklagter im zweiten Anlauf schuldig gesprochen",
    "url": "https://www.tagesschau.de/ausland/amerika/prozess-pacific-palisades-feuer-kalifornien-100.html",
    "quelle": "tagesschau"
+  },
+  {
+   "titel": "Internationaler Gerichtshof: Vorgehen Myanmars gegen Rohingya war Völkermord",
+   "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html",
+   "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 53843,
+   "wert": 54114,
    "einheit": "€",
-   "pct": -3.23,
+   "pct": -1.77,
    "verlauf": [
     57416,
     56459,
@@ -860,20 +848,20 @@
     55754,
     56132,
     54515,
-    53811
+    54003
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1509.26,
+   "wert": 1507.19,
    "einheit": "€",
-   "pct": -3.17
+   "pct": -2.81
   },
   {
    "name": "Solana",
-   "wert": 62.66,
+   "wert": 62.2,
    "einheit": "€",
-   "pct": -4.53
+   "pct": -4.71
   },
   {
    "name": "EUR/CHF",
