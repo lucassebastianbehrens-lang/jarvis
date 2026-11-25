@@ -1,6 +1,29 @@
 {
  "auftraege": [
   {
+   "id": "eigen-20261126",
+   "t": 1795650521,
+   "datum": "26.11.2026",
+   "quelle": "Eigenes Tagesangebot",
+   "plattform": false,
+   "url": "",
+   "titel": "10 Social-Media-Posts für Ihr lokales Unternehmen",
+   "original": "10 Social-Media-Posts für einen lokalen Betrieb",
+   "auftrag": "Kein passender fremder Auftrag gefunden – eigenes Angebot zum Posten (Kleinanzeigen, Facebook-Gruppen, Instagram, WhatsApp-Status).",
+   "punkte": 0,
+   "warum": "",
+   "preis_eur": 39,
+   "lieferzeit": "3 Tage",
+   "angebot": "Erhalten Sie 10 individuelle Social‑Media‑Posts, maßgeschneidert für Ihre Zielgruppe, inklusive einzigartiger Bilder, ansprechender Texte und Hashtag‑Planung. Unsere KI‑gestützte Technik garantiert relevanten Content, der Ihre Reichweite steigert. Lieferung in 3 Tagen, damit Sie schnell aktiv werden können – alles für nur 39 € inklusive eines kleinen überarbeitungsfreien Revisionen.\n\nBezahlen per PayPal: https://paypal.me/LucasBehrenski/39EUR",
+   "ergebnis": "Beispiel: \"📸 Unsere #BörnenBräu bringt frischen Wind ins Herz der Börde! Probieren Sie unser Sommer-Special: Eistee & Pommes. 🍃🧡 \n#Börde #Harz #Sommer2026\"",
+   "schritte": [
+    "Briefing • Auswahl von 10 Posts • KI‑Erstellung • Bildauswahl • Texte & Hashtags • Lieferung"
+   ],
+   "paypal": "https://paypal.me/LucasBehrenski/39EUR",
+   "zahlung": "Direkt per PayPal-Link.",
+   "status": "neu"
+  },
+  {
    "id": "fl-40833904",
    "t": 1795565311,
    "datum": "25.11.2026",
@@ -330,11 +353,11 @@
    "status": "neu"
   }
  ],
- "stand": "25.11.2026 16:42",
+ "stand": "26.11.2026 00:48",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
-  "gefunden": 214,
+  "gefunden": 212,
   "gefiltert": 12,
-  "neu": 0
+  "neu": 1
  }
 }
