@@ -1,20 +1,14 @@
 {
- "updated": 1795596181,
- "lagebild": "Weltweit steht das mögliche neue Zöllesystem von Trump, das auch die EU betreffen soll, im Fokus, weil es die globale Wirtschaft stark beeinflussen kann. Diese Handelspolitik führt zu Preissteigerungen bei importierten Gütern und erhöht den Druck auf die Energiepreise. Für Lucas in Deutschland bedeutet das höhere Sprit‑ und Konsumgüterpreise sowie eine volatile Börsenlage.",
+ "updated": 1795609212,
+ "lagebild": "Weltweit sorgen laut Medienberichten die von Präsident Trump geplanten neuen Zölle – auch gegen die EU – für erhebliche Spannungen im internationalen Handel. Diese Zollankündigungen werden voraussichtlich die Preise für importierte Waren in Deutschland erhöhen und damit Lucas’ Kosten für Konsumgüter und Sprit direkt belasten. Gleichzeitig führt die damit verbundene Unsicherheit an den Finanzmärkten zu größerer Volatilität an der deutschen Börse, was Lucas’ Geldanlagen beeinträchtigen kann.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
-   "anzahl": 29,
-   "heiss": 20,
+   "anzahl": 26,
+   "heiss": 18,
    "meldungen": [
-    {
-     "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
-     "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
      "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
@@ -31,6 +25,12 @@
      "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
      "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
      "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
+     "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -52,14 +52,8 @@
    "lat": 49.0,
    "lon": 31.3,
    "anzahl": 20,
-   "heiss": 15,
+   "heiss": 14,
    "meldungen": [
-    {
-     "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
-     "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "\"Koalition der Willigen\" absolviert Militärübung in Polen",
      "text": "Es war die erste militärische Übung der \"Koalition der Willigen\": Hunderte Soldaten haben in Polen getestet, wie in der Ukraine Frieden gesichert werden kann. Zum Ende schlugen nahe dem Gelände russische Raketen ein. Von P. Milling.",
@@ -70,6 +64,12 @@
      "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
      "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
      "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
+     "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -96,9 +96,15 @@
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 27,
-   "heiss": 10,
+   "anzahl": 26,
+   "heiss": 8,
    "meldungen": [
+    {
+     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
+     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "Europas größte Satellitenfabrik eröffnet",
      "text": "Die EU will bis 2030 ein eigenes sicheres Kommunikationsnetz im Weltraum aufbauen. Ziel ist es, unabhängiger von Anbietern wie dem US-Dienst Starlink zu werden. Helfen soll dabei Europas größte Satellitenfabrik - sie wurde nun eröffnet.",
@@ -106,15 +112,15 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
-     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
      "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
      "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
+     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
      "quelle": "tagesschau"
     },
     {
@@ -128,12 +134,6 @@
      "text": "Die Demokraten haben ihre Mehrheit im US-Repräsentantenhaus weiter ausgebaut. Ab Januar stellen sie dort mindestens 258 Abgeordnete - zuletzt gelang ihnen dies vor mehr als 30 Jahren zu Zeiten von Bill Clinton.",
      "url": "https://www.tagesschau.de/ausland/amerika/demokraten-mehrheit-repraesentantenhaus-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mexiko nimmt einen der meistgesuchten Drogenbosse fest",
-     "text": "Die USA fordern von Mexiko schon länger ein hartes Vorgehen gegen Kartelle. Nun ist den Behörden offenbar ein hochrangiger Drogenboss ins Netz gegangen. Der Mann zählte auf der Liste des FBI zu den meistgesuchten Verbrechern.",
-     "url": "https://www.tagesschau.de/ausland/amerika/mexiko-drogenkartell-chef-festnahme-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -142,7 +142,7 @@
    "lat": 51.2,
    "lon": 10.4,
    "anzahl": 32,
-   "heiss": 6,
+   "heiss": 5,
    "meldungen": [
     {
      "titel": "COP31: Beschlusstext \"für Deutschland nicht zustimmungsfähig\"",
@@ -163,21 +163,21 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Linksfraktion in Berlin schließt umstrittene Abgeordnete Vanessa Emde aus",
-     "text": "Linksfraktion in Berlin schließt umstrittene Abgeordnete Vanessa Emde aus",
-     "url": "https://www.tagesschau.de/tagesthemen/video-1689336.html",
+     "titel": "Höhepunkt der Haushaltswoche: Generaldebatte im Bundestag",
+     "text": "Höhepunkt der Haushaltswoche: Generaldebatte im Bundestag",
+     "url": "https://www.tagesschau.de/video/video-1689590.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Heftiger Schlagabtausch bei Generaldebatte erwartet",
-     "text": "Kanzler Merz im Fokus: Bei der Haushaltswoche im Bundestag wird heute der Etat des Kanzleramts verhandelt. Traditionell eine Gelegenheit für die Opposition, mit der Regierung abzurechnen. Heftig gestritten werden könnte über die neuen Schul",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/generaldebatte-bundestag-150.html",
+     "titel": "\"AfD drohte mit Normenkontrollklage\", Nicole Kohnert, ARD Berlin, zur Generaldebatte im Bundestag",
+     "text": "\"AfD drohte mit Normenkontrollklage\", Nicole Kohnert, ARD Berlin, zur Generaldebatte im Bundestag",
+     "url": "https://www.tagesschau.de/video/video-1689638.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Berliner Linke schließt Emde aus Fraktion aus",
-     "text": "Wochenlang diskutierten Grüne, SPD und Linke in Berlin über die Personalie Emde. Die Abgeordnete steht wegen ihrer Positionen zu Israel in der Kritik. Nun hat die Fraktion mit der nötigen Mehrheit für ihren Ausschluss gestimmt.",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/emde-ausschluss-berlin-linke-100.html",
+     "titel": "Bundestag gedenkt der Opfer von Gewalt gegen Frauen mit Schweigeminute",
+     "text": "Bundestag gedenkt der Opfer von Gewalt gegen Frauen mit Schweigeminute",
+     "url": "https://www.tagesschau.de/video/video-1689608.html",
      "quelle": "tagesschau"
     }
    ]
@@ -277,7 +277,7 @@
    "lat": 35.9,
    "lon": 104.2,
    "anzahl": 14,
-   "heiss": 1,
+   "heiss": 2,
    "meldungen": [
     {
      "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
@@ -304,15 +304,15 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "News kompakt: Deutschland will Patriot-Flugabwehr massiv ausbauen",
-     "text": "Die Bundesregierung will erheblich in die Flugabwehr der Bundeswehr investieren. China lässt erstmals einen Ausländer in seine Weltraumstation. Der DW-Nachrichtenüberblick.",
-     "url": "https://www.dw.com/de/news-kompakt-deutschland-will-patriot-flugabwehr-massiv-ausbauen/a-80042756?maca=de-rss-de-all-1119-rdf",
+     "titel": "Chinesische Rakete startet mit Premiere zur Raumstation Tiangong",
+     "text": "Diese Mission ist eine Neuheit: Erstmals schickt China mit einem Raumfahrer aus Pakistan einen Ausländer zu seiner Station Tiangong im Weltall.",
+     "url": "https://www.dw.com/de/chinesische-rakete-startet-mit-premiere-zur-raumstation-tiangong/a-80043558?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     },
     {
-     "titel": "EU macht Ernst: Erste Importquoten für Hybridautos aus China",
-     "text": "Die EU verhängt ab Dezember Importquoten für Hybridautos aus China. Vergangenes Jahr waren mehr als 300.000 Hybridautos und Plugin-Hybride chinesischer Fabrikate in die EU gekommen.",
-     "url": "https://www.dw.com/de/eu-macht-ernst-erste-importquoten-für-hybridautos-aus-china/a-80030678?maca=de-rss-de-all-1119-rdf",
+     "titel": "News kompakt: Deutschland will Patriot-Flugabwehr massiv ausbauen",
+     "text": "Die Bundesregierung will erheblich in die Flugabwehr der Bundeswehr investieren. China lässt erstmals einen Ausländer in seine Weltraumstation. Der DW-Nachrichtenüberblick.",
+     "url": "https://www.dw.com/de/news-kompakt-deutschland-will-patriot-flugabwehr-massiv-ausbauen/a-80042756?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -480,39 +480,6 @@
    ]
   },
   {
-   "land": "Frankreich",
-   "lat": 46.2,
-   "lon": 2.2,
-   "anzahl": 4,
-   "heiss": 2,
-   "meldungen": [
-    {
-     "titel": "Französische Soldaten in der Ukraine - aber nicht zum Kampf",
-     "text": "Russland wirft Frankreich vor, sich mit Soldaten in der Ukraine direkt am Krieg zu beteiligen. Die französische Regierung weist das zurück, bestätigt aber die Anwesenheit von Militärpersonal. Was ist ihre Aufgabe? Von C. Rienäcker.",
-     "url": "https://www.tagesschau.de/ausland/europa/frankreich-unterstuetzung-ukraine-militaer-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Wadephul warnt Iran vor hybriden Angriffen",
-     "text": "Frankreich sieht Iran hinter den Cyberangriffen auf Kühlanlagen - doch das Land dementiert. Die deutschen Behörden haben sich noch nicht festgelegt, Außenminister Wadephul warnte Teheran nun aber vor hybriden Attacken.",
-     "url": "https://www.tagesschau.de/ausland/wadephul-iran-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
-     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
-     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "Philippe Diallo: Europäische Integrität gegen das System Infantino",
-     "text": "Frankreichs Verbandspräsident und UEFA-Kandidat Philippe Diallo fordert FIFA-Präsident Gianni Infantino heraus. Seine Chancen sind gering, doch Justiz und Politik könnten auf seiner Seite sein.",
-     "url": "https://www.dw.com/de/philippe-diallo-europäische-integrität-gegen-das-system-infantino/a-79978574?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
    "land": "Südafrika",
    "lat": -30.6,
    "lon": 22.9,
@@ -550,6 +517,66 @@
      "titel": "Jemen: Saudi-Arabiens Verbündete geraten ins Wanken",
      "text": "Saudi-Arabiens Militärkoalition steckt im Jemen in der Krise. Während die Huthi vorrücken, zerfällt das Bündnis ihrer Gegner. Auch die Sicherheit einer wichtigen Handelsroute steht auf dem Spiel.",
      "url": "https://www.dw.com/de/jemen-saudi-arabiens-verbündete-geraten-ins-wanken/a-79971660?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
+   "land": "Frankreich",
+   "lat": 46.2,
+   "lon": 2.2,
+   "anzahl": 3,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "Wadephul warnt Iran vor hybriden Angriffen",
+     "text": "Frankreich sieht Iran hinter den Cyberangriffen auf Kühlanlagen - doch das Land dementiert. Die deutschen Behörden haben sich noch nicht festgelegt, Außenminister Wadephul warnte Teheran nun aber vor hybriden Attacken.",
+     "url": "https://www.tagesschau.de/ausland/wadephul-iran-102.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
+     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
+     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
+    {
+     "titel": "Philippe Diallo: Europäische Integrität gegen das System Infantino",
+     "text": "Frankreichs Verbandspräsident und UEFA-Kandidat Philippe Diallo fordert FIFA-Präsident Gianni Infantino heraus. Seine Chancen sind gering, doch Justiz und Politik könnten auf seiner Seite sein.",
+     "url": "https://www.dw.com/de/philippe-diallo-europäische-integrität-gegen-das-system-infantino/a-79978574?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
+   "land": "Afghanistan",
+   "lat": 33.9,
+   "lon": 67.7,
+   "anzahl": 4,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "\"Frauenhäuser abgeschafft\", Franziska Amler, ARD Neu-Delhi, zur Gewalt an Frauen in Afghanistan",
+     "text": "\"Frauenhäuser abgeschafft\", Franziska Amler, ARD Neu-Delhi, zur Gewalt an Frauen in Afghanistan",
+     "url": "https://www.tagesschau.de/video/video-1689584.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Taliban lassen Abschiebeflug verschieben",
+     "text": "Ein für heute geplanter Abschiebeflug nach Kabul wurde nach NDR-Informationen von afghanischer Seite abgesagt. Die Taliban wollen offenbar Druck machen, um die Einreise weiterer Konsularbeamte nach Deutschland zu erzwingen. Von P. Hornung.",
+     "url": "https://www.tagesschau.de/inland/innenpolitik/afghanistan-taliban-abschiebeflug-gestoppt-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
+     "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
+     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
+     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
+     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -609,29 +636,29 @@
    ]
   },
   {
-   "land": "Afghanistan",
-   "lat": 33.9,
-   "lon": 67.7,
+   "land": "Indien",
+   "lat": 21.0,
+   "lon": 78.0,
    "anzahl": 3,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "Taliban lassen Abschiebeflug verschieben",
-     "text": "Ein für heute geplanter Abschiebeflug nach Kabul wurde nach NDR-Informationen von afghanischer Seite abgesagt. Die Taliban wollen offenbar Druck machen, um die Einreise weiterer Konsularbeamte nach Deutschland zu erzwingen. Von P. Hornung.",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/afghanistan-taliban-abschiebeflug-gestoppt-100.html",
+     "titel": "\"Frauenhäuser abgeschafft\", Franziska Amler, ARD Neu-Delhi, zur Gewalt an Frauen in Afghanistan",
+     "text": "\"Frauenhäuser abgeschafft\", Franziska Amler, ARD Neu-Delhi, zur Gewalt an Frauen in Afghanistan",
+     "url": "https://www.tagesschau.de/video/video-1689584.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Müssen Geflüchtete bei Taliban-Diplomaten vorsprechen?",
-     "text": "Seit 2024 gibt es Sammelabschiebungen nach Afghanistan und Absprachen mit den Taliban. Taliban-Vertreter sind in Konsulaten in Deutschland aktiv. Dort müssen Geflüchtete vorsprechen, auf Anordnung deutscher Behörden. Ist das zulässig? Von M",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/afghanistan-gefluechtete-taliban-100.html",
-     "quelle": "tagesschau"
+     "titel": "\"Junge Wilde\" aus Asien im Duell: Wer wird Schach-Weltmeister 2026?",
+     "text": "Indiens Titelverteidiger Gukesh Dommaraju gegen Herausforderer Jakhovir Sindarov aus Usbeskistan: Bis Mitte Dezember ringen zwei junge Großmeister in Genf um die Schachkrone. Dass beide aus Asien kommen, ist kein Zufall.",
+     "url": "https://www.dw.com/de/junge-wilde-aus-asien-im-duell-wer-wird-schach-weltmeister-2026/a-80000090?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     },
     {
-     "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
-     "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
-     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
-     "quelle": "tagesschau"
+     "titel": "Indien: Der Mut der Frauen hinter den \"Kakerlaken\"-Protesten",
+     "text": "Trotz Polizeigewalt, Festnahmen und Online-Hetze gehen Frauen in Indien weiter auf die Straße. Sie lassen sich nicht einschüchtern und weigern sich, in die Opferrolle gedrängt zu werden.",
+     "url": "https://www.dw.com/de/indien-der-mut-der-frauen-hinter-den-kakerlaken-protesten/a-79723993?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   },
@@ -741,23 +768,17 @@
    ]
   },
   {
-   "land": "Indien",
-   "lat": 21.0,
-   "lon": 78.0,
-   "anzahl": 2,
+   "land": "Spanien",
+   "lat": 40.4,
+   "lon": -3.7,
+   "anzahl": 1,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "\"Junge Wilde\" aus Asien im Duell: Wer wird Schach-Weltmeister 2026?",
-     "text": "Indiens Titelverteidiger Gukesh Dommaraju gegen Herausforderer Jakhovir Sindarov aus Usbeskistan: Bis Mitte Dezember ringen zwei junge Großmeister in Genf um die Schachkrone. Dass beide aus Asien kommen, ist kein Zufall.",
-     "url": "https://www.dw.com/de/junge-wilde-aus-asien-im-duell-wer-wird-schach-weltmeister-2026/a-80000090?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "Indien: Der Mut der Frauen hinter den \"Kakerlaken\"-Protesten",
-     "text": "Trotz Polizeigewalt, Festnahmen und Online-Hetze gehen Frauen in Indien weiter auf die Straße. Sie lassen sich nicht einschüchtern und weigern sich, in die Opferrolle gedrängt zu werden.",
-     "url": "https://www.dw.com/de/indien-der-mut-der-frauen-hinter-den-kakerlaken-protesten/a-79723993?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
+     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
+     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -775,24 +796,14 @@
      "quelle": "tagesschau"
     }
    ]
-  },
-  {
-   "land": "Libanon",
-   "lat": 33.9,
-   "lon": 35.9,
-   "anzahl": 1,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Riskantes Manöver: Irak will Hisbollah-Brigaden entwaffnen",
-     "text": "Es ist die gefährlichste Auseinandersetzung zwischen dem irakischen Staat und den mit dem Iran verbündeten Milizen seit Jahrzehnten: Irakische Sicherheitskräfte wollen gegen die Miliz Kataib Hisbollah vorgehen.",
-     "url": "https://www.dw.com/de/riskantes-manöver-irak-will-hisbollah-brigaden-entwaffnen/a-80003629?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
   }
  ],
  "ohne_land": [
+  {
+   "titel": "Run auf kostenlose Finnland-Reise für Singles",
+   "url": "https://www.tagesschau.de/ausland/europa/single-urlaub-finnland-100.html",
+   "quelle": "tagesschau"
+  },
   {
    "titel": "EU will Versorgung mit Arzneimitteln sicherstellen",
    "url": "https://www.tagesschau.de/ausland/europa/eu-parlament-arzneimittel-100.html",
@@ -827,19 +838,14 @@
    "titel": "\"Palisades Fire\" - Angeklagter im zweiten Anlauf schuldig gesprochen",
    "url": "https://www.tagesschau.de/ausland/amerika/prozess-pacific-palisades-feuer-kalifornien-100.html",
    "quelle": "tagesschau"
-  },
-  {
-   "titel": "Internationaler Gerichtshof: Vorgehen Myanmars gegen Rohingya war Völkermord",
-   "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html",
-   "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54114,
+   "wert": 53473,
    "einheit": "€",
-   "pct": -1.77,
+   "pct": -2.72,
    "verlauf": [
     57416,
     56459,
@@ -848,20 +854,20 @@
     55754,
     56132,
     54515,
-    54003
+    53347
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1507.19,
+   "wert": 1498.23,
    "einheit": "€",
-   "pct": -2.81
+   "pct": -3.19
   },
   {
    "name": "Solana",
-   "wert": 62.2,
+   "wert": 61.89,
    "einheit": "€",
-   "pct": -4.71
+   "pct": -3.83
   },
   {
    "name": "EUR/CHF",
