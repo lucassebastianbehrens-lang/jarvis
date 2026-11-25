@@ -1,0 +1,399 @@
+{
+ "wunsch": "Excel-Finanzvorlagen als digitaler Download: Haushaltsbuch, Budgetplaner 50/30/20, Schulden-Schneeball, Spar-Challenge",
+ "shop": {
+  "name": "FinanzExcel",
+  "slogan": "Deine Zahlen. Dein Plan.",
+  "palette": "graphit",
+  "hero_titel": "Finanzvorlagen, die dein Geld bewegen",
+  "hero_text": "Einfaches Excel für Haushalt, Budget & Schulden. Sofortiger Download, sofortige Übersicht.",
+  "cta": "Jetzt downloaden",
+  "vorteile": [
+   {
+    "emoji": "🚀",
+    "titel": "Sofortiger Zugriff",
+    "text": "Download nach Zahlung, kein Warten."
+   },
+   {
+    "emoji": "📊",
+    "titel": "Klare Struktur",
+    "text": "Alle Vorlagen sind übersichtlich und anpassbar."
+   },
+   {
+    "emoji": "🔒",
+    "titel": "Sichere Daten",
+    "text": "Nur lokale Speicherung, keine Cloud‑Bindung."
+   },
+   {
+    "emoji": "💡",
+    "titel": "Kostenloses Update",
+    "text": "Alle Vorlagen erhalten lebenslang kostenlose Updates."
+   }
+  ],
+  "produkte": [
+   {
+    "emoji": "📒",
+    "name": "Haushaltsbuch Excel",
+    "preis": 9.99,
+    "alter_preis": null,
+    "kurz": "Behalte deine monatlichen Ausgaben im Blick",
+    "details": [
+     "Format: .xlsx",
+     "Seiten: 12 Tabellenblätter",
+     "Lieferumfang: PDF-Anleitung"
+    ],
+    "badge": "Bestseller"
+   },
+   {
+    "emoji": "📈",
+    "name": "Budgetplaner 50/30/20",
+    "preis": 9.99,
+    "alter_preis": null,
+    "kurz": "Setze dein Einkommen nach der 50/30/20 Regel effizient ein",
+    "details": [
+     "Format: .xlsx",
+     "Seiten: 8 Tabellenblätter",
+     "Lieferumfang: Video-Tutorial"
+    ],
+    "badge": "Neu"
+   },
+   {
+    "emoji": "💰",
+    "name": "Schulden‑Schneeball‑Planer",
+    "preis": 12.49,
+    "alter_preis": 14.99,
+    "kurz": "Räume deine Schulden Schritt für Schritt ab",
+    "details": [
+     "Format: .xlsx",
+     "Seiten: 10 Tabellenblätter",
+     "Lieferumfang: Schritt‑für‑Schritt‑Guide"
+    ],
+    "badge": "Tipp"
+   },
+   {
+    "emoji": "🏆",
+    "name": "Spar‑Challenge 2025",
+    "preis": 7.99,
+    "alter_preis": null,
+    "kurz": "Motiviere dich zum monatlichen Sparen",
+    "details": [
+     "Format: .xlsx",
+     "Seiten: 6 Tabellenblätter",
+     "Lieferumfang: Motivations‑Checkliste"
+    ],
+    "badge": "Neu"
+   }
+  ],
+  "geschichte": "Lucas aus Sachsen‑Anhalt gründete FinanzExcel, weil er selbst nach einfachen Tools suchte, um seine Finanzen zu ordnen. Als Buchhalter erkannte er die Lücke für leicht anpassbare Excel‑Vorlagen. Mit viel Praxis entwickelt er klare, nutzerfreundliche Templates. Heute hilft er Tausenden, ihre Geldziele stressfrei zu erreichen.",
+  "angebot": "Erstbesteller erhalten 10 % Rabatt bei Bestellungen ab 20 €",
+  "faq": [
+   {
+    "f": "Wie lange dauert die Lieferung?",
+    "a": "Der Download ist sofort nach Zahlung verfügbar."
+   },
+   {
+    "f": "Entstehen Versandkosten?",
+    "a": "Nein, alle Produkte sind digitale Downloads ohne Versand."
+   },
+   {
+    "f": "Kann ich innerhalb von 14 Tagen zurückgeben?",
+    "a": "Ja, du bekommst den vollen Kaufpreis zurück, solange die Datei nicht heruntergeladen wurde."
+   },
+   {
+    "f": "Welche Zahlungsmöglichkeiten gibt es?",
+    "a": "PayPal, Kreditkarte und Sofortüberweisung werden akzeptiert."
+   },
+   {
+    "f": "Wie kann ich den Kundensupport kontaktieren?",
+    "a": "Per E‑Mail an support@finanzeexcel.de oder über das Kontaktformular im Shop."
+   }
+  ],
+  "seo_titel": "Excel Finanzvorlagen – Haushaltsbuch, Budgetplaner & Schuldenplaner",
+  "seo_beschreibung": "Praktische Excel‑Vorlagen für Haushalt, Budget nach 50/30/20 und Schulden‑Schneeball. Sofortiger Download, einfach anpassbar – starte jetzt!",
+  "tiktok_ideen": [
+   "Zeige in 30 Sekunden, wie das Haushaltsbuch deine Ausgaben visualisiert.",
+   "Vorher‑Nachher: Budgetplaner 50/30/20 – Geld umverteilen und sparen.",
+   "Schulden‑Schneeball‑Challenge – wöchentlicher Fortschritt mit Excel‑Charts.",
+   "Live‑Demo: So richtest du die Spar‑Challenge‑Vorlage in 2 Minuten ein.",
+   "Kundenstory: Wie Lucas' Vorlagen einem Nutzer half, 500 € im Monat zu sparen."
+  ]
+ },
+ "panel": [
+  {
+   "typ": "Schnäppchenjägerin, 34, vergleicht jeden Preis",
+   "anteil": 6,
+   "nr": 1,
+   "note": 6,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Der Preiskampf-Charakter fehlt. Die 2,50 € Ersparnis beim Schuldenplaner wirkt marginal, und ohne Vergleichswert (Durchstreichen des Preis) oder klaren Bundle-Deals fühlt sich das Angebot nicht wie ein echtes Schnäppchen an.",
+   "wunsch": "Ein nach oben angesetzter 'UVP'-Preis für die Rabatte und ein spezielles 'Alles-Inklusive'-Bundle-Angebot, das pro Zettel deutlich billiger wirkt."
+  },
+  {
+   "typ": "Student, 21, wenig Geld, kauft am Handy",
+   "anteil": 5,
+   "nr": 2,
+   "note": 7,
+   "sehr_gut": false,
+   "oefter_kaufen": true,
+   "kritik": "Zu wenig visuelle Einpackung der Funktionen. Die Beschreibungen sind sehr technisch (Tabellenblätter, Formate), aber es sieht nicht sofort cool aus. Außerdem fehlen Meinungen anderer Students.",
+   "wunsch": "Kurze, dynamische Screenshots oder Animationen, die zeigen, wie der Budgetplaner auf dem Handy am PC aussieht, und ein paar Zitate von anderen jungen Nutzern."
+  },
+  {
+   "typ": "Familienvater, 41, will Qualität und schnelle Lieferung",
+   "anteil": 5,
+   "nr": 3,
+   "note": 8,
+   "sehr_gut": false,
+   "oefter_kaufen": true,
+   "kritik": "Fehlende Reputation. Als Familienvater brauche ich Transparenz: Wo sind die Bewertungen (Sterne)? Wer hat das Produkt 'Bestseller' genannt? Ohne Social Proof fehlt das Vertrauen für den Kauf.",
+   "wunsch": "Ein Bereich für Kundenstimmungen mit Fotos und Bewertungen sowie ein explizites Versprechen wie 'Über 1.000 Käufer vertrauen uns'."
+  },
+  {
+   "typ": "Rentnerin, 68, liest alles genau, misstraut Online-Shops",
+   "anteil": 4,
+   "nr": 4,
+   "note": 5,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Das Design wirkt anmaßend und die Bilder (flache Icons statt echter Vorschau) sind nicht vertrauenswürdig. Als Rentnerin will ich wissen, wer 'Lucas' ist und was das Impressum sagt, bevor ich einen Cent ausgebe.",
+   "wunsch": "Größere Schriftgrößen, ein Foto von Lucas (Privatanbieter wirkt persönlicher) und klare, einfache Sprache ohne 'Download'-Jargon. Ein echter Screenshot der Tabelle statt eines Notizbuch-Icons."
+  },
+  {
+   "typ": "Geschenkekäuferin, 29, sucht etwas Besonderes",
+   "anteil": 5,
+   "nr": 5,
+   "note": 4,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Null Wertigkeit für ein Geschenk. Eine Excel-Datei lässt sich nicht im Folianten einwickeln. Das Gesamtbild wirkt trockener Finanz-Haushaltspflege und hat nichts mit dem 'Besonderen' gemein.",
+   "wunsch": "Option für eine personalisierte PDF-Vorschau oder eine optionale, schöne Druckvorlage, die man einrahmen kann, um das digitale Produkt als physisches Geschenk übergeben zu können."
+  },
+  {
+   "typ": "Handwerker, 47, kurz angebunden, will Fakten",
+   "anteil": 4,
+   "nr": 1,
+   "note": 5,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Bestellungen noch nicht möglich – kein klarer Kaufprozess",
+   "wunsch": "Live‑Bestellbutton und sofortige Zahlungsabwicklung"
+  },
+  {
+   "typ": "Nachhaltigkeits-Fan, 31, achtet auf Herkunft und Material",
+   "anteil": 4,
+   "nr": 2,
+   "note": 7,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Keine Angaben zur ökologischen Bilanz der digitalen Infrastruktur",
+   "wunsch": "Informationen zu Serverenergie, CO2‑Ausgleich und Nutzung erneuerbarer Energien"
+  },
+  {
+   "typ": "Impulskäufer, 25, kommt über TikTok",
+   "anteil": 5,
+   "nr": 3,
+   "note": 6,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Shop ist noch nicht live – kein sofortiger Kauf möglich",
+   "wunsch": "Launch des Shops mit sofortigem Zugriff und klaren Call‑to‑Action‑Buttons"
+  },
+  {
+   "typ": "Skeptiker, 52, sucht Impressum, Rückgabe, Kontakt",
+   "anteil": 4,
+   "nr": 4,
+   "note": 6,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Kein funktionierender Checkout trotz Angaben zu Rückgabe und Impressum",
+   "wunsch": "Einen echten Bestellvorgang mit Zahlungsoptionen einbinden"
+  },
+  {
+   "typ": "Mutter, 36, wenig Zeit, will es einfach",
+   "anteil": 5,
+   "nr": 5,
+   "note": 5,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Unklare Kauf‑ und Download‑Abläufe; keine Möglichkeit sofort zu bestellen",
+   "wunsch": "Einfachen One‑Click‑Kauf und automatischen Download"
+  },
+  {
+   "typ": "Design-Liebhaberin, 27, achtet auf Optik",
+   "anteil": 4,
+   "nr": 1,
+   "note": 6,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Fehlende visuelle Produktpräsentation, kein Design‑Preview",
+   "wunsch": "Mehr ansprechende Bilder, Theme‑Design und Farbpalette"
+  },
+  {
+   "typ": "Stammkunde-Typ, 45, kauft gern wieder, wenn Service stimmt",
+   "anteil": 4,
+   "nr": 2,
+   "note": 7,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Kein Kauf‑Button, Service noch nicht verfügbar",
+   "wunsch": "Schnelle Bestellmöglichkeit und klare Service‑Prozesse"
+  },
+  {
+   "typ": "Technik-Fan, 33, will Details und Maße",
+   "anteil": 3,
+   "nr": 3,
+   "note": 8,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Mangel an technischen Spezifikationen, z. B. Excel‑Version",
+   "wunsch": "Detailierte technische Infos und Kompatibilitätsangaben"
+  },
+  {
+   "typ": "Landwirt, 58, regional, vertraut Kleinbetrieben",
+   "anteil": 3,
+   "nr": 4,
+   "note": 7,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Mangelnde lokale Präsenz, kein regionaler Support",
+   "wunsch": "Regionaler Support und ggf. physische Versionen"
+  },
+  {
+   "typ": "Azubi, 18, erster eigener Einkauf",
+   "anteil": 3,
+   "nr": 5,
+   "note": 8,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Keine Kauf‑Option, unsichere Zahlung",
+   "wunsch": "Klare Bestellprozesse, sichere Zahlungsmöglichkeiten"
+  },
+  {
+   "typ": "Selbstständige, 39, kauft für ihr Geschäft",
+   "anteil": 4,
+   "nr": 1,
+   "note": 8,
+   "sehr_gut": true,
+   "oefter_kaufen": true,
+   "kritik": "Das Fehlen einer konkreten Filterfunktion für Geschäfts- oder Selbstständigen-Ausgaben (z.B. Vorsteuer/Rechnungsstellung) in den Produktbeschreibung unscharf.",
+   "wunsch": "Ein Excel-Template speziell für die einfache Gewinnermittlung (Kleinunternehmer) mit automatischer Summierung der Einnahmen/Ausgaben."
+  },
+  {
+   "typ": "Großeltern-Paar, 71, kauft für Enkel",
+   "anteil": 3,
+   "nr": 2,
+   "note": 8,
+   "sehr_gut": true,
+   "oefter_kaufen": true,
+   "kritik": "Ökosystem ist Excel-basiert, was für Ältere oft technisch einschüchternd wirkt, da kein direkter Bezug zu simpleren Wegen (wie Papier) oder mobilem Access hergestellt wird.",
+   "wunsch": "Hochauflösende Beispieldateien direkt in der Vorschau, die zeigen, wie die Blätter nach der Bearbeitung aussehen, um technische Hemmschwellen abzubauen."
+  },
+  {
+   "typ": "Fitness-Typ, 28, achtet auf Nutzen",
+   "anteil": 3,
+   "nr": 3,
+   "note": 7,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Der primäre Nutzen ist rein administrativ (Buchhaltung); der direkte 'Fortschritt' (Gamification) wird nur durch die Spar-Challenge lediglich angedeutet und könnte im Vordergrund stehen.",
+   "wunsch": "Eine dynamische Dashboard-Seite in den Vorlagen, die die 'Fitness der Finanzen' als Prozentbalken oder Ampel-System direkt visualisiert."
+  },
+  {
+   "typ": "Pendlerin, 44, kauft abends im Zug",
+   "anteil": 4,
+   "nr": 4,
+   "note": 9,
+   "sehr_gut": true,
+   "oefter_kaufen": true,
+   "kritik": "Klare Layouts sind gut, aber die Navigation bei kleinen Displays (wie Zughandy) erfordert viel vertikales Scrollen, wenn man schnell Preise vergleichen will.",
+   "wunsch": "Ein mobiles 'Quick-View' Feature oder ein besonders klebriger (sticky) Call-to-Action-Button, da die Hauptnavigation oben weit weg ist."
+  },
+  {
+   "typ": "Sammler, 50, Liebhaber der Nische",
+   "anteil": 3,
+   "nr": 5,
+   "note": 6,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Die Bildergalerie der Produkte (nur Icons/Kacheln) wirkt unprofessionell und unterminiert das Gefühl eines hochwertigen Nischen-Produkts; das Design wirkt generisch.",
+   "wunsch": "Eine anspruchsvollere Produktpräsentation mit Screenshot-Detailaufnahmen der komplexen Tabellenlogik, wie sie es ein 'Affine Kassen-Manager' zu schätzen wüsste."
+  },
+  {
+   "typ": "Preis-Leistungs-Rechner, 37, rechnet nach",
+   "anteil": 4,
+   "nr": 1,
+   "note": 7,
+   "sehr_gut": false,
+   "oefter_kaufen": true,
+   "kritik": "Preis erscheint etwas hoch im Vergleich zu kostenlosen Vorlagen auf dem Markt.",
+   "wunsch": "Klare Preis‑Tiers mit mehr kostenlosen Basisoptionen und einer detaillierten Kosten‑Nutzungs‑Analyse"
+  },
+  {
+   "typ": "Erstbesucherin, 30, kennt die Marke nicht",
+   "anteil": 5,
+   "nr": 2,
+   "note": 5,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Mangel an Markenstory und Kundenbewertungen erschwert Vertrauen bei Erstbesuchern.",
+   "wunsch": "Mehr Kunden‑Testimonials, eine kurze Marken‑Biografie und ein FAQ‑Video"
+  },
+  {
+   "typ": "Tierfreundin, 26, emotional, liebt Geschichten",
+   "anteil": 3,
+   "nr": 3,
+   "note": 6,
+   "sehr_gut": false,
+   "oefter_kaufen": false,
+   "kritik": "Die Produktpräsentation ist sachlich; fehlt emotionale Storytelling, besonders für Tierliebhaber.",
+   "wunsch": "Erzählungen und Fallstudien, wie die Vorlagen bei Tier‑Sorgen oder -Beihilfe helfen können"
+  },
+  {
+   "typ": "Vielbestellerin, 42, vergleicht mit großen Shops",
+   "anteil": 4,
+   "nr": 4,
+   "note": 8,
+   "sehr_gut": false,
+   "oefter_kaufen": true,
+   "kritik": "Das Sortiment ist gut, aber die Auswahl an Bundles und Kombinationsrabatten ist begrenzt.",
+   "wunsch": "Ein Bundle‑System oder ein Abonnementmodell für mehrere Vorlagen"
+  },
+  {
+   "typ": "Sparfuchs-Rentner, 66, nur wenn es sich lohnt",
+   "anteil": 3,
+   "nr": 5,
+   "note": 7,
+   "sehr_gut": false,
+   "oefter_kaufen": true,
+   "kritik": "Die Rentner‑Kunden brauchen klarere Beweise für ROI und Nutzen.",
+   "wunsch": "Konkrete Fallstudien, Kosten‑Nutzen‑Rechner und Erfolgsgeschichten"
+  }
+ ],
+ "verlauf": [
+  {
+   "runde": 1,
+   "zustimmung": 11.0,
+   "kritik": "- (6.000 Kunden. Schnäppchenjägerin. 34. vergleicht jeden Preis): Der Preiskampf-Charakter fehlt. Die 2.50 € Ersparnis beim Schuldenplaner wirkt marginal. und ohne Vergleichswert (Durchstreichen des Preis) oder klaren Bundle-Deals fühlt sich das Angebot nicht wie ein echtes Schnäppchen an. -> Wunsch: Ein nach oben angesetzter 'UVP'-Preis für die Rabatte und ein spezielles 'Alles-Inklusive'-Bundle-Angebot. das pro Zettel deutlich billiger wirkt.\n- (5.000 Kunden. Student. 21. wenig Geld. kauft am Handy): Zu wenig visuelle Einpackung der Funktionen. Die Beschreibungen sind sehr technisch (Tabellenblätter. Formate). aber es sieht nicht sofort cool aus. Außerdem fehlen Meinungen anderer Students. -> Wunsch: Kurze. dynamische Screenshots oder Animationen. die zeigen. wie der Budgetplaner auf dem Handy am PC aussieht. und ein paar Zitate von anderen jungen Nutzern.\n- (5.000 Kunden. Familienvater. 41. will Qualität und schnelle Lieferung): Fehlende Reputation. Als Familienvater brauche ich Transparenz: Wo sind die Bewertungen (Sterne)? Wer hat das Produkt 'Bestseller' genannt? Ohne Social Proof fehlt das Vertrauen für den Kauf. -> Wunsch: Ein Bereich für Kundenstimmungen mit Fotos und Bewertungen sowie ein explizites Versprechen wie 'Über 1.000 Käufer vertrauen uns'.\n- (5.000 Kunden. Geschenkekäuferin. 29. sucht etwas Besonderes): Null Wertigkeit für ein Geschenk. Eine Excel-Datei lässt sich nicht im Folianten einwickeln. Das Gesamtbild wirkt trockener Finanz-Haushaltspflege und hat nichts mit dem 'Besonderen' gemein. -> Wunsch: Option für eine personalisierte PDF-Vorschau oder eine optionale. schöne Druckvorlage. die man einrahmen kann. um das digitale Produkt als physisches Geschenk übergeben zu können.\n- (5.000 Kunden. Impulskäufer. 25. kommt über TikTok): Shop ist noch nicht live – kein sofortiger Kauf möglich -> Wunsch: Launch des Shops mit sofortigem Zugriff und klaren Call‑to‑Action‑Buttons\n- (5.000 Kunden. Mutter. 36. wenig Zeit. will es einfach): Unklare Kauf‑ und Download‑Abläufe; keine Möglichkeit sofort zu bestellen -> Wunsch: Einfachen One‑Click‑Kauf und automatischen Download\n- (5.000 Kunden. Erstbesucherin. 30. kennt die Marke nicht): Mangel an Markenstory und Kundenbewertungen erschwert Vertrauen bei Erstbesuchern. -> Wunsch: Mehr Kunden‑Testimonials. eine kurze Marken‑Biografie und ein FAQ‑Video\n- (4.000 Kunden. Rentnerin. 68. liest alles genau. misstraut Online-Shops): Das Design wirkt anmaßend und die Bilder (flache Icons statt echter Vorschau) sind nicht vertrauenswürdig. Als Rentnerin will ich wissen. wer 'Lucas' ist und was das Impressum sagt. bevor ich einen Cent ausgebe. -> Wunsch: Größere Schriftgrößen. ein Foto von Lucas (Privatanbieter wirkt persönlicher) und klare. einfache Sprache ohne 'Download'-Jargon. Ein echter Screenshot der Tabelle statt eines Notizbuch-Icons.\n- (4.000 Kunden. Handwerker. 47. kurz angebunden. will Fakten): Bestellungen noch nicht möglich – kein klarer Kaufprozess -> Wunsch: Live‑Bestellbutton und sofortige Zahlungsabwicklung\n- (4.000 Kunden. Nachhaltigkeits-Fan. 31. achtet auf Herkunft und Material): Keine Angaben zur ökologischen Bilanz der digitalen Infrastruktur -> Wunsch: Informationen zu Serverenergie. CO2‑Ausgleich und Nutzung erneuerbarer Energien\n- (4.000 Kunden. Skeptiker. 52. sucht Impressum. Rückgabe. Kontakt): Kein funktionierender Checkout trotz Angaben zu Rückgabe und Impressum -> Wunsch: Einen echten Bestellvorgang mit Zahlungsoptionen einbinden\n- (4.000 Kunden. Design-Liebhaberin. 27. achtet auf Optik): Fehlende visuelle Produktpräsentation. kein Design‑Preview -> Wunsch: Mehr ansprechende Bilder. Theme‑Design und Farbpalette\n- (4.000 Kunden. Stammkunde-Typ. 45. kauft gern wieder. wenn Service stimmt): Kein Kauf‑Button. Service noch nicht verfügbar -> Wunsch: Schnelle Bestellmöglichkeit und klare Service‑Prozesse\n- (4.000 Kunden. Preis-Leistungs-Rechner. 37. rechnet nach): Preis erscheint etwas hoch im Vergleich zu kostenlosen Vorlagen auf dem Markt. -> Wunsch: Klare Preis‑Tiers mit mehr kostenlosen Basisoptionen und einer detaillierten Kosten‑Nutzungs‑Analyse\n- (4.000 Kunden. Vielbestellerin. 42. vergleicht mit großen Shops): Das Sortiment ist gut. aber die Auswahl an Bundles und Kombinationsrabatten ist begrenzt. -> Wunsch: Ein Bundle‑System oder ein Abonnementmodell für mehrere Vorlagen"
+  },
+  {
+   "runde": 2,
+   "zustimmung": 10.0,
+   "kritik": "- (6.000 Kunden. Schnäppchenjägerin. 34. vergleicht jeden Preis): Die angezeigten Preise (9.99 €) sind im Vergleich zum enormen Zeitvorteil der Tools einen Cent zu hoch. schreitet aber ein klassisches Schnäppchen an. -> Wunsch: Einen einhelligen. aufsehenerregenden 'Launch-Tarif' für alle drei Vorlagen als Bundle (z.B. jetzt 9.99 € statt 31.97 €).\n- (5.000 Kunden. Student. 21. wenig Geld. kauft am Handy): Der auffällige Hinweis zur Verkaufssperre und die eingeschränkte Auswahl an nur drei Produkten sind auf dem Handy frustrierend und abstrusierend. -> Wunsch: Klaren Lauf der ersten Gratis-Vorlage zum Testen und den Verzicht auf die nervige Vorschau-Gelbwarnung.\n- (5.000 Kunden. Familienvater. 41. will Qualität und schnelle Lieferung): Immerhin die explizite Vermeidung von Cloud-Risiken punktet. aber komplette Ausbleiben jeglicher Kundenbewertungen oder gar einer Rückgabegarantie sind ein absolutes No-Go. -> Wunsch: Saubere. verifikte Rezensionen anderer Nutzer sowie ein offensichtlicher 30-Tage-Geld-zurück-Hinweis im Produkt-Bereich.\n- (5.000 Kunden. Geschenkekäuferin. 29. sucht etwas Besonderes): Der Inhalt ist fast reiner Selbstbezug ('dein Geld'. 'deine Ausgaben'). was jemanden. der es für seine Eltern sucht. emotional direkt abweist. -> Wunsch: Ein kluger Geschenk-Guide-Tab oder ein persönliches. digitales Grußkarten-PDF. das zusammen mit der Tabelle verschickt wird.\n- (5.000 Kunden. Impulskäufer. 25. kommt über TikTok): Der Call‑to‑Action wirkt wie ein Kauf‑Button. führt aber zu keiner Transaktion – frustrierend für Impulskäufer -> Wunsch: Sofortiger Checkout aktivieren und schnelle. mobile‑optimierte Kaufabwicklung anbieten\n- (5.000 Kunden. Mutter. 36. wenig Zeit. will es einfach): Zu viel Text. unklare Kauf‑Buttons; viel Zeit nötig. um das Angebot zu verstehen -> Wunsch: Übersichtliche. zeitsparende Darstellung mit klaren. aktivierten Kauf‑Buttons und kurzer Produkt‑Zusammenfassung\n- (5.000 Kunden. Erstbesucherin. 30. kennt die Marke nicht): Vertrauensdefizit durch fehlende echte Bewertungen. logos oder ein deutliches Gesicht hinter der Marke (Geschäftsführung). -> Wunsch: Erste Videobewertungen oder ein Persönlichkeits-Pitch des Gründers.\n- (4.000 Kunden. Rentnerin. 68. liest alles genau. misstraut Online-Shops): Der vollständige Ausfall der kaufmännischen Hinweise (AGB. Impressum) und das ungeklärte Datenschutzthema ruinieren jede Idee des Vertrauens. -> Wunsch: Ein detaillierter. stichfester Text mit Anbieterdaten. klare Erklärungen zu den Zahlungsarten (z.B. PayPal) und echten Kundenstimmen.\n- (4.000 Kunden. Handwerker. 47. kurz angebunden. will Fakten): Keine Möglichkeit zu bestellen. nur Vorschau – das wirkt unprofessionell und kostet Vertrauen -> Wunsch: Shop öffnen bzw. Vorbestellung ermöglichen. klare Preis- und Lieferinfos\n- (4.000 Kunden. Nachhaltigkeits-Fan. 31. achtet auf Herkunft und Material): Keine Angaben zur Nachhaltigkeit der digitalen Produkte (Server‑Energie. Öko‑Zertifikate) -> Wunsch: Transparente Informationen zur Umweltbilanz und ggf. klimaneutralen Hosting‑Anbieter bereitstellen\n- (4.000 Kunden. Skeptiker. 52. sucht Impressum. Rückgabe. Kontakt): Impressum. Datenschutz und Kontaktangaben nur als Links ohne Inhalt sichtbar – wirkt unseriös -> Wunsch: Vollständige rechtliche Texte und Kontaktmöglichkeiten (Telefon. E‑Mail) direkt einblenden\n- (4.000 Kunden. Design-Liebhaberin. 27. achtet auf Optik): Die Ästhetik wirkt eher funktional-brisant mit den simplen Standard-Emojis als Produktbildern und durch die gelbe Warntafel am Kopf nicht sehr hochwertig. -> Wunsch: Echte. professionelle Screenshots der Excel-Sheets als Vorschaubilder statt Emojis.\n- (4.000 Kunden. Stammkunde-Typ. 45. kauft gern wieder. wenn Service stimmt): Die große 'Fehler' Meldung am Anfang und das Fehlen einer echten Kontaktaufnahme oder eines 'Über uns'-Texts wirken etwas rüde. -> Wunsch: Einen E-Mail-Newsletter zum Verkaufsstart. damit ich direkt Bescheid weiß. und die Fehlermeldung in einen Aufzählungs-Ticker ändern.\n- (4.000 Kunden. Selbstständige. 39. kauft für ihr Geschäft): Kein Kaufprozess verfügbar -> Wunsch: Klarer Bestell- und Zahlungsweg. sofortiger Download nach Zahlung\n- (4.000 Kunden. Pendlerin. 44. kauft abends im Zug): Keine mobile Optimierung für Zug-Tablet -> Wunsch: Responsive Design und Offline-Zugriff auf Vorlagen"
+  },
+  {
+   "runde": 6,
+   "zustimmung": 9.0,
+   "kritik": "- (6.000 Kunden. Schnäppchenjägerin. 34. vergleicht jeden Preis): Kaufprozess unklar – Bestellungen noch nicht möglich. Preisangaben ohne Rabattvergleich. -> Wunsch: Klarere Kaufphase und Preisvergleich/Discount-Option.\n- (5.000 Kunden. Student. 21. wenig Geld. kauft am Handy): Keine klare Bestellbestätigung. App-Optimierung unklar. -> Wunsch: Mobile Checkout und Bestellbestätigung per App.\n- (5.000 Kunden. Familienvater. 41. will Qualität und schnelle Lieferung): Keine Möglichkeit. sofort zu kaufen; Vertrauen in Lieferung fehlt. -> Wunsch: Echtzeitbestellbarkeit und Lieferzeiten anzeigen.\n- (5.000 Kunden. Geschenkekäuferin. 29. sucht etwas Besonderes): Begrenzte Auswahl an besonderen Geschenkoptionen. -> Wunsch: Mehr Geschenk-Features. personalisierte Empfehlungen.\n- (5.000 Kunden. Impulskäufer. 25. kommt über TikTok): Das Gefühl von 'abgefahrenem Tool' fehlt etwas; der Vorschau-Banner nimmt die gesamte Euphorie. die man vom TikTok-Video mitbringt. -> Wunsch: Unter dem Button 'Jetzt Vorlagen sichern' einen Countdown auf den Verkaufsstart oder eine E-Mail-Liste für den Launch einbauen.\n- (5.000 Kunden. Erstbesucherin. 30. kennt die Marke nicht): Unklare Produktbeschreibungen und fehlende Markenidentität -> Wunsch: Mehr Vertrauen durch Testimonials und klare Markenstory\n- (4.000 Kunden. Rentnerin. 68. liest alles genau. misstraut Online-Shops): Fehlender Kaufabschluss. Vertrauen durch fehlende Kundenerfahrung. -> Wunsch: Klare Kaufmöglichkeiten und Kundenbewertungen.\n- (4.000 Kunden. Handwerker. 47. kurz angebunden. will Fakten): Die 'Vorschau' dazu. dass keine Bestellungen möglich sind. ist für den Kaufprozess irrelevant und nervig – man will testen. -> Wunsch: Verkaufsstart beschleunigen oder Test-Link für den 1.99€-Schnupperkauf bereits jetzt freischalten.\n- (4.000 Kunden. Nachhaltigkeits-Fan. 31. achtet auf Herkunft und Material): Es gibt keine Hinweise auf nachhaltige Papierersatz-Effekte oder eine ethische Hersteller-Philosophie. -> Wunsch: Kurz und knapp erwähnen. dass digitaler Einsatz Papier spart und der Shop ressourcenschonend gehostet wird.\n- (4.000 Kunden. Skeptiker. 52. sucht Impressum. Rückgabe. Kontakt): Der Hinweis 'Impressum folgen vor Verkaufsstart' löst sofort Misstrauen aus – keine transparente Identität. -> Wunsch: Impressum. Datenschutz und AGB sofort und vollständig einbinden. bevor der Verkauf startet.\n- (4.000 Kunden. Design-Liebhaberin. 27. achtet auf Optik): Wenig visuelle Gestaltung. fehlende Bilder -> Wunsch: Mehr hochwertige Produktbilder und ein ansprechenderes Design\n- (4.000 Kunden. Stammkunde-Typ. 45. kauft gern wieder. wenn Service stimmt): Preis einiger Produkte etwas hoch -> Wunsch: Einbindung von Rabattaktionen und Treueprogramm\n- (4.000 Kunden. Selbstständige. 39. kauft für ihr Geschäft): Die Produkte sind für private Haushalte ausgelegt und decken meine geschäftlichen Rechnungs- und Buchhaltungsbedürfnisse nicht ab. -> Wunsch: Eine Vorlage für die EÜR (Einnahmen-Überschuss-Rechnung) oder ein Kassenbuch für Selbstständige.\n- (4.000 Kunden. Pendlerin. 44. kauft abends im Zug): Die endlose vertikale Verlaufsleiste ist bei dem begrenzten Bildschirmplatz im Zug schwer zu bewältigen. -> Wunsch: Eine Navi-Leiste oben. die mich direkt und schnell zu den gekauften Produkten oder der FAQ list führt.\n- (4.000 Kunden. Preis-Leistungs-Rechner. 37. rechnet nach): Preis nicht optimal im Vergleich zu größeren Angeboten -> Wunsch: Mehr Preisnachlässe oder Bundle-Angebote"
+  },
+  {
+   "runde": 7,
+   "zustimmung": 7.0,
+   "kritik": "- (6.000 Kunden. Schnäppchenjägerin. 34. vergleicht jeden Preis): Vieles ist im Angebot. aber die Preise sind für 'nur Vorlagen' nicht extrem niedrig. und das Mini-Buch (1.99 €) weist auf mangelnde Tiefe hin. -> Wunsch: Einen zeitlich begrenzten. explosiven 'Launch-Rabatt' (z.B. 50% auf alles) direkt auf der Startseite einbauen.\n- (5.000 Kunden. Student. 21. wenig Geld. kauft am Handy): Kaufmöglichkeit ist gesperrt (Vorschau). und die Produkte sehen auf dem Handy sehr textlastig aus. ohne echte Visualisierung der Excel-Tabelle. -> Wunsch: Möglichst günstige Finanzierungsoption oder günstigeres Basis-Set. plus mobile Test-Version direkt in der App erreichbar machen.\n- (5.000 Kunden. Familienvater. 41. will Qualität und schnelle Lieferung): Die 'Vorschau'-Sperrung ist frustrierend. da man akut Hilfe sucht; zudem fehlt ein konkreter Termin für den Verkaufsstart. -> Wunsch: Klare Kommunikation. wann der Shop online geht. und eine 'Early-Bird'-Möglichkeit nach dem Start für sofortige Lieferung im Familienhaus.\n- (5.000 Kunden. Geschenkekäuferin. 29. sucht etwas Besonderes): Das Geschenk sieht nach 'Software' und nicht nach 'Experience' aus; die gelbe Warnung obendrauf (Vorschau) stört das Gesamtbild erheblich. -> Wunsch: Elegante. animierte PDF-Übergabe mit digitaler Einweihungs-Karte und Schließung der 'Vorschau'-Hinweise für das Gift-Feature.\n- (5.000 Kunden. Impulskäufer. 25. kommt über TikTok): Mangel an sozialen Beweisen und Trust-Cues für den Kauf -> Wunsch: Kundenbewertungen. Influencer-Testimonials und Social-Media-Integration\n- (5.000 Kunden. Mutter. 36. wenig Zeit. will es einfach): Überladenes Produktangebot erschwert schnellen Überblick -> Wunsch: Fokussierter Call-to-Action und vereinfachte Produktdarstellung\n- (5.000 Kunden. Erstbesucherin. 30. kennt die Marke nicht): Zu wenig Vertrauenserweckende Elemente. z. B. Kundenlogos oder Zertifikate -> Wunsch: Vertrauenssiegel und mehr über die Entstehungsgeschichte ergänzen\n- (4.000 Kunden. Rentnerin. 68. liest alles genau. misstraut Online-Shops): Der Wunsch nach analogen Produkten kollidiert mit dem rein digitalen Angebot; das fehlende Impressum/AGB auf der Handy-Übersicht weckt Misstrauen. -> Wunsch: Moabit-Paket (gedrucktes und digitales kombiniert) anbieten und alle rechtlichen Dokumente (Impressum) im Fußbereich der mobilen Ansicht besser sichtbar machen.\n- (4.000 Kunden. Handwerker. 47. kurz angebunden. will Fakten): Unklare Nutzen-Demonstration der Vorlagen -> Wunsch: Kurzes Video oder PDF. das den konkreten Nutzen und die Anwendung zeigt\n- (4.000 Kunden. Nachhaltigkeits-Fan. 31. achtet auf Herkunft und Material): Keine Angaben zum nachhaltigen Hosting der digitalen Dateien -> Wunsch: Klare Infos zu Energiequelle. CO₂-Emission und Server-Umweltzertifikat\n- (4.000 Kunden. Skeptiker. 52. sucht Impressum. Rückgabe. Kontakt): Rückgaberecht und Impressum nicht gut sichtbar. fehlender telefonischer Support -> Wunsch: Klare Platzierung von Impressum. AGB. Rückgaberecht und eine Support-Nummer\n- (4.000 Kunden. Design-Liebhaberin. 27. achtet auf Optik): Fehlende hochwertige Grafiken und ansprechende Produktvorschau -> Wunsch: Mehr professionell gestaltete Produktbilder und ein einladenderes Layout\n- (4.000 Kunden. Stammkunde-Typ. 45. kauft gern wieder. wenn Service stimmt): Unklare Zahlungsoptionen und fehlender direkter Support vor Verkaufsstart -> Wunsch: Klarere Informationen zu Zahlung und schnellerer Kundenservice\n- (4.000 Kunden. Selbstständige. 39. kauft für ihr Geschäft): Die EÜR-Vorlage für 9.99 € wirkt für einen Selbstständigen zu dünn. und die Bezeichnung 'Schneller Erfahrungsbericht' beim Mini-Buch klingt unprofessionell. -> Wunsch: Eine detaillierte Aufschlüsselung der EÜR-Inhalte und echte Nutzer-Referenzen (Testimonials) einfügen.\n- (4.000 Kunden. Preis-Leistungs-Rechner. 37. rechnet nach): Mangel an konkreten Erfolgsgeschichten und unabhängigen Bewertungen -> Wunsch: Mehr Kundenreferenzen und Live‑Demo‑Links"
+  },
+  {
+   "runde": 8,
+   "zustimmung": 6.0,
+   "kritik": "- (6.000 Kunden. Schnäppchenjägerin. 34. vergleicht jeden Preis): Der 50% Rabatt auf alles wirkt unnatürlich und generisch; ohne Vergleichsoptionen oder Zeitlimit fehlt die Spannung für den Kauf. -> Wunsch: Zeitbeschränkte Flash-Sales pro Produkt oder ein 'Mehrfach-Kauf'-Rabatt (z.B. 3 für 2) einbauen.\n- (5.000 Kunden. Student. 21. wenig Geld. kauft am Handy): Widersprüchliche Botschaft: Banner sagt 'Bestellungen noch nicht möglich'. Buttons senden aber in den Warenkorb. Das verunsichert bei wenig Budget. -> Wunsch: Deutlich zwischen 'Demo laden' und 'Kauf' unterscheiden oder Countdown auf den Kaufstart anzeigen.\n- (5.000 Kunden. Familienvater. 41. will Qualität und schnelle Lieferung): Es fehlt eine realistische Person hinter dem Projekt (keine Photos). was das Vertrauen in die 'Qualität' für den Familienhaushalt schadet. -> Wunsch: Ausführlicheres 'Wer steckt dahinter?' mit echten Gesichtern. Berufserfahrung und Testimonials.\n- (5.000 Kunden. Geschenkekäuferin. 29. sucht etwas Besonderes): Die Produkte sehen aus wie reine Arbeitswerkzeuge und bieten keinerlei optischen Erlebnis-Wert oder Möglichkeit als 'etwas Besonderes' zu schenken. -> Wunsch: Option auf personalisierte Einweihung oder ein 'Personal-Finance Starter-Set' mit schönem Karton/Design für Schenkende.\n- (5.000 Kunden. Impulskäufer. 25. kommt über TikTok): Überladenes Design. keine klare CTA -> Wunsch: Landing Page vereinfachen. ein Produkt prominent präsentieren\n- (5.000 Kunden. Mutter. 36. wenig Zeit. will es einfach): Viele Optionen führen zu Entscheidungsstress -> Wunsch: Empfohlene Starter‑Bundle anbieten\n- (5.000 Kunden. Erstbesucherin. 30. kennt die Marke nicht): Marke ist unbekannt. es gibt keine Kundenbewertungen oder Vertrauenssiegel -> Wunsch: Einbindung von Testimonials. Gütesiegel und einer leicht auffindbaren Datenschutzerklärung\n- (4.000 Kunden. Rentnerin. 68. liest alles genau. misstraut Online-Shops): Die Technik-Begriffe (.xlsx. LibreOffice. Local Hosting) und der Hinweis auf den noch nicht laufenden Verkauf wirken wie ein 'Fake'-Shop. dem man nicht vertrauen kann. -> Wunsch: Klare Erklärung in einfacher Sprache (Bsp. 'Excel-Datei funktioniert offline') sowie einen geprüften Impressum-Hinweis im Header.\n- (4.000 Kunden. Handwerker. 47. kurz angebunden. will Fakten): Unklarer Nutzen für Handwerker -> Wunsch: Beispiele zeigen. wie die Vorlagen im Handwerksalltag helfen\n- (4.000 Kunden. Nachhaltigkeits-Fan. 31. achtet auf Herkunft und Material): Zu vage Angaben zu CO2‑Neutralität -> Wunsch: Unabhängige Zertifizierung und konkrete Zahlen\n- (4.000 Kunden. Skeptiker. 52. sucht Impressum. Rückgabe. Kontakt): Mangelnde Sichtbarkeit von Impressum & Kontakt -> Wunsch: Klare Impressum-Links. Kontakttelefon und E‑Mail sichtbar\n- (4.000 Kunden. Design-Liebhaberin. 27. achtet auf Optik): Die Produkt-Icons (Buch-Repräsentation) sehen anemisch. niedrig auflösend und generisch nach 'Clipart' aus; die fehlende Vorschau auf die eigentlich wichtigen Dashboards enttäuscht eine Design-Puristin. -> Wunsch: Echte. saubere Screen-Shots des Dashboards als Basis für die Produktkarten. damit die Ästhetik der Datenanalyse vorhersehbar und ansprechend wirkt.\n- (4.000 Kunden. Stammkunde-Typ. 45. kauft gern wieder. wenn Service stimmt): Die Konstellation 'Warenkorb füllen' bei gleichzeitiger 'Vorschau ohne Kaufmöglichkeit' ist kundenpsychologisch irritierend und vermittelt Intransparenz; zudem fehlt jede Bezugsnahme auf die Marke durch Personalisierung per E-Mail. -> Wunsch: Klare Implementierung eines 'Wartelisten'-Buttons. der dem Kunden erlaubt. seinen Rabatt zu fixieren. ohne das aktuelle System sofort belasten zu müssen.\n- (4.000 Kunden. Selbstständige. 39. kauft für ihr Geschäft): Kein sofortiger Bestellprozess. noch kein Checkout – das erschwert die Kaufentscheidung -> Wunsch: Klare. sofort verfügbare Kaufoptionen und Preisanzeige vor dem Launch\n- (4.000 Kunden. Pendlerin. 44. kauft abends im Zug): Downloadzeit nach Zahlungserhalt könnte optimiert werden; nicht ganz sofortige Dateiübermittlung -> Wunsch: Schnellere. sofortige Lieferung per Direktlink nach Zahlung"
+  }
+ ]
+}
