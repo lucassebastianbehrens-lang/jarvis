@@ -39,7 +39,8 @@ jobs:
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
           rm -rf css js && git checkout "$SHA" -- css js
           git checkout "$SHA" -- sparen 2>/dev/null || true
-          git add -A index.html sw.js manifest.json icon.svg icon-192.png icon-512.png css js sparen
+          git checkout "$SHA" -- shops 2>/dev/null || true
+          git add -A index.html sw.js manifest.json icon.svg icon-192.png icon-512.png css js sparen $( [ -d shops ] && echo shops )
           if git diff --cached --quiet; then echo "gh-pages ist schon aktuell"; else
             git commit -m "App live: geprüfter Stand ${SHA:0:7}"
             for i in 1 2 3; do git push origin HEAD:gh-pages && break; git pull --rebase origin gh-pages; done

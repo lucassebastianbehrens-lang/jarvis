@@ -190,12 +190,47 @@ with tempfile.TemporaryDirectory() as d:
     J.ki = lambda msgs: "<!doctype html><html><body>Hi</body></html>"
     J.handle({"text": "Erstelle eine Webseite für meinen Grillstand", "message_id": 7})
     check("Datei erstellen: Webseite als HTML", gesendet[-1][0].endswith(".html"), str(gesendet[-1][0]))
+    os.environ.pop("GH_TOKEN", None); said.clear()
+    J.handle({"text": "Jarvis bau mir einen Shop für Hundeleinen", "message_id": 10})
+    check("Shop-Befehl erkannt (ohne Schlüssel: Anleitung mit Link)", said and "shop-bau.yml" in said[-1], str(said))
     json.dump([{"role": "user", "content": "alt"}], open(J.F_HIST, "w"))
     said.clear(); J.handle({"text": "/neu", "message_id": 8})
     check("/neu leert den Verlauf", json.load(open(J.F_HIST)) == [], open(J.F_HIST).read())
     J.ki = lambda msgs: "A" * 5000
     calls.clear(); said.clear(); J.handle({"text": "erzähl ausführlich", "message_id": 9})
     check("Lange Antwort wird geteilt", said and len(said[0]) == 1100 and len(calls[-1][1]["text"]) == 3900, f"{[len(x) for x in said]}")
+
+# Shop-Baukasten: Panel unter 75 % -> überarbeiten -> erneut testen, bis bestanden
+import shop_bau as SB
+with tempfile.TemporaryDirectory() as d:
+    SB.ROOT = d; SB.screenshot = lambda h: None; SB.time.sleep = lambda s: None
+    runden = {"plan": 0, "panel": 0}
+    PLAN = {"name": "Pfotenglück", "slogan": "Leinen mit Liebe", "palette": "wald", "hero_titel": "Handgemachte Hundeleinen",
+            "hero_text": "Robust. Schön.", "cta": "Ansehen", "vorteile": [{"emoji": "🚚", "titel": "Schnell", "text": "2 Tage"}] * 4,
+            "produkte": [{"emoji": "🐕", "name": f"Leine {i}", "preis": 19.9 + i, "alter_preis": None, "kurz": "Stark",
+                          "details": ["Tau", "2 m", "Karabiner"], "badge": "Neu" if i == 0 else ""} for i in range(4)],
+            "geschichte": "Lucas näht.", "angebot": "Versandkostenfrei ab 30 €", "faq": [{"f": "Lieferzeit?", "a": "2–3 Tage"}] * 5,
+            "seo_titel": "Hundeleinen", "seo_beschreibung": "Handgemacht", "tiktok_ideen": ["Leine im Test"]}
+    def fake_ki(system, user, search=False, json_mode=False):
+        if "simulierst" in system:
+            runden["panel"] += 1
+            gut = runden["panel"] > 5  # Runde 1 (5 Gruppen) schlecht, ab Runde 2 gut
+            return json.dumps({"kunden": [{"nr": i + 1, "note": 9 if gut else 5, "sehr_gut": gut, "oefter_kaufen": gut,
+                                           "kritik": "Preise zu hoch" if not gut else "-", "wunsch": "günstiger"} for i in range(5)]})
+        runden["plan"] += 1
+        if runden["plan"] > 1:
+            check("Shop: Überarbeitung bekommt die Kundenkritik", "Preise zu hoch" in user and "Kunden" in user)
+        return json.dumps(PLAN)
+    SB.jlib.ki = fake_ki
+    ok = SB.main("Shop für handgemachte Hundeleinen")
+    info = json.load(open(d + "/shops/pfotenglueck/panel.json"))
+    check("Shop: erst durchgefallen, dann überarbeitet und bestanden", ok and [v["zustimmung"] for v in info["verlauf"]] == [0.0, 100.0], str(info["verlauf"]))
+    h = open(d + "/shops/pfotenglueck/index.html").read()
+    check("Shop: alle Produkte + Preise auf der Seite", all(f"Leine {i}" in h for i in range(4)) and "19,90 €" in h)
+    check("Shop: Vorschau-Schutz (noindex, Banner, Kasse gesperrt)", "noindex" in h and "Vorschau" in h and "alert0()" in h)
+    check("Shop: 100.000 KI-Kunden im Bericht", "100.000" in open(d + "/shops/pfotenglueck/BERICHT.md").read())
+    check("Shop: Panel deckt 100 % ab (25 Typen)", len(SB.PANEL) == 25 and sum(a for _, a in SB.PANEL) == 100)
+    check("Shop: keine erfundenen Bewertungen erlaubt", SB.pruefen(PLAN, h.replace("</footer>", "★★★★★ Testsieger</footer>"), False) != [])
 
 # Alle Bots lassen sich übersetzen, alle Daten sind gültiges JSON
 for f in sorted([*(ROOT / "bot").glob("*.py"), *(ROOT / "video").glob("*.py")]):

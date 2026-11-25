@@ -1,0 +1,45 @@
+name: Shop bauen
+# „Bau mir einen Shop für …“ -> Plan, feste Vorlage, KI-Kundenpanel (100.000 virtuelle Kunden) bis >= 75 % zufrieden, dann online.
+on:
+  workflow_dispatch:
+    inputs:
+      wunsch:
+        description: "Wofür soll der Shop sein? (z. B. handgemachte Hundeleinen)"
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: shop-bau
+  cancel-in-progress: false
+jobs:
+  shop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GROQ_KEY: ${{ secrets.GROQ_KEY }}
+      GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
+      OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
+      TG_TOKEN: ${{ secrets.TG_TOKEN }}
+      TG_CHAT: ${{ secrets.TG_CHAT }}
+      WUNSCH: ${{ inputs.wunsch }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shop bauen + Kundenpanel
+        id: bau
+        run: python3 bot/shop_bau.py
+      - name: Speichern (geht danach über die Qualitätsprüfung automatisch online)
+        run: |
+          git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
+          git add shops && git commit -qm "Jarvis: Shop ${{ steps.bau.outputs.shop }} (${{ steps.bau.outputs.quote }} % KI-Kunden zufrieden)" || true
+          for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+      - name: Telegram
+        if: always()
+        run: |
+          if [ "${{ steps.bau.outcome }}" = success ]; then
+            Z=$([ "${{ steps.bau.outputs.ok }}" = 1 ] && echo "✅ Ziel 75 % erreicht" || echo "⚠️ Ziel 75 % nach ${{ steps.bau.outputs.runden }} Runden nicht erreicht – bester Stand")
+            T="🛍 Shop „${{ steps.bau.outputs.shop }}“ fertig
+          👥 ${{ steps.bau.outputs.quote }} % von 100.000 KI-Kunden: sehr gut + würden öfter kaufen
+          $Z
+          🔗 ${{ steps.bau.outputs.url }} (in ca. 5 Min online, Vorschau)"
+          else T="⚠️ Shop für „$WUNSCH“ konnte nicht gebaut werden – Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"; fi
+          curl -s --form-string chat_id="$TG_CHAT" --form-string text="$T" "https://api.telegram.org/bot$TG_TOKEN/sendMessage" >/dev/null || true

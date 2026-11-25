@@ -548,6 +548,20 @@ def rechnen(ausdruck):
     return s.replace(",", "X").replace(".", ",").replace("X", ".")
 
 
+def shop_bauen(wunsch):
+    """Startet den Workflow „Shop bauen“ (KI-Kundenpanel mit 100.000 virtuellen Kunden, Ziel 75 %)."""
+    tok = os.environ.get("GH_TOKEN", "")
+    if not tok:
+        return say("Für Shops brauche ich einen GitHub-Schlüssel auf dem Server (GH_TOKEN in /etc/jarvis/telegram.env). "
+                   "Bis dahin: https://github.com/lucassebastianbehrens-lang/jarvis/actions/workflows/shop-bau.yml → „Run workflow“ → Wunsch eintragen.")
+    req = urllib.request.Request("https://api.github.com/repos/lucassebastianbehrens-lang/jarvis/actions/workflows/shop-bau.yml/dispatches",
+                                 json.dumps({"ref": "main", "inputs": {"wunsch": wunsch[:300]}}).encode(),
+                                 {"Authorization": "Bearer " + tok, "Accept": "application/vnd.github+json", "User-Agent": "jarvis-bot"}, method="POST")
+    urllib.request.urlopen(req, timeout=30).read()
+    say(f"🛍 Ich baue den Shop für „{wunsch[:80]}“. 100.000 KI-Kunden schauen drüber – ich überarbeite so lange, bis mindestens 75 % "
+        "ihn sehr gut finden und öfter kaufen würden. Du bekommst den Link (ca. 10–30 Min).")
+
+
 def handle(m):
     txt = (m.get("text") or m.get("caption") or "").strip()
     if m.get("photo"):
@@ -617,6 +631,9 @@ def handle(m):
             return say(f"🧮 {m6.group(1).strip()} = {rechnen(m6.group(1))}")
         except Exception:
             pass  # kein reiner Rechenausdruck -> normale KI-Antwort
+    m8 = re.match(r"^\s*(?:jarvis[,\s]+)?(?:bau|baue|erstelle|mach)\s+(?:mir\s+)?(?:einen?\s+)?(?:online-?)?shop\s+(?:für|fuer|mit|zu)\s+(.+)", txt, re.I | re.S)
+    if m8:
+        return shop_bauen(m8.group(1).strip())
     m7 = re.match(r"^\s*(?:/datei|erstelle|erstell|mach\s+mir|schreib\s+mir)\s+(?:mir\s+)?(?:eine?n?\s+)?(tabelle|excel|liste|dokument|brief|text|plan|webseite|website|html|anleitung|checkliste|bewerbung|angebot|rechnungsvorlage|vorlage|präsentation)\b", txt, re.I)
     if m7 or low.startswith("/datei"):
         say("📎 Ich erstelle die Datei – dauert einen Moment.")
