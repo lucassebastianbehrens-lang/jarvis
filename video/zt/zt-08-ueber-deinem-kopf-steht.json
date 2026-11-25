@@ -1,0 +1,66 @@
+{
+ "id": "zt-08-ueber-deinem-kopf-steht",
+ "series": "Stell dir vor",
+ "episode": 8,
+ "title": "Die Anzeige",
+ "caption": "Stell dir vor, plötzlich sieht jeder genau, wie lange du am Handy warst. 📱 Wie viele Stunden hättest du heute? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#alltag",
+  "#zeichentrick",
+  "#fyp"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Über deinem Kopf steht, wie viele Minuten du heute schon am Handy warst",
+ "scenes": [
+  {
+   "bg": "schule",
+   "pose": "schock",
+   "prop": "keins",
+   "zahl": 42,
+   "zahl_label": "Minuten",
+   "text": "Stell dir vor, du gehst in den Raum und über deinem Kopf leuchtet eine Zahl.",
+   "pause": 0.0
+  },
+  {
+   "bg": "schule",
+   "pose": "denken",
+   "prop": "keins",
+   "zahl": 115,
+   "zahl_label": "Minuten",
+   "text": "Es sind die Minuten, die du heute schon am Handy verbracht hast.",
+   "pause": 0.0
+  },
+  {
+   "bg": "schule",
+   "pose": "staunen",
+   "prop": "handy",
+   "text": "Du guckst an dir herunter, entsperrst den Bildschirm, und die Zahl springt sofort weiter.",
+   "pause": 0.0
+  },
+  {
+   "bg": "schule",
+   "pose": "staunen",
+   "prop": "keins",
+   "zahl": 240,
+   "zahl_label": "Minuten",
+   "pause": 1.0,
+   "text": "Vier Stunden. Mitten am Tag. Alle können es sehen."
+  },
+  {
+   "bg": "zimmer",
+   "pose": "neutral",
+   "prop": "keins",
+   "text": "Erst ist es dir peinlich. Dann fängst du an zu rechnen, wer wohl am meisten drauf hat.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Und jetzt ehrlich: Wie viele Minuten stehen heute bei dir über dem Kopf?",
+   "pause": 0.0
+  }
+ ]
+}
