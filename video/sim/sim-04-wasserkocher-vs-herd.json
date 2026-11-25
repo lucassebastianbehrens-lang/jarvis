@@ -11,16 +11,16 @@
   "a": {
     "name": "Wasserkocher",
     "figur": "auto",
-    "dauer_s": 210.0,
-    "menge": 210.0,
-    "info": "3,5 min"
+    "dauer_s": 198.0,
+    "menge": 198.0,
+    "info": "ca. 3:18 min"
   },
   "b": {
-    "name": "Induktion",
+    "name": "Ceran-Herd",
     "figur": "auto",
-    "dauer_s": 330.0,
-    "menge": 330.0,
-    "info": "5,5 min"
+    "dauer_s": 342.0,
+    "menge": 342.0,
+    "info": "ca. 5:42 min"
   },
   "modell": {
     "typ": "generisch",
@@ -29,31 +29,31 @@
     "besser": "weniger"
   },
   "skala": [
-    "Kessel",
-    "Induktion",
-    "Kochfeld"
+    "0 min",
+    "3,3 min",
+    "5,7 min"
   ],
   "ergebnis": "etwa {p} % weniger Zeit",
   "lines": [
     {
       "phase": "intro",
-      "t": "3,5 Minuten vs 5,5 Minuten – erstaunlich!"
+      "t": "Ein Liter Wasser: Wasserkocher oder Herd – wer kocht schneller?"
     },
     {
       "phase": "intro",
-      "t": "Hast du dich jemals gefragt, welcher Weg schneller ist?"
+      "t": "Getestet wurde ein Glaskeramik-Herd gegen einen Wasserkocher."
     },
     {
       "phase": "race",
-      "t": "Der Wasserkocher erhitzt 1 Liter in ca. 3,5 Minuten, dank 85 Prozent Effizienz."
+      "t": "Der Wasserkocher schafft den Liter in etwa drei Minuten und achtzehn Sekunden."
     },
     {
       "phase": "race",
-      "t": "Die Induktion braucht ca. 5,5 Minuten, bei 70 Prozent Effizienz."
+      "t": "Der Ceran-Herd braucht etwa fünf Minuten zweiundvierzig – und rund ein Drittel mehr Strom."
     },
     {
       "phase": "result",
-      "t": "Ergebnis: Der Wasserkocher ist etwa 36 Prozent schneller."
+      "t": "Ergebnis: Der Wasserkocher braucht etwa 42 Prozent weniger Zeit."
     },
     {
       "phase": "result",
@@ -61,45 +61,35 @@
     }
   ],
   "hooks": [
-    "Hast du dich jemals gefragt?",
-    "3,5 min vs 5,5 min – erstaunlich!",
-    "Myth: Herd ist schneller!"
+    "Wasserkocher oder Herd – wer kocht schneller?",
+    "1 Liter Wasser – wer gewinnt?",
+    "Herd oder Wasserkocher?"
   ],
   "kommentar_frage": "Was hättest du getippt?",
-  "caption": "Wasserkocher vs Herd – wer kocht schneller? 🍵🔥 Was hättest du getippt? 👇",
+  "caption": "Wasserkocher vs Ceran-Herd – wer kocht 1 Liter schneller? 🍵🔥 Was hättest du getippt? 👇",
   "hashtags": [
     "#simulation",
     "#wusstestdu",
     "#wasserkocher",
-    "#herd",
-    "#tiktok"
+    "#energiesparen",
+    "#küche"
   ],
-  "quelle": "Physik: spezifische Wärmekapazität 4,186 kJ/(kg·K); Hersteller‑Richtwerte (typische Werte); Hersteller‑Spezifikationen; Erfahrungswerte",
+  "quelle": "Stiftung Warentest via Stuttgarter Zeitung (22.07.2022): Wasserkocher 3:18 min/0,115 kWh, Glaskeramik 5:42 min/0,169 kWh",
   "fakten": [
     {
-      "satz": "Energie, die benötigt wird, um 1 L Wasser von 20 °C auf 100 °C zu erwärmen",
-      "wert": "≈0,093 kWh (≈335 kJ)",
-      "quelle": "Physik, spezifische Wärmekapazität von Wasser 4,186 kJ/(kg·K)"
+      "satz": "Wasserkocher, 1 L",
+      "wert": "ca. 3:18 min, 0,115 kWh",
+      "quelle": "https://www.stuttgarter-zeitung.de/wissen/wasserkocher-oder-herd-was-ist-sparsamer-mhsd-78917134.html (Stiftung Warentest)"
     },
     {
-      "satz": "Durchschnittlicher Wirkungsgrad von elektrischen Wasserkochern",
-      "wert": "≈85 % (typisch 80–90 %)",
-      "quelle": "Hersteller‑Richtwerte (z. B. Bosch, Philips)"
+      "satz": "Glaskeramikkochfeld, 1 L",
+      "wert": "ca. 5:42 min, 0,169 kWh",
+      "quelle": "https://www.stuttgarter-zeitung.de/wissen/wasserkocher-oder-herd-was-ist-sparsamer-mhsd-78917134.html (Stiftung Warentest)"
     },
     {
-      "satz": "Leistung und Aufheizzeit eines üblichen 2 kW‑Wasserkochers für 1 L",
-      "wert": "2 kW, ca. 3,5 min",
-      "quelle": "Hersteller‑Spezifikationen, z. B. Philips HD9350/90"
-    },
-    {
-      "satz": "Durchschnittlicher Wirkungsgrad von Induktionskochfeldern beim Erhitzen von Wasser",
-      "wert": "≈70 % (typisch 65–75 %)",
-      "quelle": "Hersteller‑Richtwerte, z. B. Bosch Induktionskochfeld"
-    },
-    {
-      "satz": "Leistung und Aufheizzeit eines 2 kW‑Induktionskochfeldes für 1 L Wasser",
-      "wert": "2 kW, ca. 5,5 min",
-      "quelle": "Erfahrungswerte, Hersteller‑Angaben"
+      "satz": "Wasserkocher spart ggü. Glaskeramik etwa 30 % Strom",
+      "wert": "ca. 30 %",
+      "quelle": "Verbraucherzentrale NRW via utopia.de"
     }
   ]
 }
