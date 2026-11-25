@@ -123,6 +123,9 @@ def build(spec_path):
             mp3 = f"{tmp}/v{i}_{j}.mp3"
             ws = tts(ln["t"], sp["voices"][ln["s"]], ln.get("rate", "+6%"), mp3)
             cur = []
+            orig = [w for w in ln["t"].split() if any(ch.isalnum() for ch in w)]  # Originalwörter mit Satzzeichen
+            if len(orig) == len(ws):
+                ws = [(a, b, o) for (a, b, _), o in zip(ws, orig)]
             for a, b, w in ws:
                 cur.append((t0 + a, t0 + b, w))
                 if len(cur) >= 3:
@@ -168,8 +171,8 @@ Dialogue: 1,{ts(0)},{ts(end0)},Ki,,0,0,0,,{{\\fad(400,300)}}KI-generiert
         ass += f"Dialogue: 2,{ts(s)},{ts(e2)},Who,,0,0,0,,{{\\3c{col}&\\4c{col}&{fad}\\1c&H00FFFFFF&\\bord10}} {esc(who).upper()} \n"
         ass += f"Dialogue: 2,{ts(s)},{ts(e2)},Cap,,0,0,0,,{{\\blur0.6\\fscx96\\fscy96\\t(0,90,\\fscx100\\fscy100)}}{esc(satz(t))}\n"
     endtxt = esc(sp.get('end', 'Folge mir für Teil 2!'))
-    ass += f"Dialogue: 3,{ts(end0)},{ts(t0)},End,,0,0,0,,{{\\fad(350,0)\\pos({W//2},{H//2 - 40})}}{endtxt}\n"
-    ass += f"Dialogue: 3,{ts(end0 + 0.3)},{ts(t0)},End2,,0,0,0,,{{\\fad(350,0)\\pos({W//2},{H//2 + 70})}}{esc(sp.get('series','Früchte-Drama')).upper()} · JEDEN TAG NEU\n"
+    ass += f"Dialogue: 3,{ts(end0)},{ts(t0)},End,,0,0,0,,{{\\fad(350,0)\\pos({W//2},{H//2 - 110})}}{endtxt}\n"
+    ass += f"Dialogue: 3,{ts(end0 + 0.3)},{ts(t0)},End2,,0,0,0,,{{\\fad(350,0)\\pos({W//2},{H//2 + 190})}}{esc(sp.get('series','Früchte-Drama')).upper()} · JEDEN TAG NEU\n"
     open(f"{tmp}/s.ass", "w").write(ass)
     verlauf(f"{tmp}/ov.png")
     clips, segs = [], []

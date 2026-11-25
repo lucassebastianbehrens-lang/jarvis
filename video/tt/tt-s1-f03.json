@@ -45,7 +45,8 @@
      "s": "Gino",
      "t": "Für Jürgen! Mein neuer Trainer. Jürgen."
     }
-   ]
+   ],
+   "seed": 687
   },
   {
    "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no realistic face, no skin, no hair, no neck, toy-like mascot, in a gym, one eyebrow raised, mysterious smile, dramatic close-up",
@@ -58,7 +59,8 @@
      "s": "Erzähler",
      "t": "Jessy spielte mit. Aber warum? Und wo sollte Gino jetzt einen Jürgen herbekommen?"
     }
-   ]
+   ],
+   "seed": 694
   },
   {
    "p": "a real whole uncut avocado standing upright like a little character, bumpy dark green avocado skin, egg-shaped, two big googly eyes and a small painted smile on the avocado skin, tiny stubby green stick arms and legs, a small green knitted scarf, the avocado itself is the whole character, no hair, no realistic face, no torso, vegetable toy photo, toy-like mascot, the character is literally a walking avocado, no realistic face, no skin, no hair, no neck, toy-like mascot, hiding behind gym weight machine, panicking, wide eyes",
@@ -83,10 +85,11 @@
      "s": "Avo",
      "t": "Na gut. Aber ich will einen Bart."
     }
-   ]
+   ],
+   "seed": 701
   },
   {
-   "p": "a real whole uncut avocado standing upright like a little character, bumpy dark green avocado skin, egg-shaped, two big googly eyes and a small painted smile on the avocado skin, tiny stubby green stick arms and legs, a small green knitted scarf, the avocado itself is the whole character, no hair, no realistic face, no torso, vegetable toy photo, toy-like mascot, the character is literally a walking avocado, no realistic face, no skin, no hair, no neck, toy-like mascot, with a fluffy white cotton fake beard stuck on the avocado skin and a tiny red cap, holding a whistle in a gym, proud pose",
+   "p": "a real whole uncut avocado standing upright like a little character, bumpy dark green avocado skin, egg-shaped, two big googly eyes and a small painted smile on the avocado skin, tiny stubby green stick arms and legs, a small green knitted scarf, the avocado itself is the whole character, no hair, no realistic face, no torso, vegetable toy photo, toy-like mascot, the character is literally a walking avocado, no realistic face, no skin, no hair, no neck, toy-like mascot, wearing a big fluffy white cotton fake beard clearly visible under the googly eyes and a tiny red cap, holding a whistle in a gym, proud pose",
    "lines": [
     {
      "s": "Avo",
@@ -108,7 +111,8 @@
      "s": "Avo",
      "t": "Das ist … mein Parfum."
     }
-   ]
+   ],
+   "seed": 4950
   },
   {
    "p": "a real whole red onion standing upright like a little character, two big googly eyes and a small painted smile on the shiny red-violet onion skin, a dried brown sprout on top, tiny stubby green stick arms and legs, the onion itself is the whole character, no hair, no realistic face, vegetable toy photo, the character is literally a walking red onion, no realistic face, no skin, no hair, no neck, toy-like mascot, in a gym, sweet but suspicious smile, dramatic close-up, warm light",
@@ -129,7 +133,8 @@
      "s": "Rosa",
      "t": "Um sieben. Ich koche Zwiebelsuppe."
     }
-   ]
+   ],
+   "seed": 715
   },
   {
    "p": "a cartoon garlic vegetable mascot: its whole body is one big white garlic bulb with thick cartoon eyebrows, short muscular stubby cartoon arms and legs, wearing a tiny grey sweatband, the character is literally a walking garlic bulb, no realistic face, no skin, no hair, no neck, toy-like mascot, standing in a gym, sweating drops, nervous, dramatic close-up",
@@ -138,7 +143,8 @@
      "s": "Erzähler",
      "t": "Gino schwitzte Knoblauch. Denn Rosa lächelte. Und Rosa lächelt nie ohne Plan."
     }
-   ]
+   ],
+   "seed": 722
   }
  ]
 }
