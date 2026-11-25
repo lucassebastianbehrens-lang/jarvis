@@ -1,0 +1,59 @@
+{
+ "id": "zt-04-du-findest-heraus-dass-d",
+ "series": "Stell dir vor",
+ "episode": 4,
+ "title": "Die 1-Euro-Magic",
+ "caption": "Stell dir vor, dein Wecker ist gar nicht mühsam, sondern ein kleiner Taschengeber. 💶 Was hast du letztes Mal extra aufgestanden? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#sparer",
+  "#zeichentrick",
+  "#fyp"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Du findest heraus, dass dein Wecker jedes Mal einen Euro für dich spart, wenn du nicht auf Schlummern drückst",
+ "scenes": [
+  {
+   "bg": "bett",
+   "pose": "schlafen",
+   "prop": "wecker",
+   "text": "Der Wecker klingelt. Du spürst, wie dein Finger nach dem Schlummer-Button greift.",
+   "pause": 0.0
+  },
+  {
+   "bg": "bett",
+   "pose": "denken",
+   "prop": "wecker",
+   "zahl": 1,
+   "zahl_label": "Euro",
+   "text": "Doch dann denkst du: Wenn ich jetzt aufstehe, bleibt ein Euro in meiner Tasche.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "freude",
+   "prop": "geld",
+   "zahl": 14,
+   "zahl_label": "Euro",
+   "text": "Du wachst auf. Es tut gut. Zwei Wochen später hast du vierzehn Euro gespart.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "staunen",
+   "prop": "geld",
+   "zahl": 28,
+   "zahl_label": "Euro",
+   "pause": 1.2,
+   "text": "Am Monatsende öffnest du den Topf. Zwanzigacht Euro. Einfach so."
+  },
+  {
+   "bg": "kueche",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Wie oft hast du die Woche schon überstehen müssen, nur um diesen einen Euro zu behalten?",
+   "pause": 0.0
+  }
+ ]
+}
