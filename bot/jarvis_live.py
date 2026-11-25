@@ -10,6 +10,12 @@
 - Foto vom Kassenbon -> Händler/Betrag/Kategorie erkannt, in ausgaben.json gespeichert (/ausgaben)
 - "Aufgabe: …"       -> Warteschlange; Jarvis arbeitet sie im Herzschlag selbst ab (Entwürfe, Pläne, Texte) (/aufgaben)
 - 👍/👎 unter Antworten -> Jarvis lernt, was dir gefällt
+- Foto + Frage       -> Bild-KI beantwortet die Frage zum Foto
+- PDF/Word/Excel/TXT -> wird gelesen und zusammengefasst; Folgefragen beziehen sich darauf
+- Link               -> Seite wird gelesen und zusammengefasst (oder Frage beantwortet)
+- "Erstelle …"       -> fertige Datei (Tabelle als CSV für Excel, Webseite als HTML, Text als Markdown)
+- "Rechne …"         -> exakt gerechnet (ohne KI)
+- /neu               -> neuer Chat (Verlauf leeren)
 - /hilfe             -> Befehle
 Nur Nachrichten aus Lucas' eigenem Chat (TG_CHAT) werden beantwortet.
 Konfiguration: /etc/jarvis/telegram.env (TG_TOKEN, TG_CHAT, optional GROQ_KEY, GEMINI_KEY, OPENROUTER_KEY, OLLAMA_URL)."""
@@ -245,7 +251,7 @@ def kassenbon(m):
                   {"Authorization": "Bearer " + GROQ})
     d = json.loads(j["choices"][0]["message"]["content"])
     if not d.get("bon"):
-        return say("Auf dem Foto erkenne ich keinen Kassenbon. Schick mir gern ein schärferes Bild.")
+        return foto_frage(m, "")  # kein Bon -> einfach beschreiben, was drauf ist
     d["zeit"] = datetime.now(TZ).strftime("%Y-%m-%d %H:%M")
     aus = load(F_AUS, []) + [d]
     store(F_AUS, aus[-1000:])
@@ -387,13 +393,173 @@ def status():
             f"💬 Jarvis live: aktiv\n💡 Ideen gespeichert: {len(load(F_IDEEN, []))}")
 
 
+# ---------- Claude-Fähigkeiten: Fotos, Dokumente, Links, Dateien, Rechnen ----------
+F_DOK = "/var/lib/jarvis/letztes-dokument.json"
+
+
+def tg_datei(file_id):
+    """Lädt eine Datei, die Lucas in Telegram geschickt hat (max. 20 MB)."""
+    path = tg("getFile", file_id=file_id)["result"]["file_path"]
+    with urllib.request.urlopen(f"https://api.telegram.org/file/bot{TOKEN}/{path}", timeout=90) as r:
+        return r.read()
+
+
+def foto_frage(m, frage):
+    """Foto + Frage -> Bild-KI beantwortet sie (wie Claude mit Bildern)."""
+    if not GROQ:
+        return say("Für Fotos brauche ich den Groq-Schlüssel auf dem Server.")
+    import base64
+    b64 = base64.b64encode(tg_datei(m["photo"][-1]["file_id"])).decode()
+    j = post_json("https://api.groq.com/openai/v1/chat/completions",
+                  {"model": VISION, "messages": [{"role": "system", "content": SYSTEM},
+                                                 {"role": "user", "content": [{"type": "text", "text": frage or "Was ist auf dem Bild? Kurz beschreiben."},
+                                                                              {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + b64}}]}]},
+                  {"Authorization": "Bearer " + GROQ})
+    say("🖼 " + j["choices"][0]["message"]["content"].strip())
+
+
+def text_aus_datei(name, data):
+    """Text aus PDF, Word (.docx), Excel-CSV, TXT/MD/HTML/JSON holen."""
+    endung = name.lower().rsplit(".", 1)[-1] if "." in name else ""
+    if endung == "pdf":
+        try:
+            r = subprocess.run(["pdftotext", "-layout", "-", "-"], input=data, capture_output=True, timeout=60)
+            if r.returncode == 0 and r.stdout.strip():
+                return r.stdout.decode("utf-8", "ignore")
+        except Exception:
+            pass
+        try:
+            import io
+            from pypdf import PdfReader
+            return "\n".join((p.extract_text() or "") for p in PdfReader(io.BytesIO(data)).pages)
+        except Exception as e:
+            raise RuntimeError("PDF nicht lesbar (pdftotext/pypdf fehlt?)") from e
+    if endung in ("docx", "xlsx", "pptx"):
+        import io, zipfile
+        z = zipfile.ZipFile(io.BytesIO(data))
+        teile = [n for n in z.namelist() if re.match(r"(word/document|xl/sharedStrings|ppt/slides/slide\d+)\.xml$", n)]
+        xml = " ".join(z.read(n).decode("utf-8", "ignore") for n in sorted(teile))
+        xml = re.sub(r"</w:p>|</a:p>|</si>", "\n", xml)
+        return re.sub(r"<[^>]+>", "", xml)
+    if endung in ("htm", "html"):
+        return html_zu_text(data.decode("utf-8", "ignore"))
+    return data.decode("utf-8", "ignore")
+
+
+def html_zu_text(h):
+    h = re.sub(r"(?is)<(script|style|noscript|svg)[^>]*>.*?</\1>", " ", h)
+    h = re.sub(r"(?i)<br\s*/?>|</p>|</h\d>|</li>|</tr>", "\n", h)
+    t = re.sub(r"<[^>]+>", " ", h)
+    import html as _h
+    t = _h.unescape(t)
+    return re.sub(r"[ \t]+", " ", re.sub(r"\n\s*\n+", "\n\n", t)).strip()
+
+
+def mit_text_antworten(quelle, text, frage):
+    """Dokument/Webseite + Frage -> KI-Antwort; Text bleibt für Folgefragen gemerkt."""
+    text = text.strip()
+    if not text:
+        return say("In der Datei habe ich keinen lesbaren Text gefunden.")
+    store(F_DOK, {"quelle": quelle, "text": text[:60000], "zeit": datetime.now(TZ).isoformat()})
+    auszug = text[:24000]
+    frage = frage or "Fasse das Wichtigste in höchstens 8 Stichpunkten zusammen."
+    msgs = [{"role": "system", "content": SYSTEM + " Antworte nur auf Basis des Textes. Steht etwas nicht drin, sag das."},
+            {"role": "user", "content": f"Quelle: {quelle}\n\n---\n{auszug}\n---\n\nAufgabe: {frage}"}]
+    tg("sendChatAction", chat_id=CHAT, action="typing")
+    say(f"📄 {quelle}\n" + ki(msgs) + ("\n\n(Hinweis: nur die ersten ~24.000 Zeichen gelesen)" if len(text) > 24000 else ""))
+
+
+def dokument(m, frage):
+    d = m["document"]
+    if d.get("file_size", 0) > 20_000_000:
+        return say("Die Datei ist größer als 20 MB – das lässt Telegram nicht zu.")
+    data = tg_datei(d["file_id"])
+    if (d.get("mime_type") or "").startswith("image/"):
+        m["photo"] = [{"file_id": d["file_id"]}]
+        return foto_frage(m, frage)
+    mit_text_antworten(d.get("file_name", "Datei"), text_aus_datei(d.get("file_name", ""), data), frage)
+
+
+URL_RE = re.compile(r"https?://[^\s<>\"]+")
+
+
+def link_lesen(url, frage):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Jarvis)"})
+    with urllib.request.urlopen(req, timeout=40) as r:
+        roh = r.read(3_000_000)
+        typ = r.headers.get("Content-Type", "")
+    name = url.split("?")[0].rsplit("/", 1)[-1] or url
+    text = text_aus_datei(name if "pdf" not in typ else "x.pdf", roh) if ("pdf" in typ or "." in name[-6:]) and "html" not in typ else html_zu_text(roh.decode("utf-8", "ignore"))
+    mit_text_antworten(url, text, frage)
+
+
+def datei_senden(name, inhalt, text=""):
+    grenze = uuid.uuid4().hex
+    teile = []
+    for k, v in (("chat_id", CHAT), ("caption", text[:1000])):
+        teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode())
+    teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="document"; filename="{name}"\r\nContent-Type: application/octet-stream\r\n\r\n'.encode()
+                 + inhalt + b"\r\n")
+    teile.append(f"--{grenze}--\r\n".encode())
+    req = urllib.request.Request(f"https://api.telegram.org/bot{TOKEN}/sendDocument", b"".join(teile),
+                                 {"Content-Type": "multipart/form-data; boundary=" + grenze})
+    with urllib.request.urlopen(req, timeout=90) as r:
+        return json.load(r)
+
+
+def datei_erstellen(wunsch):
+    """„Erstelle eine Tabelle/Liste/Brief/Webseite …“ -> fertige Datei in Telegram (CSV öffnet in Excel)."""
+    w = wunsch.lower()
+    art = "csv" if re.search(r"tabelle|excel|liste mit spalten|budget|plan.*spalten|csv", w) else ("html" if re.search(r"webseite|website|html|landingpage", w) else "md")
+    anweisung = {"csv": "Gib NUR eine CSV-Tabelle aus: Trennzeichen Semikolon, erste Zeile Spaltennamen, Zahlen mit Komma. Keine Erklärung, keine ```.",
+                 "html": "Gib NUR eine vollständige, schöne, einzelne HTML-Seite aus (CSS inline, mobilfreundlich, deutsch). Keine Erklärung, keine ```.",
+                 "md": "Schreibe den vollständigen Text als Markdown (Überschriften, Listen). Gründlich statt kurz. Keine Einleitung wie 'Hier ist'."}[art]
+    tg("sendChatAction", chat_id=CHAT, action="upload_document")
+    inhalt = ki([{"role": "system", "content": SYSTEM.replace("(höchstens 6 Sätze)", "") + " " + anweisung}, {"role": "user", "content": wunsch}])
+    inhalt = re.sub(r"^```\w*\n|\n```\s*$", "", inhalt.strip())
+    titel = re.sub(r"[^a-z0-9äöüß]+", "-", re.sub(r"^(erstelle|mach|schreib)\w*\s+(mir\s+)?(eine?n?\s+)?", "", w))[:40].strip("-") or "jarvis"
+    roh = ("﻿" + inhalt).encode("utf-8") if art == "csv" else inhalt.encode("utf-8")
+    datei_senden(f"{titel}.{art}", roh, {"csv": "📊 Öffnet sich in Excel/Google Tabellen", "html": "🌐 Im Browser öffnen", "md": "📝 Dein Dokument"}[art])
+
+
+def rechnen(ausdruck):
+    """Exakt rechnen (ohne KI-Raten): + − × ÷ ^ % Klammern, Komma als Dezimalzeichen."""
+    import ast, operator as op
+    a = ausdruck.replace("×", "*").replace("÷", "/").replace("^", "**").replace("−", "-")
+    a = re.sub(r"(\d)\.(\d{3})(?!\d)", r"\1\2", a).replace(",", ".")
+    a = re.sub(r"(\d+(?:\.\d+)?)\s*%\s*von\s*", r"\1/100*", a)
+    ops = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul, ast.Div: op.truediv, ast.Pow: op.pow, ast.Mod: op.mod,
+           ast.USub: op.neg, ast.UAdd: op.pos}
+
+    def ev(n):
+        if isinstance(n, ast.Expression):
+            return ev(n.body)
+        if isinstance(n, ast.Constant) and isinstance(n.value, (int, float)):
+            return n.value
+        if isinstance(n, ast.BinOp) and type(n.op) in ops:
+            if isinstance(n.op, ast.Pow) and abs(ev(n.right)) > 100:
+                raise ValueError("Exponent zu groß")
+            return ops[type(n.op)](ev(n.left), ev(n.right))
+        if isinstance(n, ast.UnaryOp) and type(n.op) in ops:
+            return ops[type(n.op)](ev(n.operand))
+        raise ValueError("kein reiner Rechenausdruck")
+    x = ev(ast.parse(a.strip(), mode="eval"))
+    s = f"{x:,.6f}".rstrip("0").rstrip(".") if isinstance(x, float) else f"{x:,}"
+    return s.replace(",", "X").replace(".", ",").replace("X", ".")
+
+
 def handle(m):
     txt = (m.get("text") or m.get("caption") or "").strip()
-    if m.get("photo") and not txt:
-        try:
-            return kassenbon(m)
+    if m.get("photo"):
+        try:  # ohne Text: Kassenbon-Erkennung (sonst Bildbeschreibung); mit Text: Frage zum Foto
+            return kassenbon(m) if not txt else foto_frage(m, txt)
         except Exception as e:
-            return say(f"Den Bon konnte ich nicht lesen ({e}).")
+            return say(f"Das Foto konnte ich nicht auswerten ({e}).")
+    if m.get("document"):
+        try:
+            return dokument(m, txt)
+        except Exception as e:
+            return say(f"Die Datei konnte ich nicht lesen ({e}).")
     v = m.get("voice") or m.get("audio")
     if v and not txt:
         try:
@@ -442,6 +608,24 @@ def handle(m):
         frage = m5.group(1).strip()
         say("🔎 Ich suche im Hintergrund – schreib ruhig weiter.")
         return im_hintergrund(frage, lambda name: websuche(frage))
+    if low.startswith("/neu") or low in ("neuer chat", "neues thema"):
+        store(F_HIST, []); store(F_DOK, {})
+        return say("🧹 Neuer Chat – Verlauf geleert (Gedächtnis bleibt).")
+    m6 = re.match(r"^\s*(?:/rechne|rechne|was\s+ist|wie\s*viel\s+ist)\s*[:\-]?\s*([\d\s.,+\-−*/×÷^()%von]+?)\s*[?=]?\s*$", txt, re.I)
+    if m6:
+        try:
+            return say(f"🧮 {m6.group(1).strip()} = {rechnen(m6.group(1))}")
+        except Exception:
+            pass  # kein reiner Rechenausdruck -> normale KI-Antwort
+    m7 = re.match(r"^\s*(?:/datei|erstelle|erstell|mach\s+mir|schreib\s+mir)\s+(?:mir\s+)?(?:eine?n?\s+)?(tabelle|excel|liste|dokument|brief|text|plan|webseite|website|html|anleitung|checkliste|bewerbung|angebot|rechnungsvorlage|vorlage|präsentation)\b", txt, re.I)
+    if m7 or low.startswith("/datei"):
+        say("📎 Ich erstelle die Datei – dauert einen Moment.")
+        return im_hintergrund(txt[:40], lambda name: datei_erstellen(re.sub(r"^/datei\s*", "", txt)))
+    url = URL_RE.search(txt)
+    if url:
+        frage = URL_RE.sub("", txt).strip()
+        say("🔗 Ich lese die Seite …")
+        return im_hintergrund(url.group(0)[:40], lambda name: link_lesen(url.group(0), frage))
     if PAT.match(txt):
         idee = PAT.sub("", txt, count=1).strip()
         if not idee:
@@ -452,7 +636,13 @@ def handle(m):
         return say("📥 Idee gespeichert – landet heute Nacht in deinem Obsidian (00 Inbox).")
     hist = load(F_HIST, [])[-10:]
     jetzt = datetime.now(TZ).strftime("%A, %d.%m.%Y %H:%M")
-    msgs = [{"role": "system", "content": SYSTEM + f" Jetzt ist {jetzt}." + gedaechtnis_text() + lern_text()}] + hist + [{"role": "user", "content": txt}]
+    sys_txt = SYSTEM + f" Jetzt ist {jetzt}." + gedaechtnis_text() + lern_text()
+    if re.search(r"ausführlich|genau erklären|schritt für schritt|detailliert|lang", low):
+        sys_txt = sys_txt.replace("(höchstens 6 Sätze)", "(gründlich und vollständig, gern mit Liste)")
+    dok = load(F_DOK, {})
+    if dok.get("text") and re.search(r"\b(datei|dokument|pdf|seite|text|darin|drin|steht|vertrag|artikel|link)\b", low):
+        sys_txt += f"\nZuletzt geschicktes Dokument ({dok['quelle']}), Auszug:\n{dok['text'][:12000]}"
+    msgs = [{"role": "system", "content": sys_txt}] + hist + [{"role": "user", "content": txt}]
     try:
         tg("sendChatAction", chat_id=CHAT, action="typing")
         ant = ki(msgs)
@@ -463,6 +653,8 @@ def handle(m):
             sprechen(ant)
         except Exception as e:
             print("Stimme:", e)
+    if len(ant) > 3900:
+        say(ant[:len(ant) - 3900]); ant = ant[-3900:]  # Rest zuerst, letzter Teil mit 👍/👎
     tg("sendMessage", chat_id=CHAT, text=ant[:3900],
        reply_markup='{"inline_keyboard":[[{"text":"👍","callback_data":"gut"},{"text":"👎","callback_data":"schlecht"}]]}')
     store(F_HIST, (hist + [{"role": "user", "content": txt}, {"role": "assistant", "content": ant}])[-20:])

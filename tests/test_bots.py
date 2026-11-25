@@ -142,6 +142,61 @@ with tempfile.TemporaryDirectory() as d:
     check("Telegram: 4 Aufträge mit 3 Helfern erledigt", all(a["status"] == "fertig" for a in q) and len(q) == 4, str(q))
     check("Telegram: Helfer haben Namen", any("Ben ist fertig" in s for s in said))
 
+# Claude-Fähigkeiten im Telegram-Jarvis (Fotos, Dokumente, Links, Dateien, Rechnen, /neu)
+import io, zipfile, threading as _th, http.server as _hs
+with tempfile.TemporaryDirectory() as d:
+    J.F_HIST, J.F_DOK, said, calls = d + "/h.json", d + "/dok.json", [], []
+    J.say = lambda t: said.append(t)
+    J.tg = lambda method, **p: calls.append((method, p)) or {"result": {"file_path": "x"}}
+    J.im_hintergrund = lambda titel, fn: fn("Ben")
+    check("Rechnen: 19 % von 249,90", J.rechnen("19 % von 249,90") == "47,481", J.rechnen("19 % von 249,90"))
+    check("Rechnen: Punkt vor Strich + Tausender", J.rechnen("1.250 + 3 * 2,5") == "1.257,5", J.rechnen("1.250 + 3 * 2,5"))
+    try:
+        J.rechnen("__import__('os')"); check("Rechnen: kein Code ausführbar", False)
+    except Exception:
+        check("Rechnen: kein Code ausführbar", True)
+    said.clear(); J.handle({"text": "rechne 12*(3+4)", "message_id": 1})
+    check("Rechnen über Chat", said and said[-1].endswith("= 84"), str(said))
+    buf = io.BytesIO(); z = zipfile.ZipFile(buf, "w")
+    z.writestr("word/document.xml", "<w:document><w:p><w:t>Mietvertrag</w:t></w:p><w:p><w:t>Miete 650 Euro</w:t></w:p></w:document>"); z.close()
+    t = J.text_aus_datei("vertrag.docx", buf.getvalue())
+    check("Word-Datei lesen", "Mietvertrag" in t and "650" in t, t)
+    check("HTML lesen ohne Skripte", J.html_zu_text("<p>Hallo</p><script>böse()</script><p>Welt</p>").split() == ["Hallo", "Welt"])
+    seen = {}
+    J.tg_datei = lambda fid: buf.getvalue()
+    J.ki = lambda msgs: (seen.update(m=msgs), "Kurzfassung: Miete 650 €")[1]
+    said.clear(); J.handle({"document": {"file_id": "f1", "file_name": "vertrag.docx", "file_size": 999}, "caption": "Wie hoch ist die Miete?", "message_id": 2})
+    check("Dokument: Frage beantwortet", any("650" in x for x in said) and "Wie hoch ist die Miete" in seen["m"][-1]["content"], str(said))
+    seen.clear(); said.clear(); J.load = J.load; J.handle({"text": "Was steht im Dokument zur Kaution?", "message_id": 3})
+    check("Dokument: Folgefrage kennt den Text", "Mietvertrag" in seen["m"][0]["content"])
+    J.foto_frage = lambda m, f: said.append("FOTO:" + f)
+    said.clear(); J.handle({"photo": [{"file_id": "p"}], "caption": "Welche Pflanze ist das?", "message_id": 4})
+    check("Foto + Frage geht an die Bild-KI", said == ["FOTO:Welche Pflanze ist das?"], str(said))
+    class _S(_hs.BaseHTTPRequestHandler):
+        def do_GET(self):
+            b = "<html><title>x</title><body><h1>Angebot</h1><p>Preis 19,99 Euro</p><script>x()</script></body></html>".encode()
+            self.send_response(200); self.send_header("Content-Type", "text/html"); self.end_headers(); self.wfile.write(b)
+        def log_message(self, *a):
+            pass
+    srv = _hs.HTTPServer(("127.0.0.1", 0), _S); _th.Thread(target=srv.serve_forever, daemon=True).start()
+    seen.clear(); said.clear(); J.handle({"text": f"http://127.0.0.1:{srv.server_port}/angebot was kostet das?", "message_id": 5})
+    check("Link lesen + Frage", "Preis 19,99" in seen["m"][-1]["content"] and "was kostet das" in seen["m"][-1]["content"], str(seen))
+    srv.shutdown()
+    gesendet = []
+    J.datei_senden = lambda name, inhalt, text="": gesendet.append((name, inhalt))
+    J.ki = lambda msgs: "Datum;Betrag\n01.12.;12,50"
+    J.handle({"text": "Erstelle eine Tabelle für mein Haushaltsbudget", "message_id": 6})
+    check("Datei erstellen: Tabelle als CSV", gesendet and gesendet[-1][0].endswith(".csv") and b"Betrag" in gesendet[-1][1], str(gesendet))
+    J.ki = lambda msgs: "<!doctype html><html><body>Hi</body></html>"
+    J.handle({"text": "Erstelle eine Webseite für meinen Grillstand", "message_id": 7})
+    check("Datei erstellen: Webseite als HTML", gesendet[-1][0].endswith(".html"), str(gesendet[-1][0]))
+    json.dump([{"role": "user", "content": "alt"}], open(J.F_HIST, "w"))
+    said.clear(); J.handle({"text": "/neu", "message_id": 8})
+    check("/neu leert den Verlauf", json.load(open(J.F_HIST)) == [], open(J.F_HIST).read())
+    J.ki = lambda msgs: "A" * 5000
+    calls.clear(); said.clear(); J.handle({"text": "erzähl ausführlich", "message_id": 9})
+    check("Lange Antwort wird geteilt", said and len(said[0]) == 1100 and len(calls[-1][1]["text"]) == 3900, f"{[len(x) for x in said]}")
+
 # Alle Bots lassen sich übersetzen, alle Daten sind gültiges JSON
 for f in sorted([*(ROOT / "bot").glob("*.py"), *(ROOT / "video").glob("*.py")]):
     try:
