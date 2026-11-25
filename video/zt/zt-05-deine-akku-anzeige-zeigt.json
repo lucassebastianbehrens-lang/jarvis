@@ -1,0 +1,66 @@
+{
+ "id": "zt-05-deine-akku-anzeige-zeigt",
+ "series": "Stell dir vor",
+ "episode": 5,
+ "title": "3 Prozent",
+ "caption": "Um 14 Uhr hast du 3 % Akku und keinen Stecker in Sicht. 📱 Wie früh musst du heute nach Hause? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#alltag",
+  "#zeichentrick",
+  "#fyp"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Deine Akku-Anzeige zeigt, wie viel Energie DU noch hast – um 14 Uhr steht sie bei 3 %",
+ "scenes": [
+  {
+   "bg": "strasse",
+   "pose": "schock",
+   "prop": "handy",
+   "zahl": 3,
+   "zahl_label": "%",
+   "text": "Stell dir vor, es ist 14 Uhr und dein Bildschirm zeigt nur noch drei Prozent.",
+   "pause": 0.0
+  },
+  {
+   "bg": "strasse",
+   "pose": "denken",
+   "prop": "keins",
+   "text": "Kein Stecker in der Tasche. Du schaust dir jede Tür an, die du passierst.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "neutral",
+   "prop": "handy",
+   "text": "In einem Café setzt du dich hin, weil dort ein Stecker frei ist. Endlich.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "staunen",
+   "prop": "handy",
+   "zahl": 45,
+   "zahl_label": "%",
+   "pause": 1.2,
+   "text": "Nur zehn Minuten später stehst du bei 45 Prozent. Das Gefühl ist komisch."
+  },
+  {
+   "bg": "kueche",
+   "pose": "freude",
+   "prop": "handy",
+   "zahl": 100,
+   "zahl_label": "%",
+   "pause": 1.0,
+   "text": "Nach einer Stunde ist er voll. Du atmest aus, als wäre viel Zeit vergangen."
+  },
+  {
+   "bg": "zimmer",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Wie oft hast du dieses Jahr vor Wut oder Erleichterung über einen vollen Akku gelächelt?",
+   "pause": 0.0
+  }
+ ]
+}
