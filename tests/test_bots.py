@@ -214,7 +214,7 @@ with tempfile.TemporaryDirectory() as d:
     def fake_ki(system, user, search=False, json_mode=False):
         if "simulierst" in system:
             runden["panel"] += 1
-            gut = runden["panel"] > 5  # Runde 1 (5 Gruppen) schlecht, ab Runde 2 gut
+            gut = runden["panel"] > 10  # Ausgangsstand (2 × 5 Gruppen) schlecht, danach gut
             return json.dumps({"kunden": [{"nr": i + 1, "note": 9 if gut else 5, "sehr_gut": gut, "oefter_kaufen": gut,
                                            "kritik": "Preise zu hoch" if not gut else "-", "wunsch": "günstiger"} for i in range(5)]})
         runden["plan"] += 1
@@ -230,6 +230,19 @@ with tempfile.TemporaryDirectory() as d:
     check("Shop: Vorschau-Schutz (noindex, Banner, Kasse gesperrt)", "noindex" in h and "Vorschau" in h and "alert0()" in h)
     check("Shop: 100.000 KI-Kunden im Bericht", "100.000" in open(d + "/shops/pfotenglueck/BERICHT.md").read())
     check("Shop: Panel deckt 100 % ab (25 Typen)", len(SB.PANEL) == 25 and sum(a for _, a in SB.PANEL) == 100)
+    # Weitermachen: schlechtere Überarbeitung wird verworfen, bester Stand bleibt
+    runden["panel"] = 0
+    def fake_schlecht(system, user, search=False, json_mode=False):
+        if "simulierst" in system:
+            runden["panel"] += 1
+            gut = runden["panel"] <= 10  # Ausgangsstand gut, Überarbeitung schlecht
+            return json.dumps({"kunden": [{"nr": i + 1, "note": 5, "sehr_gut": gut, "oefter_kaufen": gut, "kritik": "x", "wunsch": "y"} for i in range(5)]})
+        return json.dumps(dict(PLAN, slogan="schlechter"))
+    SB.jlib.ki = fake_schlecht; SB.ZIEL = 1.01; SB.MAX_RUNDEN = 1
+    SB.main("", "pfotenglueck")
+    info2 = json.load(open(d + "/shops/pfotenglueck/panel.json"))
+    check("Shop: schlechtere Überarbeitung verworfen, bester Stand bleibt", info2["shop"]["slogan"] == "Leinen mit Liebe" and info2["verlauf"][-1]["behalten"] is False, str(info2["verlauf"][-2:]))
+    SB.ZIEL, SB.MAX_RUNDEN = 0.75, 8
     check("Shop: keine erfundenen Bewertungen erlaubt", SB.pruefen(PLAN, h.replace("</footer>", "★★★★★ Testsieger</footer>"), False) != [])
 
 # Alle Bots lassen sich übersetzen, alle Daten sind gültiges JSON

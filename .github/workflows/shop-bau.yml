@@ -5,11 +5,21 @@ on:
     inputs:
       wunsch:
         description: "Wofür soll der Shop sein? (z. B. handgemachte Hundeleinen)"
-        required: true
+        required: false
+        default: ""
+      weiter:
+        description: "Am vorhandenen Shop weiterarbeiten (Ordnername unter shops/, z. B. finanzexcel)"
+        required: false
+        default: ""
+      kette:
+        description: "Wievielter Durchlauf (zählt automatisch hoch)"
+        required: false
+        default: "1"
 permissions:
   contents: write
+  actions: write   # um sich selbst neu zu starten, bis 75 % erreicht sind
 concurrency:
-  group: shop-bau
+  group: shop-bau-${{ inputs.weiter || inputs.wunsch }}
   cancel-in-progress: false
 jobs:
   shop:
@@ -22,22 +32,42 @@ jobs:
       TG_TOKEN: ${{ secrets.TG_TOKEN }}
       TG_CHAT: ${{ secrets.TG_CHAT }}
       WUNSCH: ${{ inputs.wunsch }}
+      WEITER: ${{ inputs.weiter }}
+      KETTE: ${{ inputs.kette }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
       - name: Shop bauen + Kundenpanel
         id: bau
         run: python3 bot/shop_bau.py
+        timeout-minutes: 100
+        env:
+          SHOP_RUNDEN: "8"
+          PANEL_WIEDERHOLUNGEN: "2"
       - name: Speichern (geht danach über die Qualitätsprüfung automatisch online)
         run: |
           git config user.name "jarvis-bot"; git config user.email "jarvis-bot@users.noreply.github.com"
           git add shops && git commit -qm "Jarvis: Shop ${{ steps.bau.outputs.shop }} (${{ steps.bau.outputs.quote }} % KI-Kunden zufrieden)" || true
           for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+      - name: Ziel nicht erreicht -> automatisch weitertesten (max. 60 Durchläufe)
+        id: weiter
+        if: always() && steps.bau.outputs.ok != '1' && (steps.bau.outputs.name != '' || inputs.weiter != '')
+        run: |
+          N="${{ steps.bau.outputs.name || inputs.weiter }}"
+          if [ "${KETTE:-1}" -lt 60 ]; then
+            sleep 60
+            gh api -X POST repos/${{ github.repository }}/actions/workflows/shop-bau.yml/dispatches -f ref=main \
+              -f "inputs[weiter]=$N" -f "inputs[kette]=$(( ${KETTE:-1} + 1 ))"
+            echo "neu=1" >> $GITHUB_OUTPUT
+          fi
       - name: Telegram
         if: always()
         run: |
+          # Zwischenstände nur bei jedem 5. Durchlauf melden, Erfolg/Stopp immer
+          if [ "${{ steps.weiter.outputs.neu }}" = 1 ] && [ $(( ${KETTE:-1} % 5 )) -ne 1 ]; then exit 0; fi
           if [ "${{ steps.bau.outcome }}" = success ]; then
-            Z=$([ "${{ steps.bau.outputs.ok }}" = 1 ] && echo "✅ Ziel 75 % erreicht" || echo "⚠️ Ziel 75 % nach ${{ steps.bau.outputs.runden }} Runden nicht erreicht – bester Stand")
-            T="🛍 Shop „${{ steps.bau.outputs.shop }}“ fertig
+            Z=$([ "${{ steps.bau.outputs.ok }}" = 1 ] && echo "✅ Ziel 75 % erreicht" || ([ "${{ steps.weiter.outputs.neu }}" = 1 ] && echo "⏳ ${{ steps.bau.outputs.runden }} Runden – teste automatisch weiter bis 75 %" || echo "⚠️ nach 60 Durchläufen gestoppt – bester Stand bleibt online"))
+            T="🛍 Shop „${{ steps.bau.outputs.shop }}“ (Durchlauf ${KETTE:-1})
           👥 ${{ steps.bau.outputs.quote }} % von 100.000 KI-Kunden: sehr gut + würden öfter kaufen
           $Z
           🔗 ${{ steps.bau.outputs.url }} (in ca. 5 Min online, Vorschau)"

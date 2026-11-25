@@ -269,44 +269,97 @@ def pruefen(d, html_text, freigeschaltet):
     return f
 
 
-def main(wunsch):
-    status = os.path.join(ROOT, "shops", "STATUS.md")
-    frei = os.path.exists(status) and re.search(r"Verkauf freigeschaltet:\s*ja", open(status).read(), re.I) is not None
-    d = plan(wunsch)
-    name = slug(d["name"])
-    url = f"https://lucassebastianbehrens-lang.github.io/jarvis/shops/{name}/"
-    verlauf, bester = [], None
-    for runde in range(1, MAX_RUNDEN + 1):
-        h = baue_html(d, url, frei)
-        fehler = pruefen(d, h, frei)
-        if fehler:
-            print("Prüfung:", fehler)
-            d = plan(wunsch, d, "Technische/inhaltliche Fehler beheben: " + "; ".join(fehler)); continue
-        quote, kritik, details = panel(d, h, screenshot(h))
-        verlauf.append({"runde": runde, "zustimmung": round(quote * 100, 1), "kritik": kritik})
-        print(f"Runde {runde}: {quote * 100:.1f} % der {KUNDEN:,} KI-Kunden: sehr gut + öfter kaufen".replace(",", "."))
-        if bester is None or quote > bester[0]:
-            bester = (quote, d, h, details)
-        if quote >= ZIEL:
-            break
-        d = plan(wunsch, bester[1], kritik)  # immer vom bisher besten Stand aus verbessern
-    quote, d, h, details = bester
-    ordner = os.path.join(ROOT, "shops", name); os.makedirs(ordner, exist_ok=True)
+SCHWERPUNKTE = [  # jede Runde wird GENAU EIN Bereich gezielt verbessert (sonst verschlechtert sich anderes wieder)
+    "Preise und Angebot (faire Marktpreise, Spar-Paket deutlich günstiger, Erstkunden-Vorteil)",
+    "Vertrauen (Rückgabe, Kontakt, Zahlung mit Käuferschutz, wer dahinter steckt, ehrlich und konkret)",
+    "Klarheit der Texte (Nutzen in Sekunde 1, einfache Sprache, kurze Sätze, keine Fachwörter)",
+    "Produktauswahl und Produktvorschau (was genau bekommt man, Maße/Inhalt/Kompatibilität)",
+    "Wiederkauf-Gründe (Updates, Ergänzungsprodukte, Treue-Vorteil, persönlicher Service)",
+    "Zielgruppe ansprechen (Überschrift, Geschichte, Farbwelt passend zu den Kunden)",
+]
+
+
+def bewerten(d, url, frei, wiederholungen):
+    """Panel mehrfach laufen lassen und mitteln – einzelne KI-Urteile schwanken stark."""
+    h = baue_html(d, url, frei)
+    fehler = pruefen(d, h, frei)
+    if fehler:
+        return None, h, "Fehler: " + "; ".join(fehler), []
+    bild = screenshot(h)
+    werte, kritiken, details = [], [], []
+    for _ in range(wiederholungen):
+        q, k, det = panel(d, h, bild)
+        werte.append(q); kritiken.append(k); details = det
+    return sum(werte) / len(werte), h, "\n".join(kritiken), details
+
+
+def verbessern(wunsch, d, kritik, schwerpunkt):
+    neu = plan(wunsch, d, f"SCHWERPUNKT dieser Runde: {schwerpunkt}. Verbessere NUR diesen Bereich deutlich, "
+                          f"alles andere bleibt wörtlich gleich.\n\nKundenkritik:\n{kritik}")
+    return neu
+
+
+def speichern(ordner, wunsch, d, h, details, verlauf, quote, url):
+    os.makedirs(ordner, exist_ok=True)
     open(os.path.join(ordner, "index.html"), "w").write(h)
-    json.dump({"wunsch": wunsch, "shop": d, "panel": details, "verlauf": verlauf}, open(os.path.join(ordner, "panel.json"), "w"), ensure_ascii=False, indent=1)
+    json.dump({"wunsch": wunsch, "shop": d, "panel": details, "verlauf": verlauf, "beste_quote": quote},
+              open(os.path.join(ordner, "panel.json"), "w"), ensure_ascii=False, indent=1)
     ok = quote >= ZIEL
     bericht = (f"# {d['name']}\n\nWunsch: {wunsch}\nAdresse: {url}\n\n"
-               f"KI-Kundenpanel ({KUNDEN:,} virtuelle Kunden, 25 Typen): **{quote * 100:.1f} %** sagen „sehr gut“ und würden öfter kaufen "
-               f"(Ziel {ZIEL * 100:.0f} %) – {'✅ bestanden' if ok else '❌ nach ' + str(len(verlauf)) + ' Runden nicht erreicht (bester Stand veröffentlicht)'}\n\n"
-               "Runden: " + " → ".join(f"{v['zustimmung']} %" for v in verlauf) + "\n\n"
+               f"KI-Kundenpanel ({KUNDEN:,} virtuelle Kunden, 25 Typen, gemittelt): **{quote * 100:.1f} %** sagen „sehr gut“ und würden öfter kaufen "
+               f"(Ziel {ZIEL * 100:.0f} %) – {'✅ bestanden' if ok else '⏳ wird weiter verbessert'}\n\n"
+               f"Runden bisher: {len(verlauf)} · Verlauf (behalten/verworfen): " + " → ".join(f"{v['zustimmung']} %{'' if v.get('behalten', True) else ' ✗'}" for v in verlauf[-30:]) + "\n\n"
                "## TikTok-Ideen\n" + "\n".join(f"- {x}" for x in d.get("tiktok_ideen", [])) + "\n\n"
                "Hinweis: Das Panel sind KI-Kunden, keine echten Menschen.\n").replace(",", ".")
     open(os.path.join(ordner, "BERICHT.md"), "w").write(bericht)
-    print(bericht)
+    return bericht
+
+
+def main(wunsch, weiter=""):
+    """Neuer Shop (wunsch) oder Weiterarbeit an shops/<weiter>/. Behält nur Verbesserungen; läuft MAX_RUNDEN Runden,
+    der Workflow startet sich danach selbst neu, bis das Ziel erreicht ist."""
+    status = os.path.join(ROOT, "shops", "STATUS.md")
+    frei = os.path.exists(status) and re.search(r"Verkauf freigeschaltet:\s*ja", open(status).read(), re.I) is not None
+    wdh = int(os.environ.get("PANEL_WIEDERHOLUNGEN", "2"))
+    alt = os.path.join(ROOT, "shops", weiter, "panel.json") if weiter else ""
+    if alt and os.path.exists(alt):
+        st = json.load(open(alt))
+        wunsch, d, verlauf = st["wunsch"], st["shop"], st.get("verlauf", [])
+        name = weiter
+    else:
+        d, verlauf = plan(wunsch), []
+        name = slug(d["name"])
+    url = f"https://lucassebastianbehrens-lang.github.io/jarvis/shops/{name}/"
+    ordner = os.path.join(ROOT, "shops", name)
+    # Ausgangspunkt (neu) bewerten – auch beim Weitermachen, damit der Vergleich fair ist
+    q, h, kritik, det = bewerten(d, url, frei, wdh)
+    while q is None:
+        d = plan(wunsch, d, kritik); q, h, kritik, det = bewerten(d, url, frei, wdh)
+    bester = [q, d, h, det, kritik]
+    verlauf.append({"runde": len(verlauf) + 1, "zustimmung": round(q * 100, 1), "behalten": True, "schwerpunkt": "Ausgangsstand"})
+    print(f"Start: {q * 100:.1f} %")
+    for r in range(MAX_RUNDEN):
+        if bester[0] >= ZIEL:
+            break
+        sp = SCHWERPUNKTE[len(verlauf) % len(SCHWERPUNKTE)]
+        try:
+            kand = verbessern(wunsch, bester[1], bester[4], sp)
+            q, h, kritik, det = bewerten(kand, url, frei, wdh)
+        except SystemExit as e:
+            print("Runde übersprungen:", e); continue
+        behalten = q is not None and q > bester[0]
+        verlauf.append({"runde": len(verlauf) + 1, "zustimmung": round((q or 0) * 100, 1), "behalten": behalten, "schwerpunkt": sp})
+        print(f"Runde {len(verlauf)} [{sp.split(' (')[0]}]: {(q or 0) * 100:.1f} % – {'behalten ✅' if behalten else 'verworfen (bester bleibt ' + format(bester[0] * 100, '.1f') + ' %)'}")
+        if behalten:
+            bester = [q, kand, h, det, kritik]
+        speichern(ordner, wunsch, bester[1], bester[2], bester[3], verlauf, bester[0], url)  # Zwischenstand sichern
+    quote, d, h, details, _ = bester
+    print(speichern(ordner, wunsch, d, h, details, verlauf, quote, url))
+    ok = quote >= ZIEL
     with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as o:
         o.write(f"name={name}\nurl={url}\nquote={quote * 100:.1f}\nok={'1' if ok else '0'}\nshop={d['name']}\nrunden={len(verlauf)}\n")
     return ok
 
 
 if __name__ == "__main__":
-    main(" ".join(sys.argv[1:]) or os.environ.get("WUNSCH", ""))
+    main(" ".join(sys.argv[1:]) or os.environ.get("WUNSCH", ""), os.environ.get("WEITER", ""))
