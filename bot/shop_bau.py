@@ -52,13 +52,16 @@ PLAN_REGELN = """Antworte NUR mit JSON in genau diesem Schema (Deutsch, Preise i
 {"name":"kurzer einprägsamer Shopname","slogan":"max 8 Wörter","palette":"wald|ozean|beere|sand|nacht|koralle|salbei|graphit",
  "hero_titel":"starke Überschrift, Nutzen für Kunden","hero_text":"2 Sätze, warum hier kaufen","cta":"Knopftext",
  "vorteile":[{"emoji":"🚚","titel":"","text":""}] (genau 4),
- "produkte":[{"emoji":"","name":"","preis":0.0,"alter_preis":null,"kurz":"1 Satz Nutzen","details":["3 Fakten: Material/Maße/Lieferumfang"],"badge":"Bestseller|Neu|Tipp|"}] (4 bis 8),
+ "produkte":[{"emoji":"","name":"","preis":0.0,"alter_preis":null,"kurz":"1 Satz Nutzen","details":["3 Fakten: Material/Maße/Lieferumfang/Kompatibilität"],"badge":"Beliebt|Neu|Tipp|",
+   "vorschau":{"titel":"was man auf dem Produkt/Inhalt sieht","zeilen":[["Beschriftung","Wert"]] (4-6 Zeilen, z. B. Tabellen-Inhalt, Maße, Inhalt der Box)}}] (4 bis 8),
+ "bundle":{"name":"Komplett-Paket","preis":0.0,"enthaelt":["Produktnamen"],"vorteil":"z. B. 30 % günstiger als einzeln"},
+ "vertrauen":[{"emoji":"🔒","titel":"","text":""}] (4, NUR wahre Punkte: 14 Tage Widerrufsrecht, PayPal mit Käuferschutz, persönlicher Kontakt per E-Mail, Lieferung/Download-Weg),
  "geschichte":"3-4 Sätze: wer dahinter steckt, warum, ehrlich (Gründer: Lucas aus Sachsen-Anhalt)",
  "angebot":"Erstkunden-Vorteil, z. B. Versandkostenfrei ab X €",
  "faq":[{"f":"","a":""}] (5: Lieferzeit, Versandkosten, Rückgabe 14 Tage, Bezahlung PayPal, Kontakt),
  "seo_titel":"max 60 Zeichen","seo_beschreibung":"max 155 Zeichen",
  "tiktok_ideen":["5 konkrete Video-Ideen, die Leute in den Shop bringen"]}
-Regeln: realistische Marktpreise (vorher überlegen, was vergleichbare Shops nehmen), keine erfundenen Bewertungen,
+Regeln: Zielgruppe muss sich sofort angesprochen fühlen (Nutzen zuerst, einfache Sprache, keine Fachwörter); realistische Marktpreise (vorher überlegen, was vergleichbare Shops nehmen), keine erfundenen Bewertungen,
 Kundenstimmen, Siegel oder Auszeichnungen, keine Heilversprechen, keine Markennamen anderer, keine Superlative ohne Beleg."""
 
 
@@ -98,12 +101,27 @@ def baue_html(d, url, freigeschaltet=False):
         alt = f'<s>{eur(p["alter_preis"])}</s> ' if p.get("alter_preis") and float(p["alter_preis"]) > float(p["preis"]) else ""
         badge = f'<i class="bd">{e(p["badge"])}</i>' if p.get("badge") else ""
         det = "".join(f"<li>{e(x)}</li>" for x in (p.get("details") or [])[:3])
-        prods.append(f'<article class="pr">{badge}<div class="bild" aria-hidden="true">{e(p.get("emoji") or "🛍")}</div>'
+        vs = p.get("vorschau") or {}
+        zeilen = "".join(f'<tr><td>{e(z[0])}</td><td>{e(z[1] if len(z) > 1 else "")}</td></tr>' for z in (vs.get("zeilen") or [])[:6] if isinstance(z, (list, tuple)) and z)
+        bild = (f'<div class="bild vs"><div class="vk"><span>{e(p.get("emoji") or "🛍")}</span><b>{e(vs.get("titel") or p["name"])}</b></div><table>{zeilen}</table></div>'
+                if zeilen else f'<div class="bild" aria-hidden="true">{e(p.get("emoji") or "🛍")}</div>')
+        prods.append(f'<article class="pr">{badge}{bild}'
                      f'<h3>{e(p["name"])}</h3><p>{e(p.get("kurz"))}</p><ul>{det}</ul>'
                      f'<div class="preis">{alt}<b>{eur(p["preis"])}</b></div>'
                      f'<button onclick="rein({i})">In den Warenkorb</button></article>')
+    b = d.get("bundle") or {}
+    bundle = ""
+    if b.get("name") and float(b.get("preis") or 0) > 0:
+        einzeln = sum(float(p["preis"]) for p in d["produkte"] if p["name"] in (b.get("enthaelt") or []))
+        spar = f'<s>{eur(einzeln)}</s> ' if einzeln > float(b["preis"]) else ""
+        bundle = (f'<section class="wrap"><div class="bun"><div><i class="bd2">Spar-Paket</i><h2>{e(b["name"])}</h2>'
+                  f'<p>{e(", ".join(b.get("enthaelt") or []))}</p><p><b>{e(b.get("vorteil"))}</b></p></div>'
+                  f'<div class="bp">{spar}<b>{eur(b["preis"])}</b><button onclick="rein(-1)">Paket in den Warenkorb</button></div></div></section>')
+    vertrauen = "".join(f'<div class="vt2"><span>{e(v.get("emoji"))}</span><div><b>{e(v.get("titel"))}</b><p>{e(v.get("text"))}</p></div></div>'
+                        for v in (d.get("vertrauen") or [])[:4])
     faq = "".join(f'<details><summary>{e(q.get("f"))}</summary><p>{e(q.get("a"))}</p></details>' for q in d.get("faq", [])[:6])
     daten = json.dumps([{"n": p["name"], "p": float(p["preis"])} for p in d["produkte"][:8]], ensure_ascii=False)
+    bdaten = json.dumps({"n": b.get("name", ""), "p": float(b.get("preis") or 0)}, ensure_ascii=False)
     vorschau = "" if freigeschaltet else '<div class="vor">🔒 Vorschau – der Verkauf startet in Kürze. Bestellungen sind noch nicht möglich.</div>'
     robots = "index,follow" if freigeschaltet else "noindex,nofollow"
     kasse = ("location.href='#kontakt'" if freigeschaltet else "alert0()")
@@ -114,7 +132,7 @@ def baue_html(d, url, freigeschaltet=False):
 <meta property="og:title" content="{e(d["name"])} – {e(d.get("slogan"))}"><meta property="og:description" content="{e(d.get("seo_beschreibung"))}">
 <style>
 :root{{--p:{p1};--h:{p2};--a:{akz};--t:#1c1d21;--m:#5d6270}}
-*{{box-sizing:border-box}}html{{scroll-behavior:smooth}}body{{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:#fff}}
+*{{box-sizing:border-box}}html{{scroll-behavior:smooth}}body{{margin:0;font:17px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:#fff}}
 .vor{{background:#fff3cd;color:#664d03;text-align:center;font-size:14px;padding:8px 12px}}
 nav{{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #eee}}
 nav b{{font-size:19px;color:var(--p)}}nav a{{color:var(--t);text-decoration:none;margin-left:14px;font-size:15px}}
@@ -130,6 +148,16 @@ nav b{{font-size:19px;color:var(--p)}}nav a{{color:var(--t);text-decoration:none
 .pr{{position:relative;border:1px solid #ececf1;border-radius:20px;padding:18px;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}}
 .pr:hover{{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.08)}}
 .bild{{height:150px;border-radius:14px;background:linear-gradient(135deg,var(--h),#fff);display:grid;place-items:center;font-size:72px;margin-bottom:12px}}
+.vs{{display:block;height:auto;padding:12px;font-size:14px;text-align:left;background:#fff;border:1px solid #e4e6ec;box-shadow:inset 0 3px 0 var(--p)}}
+.vk{{display:flex;align-items:center;gap:8px;margin-bottom:8px}}.vk span{{font-size:26px}}.vk b{{font-size:14px;color:var(--p)}}
+.vs table{{width:100%;border-collapse:collapse}}.vs td{{padding:5px 6px;border-top:1px solid #eef0f4;color:#333}}.vs td:last-child{{text-align:right;font-weight:600}}
+.vs tr:nth-child(odd) td{{background:var(--h)}}
+.bun{{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;border:2px solid var(--a);border-radius:22px;padding:24px;background:linear-gradient(135deg,#fff,var(--h))}}
+.bun h2{{text-align:left;margin:6px 0}}.bun p{{margin:4px 0;color:var(--m)}}.bp{{text-align:center;font-size:30px}}.bp s{{color:#999;font-size:18px}}.bp b{{color:var(--p)}}
+.bp button{{display:block;margin-top:10px;background:var(--a);border:0;border-radius:12px;padding:12px 18px;font-weight:700;font-size:16px;cursor:pointer}}
+.bd2{{background:var(--a);color:#1c1d21;font-style:normal;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}}
+.vts2{{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}}.vt2{{display:flex;gap:12px;align-items:flex-start}}.vt2 span{{font-size:26px}}.vt2 p{{margin:2px 0 0;color:var(--m);font-size:15px}}
+.mob{{display:none}}@media(max-width:640px){{.mob{{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:8;text-align:center;background:var(--a);color:#1c1d21;font-weight:700;padding:14px;border-radius:14px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}}#korb{{bottom:76px}}}}
 .pr h3{{margin:0 0 6px;font-size:19px}}.pr p{{margin:0 0 8px;color:var(--m)}}.pr ul{{margin:0 0 12px;padding-left:18px;color:var(--m);font-size:14px}}
 .preis{{margin-top:auto;font-size:22px}}.preis s{{color:#999;font-size:16px}}.preis b{{color:var(--p)}}
 .pr button{{margin-top:12px;background:var(--p);color:#fff;border:0;border-radius:12px;padding:12px;font-size:16px;font-weight:600;cursor:pointer}}
@@ -146,13 +174,16 @@ footer{{background:#111;color:#bbb;padding:30px 18px;text-align:center;font-size
 <div class="angebot">🎁 {e(d.get("angebot"))}</div>
 <section class="wrap"><div class="vts">{vorteile}</div></section>
 <section class="wrap" id="produkte"><h2>Unsere Produkte</h2><div class="prs">{"".join(prods)}</div></section>
+{bundle}
+<section class="wrap"><h2>Darauf kannst du dich verlassen</h2><div class="vts2">{vertrauen}</div></section>
 <section class="gesch"><div class="wrap"><h2>Wer steckt dahinter?</h2><p>{e(d.get("geschichte"))}</p></div></section>
 <section class="wrap" id="faq"><h2>Häufige Fragen</h2>{faq}</section>
 <footer id="kontakt"><b>{e(d["name"])}</b> · {e(d.get("slogan"))}<br><br>Impressum · Datenschutz · AGB · Widerruf – folgen vor Verkaufsstart</footer>
+<a class="mob" href="#produkte">{e(d.get("cta") or "Jetzt entdecken")}</a>
 <div id="korb"><b>Warenkorb</b><div id="kl"></div><div id="ks"></div><button onclick="{kasse}">Zur Kasse</button></div>
 <script>
-const P={daten};let K=[];try{{K=JSON.parse(localStorage.getItem("korb_{slug(d["name"])}")||"[]")}}catch(e){{}}
-function zeig(){{let s=0;document.getElementById("kl").innerHTML=K.map(i=>{{s+=P[i].p;return P[i].n}}).join("<br>");
+const P={daten},B={bdaten};let K=[];try{{K=JSON.parse(localStorage.getItem("korb_{slug(d["name"])}")||"[]")}}catch(e){{}}
+function zeig(){{let s=0;document.getElementById("kl").innerHTML=K.map(i=>{{const x=i<0?B:P[i];s+=x.p;return x.n}}).join("<br>");
 document.getElementById("ks").innerHTML="<b>Summe: "+s.toFixed(2).replace(".",",")+" €</b>";document.getElementById("wkz").textContent="🛒 "+K.length;
 document.getElementById("korb").style.display=K.length?"block":"none";try{{localStorage.setItem("korb_{slug(d["name"])}",JSON.stringify(K))}}catch(e){{}}}}
 function rein(i){{K.push(i);zeig()}}
@@ -185,6 +216,9 @@ def panel(d, html_text, bild=None):
         typen = "\n".join(f"{n + 1}. {t}" for n, (t, _) in enumerate(gruppe))
         frage = (f"Du spielst nacheinander diese 5 echten, KRITISCHEN Online-Kunden aus Deutschland:\n{typen}\n\n"
                  f"Sie besuchen diesen Shop (Inhalt der Seite):\n{inhalt}\n\n"
+                 "WICHTIG: Die Seite ist eine Vorschau. Im fertigen Shop funktioniert die Kasse (PayPal mit Käuferschutz) und Lieferung/"
+                 "Download – bewerte so, als wäre das so. Der Shop ist neu, deshalb gibt es noch keine Bewertungen; erfundene Bewertungen "
+                 "sind gesetzlich verboten – das allein ist kein Grund für ein Nein, und fordere sie nicht als Verbesserung.\n"
                  "Jeder urteilt ehrlich aus seiner Sicht: Preis, Vertrauen, Produktauswahl, Optik, Klarheit. "
                  "'sehr_gut' nur true, wenn der Shop wirklich überzeugt (nicht nur okay). 'oefter_kaufen' nur true, wenn er hier "
                  "kaufen UND wiederkommen würde. Antworte NUR mit JSON: {\"kunden\":[{\"nr\":1,\"note\":1-10,\"sehr_gut\":bool,"
@@ -206,7 +240,7 @@ def panel(d, html_text, bild=None):
         for n, (typ, anteil) in enumerate(gruppe):
             k = ks[n] if n < len(ks) else {"note": 0, "sehr_gut": False, "oefter_kaufen": False, "kritik": "keine Antwort", "wunsch": ""}
             ergebnisse.append({"typ": typ, "anteil": anteil, **k})
-        time.sleep(2)
+        time.sleep(int(os.environ.get("PANEL_PAUSE", "12")))  # Groq-Gratislimit schonen
     zustimmung = sum(r["anteil"] for r in ergebnisse if r.get("sehr_gut") is True and r.get("oefter_kaufen") is True) / 100
     kritik = sorted((r for r in ergebnisse if not (r.get("sehr_gut") is True and r.get("oefter_kaufen") is True)), key=lambda r: -r["anteil"])
     text = "\n".join(f"- ({r['anteil'] * KUNDEN // 100:,} Kunden, {r['typ']}): {r.get('kritik')} -> Wunsch: {r.get('wunsch')}".replace(",", ".") for r in kritik[:15])
@@ -255,7 +289,7 @@ def main(wunsch):
             bester = (quote, d, h, details)
         if quote >= ZIEL:
             break
-        d = plan(wunsch, d, kritik)
+        d = plan(wunsch, bester[1], kritik)  # immer vom bisher besten Stand aus verbessern
     quote, d, h, details = bester
     ordner = os.path.join(ROOT, "shops", name); os.makedirs(ordner, exist_ok=True)
     open(os.path.join(ordner, "index.html"), "w").write(h)
