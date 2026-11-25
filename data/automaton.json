@@ -12,7 +12,7 @@
  "paypal": {
   "verbunden": false,
   "kontostand": null,
-  "geprueft": 1795609069
+  "geprueft": 1795609356
  },
  "kinder": [],
  "vorschlag": null,
@@ -25,5 +25,5 @@
  "einnahmen_30t": 0,
  "reichweite_tage": 80,
  "hinweis": "PayPal noch nicht verbunden – Jarvis läuft normal weiter. Anleitung: docs/AUTOMATON.md",
- "updated": 1795609069
+ "updated": 1795609356
 }
