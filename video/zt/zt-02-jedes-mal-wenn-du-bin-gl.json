@@ -1,0 +1,59 @@
+{
+ "id": "zt-02-jedes-mal-wenn-du-bin-gl",
+ "series": "Stell dir vor",
+ "episode": 2,
+ "title": "Kleine Schritte",
+ "caption": "Stell dir vor, du liegst im Bett, sagst „bin gleich da“ und wirst ein Stück kleiner… Wie würde dein Alltag aussehen, wenn du jeden Tag ein bisschen schrumpfst? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#kinder",
+  "#schrumpfen",
+  "#tiktok"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Jedes Mal, wenn du „bin gleich da“ schreibst und noch im Bett liegst, wirst du ein Stück kleiner",
+ "scenes": [
+  {
+   "bg": "bett",
+   "pose": "schlafen",
+   "prop": "keins",
+   "text": "Stell dir vor, du liegst im Bett, sagst: \"bin gleich da\", und plötzlich fühlst du dich ein wenig kleiner.",
+   "pause": 0.0
+  },
+  {
+   "bg": "bett",
+   "pose": "staunen",
+   "prop": "keins",
+   "zahl": 6,
+   "zahl_label": "Schrumpfung",
+   "text": "Du bist 6 cm kleiner, aber noch gut sichtbar. Du bemerkst die Veränderung und lächelst.",
+   "pause": 0.0
+  },
+  {
+   "bg": "bett",
+   "pose": "schock",
+   "prop": "keins",
+   "zahl": 8,
+   "zahl_label": "Schrumpfung",
+   "text": "Ein weiterer Klick, und du bist 8 cm kleiner – die Schublade ist plötzlich zu hoch.",
+   "pause": 0.0
+  },
+  {
+   "bg": "bett",
+   "pose": "freude",
+   "prop": "keins",
+   "zahl": 10,
+   "zahl_label": "Schrumpfung",
+   "pause": 1.0,
+   "text": "Schließlich bist du 10 cm kleiner, und die Welt wirkt riesig."
+  },
+  {
+   "bg": "bett",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Wie würde dein Alltag aussehen, wenn du jeden Tag ein bisschen kleiner würdest? Teilt eure Gedanken!",
+   "pause": 0.0
+  }
+ ]
+}
