@@ -1,0 +1,61 @@
+{
+ "id": "zt-07-du-bekommst-einen-brief",
+ "series": "Stell dir vor",
+ "episode": 7,
+ "title": "Die 24-Stunden-Regel",
+ "caption": "Stell dir vor, du bekommst einen Umschlag mit zehntausend Euro … aber du musst alles in genau 24 Stunden ausgeben. 💶 Was kaufst du zuerst? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#gedankenexperiment",
+  "#zeichentrick",
+  "#fyp"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Du bekommst einen Brief: Du hast 10.000 € gewonnen – aber nur, wenn du sie in 24 Stunden ausgibst",
+ "scenes": [
+  {
+   "bg": "schreibtisch",
+   "pose": "schock",
+   "prop": "brief",
+   "zahl": 1,
+   "zahl_label": "Tag",
+   "text": "Stell dir vor, du hältst einen Brief in der Hand mit einer ziemlich verrückten Bedingung.",
+   "pause": 0.0
+  },
+  {
+   "bg": "schreibtisch",
+   "pose": "denken",
+   "prop": "brief",
+   "zahl": 2500,
+   "zahl_label": "Euro",
+   "text": "Zehntausend Euro Startkapital. Aber alles muss innerhalb von vierundzwanzig Stunden weg sein.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "staunen",
+   "prop": "handy",
+   "zahl": 5000,
+   "zahl_label": "Euro",
+   "text": "Im ersten Moment denkst du an all die Dinge, die du schon immer haben wolltest.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "zeigen",
+   "prop": "handy",
+   "zahl": 10000,
+   "zahl_label": "Euro",
+   "pause": 1.2,
+   "text": "Doch dann merkst du, wie schwer es ist, wirklich zehntausend Euro sinnvoll auszugeben."
+  },
+  {
+   "bg": "zimmer",
+   "pose": "freude",
+   "prop": "keins",
+   "text": "Wer würde zuerst einen Anruf von dir bekommen? Und was würdest du dir gönnen?",
+   "pause": 0.0
+  }
+ ]
+}
