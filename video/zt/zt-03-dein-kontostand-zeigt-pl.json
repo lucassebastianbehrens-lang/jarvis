@@ -1,0 +1,66 @@
+{
+ "id": "zt-03-dein-kontostand-zeigt-pl",
+ "series": "Stell dir vor",
+ "episode": 3,
+ "title": "Lächeln und Geld",
+ "caption": "Stell dir vor, dein Kontostand spiegelt deine gestrigen Lächeln wider… Wie viel würdest du heute verdienen? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#lachen",
+  "#geld",
+  "#familienfreundlich"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Dein Kontostand zeigt plötzlich jeden Morgen genau so viel, wie du gestern gelächelt hast",
+ "scenes": [
+  {
+   "bg": "zimmer",
+   "pose": "staunen",
+   "prop": "geld",
+   "zahl": 5,
+   "zahl_label": "€",
+   "text": "Stell dir vor, dein Kontostand zeigt plötzlich 5 € – genau so viel, wie du gestern gelächelt hast.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "denken",
+   "prop": "geld",
+   "text": "Kann mir das auch passieren? Und wenn ich jetzt mehr Lächeln sammle, wächst das Geld.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "freude",
+   "prop": "geld",
+   "zahl": 8,
+   "zahl_label": "€",
+   "text": "Am nächsten Morgen steht 8 € drauf, weil du 8 mal gelächelt hast.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "zeigen",
+   "prop": "geld",
+   "text": "Wie sieht mein Leben dann aus? Mehr Geld, mehr Möglichkeiten, aber auch mehr Verantwortung.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "staunen",
+   "prop": "geld",
+   "zahl": 12,
+   "zahl_label": "€",
+   "pause": 1.2,
+   "text": "Und heute? 12 € – du hast 12 Lächeln der letzten Nacht geteilt."
+  },
+  {
+   "bg": "zimmer",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Wie viel würdest du heute mit 10 Lächeln verdienen? Schreib's in die Kommentare!",
+   "pause": 0.0
+  }
+ ]
+}
