@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FinanzFit</title><meta name="description" content="">
+<meta name="robots" content="noindex,nofollow"><link rel="canonical" href="https://lucassebastianbehrens-lang.github.io/jarvis/shops/finanzfit/">
+<meta property="og:title" content="FinanzFit – Mehr Klarheit für dein Geld"><meta property="og:description" content="">
+<style>
+:root{--p:#8a5a2b;--h:#f8f1e7;--a:#2f7d6d;--t:#1c1d21;--m:#5d6270}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:17px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:#fff}
+.vor{background:#fff3cd;color:#664d03;text-align:center;font-size:14px;padding:8px 12px}
+nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #eee}
+nav b{font-size:19px;color:var(--p)}nav a{color:var(--t);text-decoration:none;margin-left:14px;font-size:15px}
+.wk{background:var(--p);color:#fff!important;padding:7px 12px;border-radius:999px}
+.hero{background:linear-gradient(135deg,var(--p),color-mix(in srgb,var(--p) 65%,#000));color:#fff;padding:64px 20px 72px;text-align:center}
+.hero h1{font-size:clamp(30px,6vw,52px);line-height:1.1;margin:0 auto 14px;max-width:820px}.hero p{max-width:620px;margin:0 auto 26px;font-size:18px;opacity:.93}
+.knopf{display:inline-block;background:var(--a);color:#1c1d21;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.angebot{background:var(--h);text-align:center;padding:14px;font-weight:600;color:var(--p)}
+.wrap{max-width:1100px;margin:0 auto;padding:46px 18px}h2{font-size:30px;text-align:center;margin:0 0 26px}
+.vts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.vt{background:var(--h);border-radius:18px;padding:20px}.vt span{font-size:30px}.vt b{display:block;margin:8px 0 4px}.vt p{margin:0;color:var(--m)}
+.prs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.pr{position:relative;border:1px solid #ececf1;border-radius:20px;padding:18px;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.pr:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.08)}
+.bild{height:150px;border-radius:14px;background:linear-gradient(135deg,var(--h),#fff);display:grid;place-items:center;font-size:72px;margin-bottom:12px}
+.vs{display:block;height:auto;padding:12px;font-size:14px;text-align:left;background:#fff;border:1px solid #e4e6ec;box-shadow:inset 0 3px 0 var(--p)}
+.vk{display:flex;align-items:center;gap:8px;margin-bottom:8px}.vk span{font-size:26px}.vk b{font-size:14px;color:var(--p)}
+.vs table{width:100%;border-collapse:collapse}.vs td{padding:5px 6px;border-top:1px solid #eef0f4;color:#333}.vs td:last-child{text-align:right;font-weight:600}
+.vs tr:nth-child(odd) td{background:var(--h)}
+.bun{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;border:2px solid var(--a);border-radius:22px;padding:24px;background:linear-gradient(135deg,#fff,var(--h))}
+.bun h2{text-align:left;margin:6px 0}.bun p{margin:4px 0;color:var(--m)}.bp{text-align:center;font-size:30px}.bp s{color:#999;font-size:18px}.bp b{color:var(--p)}
+.bp button{display:block;margin-top:10px;background:var(--a);border:0;border-radius:12px;padding:12px 18px;font-weight:700;font-size:16px;cursor:pointer}
+.bd2{background:var(--a);color:#1c1d21;font-style:normal;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.vts2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.vt2{display:flex;gap:12px;align-items:flex-start}.vt2 span{font-size:26px}.vt2 p{margin:2px 0 0;color:var(--m);font-size:15px}
+.mob{display:none}@media(max-width:640px){.mob{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:8;text-align:center;background:var(--a);color:#1c1d21;font-weight:700;padding:14px;border-radius:14px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}#korb{bottom:76px}}
+.pr h3{margin:0 0 6px;font-size:19px}.pr p{margin:0 0 8px;color:var(--m)}.pr ul{margin:0 0 12px;padding-left:18px;color:var(--m);font-size:14px}
+.preis{margin-top:auto;font-size:22px}.preis s{color:#999;font-size:16px}.preis b{color:var(--p)}
+.pr button{margin-top:12px;background:var(--p);color:#fff;border:0;border-radius:12px;padding:12px;font-size:16px;font-weight:600;cursor:pointer}
+.bd{position:absolute;top:14px;right:14px;background:var(--a);color:#1c1d21;font-style:normal;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.gesch{background:var(--h)}.gesch p{max-width:720px;margin:0 auto;font-size:18px;text-align:center}
+details{border-bottom:1px solid #eee;padding:14px 4px;max-width:760px;margin:0 auto}summary{font-weight:600;cursor:pointer}details p{color:var(--m)}
+footer{background:#111;color:#bbb;padding:30px 18px;text-align:center;font-size:14px}footer a{color:#ddd}
+#korb{position:fixed;right:16px;bottom:16px;background:#fff;border:1px solid #ddd;border-radius:16px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.15);display:none;max-width:300px;z-index:9}
+#korb button{width:100%;margin-top:8px;background:var(--a);border:0;border-radius:10px;padding:10px;font-weight:700;cursor:pointer}
+</style></head><body>
+<div class="vor">🔒 Vorschau – der Verkauf startet in Kürze. Bestellungen sind noch nicht möglich.</div>
+<nav><b>FinanzFit</b><div><a href="#produkte">Produkte</a><a href="#faq">Fragen</a><a class="wk" href="#produkte" id="wkz">🛒 0</a></div></nav>
+<header class="hero"><h1>Deine Finanzen im Griff – sofort downloaden</h1><p>Einfach anpassen, sofort ausdrucken. Spare Zeit und behalte den Überblick.</p><a class="knopf" href="#produkte">Jetzt downloaden</a></header>
+<div class="angebot">🎁 Kostenloser Versand – digitale Produkte fallen natürlich immer ohne Versandkosten an, ab 0 € Bestellwert.</div>
+<section class="wrap"><div class="vts"><div class="vt"><span>🚀</span><b>Sofortiger Zugriff</b><p>Alle Vorlagen sind digital und sofort nach Kauf verfügbar.</p></div><div class="vt"><span>📊</span><b>Einfach zu nutzen</b><p>Intuitive Tabellen, die auch Einsteiger verstehen.</p></div><div class="vt"><span>💰</span><b>Kosten sparen</b><p>Keine teuren Beratungen – nur ein kleiner Preis für langfristige Ordnung.</p></div><div class="vt"><span>🔒</span><b>Sicher &amp; privat</b><p>Keine Weitergabe deiner Daten, alles bleibt bei dir.</p></div></div></section>
+<section class="wrap" id="produkte"><h2>Unsere Produkte</h2><div class="prs"><article class="pr"><i class="bd">Beliebt</i><div class="bild vs"><div class="vk"><span>📒</span><b>Inhalt der Haushaltsbuch-Vorlage</b></div><table><tr><td>Register</td><td>Ja</td></tr><tr><td>Monatsübersicht</td><td>Ja</td></tr><tr><td>Kategorien</td><td>12</td></tr><tr><td>Diagramme</td><td>Balken</td></tr><tr><td>Export</td><td>CSV</td></tr></table></div><h3>Haushaltsbuch Vorlage</h3><p>Behalte tägliche Ausgaben im Blick</p><ul><li>Excel-Datei</li><li>A4-Format, 30 Arbeitsblätter</li><li>Enthält Einnahmen-, Ausgaben- &amp; Sparübersicht</li></ul><div class="preis"><b>9,99 €</b></div><button onclick="rein(0)">In den Warenkorb</button></article><article class="pr"><i class="bd">Neu</i><div class="bild vs"><div class="vk"><span>📈</span><b>Budgetplaner Details</b></div><table><tr><td>Einnahmen</td><td>Automatisch</td></tr><tr><td>Ausgaben nötig</td><td>50%</td></tr><tr><td>Wünsche</td><td>30%</td></tr><tr><td>Sparen</td><td>20%</td></tr><tr><td>Grafik</td><td>Kuchendiagramm</td></tr></table></div><h3>50/30/20 Budgetplaner</h3><p>Automatischer Plan nach der 50/30/20 Regel</p><ul><li>Excel</li><li>4 Monatsblätter</li><li>Berechnet automatisch Prozentsätze</li></ul><div class="preis"><s>12,99 €</s> <b>7,99 €</b></div><button onclick="rein(1)">In den Warenkorb</button></article><article class="pr"><i class="bd">Tipp</i><div class="bild vs"><div class="vk"><span>💳</span><b>Schulden‑Schneeball Überblick</b></div><table><tr><td>Kredit</td><td>Restbetrag</td></tr><tr><td>Zins</td><td>% p.a.</td></tr><tr><td>Monatliche Rate</td><td>€</td></tr><tr><td>Restlaufzeit</td><td>Monate</td></tr><tr><td>Priorität</td><td>Hoch</td></tr></table></div><h3>Schulden‑Schneeball‑Tracker</h3><p>Schulden schneller tilgen mit klarer Strategie</p><ul><li>Excel</li><li>Übersicht aller Kredite</li><li>Berechnet optimalen Tilgungsplan</li></ul><div class="preis"><b>8,49 €</b></div><button onclick="rein(2)">In den Warenkorb</button></article><article class="pr"><div class="bild vs"><div class="vk"><span>🎯</span><b>Spar‑Challenge Inhalte</b></div><table><tr><td>Monat</td><td>Zielbetrag</td></tr><tr><td>Erreicht?</td><td>Ja/Nein</td></tr><tr><td>Gesamt</td><td>€</td></tr><tr><td>Tipps</td><td>Kurz</td></tr><tr><td>Belohnung</td><td>Freizeit</td></tr></table></div><h3>Spar‑Challenge‑Kit</h3><p>Motiviere dich mit monatlichen Sparzielen</p><ul><li>Excel</li><li>12‑Monats‑Challenge</li><li>Checklisten &amp; Fortschrittsbalken</li></ul><div class="preis"><b>5,99 €</b></div><button onclick="rein(3)">In den Warenkorb</button></article></div></section>
+<section class="wrap"><div class="bun"><div><i class="bd2">Spar-Paket</i><h2>FinanzKomplett‑Paket</h2><p>Haushaltsbuch Vorlage, 50/30/20 Budgetplaner, Schulden‑Schneeball‑Tracker, Spar‑Challenge‑Kit</p><p><b>30 % günstiger als Einzelkauf</b></p></div><div class="bp"><s>32,46 €</s> <b>27,99 €</b><button onclick="rein(-1)">Paket in den Warenkorb</button></div></div></section>
+<section class="wrap"><h2>Darauf kannst du dich verlassen</h2><div class="vts2"><div class="vt2"><span>🔒</span><div><b>14‑Tage Widerrufsrecht</b><p>Kostenlose Rückgabe innerhalb von 14 Tagen, kein Problem.</p></div></div><div class="vt2"><span>🛡️</span><div><b>PayPal Käuferschutz</b><p>Sicher bezahlen, Geld zurück bei Problemen.</p></div></div><div class="vt2"><span>📧</span><div><b>Persönlicher Support</b><p>Fragen per E‑Mail, schnelle Antwort.</p></div></div><div class="vt2"><span>📥</span><div><b>Sofortiger Download</b><p>Nach Zahlungseingang steht die Datei sofort zum Download bereit.</p></div></div></div></section>
+<section class="gesch"><div class="wrap"><h2>Wer steckt dahinter?</h2><p>Hinter FinanzFit steht Lucas, ein Zahlen‑ und Ordnungsliebhaber aus Sachsen‑Anhalt. Er hat jahrelang seine eigenen Excel‑Vorlagen genutzt und wollte sie endlich mit anderen teilen. Deshalb entstand dieser Shop – transparent, fair und ohne Schnickschnack. Lucas glaubt, dass jeder mit den richtigen Tools seine Finanzen selbst in die Hand nehmen kann.</p></div></section>
+<section class="wrap" id="faq"><h2>Häufige Fragen</h2><details><summary>Wie erhalte ich die Dateien?</summary><p>Nach dem Zahlungseingang erscheint ein Download‑Link im Kunden‑Bereich und per E‑Mail.</p></details><details><summary>Kann ich die Vorlagen anpassen?</summary><p>Ja, alle Vorlagen sind vollständig editierbar in Excel oder Google Sheets.</p></details><details><summary>Wie lange habe ich Zeit zum Widerruf?</summary><p>Du kannst binnen 14 Tagen nach Kauf zurücktreten und bekommst dein Geld zurück.</p></details><details><summary>Welche Zahlungsmethoden werden akzeptiert?</summary><p>PayPal (mit Käuferschutz) und Kreditkarte via Stripe.</p></details><details><summary>Wie lange dauert der Download?</summary><p>Der Link ist sofort verfügbar; der Download dauert nur Sekunden.</p></details></section>
+<footer id="kontakt"><b>FinanzFit</b> · Mehr Klarheit für dein Geld<br><br>Impressum · Datenschutz · AGB · Widerruf – folgen vor Verkaufsstart</footer>
+<a class="mob" href="#produkte">Jetzt downloaden</a>
+<div id="korb"><b>Warenkorb</b><div id="kl"></div><div id="ks"></div><button onclick="alert0()">Zur Kasse</button></div>
+<script>
+const P=[{"n": "Haushaltsbuch Vorlage", "p": 9.99}, {"n": "50/30/20 Budgetplaner", "p": 7.99}, {"n": "Schulden‑Schneeball‑Tracker", "p": 8.49}, {"n": "Spar‑Challenge‑Kit", "p": 5.99}],B={"n": "FinanzKomplett‑Paket", "p": 27.99};let K=[];try{K=JSON.parse(localStorage.getItem("korb_finanzfit")||"[]")}catch(e){}
+function zeig(){let s=0;document.getElementById("kl").innerHTML=K.map(i=>{const x=i<0?B:P[i];s+=x.p;return x.n}).join("<br>");
+document.getElementById("ks").innerHTML="<b>Summe: "+s.toFixed(2).replace(".",",")+" €</b>";document.getElementById("wkz").textContent="🛒 "+K.length;
+document.getElementById("korb").style.display=K.length?"block":"none";try{localStorage.setItem("korb_finanzfit",JSON.stringify(K))}catch(e){}}
+function rein(i){K.push(i);zeig()}
+function alert0(){document.getElementById("ks").innerHTML+="<p>🔒 Der Verkauf startet in Kürze – schau bald wieder vorbei!</p>"}
+zeig();
+</script></body></html>
