@@ -1,33 +1,44 @@
 {
- "t": 1795535075,
- "datum": "Dienstag, 24.11.2026",
- "fazit": "14 Bots haben 84 Aufträge erledigt (davon 4 fehlerhaft), der Memecoin‑Bot hat 48,48 € Gewinn gemacht und 3 neue Aufträge – u. a. ein Liebesgedicht‑Entwurf – wurden gefunden. Wichtig ist heute, den gerade neu gestarteten Meme‑Makler Max im Blick zu behalten.",
+ "t": 1795620530,
+ "datum": "Mittwoch, 25.11.2026",
+ "fazit": "Die 14 Bots erledigten 81 Aufträge (6 fehlerhaft), der Krypto‑Bot hat 1.000 € unverändert, der Memecoin‑Bot liegt bei 907 € (-79 €) nach 9 Trades, drei neue Aufträge wurden gefunden und es gibt vier Wächter‑Probleme; Toni, Max und Paul haben sich selbst repariert. Wichtig heute: Die vier Wächter‑Probleme, insbesondere bei Trader Toni, schnell prüfen und beheben.",
  "zeilen": [
-  "🤖 14 Bots haben 84 Aufträge erledigt, 4 mit Fehler.",
+  "🤖 14 Bots haben 81 Aufträge erledigt, 6 mit Fehler.",
   "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
-  "📈 Memecoin-Bot: 987,28 € (+48,48 € in 24 h), 10 Trades – Spielgeld",
-  "🔭 3 neue Aufträge gefunden, z. B. „Romantic Love Poem Draft“.",
-  "📚 11 neue Tools/Trends entdeckt – Top: INK-Q/agy-fast.",
-  "🛡️ Wächter: 1 Problem(e) – Meme-Makler Max: letzter Lauf vor 4 h (erwartet alle 3 h) → selbst gestartet",
-  "🔧 Selbst repariert: Meme-Makler Max."
+  "📈 Memecoin-Bot: 907,73 € (-79,55 € in 24 h), 9 Trades – Spielgeld",
+  "🔭 3 neue Aufträge gefunden, z. B. „Heartfelt Romantic Poem Offer“.",
+  "🛡️ Wächter: 4 Problem(e) – Trader Toni: letzter Lauf vor 3 h (erwartet alle 2 h) → selbst gestartet",
+  "🔧 Selbst repariert: Trader Toni, Meme-Makler Max, Postbote Paul."
  ],
  "bots": [
-  {
-   "name": "Baumeister Bob",
-   "icon": "🏗️",
-   "ok": 19,
-   "fehler": 0
-  },
   {
    "name": "Prüferin Paula",
    "icon": "✅",
    "ok": 14,
+   "fehler": 2
+  },
+  {
+   "name": "Baumeister Bob",
+   "icon": "🏗️",
+   "ok": 14,
    "fehler": 0
   },
   {
-   "name": "YouTuber Yannik",
-   "icon": "📺",
-   "ok": 10,
+   "name": "Regisseurin Rita",
+   "icon": "🎬",
+   "ok": 5,
+   "fehler": 4
+  },
+  {
+   "name": "Funker Fritz",
+   "icon": "📡",
+   "ok": 8,
+   "fehler": 0
+  },
+  {
+   "name": "Meme-Makler Max",
+   "icon": "🎰",
+   "ok": 6,
    "fehler": 0
   },
   {
@@ -37,63 +48,51 @@
    "fehler": 0
   },
   {
-   "name": "Regisseurin Rita",
-   "icon": "🎬",
-   "ok": 2,
-   "fehler": 3
-  },
-  {
-   "name": "Meme-Makler Max",
-   "icon": "🎰",
-   "ok": 5,
-   "fehler": 0
-  },
-  {
-   "name": "Forscherin Frieda",
-   "icon": "📚",
-   "ok": 5,
-   "fehler": 0
-  },
-  {
-   "name": "Leibgarde",
-   "icon": "🛡️",
-   "ok": 4,
-   "fehler": 0
-  },
-  {
-   "name": "Funker Fritz",
-   "icon": "📡",
-   "ok": 4,
-   "fehler": 0
-  },
-  {
    "name": "Postbote Paul",
    "icon": "📮",
-   "ok": 3,
+   "ok": 5,
+   "fehler": 0
+  },
+  {
+   "name": "YouTuber Yannik",
+   "icon": "📺",
+   "ok": 5,
    "fehler": 0
   },
   {
    "name": "Trader Toni",
    "icon": "📈",
-   "ok": 2,
-   "fehler": 1
-  },
-  {
-   "name": "Butler Bruno",
-   "icon": "🎩",
-   "ok": 2,
+   "ok": 4,
    "fehler": 0
   },
   {
    "name": "Wächter Willi",
    "icon": "🛡️",
-   "ok": 2,
+   "ok": 3,
    "fehler": 0
   },
   {
    "name": "Scout Sam",
    "icon": "🔭",
    "ok": 2,
+   "fehler": 0
+  },
+  {
+   "name": "Automaton Ava",
+   "icon": "🧬",
+   "ok": 1,
+   "fehler": 0
+  },
+  {
+   "name": "Forscherin Frieda",
+   "icon": "📚",
+   "ok": 1,
+   "fehler": 0
+  },
+  {
+   "name": "Butler Bruno",
+   "icon": "🎩",
+   "ok": 1,
    "fehler": 0
   }
  ],
@@ -106,41 +105,29 @@
    "pnl": 0
   },
   "Memecoin-Bot": {
-   "wert": 987.28,
-   "diff": 48.48,
-   "trades": 10,
-   "gewinner": 9,
-   "pnl": 48.48
+   "wert": 907.73,
+   "diff": -79.55,
+   "trades": 9,
+   "gewinner": 3,
+   "pnl": -92.82
   }
  },
- "neu": [
-  {
-   "titel": "INK-Q/agy-fast",
-   "nutzen": "",
-   "url": "https://github.com/INK-Q/agy-fast"
-  },
-  {
-   "titel": "danielwh2/sprite-stacking",
-   "nutzen": "",
-   "url": "https://github.com/danielwh2/sprite-stacking"
-  },
-  {
-   "titel": "erkamyaman/safe-anything",
-   "nutzen": "",
-   "url": "https://github.com/erkamyaman/safe-anything"
-  },
-  {
-   "titel": "w01fb0ss/PiBot",
-   "nutzen": "",
-   "url": "https://github.com/w01fb0ss/PiBot"
-  },
-  {
-   "titel": "qianyiai/kurocat",
-   "nutzen": "",
-   "url": "https://github.com/qianyiai/kurocat"
-  }
- ],
+ "neu": [],
  "verlauf": [
+  {
+   "t": 1795535075,
+   "datum": "Dienstag, 24.11.2026",
+   "fazit": "14 Bots haben 84 Aufträge erledigt (davon 4 fehlerhaft), der Memecoin‑Bot hat 48,48 € Gewinn gemacht und 3 neue Aufträge – u. a. ein Liebesgedicht‑Entwurf – wurden gefunden. Wichtig ist heute, den gerade neu gestarteten Meme‑Makler Max im Blick zu behalten.",
+   "zeilen": [
+    "🤖 14 Bots haben 84 Aufträge erledigt, 4 mit Fehler.",
+    "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
+    "📈 Memecoin-Bot: 987,28 € (+48,48 € in 24 h), 10 Trades – Spielgeld",
+    "🔭 3 neue Aufträge gefunden, z. B. „Romantic Love Poem Draft“.",
+    "📚 11 neue Tools/Trends entdeckt – Top: INK-Q/agy-fast.",
+    "🛡️ Wächter: 1 Problem(e) – Meme-Makler Max: letzter Lauf vor 4 h (erwartet alle 3 h) → selbst gestartet",
+    "🔧 Selbst repariert: Meme-Makler Max."
+   ]
+  },
   {
    "t": 1795469226,
    "datum": "Montag, 23.11.2026",
