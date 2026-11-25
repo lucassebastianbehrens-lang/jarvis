@@ -1,14 +1,20 @@
 {
- "updated": 1795559503,
- "lagebild": "Der anhaltende Krieg in der Ukraine – mit Angriffen auf Kiew und der Entscheidung Deutschlands, künftig ukrainische Drohnen zu bauen – bestimmt weiterhin das weltpolitische Geschehen. Der UN‑Bericht, dem zufolge Partner und Verwandte die Haupttäter bei Femiziden sind, rückt das Thema Frauenrechte in den globalen Fokus. Für Lucas in Deutschland ist die deutsche Beteiligung an der Drohnenproduktion sowie die Ablehnung des COP‑31‑Beschlusstextes besonders relevant, weil sie direkte Auswirkungen auf Energiepreise und die Börse haben können.",
+ "updated": 1795573223,
+ "lagebild": "Der Krieg in der Ukraine, insbesondere die Angriffe auf Brücken in Kiew, ist derzeit das weltweit wichtigste Thema. Diese Angriffe gefährden die Stadt Kiew und verursachen erhebliche Logistikprobleme für Russland. In Deutschland führt diese Situation zu steigenden Energie‑ und Spritpreisen sowie zu Turbulenzen an den Börsen, was Lucas direkt betrifft.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
    "anzahl": 31,
-   "heiss": 20,
+   "heiss": 21,
    "meldungen": [
+    {
+     "titel": "Brücken Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
+     "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
      "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
@@ -38,12 +44,6 @@
      "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
-     "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -51,9 +51,15 @@
    "land": "Ukraine",
    "lat": 49.0,
    "lon": 31.3,
-   "anzahl": 20,
-   "heiss": 15,
+   "anzahl": 21,
+   "heiss": 16,
    "meldungen": [
+    {
+     "titel": "Brücken Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
+     "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "\"Koalition der Willigen\" absolviert Militärübung in Polen",
      "text": "Es war die erste militärische Übung der \"Koalition der Willigen\": Hunderte Soldaten haben in Polen getestet, wie in der Ukraine Frieden gesichert werden kann. Zum Ende schlugen nahe dem Gelände russische Raketen ein. Von P. Milling.",
@@ -83,12 +89,6 @@
      "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Krieg gegen die Ukraine: Tote nach Angriff auf Mehrfamilienhaus",
-     "text": "Das russische Militär geht weiter unvermindert gegen die Zivilbevölkerung in der Ukraine vor. Mindestens zehn Menschen wurden getötet, als in der Nacht zu Sonntag ein Wohnhaus in der Region Kiew angegriffen wurde.",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-wohnhaeuser-104.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -96,9 +96,15 @@
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 26,
-   "heiss": 9,
+   "anzahl": 27,
+   "heiss": 10,
    "meldungen": [
+    {
+     "titel": "WHO: Lebenserwartung in Kuba erstmals seit Beginn der Aufzeichnungen gesunken",
+     "text": "Die Lebenserwartung in Kuba ist laut der WHO erstmals in der Geschichte gesunken, die Säuglingssterblichkeit hat sich mehr als verdoppelt. WHO-Chef Tedros macht dafür auch US-Sanktionen verantwortlich - und fordert deren sofortiges Ende.",
+     "url": "https://www.tagesschau.de/ausland/amerika/kuba-lebenserwartungen-who-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
      "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
@@ -128,12 +134,6 @@
      "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
      "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
-     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
-     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -141,15 +141,9 @@
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 30,
+   "anzahl": 26,
    "heiss": 4,
    "meldungen": [
-    {
-     "titel": "Pistorius will Militärpakt mit Polen ausbauen",
-     "text": "Patriot-Systeme und Eurofighter-Kampfjets sowie eine Zusammenarbeit der Armeen beim Aufbau von gemeinsamen Verteidigungsstellungen: Polen und Deutschland arbeiten bereits militärisch zusammen. Das möchten beide Länder nun intensivieren.",
-     "url": "https://www.tagesschau.de/ausland/europa/polen-deutschland-militaer-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "COP31: Beschlusstext \"für Deutschland nicht zustimmungsfähig\"",
      "text": "Die Weltklimakonferenz in Antalya ist schon in der Verlängerung, um ein Beschlusspapier wird heftig gerungen. Nun hat Umweltminister Schneider den Entwurf scharf zurückgewiesen - und erhebt Vorwürfe gegen einige Staaten.",
@@ -178,6 +172,12 @@
      "titel": "Linksfraktion in Berlin schließt umstrittene Abgeordnete Vanessa Emde aus",
      "text": "Linksfraktion in Berlin schließt umstrittene Abgeordnete Vanessa Emde aus",
      "url": "https://www.tagesschau.de/tagesthemen/video-1689336.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Berliner Linke schließt Emde aus Fraktion aus",
+     "text": "Wochenlang diskutierten Grüne, SPD und Linke in Berlin über die Personalie Emde. Die Abgeordnete steht wegen ihrer Positionen zu Israel in der Kritik. Nun hat die Fraktion mit der nötigen Mehrheit für ihren Ausschluss gestimmt.",
+     "url": "https://www.tagesschau.de/inland/innenpolitik/emde-ausschluss-berlin-linke-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -408,45 +408,6 @@
    ]
   },
   {
-   "land": "Polen",
-   "lat": 52.1,
-   "lon": 19.4,
-   "anzahl": 5,
-   "heiss": 2,
-   "meldungen": [
-    {
-     "titel": "\"Koalition der Willigen\" absolviert Militärübung in Polen",
-     "text": "Es war die erste militärische Übung der \"Koalition der Willigen\": Hunderte Soldaten haben in Polen getestet, wie in der Ukraine Frieden gesichert werden kann. Zum Ende schlugen nahe dem Gelände russische Raketen ein. Von P. Milling.",
-     "url": "https://www.tagesschau.de/ausland/europa/militaeruebung-polen-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Pistorius will Militärpakt mit Polen ausbauen",
-     "text": "Patriot-Systeme und Eurofighter-Kampfjets sowie eine Zusammenarbeit der Armeen beim Aufbau von gemeinsamen Verteidigungsstellungen: Polen und Deutschland arbeiten bereits militärisch zusammen. Das möchten beide Länder nun intensivieren.",
-     "url": "https://www.tagesschau.de/ausland/europa/polen-deutschland-militaer-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Tote bei russischen Angriffen auf mehrere Brücken in Kiew",
-     "text": "Es ist eine Attacke ins Herz der ukrainischen Hauptstadt: Russland hat in Kiew erneut Brücken beschossen und beschädigt. Mehrere Menschen wurden getötet. Im Nachbarland Polen stürzten drei russische Flugobjekte ab.",
-     "url": "https://www.tagesschau.de/ausland/ukraine-russland-angriffe-bruecken-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Polen wirft Russland gezielte Provokation vor",
-     "text": "Mehrere Flugkörper sind in den polnischen Luftraum eingedrungen - nach Einschätzung der Regierung eine gezielte Provokation Russlands. Sie könnte in Zusammenhang mit einer Übung der Ukraine-Unterstützer stehen, die derzeit in Polen stattfin",
-     "url": "https://www.tagesschau.de/ausland/europa/absturz-russische-flugobjekte-polen-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Karateka Mariam Bsharat, 17, gewinnt zweimal U21-WM-Gold für Palästina - trotz Reisebeschränkungen, finanzieller Not und Olympia-Ausschluss",
-     "text": "Mariam Bsharat ist 17 Jahre alt, wuchs im besetzten Westjordanland auf - und lebt wegen des Nahost-Konflikts heute in Hamburg. In Polen holt sie ihr zweites WM-Gold für Palästina. Olympia ist ihr großer Traum.",
-     "url": "https://www.dw.com/de/karateka-mariam-bsharat-17-gewinnt-zweimal-u21-wm-gold-für-palästina-trotz-reisebeschränkungen-finanzieller-not-und-olympia-ausschluss/a-79874096?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
    "land": "Australien",
    "lat": -25.3,
    "lon": 133.8,
@@ -482,6 +443,39 @@
      "text": "Ein Walkadaver sorgt an der Westküste Australiens für Aufregung. Direkt am beliebten Stadtstrand von Perth lockt der tote Buckelwal offenbar auch Haie an. Die Behörden haben reagiert - zwei Wochen nach einem tödlichen Haiangriff. Von F. Bah",
      "url": "https://www.tagesschau.de/ausland/ozeanien/australien-perth-gestrandeter-wal-hai-100.html",
      "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Polen",
+   "lat": 52.1,
+   "lon": 19.4,
+   "anzahl": 4,
+   "heiss": 2,
+   "meldungen": [
+    {
+     "titel": "\"Koalition der Willigen\" absolviert Militärübung in Polen",
+     "text": "Es war die erste militärische Übung der \"Koalition der Willigen\": Hunderte Soldaten haben in Polen getestet, wie in der Ukraine Frieden gesichert werden kann. Zum Ende schlugen nahe dem Gelände russische Raketen ein. Von P. Milling.",
+     "url": "https://www.tagesschau.de/ausland/europa/militaeruebung-polen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Tote bei russischen Angriffen auf mehrere Brücken in Kiew",
+     "text": "Es ist eine Attacke ins Herz der ukrainischen Hauptstadt: Russland hat in Kiew erneut Brücken beschossen und beschädigt. Mehrere Menschen wurden getötet. Im Nachbarland Polen stürzten drei russische Flugobjekte ab.",
+     "url": "https://www.tagesschau.de/ausland/ukraine-russland-angriffe-bruecken-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Polen wirft Russland gezielte Provokation vor",
+     "text": "Mehrere Flugkörper sind in den polnischen Luftraum eingedrungen - nach Einschätzung der Regierung eine gezielte Provokation Russlands. Sie könnte in Zusammenhang mit einer Übung der Ukraine-Unterstützer stehen, die derzeit in Polen stattfin",
+     "url": "https://www.tagesschau.de/ausland/europa/absturz-russische-flugobjekte-polen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Karateka Mariam Bsharat, 17, gewinnt zweimal U21-WM-Gold für Palästina - trotz Reisebeschränkungen, finanzieller Not und Olympia-Ausschluss",
+     "text": "Mariam Bsharat ist 17 Jahre alt, wuchs im besetzten Westjordanland auf - und lebt wegen des Nahost-Konflikts heute in Hamburg. In Polen holt sie ihr zweites WM-Gold für Palästina. Olympia ist ihr großer Traum.",
+     "url": "https://www.dw.com/de/karateka-mariam-bsharat-17-gewinnt-zweimal-u21-wm-gold-für-palästina-trotz-reisebeschränkungen-finanzieller-not-und-olympia-ausschluss/a-79874096?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   },
@@ -827,11 +821,6 @@
    "quelle": "tagesschau"
   },
   {
-   "titel": "Landminen-Monitor: Zahl der Opfer von Landminen gestiegen",
-   "url": "https://www.tagesschau.de/ausland/europa/landminen-monitor-102.html",
-   "quelle": "tagesschau"
-  },
-  {
    "titel": "Vergewaltigungsvorwurf: Anzeige gegen Depardieu und Houellebecq",
    "url": "https://www.tagesschau.de/ausland/europa/frankreich-vergewaltigungsvorwuerfe-depardieu-houellebecq-100.html",
    "quelle": "tagesschau"
@@ -850,36 +839,41 @@
    "titel": "Erdbeben erschüttert Perus Andenregion",
    "url": "https://www.tagesschau.de/ausland/amerika/peru-erdbeben-102.html",
    "quelle": "tagesschau"
+  },
+  {
+   "titel": "\"Palisades Fire\" - Angeklagter im zweiten Anlauf schuldig gesprochen",
+   "url": "https://www.tagesschau.de/ausland/amerika/prozess-pacific-palisades-feuer-kalifornien-100.html",
+   "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54666,
+   "wert": 53843,
    "einheit": "€",
-   "pct": -2.58,
+   "pct": -3.23,
    "verlauf": [
-    59030,
     57416,
     56459,
     53604,
     54815,
     55754,
     56132,
-    54947
+    54515,
+    53811
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1534.8,
+   "wert": 1509.26,
    "einheit": "€",
-   "pct": -2.35
+   "pct": -3.17
   },
   {
    "name": "Solana",
-   "wert": 63.54,
+   "wert": 62.66,
    "einheit": "€",
-   "pct": -3.97
+   "pct": -4.53
   },
   {
    "name": "EUR/CHF",
