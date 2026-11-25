@@ -1,0 +1,66 @@
+{
+ "id": "zt-06-jede-ungelesene-nachrich",
+ "series": "Stell dir vor",
+ "episode": 6,
+ "title": "Das Gewicht der Worte",
+ "caption": "Stell dir vor, jede ungelesene Nachricht wiegt ein Gramm. Und du hast 1.248 davon. 📱 Wie schwer ist dein Handy gerade? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#viral",
+  "#zeichentrick",
+  "#fyp"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Jede ungelesene Nachricht wiegt ein Gramm – du hast 1.248 davon",
+ "scenes": [
+  {
+   "bg": "schreibtisch",
+   "pose": "staunen",
+   "prop": "handy",
+   "zahl": 10,
+   "zahl_label": "Gramm",
+   "text": "Stell dir vor, jede ungelesene Nachricht wiegt ein Gramm.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "denken",
+   "prop": "handy",
+   "text": "Du greifst zum Handy. Es fühlt sich leicht an. Noch.",
+   "pause": 0.0
+  },
+  {
+   "bg": "schreibtisch",
+   "pose": "traurig",
+   "prop": "handy",
+   "zahl": 450,
+   "zahl_label": "Gramm",
+   "text": "Aber die Zahl klettert. Hundert. Zweihundert. Fünfhundert.",
+   "pause": 0.0
+  },
+  {
+   "bg": "bett",
+   "pose": "schock",
+   "prop": "handy",
+   "zahl": 1248,
+   "zahl_label": "Gramm",
+   "pause": 1.2,
+   "text": "Am Abend liegt es auf deinem Bett. Es wiegt über ein Kilo."
+  },
+  {
+   "bg": "zimmer",
+   "pose": "freude",
+   "prop": "keins",
+   "text": "Du öffnest es. Die Last verschwindet. Die Leichtigkeit kehrt zurück.",
+   "pause": 0.0
+  },
+  {
+   "bg": "zimmer",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Wie schwer ist dein Handy gerade? Zähl mit.",
+   "pause": 0.0
+  }
+ ]
+}
