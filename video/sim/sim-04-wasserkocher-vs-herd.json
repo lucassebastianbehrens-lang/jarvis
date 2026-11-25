@@ -29,9 +29,9 @@
     "besser": "weniger"
   },
   "skala": [
-    "0 min",
-    "3,3 min",
-    "5,7 min"
+    "Start",
+    "halb heiß",
+    "kocht!"
   ],
   "ergebnis": "etwa {p} % weniger Zeit",
   "lines": [
