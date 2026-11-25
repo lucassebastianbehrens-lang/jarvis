@@ -1,12 +1,12 @@
 {
- "updated": 1795609212,
- "lagebild": "Weltweit sorgen laut Medienberichten die von Präsident Trump geplanten neuen Zölle – auch gegen die EU – für erhebliche Spannungen im internationalen Handel. Diese Zollankündigungen werden voraussichtlich die Preise für importierte Waren in Deutschland erhöhen und damit Lucas’ Kosten für Konsumgüter und Sprit direkt belasten. Gleichzeitig führt die damit verbundene Unsicherheit an den Finanzmärkten zu größerer Volatilität an der deutschen Börse, was Lucas’ Geldanlagen beeinträchtigen kann.",
+ "updated": 1795636670,
+ "lagebild": "Weltweit dominiert das von den USA angekündigte neue Zollpaket, das auch die EU und China trifft. Durch die höheren Einfuhrzölle steigen die Preise für Konsumgüter und der Spritpreis in Deutschland, was Lucas direkt belastet. Die Unsicherheit an den Finanzmärkten drückt den deutschen Börsenindex und beeinflusst Lucas’ Anlagen.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
-   "anzahl": 26,
+   "anzahl": 27,
    "heiss": 18,
    "meldungen": [
     {
@@ -51,7 +51,7 @@
    "land": "Ukraine",
    "lat": 49.0,
    "lon": 31.3,
-   "anzahl": 20,
+   "anzahl": 22,
    "heiss": 14,
    "meldungen": [
     {
@@ -96,13 +96,13 @@
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 26,
+   "anzahl": 31,
    "heiss": 8,
    "meldungen": [
     {
-     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
-     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
+     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
+     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
      "quelle": "tagesschau"
     },
     {
@@ -118,6 +118,12 @@
      "quelle": "tagesschau"
     },
     {
+     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
+     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
+     "quelle": "tagesschau"
+    },
+    {
      "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
      "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
      "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
@@ -128,12 +134,6 @@
      "text": "Die Lebenserwartung in Kuba ist laut der WHO erstmals in der Geschichte gesunken, die Säuglingssterblichkeit hat sich mehr als verdoppelt. WHO-Chef Tedros macht dafür auch US-Sanktionen verantwortlich - und fordert deren sofortiges Ende.",
      "url": "https://www.tagesschau.de/ausland/amerika/kuba-lebenserwartungen-who-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "US-Repräsentantenhaus: Demokraten so stark wie zuletzt 1992",
-     "text": "Die Demokraten haben ihre Mehrheit im US-Repräsentantenhaus weiter ausgebaut. Ab Januar stellen sie dort mindestens 258 Abgeordnete - zuletzt gelang ihnen dies vor mehr als 30 Jahren zu Zeiten von Bill Clinton.",
-     "url": "https://www.tagesschau.de/ausland/amerika/demokraten-mehrheit-repraesentantenhaus-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -141,7 +141,7 @@
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 32,
+   "anzahl": 34,
    "heiss": 5,
    "meldungen": [
     {
@@ -163,21 +163,66 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Höhepunkt der Haushaltswoche: Generaldebatte im Bundestag",
-     "text": "Höhepunkt der Haushaltswoche: Generaldebatte im Bundestag",
-     "url": "https://www.tagesschau.de/video/video-1689590.html",
+     "titel": "Merz verteidigt Haushalt für 2027 - Generaldebatte im Bundestag",
+     "text": "Merz verteidigt Haushalt für 2027 - Generaldebatte im Bundestag",
+     "url": "https://www.tagesschau.de/video/video-1689672.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "\"AfD drohte mit Normenkontrollklage\", Nicole Kohnert, ARD Berlin, zur Generaldebatte im Bundestag",
-     "text": "\"AfD drohte mit Normenkontrollklage\", Nicole Kohnert, ARD Berlin, zur Generaldebatte im Bundestag",
-     "url": "https://www.tagesschau.de/video/video-1689638.html",
+     "titel": "Generaldebatte zu Haushalt 2027 im Bundestag",
+     "text": "Generaldebatte zu Haushalt 2027 im Bundestag",
+     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689880.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Bundestag gedenkt der Opfer von Gewalt gegen Frauen mit Schweigeminute",
-     "text": "Bundestag gedenkt der Opfer von Gewalt gegen Frauen mit Schweigeminute",
-     "url": "https://www.tagesschau.de/video/video-1689608.html",
+     "titel": "Markus Preiß, ARD Berlin, zu Unionsvorschlag zu Rentenreform",
+     "text": "Markus Preiß, ARD Berlin, zu Unionsvorschlag zu Rentenreform",
+     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689874.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Iran",
+   "lat": 32.4,
+   "lon": 53.7,
+   "anzahl": 12,
+   "heiss": 5,
+   "meldungen": [
+    {
+     "titel": "74 Peitschenhiebe für iranische Sängerin lösen Empörung aus",
+     "text": "Ein Onlinekonzert ohne Kopftuch - dafür erhielt die iranische Sängerin Parastu Ahmadi 74 Peitschenhiebe. Das löste international große Empörung aus. Die Strafe sei \"grausam und unmenschlich\" und eine Form der Folter.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-saengerin-peitschenhiebe-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
+     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Iran greift erneut US-Stützpunkt in Bahrain an",
+     "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
+     "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
+     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
+     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Jemen: Regierungstruppen wollen Aden vor Huthi schützen",
+     "text": "Die von Iran unterstützte Huthi-Miliz rückt im Jemen offenbar auf den Regierungssitz Aden vor. Gleichzeitig ziehen sich regierungstreue Truppen weiter von der für den Welthandel wichtigen Meerenge Bab al-Mandab zurück.",
+     "url": "https://www.tagesschau.de/ausland/asien/jemen-huthi-aden-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -186,9 +231,15 @@
    "land": "Israel",
    "lat": 31.0,
    "lon": 34.9,
-   "anzahl": 11,
-   "heiss": 7,
+   "anzahl": 9,
+   "heiss": 6,
    "meldungen": [
+    {
+     "titel": "Bestechungsvorwurf gegen Netanjahu könnte fallen gelassen werden",
+     "text": "Seit Jahren muss sich Israels Premier wegen Betrugs, Untreue und Bestechlichkeit vor Gericht verantworten. Jetzt haben Richter empfohlen, den letzten Anklagepunkt fallen zu lassen. Netanjahu sieht den ganzen Prozess als gescheitert.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-korruptionsvorwuerfe-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "Israel nach der Wahl: Schwierige Sondierungen zwischen Rivalen",
      "text": "In Israel bleibt Gadi Eisenkot nicht mehr viel Zeit, eine Regierung zu bilden. Aktuell laufen die Gespräche mit Netanjahus Likud-Partei. Dabei gibt es große Differenzen - und kaum Alternativen. Von J. Segador.",
@@ -218,57 +269,6 @@
      "text": "Eisenkot oder Netanjahu? Die Parlamentswahl in Israel brachte keine eindeutige Antwort. Derzeit sucht Oppositionspolitiker Eisenkot nach Partnern für eine Koalition. Noch-Premier Netanjahu hat seine eigenen Vorstellungen. Von B. Meier.",
      "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-einheitsregierung-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Israelischer Angriff im Gazastreifen: Ranghoher Hamas-Kommandeur tot",
-     "text": "Die israelische Armee hat im Gazastreifen einen ranghohen Kommandeur der Hamas getötet. Samir Abu Junis soll einer der wichtigsten Köpfe bei der Planung der Attacke auf Israel am 7. Oktober 2023 gewesen sein. Die Hamas bestätigte seinen Tod",
-     "url": "https://www.tagesschau.de/ausland/asien/hamas-kommandeur-gazastreifen-getoetet-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Iran",
-   "lat": 32.4,
-   "lon": 53.7,
-   "anzahl": 12,
-   "heiss": 6,
-   "meldungen": [
-    {
-     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
-     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Iran greift erneut US-Stützpunkt in Bahrain an",
-     "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Iran-Krieg: Eisenkot ruft Netanjahu zu Zurückhaltung auf",
-     "text": "Seit Tagen wird spekuliert, dass Israels Premier Netanjahu neue Angriffe auf Iran planen könnte. Oppositionschef Eisenkot, der derzeit versucht, eine Regierung ohne Netanjahu zu bilden, warnt diesen jetzt vor \"gefährlichen Schritten\".",
-     "url": "https://www.tagesschau.de/ausland/asien/eisenkot-netanjahu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
-     "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
-     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
-     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Jemen: Regierungstruppen wollen Aden vor Huthi schützen",
-     "text": "Die von Iran unterstützte Huthi-Miliz rückt im Jemen offenbar auf den Regierungssitz Aden vor. Gleichzeitig ziehen sich regierungstreue Truppen weiter von der für den Welthandel wichtigen Meerenge Bab al-Mandab zurück.",
-     "url": "https://www.tagesschau.de/ausland/asien/jemen-huthi-aden-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -276,9 +276,15 @@
    "land": "China",
    "lat": 35.9,
    "lon": 104.2,
-   "anzahl": 14,
+   "anzahl": 15,
    "heiss": 2,
    "meldungen": [
+    {
+     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
+     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
      "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
@@ -298,12 +304,6 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Weniger Hybridautos aus China - EU reguliert den Import",
-     "text": "Die EU will mit Importquoten verhindern, dass günstige chinesische Hybrid-Autos Europas Autobauern Konkurrenz machen. Die Importe hatten sich in den vergangenen zwei Jahren mehr als versechsfacht.",
-     "url": "https://www.tagesschau.de/wirtschaft/hybridautos-china-europa-importe-100.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Chinesische Rakete startet mit Premiere zur Raumstation Tiangong",
      "text": "Diese Mission ist eine Neuheit: Erstmals schickt China mit einem Raumfahrer aus Pakistan einen Ausländer zu seiner Station Tiangong im Weltall.",
      "url": "https://www.dw.com/de/chinesische-rakete-startet-mit-premiere-zur-raumstation-tiangong/a-80043558?maca=de-rss-de-all-1119-rdf",
@@ -318,10 +318,55 @@
    ]
   },
   {
+   "land": "Belgien/EU",
+   "lat": 50.8,
+   "lon": 4.4,
+   "anzahl": 11,
+   "heiss": 2,
+   "meldungen": [
+    {
+     "titel": "EU-Kommission erlaubt weiter Staatshilfen für Landwirte und Industrie",
+     "text": "Landwirte, Industrie und andere Unternehmen können wegen der anhaltenden Energiekrise weiterhin mit staatlichen Zuschüssen rechnen. Laut EU-Kommission bleibt es bis mindestens Ende Juni 2027 bei den gelockerten Regeln zur Beihilfe.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-staatshilfen-landwirte-industrie-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
+     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "EU-Parlament stimmt neuen Arzneimittelregeln zu",
+     "text": "Ob Antibiotika oder Fiebersäfte für Kinder: Immer wieder fehlen in Europa Medikamente - Grund ist auch die große Abhängigkeit von Asien. Das will die EU ändern. Das Parlament stimmte neuen Arzneimitteln-Regeln zu.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-parlament-arzneimittel-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
+     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
+     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
+     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
+     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
+     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
+     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
    "land": "Gaza",
    "lat": 31.4,
    "lon": 34.4,
-   "anzahl": 7,
+   "anzahl": 6,
    "heiss": 4,
    "meldungen": [
     {
@@ -343,12 +388,6 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "EU: Israel soll Zugang für Helfer in den Gazastreifen gewähren",
-     "text": "Die EU fordert Israel auf, sofort Helfer in den Gazastreifen zu lassen. Dort hatte heftiger Regen die Zelte von Zehntausenden Vertriebenen überschwemmt. Auch die Kälte wird zunehmend zur Gefahr.",
-     "url": "https://www.tagesschau.de/ausland/asien/gaza-hilfsforderung-eu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Hamas-Anführer bei Angriff Israels im Gazastreifen getötet",
      "text": "Sowohl die Islamistenorganisation als auch der amtierende israelische Premier Netanjahu bestätigten die Attacke. Bei dem Getöteten soll es sich um den Chef des internen Sicherheitsapparats der Terrororganisation handeln.",
      "url": "https://www.dw.com/de/hamas-anführer-bei-angriff-israels-im-gazastreifen-getötet/a-80034053?maca=de-rss-de-all-1119-rdf",
@@ -359,50 +398,11 @@
      "text": "Heftige Regenfälle haben in Gaza Tausende Zelte überflutet, mehrere Menschen starben. Kann Trumps Friedensgremium mit Druck auf Israel und die Hamas die humanitäre Not lindern?",
      "url": "https://www.dw.com/de/gaza-humanitäre-lage-verschärft-sich-politische-lösung-bleibt-aus/a-79946973?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Belgien/EU",
-   "lat": 50.8,
-   "lon": 4.4,
-   "anzahl": 7,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
-     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
-     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
-     "quelle": "tagesschau"
     },
     {
-     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
-     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
-     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
-     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
-     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "11KM-Podcast: Abschiebezentren in Ruanda: Die nächste Stufe der EU-Asylpolitik",
-     "text": "Deutschland und vier weitere EU-Staaten wollen abgelehnte Asylbewerber nach Ruanda abschieben. 11KM analysiert, wohin sich die europäische Migrationspolitik gerade entwickelt.",
-     "url": "https://www.tagesschau.de/inland/gesellschaft/podcast-11km-abschiebezentren-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Europäischer Menschenrechtsgerichtshof erlaubt teilweise Pushbacks an EU-Außengrenzen",
-     "text": "Der Europäische Gerichtshof für Menschenrechte (EGMR) lässt Pushbacks unter gewissen Bedingungen zu. Was bedeutet das Urteil für die europäische Migrationspolitik?",
-     "url": "https://www.dw.com/de/europäischer-menschenrechtsgerichtshof-erlaubt-teilweise-pushbacks-an-eu-außengrenzen/a-80041604?maca=de-rss-de-all-1119-rdf",
+     "titel": "Karateka Mariam Bsharat, 17, gewinnt zweimal U21-WM-Gold für Palästina - trotz Reisebeschränkungen, finanzieller Not und Olympia-Ausschluss",
+     "text": "Mariam Bsharat ist 17 Jahre alt, wuchs im besetzten Westjordanland auf - und lebt wegen des Nahost-Konflikts heute in Hamburg. In Polen holt sie ihr zweites WM-Gold für Palästina. Olympia ist ihr großer Traum.",
+     "url": "https://www.dw.com/de/karateka-mariam-bsharat-17-gewinnt-zweimal-u21-wm-gold-für-palästina-trotz-reisebeschränkungen-finanzieller-not-und-olympia-ausschluss/a-79874096?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -549,66 +549,6 @@
    ]
   },
   {
-   "land": "Afghanistan",
-   "lat": 33.9,
-   "lon": 67.7,
-   "anzahl": 4,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "\"Frauenhäuser abgeschafft\", Franziska Amler, ARD Neu-Delhi, zur Gewalt an Frauen in Afghanistan",
-     "text": "\"Frauenhäuser abgeschafft\", Franziska Amler, ARD Neu-Delhi, zur Gewalt an Frauen in Afghanistan",
-     "url": "https://www.tagesschau.de/video/video-1689584.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Taliban lassen Abschiebeflug verschieben",
-     "text": "Ein für heute geplanter Abschiebeflug nach Kabul wurde nach NDR-Informationen von afghanischer Seite abgesagt. Die Taliban wollen offenbar Druck machen, um die Einreise weiterer Konsularbeamte nach Deutschland zu erzwingen. Von P. Hornung.",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/afghanistan-taliban-abschiebeflug-gestoppt-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
-     "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
-     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
-     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
-     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Großbritannien",
-   "lat": 54.0,
-   "lon": -2.5,
-   "anzahl": 3,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Großbritannien: Schuldsprüche in Vergewaltigungsprozess",
-     "text": "Der Fall erinnert an das Martyrium der Französin Gisèle Pelicot. Die Britin Joanne Young wurde über Jahre von ihrem Ehemann betäubt - und dann im Internet zur Vergewaltigung angeboten. Nun wurden vier Männer schuldig gesprochen. Von F. Hopp",
-     "url": "https://www.tagesschau.de/ausland/europa/joanne-young-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Gipfel in Brüssel: Annäherung zwischen Großbritannien und EU",
-     "text": "Sechs Jahre nach dem Brexit rücken Großbritannien und die EU wieder näher zusammen. Das war beim gemeinsamen Gipfel in Brüssel deutlich spürbar. Manche träumen sogar schon von einer Rückkehr Großbritanniens in die EU. Von Sarah López.",
-     "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Junge Menschen profitieren: EU und Großbritannien nähern sich wieder an",
-     "text": "Großbritannien gehört seit Jahren nicht mehr zur Europäischen Union. Doch jetzt machen beide Seiten wieder Schritte aufeinander zu. Von einem der ersten Abkommen profitieren vor allem junge Menschen.",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-grossbritannien-abkommen-102.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "Japan",
    "lat": 36.2,
    "lon": 138.3,
@@ -636,28 +576,85 @@
    ]
   },
   {
-   "land": "Indien",
-   "lat": 21.0,
-   "lon": 78.0,
+   "land": "Afghanistan",
+   "lat": 33.9,
+   "lon": 67.7,
    "anzahl": 3,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "\"Frauenhäuser abgeschafft\", Franziska Amler, ARD Neu-Delhi, zur Gewalt an Frauen in Afghanistan",
-     "text": "\"Frauenhäuser abgeschafft\", Franziska Amler, ARD Neu-Delhi, zur Gewalt an Frauen in Afghanistan",
-     "url": "https://www.tagesschau.de/video/video-1689584.html",
+     "titel": "Taliban lassen Abschiebeflug verschieben",
+     "text": "Ein für heute geplanter Abschiebeflug nach Kabul wurde nach NDR-Informationen von afghanischer Seite abgesagt. Die Taliban wollen offenbar Druck machen, um die Einreise weiterer Konsularbeamte nach Deutschland zu erzwingen. Von P. Hornung.",
+     "url": "https://www.tagesschau.de/inland/innenpolitik/afghanistan-taliban-abschiebeflug-gestoppt-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "\"Junge Wilde\" aus Asien im Duell: Wer wird Schach-Weltmeister 2026?",
-     "text": "Indiens Titelverteidiger Gukesh Dommaraju gegen Herausforderer Jakhovir Sindarov aus Usbeskistan: Bis Mitte Dezember ringen zwei junge Großmeister in Genf um die Schachkrone. Dass beide aus Asien kommen, ist kein Zufall.",
-     "url": "https://www.dw.com/de/junge-wilde-aus-asien-im-duell-wer-wird-schach-weltmeister-2026/a-80000090?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
+     "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
+     "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
+     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
+     "quelle": "tagesschau"
     },
     {
-     "titel": "Indien: Der Mut der Frauen hinter den \"Kakerlaken\"-Protesten",
-     "text": "Trotz Polizeigewalt, Festnahmen und Online-Hetze gehen Frauen in Indien weiter auf die Straße. Sie lassen sich nicht einschüchtern und weigern sich, in die Opferrolle gedrängt zu werden.",
-     "url": "https://www.dw.com/de/indien-der-mut-der-frauen-hinter-den-kakerlaken-protesten/a-79723993?maca=de-rss-de-all-1119-rdf",
+     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
+     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
+     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
+   "land": "Kanada",
+   "lat": 56.1,
+   "lon": -106.3,
+   "anzahl": 1,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "Trump verschärft Handelskonflikt mit Kanada",
+     "text": "Zölle, Gegenzölle, Einfuhrsperren: Das sind die Eskalationsstufen im Streit zwischen den USA und Kanada. Hintergrund sind die gescheiterten Verhandlungen über ein Handelsabkommen im August.",
+     "url": "https://www.dw.com/de/trump-verschärft-handelskonflikt-mit-kanada/a-79198312?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
+   "land": "Türkei",
+   "lat": 39.0,
+   "lon": 35.2,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Proteste gegen Gewalt an Frauen in Istanbul verboten",
+     "text": "Frauenrechtsorganisationen wollten in Istanbul gegen Gewalt an Frauen demonstrieren. Doch nach dem Demoaufruf wurden die Proteste verboten. Dennoch gingen am Abend zahlreiche Menschen auf die Straße.",
+     "url": "https://www.tagesschau.de/ausland/europa/tuerkei-orange-day-demo-verboten-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
+     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
+     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Brasilien",
+   "lat": -14.2,
+   "lon": -51.9,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Gewalt gegen Frauen in Brasilien: Auf Streife gegen Femizide",
+     "text": "In Brasilien hat die Zahl der Frauenmorde vergangenes Jahr einen Höchststand erreicht. Eine Spezialeinheit der Polizei soll gefährdete Frauen schützen - unterwegs mit einer Patrouille in Rio de Janeiro. Von Xenia Böttcher.",
+     "url": "https://www.tagesschau.de/ausland/amerika/brasilien-gewalt-gegen-frauen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "USA kündigen Zölle auf diverse Importe aus Brasilien an",
+     "text": "Die neuen Aufschläge folgen auf eine einjährige US-Untersuchung der brasilianischen Handelspolitik. Sie stellte fest, dass einige der brasilianischen Praktiken \"unangemessen oder diskriminierend sind“.",
+     "url": "https://www.dw.com/de/usa-kündigen-zölle-auf-diverse-importe-aus-brasilien-an/a-77982870?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -747,53 +744,44 @@
    ]
   },
   {
-   "land": "Türkei",
-   "lat": 39.0,
-   "lon": 35.2,
+   "land": "Ungarn",
+   "lat": 47.2,
+   "lon": 19.5,
    "anzahl": 2,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
-     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
-     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
-     "quelle": "tagesschau"
+     "titel": "Ungarn-Ukraine: Peter Magyar und Wolodymyr Selenskyj wagen Neustart",
+     "text": "Lange vergiftete Viktor Orbans prorussischer Kurs Ungarns Verhältnis zur Ukraine. Nun schaffen Premier Magyar und Präsident Selenskyj bei einem Treffen eine neue Vertrauensbasis - und vereinbaren konkrete Schritte.",
+     "url": "https://www.dw.com/de/ungarn-ukraine-peter-magyar-und-wolodymyr-selenskyj-wagen-neustart/a-80048613?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     },
     {
-     "titel": "Gesuchtes Tier in Istanbul wohl doch keine Löwin",
-     "text": "Nach der Sichtung eines verdächtigen Tieres hatten Behörden in Istanbul einen Tag lang nach einer angeblich freilaufenden Löwin gesucht. Nun gaben sie vorerst Entwarnung: Es streunt wohl doch keine Großkatze durch die türkische Metropole.",
-     "url": "https://www.tagesschau.de/ausland/europa/loewe-istanbul-102.html",
-     "quelle": "tagesschau"
+     "titel": "Nach 16 Jahren Orban: Ungarn räumt mit Korruptionserbe auf",
+     "text": "Jahrelang versprach Viktor Orban den Kampf gegen Korruption, nun gerät sein eigenes Umfeld ins Visier der Justiz: Ein Ex-Minister, der frühere Notenbankchef und Orbans Bruder wurden verhaftet. Hat Fidesz eine Zukunft?",
+     "url": "https://www.dw.com/de/nach-16-jahren-orban-ungarn-räumt-mit-korruptionserbe-auf/a-79967762?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   },
   {
-   "land": "Spanien",
-   "lat": 40.4,
-   "lon": -3.7,
-   "anzahl": 1,
+   "land": "Indien",
+   "lat": 21.0,
+   "lon": 78.0,
+   "anzahl": 2,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
-     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Ägypten",
-   "lat": 26.8,
-   "lon": 30.8,
-   "anzahl": 1,
-   "heiss": 0,
-   "meldungen": [
+     "titel": "\"Junge Wilde\" aus Asien im Duell: Wer wird Schach-Weltmeister 2026?",
+     "text": "Indiens Titelverteidiger Gukesh Dommaraju gegen Herausforderer Jakhovir Sindarov aus Usbeskistan: Bis Mitte Dezember ringen zwei junge Großmeister in Genf um die Schachkrone. Dass beide aus Asien kommen, ist kein Zufall.",
+     "url": "https://www.dw.com/de/junge-wilde-aus-asien-im-duell-wer-wird-schach-weltmeister-2026/a-80000090?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
     {
-     "titel": "Journalisten in Ägypten: Verbote, Drohungen und Gefängnisstrafen",
-     "text": "Journalisten in Ägypten sind enormem Druck ausgesetzt - teilweise werden ganze Redaktionen verhaftet. Mutige Journalisten versuchen dennoch weiterzumachen. Sie hoffen auf Solidarität aus dem Ausland. Von M. Behrendt.",
-     "url": "https://www.tagesschau.de/ausland/afrika/pressefreiheit-aegypten-100.html",
-     "quelle": "tagesschau"
+     "titel": "Indien: Der Mut der Frauen hinter den \"Kakerlaken\"-Protesten",
+     "text": "Trotz Polizeigewalt, Festnahmen und Online-Hetze gehen Frauen in Indien weiter auf die Straße. Sie lassen sich nicht einschüchtern und weigern sich, in die Opferrolle gedrängt zu werden.",
+     "url": "https://www.dw.com/de/indien-der-mut-der-frauen-hinter-den-kakerlaken-protesten/a-79723993?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   }
@@ -805,18 +793,8 @@
    "quelle": "tagesschau"
   },
   {
-   "titel": "EU will Versorgung mit Arzneimitteln sicherstellen",
-   "url": "https://www.tagesschau.de/ausland/europa/eu-parlament-arzneimittel-100.html",
-   "quelle": "tagesschau"
-  },
-  {
    "titel": "Urteil des EGMR: Pushbacks an Grenze zu Belarus waren teils legal",
    "url": "https://www.tagesschau.de/ausland/europa/emgr-urteil-pushbacks-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "Vergewaltigungsvorwurf: Anzeige gegen Depardieu und Houellebecq",
-   "url": "https://www.tagesschau.de/ausland/europa/frankreich-vergewaltigungsvorwuerfe-depardieu-houellebecq-100.html",
    "quelle": "tagesschau"
   },
   {
@@ -835,17 +813,27 @@
    "quelle": "tagesschau"
   },
   {
-   "titel": "\"Palisades Fire\" - Angeklagter im zweiten Anlauf schuldig gesprochen",
-   "url": "https://www.tagesschau.de/ausland/amerika/prozess-pacific-palisades-feuer-kalifornien-100.html",
+   "titel": "Internationaler Gerichtshof: Vorgehen Myanmars gegen Rohingya war Völkermord",
+   "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html",
+   "quelle": "tagesschau"
+  },
+  {
+   "titel": "\"Keine Klimagerechtigkeit ohne Entmilitarisierung\"",
+   "url": "https://www.tagesschau.de/ausland/asien/cop31-krieg-emissionen-100.html",
+   "quelle": "tagesschau"
+  },
+  {
+   "titel": "Viele Tote nach Bootsunglück vor Senegal gemeldet",
+   "url": "https://www.tagesschau.de/ausland/afrika/viele-tote-bootsunglueck-senegal-100.html",
    "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 53473,
+   "wert": 54617,
    "einheit": "€",
-   "pct": -2.72,
+   "pct": 0.44,
    "verlauf": [
     57416,
     56459,
@@ -854,44 +842,44 @@
     55754,
     56132,
     54515,
-    53347
+    54727
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1498.23,
+   "wert": 1535.36,
    "einheit": "€",
-   "pct": -3.19
+   "pct": 0.65
   },
   {
    "name": "Solana",
-   "wert": 61.89,
+   "wert": 64.12,
    "einheit": "€",
-   "pct": -3.83
+   "pct": 1.92
   },
   {
    "name": "EUR/CHF",
-   "wert": 0.9183,
+   "wert": 0.9085,
    "einheit": "",
-   "pct": 0.0
+   "pct": -1.07
   },
   {
    "name": "EUR/GBP",
-   "wert": 0.837,
+   "wert": 0.8373,
    "einheit": "",
-   "pct": 0.0
+   "pct": 0.04
   },
   {
    "name": "EUR/USD",
-   "wert": 1.0963,
+   "wert": 1.0935,
    "einheit": "",
-   "pct": 0.0
+   "pct": -0.26
   }
  ],
  "fx": {
-  "CHF": 0.9183,
-  "GBP": 0.837,
-  "USD": 1.0963
+  "CHF": 0.9085,
+  "GBP": 0.8373,
+  "USD": 1.0935
  },
  "fehler": []
 }
