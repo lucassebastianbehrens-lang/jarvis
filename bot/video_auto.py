@@ -397,6 +397,9 @@ def zt():
 
 
 if __name__ == "__main__":
+    import jlib
+    if not jlib.darf_laufen("video"):
+        raise SystemExit(0)
     if not (KEY or ki_router.anbieter()):
         raise SystemExit("Kein KI-Schlüssel (GROQ_KEY, GEMINI_KEY oder OPENROUTER_KEY) – GitHub → Settings → Secrets → Actions")
     p = {"sim": sim, "tt": tt, "geld": geld, "zt": zt}[sys.argv[1]]()

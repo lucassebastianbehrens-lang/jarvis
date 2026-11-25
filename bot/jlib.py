@@ -65,6 +65,24 @@ def wf_file(run):
     return os.path.basename(run.get("path", "").split("@")[0])
 
 
+# Überlebens-Stufe aus dem Automaton (bot/automaton.py): steuert KI-Größe und welche Bots laufen dürfen
+NEBENSACHEN = {"recherche", "lage", "video", "videos"}           # pausieren ab „kritisch“
+UNVERZICHTBAR = {"waechter", "hintergrund", "ideen", "automaton", "auftraege", "shop_bau"}  # laufen sogar in „ruhe“
+
+
+def modus():
+    return (load("automaton.json", {}) or {}).get("modus", "normal")
+
+
+def darf_laufen(bot):
+    """False, wenn Jarvis gerade spart und dieser Bot warten soll (siehe docs/AUTOMATON.md)."""
+    m = modus()
+    if m == "kritisch" and bot in NEBENSACHEN or m == "ruhe" and bot not in UNVERZICHTBAR:
+        print(f"Überlebensmodus „{m}“: {bot} pausiert, bis wieder Geld im Jarvis-Topf ist.")
+        return False
+    return True
+
+
 def ki(system, user, search=False, json_mode=False):
     """KI-Antwort über Groq (mit Websuche), bei Ausfall über die KI-Weiche (ki_router). Ohne jeden Schlüssel: leerer Text."""
     msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
@@ -75,6 +93,8 @@ def ki(system, user, search=False, json_mode=False):
                      ("openai/gpt-oss-20b", {"tools": [{"type": "browser_search"}], "tool_choice": "required"})]
                     if search else [("openai/gpt-oss-120b", {}), ("openai/gpt-oss-20b", {}),
                                     ("qwen/qwen3.8-27b", {})])
+        if modus() != "normal":  # Sparstufe: großes Modell überspringen
+            versuche = [v for v in versuche if "120b" not in v[0]] or versuche
         for m, extra in versuche:
             if m in _GESPERRT:
                 continue

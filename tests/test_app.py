@@ -38,6 +38,12 @@ async def route(r):
         return await r.fulfill(body=f.read_bytes(), content_type=TYP.get(f.suffix, "application/octet-stream"))
     if "raw.githubusercontent" in u:
         n = u.split("/data/")[1].split("?")[0]
+        if n == "automaton.json":
+            return await r.fulfill(body=json.dumps({"modus": "sparsam", "topf": 31.5, "reichweite_tage": 100, "einnahmen_30t": 42, "einnahmen_gesamt": 42,
+                "kosten": {"server_monat": 9.5}, "updated": int(time.time()), "paypal": {"verbunden": True, "kontostand": 120},
+                "vorschlag": {"name": "Bea", "rolle": "bauer", "auftrag": "Shop für Haushaltsbücher", "warum": "digital", "budget": 9},
+                "kinder": [{"id": "K-AB12", "name": "Kai", "rolle": "vermarkter", "status": "lebt", "einnahmen": 5, "ausgegeben": 1, "budget": 8, "schritte": [{"text": "Video geplant"}]}],
+                "log": [{"t": int(time.time()), "text": "Stufe normal → sparsam"}]}), content_type="application/json")
         if n == "lage.json":
             return await r.fulfill(body=LAGE, content_type="application/json")
         f = ROOT / "data" / n
@@ -91,6 +97,15 @@ async def main():
         check("Lage: Märkte", await pg.locator("#mkt div").count() >= 3)
         await pg.click("nav button[data-t=stadt]"); await pg.wait_for_timeout(500)
         check("KI-Stadt zeichnet", await pg.evaluate("document.querySelector('#cityCv').width>0"))
+        await pg.click("nav button[data-t=jarvis]")
+
+        # Automaton: Topf, Stufe, Kinder, Klonen nur per Ja
+        await pg.click("nav button[data-t=trading]"); await pg.wait_for_timeout(400)
+        a = await pg.inner_text("#automaton")
+        check("Automaton: Topf + Stufe + Kind sichtbar", all(x in a for x in ["31,50", "Sparsam", "Kai"]), a[:200])
+        await pg.click("[data-klon=ja]"); await pg.wait_for_timeout(400)
+        check("Automaton: Ja startet Klonen", dispatched and dispatched[-1].get("inputs", {}).get("aktion") == "ja", str(dispatched[-1:]))
+        dispatched.clear()
         await pg.click("nav button[data-t=jarvis]")
 
         # Kunden-Onboarding

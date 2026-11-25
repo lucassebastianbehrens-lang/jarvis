@@ -4,7 +4,10 @@ Die KI bewertet alles für Lucas und macht Einbau-Vorschläge für Jarvis.
 Nichts wird automatisch eingebaut: in der App per „Umsetzen ja/nein“ freigeben → GitHub-Issue → Claude baut ein.
 Ergebnis → data/recherche.json"""
 import hashlib, time, urllib.parse
-from jlib import http, gh, ki, parse_json, load, store
+from jlib import http, gh, ki, parse_json, load, store, darf_laufen
+
+if not darf_laufen("recherche"):
+    raise SystemExit(0)
 
 now = int(time.time())
 woche = time.strftime("%Y-%m-%d", time.gmtime(now - 7 * 86400))

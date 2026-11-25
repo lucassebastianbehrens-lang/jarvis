@@ -1,0 +1,29 @@
+{
+ "start": 1795609069,
+ "startguthaben": 25.0,
+ "server_eur_monat": 9.5,
+ "kosten_pro_schritt": 0.05,
+ "klon_ab": 40.0,
+ "max_kinder": 3,
+ "kind_budget_max": 10.0,
+ "kind_lebenstage_ohne_einnahmen": 30,
+ "modus": "normal",
+ "topf": 25.0,
+ "paypal": {
+  "verbunden": false,
+  "kontostand": null,
+  "geprueft": 1795609069
+ },
+ "kinder": [],
+ "vorschlag": null,
+ "log": [],
+ "kosten": {
+  "server_bisher": 0.0,
+  "server_monat": 9.5
+ },
+ "einnahmen_gesamt": 0.0,
+ "einnahmen_30t": 0,
+ "reichweite_tage": 80,
+ "hinweis": "PayPal noch nicht verbunden – Jarvis läuft normal weiter. Anleitung: docs/AUTOMATON.md",
+ "updated": 1795609069
+}

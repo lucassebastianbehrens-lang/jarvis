@@ -3,7 +3,7 @@ Quellen: tagesschau + Deutsche Welle (RSS), CoinGecko, Frankfurter (EZB-Kurse). 
 Ergebnis → data/lage.json (Tab „Lage“ in Jarvis)."""
 import html, re, time, urllib.request
 import xml.etree.ElementTree as ET
-from jlib import load, store, ki, http
+from jlib import load, store, ki, http, darf_laufen
 
 FEEDS = [
     ("tagesschau", "https://www.tagesschau.de/ausland/index~rss2.xml"),
@@ -160,4 +160,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if darf_laufen("lage"):
+        main()

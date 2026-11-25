@@ -35,6 +35,7 @@ Die Bausteine laden in Nummern-Reihenfolge; ein Baustein darf beim Laden nur Din
 | `01-basis.js` | Helfer, Speicher (localStorage + IndexedDB-Archiv), Tabs, Daten laden |
 | `10-ki-stadt.js` | Tab „Stadt“: 3D-Stadt, jedes Haus ein Bot |
 | `20-briefing.js` · `21-trading.js` · `22-neu-entdeckt.js` · `23-lage.js` | Tabs Briefing, Trading, Neu, Lage (Globus) |
+| `24-automaton.js` | Jarvis-Topf (PayPal), Überlebens-Stufe, Kind-Bots, „Klonen? Ja/Nein“ |
 | `30-feier-kalender.js` | „KUNDE AN BORD“-Feier, Kalender-Dateien (.ics) |
 | `31-kunden.js` · `32-call.js` · `33-werkstatt.js` | Neuer Kunde, Call vorbereiten, Jarvis baut |
 | `40-markdown.js` · `41-kern.js` | Formatierte Antworten, Partikel-Kern |
@@ -46,6 +47,7 @@ Die Bausteine laden in Nummern-Reihenfolge; ein Baustein darf beim Laden nur Din
 | Bot | Datei | Wann | Schreibt |
 |---|---|---|---|
 | Leibgarde (Ben/Lea/Kai) | `hintergrund.py` | auf Abruf, eigene Warteschlange | `data/hintergrund/<id>.json` |
+| Automaton Ava (PayPal-Topf, Spar-Stufen, Klone) | `automaton.py` | alle 2 h + auf Ja/Nein | `data/automaton.json` – siehe [AUTOMATON.md](AUTOMATON.md) |
 | Agentin Ada (Lage) | `lage.py` | alle 2 h | `data/lage.json` |
 | Butler Bruno (Briefing) | `briefing.py` | täglich 6:09 | `data/briefing.json` |
 | Forscherin Frieda | `recherche.py` | nachts | `data/recherche.json` |
@@ -79,6 +81,7 @@ Gesprächs-Archiv, Bauten und Einstellungen bleiben nur auf dem Gerät (IndexedD
 | CoinGecko, Frankfurter (EZB) | Krypto- und Devisenkurse | – |
 | Kraken | Kurse für Spielgeld-Trading | – (Echtgeld: siehe `ECHTGELD.md`) |
 | ElevenLabs | optionale Stimme | in der App ⚙️ |
+| PayPal (nur lesen) | Jarvis-Topf: Kontostand + Eingänge | `PAYPAL_CLIENT_ID`, `PAYPAL_SECRET` |
 
 Hinweis: `groq/compound` ist für dieses Groq-Konto gesperrt – die Websuche läuft über `browser_search` (automatischer Ausweichweg in `jlib.ki` und `44-ki-chat.js`).
 

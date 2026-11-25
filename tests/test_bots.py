@@ -245,6 +245,38 @@ with tempfile.TemporaryDirectory() as d:
     SB.ZIEL, SB.MAX_RUNDEN = 0.75, 8
     check("Shop: keine erfundenen Bewertungen erlaubt", SB.pruefen(PLAN, h.replace("</footer>", "★★★★★ Testsieger</footer>"), False) != [])
 
+# Automaton: Überlebens-Stufen, PayPal-Bilanz, Klonen nur mit Ja, Kind stirbt ohne Budget (ohne Internet)
+import automaton as AU
+check("Automaton: Stufen", [AU.stufe(x) for x in (80, 20, 3, 0, -5)] == ["normal", "sparsam", "kritisch", "ruhe", "ruhe"])
+with tempfile.TemporaryDirectory() as d:
+    os.makedirs(d + "/data"); _root = jlib.ROOT; jlib.ROOT = d
+    jetzt = int(time.time())
+    pp = {"kontostand": 300.0, "eingaenge": [{"eur": 30.0, "text": "Shop Bestellung", "t": time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime(jetzt - 3600))},
+                                           {"eur": 12.0, "text": "Vorlage [K-AB12]", "t": time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime(jetzt - 7200))}]}
+    AU.paypal_lesen = lambda seit: pp
+    AU.jlib.tg = lambda t: None
+    AU.jlib.ki = lambda *a, **k: json.dumps({"rolle": "bauer", "name": "Bea", "auftrag": "Baue einen Shop für Excel-Haushaltsbücher", "warum": "digitale Produkte"})
+    jlib.store("automaton.json", {"start": jetzt - 86400})
+    s = AU.main()
+    check("Automaton: Topf = Start + Einnahmen − Server", abs(s["topf"] - (25 + 42 - 9.5 / 30.44)) < 0.05, str(s["topf"]))
+    check("Automaton: Klon nur als Vorschlag (wartet auf Ja)", s["vorschlag"] and not s["kinder"], str(s.get("vorschlag")))
+    check("Automaton: Stufe landet bei allen Bots", jlib.modus() == "normal" and jlib.darf_laufen("lage"))
+    s = AU.main("ja"); k = s["kinder"][0]
+    check("Automaton: nach Ja lebt das Kind mit Budget", k["status"] == "lebt" and 0 < k["budget"] <= 10 and not s["vorschlag"])
+    pp["eingaenge"][1]["text"] = f"Vorlage [{k['id']}]"
+    s = AU.main()
+    check("Automaton: Einnahme mit Kind-Kennung zählt fürs Kind", s["kinder"][0]["einnahmen"] == 12.0 and s["kinder"][0]["schritte"])
+    s["kinder"][0].update(ausgegeben=99, einnahmen=0); jlib.store("automaton.json", s)
+    pp["eingaenge"].pop(1)
+    s = AU.main()
+    check("Automaton: Kind ohne Budget stirbt", s["kinder"][0]["status"] == "tot")
+    pp["eingaenge"].clear(); s = jlib.load("automaton.json", {}); s.update(startguthaben=-100); jlib.store("automaton.json", s)
+    s = AU.main()
+    check("Automaton: leerer Topf → Ruhe, Nebensachen pausieren", s["modus"] == "ruhe" and not jlib.darf_laufen("lage") and jlib.darf_laufen("waechter"))
+    AU.paypal_lesen = lambda seit: None; s = AU.main()
+    check("Automaton: ohne PayPal-Schlüssel läuft Jarvis normal", s["modus"] == "normal" and "PayPal" in s["hinweis"])
+    jlib.ROOT = _root
+
 # Alle Bots lassen sich übersetzen, alle Daten sind gültiges JSON
 for f in sorted([*(ROOT / "bot").glob("*.py"), *(ROOT / "video").glob("*.py")]):
     try:
