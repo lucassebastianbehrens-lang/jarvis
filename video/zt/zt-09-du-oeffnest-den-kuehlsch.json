@@ -1,0 +1,66 @@
+{
+ "id": "zt-09-du-oeffnest-den-kuehlsch",
+ "series": "Stell dir vor",
+ "episode": 9,
+ "title": "Kühlschrank-Fund",
+ "caption": "Stell dir vor, du findest plötzlich 12 € im Kühlschrank – was würdest du damit machen? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#alltag",
+  "#geldfund",
+  "#fyp"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Du öffnest den Kühlschrank und findest genau 12 Euro, die du letzte Woche verlegt hast.",
+ "scenes": [
+  {
+   "bg": "kueche",
+   "pose": "staunen",
+   "prop": "geld",
+   "zahl": 12,
+   "zahl_label": "€",
+   "text": "Stell dir vor, du öffnest den Kühlschrank und findest zwölf Euro zwischen den Butterkartons.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "denken",
+   "prop": "keins",
+   "text": "Du fragst dich, wo du das Geld letzte Woche hingelegt hast. Vielleicht hast du es im Fach für Käse vergessen.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "freude",
+   "prop": "geld",
+   "zahl": 20,
+   "zahl_label": "€",
+   "text": "Acht Euro mehr – jetzt hast du zwanzig in der Hand.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Du legst das Geld beiseite und überlegst, wofür du es ausgeben könntest.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "freude",
+   "prop": "geld",
+   "zahl": 30,
+   "zahl_label": "€",
+   "pause": 1.0,
+   "text": "Zehn Euro noch dazu, plötzlich hast du dreißig Euro."
+  },
+  {
+   "bg": "kueche",
+   "pose": "denken",
+   "prop": "keins",
+   "text": "Und du? Was würdest du mit einem kleinen Geldfund tun? 👇",
+   "pause": 0.0
+  }
+ ]
+}
