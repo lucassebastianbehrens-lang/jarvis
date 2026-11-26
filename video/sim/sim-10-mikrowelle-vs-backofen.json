@@ -1,0 +1,110 @@
+{
+  "id": "sim-10-mikrowelle-vs-backofen",
+  "titel": [
+    "MIKROWELLE",
+    "BACKOFEN"
+  ],
+  "frage": [
+    "PIZZA AUFHEIZEN –",
+    "WELCHER VERBRAUCHT WENIGER STROM?"
+  ],
+  "a": {
+    "name": "Mikrowelle",
+    "figur": "rad",
+    "dauer_s": 120.0,
+    "menge": 0.04,
+    "info": "2 min Aufwärmen"
+  },
+  "b": {
+    "name": "Backofen",
+    "figur": "rad",
+    "dauer_s": 780.0,
+    "menge": 0.55,
+    "info": "5 min Vorheizen +8 min"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "kWh",
+    "zaehler": "Energieverbrauch",
+    "besser": "weniger"
+  },
+  "skala": [
+    "Mikrowelle",
+    "Mitte",
+    "Backofen"
+  ],
+  "ergebnis": "etwa {p} % weniger Strom",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Nur 0,04 kWh vs. 0,55 kWh – das ist 93 Prozent Unterschied!"
+    },
+    {
+      "phase": "intro",
+      "t": "Die Mikrowelle braucht nur 0,04 kWh, der Backofen rund 0,55 kWh."
+    },
+    {
+      "phase": "race",
+      "t": "Bei 900 W Leistung dauert die Mikrowelle etwa zwei Minuten."
+    },
+    {
+      "phase": "race",
+      "t": "Der Backofen mit 2200 W muss 5 Min vorheizen und 8 Min backen."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Die Mikrowelle verbraucht etwa 93 Prozent weniger Energie."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Wie viel Strom spart die Mikrowelle beim Aufwärmen?",
+    "Nur 0,04 kWh vs. 0,55 kWh – das ist 93 % Unterschied!",
+    "Mythos: Backofen ist besser zum Pizza‑Aufwärmen."
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Mikrowelle vs. Backofen – wer wärmt deine Pizza energieeffizienter? 🍕⚡️ Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#energie",
+    "#pizza",
+    "#mikrowelle",
+    "#backofen"
+  ],
+  "quelle": "Hersteller‑Richtwerte (Bosch, Samsung, Siemens, AEG); Verbraucherzentrale; Umweltbundesamt",
+  "fakten": [
+    {
+      "satz": "Typische Leistungsaufnahme einer Haushaltsmikrowelle liegt bei 800-1000 W",
+      "wert": "900 W",
+      "quelle": "Hersteller-Richtwerte (z.B. Bosch, Samsung)"
+    },
+    {
+      "satz": "Typische Leistungsaufnahme eines elektrischen Backofens liegt bei 2000-2500 W",
+      "wert": "2200 W",
+      "quelle": "Hersteller-Richtwerte (z.B. Siemens, AEG)"
+    },
+    {
+      "satz": "Energieverbrauch zum Aufwaermen einer Pizza in der Mikrowelle (ca. 2 min) betraegt rund 0,04 kWh",
+      "wert": "0,04 kWh",
+      "quelle": "Verbraucherzentrale, eigene Berechnung"
+    },
+    {
+      "satz": "Energieverbrauch zum Aufwaermen einer Pizza im Backofen (vorheizen 5 min + 8 min Aufwaermen) betraegt rund 0,55 kWh",
+      "wert": "0,55 kWh",
+      "quelle": "Umweltbundesamt, eigene Berechnung"
+    },
+    {
+      "satz": "Wirkungsgrad der Mikrowelle beim Erhitzen von Lebensmitteln liegt bei etwa 65 %",
+      "wert": "65 %",
+      "quelle": "Verbraucherzentrale"
+    },
+    {
+      "satz": "Wirkungsgrad eines herkoemmlichen Backofens beim Erhitzen von Lebensmitteln liegt bei etwa 14 %",
+      "wert": "14 %",
+      "quelle": "Umweltbundesamt"
+    }
+  ]
+}

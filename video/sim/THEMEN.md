@@ -28,6 +28,6 @@
 - [x] Laden vs Tanken – 100 km E-Auto vs Benziner, Kosten (sim-07-laden-vs-tanken)
 - [x] Standby vs Aus – 10 Geräte ein Jahr, Stromkosten (sim-08-standby-vs-aus)
 - [x] Laufen vs Radfahren – 30 Minuten, Kalorien (sim-09-laufen-vs-radfahren)
-- [ ] Mikrowelle vs Backofen – Pizza aufwärmen, Strom
+- [x] Mikrowelle vs Backofen – Pizza aufwärmen, Strom (sim-10-mikrowelle-vs-backofen)
 - [ ] Rolltreppe gehen vs stehen – wer ist zuerst oben?
 - [ ] Kaffee vs Energydrink – Koffein pro Getränk
