@@ -1,0 +1,120 @@
+{
+ "id": "tt-s1-f05",
+ "series": "Früchte-Drama",
+ "episode": 5,
+ "title": "Zwei Frauen, ein Kuchen 🍓🧅",
+ "caption": "Folge 5: Rosa und Jessy in der Küche… und dann sieht Jessy das Familienfoto. 😳 Folge mir für Teil 6!",
+ "hashtags": [
+  "#früchtedrama",
+  "#kiserie",
+  "#obstdrama",
+  "#drama",
+  "#fyp"
+ ],
+ "end": "WAS SIEHT JESSY AUF DEM FOTO? FOLGE MIR FÜR TEIL 6!",
+ "voices": {
+  "Erzähler": "de-DE-FlorianMultilingualNeural",
+  "Gino": "de-DE-ConradNeural",
+  "Rosa": "de-DE-SeraphinaMultilingualNeural",
+  "Jessy": "de-DE-AmalaNeural",
+  "Avo": "de-DE-KillianNeural"
+ },
+ "figuren": {
+  "Gino": "a garlic bulb character (head is a big white garlic bulb with cartoon eyes and thick eyebrows), muscular cartoon body, grey tank top",
+  "Jessy": "a strawberry character (head is a big shiny red strawberry with green leaves on top and cartoon eyes), pink tracksuit jacket",
+  "Rosa": "a real whole red onion standing upright like a little character, two big googly eyes and a small painted smile on the shiny red-violet onion skin, a dried brown sprout on top, tiny stubby green stick arms and legs, the onion itself is the whole character, no hair, no human face, vegetable toy photo",
+  "Avo": "an avocado character (head is a halved avocado, the pit is the nose, cartoon eyes), green hoodie"
+ },
+ "scenes": [
+  {
+   "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no realistic face, no skin, no hair, no neck, toy-like mascot, standing in a cozy kitchen next to a real whole red onion standing upright like a little character, two big googly eyes and a small painted smile on the shiny red-violet onion skin, a dried brown sprout on top, tiny stubby green stick arms and legs, the onion itself is the whole character, no hair, no realistic face, vegetable toy photo, smiling warmly, holding a small plate with strawberry cake, warm kitchen light",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Zwei Frauen. Eine Küche. Und null Skrupel."
+    },
+    {
+     "s": "Rosa",
+     "t": "Jessy! Komm rein. Du bringst Kuchen? Das ist ja unglaublich."
+    },
+    {
+     "s": "Jessy",
+     "t": "Ich dachte, nach dem harten Training braucht ihr was Süßes."
+    }
+   ],
+   "seed": 901
+  },
+  {
+   "p": "a real whole uncut avocado standing upright like a little character, bumpy dark green avocado skin, egg-shaped, two big googly eyes and a small painted smile on the avocado skin, tiny stubby green stick arms and legs, a small green knitted scarf, the avocado itself is the whole character, no hair, no realistic face, no torso, vegetable toy photo, toy-like mascot, the character is literally a walking avocado, no realistic face, no skin, no hair, no neck, toy-like mascot, sitting at the kitchen table, sweating, eating a small piece of cake in panic, wide eyes",
+   "lines": [
+    {
+     "s": "Avo",
+     "t": "Mmh. Sehr lecker. Ich muss dann auch sofort… weg."
+    },
+    {
+     "s": "Rosa",
+     "t": "Bleib sitzen, Jürgen. Der Kuchen schmeckt fantastisch, oder Geri?"
+    },
+    {
+     "s": "Gino",
+     "t": "J-ja! Sehr fruchtig. Ähm, wie Jessy."
+    }
+   ],
+   "seed": 912
+  },
+  {
+   "p": "a real whole red onion standing upright like a little character, two big googly eyes and a small painted smile on the shiny red-violet onion skin, a dried brown sprout on top, tiny stubby green stick arms and legs, the onion itself is the whole character, no hair, no realistic face, vegetable toy photo, the character is literally a walking red onion, no realistic face, no skin, no hair, no neck, toy-like mascot, pouring tea into small cups, smiling happily, warm cozy kitchen background",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Plötzlich schienen alle Bedenken wie weggeblasen."
+    },
+    {
+     "s": "Rosa",
+     "t": "Weißt du, Jessy, ich mag dich sofort. Du hast so ein… vertrautes Lächeln."
+    },
+    {
+     "s": "Jessy",
+     "t": "Danke, Rosa. Ich fühle mich hier auch wie zu Hause."
+    }
+   ],
+   "seed": 923
+  },
+  {
+   "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no realistic face, no skin, no hair, no neck, toy-like mascot, walking toward a wooden shelf in the living room, looking at a framed picture on the wall, dramatic close-up",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Doch dann ging Jessy zum Wandregal. Direkt zum alten Familienfoto."
+    },
+    {
+     "s": "Jessy",
+     "t": "Sag mal, Rosa… wer ist der ältere Herr da auf dem Bild?"
+    },
+    {
+     "s": "Rosa",
+     "t": "Das ist Opa Radieschen. Warum fragst du?"
+    }
+   ],
+   "seed": 934
+  },
+  {
+   "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no realistic face, no skin, no hair, no neck, toy-like mascot, standing completely frozen in front of the picture frame, tiny stubby arms dropping, wide shocked eyes, dramatic lighting",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Jessy erstarrte. Die Farbe wich aus den Erdbeer-Samen."
+    },
+    {
+     "s": "Jessy",
+     "t": "Opa… Radieschen? Das… das kann nicht sein."
+    },
+    {
+     "s": "Rosa",
+     "t": "Jessy? Ist alles in Ordnung mit dir?"
+    }
+   ],
+   "seed": 945
+  }
+ ]
+}
