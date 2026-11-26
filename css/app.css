@@ -149,3 +149,24 @@ input[type=number],input[type=datetime-local],input[type=tel]{width:100%;backgro
 dialog.wide{width:min(980px,96vw)}
 @media (min-width:900px){nav{top:0;bottom:auto;left:auto;right:0;flex-direction:column;width:96px;height:100dvh;border-top:0;border-left:1px solid var(--line);justify-content:flex-start;padding-top:80px}nav button{flex:none}main,header{margin-right:96px}.composer{bottom:16px}.toast{bottom:90px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
+
+/* Kommandozentrale */
+.zhead{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.zgauge{width:130px;display:block}
+.zmax{text-align:center;font-family:var(--disp);font-weight:700;font-size:1.3rem;color:var(--ember);margin-top:-6px;text-shadow:0 0 12px var(--red)}
+.zstat{flex:1;min-width:200px}.zstat p{margin:6px 0}
+.zgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+@media (min-width:600px){.zgrid{grid-template-columns:repeat(4,1fr)}}
+.ztile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:96px;transition:border-color .15s,transform .15s}
+.ztile:hover,.ztile:focus-visible{border-color:var(--red);transform:translateY(-2px)}
+.ztile b{font-size:1.6rem;font-weight:400;line-height:1}
+.ztile span{font-family:var(--disp);font-weight:600}
+.ztile small{color:var(--muted);font-size:.75rem;text-align:center}
+.zlist{list-style:none;padding:0;margin:10px 0 0}
+.zlist li{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--line)}
+.zlist label{display:flex;gap:10px;align-items:center;flex:1;cursor:pointer}
+.zlist input{width:20px;height:20px;flex-shrink:0;accent-color:var(--ok)}
+.zlist input:checked+span{color:var(--muted);text-decoration:line-through}
+.zlead{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.zlead .r{text-align:right;white-space:nowrap}
+#zentrale a.btn{text-decoration:none;color:var(--text)}

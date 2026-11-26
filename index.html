@@ -22,7 +22,12 @@
 </header>
 
 <main>
-<section class="tab on" id="t-jarvis" aria-label="Jarvis">
+<section class="tab on" id="t-zentrale" aria-label="Kommandozentrale">
+  <div class="row" style="justify-content:space-between;margin:6px 0 4px"><h2>Kommandozentrale</h2><span class="chip">alle Agenten</span></div>
+  <div id="zentrale"><p class="empty">Lade Zentrale …</p></div>
+</section>
+
+<section class="tab" id="t-jarvis" aria-label="Jarvis">
   <div class="core-wrap"><button class="core" id="core" aria-label="Zum Sprechen tippen"></button></div>
   <p class="core-hint" id="coreHint">Tipp auf den Kern und sprich – oder schreib unten.</p>
   <div class="tools"><button class="btn" id="tKunde">🤝 Neuer Kunde</button><button class="btn" id="tCall">📞 Call vorbereiten</button><button class="btn" id="tBau">🛠 Bauen</button><button class="btn" id="tGarde">🛡️ Im Hintergrund</button></div>
@@ -72,7 +77,8 @@
 </main>
 
 <nav role="tablist">
-  <button role="tab" aria-selected="true" data-t="jarvis"><b>◉</b>Jarvis</button>
+  <button role="tab" aria-selected="true" data-t="zentrale"><b>🎛️</b>Zentrale</button>
+  <button role="tab" aria-selected="false" data-t="jarvis"><b>◉</b>Jarvis</button>
   <button role="tab" aria-selected="false" data-t="stadt"><b>🏙️</b>Stadt</button>
   <button role="tab" aria-selected="false" data-t="lage"><b>🛰️</b>Lage</button>
   <button role="tab" aria-selected="false" data-t="briefing"><b>☀️</b>Briefing</button>
@@ -163,6 +169,7 @@
 <script src="js/22-neu-entdeckt.js"></script>
 <script src="js/23-lage.js"></script>
 <script src="js/24-automaton.js"></script>
+<script src="js/25-zentrale.js"></script>
 <script src="js/30-feier-kalender.js"></script>
 <script src="js/31-kunden.js"></script>
 <script src="js/32-call.js"></script>
