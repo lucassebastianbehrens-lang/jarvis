@@ -1,50 +1,27 @@
 {
- "t": 1795620530,
- "datum": "Mittwoch, 25.11.2026",
- "fazit": "Die 14 Bots erledigten 81 Aufträge (6 fehlerhaft), der Krypto‑Bot hat 1.000 € unverändert, der Memecoin‑Bot liegt bei 907 € (-79 €) nach 9 Trades, drei neue Aufträge wurden gefunden und es gibt vier Wächter‑Probleme; Toni, Max und Paul haben sich selbst repariert. Wichtig heute: Die vier Wächter‑Probleme, insbesondere bei Trader Toni, schnell prüfen und beheben.",
+ "t": 1795705295,
+ "datum": "Donnerstag, 26.11.2026",
+ "fazit": "12 Bots erledigten 40 Aufträge (2 mit Fehler), der Krypto‑Bot liegt bei 1.000 €, der Memecoin‑Bot hat 14 Trades und verlor 53,82 €, ein neuer Auftrag („10 Social‑Media‑Posts“) und das Tool „shrink‑anything“ wurden gefunden. Wichtig: Heute den neuen Social‑Media‑Post‑Auftrag sofort annehmen.",
  "zeilen": [
-  "🤖 14 Bots haben 81 Aufträge erledigt, 6 mit Fehler.",
+  "🤖 12 Bots haben 40 Aufträge erledigt, 2 mit Fehler.",
   "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
-  "📈 Memecoin-Bot: 907,73 € (-79,55 € in 24 h), 9 Trades – Spielgeld",
-  "🔭 3 neue Aufträge gefunden, z. B. „Heartfelt Romantic Poem Offer“.",
-  "🛡️ Wächter: 4 Problem(e) – Trader Toni: letzter Lauf vor 3 h (erwartet alle 2 h) → selbst gestartet",
+  "📈 Memecoin-Bot: 853,91 € (-53,82 € in 24 h), 14 Trades – Spielgeld",
+  "🔭 1 neue Aufträge gefunden, z. B. „10 Social-Media-Posts für Ihr lokales Unternehmen“.",
+  "📚 1 neue Tools/Trends entdeckt – Top: shrink‑anything.",
+  "🛡️ Wächter: 4 Problem(e) – Trader Toni: letzter Lauf vor 2 h (erwartet alle 2 h) → selbst gestartet",
   "🔧 Selbst repariert: Trader Toni, Meme-Makler Max, Postbote Paul."
  ],
  "bots": [
   {
-   "name": "Prüferin Paula",
-   "icon": "✅",
-   "ok": 14,
+   "name": "Regisseurin Rita",
+   "icon": "🎬",
+   "ok": 4,
    "fehler": 2
   },
   {
-   "name": "Baumeister Bob",
-   "icon": "🏗️",
-   "ok": 14,
-   "fehler": 0
-  },
-  {
-   "name": "Regisseurin Rita",
-   "icon": "🎬",
+   "name": "Trader Toni",
+   "icon": "📈",
    "ok": 5,
-   "fehler": 4
-  },
-  {
-   "name": "Funker Fritz",
-   "icon": "📡",
-   "ok": 8,
-   "fehler": 0
-  },
-  {
-   "name": "Meme-Makler Max",
-   "icon": "🎰",
-   "ok": 6,
-   "fehler": 0
-  },
-  {
-   "name": "Agentin Ada",
-   "icon": "🛰️",
-   "ok": 6,
    "fehler": 0
   },
   {
@@ -54,21 +31,39 @@
    "fehler": 0
   },
   {
-   "name": "YouTuber Yannik",
-   "icon": "📺",
+   "name": "Meme-Makler Max",
+   "icon": "🎰",
    "ok": 5,
    "fehler": 0
   },
   {
-   "name": "Trader Toni",
-   "icon": "📈",
+   "name": "Funker Fritz",
+   "icon": "📡",
    "ok": 4,
+   "fehler": 0
+  },
+  {
+   "name": "Automaton Ava",
+   "icon": "🧬",
+   "ok": 3,
+   "fehler": 0
+  },
+  {
+   "name": "Agentin Ada",
+   "icon": "🛰️",
+   "ok": 3,
+   "fehler": 0
+  },
+  {
+   "name": "YouTuber Yannik",
+   "icon": "📺",
+   "ok": 3,
    "fehler": 0
   },
   {
    "name": "Wächter Willi",
    "icon": "🛡️",
-   "ok": 3,
+   "ok": 2,
    "fehler": 0
   },
   {
@@ -78,20 +73,14 @@
    "fehler": 0
   },
   {
-   "name": "Automaton Ava",
-   "icon": "🧬",
+   "name": "Butler Bruno",
+   "icon": "🎩",
    "ok": 1,
    "fehler": 0
   },
   {
    "name": "Forscherin Frieda",
    "icon": "📚",
-   "ok": 1,
-   "fehler": 0
-  },
-  {
-   "name": "Butler Bruno",
-   "icon": "🎩",
    "ok": 1,
    "fehler": 0
   }
@@ -105,15 +94,34 @@
    "pnl": 0
   },
   "Memecoin-Bot": {
-   "wert": 907.73,
-   "diff": -79.55,
-   "trades": 9,
-   "gewinner": 3,
-   "pnl": -92.82
+   "wert": 853.91,
+   "diff": -53.82,
+   "trades": 14,
+   "gewinner": 7,
+   "pnl": -40.54
   }
  },
- "neu": [],
+ "neu": [
+  {
+   "titel": "shrink‑anything",
+   "nutzen": "Verringert Jarvis‑Deploy‑Größe und Sicherheits‑Risiken, spart Speicher",
+   "url": "https://github.com/EL4CTEO/shrink-anything"
+  }
+ ],
  "verlauf": [
+  {
+   "t": 1795620530,
+   "datum": "Mittwoch, 25.11.2026",
+   "fazit": "Die 14 Bots erledigten 81 Aufträge (6 fehlerhaft), der Krypto‑Bot hat 1.000 € unverändert, der Memecoin‑Bot liegt bei 907 € (-79 €) nach 9 Trades, drei neue Aufträge wurden gefunden und es gibt vier Wächter‑Probleme; Toni, Max und Paul haben sich selbst repariert. Wichtig heute: Die vier Wächter‑Probleme, insbesondere bei Trader Toni, schnell prüfen und beheben.",
+   "zeilen": [
+    "🤖 14 Bots haben 81 Aufträge erledigt, 6 mit Fehler.",
+    "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
+    "📈 Memecoin-Bot: 907,73 € (-79,55 € in 24 h), 9 Trades – Spielgeld",
+    "🔭 3 neue Aufträge gefunden, z. B. „Heartfelt Romantic Poem Offer“.",
+    "🛡️ Wächter: 4 Problem(e) – Trader Toni: letzter Lauf vor 3 h (erwartet alle 2 h) → selbst gestartet",
+    "🔧 Selbst repariert: Trader Toni, Meme-Makler Max, Postbote Paul."
+   ]
+  },
   {
    "t": 1795535075,
    "datum": "Dienstag, 24.11.2026",
