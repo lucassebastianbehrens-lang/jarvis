@@ -252,10 +252,12 @@ def serie(ordner, prefix, bibel_datei, name, max_folgen, extra=""):
             (f"\n\nDER PRÜFER HAT FOLGENDES BEMÄNGELT – unbedingt beheben:\n- " + "\n- ".join(feedback) if feedback else ""))
 
     ep = schreiben()
-    for runde in range(1, PRUEFRUNDEN + 1):  # 3 Prüfrunden mit Verbesserung
-        probleme = pruefen("Serien-Folge", ep, f"Muss zur Serien-Bibel passen (Folgenplan F{nr:02d}, Figuren, Ton), Sekunde 1 Konflikt, Ende Cliffhanger, "
-                           f"Bildprompts zeigen nur Obst-/Gemüse-Figuren, Untertitel-Sätze kurz und fehlerfrei.\nBIBEL:\n{bibel[:6000]}")[0]
-        print(f"Prüfrunde {runde}/{PRUEFRUNDEN}:", probleme or "ok")
+    for runde in range(1, PRUEFRUNDEN + 2):  # Prüfrunden mit Verbesserung (+1 Reserve nur für Format-Fehler)
+        probleme = form_fehler(ep)
+        if not probleme and runde <= PRUEFRUNDEN:
+            probleme = pruefen("Serien-Folge", ep, f"Muss zur Serien-Bibel passen (Folgenplan F{nr:02d}, Figuren, Ton), Sekunde 1 Konflikt, Ende Cliffhanger, "
+                               f"Bildprompts zeigen nur Obst-/Gemüse-Figuren, Untertitel-Sätze kurz und fehlerfrei.\nBIBEL:\n{bibel[:6000]}")[0]
+        print(f"Prüfrunde {runde}:", probleme or "ok")
         if not probleme:
             break
         ep = schreiben(probleme)
@@ -276,6 +278,23 @@ def serie(ordner, prefix, bibel_datei, name, max_folgen, extra=""):
     path = f"{ordner}/{ep['id']}.json"
     json.dump(ep, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return path
+
+
+def form_fehler(ep):
+    """Harte Format-Regeln einer Serien-Folge vorab prüfen – als Feedback für eine Neufassung statt Abbruch."""
+    sc = ep.get("scenes") if isinstance(ep, dict) else None
+    if not isinstance(sc, list) or not sc:
+        return ["Es fehlen die scenes."]
+    fehler = []
+    if not 4 <= len(sc) <= 8:
+        fehler.append(f"{len(sc)} Szenen – es müssen 5–7 sein.")
+    try:
+        woerter = sum(len(str(l.get("t", "")).split()) for s in sc for l in (s.get("lines") or []))
+    except AttributeError:
+        return ["Jede Szene braucht lines als Liste von {s, t}."]
+    if not 90 <= woerter <= 260:
+        fehler.append(f"Dialog hat {woerter} Wörter – es müssen 140–170 Wörter insgesamt sein.")
+    return fehler
 
 
 def konten_sichern(ep, letzte):

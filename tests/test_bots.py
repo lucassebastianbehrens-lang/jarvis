@@ -105,6 +105,12 @@ check("Video: Prüfer offline blockiert nicht", video_auto.pruefen("x", {}, "") 
 video_auto.ki = lambda s, u, t=0.8: {"themen": ["Duschen vs Baden – wer spart Wasser?", "Rennen vs Gehen im Regen – wer wird weniger nass?", "kein Vergleich"]}
 neu = video_auto.neue_themen("## Themen-Pool\n- [x] Rennen vs Gehen im Regen – wer wird weniger nass? (sim-01)\n")
 check("Video: leerer Pool füllt sich ohne Dopplungen", "- [ ] Duschen vs Baden" in neu and neu.count("Rennen vs Gehen") == 1, neu)
+# Serien-Folge zu kurz: wird als Format-Fehler zurückgemeldet statt Abbruch (Fehler 26.11.: „Dialoglänge 68 Wörter“)
+_kurz = {"scenes": [{"lines": [{"s": "A", "t": "eins zwei drei"}]}] * 5}
+check("Serie: zu kurzer Dialog → Feedback", any("Wörter" in f for f in video_auto.form_fehler(_kurz)), video_auto.form_fehler(_kurz))
+_ok = {"scenes": [{"lines": [{"s": "A", "t": " ".join(["wort"] * 30)}]}] * 5}
+check("Serie: passende Länge ok", video_auto.form_fehler(_ok) == [])
+check("Serie: kaputtes JSON → Feedback", video_auto.form_fehler({}) != [])
 video_auto.ki = _ki_alt
 # Kontostand-Serie: LED-Beträge werden abgesichert, Grafik entsteht
 ep = {"figuren": {"Kalle": "x", "Anton": "y"}, "scenes": [
