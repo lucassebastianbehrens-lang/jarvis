@@ -5,7 +5,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const eur=n=>(n??0).toLocaleString("de-DE",{style:"currency",currency:"EUR"});
 const ls={get:(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 let cfg=ls.get("jv_cfg",{talk:false}), brain=ls.get("jv_brain",{mem:[],proj:[],t:0}), hist=ls.get("jv_hist",[]);
-const D={bots:[],runs:[],status:null,briefing:null,paper:null,agents:null,rech:null,lage:null,auto:null};
+const D={bots:[],runs:[],status:null,briefing:null,paper:null,agents:null,rech:null,lage:null,auto:null,auftr:null};
 /* ---------- Speicher: Archiv (IndexedDB, praktisch unbegrenzt) ---------- */
 const IDB=(()=>{let db;const open=()=>db||(db=new Promise((ok,no)=>{const r=indexedDB.open("jarvis",1);r.onupgradeneeded=()=>{r.result.createObjectStore("archiv",{autoIncrement:true});r.result.createObjectStore("kv")};r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)}));
   const tx=async(st,mode,fn)=>{const d=await open();return new Promise((ok,no)=>{const t=d.transaction(st,mode),s=t.objectStore(st),r=fn(s);t.oncomplete=()=>ok(r&&r.result);t.onerror=()=>no(t.error)})};
@@ -27,13 +27,13 @@ async function gh(path,body,method){const r=await fetch(API+path,{method:method|
 let lastLoad=0;
 async function loadAll(){
   lastLoad=Date.now();$("#stamp").textContent="aktualisiere …";
-  const jobs={bots:"bots.json",status:"status.json",briefing:"briefing.json",paper:"paper.json",agents:"agents.json",rech:"recherche.json",lage:"lage.json",auto:"automaton.json"};
+  const jobs={bots:"bots.json",status:"status.json",briefing:"briefing.json",paper:"paper.json",agents:"agents.json",rech:"recherche.json",lage:"lage.json",auto:"automaton.json",auftr:"auftraege.json"};
   await Promise.all(Object.entries(jobs).map(async([k,f])=>{try{D[k]=await getJSON(f)}catch(e){console.warn(e)}}));
   try{D.runs=(await gh("/actions/runs?per_page=100")).workflow_runs||[]}catch(e){console.warn(e)}
   try{const{runs,...rest}=D;localStorage.setItem("jv_cache",JSON.stringify(rest))}catch(e){}
   $("#stamp").textContent="Stand "+new Date().toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"});
   const st=D.status;$("#pulse").className="pulse "+(st?(st.ok?"ok":"bad"):"");
-  renderTown();renderBriefing();renderTrading();renderAutomaton();renderNeu();renderLage();
+  renderTown();renderBriefing();renderTrading();renderAutomaton();renderNeu();renderLage();renderZentrale();
 }
 setInterval(loadAll,60*60*1000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&Date.now()-lastLoad>10*60*1000)loadAll()});

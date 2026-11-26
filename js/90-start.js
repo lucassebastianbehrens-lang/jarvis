@@ -17,5 +17,5 @@ $("#cTest").onclick=()=>{cfg.voice=$("#cVoice").value;speak("Guten Abend Lucas. 
   if(!hist.length)bubble("ai",`${g} Lucas. Ich bin Jarvis. Frag mich alles – ich recherchiere im Netz, plane Projekte, merke mir, was dir wichtig ist, und schicke meine Bots los.${cfg.groq?"":"\n\nEinmalig nötig: Trag in ⚙️ deinen kostenlosen Groq-Schlüssel ein – das ist mein Denkmotor."}`);
 })();
 if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
-(()=>{const c=ls.get("jv_cache",null);if(c){Object.assign(D,c);for(const f of[renderTown,renderBriefing,renderTrading,renderAutomaton,renderNeu,renderLage])try{f()}catch(e){console.warn(e)}}})(); // Schnellstart mit letztem Stand
+(()=>{const c=ls.get("jv_cache",null);if(c){Object.assign(D,c);for(const f of[renderTown,renderBriefing,renderTrading,renderAutomaton,renderNeu,renderLage,renderZentrale])try{f()}catch(e){console.warn(e)}}})(); // Schnellstart mit letztem Stand
 pullBrain().then(renderBrain);loadAll();

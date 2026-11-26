@@ -81,6 +81,22 @@ async def main():
         check("Begrüßung sichtbar", await pg.locator(".msg.ai").count() >= 1)
         check("Design geladen", await pg.evaluate("getComputedStyle(document.body).backgroundColor") != "rgba(0, 0, 0, 0)")
 
+        # Kommandozentrale (Startseite)
+        check("Zentrale ist Startseite", await pg.locator("#t-zentrale.on").count() == 1)
+        check("Zentrale: 12 Kacheln + Tacho", await pg.locator("#zentrale .ztile").count() == 12 and await pg.locator(".zgauge").count() == 1)
+        check("Zentrale: Lead-System zeigt Aufträge", await pg.locator("#zentrale .zlead").count() >= 1)
+        await pg.fill("#zNeu", "Zahlen prüfen"); await pg.click("#zAdd")
+        await pg.locator("#zentrale .zlist li", has_text="Zahlen prüfen").locator("input").check(); await pg.wait_for_timeout(200)
+        check("Zentrale: Heute-Liste abhaken", await pg.locator("#zentrale .zlist li", has_text="Zahlen prüfen").locator("input").is_checked())
+        await pg.fill("#zIdee", "Duschen vs Baden"); await pg.click("#zVideo"); await pg.wait_for_timeout(300)
+        check("Zentrale: Video-Idee startet Rita", dispatched and dispatched[-1].get("inputs", {}).get("idee") == "Duschen vs Baden", str(dispatched[-1:]))
+        await pg.click("#zLeads"); await pg.wait_for_timeout(300)
+        check("Zentrale: Lead-Suche an Leibgarde", "Lead-System" in dispatched[-1].get("inputs", {}).get("aufgabe", ""), str(dispatched[-1:]))
+        dispatched.clear()
+        await pg.click("#zentrale [data-show=briefing]"); await pg.wait_for_timeout(200)
+        check("Zentrale: Kachel öffnet Bereich", await pg.locator("#t-briefing.on").count() == 1)
+        await pg.click("nav button[data-t=jarvis]")
+
         # Chat: Streaming + Markdown
         await pg.fill("#inp", "Gib mir eine Liste"); await pg.click("#send"); await pg.wait_for_timeout(1200)
         h = await pg.locator(".msg.ai").last.inner_html()
@@ -141,7 +157,7 @@ async def main():
         await pg.fill("#inp", "Hallo"); await pg.click("#send"); await pg.wait_for_timeout(1000)
         check("Leibgarde: Chat bleibt frei", "Alles klar" in await pg.locator(".msg.ai").last.inner_text())
         await pg.wait_for_timeout(1200); await pg.evaluate("pollJobs()"); await pg.wait_for_timeout(1200)
-        check("Leibgarde: Ergebnis kommt an", "Steuerberater gefunden" in await pg.inner_text("#jobs"))
+        check("Leibgarde: Ergebnis kommt an", "Steuerberater gefunden" in await pg.inner_text("#jobs"), (await pg.inner_text("#jobs"))[:300])
 
         # Gedächtnis / Archiv
         await pg.click("#btnBrain"); await pg.wait_for_timeout(500)

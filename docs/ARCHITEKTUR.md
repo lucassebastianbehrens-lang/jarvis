@@ -36,6 +36,7 @@ Die Bausteine laden in Nummern-Reihenfolge; ein Baustein darf beim Laden nur Din
 | `10-ki-stadt.js` | Tab „Stadt“: 3D-Stadt, jedes Haus ein Bot |
 | `20-briefing.js` · `21-trading.js` · `22-neu-entdeckt.js` · `23-lage.js` | Tabs Briefing, Trading, Neu, Lage (Globus) |
 | `24-automaton.js` | Jarvis-Topf (PayPal), Überlebens-Stufe, Kind-Bots, „Klonen? Ja/Nein“ |
+| `25-zentrale.js` | Tab „Zentrale“ (Startseite): Leistungs-Tacho, 12 Kacheln zu allen Bereichen/Apps, Heute-Liste zum Abhaken, Content-Studio, Lead-System |
 | `30-feier-kalender.js` | „KUNDE AN BORD“-Feier, Kalender-Dateien (.ics) |
 | `31-kunden.js` · `32-call.js` · `33-werkstatt.js` | Neuer Kunde, Call vorbereiten, Jarvis baut |
 | `40-markdown.js` · `41-kern.js` | Formatierte Antworten, Partikel-Kern |
@@ -94,7 +95,7 @@ Jeder Bot hat einen Workflow mit eigener `concurrency`-Gruppe. Die **Leibgarde**
 
 ## 7. Tests – `tests/`
 - `test_bots.py`: Länder-Erkennung, Lage ohne KI, 3 parallele Telegram-Helfer, alle Python-Dateien und Daten gültig.
-- `test_app.py`: App im echten Browser (Handy-Größe) – Chat, Websuche-Quellen, Lage, Stadt, Kunden-Onboarding, Call-Wecker, Werkstatt, Leibgarde, Archiv, Offline-Start. Alle Fremd-Dienste werden nachgestellt.
+- `test_app.py`: App im echten Browser (Handy-Größe) – Kommandozentrale, Chat, Websuche-Quellen, Lage, Stadt, Kunden-Onboarding, Call-Wecker, Werkstatt, Leibgarde, Archiv, Offline-Start. Alle Fremd-Dienste werden nachgestellt.
 
 ## 8. Veröffentlichung
 `pruefung.yml` → grün → `app-veroeffentlichen.yml` kopiert **genau den geprüften Stand** in den Zweig `gh-pages` und kontrolliert, dass die Live-Seite ihn zeigt. Der Server holt neue Bot-Versionen alle 30 Min selbst (nur wenn sie sich fehlerfrei übersetzen lassen).
