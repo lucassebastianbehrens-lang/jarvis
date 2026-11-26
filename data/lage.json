@@ -1,6 +1,6 @@
 {
- "updated": 1795636670,
- "lagebild": "Weltweit dominiert das von den USA angekündigte neue Zollpaket, das auch die EU und China trifft. Durch die höheren Einfuhrzölle steigen die Preise für Konsumgüter und der Spritpreis in Deutschland, was Lucas direkt belastet. Die Unsicherheit an den Finanzmärkten drückt den deutschen Börsenindex und beeinflusst Lucas’ Anlagen.",
+ "updated": 1795661584,
+ "lagebild": "Derzeit ist die Ankündigung neuer US‑Zölle – auch gegen die EU und China – das wichtigste globale Ereignis. Diese Handelsbeschränkungen können die Preise für importierte Güter und Kraftstoff in Deutschland in die Höhe treiben. Gleichzeitig belasten sie die deutschen Börsenkurse, was Lucas unmittelbar betrifft.",
  "orte": [
   {
    "land": "Russland",
@@ -51,7 +51,7 @@
    "land": "Ukraine",
    "lat": 49.0,
    "lon": 31.3,
-   "anzahl": 22,
+   "anzahl": 21,
    "heiss": 14,
    "meldungen": [
     {
@@ -93,51 +93,6 @@
    ]
   },
   {
-   "land": "USA",
-   "lat": 39.8,
-   "lon": -98.6,
-   "anzahl": 31,
-   "heiss": 8,
-   "meldungen": [
-    {
-     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
-     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Europas größte Satellitenfabrik eröffnet",
-     "text": "Die EU will bis 2030 ein eigenes sicheres Kommunikationsnetz im Weltraum aufbauen. Ziel ist es, unabhängiger von Anbietern wie dem US-Dienst Starlink zu werden. Helfen soll dabei Europas größte Satellitenfabrik - sie wurde nun eröffnet.",
-     "url": "https://www.tagesschau.de/ausland/satellitenfabrik-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
-     "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
-     "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
-     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
-     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "WHO: Lebenserwartung in Kuba erstmals seit Beginn der Aufzeichnungen gesunken",
-     "text": "Die Lebenserwartung in Kuba ist laut der WHO erstmals in der Geschichte gesunken, die Säuglingssterblichkeit hat sich mehr als verdoppelt. WHO-Chef Tedros macht dafür auch US-Sanktionen verantwortlich - und fordert deren sofortiges Ende.",
-     "url": "https://www.tagesschau.de/ausland/amerika/kuba-lebenserwartungen-who-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
@@ -163,21 +118,66 @@
      "quelle": "tagesschau"
     },
     {
+     "titel": "tagesschau 20:00 Uhr",
+     "text": "Bundeskanzler Merz verteidigt in Generaldebatte im Bundestag seine Haushaltspolitik, Union schlägt im Koalitionsstreit über die Rentenreform einen Kompromiss vor, Hoffnung auf Durchbruch in der vierten Verhandlungsrunde in Tarifkonflikt der",
+     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689910.html",
+     "quelle": "tagesschau"
+    },
+    {
      "titel": "Merz verteidigt Haushalt für 2027 - Generaldebatte im Bundestag",
      "text": "Merz verteidigt Haushalt für 2027 - Generaldebatte im Bundestag",
      "url": "https://www.tagesschau.de/video/video-1689672.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Generaldebatte zu Haushalt 2027 im Bundestag",
-     "text": "Generaldebatte zu Haushalt 2027 im Bundestag",
-     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689880.html",
+     "titel": "Bundestag diskutiert in Generaldebatte Haushalt für 2027",
+     "text": "Bundestag diskutiert in Generaldebatte Haushalt für 2027",
+     "url": "https://www.tagesschau.de/tagesthemen/video-1690010.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "USA",
+   "lat": 39.8,
+   "lon": -98.6,
+   "anzahl": 26,
+   "heiss": 6,
+   "meldungen": [
+    {
+     "titel": "Europas größte Satellitenfabrik eröffnet",
+     "text": "Die EU will bis 2030 ein eigenes sicheres Kommunikationsnetz im Weltraum aufbauen. Ziel ist es, unabhängiger von Anbietern wie dem US-Dienst Starlink zu werden. Helfen soll dabei Europas größte Satellitenfabrik - sie wurde nun eröffnet.",
+     "url": "https://www.tagesschau.de/ausland/satellitenfabrik-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Markus Preiß, ARD Berlin, zu Unionsvorschlag zu Rentenreform",
-     "text": "Markus Preiß, ARD Berlin, zu Unionsvorschlag zu Rentenreform",
-     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689874.html",
+     "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
+     "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
+     "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
+     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
+     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
+     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "WHO: Lebenserwartung in Kuba erstmals seit Beginn der Aufzeichnungen gesunken",
+     "text": "Die Lebenserwartung in Kuba ist laut der WHO erstmals in der Geschichte gesunken, die Säuglingssterblichkeit hat sich mehr als verdoppelt. WHO-Chef Tedros macht dafür auch US-Sanktionen verantwortlich - und fordert deren sofortiges Ende.",
+     "url": "https://www.tagesschau.de/ausland/amerika/kuba-lebenserwartungen-who-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -273,11 +273,56 @@
    ]
   },
   {
+   "land": "Belgien/EU",
+   "lat": 50.8,
+   "lon": 4.4,
+   "anzahl": 11,
+   "heiss": 2,
+   "meldungen": [
+    {
+     "titel": "EU-Kommission erlaubt weiter Staatshilfen für Landwirte und Industrie",
+     "text": "Landwirte, Industrie und andere Unternehmen können wegen der anhaltenden Energiekrise weiterhin mit staatlichen Zuschüssen rechnen. Laut EU-Kommission bleibt es bis mindestens Ende Juni 2027 bei den gelockerten Regeln zur Beihilfe.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-staatshilfen-landwirte-industrie-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "EU-Parlament stimmt neuen Arzneimittelregeln zu",
+     "text": "Ob Antibiotika oder Fiebersäfte für Kinder: Immer wieder fehlen in Europa Medikamente - Grund ist auch die große Abhängigkeit von Asien. Das will die EU ändern. Das Parlament stimmte neuen Arzneimitteln-Regeln zu.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-parlament-arzneimittel-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
+     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
+     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
+     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
+     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
+     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
+     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
+     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
    "land": "China",
    "lat": 35.9,
    "lon": 104.2,
-   "anzahl": 15,
-   "heiss": 2,
+   "anzahl": 12,
+   "heiss": 1,
    "meldungen": [
     {
      "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
@@ -314,51 +359,6 @@
      "text": "Die Bundesregierung will erheblich in die Flugabwehr der Bundeswehr investieren. China lässt erstmals einen Ausländer in seine Weltraumstation. Der DW-Nachrichtenüberblick.",
      "url": "https://www.dw.com/de/news-kompakt-deutschland-will-patriot-flugabwehr-massiv-ausbauen/a-80042756?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Belgien/EU",
-   "lat": 50.8,
-   "lon": 4.4,
-   "anzahl": 11,
-   "heiss": 2,
-   "meldungen": [
-    {
-     "titel": "EU-Kommission erlaubt weiter Staatshilfen für Landwirte und Industrie",
-     "text": "Landwirte, Industrie und andere Unternehmen können wegen der anhaltenden Energiekrise weiterhin mit staatlichen Zuschüssen rechnen. Laut EU-Kommission bleibt es bis mindestens Ende Juni 2027 bei den gelockerten Regeln zur Beihilfe.",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-staatshilfen-landwirte-industrie-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
-     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "EU-Parlament stimmt neuen Arzneimittelregeln zu",
-     "text": "Ob Antibiotika oder Fiebersäfte für Kinder: Immer wieder fehlen in Europa Medikamente - Grund ist auch die große Abhängigkeit von Asien. Das will die EU ändern. Das Parlament stimmte neuen Arzneimitteln-Regeln zu.",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-parlament-arzneimittel-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
-     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
-     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
-     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
-     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -549,6 +549,27 @@
    ]
   },
   {
+   "land": "Ägypten",
+   "lat": 26.8,
+   "lon": 30.8,
+   "anzahl": 2,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "Ägypten: Mindestens 30 Tote bei Großbrand auf Autobahn in Gizeh",
+     "text": "Ein mit Gasflaschen beladener Lkw hat bei einem Unfall auf einer Autobahn in der ägyptischen Stadt Gizeh einen Großbrand ausgelöst. Mindestens 30 Menschen starben bei dem Unglück, viele wurden verletzt.",
+     "url": "https://www.tagesschau.de/ausland/afrika/aegypten-brand-gizeh-tote-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Journalisten in Ägypten: Verbote, Drohungen und Gefängnisstrafen",
+     "text": "Journalisten in Ägypten sind enormem Druck ausgesetzt - teilweise werden ganze Redaktionen verhaftet. Mutige Journalisten versuchen dennoch weiterzumachen. Sie hoffen auf Solidarität aus dem Ausland. Von M. Behrendt.",
+     "url": "https://www.tagesschau.de/ausland/afrika/pressefreiheit-aegypten-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
    "land": "Japan",
    "lat": 36.2,
    "lon": 138.3,
@@ -603,21 +624,6 @@
    ]
   },
   {
-   "land": "Kanada",
-   "lat": 56.1,
-   "lon": -106.3,
-   "anzahl": 1,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Trump verschärft Handelskonflikt mit Kanada",
-     "text": "Zölle, Gegenzölle, Einfuhrsperren: Das sind die Eskalationsstufen im Streit zwischen den USA und Kanada. Hintergrund sind die gescheiterten Verhandlungen über ein Handelsabkommen im August.",
-     "url": "https://www.dw.com/de/trump-verschärft-handelskonflikt-mit-kanada/a-79198312?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
    "land": "Türkei",
    "lat": 39.0,
    "lon": 35.2,
@@ -635,27 +641,6 @@
      "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
      "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
      "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Brasilien",
-   "lat": -14.2,
-   "lon": -51.9,
-   "anzahl": 2,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Gewalt gegen Frauen in Brasilien: Auf Streife gegen Femizide",
-     "text": "In Brasilien hat die Zahl der Frauenmorde vergangenes Jahr einen Höchststand erreicht. Eine Spezialeinheit der Polizei soll gefährdete Frauen schützen - unterwegs mit einer Patrouille in Rio de Janeiro. Von Xenia Böttcher.",
-     "url": "https://www.tagesschau.de/ausland/amerika/brasilien-gewalt-gegen-frauen-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "USA kündigen Zölle auf diverse Importe aus Brasilien an",
-     "text": "Die neuen Aufschläge folgen auf eine einjährige US-Untersuchung der brasilianischen Handelspolitik. Sie stellte fest, dass einige der brasilianischen Praktiken \"unangemessen oder diskriminierend sind“.",
-     "url": "https://www.dw.com/de/usa-kündigen-zölle-auf-diverse-importe-aus-brasilien-an/a-77982870?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
     }
    ]
   },
@@ -784,6 +769,21 @@
      "quelle": "DW"
     }
    ]
+  },
+  {
+   "land": "Brasilien",
+   "lat": -14.2,
+   "lon": -51.9,
+   "anzahl": 1,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Gewalt gegen Frauen in Brasilien: Auf Streife gegen Femizide",
+     "text": "In Brasilien hat die Zahl der Frauenmorde vergangenes Jahr einen Höchststand erreicht. Eine Spezialeinheit der Polizei soll gefährdete Frauen schützen - unterwegs mit einer Patrouille in Rio de Janeiro. Von Xenia Böttcher.",
+     "url": "https://www.tagesschau.de/ausland/amerika/brasilien-gewalt-gegen-frauen-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
   }
  ],
  "ohne_land": [
@@ -808,11 +808,6 @@
    "quelle": "tagesschau"
   },
   {
-   "titel": "Erdbeben erschüttert Perus Andenregion",
-   "url": "https://www.tagesschau.de/ausland/amerika/peru-erdbeben-102.html",
-   "quelle": "tagesschau"
-  },
-  {
    "titel": "Internationaler Gerichtshof: Vorgehen Myanmars gegen Rohingya war Völkermord",
    "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html",
    "quelle": "tagesschau"
@@ -826,54 +821,59 @@
    "titel": "Viele Tote nach Bootsunglück vor Senegal gemeldet",
    "url": "https://www.tagesschau.de/ausland/afrika/viele-tote-bootsunglueck-senegal-100.html",
    "quelle": "tagesschau"
+  },
+  {
+   "titel": "Anführer von Hungersekte in Kenia zu 200 Jahren Haft verurteilt.",
+   "url": "https://www.tagesschau.de/ausland/afrika/kenia-urteil-sektenfuehrer-100.html",
+   "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54617,
+   "wert": 55533,
    "einheit": "€",
-   "pct": 0.44,
+   "pct": 2.76,
    "verlauf": [
-    57416,
     56459,
     53604,
     54815,
     55754,
     56132,
     54515,
-    54727
+    55034,
+    55505
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1535.36,
+   "wert": 1551.23,
    "einheit": "€",
-   "pct": 0.65
+   "pct": 2.64
   },
   {
    "name": "Solana",
-   "wert": 64.12,
+   "wert": 65.03,
    "einheit": "€",
-   "pct": 1.92
+   "pct": 3.71
   },
   {
    "name": "EUR/CHF",
    "wert": 0.9085,
    "einheit": "",
-   "pct": -1.07
+   "pct": 0.0
   },
   {
    "name": "EUR/GBP",
    "wert": 0.8373,
    "einheit": "",
-   "pct": 0.04
+   "pct": 0.0
   },
   {
    "name": "EUR/USD",
    "wert": 1.0935,
    "einheit": "",
-   "pct": -0.26
+   "pct": 0.0
   }
  ],
  "fx": {
