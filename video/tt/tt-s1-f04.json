@@ -123,7 +123,7 @@
    "seed": 849
   },
   {
-   "p": "a cartoon garlic vegetable mascot: its whole body is one big white garlic bulb with thick cartoon eyebrows, short muscular stubby cartoon arms and legs, wearing a tiny grey sweatband, the character is literally a walking garlic bulb, no realistic face, no skin, no hair, no neck, toy-like mascot, fully dressed in a tiny grey t-shirt, standing in a cozy hallway next to a front door, sweating drops, frozen in shock, dramatic close-up",
+   "p": "a cartoon garlic vegetable mascot: its whole body is one big white garlic bulb with thick cartoon eyebrows, short muscular stubby cartoon arms and legs, wearing a tiny grey sweatband, the character is literally a walking garlic bulb, no realistic face, no skin, no hair, no neck, toy-like mascot, garlic cloves visible, papery white garlic skin, fully dressed in a tiny grey t-shirt, standing in a cozy hallway next to a front door, sweating drops, frozen in shock, dramatic close-up",
    "lines": [
     {
      "s": "Erzähler",
@@ -138,10 +138,10 @@
      "t": "Bleib sitzen, Jürgen. Ich mache auf."
     }
    ],
-   "seed": 853
+   "seed": 3191
   },
   {
-   "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no realistic face, no skin, no hair, no neck, toy-like mascot, fully dressed in a tiny pink sports jacket, standing outside an open front door at night, holding a big chocolate cake with both hands, sweet mysterious smile, porch light, dramatic",
+   "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no realistic face, no skin, no hair, no neck, toy-like mascot, in a gym, one eyebrow raised, mysterious smile, dramatic close-up",
    "lines": [
     {
      "s": "Jessy",
@@ -156,7 +156,7 @@
      "t": "Jessy. An Rosas Tür. Und keiner wusste, warum."
     }
    ],
-   "seed": 867
+   "seed": 694
   }
  ]
 }
