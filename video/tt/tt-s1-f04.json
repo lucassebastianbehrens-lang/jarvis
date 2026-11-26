@@ -1,0 +1,162 @@
+{
+ "id": "tt-s1-f04",
+ "series": "Früchte-Drama",
+ "episode": 4,
+ "title": "Das Abendessen 🍓🧅",
+ "caption": "Folge 4: Jürgen kommt zum Abendessen … und dann klingelt es an der Tür. 😳 Folge mir für Teil 5!",
+ "hashtags": [
+  "#früchtedrama",
+  "#kiserie",
+  "#obstdrama",
+  "#drama",
+  "#fyp"
+ ],
+ "end": "WAS WILL JESSY HIER? FOLGE MIR FÜR TEIL 5!",
+ "voices": {
+  "Erzähler": "de-DE-FlorianMultilingualNeural",
+  "Gino": "de-DE-ConradNeural",
+  "Rosa": "de-DE-SeraphinaMultilingualNeural",
+  "Jessy": "de-DE-AmalaNeural",
+  "Avo": "de-DE-KillianNeural"
+ },
+ "figuren": {
+  "Rosa": "a real whole red onion standing upright like a little character, two big googly eyes and a small painted smile on the shiny red-violet onion skin, a dried brown sprout on top, tiny stubby green stick arms and legs, the onion itself is the whole character, no hair, no realistic face, vegetable toy photo",
+  "Avo": "a real whole uncut avocado standing upright like a little character, bumpy dark green avocado skin, egg-shaped, two big googly eyes and a small painted smile on the avocado skin, tiny stubby green stick arms and legs, a small green knitted scarf, the avocado itself is the whole character, no hair, no realistic face, no torso, vegetable toy photo, toy-like mascot",
+  "Gino": "a cartoon garlic vegetable mascot: its whole body is one big white garlic bulb with thick cartoon eyebrows, short muscular stubby cartoon arms and legs, wearing a tiny grey sweatband",
+  "Jessy": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband"
+ },
+ "scenes": [
+  {
+   "p": "a real whole red onion standing upright like a little character, two big googly eyes and a small painted smile on the shiny red-violet onion skin, a dried brown sprout on top, tiny stubby green stick arms and legs, the onion itself is the whole character, no hair, no realistic face, vegetable toy photo, the character is literally a walking red onion, no realistic face, no skin, no hair, no neck, toy-like mascot, fully dressed in a small apron, standing at a cozy dinner table with a steaming bowl of onion soup, eyes narrowed, suspicious, warm kitchen light",
+   "lines": [
+    {
+     "s": "Rosa",
+     "t": "Jürgen, wie lange trainierst du meinen Mann schon?"
+    },
+    {
+     "s": "Avo",
+     "t": "Seit … Dienstag."
+    },
+    {
+     "s": "Gino",
+     "t": "Montag! Er meint Montag."
+    },
+    {
+     "s": "Rosa",
+     "t": "Und wo hast du das gelernt?"
+    },
+    {
+     "s": "Avo",
+     "t": "Auf der … Trainer-Insel."
+    },
+    {
+     "s": "Erzähler",
+     "t": "Abendessen bei Rosa. Zwiebelsuppe. Und ein Bart, der nicht hält."
+    }
+   ],
+   "seed": 811
+  },
+  {
+   "p": "a real whole uncut avocado standing upright like a little character, bumpy dark green avocado skin, egg-shaped, two big googly eyes and a small painted smile on the avocado skin, tiny stubby green stick arms and legs, a small green knitted scarf, the avocado itself is the whole character, no hair, no realistic face, no torso, vegetable toy photo, toy-like mascot, the character is literally a walking avocado, no realistic face, no skin, no hair, no neck, toy-like mascot, wearing a big fluffy white cotton fake beard clearly visible under the googly eyes and a tiny red cap and a small green track jacket, sitting at a cozy dinner table with a bowl of soup and a spoon, nervous smile, warm kitchen light",
+   "lines": [
+    {
+     "s": "Rosa",
+     "t": "Probier die Suppe, Jürgen."
+    },
+    {
+     "s": "Avo",
+     "t": "Mmh. Fast so gut wie Guacamole."
+    },
+    {
+     "s": "Rosa",
+     "t": "Guacamole? Das sagt Avo auch immer."
+    },
+    {
+     "s": "Gino",
+     "t": "Das sagen viele! Das ist ein Trainer-Spruch."
+    }
+   ],
+   "seed": 823
+  },
+  {
+   "p": "a real whole red onion standing upright like a little character, two big googly eyes and a small painted smile on the shiny red-violet onion skin, a dried brown sprout on top, tiny stubby green stick arms and legs, the onion itself is the whole character, no hair, no realistic face, vegetable toy photo, the character is literally a walking red onion, no realistic face, no skin, no hair, no neck, toy-like mascot, fully dressed in a small apron, leaning over a dinner table, one eye squinting, very suspicious, dramatic close-up, warm light",
+   "lines": [
+    {
+     "s": "Rosa",
+     "t": "Jürgen, bist du wirklich Trainer?"
+    },
+    {
+     "s": "Avo",
+     "t": "Ja klar. Und ich bin eine Kokosnuss."
+    },
+    {
+     "s": "Rosa",
+     "t": "… Was hast du gerade gesagt?"
+    },
+    {
+     "s": "Gino",
+     "t": "Trainer-Humor! Ha. Ha."
+    }
+   ],
+   "seed": 837
+  },
+  {
+   "p": "a real whole uncut avocado standing upright like a little character, bumpy dark green avocado skin, egg-shaped, two big googly eyes and a small painted smile on the avocado skin, tiny stubby green stick arms and legs, a small green knitted scarf, the avocado itself is the whole character, no hair, no realistic face, no torso, vegetable toy photo, toy-like mascot, the character is literally a walking avocado, no realistic face, no skin, no hair, no neck, toy-like mascot, wearing a small green track jacket, a big fluffy white cotton fake beard slipping off and falling into a bowl of soup on the dinner table, shocked wide eyes, comedic moment, warm kitchen light",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Dann passierte es. Der Bart rutschte. Direkt in die Suppe."
+    },
+    {
+     "s": "Avo",
+     "t": "Das ist … Bart-Suppe. Eine Spezialität aus Jürgenland."
+    },
+    {
+     "s": "Rosa",
+     "t": "Jürgen. Schau mich an."
+    },
+    {
+     "s": "Gino",
+     "t": "Jürgen muss leider sofort nach Hause!"
+    }
+   ],
+   "seed": 849
+  },
+  {
+   "p": "a cartoon garlic vegetable mascot: its whole body is one big white garlic bulb with thick cartoon eyebrows, short muscular stubby cartoon arms and legs, wearing a tiny grey sweatband, the character is literally a walking garlic bulb, no realistic face, no skin, no hair, no neck, toy-like mascot, fully dressed in a tiny grey t-shirt, standing in a cozy hallway next to a front door, sweating drops, frozen in shock, dramatic close-up",
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Doch bevor Rosa ganz nah kam … klingelte es."
+    },
+    {
+     "s": "Gino",
+     "t": "Wir erwarten doch niemanden. Oder?"
+    },
+    {
+     "s": "Rosa",
+     "t": "Bleib sitzen, Jürgen. Ich mache auf."
+    }
+   ],
+   "seed": 853
+  },
+  {
+   "p": "a cartoon strawberry fruit mascot: its whole body is one big shiny red strawberry with yellow seeds and a green leaf crown, short stubby cartoon arms and legs, wearing a tiny pink sweatband, the character is literally a walking strawberry, no realistic face, no skin, no hair, no neck, toy-like mascot, fully dressed in a tiny pink sports jacket, standing outside an open front door at night, holding a big chocolate cake with both hands, sweet mysterious smile, porch light, dramatic",
+   "lines": [
+    {
+     "s": "Jessy",
+     "t": "Hallo, Rosa. Ich habe Kuchen mitgebracht."
+    },
+    {
+     "s": "Avo",
+     "t": "Ach du grüne Neune."
+    },
+    {
+     "s": "Erzähler",
+     "t": "Jessy. An Rosas Tür. Und keiner wusste, warum."
+    }
+   ],
+   "seed": 867
+  }
+ ]
+}

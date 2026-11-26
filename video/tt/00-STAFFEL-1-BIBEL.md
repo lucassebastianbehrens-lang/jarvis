@@ -27,8 +27,8 @@ Jessy ist **keine** Affäre. Sie ist **Rosas verschollene Halbschwester** (gleic
 |---|---|---|
 | F01 ✓ | Er ist verheiratet | Jessy kommt ins Gym · Handy-Nachricht mit rotem Herz – „Wer ist J?“ |
 | F02 ✓ | Der Trainingsplan | Erdbeer-Handtuch in Ginos Tasche · Rosa steht plötzlich im Gym |
-| F03 | Die Ausrede | Gino erfindet „Jürgen, mein neuer Trainer“ · Avo muss Jürgen spielen (Avocado mit Bart) · Rosa: „Dann lade Jürgen zum Essen ein.“ |
-| F04 | Das Abendessen | Avo als „Jürgen“ fliegt fast auf · Jessy klingelt an der Tür – mit Kuchen |
+| F03 ✓ | Die Ausrede | Gino erfindet „Jürgen, mein neuer Trainer“ · Avo muss Jürgen spielen (Avocado mit Bart) · Rosa: „Dann lade Jürgen zum Essen ein.“ |
+| F04 ✓ | Das Abendessen | Avo als „Jürgen“ fliegt fast auf · Jessy klingelt an der Tür – mit Kuchen |
 | F05 | Zwei Frauen, ein Kuchen | Rosa und Jessy verstehen sich unheimlich gut · Jessy sieht ein Familienfoto und erstarrt |
 | F06 | Oma Rhabarber | Rosa erzählt Oma vom Verdacht · Oma sieht Jessys Foto: „Diese Augen kenne ich …“ |
 | F07 | Der Gemüse-Marathon | Jessy meldet Gino für den Marathon an · Rosa findet die Anmeldung mit Jessys Unterschrift |
