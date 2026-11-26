@@ -1,10 +1,23 @@
 {
  "v2": 1,
- "updated": 1795600658,
- "fazit": "",
- "web": "**1. TikTok Symphony Creative Studio** – KI‑gestützte Video‑ und Avatar‑Erstellung in wenigen Minuten, inkl. Skript‑Generator und automatischer Übersetzung【1†L8-L13】.  \n[https://onlinemarketing.de/social-media-marketing/tiktok-symphony-creative-studio-ki-videos-fuer-alle](https://onlinemarketing.de/social-media-marketing/tiktok-symphony-creative-studio-ki-videos-fuer-alle)\n\n**2. CapCut AI (TikTok‑Sister‑App)** – kostenlose KI‑Funktionen: Auto‑Captions, Smart Cut (Entfernung von Füllwörtern) und KI‑Skript‑Generator für TikTok‑Videos【8†L50-L53】.  \n[https://justoborn.com/tiktok-ai-tools/](https://justoborn.com/tiktok-ai-tools/)\n\n**3. Opus Clip (TikTok Clip Maker)** – analysiert lange Videos, wählt automatisch virale Schnitte aus und fügt Untertitel sowie B‑Roll hinzu; kostenloser Plan verfügbar【19†L84-L86】【19†L94-L96】.  \n[https://www.opus.pro/tools/tiktok-clip-maker](https://www.opus.pro/tools/tiktok-clip-maker)\n\n**4. Captions.ai TikTok Video Generator** – erzeugt komplett editierte TikTok‑Videos inkl. automatischer Untertitel und schneller Skalierung der Produktion【20†L6-L8】.  \n[https://captions.ai/tools/tiktok-video-generator](https://captions.ai/tools/tiktok-video-generator)\n\n**5. Fliki (Free Forever‑Plan)** – Web‑basiertes Tool für Text‑zu‑Video & Text‑zu‑Sprach‑Generierung mit 3 Credits/Monat, 300 Stimmen und HD‑Export (Wasserzeichen) ohne Konto【23†L8-L10】.  \n[https://fliki.ai/pricing](https://fliki.ai/pricing)\n\n**6. Google Flow** – kostenlose tägliche 50 Kredit‑Auflage für Bild‑zu‑Video‑Generierung (Veo 3.1) – ideal für tägliche Experimente und schnelle Clips【11†L8-L13】【11†L36-L38】.  \n[https://pexo.ai/blog/best-free-ai-image-to-video-5496](https://pexo.ai/blog/best-free-ai-image-to-video-5496)\n\n**7. Dreamina** – von CapCut‑Team bereitgestelltes KI‑Video‑Tool mit 120 Credits/Tag (US) für das Seedance 2.0‑Modell, kostenlos nutzbar mit Wasserzeichen【11†L144-L148】.  \n[https://pexo.ai/blog/best-free-ai-image-to-video-5496](https://pexo.ai/blog/best-free-ai-image-to-video-5496)\n\n**8. MofCloud Pricing MCP Server** – öffentlicher, kostenlose MCP‑Server, liefert aktuelle Cloud‑Preislisten von 15 Anbietern (AWS, Azure, Google Cloud u. a.) ohne API‑Key【14†L6-L10】【14†L14-L20】.  \n[https://mofcloud.com/blog/2026-11-23-free-cloud-pricing-mcp](https://mofcloud.com/blog/2026-11-23-free-cloud-pricing-mcp)",
- "neu": [],
+ "updated": 1795686113,
+ "fazit": "Koed, AI Context Flow und PiBot bilden die Kerninfrastruktur, um Jarvis ressourcenschonend und skalierbar zu betreiben, während agy-fast, fast‑anything und shrink‑anything die Performance und Code‑Qualität kontinuierlich steigern.",
+ "web": "**Viral‑TikTok‑AI‑Tools & Agenten (2024/2025)**  \n\n| # | Tool / Trend | Kurzbeschreibung | Link |\n|---|--------------|------------------|------|\n| 1 | **Luma AI (Hug‑Videos)** | Erzeugt in wenigen Minuten ein animiertes „AI‑Hug“-Video, indem man ein Side‑by‑Side‑Bild hochlädt und den Prompt „make them hug“ verwendet. | 【1†L40-L46】 |\n| 2 | **CapCut Hair‑Color‑Filter** | KI‑Filter, der ein Foto analysiert und das Haar in verschiedene Farben (Kupfer‑rot, Blond, Braun) umwandelt – komplett kostenlos in der CapCut‑App. | 【3†L15-L21】【3†L29-L37】 |\n| 3 | **CapCut Lego‑AI‑Filter** | Transformiert Personen, Tiere oder Objekte in LEGO‑Steine‑Optik und lässt so Videos wie aus Bauklötzen aussehen. | 【12†L13-L26】 |\n| 4 | **Viggle AI** | Discord‑basiertes KI‑Video‑Tool, das TikTok‑Hits erzeugt (z. B. Tanz‑ oder Fußball‑Clips) und bereits über 14 M Views erreicht hat. | 【11†L41-L45】 |\n\n**Neue kostenlose KI‑Tools / Skills / MCP‑Server (letzte 7 Tage, 20‑26 Nov 2026)**  \n\n| # | Tool / Service | Kurzbeschreibung | Link |\n|---|----------------|------------------|------|\n| 5 | **Koed** | Open‑Source‑Memory‑Layer (lokal, Apache‑2.0) für Claude Code, Codex & Pi; speichert Kontext und kann auf macOS‑Apple‑Silicon & Linux laufen (Free‑Tier: self‑hosted). | 【8†L80-L88】 |\n| 6 | **Canva MCP** | Remote‑MCP‑Server, der KI‑Assistenten ermöglicht, editierbare Canva‑Designs zu erstellen, Assets zu verwalten und in verschiedene Formate zu exportieren (kostenlos mit Canva‑Account). | 【8†L94-L100】 |\n| 7 | **AI Context Flow** | Gemeinsamer Speicher für alle AI‑Tools (Claude, ChatGPT, Gemini, Cursor usw.); tägliches kostenloses Kontingent von 100–200 Credits + 50 MB Speicher. | 【8†L477-L487】 |\n| 8 | **Tabstack** | Mozilla‑Web‑Access‑API für eigene Modelle/Agenten (Research, Extract, Automate) – 10 000 freie Credits ohne Kreditkarte. | 【8†L521-L530】 |\n\n*Alle Angaben stammen aus aktuellen News‑ und Produkt‑Launch‑Quellen (Stand 26. Nov 2026).*",
+ "neu": [
+  "965de15c34"
+ ],
  "items": [
+  {
+   "titel": "shrink‑anything",
+   "url": "https://github.com/EL4CTEO/shrink-anything",
+   "quelle": "GitHub, Project \"shrink-anything\"",
+   "was": "Entfernt ungenutzten Code, Dateien, Abhängigkeiten – Tests bleiben bestehen",
+   "nutzen": "Verringert Jarvis‑Deploy‑Größe und Sicherheits‑Risiken, spart Speicher",
+   "vorschlag": "Nutze shrink‑anything als Post‑Build‑Schritt in Jarvis‑Release‑Pipeline",
+   "punkte": 65,
+   "id": "965de15c34",
+   "t": 1795686113
+  },
   {
    "titel": "INK-Q/agy-fast",
    "url": "https://github.com/INK-Q/agy-fast",
