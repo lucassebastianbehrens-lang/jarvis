@@ -10,7 +10,7 @@
   ],
   "a": {
     "name": "FÖN",
-    "figur": "auto",
+    "figur": "laeufer",
     "dauer_s": 6.0,
     "menge": 0.2,
     "info": "0,2 kWh Strom"
@@ -29,19 +29,19 @@
     "besser": "weniger"
   },
   "skala": [
-    "0 kWh",
-    "0,1 kWh",
-    "0,2 kWh"
+    "Start",
+    "halb trocken",
+    "trocken"
   ],
   "ergebnis": "etwa {p} % weniger Strom",
   "lines": [
     {
       "phase": "intro",
-      "t": "Spärest du Strom mit dem Fön?"
+      "t": "Haare trocknen: Wie viel Strom sparst du ohne Fön?"
     },
     {
       "phase": "intro",
-      "t": "Der Fön hat eine Leistung von rund achthundert Watt."
+      "t": "Ein typischer Fön hat rund achtzehnhundert Watt."
     },
     {
       "phase": "race",
@@ -49,7 +49,7 @@
     },
     {
       "phase": "race",
-      "t": "Das ergibt einen Stromverbrauch von etwa null Komma zwei Kilowattstunden."
+      "t": "Das sind etwa null Komma zwei Kilowattstunden Strom."
     },
     {
       "phase": "race",
@@ -57,7 +57,7 @@
     },
     {
       "phase": "result",
-      "t": "Ergebnis: Lufttrocknen spart hundert Prozent Strom, dauert aber in etwa vierzig Minuten."
+      "t": "Ergebnis: Lufttrocknen braucht praktisch keinen Strom, dauert aber etwa vierzig Minuten."
     },
     {
       "phase": "result",
@@ -65,8 +65,8 @@
     }
   ],
   "hooks": [
-    "Spärest du Strom mit dem Fön?",
-    "Nur null Komma zwei Kilowattstunden",
+    "Haare trocknen: Wie viel Strom sparst du ohne Fön?",
+    "Achtzehnhundert Watt für nasse Haare",
     "Lufttrocknen schont den Stromzähler"
   ],
   "kommentar_frage": "Was hättest du getippt?",
