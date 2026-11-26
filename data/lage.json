@@ -1,14 +1,20 @@
 {
- "updated": 1795661584,
- "lagebild": "Derzeit ist die Ankündigung neuer US‑Zölle – auch gegen die EU und China – das wichtigste globale Ereignis. Diese Handelsbeschränkungen können die Preise für importierte Güter und Kraftstoff in Deutschland in die Höhe treiben. Gleichzeitig belasten sie die deutschen Börsenkurse, was Lucas unmittelbar betrifft.",
+ "updated": 1795701463,
+ "lagebild": "Der Kampf um den EU‑Haushalt von bis zu zwei Billionen Euro bestimmt derzeit das wichtigste geopolitische Geschehen. Gleichzeitig haben die von den USA angekündigten neuen Zölle das Potenzial, die Verbraucherpreise in Deutschland zu erhöhen. Und das Kentern eines 7 000‑Tonnen‑Diesel‑Tankers vor Ibiza könnte die Spritpreise und damit die Bewertung von Energieunternehmen an der Börse stark beeinflussen.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
    "anzahl": 27,
-   "heiss": 18,
+   "heiss": 20,
    "meldungen": [
+    {
+     "titel": "Russland: Sieben von zehn ermordeten Frauen Opfer häuslicher Gewalt",
+     "text": "Der Krieg gegen die Ukraine hinterlässt auch in der Statistik zu häuslicher Gewalt in Russland Spuren. Eine Studie zeigt: Viele Täter sind Kriegsteilnehmer. Und Verfahren können ausgesetzt werden, wenn Beschuldigte in den Krieg ziehen. Von ",
+     "url": "https://www.tagesschau.de/ausland/asien/mehr-frauen-in-russland-sterben-durch-gewalt-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
      "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
@@ -22,9 +28,9 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
-     "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
-     "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "titel": "EU-Geld für die Ukraine - wie gegen Korruption vorgegangen wird",
+     "text": "Die Ukraine braucht viel Geld wegen der Schäden durch russische Luftangriffe. Das kommt oft von der EU. Journalisten und Politiker decken Fälle mutmaßlicher Korruption auf - und bewegen damit etwas. Von F. Kellermann.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-korruption-118.html",
      "quelle": "tagesschau"
     },
     {
@@ -37,12 +43,6 @@
      "titel": "Deutschland baut künftig ukrainische Drohnen",
      "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
-     "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -51,9 +51,27 @@
    "land": "Ukraine",
    "lat": 49.0,
    "lon": 31.3,
-   "anzahl": 21,
-   "heiss": 14,
+   "anzahl": 24,
+   "heiss": 17,
    "meldungen": [
+    {
+     "titel": "Russland: Sieben von zehn ermordeten Frauen Opfer häuslicher Gewalt",
+     "text": "Der Krieg gegen die Ukraine hinterlässt auch in der Statistik zu häuslicher Gewalt in Russland Spuren. Eine Studie zeigt: Viele Täter sind Kriegsteilnehmer. Und Verfahren können ausgesetzt werden, wenn Beschuldigte in den Krieg ziehen. Von ",
+     "url": "https://www.tagesschau.de/ausland/asien/mehr-frauen-in-russland-sterben-durch-gewalt-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
+     "text": "Um mehr als 200 Milliarden Euro ist der EU-Haushaltsentwurf bereits gekürzt worden. Dem Kanzler reicht das aber noch nicht. Außerdem verknüpft Merz die schwierigen Verhandlungen weiterhin mit der Unterstützung für die Ukraine.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-ukraine-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Streit um EU-Haushalt: Warum die Slowakei blockieren will",
+     "text": "Beim EU-Sondergipfel geht der slowakische Regierungschef Fico auf Konfrontation. Zusammen mit Polen, Ungarn und Tschechien will er die EU-Haushaltspläne blockieren - insbesondere die Ukraine-Hilfen. Innenpolitisch könnte ihm das nutzen. Von",
+     "url": "https://www.tagesschau.de/ausland/europa/slowakei-blockiert-eu-haushalt-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "\"Koalition der Willigen\" absolviert Militärübung in Polen",
      "text": "Es war die erste militärische Übung der \"Koalition der Willigen\": Hunderte Soldaten haben in Polen getestet, wie in der Ukraine Frieden gesichert werden kann. Zum Ende schlugen nahe dem Gelände russische Raketen ein. Von P. Milling.",
@@ -61,78 +79,15 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
-     "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
-     "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "titel": "EU-Geld für die Ukraine - wie gegen Korruption vorgegangen wird",
+     "text": "Die Ukraine braucht viel Geld wegen der Schäden durch russische Luftangriffe. Das kommt oft von der EU. Journalisten und Politiker decken Fälle mutmaßlicher Korruption auf - und bewegen damit etwas. Von F. Kellermann.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-korruption-118.html",
      "quelle": "tagesschau"
     },
     {
      "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
      "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Deutschland baut künftig ukrainische Drohnen",
-     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
-     "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Krieg gegen die Ukraine: Tote nach Angriff auf Mehrfamilienhaus",
-     "text": "Das russische Militär geht weiter unvermindert gegen die Zivilbevölkerung in der Ukraine vor. Mindestens zehn Menschen wurden getötet, als in der Nacht zu Sonntag ein Wohnhaus in der Region Kiew angegriffen wurde.",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-wohnhaeuser-104.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Deutschland",
-   "lat": 51.2,
-   "lon": 10.4,
-   "anzahl": 34,
-   "heiss": 5,
-   "meldungen": [
-    {
-     "titel": "COP31: Beschlusstext \"für Deutschland nicht zustimmungsfähig\"",
-     "text": "Die Weltklimakonferenz in Antalya ist schon in der Verlängerung, um ein Beschlusspapier wird heftig gerungen. Nun hat Umweltminister Schneider den Entwurf scharf zurückgewiesen - und erhebt Vorwürfe gegen einige Staaten.",
-     "url": "https://www.tagesschau.de/ausland/weltklimakonferenz-cop-droht-zu-scheitern-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Deutschland baut künftig ukrainische Drohnen",
-     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "tagesschau 20:00 Uhr",
-     "text": "Bundeskanzler Merz verteidigt in Generaldebatte im Bundestag seine Haushaltspolitik, Union schlägt im Koalitionsstreit über die Rentenreform einen Kompromiss vor, Hoffnung auf Durchbruch in der vierten Verhandlungsrunde in Tarifkonflikt der",
-     "url": "https://www.tagesschau.de/tagesschau_20_uhr/video-1689910.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Merz verteidigt Haushalt für 2027 - Generaldebatte im Bundestag",
-     "text": "Merz verteidigt Haushalt für 2027 - Generaldebatte im Bundestag",
-     "url": "https://www.tagesschau.de/video/video-1689672.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Bundestag diskutiert in Generaldebatte Haushalt für 2027",
-     "text": "Bundestag diskutiert in Generaldebatte Haushalt für 2027",
-     "url": "https://www.tagesschau.de/tagesthemen/video-1690010.html",
      "quelle": "tagesschau"
     }
    ]
@@ -141,8 +96,8 @@
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 26,
-   "heiss": 6,
+   "anzahl": 22,
+   "heiss": 7,
    "meldungen": [
     {
      "titel": "Europas größte Satellitenfabrik eröffnet",
@@ -151,9 +106,9 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Mutmaßlicher Anschlagsplan: Dänen weisen russischen Diplomaten aus",
-     "text": "Russland soll auf dänischem Boden einen Anschlag auf einen ukrainisch-amerikanischen Rapper geplant haben. Als Reaktion wurde ein russischer Diplomat ausgewiesen. Zwei Verdächtige sitzen in Untersuchungshaft.",
-     "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html",
+     "titel": "Wetterchaos an Thanksgiving in USA befürchtet",
+     "text": "Extreme Springflut und Überschwemmungen in Kalifornien - Sturmwarnung und viel Regen an der Ostküste. Pünktlich zu Thanksgiving könnte das Wetter die Reise- und Feiertagspläne vieler US-Amerikaner durcheinander bringen.",
+     "url": "https://www.tagesschau.de/ausland/amerika/sturm-usa-152.html",
      "quelle": "tagesschau"
     },
     {
@@ -183,46 +138,46 @@
    ]
   },
   {
-   "land": "Iran",
-   "lat": 32.4,
-   "lon": 53.7,
-   "anzahl": 12,
+   "land": "Deutschland",
+   "lat": 51.2,
+   "lon": 10.4,
+   "anzahl": 24,
    "heiss": 5,
    "meldungen": [
     {
-     "titel": "74 Peitschenhiebe für iranische Sängerin lösen Empörung aus",
-     "text": "Ein Onlinekonzert ohne Kopftuch - dafür erhielt die iranische Sängerin Parastu Ahmadi 74 Peitschenhiebe. Das löste international große Empörung aus. Die Strafe sei \"grausam und unmenschlich\" und eine Form der Folter.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-saengerin-peitschenhiebe-100.html",
+     "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
+     "text": "Um mehr als 200 Milliarden Euro ist der EU-Haushaltsentwurf bereits gekürzt worden. Dem Kanzler reicht das aber noch nicht. Außerdem verknüpft Merz die schwierigen Verhandlungen weiterhin mit der Unterstützung für die Ukraine.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-ukraine-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
-     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
+     "titel": "Deutschland baut künftig ukrainische Drohnen",
+     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Iran greift erneut US-Stützpunkt in Bahrain an",
-     "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
+     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
+     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
+     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
-     "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
+     "titel": "Unionsvorstoß zur \"Respekt-Rente\" - Christoph Mestmacher, ARD Berlin",
+     "text": "Unionsvorstoß zur \"Respekt-Rente\" - Christoph Mestmacher, ARD Berlin",
+     "url": "https://www.tagesschau.de/video/video-1690250.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
-     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
-     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
+     "titel": "Reallöhne sind im Sommer langsamer gewachsen",
+     "text": "Beschäftigte in Deutschland haben im Schnitt etwas mehr Geld zur Verfügung: Im Sommer sind die Reallöhne weiter gestiegen. Abzüglich der Inflation bleibt ein Plus von 1,3 Prozent - das ist allerdings so wenig wie zuletzt Anfang 2025.",
+     "url": "https://www.tagesschau.de/wirtschaft/arbeitsmarkt/loehne-wachstum-inflation-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Jemen: Regierungstruppen wollen Aden vor Huthi schützen",
-     "text": "Die von Iran unterstützte Huthi-Miliz rückt im Jemen offenbar auf den Regierungssitz Aden vor. Gleichzeitig ziehen sich regierungstreue Truppen weiter von der für den Welthandel wichtigen Meerenge Bab al-Mandab zurück.",
-     "url": "https://www.tagesschau.de/ausland/asien/jemen-huthi-aden-100.html",
+     "titel": "Davis-Cup-Viertelfinale in Bologna: Starker Zverev wahrt deutsche Chance aufs Weiterkommen",
+     "text": "Alexander Zverev hat seinen Teil der Aufgabe souverän erledigt. Damit fällt die Entscheidung über den Einzug ins Davis-Cup-Halbfinale zwischen Deutschland und Großbritannien im Doppel. Die Protagonisten erwarten ein \"50:50-Spiel\".",
+     "url": "https://www.sportschau.de/tennis/davis-cup/davis-cup-viertelfinale-zverev-ausgleich,davis-cup-viertelfinale-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -231,9 +186,15 @@
    "land": "Israel",
    "lat": 31.0,
    "lon": 34.9,
-   "anzahl": 9,
+   "anzahl": 10,
    "heiss": 6,
    "meldungen": [
+    {
+     "titel": "Israel: Staatsanwältin im Netanjahu-Prozess vor Dilemma",
+     "text": "Im Korruptionsprozess gegen Israels Premier Netanjahu haben die Richter empfohlen, den Vorwurf wegen Bestechlichkeit fallen zu lassen. Netanjahus Lager feiert das als Triumph - und die Staatsanwaltschaft steht massiv unter Zugzwang. Von J. ",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-prozess-bestechungsvorwurf-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "Bestechungsvorwurf gegen Netanjahu könnte fallen gelassen werden",
      "text": "Seit Jahren muss sich Israels Premier wegen Betrugs, Untreue und Bestechlichkeit vor Gericht verantworten. Jetzt haben Richter empfohlen, den letzten Anklagepunkt fallen zu lassen. Netanjahu sieht den ganzen Prozess als gescheitert.",
@@ -263,12 +224,6 @@
      "text": "Das israelische Parlament hat Matan Kahana zu seinem neuen Präsidenten und Sprecher gewählt - damit hat der Anti-Netanjahu-Block einen wichtigen Schritt gemacht. Von Bettina Meier.",
      "url": "https://www.tagesschau.de/ausland/asien/israel-knesset-praesident-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Israel: Netanjahu wirbt bei Eisenkot um Einheitsregierung",
-     "text": "Eisenkot oder Netanjahu? Die Parlamentswahl in Israel brachte keine eindeutige Antwort. Derzeit sucht Oppositionspolitiker Eisenkot nach Partnern für eine Koalition. Noch-Premier Netanjahu hat seine eigenen Vorstellungen. Von B. Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-einheitsregierung-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -276,9 +231,27 @@
    "land": "Belgien/EU",
    "lat": 50.8,
    "lon": 4.4,
-   "anzahl": 11,
-   "heiss": 2,
+   "anzahl": 15,
+   "heiss": 3,
    "meldungen": [
+    {
+     "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
+     "text": "Um mehr als 200 Milliarden Euro ist der EU-Haushaltsentwurf bereits gekürzt worden. Dem Kanzler reicht das aber noch nicht. Außerdem verknüpft Merz die schwierigen Verhandlungen weiterhin mit der Unterstützung für die Ukraine.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-ukraine-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Streit um EU-Haushalt: Warum die Slowakei blockieren will",
+     "text": "Beim EU-Sondergipfel geht der slowakische Regierungschef Fico auf Konfrontation. Zusammen mit Polen, Ungarn und Tschechien will er die EU-Haushaltspläne blockieren - insbesondere die Ukraine-Hilfen. Innenpolitisch könnte ihm das nutzen. Von",
+     "url": "https://www.tagesschau.de/ausland/europa/slowakei-blockiert-eu-haushalt-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "EU-Haushalt: Kampf um bis zu zwei Billionen Euro",
+     "text": "Die Staats- und Regierungschefs der 27 EU-Länder beraten bei einem Sondergipfel in Brüssel über den langfristigen EU-Haushalt. Dabei geht es auch um mögliche neue Einnahmequellen wie etwa eine Digitalsteuer. Von C. Feld.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-digitalsteuer-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "EU-Kommission erlaubt weiter Staatshilfen für Landwirte und Industrie",
      "text": "Landwirte, Industrie und andere Unternehmen können wegen der anhaltenden Energiekrise weiterhin mit staatlichen Zuschüssen rechnen. Laut EU-Kommission bleibt es bis mindestens Ende Juni 2027 bei den gelockerten Regeln zur Beihilfe.",
@@ -296,69 +269,51 @@
      "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
      "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
-     "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
-     "url": "https://www.tagesschau.de/ausland/europa/russische-mannschaften-sportler-eu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
-     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
-     "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
-     "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
   {
-   "land": "China",
-   "lat": 35.9,
-   "lon": 104.2,
-   "anzahl": 12,
-   "heiss": 1,
+   "land": "Iran",
+   "lat": 32.4,
+   "lon": 53.7,
+   "anzahl": 13,
+   "heiss": 4,
    "meldungen": [
     {
-     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
-     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
+     "titel": "74 Peitschenhiebe für iranische Sängerin lösen Empörung aus",
+     "text": "Ein Onlinekonzert ohne Kopftuch - dafür erhielt die iranische Sängerin Parastu Ahmadi 74 Peitschenhiebe. Das löste international große Empörung aus. Die Strafe sei \"grausam und unmenschlich\" und eine Form der Folter.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-saengerin-peitschenhiebe-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
-     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
+     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
+     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Treffen von Trump, Xi und Putin: Rüstung, KI - und ein heikles Thema",
-     "text": "Heute beginnt im chinesischen Shenzhen das APEC-Treffen. Erstmals wird es zu einem Dreiertreffen von Xi, Trump und Putin kommen. Um was könnte es dabei gehen? Von Christoph Kober.",
-     "url": "https://www.tagesschau.de/ausland/asien/apec-trump-putin-xi-100.html",
+     "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
+     "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "US-Gericht spricht Huawei wegen Betrugs schuldig",
-     "text": "Der chinesische Technologiekonzern Huawei ist in den USA in einem jahrelangen Strafverfahren schuldig gesprochen worden. Eine Jury in Brooklyn befand das Unternehmen in zehn von zwölf Anklagepunkten für schuldig.",
-     "url": "https://www.tagesschau.de/wirtschaft/weltwirtschaft/huawei-geldwaesche-us-gericht-urteil-100.html",
+     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
+     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
+     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Chinesische Rakete startet mit Premiere zur Raumstation Tiangong",
-     "text": "Diese Mission ist eine Neuheit: Erstmals schickt China mit einem Raumfahrer aus Pakistan einen Ausländer zu seiner Station Tiangong im Weltall.",
-     "url": "https://www.dw.com/de/chinesische-rakete-startet-mit-premiere-zur-raumstation-tiangong/a-80043558?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
+     "titel": "Jemen: Regierungstruppen wollen Aden vor Huthi schützen",
+     "text": "Die von Iran unterstützte Huthi-Miliz rückt im Jemen offenbar auf den Regierungssitz Aden vor. Gleichzeitig ziehen sich regierungstreue Truppen weiter von der für den Welthandel wichtigen Meerenge Bab al-Mandab zurück.",
+     "url": "https://www.tagesschau.de/ausland/asien/jemen-huthi-aden-100.html",
+     "quelle": "tagesschau"
     },
     {
-     "titel": "News kompakt: Deutschland will Patriot-Flugabwehr massiv ausbauen",
-     "text": "Die Bundesregierung will erheblich in die Flugabwehr der Bundeswehr investieren. China lässt erstmals einen Ausländer in seine Weltraumstation. Der DW-Nachrichtenüberblick.",
-     "url": "https://www.dw.com/de/news-kompakt-deutschland-will-patriot-flugabwehr-massiv-ausbauen/a-80042756?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
+     "titel": "Iran greift erneut US-Stützpunkt in Bahrain an",
+     "text": "Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -447,12 +402,90 @@
    ]
   },
   {
+   "land": "China",
+   "lat": 35.9,
+   "lon": 104.2,
+   "anzahl": 6,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "USA kündigen neue Zölle an - auch gegen EU und China",
+     "text": "Die USA haben neue Sonderzölle gegen die EU und weitere Handelspartner angekündigt. Für betroffene EU-Produkte ist ein Zollsatz von 15 Prozent vorgesehen, auf chinesische Waren soll eine Abgabe von 20 Prozent fällig werden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
+     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Treffen von Trump, Xi und Putin: Rüstung, KI - und ein heikles Thema",
+     "text": "Heute beginnt im chinesischen Shenzhen das APEC-Treffen. Erstmals wird es zu einem Dreiertreffen von Xi, Trump und Putin kommen. Um was könnte es dabei gehen? Von Christoph Kober.",
+     "url": "https://www.tagesschau.de/ausland/asien/apec-trump-putin-xi-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Chinesische Rakete startet mit Premiere zur Raumstation Tiangong",
+     "text": "Diese Mission ist eine Neuheit: Erstmals schickt China mit einem Raumfahrer aus Pakistan einen Ausländer zu seiner Station Tiangong im Weltall.",
+     "url": "https://www.dw.com/de/chinesische-rakete-startet-mit-premiere-zur-raumstation-tiangong/a-80043558?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
+    {
+     "titel": "Malaysia: \"Malakka-Datenstraße\" für KI in China",
+     "text": "Leistungsstarke KI-Chips sind in China aufgrund von US-Restriktionen schwer erhältlich. Daher nutzen chinesische Firmen Rechenkapazitäten vorwiegend in Südostasien für ihre KI-Agents. Dies soll nun beendet werden.",
+     "url": "https://www.dw.com/de/malaysia-malakka-datenstraße-für-ki-in-china/a-80029459?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
+    {
+     "titel": "ASEAN und China: Die Grenzen diplomatischer Einigung",
+     "text": "Die Philippinen wollten 2026 einen Verhaltenskodex für das Südchinesische Meer abschließen. Doch China und die ASEAN-Staaten streiten weiter über zentrale Fragen. Warum eine Einigung so schwierig ist.",
+     "url": "https://www.dw.com/de/asean-und-china-die-grenzen-diplomatischer-einigung/a-80002867?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
+   "land": "Saudi-Arabien",
+   "lat": 23.9,
+   "lon": 45.1,
+   "anzahl": 3,
+   "heiss": 2,
+   "meldungen": [
+    {
+     "titel": "11KM-Podcast: Saudi-Arabiens Kronprinz und seine Vision 2030",
+     "text": "Das Projekt \"Saudi Vision 2030\" soll Saudi-Arabiens Wirtschaft und sein Image modernisieren. 11KM fragt: Klappt das oder versanden die Milliarden-Investitionen in der Wüste?",
+     "url": "https://www.tagesschau.de/multimedia/podcast/11km/podcast-11km-saudi-arabien-vision-2030-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Saudi-Arabien verschärft Vorgehen gegen Regimekritiker",
+     "text": "Die Menschenrechtslage in Saudi-Arabien bleibt düster. Allein 2026 fanden bisher 211 Hinrichtungen statt. Nutzt Saudi-Arabien den Iran-Krieg, um politischen Dissens zu unterdrücken?",
+     "url": "https://www.dw.com/de/saudi-arabien-verschärft-vorgehen-gegen-regimekritiker/a-80006017?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
+    {
+     "titel": "Jemen: Saudi-Arabiens Verbündete geraten ins Wanken",
+     "text": "Saudi-Arabiens Militärkoalition steckt im Jemen in der Krise. Während die Huthi vorrücken, zerfällt das Bündnis ihrer Gegner. Auch die Sicherheit einer wichtigen Handelsroute steht auf dem Spiel.",
+     "url": "https://www.dw.com/de/jemen-saudi-arabiens-verbündete-geraten-ins-wanken/a-79971660?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Polen",
    "lat": 52.1,
    "lon": 19.4,
    "anzahl": 4,
-   "heiss": 2,
+   "heiss": 1,
    "meldungen": [
+    {
+     "titel": "Streit um EU-Haushalt: Warum die Slowakei blockieren will",
+     "text": "Beim EU-Sondergipfel geht der slowakische Regierungschef Fico auf Konfrontation. Zusammen mit Polen, Ungarn und Tschechien will er die EU-Haushaltspläne blockieren - insbesondere die Ukraine-Hilfen. Innenpolitisch könnte ihm das nutzen. Von",
+     "url": "https://www.tagesschau.de/ausland/europa/slowakei-blockiert-eu-haushalt-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "\"Koalition der Willigen\" absolviert Militärübung in Polen",
      "text": "Es war die erste militärische Übung der \"Koalition der Willigen\": Hunderte Soldaten haben in Polen getestet, wie in der Ukraine Frieden gesichert werden kann. Zum Ende schlugen nahe dem Gelände russische Raketen ein. Von P. Milling.",
@@ -463,12 +496,6 @@
      "titel": "Polen wirft Russland gezielte Provokation vor",
      "text": "Mehrere Flugkörper sind in den polnischen Luftraum eingedrungen - nach Einschätzung der Regierung eine gezielte Provokation Russlands. Sie könnte in Zusammenhang mit einer Übung der Ukraine-Unterstützer stehen, die derzeit in Polen stattfin",
      "url": "https://www.tagesschau.de/ausland/europa/absturz-russische-flugobjekte-polen-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Tote bei russischen Angriffen auf mehrere Brücken in Kiew",
-     "text": "Es ist eine Attacke ins Herz der ukrainischen Hauptstadt: Russland hat in Kiew erneut Brücken beschossen und beschädigt. Mehrere Menschen wurden getötet. Im Nachbarland Polen stürzten drei russische Flugobjekte ab.",
-     "url": "https://www.tagesschau.de/ausland/ukraine-russland-angriffe-bruecken-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -501,54 +528,6 @@
    ]
   },
   {
-   "land": "Saudi-Arabien",
-   "lat": 23.9,
-   "lon": 45.1,
-   "anzahl": 2,
-   "heiss": 2,
-   "meldungen": [
-    {
-     "titel": "Saudi-Arabien verschärft Vorgehen gegen Regimekritiker",
-     "text": "Die Menschenrechtslage in Saudi-Arabien bleibt düster. Allein 2026 fanden bisher 211 Hinrichtungen statt. Nutzt Saudi-Arabien den Iran-Krieg, um politischen Dissens zu unterdrücken?",
-     "url": "https://www.dw.com/de/saudi-arabien-verschärft-vorgehen-gegen-regimekritiker/a-80006017?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "Jemen: Saudi-Arabiens Verbündete geraten ins Wanken",
-     "text": "Saudi-Arabiens Militärkoalition steckt im Jemen in der Krise. Während die Huthi vorrücken, zerfällt das Bündnis ihrer Gegner. Auch die Sicherheit einer wichtigen Handelsroute steht auf dem Spiel.",
-     "url": "https://www.dw.com/de/jemen-saudi-arabiens-verbündete-geraten-ins-wanken/a-79971660?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Frankreich",
-   "lat": 46.2,
-   "lon": 2.2,
-   "anzahl": 3,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Wadephul warnt Iran vor hybriden Angriffen",
-     "text": "Frankreich sieht Iran hinter den Cyberangriffen auf Kühlanlagen - doch das Land dementiert. Die deutschen Behörden haben sich noch nicht festgelegt, Außenminister Wadephul warnte Teheran nun aber vor hybriden Attacken.",
-     "url": "https://www.tagesschau.de/ausland/wadephul-iran-102.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
-     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
-     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "Philippe Diallo: Europäische Integrität gegen das System Infantino",
-     "text": "Frankreichs Verbandspräsident und UEFA-Kandidat Philippe Diallo fordert FIFA-Präsident Gianni Infantino heraus. Seine Chancen sind gering, doch Justiz und Politik könnten auf seiner Seite sein.",
-     "url": "https://www.dw.com/de/philippe-diallo-europäische-integrität-gegen-das-system-infantino/a-79978574?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
    "land": "Ägypten",
    "lat": 26.8,
    "lon": 30.8,
@@ -566,6 +545,60 @@
      "text": "Journalisten in Ägypten sind enormem Druck ausgesetzt - teilweise werden ganze Redaktionen verhaftet. Mutige Journalisten versuchen dennoch weiterzumachen. Sie hoffen auf Solidarität aus dem Ausland. Von M. Behrendt.",
      "url": "https://www.tagesschau.de/ausland/afrika/pressefreiheit-aegypten-100.html",
      "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Ungarn",
+   "lat": 47.2,
+   "lon": 19.5,
+   "anzahl": 3,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Streit um EU-Haushalt: Warum die Slowakei blockieren will",
+     "text": "Beim EU-Sondergipfel geht der slowakische Regierungschef Fico auf Konfrontation. Zusammen mit Polen, Ungarn und Tschechien will er die EU-Haushaltspläne blockieren - insbesondere die Ukraine-Hilfen. Innenpolitisch könnte ihm das nutzen. Von",
+     "url": "https://www.tagesschau.de/ausland/europa/slowakei-blockiert-eu-haushalt-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Ungarn-Ukraine: Peter Magyar und Wolodymyr Selenskyj wagen Neustart",
+     "text": "Lange vergiftete Viktor Orbans prorussischer Kurs Ungarns Verhältnis zur Ukraine. Nun schaffen Premier Magyar und Präsident Selenskyj bei einem Treffen eine neue Vertrauensbasis - und vereinbaren konkrete Schritte.",
+     "url": "https://www.dw.com/de/ungarn-ukraine-peter-magyar-und-wolodymyr-selenskyj-wagen-neustart/a-80048613?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
+    {
+     "titel": "Nach 16 Jahren Orban: Ungarn räumt mit Korruptionserbe auf",
+     "text": "Jahrelang versprach Viktor Orban den Kampf gegen Korruption, nun gerät sein eigenes Umfeld ins Visier der Justiz: Ein Ex-Minister, der frühere Notenbankchef und Orbans Bruder wurden verhaftet. Hat Fidesz eine Zukunft?",
+     "url": "https://www.dw.com/de/nach-16-jahren-orban-ungarn-räumt-mit-korruptionserbe-auf/a-79967762?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
+   "land": "Spanien",
+   "lat": 40.4,
+   "lon": -3.7,
+   "anzahl": 3,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Schiffsunglück vor Ibiza: Tanker mit 7.000 Tonnen Diesel gekentert",
+     "text": "Wegen möglicher Umweltgefahren aktivierten die spanischen Behörden einen Notfallplan: Vor der Küste Ibizas ist ein Tanker mit 7.000 Tonnen Diesel gekentert. Bei dem Unglück kam ein Seemann ums Leben.",
+     "url": "https://www.tagesschau.de/ausland/europa/tanker-ibiza-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
+     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Tanker vor Ibiza gekentert: Ein Besatzungsmitglied tot",
+     "text": "Mit 8,2 Millionen Litern Dieseltreibstoff in den Tanks geriet die \"Med Emre\" vor der spanischen Insel Ibiza in Seenot. Dann kenterte das Schiff. Wird es sinken?",
+     "url": "https://www.dw.com/de/tanker-vor-ibiza-gekentert-ein-besatzungsmitglied-tot/a-80062333?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   },
@@ -597,54 +630,6 @@
    ]
   },
   {
-   "land": "Afghanistan",
-   "lat": 33.9,
-   "lon": 67.7,
-   "anzahl": 3,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Taliban lassen Abschiebeflug verschieben",
-     "text": "Ein für heute geplanter Abschiebeflug nach Kabul wurde nach NDR-Informationen von afghanischer Seite abgesagt. Die Taliban wollen offenbar Druck machen, um die Einreise weiterer Konsularbeamte nach Deutschland zu erzwingen. Von P. Hornung.",
-     "url": "https://www.tagesschau.de/inland/innenpolitik/afghanistan-taliban-abschiebeflug-gestoppt-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Generalkonsulat in Bonn - Geflüchtete Afghanen arbeiten für die Taliban",
-     "text": "Im afghanischen Generalkonsulat in Bonn sind laut NDR und WDR gut ein Dutzend Afghanen tätig, die in Deutschland vor den nun regierenden Taliban Schutz gesucht hatten. Das Auswärtige Amt weiß offiziell davon nichts. Von A. Naiby und P. Horn",
-     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/taliban-konsulat-bonn-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
-     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
-     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Türkei",
-   "lat": 39.0,
-   "lon": 35.2,
-   "anzahl": 2,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Proteste gegen Gewalt an Frauen in Istanbul verboten",
-     "text": "Frauenrechtsorganisationen wollten in Istanbul gegen Gewalt an Frauen demonstrieren. Doch nach dem Demoaufruf wurden die Proteste verboten. Dennoch gingen am Abend zahlreiche Menschen auf die Straße.",
-     "url": "https://www.tagesschau.de/ausland/europa/tuerkei-orange-day-demo-verboten-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
-     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
-     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "Italien",
    "lat": 42.8,
    "lon": 12.6,
@@ -658,31 +643,10 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Italiens Ex-Polizeichef De Gennaro nimmt sich das Leben",
-     "text": "Gianni De Gennaro bekleidete lange Schlüsselpositionen im italienischen Sicherheitsapparat - sei es im Kampf gegen die Mafia, beim G8-Gipfel in Genua oder für die Geheimdienste. Kurz vor einer Gerichtsanhörung tötete er sich selbst.",
-     "url": "https://www.tagesschau.de/ausland/europa/italien-polizeichef-de-gennaro-tot-100.html",
+     "titel": "UniCredit beantragt Hauptversammlung bei Commerzbank",
+     "text": "Die UniCredit will den Einstieg bei der Commerzbank umsetzen und dafür die Macht im Aufsichtsrat übernehmen. Darum hat die italienische Bank eine Hauptversammlung beantragt, um eigene Vertreter zu entsenden.",
+     "url": "https://www.tagesschau.de/wirtschaft/unternehmen/unicredit-commerzbank-hauptversammlung-100.html",
      "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Mexiko",
-   "lat": 23.6,
-   "lon": -102.6,
-   "anzahl": 2,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Mexiko nimmt einen der meistgesuchten Drogenbosse fest",
-     "text": "Die USA fordern von Mexiko schon länger ein hartes Vorgehen gegen Kartelle. Nun ist den Behörden offenbar ein hochrangiger Drogenboss ins Netz gegangen. Der Mann zählte auf der Liste des FBI zu den meistgesuchten Verbrechern.",
-     "url": "https://www.tagesschau.de/ausland/amerika/mexiko-drogenkartell-chef-festnahme-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Was Sie über \"hirnfressende\" Amöben wissen sollten",
-     "text": "Nach dem Tod eines Mannes durch einen Parasiten sind in der Urlaubsregion Yucatán in Mexiko sechs Seen gesperrt worden. Solche Infektionen sind zwar selten, verlaufen aber meistens tödlich. So können Sie sich schützen.",
-     "url": "https://www.dw.com/de/was-sie-über-hirnfressende-amöben-wissen-sollten/a-66427073?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
     }
    ]
   },
@@ -729,23 +693,44 @@
    ]
   },
   {
-   "land": "Ungarn",
-   "lat": 47.2,
-   "lon": 19.5,
+   "land": "Türkei",
+   "lat": 39.0,
+   "lon": 35.2,
    "anzahl": 2,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "Ungarn-Ukraine: Peter Magyar und Wolodymyr Selenskyj wagen Neustart",
-     "text": "Lange vergiftete Viktor Orbans prorussischer Kurs Ungarns Verhältnis zur Ukraine. Nun schaffen Premier Magyar und Präsident Selenskyj bei einem Treffen eine neue Vertrauensbasis - und vereinbaren konkrete Schritte.",
-     "url": "https://www.dw.com/de/ungarn-ukraine-peter-magyar-und-wolodymyr-selenskyj-wagen-neustart/a-80048613?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
+     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
+     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
+     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
+     "quelle": "tagesschau"
     },
     {
-     "titel": "Nach 16 Jahren Orban: Ungarn räumt mit Korruptionserbe auf",
-     "text": "Jahrelang versprach Viktor Orban den Kampf gegen Korruption, nun gerät sein eigenes Umfeld ins Visier der Justiz: Ein Ex-Minister, der frühere Notenbankchef und Orbans Bruder wurden verhaftet. Hat Fidesz eine Zukunft?",
-     "url": "https://www.dw.com/de/nach-16-jahren-orban-ungarn-räumt-mit-korruptionserbe-auf/a-79967762?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
+     "titel": "Proteste gegen Gewalt an Frauen in Istanbul verboten",
+     "text": "Frauenrechtsorganisationen wollten in Istanbul gegen Gewalt an Frauen demonstrieren. Doch nach dem Demoaufruf wurden die Proteste verboten. Dennoch gingen am Abend zahlreiche Menschen auf die Straße.",
+     "url": "https://www.tagesschau.de/ausland/europa/tuerkei-orange-day-demo-verboten-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Großbritannien",
+   "lat": 54.0,
+   "lon": -2.5,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Schlauchboote im Ärmelkanal: Deutscher Firmenchef soll Schleuser beliefert haben",
+     "text": "Schleuser bringen jährlich Zehntausende Migranten über den Ärmelkanal nach Großbritannien. Bei fast einem Drittel der Überfahrten sollen laut Recherchen von WDR, NDR und SZ zuletzt Boote oder Motoren einer deutschen Firma genutzt worden sei",
+     "url": "https://www.tagesschau.de/investigativ/ndr-wdr/schleuser-aermelkanal-deutschland-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Davis-Cup-Viertelfinale in Bologna: Starker Zverev wahrt deutsche Chance aufs Weiterkommen",
+     "text": "Alexander Zverev hat seinen Teil der Aufgabe souverän erledigt. Damit fällt die Entscheidung über den Einzug ins Davis-Cup-Halbfinale zwischen Deutschland und Großbritannien im Doppel. Die Protagonisten erwarten ein \"50:50-Spiel\".",
+     "url": "https://www.sportschau.de/tennis/davis-cup/davis-cup-viertelfinale-zverev-ausgleich,davis-cup-viertelfinale-100.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -771,6 +756,27 @@
    ]
   },
   {
+   "land": "Frankreich",
+   "lat": 46.2,
+   "lon": 2.2,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
+     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
+     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
+    {
+     "titel": "Philippe Diallo: Europäische Integrität gegen das System Infantino",
+     "text": "Frankreichs Verbandspräsident und UEFA-Kandidat Philippe Diallo fordert FIFA-Präsident Gianni Infantino heraus. Seine Chancen sind gering, doch Justiz und Politik könnten auf seiner Seite sein.",
+     "url": "https://www.dw.com/de/philippe-diallo-europäische-integrität-gegen-das-system-infantino/a-79978574?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Brasilien",
    "lat": -14.2,
    "lon": -51.9,
@@ -787,6 +793,11 @@
   }
  ],
  "ohne_land": [
+  {
+   "titel": "Menschen in Hongkong gedenken der Opfer von Hochhausbrand",
+   "url": "https://www.tagesschau.de/ausland/asien/hongkong-gedenken-hochhausbrand-100.html",
+   "quelle": "tagesschau"
+  },
   {
    "titel": "Run auf kostenlose Finnland-Reise für Singles",
    "url": "https://www.tagesschau.de/ausland/europa/single-urlaub-finnland-100.html",
@@ -821,19 +832,14 @@
    "titel": "Viele Tote nach Bootsunglück vor Senegal gemeldet",
    "url": "https://www.tagesschau.de/ausland/afrika/viele-tote-bootsunglueck-senegal-100.html",
    "quelle": "tagesschau"
-  },
-  {
-   "titel": "Anführer von Hungersekte in Kenia zu 200 Jahren Haft verurteilt.",
-   "url": "https://www.tagesschau.de/ausland/afrika/kenia-urteil-sektenfuehrer-100.html",
-   "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 55533,
+   "wert": 55359,
    "einheit": "€",
-   "pct": 2.76,
+   "pct": 4.27,
    "verlauf": [
     56459,
     53604,
@@ -842,20 +848,20 @@
     56132,
     54515,
     55034,
-    55505
+    55422
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1551.23,
+   "wert": 1549.01,
    "einheit": "€",
-   "pct": 2.64
+   "pct": 3.79
   },
   {
    "name": "Solana",
-   "wert": 65.03,
+   "wert": 64.74,
    "einheit": "€",
-   "pct": 3.71
+   "pct": 5.91
   },
   {
    "name": "EUR/CHF",
