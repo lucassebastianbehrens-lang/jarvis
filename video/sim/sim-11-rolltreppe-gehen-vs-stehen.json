@@ -1,0 +1,105 @@
+{
+  "id": "sim-11-rolltreppe-gehen-vs-stehen",
+  "titel": [
+    "ROLLTREPPE",
+    "GEHEN"
+  ],
+  "frage": [
+    "ROLLTREPPE –",
+    "GEHEN ODER STEHEN?"
+  ],
+  "a": {
+    "name": "STEHEN",
+    "figur": "geher",
+    "dauer_s": 60.0,
+    "menge": 60.0,
+    "info": "30 m, 0,5 m/s"
+  },
+  "b": {
+    "name": "GEHEN",
+    "figur": "geher",
+    "dauer_s": 18.0,
+    "menge": 18.0,
+    "info": "30 m, 1,7 m/s"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "s",
+    "zaehler": "Zeit",
+    "besser": "weniger"
+  },
+  "skala": [
+    "Start",
+    "Mitte",
+    "Ziel"
+  ],
+  "ergebnis": "etwa {p} % schneller",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Nur 18 Sekunden zum Ziel, wenn du gehst!"
+    },
+    {
+      "phase": "intro",
+      "t": "Die Rolltreppe ist 30 Meter lang und fährt 0,5 Meter pro Sekunde."
+    },
+    {
+      "phase": "race",
+      "t": "Stehend braucht man 60 Sekunden, weil man nur mit der Treppe fährt."
+    },
+    {
+      "phase": "race",
+      "t": "Geht man mit 1,2 m/s dazu, erreicht man 1,7 m/s und braucht nur etwa 18 Sekunden."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Gehen ist rund 70 Prozent schneller."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Stehst du lieber still oder läufst du auf der Rolltreppe?",
+    "Nur 18 Sekunden zum Ziel, wenn du gehst!",
+    "Mythos: Auf der Rolltreppe ist Stehen immer schneller."
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Stehen vs. Gehen auf der Rolltreppe – wer ist schneller? 🚀 Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#rolltreppe",
+    "#gehen",
+    "#stehen",
+    "#wusstestdu"
+  ],
+  "quelle": "Typische Fahrgeschwindigkeit 0,5 m/s (Herstellerangaben); Durchschnittliche Gehgeschwindigkeit 1,2 m/s (Physik‑Lehrbuch, WHO‑Richtwert); Länge 30 m (Planungsrichtlinien DIN 18024); Resultierende Geschwindigkeit 1,7 m/s (Grundlagen der Relativbewegung); Zeit für reine Fahrt 60 s (Berechnung aus obigen Fakten).",
+  "fakten": [
+    {
+      "satz": "Typische Fahrgeschwindigkeit von Rolltreppen in öffentlichen Gebäuden",
+      "wert": "0,5 m/s",
+      "quelle": "Herstellerangaben (z. B. Otis, Schindler)"
+    },
+    {
+      "satz": "Durchschnittliche Gehgeschwindigkeit einer Person auf ebener Fläche",
+      "wert": "1,2 m/s",
+      "quelle": "Physik‑Lehrbuch, WHO‑Richtwert"
+    },
+    {
+      "satz": "Typische Länge einer Rolltreppe in Einkaufszentren",
+      "wert": "30 m",
+      "quelle": "Planungsrichtlinien (DIN 18024)"
+    },
+    {
+      "satz": "Resultierende Geschwindigkeit, wenn man auf der Rolltreppe geht (Addition)",
+      "wert": "1,7 m/s (0,5 + 1,2)",
+      "quelle": "Grundlagen der Relativbewegung"
+    },
+    {
+      "satz": "Zeit für die reine Rolltreppenfahrt ohne Gehen",
+      "wert": "60 s (30 m / 0,5 m/s)",
+      "quelle": "Berechnung aus obigen Fakten"
+    }
+  ]
+}
