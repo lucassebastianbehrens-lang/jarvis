@@ -1,0 +1,128 @@
+{
+ "id": "geld-s1-f03",
+ "series": "Kontostand",
+ "episode": 3,
+ "title": "Das Gerücht 🤫",
+ "caption": "Folge 3: Melli setzt ein gemeines Gerücht in die Welt! Kann Kalle sich wehren? 🥝🍉 Kommentiere für Teil 4!",
+ "hashtags": [
+  "#kontostand",
+  "#kiserie",
+  "#armvsreich",
+  "#drama",
+  "#fyp"
+ ],
+ "end": "KOMMENTIERE FÜR TEIL 4!",
+ "voices": {
+  "Erzähler": "de-DE-FlorianMultilingualNeural",
+  "Kalle": "de-DE-KillianNeural",
+  "Anton": "de-DE-ConradNeural",
+  "Melli": "de-DE-SeraphinaMultilingualNeural",
+  "Frau Birne": "de-DE-KatjaNeural"
+ },
+ "figuren": {
+  "Kalle": "a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, no human face, fruit toy photo",
+  "Anton": "a real whole golden pineapple standing upright like a little character, two calm googly eyes and a small painted smile on the pineapple skin, green crown leaves on top, a thin black band around it with a small blank glowing green panel, a tiny gold watch, tiny stubby stick arms and legs, the pineapple itself is the whole character, no hair, no human face, fruit toy photo",
+  "Melli": "a real whole round green striped watermelon standing upright like a little character, two googly eyes and a smug painted grin on the rind, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the watermelon itself is the whole character, no hair, no human face, fruit toy photo",
+  "Frau Birne": "a real whole yellow-green pear standing upright like a little character, two kind googly eyes behind tiny round glasses and a small painted smile on the pear skin, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the pear itself is the whole character, no hair, no human face, fruit toy photo"
+ },
+ "konten": {
+  "Kalle": 12,
+  "Anton": 4800000,
+  "Melli": 50000,
+  "Frau Birne": 3200
+ },
+ "scenes": [
+  {
+   "p": "a real whole round green striped watermelon standing upright like a little character, two googly eyes and a smug painted grin on the rind, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the watermelon itself is the whole character, no hair, fruit toy photo, screaming angrily and pointing accusingly on a bustling schoolyard next to a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, fruit toy photo",
+   "konto": {
+    "Melli": 50000,
+    "Kalle": 12
+   },
+   "lines": [
+    {
+     "s": "Melli",
+     "t": "Haltet alle eure Taschen fest! Kalle schleicht sich in fremde Villen und klaut!"
+    },
+    {
+     "s": "Kalle",
+     "t": "Das ist eine bodenlose Lüge! Ich habe bei Herrn Anton überhaupt nichts gestohlen!"
+    }
+   ]
+  },
+  {
+   "p": "a real whole round green striped watermelon standing upright like a little character, two googly eyes and a smug painted grin on the rind, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the watermelon itself is the whole character, no hair, fruit toy photo, tapping its own glowing green band repeatedly with a tiny stubby arm on a schoolyard",
+   "konto": {
+    "Melli": 50000
+   },
+   "lines": [
+    {
+     "s": "Melli",
+     "t": "Siehst du die Zahl? Fünfzigtausend Euro! Ich brauche nicht lügen, aber jemand mit lächerlichen zwölf Euro tut alles für Geld!"
+    }
+   ]
+  },
+  {
+   "p": "a real whole yellow-green pear standing upright like a little character, two kind googly eyes behind tiny round glasses and a small painted smile on the pear skin, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the pear itself is the whole character, no hair, fruit toy photo, stepping between them with a stern expression on a schoolyard next to a real whole round green striped watermelon standing upright like a little character, two googly eyes and a smug painted grin on the rind, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the watermelon itself is the whole character, no hair, fruit toy photo",
+   "konto": {
+    "Frau Birne": 3200,
+    "Melli": 50000
+   },
+   "lines": [
+    {
+     "s": "Frau Birne",
+     "t": "Schluss jetzt, Melli! Auf diesem Schulhof wird niemand vorverurteilt, ganz egal, welcher Kontostand über dem Kopf leuchtet!"
+    },
+    {
+     "s": "Melli",
+     "t": "Ich sage doch bloß die Wahrheit, Frau Birne!"
+    }
+   ]
+  },
+  {
+   "p": "a real whole yellow-green pear standing upright like a little character, two kind googly eyes behind tiny round glasses and a small painted smile on the pear skin, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the pear itself is the whole character, no hair, fruit toy photo, handing a bright paper flyer to a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, fruit toy photo, on a schoolyard",
+   "konto": {
+    "Frau Birne": 3200,
+    "Kalle": 12
+   },
+   "lines": [
+    {
+     "s": "Frau Birne",
+     "t": "Hier, Kalle. Unser großer Wettbewerb für die beste Geschäftsidee startet heute. Dem Gewinner winken genau eintausend Euro Startkapital!"
+    },
+    {
+     "s": "Kalle",
+     "t": "Eintausend Euro? Damit könnte ich eine richtige kleine Reparaturwerkstatt eröffnen!"
+    }
+   ]
+  },
+  {
+   "p": "a real whole round green striped watermelon standing upright like a little character, two googly eyes and a smug painted grin on the rind, a thin black band around it with a small blank glowing green panel, tiny stubby stick arms and legs, the watermelon itself is the whole character, no hair, fruit toy photo, glaring mockingly at a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, fruit toy photo, on the schoolyard",
+   "konto": {
+    "Melli": 50000,
+    "Kalle": 12
+   },
+   "lines": [
+    {
+     "s": "Melli",
+     "t": "Träum weiter, Kalle! Niemand vertraut einem armen Dieb sein Fahrrad an. Du wirst kläglich scheitern!"
+    },
+    {
+     "s": "Kalle",
+     "t": "Das werden wir ja sehen. Ich beweise der ganzen Schule, was ehrliche Arbeit wert ist!"
+    }
+   ]
+  },
+  {
+   "p": "a real whole fuzzy brown kiwi fruit standing upright like a little character, two big googly eyes and a small painted mouth on the fuzzy kiwi skin, a thin black band around it with a small blank glowing green panel, tiny stubby brown stick arms and legs, the kiwi itself is the whole character, no hair, fruit toy photo, standing determined next to an old rusty bicycle and a tiny toolbox on the schoolyard, dramatic lighting",
+   "konto": {
+    "Kalle": 12
+   },
+   "lines": [
+    {
+     "s": "Erzähler",
+     "t": "Kalle packt sein Werkzeug ein. Doch kann er gegen Mellis fiese Gerüchte ankommen, bevor sein Traum zerplatzt?"
+    }
+   ]
+  }
+ ]
+}
