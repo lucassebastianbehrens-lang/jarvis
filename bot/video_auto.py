@@ -253,6 +253,7 @@ def serie(ordner, prefix, bibel_datei, name, max_folgen, extra=""):
 
     ep = schreiben()
     for runde in range(1, PRUEFRUNDEN + 2):  # Prüfrunden mit Verbesserung (+1 Reserve nur für Format-Fehler)
+        zeilen_normalisieren(ep)
         probleme = form_fehler(ep)
         if not probleme and runde <= PRUEFRUNDEN:
             probleme = pruefen("Serien-Folge", ep, f"Muss zur Serien-Bibel passen (Folgenplan F{nr:02d}, Figuren, Ton), Sekunde 1 Konflikt, Ende Cliffhanger, "
@@ -280,12 +281,37 @@ def serie(ordner, prefix, bibel_datei, name, max_folgen, extra=""):
     return path
 
 
+ZEILEN_ALIAS = {"t": ("text", "line", "dialog", "satz"), "s": ("speaker", "sprecher", "figur", "name")}
+
+
+def zeilen_normalisieren(ep):
+    """Häufige KI-Abweichungen bei Dialogzeilen reparieren (z. B. "text" statt "t", "speaker" statt "s")."""
+    sc = ep.get("scenes") if isinstance(ep, dict) else None
+    for s in sc if isinstance(sc, list) else []:
+        if not isinstance(s, dict) or not isinstance(s.get("lines"), list):
+            continue
+        for l in s["lines"]:
+            if not isinstance(l, dict):
+                continue
+            for ziel, alias in ZEILEN_ALIAS.items():
+                if ziel not in l:
+                    for a in alias:
+                        if a in l:
+                            l[ziel] = l.pop(a)
+                            break
+    return ep
+
+
 def form_fehler(ep):
     """Harte Format-Regeln einer Serien-Folge vorab prüfen – als Feedback für eine Neufassung statt Abbruch."""
     sc = ep.get("scenes") if isinstance(ep, dict) else None
     if not isinstance(sc, list) or not sc:
         return ["Es fehlen die scenes."]
     fehler = []
+    for s in sc:
+        zeilen = s.get("lines") if isinstance(s, dict) else None
+        if not isinstance(zeilen, list) or not all(isinstance(l, dict) and isinstance(l.get("t"), str) and l.get("s") for l in zeilen):
+            return ["Jede Szene braucht lines als Liste von Objekten mit genau den Schlüsseln s (Sprecher) und t (Text)."]
     if not 4 <= len(sc) <= 8:
         fehler.append(f"{len(sc)} Szenen – es müssen 5–7 sein.")
     try:

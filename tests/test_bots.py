@@ -111,6 +111,11 @@ check("Serie: zu kurzer Dialog → Feedback", any("Wörter" in f for f in video_
 _ok = {"scenes": [{"lines": [{"s": "A", "t": " ".join(["wort"] * 30)}]}] * 5}
 check("Serie: passende Länge ok", video_auto.form_fehler(_ok) == [])
 check("Serie: kaputtes JSON → Feedback", video_auto.form_fehler({}) != [])
+# Fehler 27.11.: KI schrieb "text" statt "t" → KeyError. Jetzt: reparieren bzw. als Feedback melden
+_alias = {"scenes": [{"lines": [{"speaker": "A", "text": " ".join(["wort"] * 30)}]} for _ in range(5)]}
+video_auto.zeilen_normalisieren(_alias)
+check("Serie: text/speaker → t/s repariert", video_auto.form_fehler(_alias) == [] and _alias["scenes"][0]["lines"][0]["t"].startswith("wort"))
+check("Serie: Zeile ohne t → Feedback", any("Schlüsseln" in f for f in video_auto.form_fehler({"scenes": [{"lines": [{"s": "A"}]}] * 5})))
 video_auto.ki = _ki_alt
 # Kontostand-Serie: LED-Beträge werden abgesichert, Grafik entsteht
 ep = {"figuren": {"Kalle": "x", "Anton": "y"}, "scenes": [
