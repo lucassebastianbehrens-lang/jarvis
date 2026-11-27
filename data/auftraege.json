@@ -1,6 +1,31 @@
 {
  "auftraege": [
   {
+   "id": "eigen-20261128",
+   "t": 1795823153,
+   "datum": "28.11.2026",
+   "quelle": "Eigenes Tagesangebot",
+   "plattform": false,
+   "url": "",
+   "titel": "Bewerbung und Lebenslauf überarbeiten lassen",
+   "original": "Bewerbung + Lebenslauf überarbeiten",
+   "auftrag": "Kein passender fremder Auftrag gefunden – eigenes Angebot zum Posten (Kleinanzeigen, Facebook-Gruppen, Instagram, WhatsApp-Status).",
+   "punkte": 0,
+   "warum": "",
+   "preis_eur": 29,
+   "lieferzeit": "Innerhalb von 2 Werktagen nach Erhalt aller Unterlagen",
+   "angebot": "Deine Bewerbung soll überzeugen und trotzdem nach dir klingen? Lucas aus der Region Börde/Harz überarbeitet deinen Lebenslauf und dein Bewerbungsschreiben sprachlich, strukturell und passend zur gewünschten Stelle. KI-gestützt, anschließend sorgfältig geprüft – ohne erfundene Qualifikationen oder Erfolgsgarantie. Lieferung innerhalb von 2 Werktagen. Festpreis: 29 €. Schick deine Unterlagen und die Stellenanzeige einfach per Nachricht.\n\nBezahlen per PayPal: https://paypal.me/LucasBehrenski/29EUR",
+   "ergebnis": "Vorher: „Ich bin motiviert und suche eine neue Herausforderung.“\nÜberarbeitet: „Als zuverlässiger Mitarbeiter mit Erfahrung in [Bereich] möchte ich meine Fähigkeiten bei Ihnen gezielt einbringen.“",
+   "schritte": [
+    "Unterlagen und Stellenanzeige senden",
+    "Überarbeitung von Lebenslauf und Bewerbungsschreiben",
+    "Geprüfte Fassung digital zurückerhalten"
+   ],
+   "paypal": "https://paypal.me/LucasBehrenski/29EUR",
+   "zahlung": "Direkt per PayPal-Link.",
+   "status": "neu"
+  },
+  {
    "id": "fl-40837304",
    "t": 1795737775,
    "datum": "27.11.2026",
@@ -404,11 +429,11 @@
    "status": "neu"
   }
  ],
- "stand": "27.11.2026 16:10",
+ "stand": "28.11.2026 00:45",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
-  "gefunden": 214,
+  "gefunden": 220,
   "gefiltert": 12,
-  "neu": 0
+  "neu": 1
  }
 }
