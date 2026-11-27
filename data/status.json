@@ -1,36 +1,36 @@
 {
- "updated": 1795736761,
+ "updated": 1795767197,
  "ok": false,
  "checks": [
   {
    "name": "Automaton Ava",
-   "ok": true,
-   "info": "ok · vor 29 Min"
+   "ok": false,
+   "info": "letzter Lauf vor 9 h (erwartet alle 5 h) → selbst gestartet"
   },
   {
    "name": "Trader Toni",
    "ok": false,
-   "info": "letzter Lauf vor 3 h (erwartet alle 2 h) → selbst gestartet"
+   "info": "letzter Lauf vor 5 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Meme-Makler Max",
    "ok": false,
-   "info": "letzter Lauf vor 5 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 6 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Forscherin Frieda",
    "ok": true,
-   "info": "ok · vor 14 h"
+   "info": "ok · vor 23 h"
   },
   {
    "name": "Agentin Ada",
-   "ok": true,
-   "info": "ok · vor 44 Min"
+   "ok": false,
+   "info": "letzter Lauf vor 9 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Butler Bruno",
    "ok": true,
-   "info": "ok · vor 9 h"
+   "info": "ok · vor 17 h"
   },
   {
    "name": "Scout Sam",
@@ -40,7 +40,7 @@
   {
    "name": "Postbote Paul",
    "ok": false,
-   "info": "letzter Lauf vor 4 h (erwartet alle 2 h) → selbst gestartet"
+   "info": "letzter Lauf vor 5 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Regisseurin Rita",
@@ -50,27 +50,27 @@
   {
    "name": "YouTuber Yannik",
    "ok": true,
-   "info": "ok · vor 12 h"
+   "info": "ok · vor 20 h"
   },
   {
    "name": "Baumeister Bob",
    "ok": true,
-   "info": "ok · vor 1 h"
+   "info": "ok · vor 10 h"
   },
   {
    "name": "Funker Fritz",
    "ok": true,
-   "info": "ok · vor 12 h"
+   "info": "ok · vor 20 h"
   },
   {
    "name": "Prüferin Paula",
    "ok": true,
-   "info": "ok · vor 1 h"
+   "info": "ok · vor 10 h"
   },
   {
    "name": "Spielgeld-Daten",
    "ok": false,
-   "info": "zuletzt vor 196 Min aktualisiert"
+   "info": "zuletzt vor 300 Min aktualisiert"
   },
   {
    "name": "Jarvis-App online",
@@ -80,12 +80,14 @@
   {
    "name": "KI-Motor (Groq)",
    "ok": true,
-   "info": "antwortet in 0.4 s"
+   "info": "antwortet in 0.5 s"
   }
  ],
  "repariert": [
+  "Automaton Ava",
   "Trader Toni",
   "Meme-Makler Max",
+  "Agentin Ada",
   "Postbote Paul"
  ],
  "verlauf": [
@@ -132,6 +134,11 @@
   {
    "t": 1795736761,
    "ok": 12,
+   "n": 16
+  },
+  {
+   "t": 1795767197,
+   "ok": 10,
    "n": 16
   }
  ]
