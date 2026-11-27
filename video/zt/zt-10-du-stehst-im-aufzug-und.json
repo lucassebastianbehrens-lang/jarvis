@@ -1,0 +1,66 @@
+{
+ "id": "zt-10-du-stehst-im-aufzug-und",
+ "series": "Stell dir vor",
+ "episode": 10,
+ "title": "Früher ankommen",
+ "caption": "Stell dir vor, du steigst in den Aufzug und das Display sagt, du bist fünf Minuten früher da. Was würdest du mit dieser Extra‑Zeit machen? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#alltag",
+  "#aufzug",
+  "#fyp"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Du stehst im Aufzug und plötzlich zeigt das Display an, dass du 5 Minuten früher angekommen bist als geplant.",
+ "scenes": [
+  {
+   "bg": "strasse",
+   "pose": "schock",
+   "prop": "keins",
+   "zahl": 5,
+   "zahl_label": "Minuten",
+   "text": "Stell dir vor, das Aufzugsdisplay zeigt plötzlich fünf Minuten früher an.",
+   "pause": 0.0
+  },
+  {
+   "bg": "strasse",
+   "pose": "denken",
+   "prop": "handy",
+   "text": "Du fragst dich, wie das möglich ist. Hast du etwa die Zeit zurückgedreht?",
+   "pause": 0.0
+  },
+  {
+   "bg": "strasse",
+   "pose": "staunen",
+   "prop": "keins",
+   "zahl": 9,
+   "zahl_label": "Minuten",
+   "text": "Im nächsten Stock blinkt das Display und zählt weiter – jetzt neun Minuten früher.",
+   "pause": 0.0
+  },
+  {
+   "bg": "strasse",
+   "pose": "freude",
+   "prop": "keins",
+   "text": "Du läufst schneller, weil du denkst, du hast mehr Zeit.",
+   "pause": 0.0
+  },
+  {
+   "bg": "strasse",
+   "pose": "schock",
+   "prop": "keins",
+   "zahl": 12,
+   "zahl_label": "Minuten",
+   "pause": 1.0,
+   "text": "Plötzlich springt die Zahl auf zwölf Minuten – das ist mehr, als du je geplant hast."
+  },
+  {
+   "bg": "strasse",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Und jetzt ehrlich: Hast du schon mal das Gefühl gehabt, die Zeit zu gewinnen? Was würdest du jetzt tun?",
+   "pause": 0.0
+  }
+ ]
+}
