@@ -1,45 +1,39 @@
 {
- "t": 1795705295,
- "datum": "Donnerstag, 26.11.2026",
- "fazit": "12 Bots erledigten 40 Aufträge (2 mit Fehler), der Krypto‑Bot liegt bei 1.000 €, der Memecoin‑Bot hat 14 Trades und verlor 53,82 €, ein neuer Auftrag („10 Social‑Media‑Posts“) und das Tool „shrink‑anything“ wurden gefunden. Wichtig: Heute den neuen Social‑Media‑Post‑Auftrag sofort annehmen.",
+ "t": 1795791386,
+ "datum": "Freitag, 27.11.2026",
+ "fazit": "Letzte Nacht erledigten 12 Bots 42 Aufträge (2 fehlerhaft), Krypto‑Bot liegt bei 1.000 €, Memecoin‑Bot bei 842,82 € (‑11,09 €), 2 neue Aufträge und 3 Tools wurden entdeckt, 6 Wächter‑Probleme gemeldet und Ava, Toni, Max, Ada sowie Paul wurden selbst repariert. Wichtig heute: den neuen Auftrag „Myntra Jewelry Catalog Listing Specialist“ sofort angehen.",
  "zeilen": [
-  "🤖 12 Bots haben 40 Aufträge erledigt, 2 mit Fehler.",
+  "🤖 12 Bots haben 42 Aufträge erledigt, 2 mit Fehler.",
   "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
-  "📈 Memecoin-Bot: 853,91 € (-53,82 € in 24 h), 14 Trades – Spielgeld",
-  "🔭 1 neue Aufträge gefunden, z. B. „10 Social-Media-Posts für Ihr lokales Unternehmen“.",
-  "📚 1 neue Tools/Trends entdeckt – Top: shrink‑anything.",
-  "🛡️ Wächter: 4 Problem(e) – Trader Toni: letzter Lauf vor 2 h (erwartet alle 2 h) → selbst gestartet",
-  "🔧 Selbst repariert: Trader Toni, Meme-Makler Max, Postbote Paul."
+  "📈 Memecoin-Bot: 842,82 € (-11,09 € in 24 h), 3 Trades – Spielgeld",
+  "🔭 2 neue Aufträge gefunden, z. B. „Myntra Jewelry Catalog Listing Specialist“.",
+  "📚 3 neue Tools/Trends entdeckt – Top: fewchat.",
+  "🛡️ Wächter: 6 Problem(e) – Automaton Ava: letzter Lauf vor 9 h (erwartet alle 5 h) → selbst gestartet",
+  "🔧 Selbst repariert: Automaton Ava, Trader Toni, Meme-Makler Max, Agentin Ada, Postbote Paul."
  ],
  "bots": [
   {
    "name": "Regisseurin Rita",
    "icon": "🎬",
-   "ok": 4,
+   "ok": 5,
    "fehler": 2
   },
   {
    "name": "Trader Toni",
    "icon": "📈",
-   "ok": 5,
+   "ok": 6,
    "fehler": 0
   },
   {
    "name": "Postbote Paul",
    "icon": "📮",
-   "ok": 5,
+   "ok": 6,
    "fehler": 0
   },
   {
    "name": "Meme-Makler Max",
    "icon": "🎰",
-   "ok": 5,
-   "fehler": 0
-  },
-  {
-   "name": "Funker Fritz",
-   "icon": "📡",
-   "ok": 4,
+   "ok": 6,
    "fehler": 0
   },
   {
@@ -55,20 +49,26 @@
    "fehler": 0
   },
   {
-   "name": "YouTuber Yannik",
-   "icon": "📺",
-   "ok": 3,
-   "fehler": 0
-  },
-  {
    "name": "Wächter Willi",
    "icon": "🛡️",
-   "ok": 2,
+   "ok": 3,
    "fehler": 0
   },
   {
    "name": "Scout Sam",
    "icon": "🔭",
+   "ok": 2,
+   "fehler": 0
+  },
+  {
+   "name": "Baumeister Bob",
+   "icon": "🏗️",
+   "ok": 2,
+   "fehler": 0
+  },
+  {
+   "name": "Prüferin Paula",
+   "icon": "✅",
    "ok": 2,
    "fehler": 0
   },
@@ -94,21 +94,45 @@
    "pnl": 0
   },
   "Memecoin-Bot": {
-   "wert": 853.91,
-   "diff": -53.82,
-   "trades": 14,
-   "gewinner": 7,
-   "pnl": -40.54
+   "wert": 842.82,
+   "diff": -11.09,
+   "trades": 3,
+   "gewinner": 1,
+   "pnl": -11.09
   }
  },
  "neu": [
   {
-   "titel": "shrink‑anything",
-   "nutzen": "Verringert Jarvis‑Deploy‑Größe und Sicherheits‑Risiken, spart Speicher",
-   "url": "https://github.com/EL4CTEO/shrink-anything"
+   "titel": "fewchat",
+   "nutzen": "Optimiert Lucas’ TikTok‑Video‑Promotion und Etsy‑Marketing durch automatisierte DMs und Story‑Interaktion",
+   "url": "https://github.com/jasonc00person/fewchat"
+  },
+  {
+   "titel": "central",
+   "nutzen": "Steigert Effizienz aller Online‑Geschäfte, bietet Sprachsteuerung und Analyse",
+   "url": "https://github.com/matheusmongarde/central"
+  },
+  {
+   "titel": "swarmy",
+   "nutzen": "Ermöglicht Lucas die Performance‑Verfolgung und Kostenkontrolle der in Jarvis eingesetzten Agenten",
+   "url": "https://github.com/koorchik/swarmy"
   }
  ],
  "verlauf": [
+  {
+   "t": 1795705295,
+   "datum": "Donnerstag, 26.11.2026",
+   "fazit": "12 Bots erledigten 40 Aufträge (2 mit Fehler), der Krypto‑Bot liegt bei 1.000 €, der Memecoin‑Bot hat 14 Trades und verlor 53,82 €, ein neuer Auftrag („10 Social‑Media‑Posts“) und das Tool „shrink‑anything“ wurden gefunden. Wichtig: Heute den neuen Social‑Media‑Post‑Auftrag sofort annehmen.",
+   "zeilen": [
+    "🤖 12 Bots haben 40 Aufträge erledigt, 2 mit Fehler.",
+    "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
+    "📈 Memecoin-Bot: 853,91 € (-53,82 € in 24 h), 14 Trades – Spielgeld",
+    "🔭 1 neue Aufträge gefunden, z. B. „10 Social-Media-Posts für Ihr lokales Unternehmen“.",
+    "📚 1 neue Tools/Trends entdeckt – Top: shrink‑anything.",
+    "🛡️ Wächter: 4 Problem(e) – Trader Toni: letzter Lauf vor 2 h (erwartet alle 2 h) → selbst gestartet",
+    "🔧 Selbst repariert: Trader Toni, Meme-Makler Max, Postbote Paul."
+   ]
+  },
   {
    "t": 1795620530,
    "datum": "Mittwoch, 25.11.2026",
