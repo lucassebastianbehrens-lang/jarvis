@@ -1,6 +1,6 @@
 {
- "updated": 1795734130,
- "lagebild": "Die USA haben neue Zölle angekündigt, die auch die EU treffen. Durch diese Zölle steigen die Preise für importierte Waren in Deutschland, was Lucas direkt belastet. Das Tankerunglück vor Ibiza gefährdet die Dieselversorgung und treibt damit die Spritpreise sowie die Börsenkurse nach oben.",
+ "updated": 1795767214,
+ "lagebild": "Die USA haben neue Zölle angekündigt – auch gegen die EU und China – und damit die globale Handelssituation dramatisch verschärft.  \n\nDas Schiffsunglück vor Ibiza, bei dem ein Tanker mit 7 000 t Diesel gekentert ist, könnte die Spritpreise in Deutschland kurzfristig in die Höhe treiben und betrifft Lucas direkt.  \n\nDer Kampf um den EU‑Haushalt von bis zu zwei Billionen Euro sowie fortgesetzte Staatshilfen für Industrie können die deutschen Börsenkurse bewegen, was für Lucas von Bedeutung ist.",
  "orte": [
   {
    "land": "Russland",
@@ -9,12 +9,6 @@
    "anzahl": 26,
    "heiss": 19,
    "meldungen": [
-    {
-     "titel": "Russland: Sieben von zehn ermordeten Frauen Opfer häuslicher Gewalt",
-     "text": "Der Krieg gegen die Ukraine hinterlässt auch in der Statistik zu häuslicher Gewalt in Russland Spuren. Eine Studie zeigt: Viele Täter sind Kriegsteilnehmer. Und Verfahren können ausgesetzt werden, wenn Beschuldigte in den Krieg ziehen. Von ",
-     "url": "https://www.tagesschau.de/ausland/asien/mehr-frauen-in-russland-sterben-durch-gewalt-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
      "text": "Russische Sportlerinnen und Sportler sollen bei europäischen Wettkämpfen nicht mehr für ihr Land antreten dürfen - das hat die EU-Kommission vorgeschlagen. Weitere Sanktionen soll es in der Wirtschaft und im Energiesektor geben.",
@@ -44,6 +38,12 @@
      "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
      "quelle": "tagesschau"
+    },
+    {
+     "titel": "Krieg gegen die Ukraine: Tote nach Angriff auf Mehrfamilienhaus",
+     "text": "Das russische Militär geht weiter unvermindert gegen die Zivilbevölkerung in der Ukraine vor. Mindestens zehn Menschen wurden getötet, als in der Nacht zu Sonntag ein Wohnhaus in der Region Kiew angegriffen wurde.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-wohnhaeuser-104.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -54,12 +54,6 @@
    "anzahl": 21,
    "heiss": 15,
    "meldungen": [
-    {
-     "titel": "Russland: Sieben von zehn ermordeten Frauen Opfer häuslicher Gewalt",
-     "text": "Der Krieg gegen die Ukraine hinterlässt auch in der Statistik zu häuslicher Gewalt in Russland Spuren. Eine Studie zeigt: Viele Täter sind Kriegsteilnehmer. Und Verfahren können ausgesetzt werden, wenn Beschuldigte in den Krieg ziehen. Von ",
-     "url": "https://www.tagesschau.de/ausland/asien/mehr-frauen-in-russland-sterben-durch-gewalt-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
      "text": "Um mehr als 200 Milliarden Euro ist der EU-Haushaltsentwurf bereits gekürzt worden. Dem Kanzler reicht das aber noch nicht. Außerdem verknüpft Merz die schwierigen Verhandlungen weiterhin mit der Unterstützung für die Ukraine.",
@@ -89,6 +83,12 @@
      "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
      "quelle": "tagesschau"
+    },
+    {
+     "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
+     "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -96,13 +96,13 @@
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 24,
+   "anzahl": 26,
    "heiss": 7,
    "meldungen": [
     {
-     "titel": "Warum die Bundeswehr im Senegal trainiert",
-     "text": "Es ist die bislang größte Bundeswehr-Übung in Afrika: Im Senegal trainieren rund 1.000 Soldaten mit den dortigen Streitkräften die Evakuierung aus einem fiktiven Krisenstaat. Warum dort? Von Kai Küstner.",
-     "url": "https://www.tagesschau.de/ausland/afrika/senegal-uebung-bundeswehr-100.html",
+     "titel": "Merz verkündet vorzeitiges Ende des EU-Sondergipfels",
+     "text": "Die Vorstellungen unter den 27 Staats- und Regierungschefs lagen weit auseinander. So weit, dass sie laut Merz den zweiten angesetzten Tag des Gipfels ausfallen lassen. Es geht um viele Milliarden für den EU-Haushalt.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-vorzeitig-beendet-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -118,21 +118,21 @@
      "quelle": "tagesschau"
     },
     {
+     "titel": "Warum die Bundeswehr im Senegal trainiert",
+     "text": "Es ist die bislang größte Bundeswehr-Übung in Afrika: Im Senegal trainieren rund 1.000 Soldaten mit den dortigen Streitkräften die Evakuierung aus einem fiktiven Krisenstaat. Warum dort? Von Kai Küstner.",
+     "url": "https://www.tagesschau.de/ausland/afrika/senegal-uebung-bundeswehr-100.html",
+     "quelle": "tagesschau"
+    },
+    {
      "titel": "Mögliche Abkommen: Eignet sich Ruanda für Abschiebezentren?",
      "text": "Wohin mit abgelehnten Asylbewerbern, die nicht in ihre Herkunftsländer abgeschoben werden können? Nach Plänen Deutschlands und anderer EU-Länder könnten sie bald nach Ruanda gebracht werden. Menschenrechtler warnen. Von Karin Bensch.",
      "url": "https://www.tagesschau.de/ausland/afrika/ruanda-abschiebezentrum-100.html",
      "quelle": "tagesschau"
     },
     {
-     "titel": "Deutsche Firmen forschen an Technik für Waffendepots im Weltraum",
-     "text": "Angesichts der globalen Bedrohungslage gewinnt der Weltraum beim Thema Verteidigung an Bedeutung. Eine neue Technologie aus Deutschland soll den schnellen Transport von Waffen aus dem Orbit auf die Erde ermöglichen. Von U. Gradwohl und L.Wa",
-     "url": "https://www.tagesschau.de/wissen/waffendepots-orbit-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Davis Cup: Deutschland scheidet im Viertelfinale aus",
-     "text": "Das deutsche Team träumte vom ersten Davis-Cup-Titel seit 33 Jahren. In der Theorie standen die Chancen so gut wie lange nicht. In der Praxis ist die Auswahl um Alexander Zverev bereits im Viertelfinale an Großbritannien gescheitert.",
-     "url": "https://www.sportschau.de/tennis/davis-cup/davis-cup-deutschland-scheidet-aus,davis-cup-viertelfinale-100.html",
+     "titel": "Bundesregierung will KI-Anbieter zur Kasse bitten",
+     "text": "KI-Anbieter sollen nach dem Willen der Bundesregierung künftig für die Erzeugung von Inhalten zahlen. Und zwar dann, wenn ihre Modelle Inhalte produzieren, die mit von Menschen geschaffenen Werken konkurrieren.",
+     "url": "https://www.tagesschau.de/wirtschaft/technologie/ki-urheberrecht-verguetung-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -141,9 +141,15 @@
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 22,
-   "heiss": 7,
+   "anzahl": 21,
+   "heiss": 6,
    "meldungen": [
+    {
+     "titel": "USA: Schwerer Sturm sorgt an Thanksgiving für massive Einschränkungen",
+     "text": "Gestrichene Flüge, Stromausfälle und Überschwemmungen: Ausgerechnet an Thanksgiving haben Starkregen und heftige Winde in vielen Teilen der USA für Chaos gesorgt. In einigen Bundesstaaten gilt der Notstand.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-stuerme-thanksgiving-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "Europas größte Satellitenfabrik eröffnet",
      "text": "Die EU will bis 2030 ein eigenes sicheres Kommunikationsnetz im Weltraum aufbauen. Ziel ist es, unabhängiger von Anbietern wie dem US-Dienst Starlink zu werden. Helfen soll dabei Europas größte Satellitenfabrik - sie wurde nun eröffnet.",
@@ -173,12 +179,6 @@
      "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
      "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "WHO: Lebenserwartung in Kuba erstmals seit Beginn der Aufzeichnungen gesunken",
-     "text": "Die Lebenserwartung in Kuba ist laut der WHO erstmals in der Geschichte gesunken, die Säuglingssterblichkeit hat sich mehr als verdoppelt. WHO-Chef Tedros macht dafür auch US-Sanktionen verantwortlich - und fordert deren sofortiges Ende.",
-     "url": "https://www.tagesschau.de/ausland/amerika/kuba-lebenserwartungen-who-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -186,15 +186,9 @@
    "land": "Iran",
    "lat": 32.4,
    "lon": 53.7,
-   "anzahl": 16,
-   "heiss": 7,
+   "anzahl": 15,
+   "heiss": 6,
    "meldungen": [
-    {
-     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
-     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
-     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "74 Peitschenhiebe für iranische Sängerin lösen Empörung aus",
      "text": "Ein Onlinekonzert ohne Kopftuch - dafür erhielt die iranische Sängerin Parastu Ahmadi 74 Peitschenhiebe. Das löste international große Empörung aus. Die Strafe sei \"grausam und unmenschlich\" und eine Form der Folter.",
@@ -205,6 +199,12 @@
      "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
      "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
      "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
+     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
+     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -232,8 +232,14 @@
    "lat": 50.8,
    "lon": 4.4,
    "anzahl": 17,
-   "heiss": 3,
+   "heiss": 4,
    "meldungen": [
+    {
+     "titel": "Merz verkündet vorzeitiges Ende des EU-Sondergipfels",
+     "text": "Die Vorstellungen unter den 27 Staats- und Regierungschefs lagen weit auseinander. So weit, dass sie laut Merz den zweiten angesetzten Tag des Gipfels ausfallen lassen. Es geht um viele Milliarden für den EU-Haushalt.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-vorzeitig-beendet-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
      "text": "Um mehr als 200 Milliarden Euro ist der EU-Haushaltsentwurf bereits gekürzt worden. Dem Kanzler reicht das aber noch nicht. Außerdem verknüpft Merz die schwierigen Verhandlungen weiterhin mit der Unterstützung für die Ukraine.",
@@ -263,12 +269,6 @@
      "text": "Ob Antibiotika oder Fiebersäfte für Kinder: Immer wieder fehlen in Europa Medikamente - Grund ist auch die große Abhängigkeit von Asien. Das will die EU ändern. Das Parlament stimmte neuen Arzneimitteln-Regeln zu.",
      "url": "https://www.tagesschau.de/ausland/europa/eu-parlament-arzneimittel-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Menschenrechtsgerichtshof: Pushbacks in Ausnahmefällen zulässig",
-     "text": "Setzt ein Drittstaat Migration gezielt als Druckmittel ein, darf der betroffene EU-Staat Migranten an der Grenze zurückweisen. Das hat jetzt der EGMR geurteilt. Rechte besonders schutzbedürftiger Menschen müssen aber gewahrt bleiben. Von A.",
-     "url": "https://www.tagesschau.de/ausland/europa/egmr-pushbacks-belarus-100.html",
-     "quelle": "tagesschau"
     }
    ]
   },
@@ -277,7 +277,7 @@
    "lat": 31.0,
    "lon": 34.9,
    "anzahl": 9,
-   "heiss": 5,
+   "heiss": 4,
    "meldungen": [
     {
      "titel": "Israel: Staatsanwältin im Netanjahu-Prozess vor Dilemma",
@@ -314,45 +314,6 @@
      "text": "Das israelische Parlament hat Matan Kahana zu seinem neuen Präsidenten und Sprecher gewählt - damit hat der Anti-Netanjahu-Block einen wichtigen Schritt gemacht. Von Bettina Meier.",
      "url": "https://www.tagesschau.de/ausland/asien/israel-knesset-praesident-100.html",
      "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Gaza",
-   "lat": 31.4,
-   "lon": 34.4,
-   "anzahl": 5,
-   "heiss": 3,
-   "meldungen": [
-    {
-     "titel": "Kriegsfolgen im Gazastreifen: Verschmutztes Wasser, Asbest in den Trümmern",
-     "text": "Auf den Straßen sammelt sich der Müll, in den zerstörten Gebäuden steckt Asbest: Im Gazastreifen leidet die Bevölkerung. Die Folgen des Krieges könnten noch Jahrzehnte spürbar sein, so die Hilfsorganisation Oxfam. Von Julio Segador.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-gazastreifen-162.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Israels Armee startet Einsatz in von Hamas kontrolliertem Gebiet",
-     "text": "Die israelische Armee hat eigenen Angaben zufolge eine Bodenoffensive mit Panzern im Zentrum des Gazastreifens begonnen. Das Land kontrolliert inzwischen rund 60 bis 70 Prozent des Gazastreifens militärisch.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-gaza-bodenoffensive-104.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Israelischer Angriff im Gazastreifen: Ranghoher Hamas-Kommandeur tot",
-     "text": "Die israelische Armee hat im Gazastreifen einen ranghohen Kommandeur der Hamas getötet. Samir Abu Junis soll einer der wichtigsten Köpfe bei der Planung der Attacke auf Israel am 7. Oktober 2023 gewesen sein. Die Hamas bestätigte seinen Tod",
-     "url": "https://www.tagesschau.de/ausland/asien/hamas-kommandeur-gazastreifen-getoetet-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Gaza: Humanitäre Lage verschärft sich, politische Lösung bleibt aus",
-     "text": "Heftige Regenfälle haben in Gaza Tausende Zelte überflutet, mehrere Menschen starben. Kann Trumps Friedensgremium mit Druck auf Israel und die Hamas die humanitäre Not lindern?",
-     "url": "https://www.dw.com/de/gaza-humanitäre-lage-verschärft-sich-politische-lösung-bleibt-aus/a-79946973?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "Karateka Mariam Bsharat, 17, gewinnt zweimal U21-WM-Gold für Palästina - trotz Reisebeschränkungen, finanzieller Not und Olympia-Ausschluss",
-     "text": "Mariam Bsharat ist 17 Jahre alt, wuchs im besetzten Westjordanland auf - und lebt wegen des Nahost-Konflikts heute in Hamburg. In Polen holt sie ihr zweites WM-Gold für Palästina. Olympia ist ihr großer Traum.",
-     "url": "https://www.dw.com/de/karateka-mariam-bsharat-17-gewinnt-zweimal-u21-wm-gold-für-palästina-trotz-reisebeschränkungen-finanzieller-not-und-olympia-ausschluss/a-79874096?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
     }
    ]
   },
@@ -402,6 +363,45 @@
    ]
   },
   {
+   "land": "Spanien",
+   "lat": 40.4,
+   "lon": -3.7,
+   "anzahl": 5,
+   "heiss": 2,
+   "meldungen": [
+    {
+     "titel": "Parlamentswahl: Wie Spaniens Volkspartei die Ära Sánchez abwickeln will",
+     "text": "Spaniens konservative Volkspartei PP hat gute Aussichten, bei der Parlamentswahl am Wochenende stärkste Kraft zu werden. Sie verspricht dem Land tiefgreifende Änderungen. Wo will sie umsteuern? Von F. Welz.",
+     "url": "https://www.tagesschau.de/ausland/europa/spanien-wahl-volkspartei-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Schiffsunglück vor Ibiza: Tanker mit 7.000 Tonnen Diesel gekentert",
+     "text": "Wegen möglicher Umweltgefahren aktivierten die spanischen Behörden einen Notfallplan: Vor der Küste Ibizas ist ein Tanker mit 7.000 Tonnen Diesel gekentert. Bei dem Unglück kam ein Seemann ums Leben.",
+     "url": "https://www.tagesschau.de/ausland/europa/tanker-ibiza-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
+     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "11KM-Podcast: Kommt es bei der Wahl in Spanien zum Rechtsruck?",
+     "text": "Umfragen sehen bei der Parlamentswahl in Spanien ein Bündnis aus Konservativen und Rechtspopulisten vorn. Der Podcast 11KM fragt: Was bedeutet die Wahl für Ministerpräsident Sánchez? Und steht Spanien vor einem Rechtsruck?",
+     "url": "https://www.tagesschau.de/multimedia/podcast/11km/podcast-11km-wahl-spanien-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Tanker vor Ibiza gekentert: Ein Besatzungsmitglied tot",
+     "text": "Mit 8,2 Millionen Litern Dieseltreibstoff in den Tanks geriet die \"Med Emre\" vor der spanischen Insel Ibiza in Seenot. Dann kenterte das Schiff. Wird es sinken?",
+     "url": "https://www.dw.com/de/tanker-vor-ibiza-gekentert-ein-besatzungsmitglied-tot/a-80062333?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Australien",
    "lat": -25.3,
    "lon": 133.8,
@@ -441,6 +441,39 @@
    ]
   },
   {
+   "land": "Gaza",
+   "lat": 31.4,
+   "lon": 34.4,
+   "anzahl": 4,
+   "heiss": 2,
+   "meldungen": [
+    {
+     "titel": "Kriegsfolgen im Gazastreifen: Verschmutztes Wasser, Asbest in den Trümmern",
+     "text": "Auf den Straßen sammelt sich der Müll, in den zerstörten Gebäuden steckt Asbest: Im Gazastreifen leidet die Bevölkerung. Die Folgen des Krieges könnten noch Jahrzehnte spürbar sein, so die Hilfsorganisation Oxfam. Von Julio Segador.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-gazastreifen-162.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israels Armee startet Einsatz in von Hamas kontrolliertem Gebiet",
+     "text": "Die israelische Armee hat eigenen Angaben zufolge eine Bodenoffensive mit Panzern im Zentrum des Gazastreifens begonnen. Das Land kontrolliert inzwischen rund 60 bis 70 Prozent des Gazastreifens militärisch.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-gaza-bodenoffensive-104.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Gaza: Humanitäre Lage verschärft sich, politische Lösung bleibt aus",
+     "text": "Heftige Regenfälle haben in Gaza Tausende Zelte überflutet, mehrere Menschen starben. Kann Trumps Friedensgremium mit Druck auf Israel und die Hamas die humanitäre Not lindern?",
+     "url": "https://www.dw.com/de/gaza-humanitäre-lage-verschärft-sich-politische-lösung-bleibt-aus/a-79946973?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
+    {
+     "titel": "Karateka Mariam Bsharat, 17, gewinnt zweimal U21-WM-Gold für Palästina - trotz Reisebeschränkungen, finanzieller Not und Olympia-Ausschluss",
+     "text": "Mariam Bsharat ist 17 Jahre alt, wuchs im besetzten Westjordanland auf - und lebt wegen des Nahost-Konflikts heute in Hamburg. In Polen holt sie ihr zweites WM-Gold für Palästina. Olympia ist ihr großer Traum.",
+     "url": "https://www.dw.com/de/karateka-mariam-bsharat-17-gewinnt-zweimal-u21-wm-gold-für-palästina-trotz-reisebeschränkungen-finanzieller-not-und-olympia-ausschluss/a-79874096?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Südafrika",
    "lat": -30.6,
    "lon": 22.9,
@@ -457,27 +490,6 @@
      "titel": "Historische Niederlage: ANC stürzt bei Kommunalwahl in Südafrika ab",
      "text": "Bei den Kommunalwahlen in Südafrika hat der Afrikanische Nationalkongress (ANC) eine herbe Niederlage eingefahren. Viele sind angesichts Kriminalität und Korruption enttäuscht von der Partei, die das Land aus der Apartheid geführt hatte.",
      "url": "https://www.tagesschau.de/ausland/afrika/wahlen-suedafrika-102.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Italien",
-   "lat": 42.8,
-   "lon": 12.6,
-   "anzahl": 2,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
-     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
-     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "UniCredit beantragt Hauptversammlung bei Commerzbank",
-     "text": "Die UniCredit will den Einstieg bei der Commerzbank umsetzen und dafür die Macht im Aufsichtsrat übernehmen. Darum hat die italienische Bank eine Hauptversammlung beantragt, um eigene Vertreter zu entsenden.",
-     "url": "https://www.tagesschau.de/wirtschaft/unternehmen/unicredit-commerzbank-hauptversammlung-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -511,37 +523,16 @@
    "heiss": 1,
    "meldungen": [
     {
-     "titel": "Davis Cup: Deutschland scheidet im Viertelfinale aus",
-     "text": "Das deutsche Team träumte vom ersten Davis-Cup-Titel seit 33 Jahren. In der Theorie standen die Chancen so gut wie lange nicht. In der Praxis ist die Auswahl um Alexander Zverev bereits im Viertelfinale an Großbritannien gescheitert.",
-     "url": "https://www.sportschau.de/tennis/davis-cup/davis-cup-deutschland-scheidet-aus,davis-cup-viertelfinale-100.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "Schlauchboote im Ärmelkanal: Deutscher Firmenchef soll Schleuser beliefert haben",
      "text": "Schleuser bringen jährlich Zehntausende Migranten über den Ärmelkanal nach Großbritannien. Bei fast einem Drittel der Überfahrten sollen laut Recherchen von WDR, NDR und SZ zuletzt Boote oder Motoren einer deutschen Firma genutzt worden sei",
      "url": "https://www.tagesschau.de/investigativ/ndr-wdr/schleuser-aermelkanal-deutschland-100.html",
      "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Saudi-Arabien",
-   "lat": 23.9,
-   "lon": 45.1,
-   "anzahl": 2,
-   "heiss": 1,
-   "meldungen": [
-    {
-     "titel": "11KM-Podcast: Saudi-Arabiens Kronprinz und seine Vision 2030",
-     "text": "Das Projekt \"Saudi Vision 2030\" soll Saudi-Arabiens Wirtschaft und sein Image modernisieren. 11KM fragt: Klappt das oder versanden die Milliarden-Investitionen in der Wüste?",
-     "url": "https://www.tagesschau.de/multimedia/podcast/11km/podcast-11km-saudi-arabien-vision-2030-100.html",
-     "quelle": "tagesschau"
     },
     {
-     "titel": "Saudi-Arabien verschärft Vorgehen gegen Regimekritiker",
-     "text": "Die Menschenrechtslage in Saudi-Arabien bleibt düster. Allein 2026 fanden bisher 211 Hinrichtungen statt. Nutzt Saudi-Arabien den Iran-Krieg, um politischen Dissens zu unterdrücken?",
-     "url": "https://www.dw.com/de/saudi-arabien-verschärft-vorgehen-gegen-regimekritiker/a-80006017?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
+     "titel": "Davis Cup: Deutschland scheidet im Viertelfinale aus",
+     "text": "Das deutsche Team träumte vom ersten Davis-Cup-Titel seit 33 Jahren. In der Theorie standen die Chancen so gut wie lange nicht. In der Praxis ist die Auswahl um Alexander Zverev bereits im Viertelfinale an Großbritannien gescheitert.",
+     "url": "https://www.sportschau.de/tennis/davis-cup/trotz-zverev-deutscher-titeltraum-platzt-im-viertelfinale,davis-cup-viertelfinale-100.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -600,29 +591,17 @@
    ]
   },
   {
-   "land": "Spanien",
-   "lat": 40.4,
-   "lon": -3.7,
-   "anzahl": 3,
-   "heiss": 0,
+   "land": "Italien",
+   "lat": 42.8,
+   "lon": 12.6,
+   "anzahl": 1,
+   "heiss": 1,
    "meldungen": [
     {
-     "titel": "Schiffsunglück vor Ibiza: Tanker mit 7.000 Tonnen Diesel gekentert",
-     "text": "Wegen möglicher Umweltgefahren aktivierten die spanischen Behörden einen Notfallplan: Vor der Küste Ibizas ist ein Tanker mit 7.000 Tonnen Diesel gekentert. Bei dem Unglück kam ein Seemann ums Leben.",
-     "url": "https://www.tagesschau.de/ausland/europa/tanker-ibiza-100.html",
+     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
+     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
+     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
      "quelle": "tagesschau"
-    },
-    {
-     "titel": "Umstrittener Abschiebefall: Salvadorianer Abrego García hat USA verlassen",
-     "text": "2025 war der Salvadorianer Abrego Garcia aus den USA abgeschoben worden - rechtswidrig. Er landete in einem berüchtigten Gefängnis und wurde so zum Symbol für Trumps umstrittene Politik. Nun eine neue Wendung: Abrego Garcia ist in Spanien.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-abschiebepolitik-trump-garcia-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Tanker vor Ibiza gekentert: Ein Besatzungsmitglied tot",
-     "text": "Mit 8,2 Millionen Litern Dieseltreibstoff in den Tanks geriet die \"Med Emre\" vor der spanischen Insel Ibiza in Seenot. Dann kenterte das Schiff. Wird es sinken?",
-     "url": "https://www.dw.com/de/tanker-vor-ibiza-gekentert-ein-besatzungsmitglied-tot/a-80062333?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
     }
    ]
   },
@@ -654,6 +633,21 @@
    ]
   },
   {
+   "land": "Saudi-Arabien",
+   "lat": 23.9,
+   "lon": 45.1,
+   "anzahl": 1,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "Saudi-Arabien verschärft Vorgehen gegen Regimekritiker",
+     "text": "Die Menschenrechtslage in Saudi-Arabien bleibt düster. Allein 2026 fanden bisher 211 Hinrichtungen statt. Nutzt Saudi-Arabien den Iran-Krieg, um politischen Dissens zu unterdrücken?",
+     "url": "https://www.dw.com/de/saudi-arabien-verschärft-vorgehen-gegen-regimekritiker/a-80006017?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Brasilien",
    "lat": -14.2,
    "lon": -51.9,
@@ -668,7 +662,7 @@
     },
     {
      "titel": "16 Monate gesperrt - Laura Freigang verpasst Fußball-WM in Brasilien",
-     "text": "Die Fußball-Nationalspielerin einigt sich außergerichtlich mit Anti-Doping-Agenturen und DFB. Sie wird die WM 2027 in Brasilien verpassen, ihr Verbleibt bei Bundesliga-Klub Eintracht Frankfurt ist ungewiss.",
+     "text": "Die Fußball-Nationalspielerin einigt sich außergerichtlich mit Anti-Doping-Agenturen und DFB. Sie wird die WM 2027 in Brasilien verpassen. Ob sie bei Bundesliga-Klub Eintracht Frankfurt bleibt, ist ungewiss.",
      "url": "https://www.dw.com/de/16-monate-gesperrt-laura-freigang-verpasst-fußball-wm-in-brasilien/a-80064996?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
@@ -717,6 +711,27 @@
    ]
   },
   {
+   "land": "Türkei",
+   "lat": 39.0,
+   "lon": 35.2,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
+     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
+     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Europa League: Randale und Unterbrechung bei Besiktas-Sieg über Hapoel Beer-Sheva",
+     "text": "Heftige Randale und eine lange Unterbrechung haben den Sieg von Besiktas Istanbul in der Europa League gegen den israelischen Club Hapoel Beer-Sheva überschattet.",
+     "url": "https://www.sportschau.de/fussball/europaleague/randale-und-unterbrechung-trueben-besiktas-sieg,besiktas-randale-unterbrechung-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
    "land": "Indien",
    "lat": 21.0,
    "lon": 78.0,
@@ -738,40 +753,30 @@
    ]
   },
   {
-   "land": "Türkei",
-   "lat": 39.0,
-   "lon": 35.2,
+   "land": "Afghanistan",
+   "lat": 33.9,
+   "lon": 67.7,
    "anzahl": 1,
    "heiss": 0,
    "meldungen": [
     {
-     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
-     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
-     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Österreich",
-   "lat": 47.5,
-   "lon": 14.6,
-   "anzahl": 1,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Schnee auf dem Johann-Strauss-Denkmal in Wien, Erdmännchen im NaviFauna-Schutzgebiet, Slum in Port-au-Prince",
-     "text": "Schnee auf dem Johann-Strauss-Denkmal in Wien, Erdmännchen im NaviFauna-Schutzgebiet, Slum in Port-au-Prince",
-     "url": "https://www.tagesschau.de/multimedia/bilder/blickpunkte-10590.html",
-     "quelle": "tagesschau"
+     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
+     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
+     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   }
  ],
  "ohne_land": [
   {
-   "titel": "Menschen in Hongkong gedenken der Opfer von Hochhausbrand",
-   "url": "https://www.tagesschau.de/ausland/asien/hongkong-gedenken-hochhausbrand-100.html",
+   "titel": "Neuseeland: Konservative verlieren Mehrheit - Labour hat auch keine",
+   "url": "https://www.tagesschau.de/ausland/ozeanien/neuseeland-parlamentswahl-106.html",
+   "quelle": "tagesschau"
+  },
+  {
+   "titel": "Bosnien und Herzogowina: Dodik hebt Sohn auf den Thron",
+   "url": "https://www.tagesschau.de/ausland/europa/dodik-bosnien-sohn-100.html",
    "quelle": "tagesschau"
   },
   {
@@ -803,59 +808,54 @@
    "titel": "\"Keine Klimagerechtigkeit ohne Entmilitarisierung\"",
    "url": "https://www.tagesschau.de/ausland/asien/cop31-krieg-emissionen-100.html",
    "quelle": "tagesschau"
-  },
-  {
-   "titel": "Viele Tote nach Bootsunglück vor Senegal gemeldet",
-   "url": "https://www.tagesschau.de/ausland/afrika/viele-tote-bootsunglueck-senegal-100.html",
-   "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 55111,
+   "wert": 56355,
    "einheit": "€",
-   "pct": 0.89,
+   "pct": 2.11,
    "verlauf": [
-    56459,
     53604,
     54815,
     55754,
     56132,
     54515,
     55034,
-    55061
+    55161,
+    56342
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1541.46,
+   "wert": 1581.55,
    "einheit": "€",
-   "pct": 0.68
+   "pct": 2.79
   },
   {
    "name": "Solana",
-   "wert": 64.63,
+   "wert": 66.77,
    "einheit": "€",
-   "pct": 0.92
+   "pct": 3.37
   },
   {
    "name": "EUR/CHF",
    "wert": 0.9153,
    "einheit": "",
-   "pct": 0.75
+   "pct": 0.0
   },
   {
    "name": "EUR/GBP",
    "wert": 0.83755,
    "einheit": "",
-   "pct": 0.03
+   "pct": 0.0
   },
   {
    "name": "EUR/USD",
    "wert": 1.0975,
    "einheit": "",
-   "pct": 0.37
+   "pct": 0.0
   }
  ],
  "fx": {
