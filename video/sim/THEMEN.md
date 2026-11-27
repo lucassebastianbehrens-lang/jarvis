@@ -30,4 +30,4 @@
 - [x] Laufen vs Radfahren – 30 Minuten, Kalorien (sim-09-laufen-vs-radfahren)
 - [x] Mikrowelle vs Backofen – Pizza aufwärmen, Strom (sim-10-mikrowelle-vs-backofen)
 - [x] Rolltreppe gehen vs stehen – wer ist zuerst oben? (sim-11-rolltreppe-gehen-vs-stehen)
-- [ ] Kaffee vs Energydrink – Koffein pro Getränk
+- [x] Kaffee vs Energydrink – Koffein pro Getränk (sim-12-kaffee-vs-energydrink)

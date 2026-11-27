@@ -1,0 +1,105 @@
+{
+  "id": "sim-12-kaffee-vs-energydrink",
+  "titel": [
+    "KAFFEE",
+    "ENERGY‑DRINK"
+  ],
+  "frage": [
+    "Koffein pro 100 ml –",
+    "WELCHES HAT MEHR?"
+  ],
+  "a": {
+    "name": "KAFFEE",
+    "figur": "geher",
+    "dauer_s": 45.0,
+    "menge": 48.0,
+    "info": "≈45‑50 mg"
+  },
+  "b": {
+    "name": "ENERGY‑DRINK",
+    "figur": "geher",
+    "dauer_s": 33.0,
+    "menge": 33.0,
+    "info": "≈30‑35 mg"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "mg",
+    "zaehler": "Koffein",
+    "besser": "mehr"
+  },
+  "skala": [
+    "0 mg",
+    "30 mg",
+    "50 mg"
+  ],
+  "ergebnis": "etwa 45 % mehr",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "Kaffee enthält etwa 45 Prozent mehr Koffein als ein Energy‑Drink!"
+    },
+    {
+      "phase": "intro",
+      "t": "Die Überraschung: Kaffee hat fast 45 Prozent mehr Koffein!"
+    },
+    {
+      "phase": "race",
+      "t": "Kaffee enthält durchschnittlich 47,5 mg Koffein in 100 ml."
+    },
+    {
+      "phase": "race",
+      "t": "Ein Energy‑Drink liefert etwa 32,5 mg Koffein in 100 ml."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Kaffee hat etwa 45 Prozent mehr Koffein."
+    },
+    {
+      "phase": "result",
+      "t": "Was hättest du getippt? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "Welches Getränk liefert mehr Koffein pro Schluck?",
+    "Kaffee enthält etwa 45 % mehr Koffein als ein Energy‑Drink!",
+    "Mythos: Energy‑Drink ist stärker – das stimmt nicht!"
+  ],
+  "kommentar_frage": "Was hättest du getippt?",
+  "caption": "Kaffee vs Energy‑Drink – wer hat mehr Koffein pro Schluck? ☕⚡ #simulation Was hättest du getippt? 👇",
+  "hashtags": [
+    "#simulation",
+    "#kaffee",
+    "#energydrink",
+    "#koffein",
+    "#wissen"
+  ],
+  "quelle": "Durchschnittlicher Koffeingehalt von gebrühtem Filterkaffee (200 ml) – Verbraucherzentrale, Fachliteratur; Durchschnittlicher Koffeingehalt eines typischen Energy‑Drink (250 ml) – Herstellerangaben; Standardisierte Portion für Vergleich: 100 ml – Umrechnung aus obigen Werten, Verbraucherzentrale; Koffein‑Bioverfügbarkeit – Pharmakologische Studien; Durchschnittliche Halbwertszeit von Koffein – Umweltbundesamt",
+  "fakten": [
+    {
+      "satz": "Durchschnittlicher Koffeingehalt von gebrühtem Filterkaffee (200 ml)",
+      "wert": "80‑100 mg",
+      "quelle": "Verbraucherzentrale, Fachliteratur"
+    },
+    {
+      "satz": "Durchschnittlicher Koffeingehalt eines typischen Energy‑Drink (250 ml)",
+      "wert": "70‑80 mg",
+      "quelle": "Herstellerangaben (z. B. Red Bull)"
+    },
+    {
+      "satz": "Standardisierte Portion für Vergleich: 100 ml",
+      "wert": "ca. 45‑50 mg Koffein bei Kaffee, ca. 30‑35 mg bei Energy‑Drink",
+      "quelle": "Umrechnung aus obigen Werten, Verbraucherzentrale"
+    },
+    {
+      "satz": "Koffein‑Bioverfügbarkeit nach oraler Einnahme liegt bei ca. 99 %",
+      "wert": "≈99 %",
+      "quelle": "Pharmakologische Studien, Fachliteratur"
+    },
+    {
+      "satz": "Durchschnittliche Halbwertszeit von Koffein im menschlichen Körper",
+      "wert": "3‑5 Stunden",
+      "quelle": "Umweltbundesamt, Gesundheitsbehörden"
+    }
+  ]
+}
