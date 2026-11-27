@@ -1,13 +1,13 @@
 {
- "updated": 1795767214,
- "lagebild": "Die USA haben neue Zölle angekündigt – auch gegen die EU und China – und damit die globale Handelssituation dramatisch verschärft.  \n\nDas Schiffsunglück vor Ibiza, bei dem ein Tanker mit 7 000 t Diesel gekentert ist, könnte die Spritpreise in Deutschland kurzfristig in die Höhe treiben und betrifft Lucas direkt.  \n\nDer Kampf um den EU‑Haushalt von bis zu zwei Billionen Euro sowie fortgesetzte Staatshilfen für Industrie können die deutschen Börsenkurse bewegen, was für Lucas von Bedeutung ist.",
+ "updated": 1795768990,
+ "lagebild": "Das wichtigste globale Ereignis ist die Ankündigung neuer US‑Zölle, die sowohl die EU als auch China betreffen. Diese Zölle dürften in Deutschland zu steigenden Verbraucherpreisen führen, vor allem beim Sprit. Die daraus resultierende Unsicherheit belastet zudem die Börse und betrifft Lucas' Geldanlage unmittelbar.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
-   "anzahl": 26,
-   "heiss": 19,
+   "anzahl": 25,
+   "heiss": 18,
    "meldungen": [
     {
      "titel": "Sanktionspaket: Keine Athleten mehr unter russischer Flagge",
@@ -51,8 +51,8 @@
    "land": "Ukraine",
    "lat": 49.0,
    "lon": 31.3,
-   "anzahl": 21,
-   "heiss": 15,
+   "anzahl": 20,
+   "heiss": 14,
    "meldungen": [
     {
      "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
@@ -183,51 +183,6 @@
    ]
   },
   {
-   "land": "Iran",
-   "lat": 32.4,
-   "lon": 53.7,
-   "anzahl": 15,
-   "heiss": 6,
-   "meldungen": [
-    {
-     "titel": "74 Peitschenhiebe für iranische Sängerin lösen Empörung aus",
-     "text": "Ein Onlinekonzert ohne Kopftuch - dafür erhielt die iranische Sängerin Parastu Ahmadi 74 Peitschenhiebe. Das löste international große Empörung aus. Die Strafe sei \"grausam und unmenschlich\" und eine Form der Folter.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-saengerin-peitschenhiebe-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
-     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
-     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
-     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
-     "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
-     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
-     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Jemen: Regierungstruppen wollen Aden vor Huthi schützen",
-     "text": "Die von Iran unterstützte Huthi-Miliz rückt im Jemen offenbar auf den Regierungssitz Aden vor. Gleichzeitig ziehen sich regierungstreue Truppen weiter von der für den Welthandel wichtigen Meerenge Bab al-Mandab zurück.",
-     "url": "https://www.tagesschau.de/ausland/asien/jemen-huthi-aden-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "Belgien/EU",
    "lat": 50.8,
    "lon": 4.4,
@@ -268,6 +223,51 @@
      "titel": "EU-Parlament stimmt neuen Arzneimittelregeln zu",
      "text": "Ob Antibiotika oder Fiebersäfte für Kinder: Immer wieder fehlen in Europa Medikamente - Grund ist auch die große Abhängigkeit von Asien. Das will die EU ändern. Das Parlament stimmte neuen Arzneimitteln-Regeln zu.",
      "url": "https://www.tagesschau.de/ausland/europa/eu-parlament-arzneimittel-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Iran",
+   "lat": 32.4,
+   "lon": 53.7,
+   "anzahl": 13,
+   "heiss": 5,
+   "meldungen": [
+    {
+     "titel": "74 Peitschenhiebe für iranische Sängerin lösen Empörung aus",
+     "text": "Ein Onlinekonzert ohne Kopftuch - dafür erhielt die iranische Sängerin Parastu Ahmadi 74 Peitschenhiebe. Das löste international große Empörung aus. Die Strafe sei \"grausam und unmenschlich\" und eine Form der Folter.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-saengerin-peitschenhiebe-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
+     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
+     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
+     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
+     "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
+     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
+     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Jemen: Regierungstruppen wollen Aden vor Huthi schützen",
+     "text": "Die von Iran unterstützte Huthi-Miliz rückt im Jemen offenbar auf den Regierungssitz Aden vor. Gleichzeitig ziehen sich regierungstreue Truppen weiter von der für den Welthandel wichtigen Meerenge Bab al-Mandab zurück.",
+     "url": "https://www.tagesschau.de/ausland/asien/jemen-huthi-aden-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -732,6 +732,27 @@
    ]
   },
   {
+   "land": "Afghanistan",
+   "lat": 33.9,
+   "lon": 67.7,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Warum die Taliban in Afghanistan auf Polizistinnen nicht verzichten können",
+     "text": "Warum die Taliban in Afghanistan auf Polizistinnen nicht verzichten können",
+     "url": "https://www.tagesschau.de/tagesthemen/video-1690686.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
+     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
+     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Indien",
    "lat": 21.0,
    "lon": 78.0,
@@ -748,21 +769,6 @@
      "titel": "Indien: Der Mut der Frauen hinter den \"Kakerlaken\"-Protesten",
      "text": "Trotz Polizeigewalt, Festnahmen und Online-Hetze gehen Frauen in Indien weiter auf die Straße. Sie lassen sich nicht einschüchtern und weigern sich, in die Opferrolle gedrängt zu werden.",
      "url": "https://www.dw.com/de/indien-der-mut-der-frauen-hinter-den-kakerlaken-protesten/a-79723993?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Afghanistan",
-   "lat": 33.9,
-   "lon": 67.7,
-   "anzahl": 1,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
-     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
-     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -813,9 +819,9 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 56355,
+   "wert": 56261,
    "einheit": "€",
-   "pct": 2.11,
+   "pct": 1.77,
    "verlauf": [
     53604,
     54815,
@@ -824,20 +830,20 @@
     54515,
     55034,
     55161,
-    56342
+    56229
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1581.55,
+   "wert": 1576.18,
    "einheit": "€",
-   "pct": 2.79
+   "pct": 2.38
   },
   {
    "name": "Solana",
-   "wert": 66.77,
+   "wert": 66.7,
    "einheit": "€",
-   "pct": 3.37
+   "pct": 3.26
   },
   {
    "name": "EUR/CHF",
