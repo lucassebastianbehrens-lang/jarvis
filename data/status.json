@@ -1,76 +1,66 @@
 {
- "updated": 1795767197,
+ "updated": 1795805547,
  "ok": false,
  "checks": [
   {
    "name": "Automaton Ava",
    "ok": false,
-   "info": "letzter Lauf vor 9 h (erwartet alle 5 h) → selbst gestartet"
+   "info": "letzter Lauf vor 10 h (erwartet alle 5 h) → selbst gestartet"
   },
   {
    "name": "Trader Toni",
    "ok": false,
-   "info": "letzter Lauf vor 5 h (erwartet alle 2 h) → selbst gestartet"
+   "info": "letzter Lauf vor 6 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Meme-Makler Max",
    "ok": false,
-   "info": "letzter Lauf vor 6 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 8 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Forscherin Frieda",
    "ok": true,
-   "info": "ok · vor 23 h"
+   "info": "ok · vor 9 h"
   },
   {
    "name": "Agentin Ada",
    "ok": false,
-   "info": "letzter Lauf vor 9 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 10 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Butler Bruno",
    "ok": true,
-   "info": "ok · vor 17 h"
+   "info": "ok · vor 4 h"
   },
   {
    "name": "Scout Sam",
    "ok": true,
-   "info": "ok · vor 8 h"
+   "info": "ok · vor 4 h"
   },
   {
    "name": "Postbote Paul",
    "ok": false,
-   "info": "letzter Lauf vor 5 h (erwartet alle 2 h) → selbst gestartet"
+   "info": "letzter Lauf vor 7 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Regisseurin Rita",
    "ok": true,
-   "info": "ok · vor 6 h"
-  },
-  {
-   "name": "YouTuber Yannik",
-   "ok": true,
-   "info": "ok · vor 20 h"
+   "info": "ok · vor 1 h"
   },
   {
    "name": "Baumeister Bob",
-   "ok": true,
-   "info": "ok · vor 10 h"
-  },
-  {
-   "name": "Funker Fritz",
    "ok": true,
    "info": "ok · vor 20 h"
   },
   {
    "name": "Prüferin Paula",
    "ok": true,
-   "info": "ok · vor 10 h"
+   "info": "ok · vor 20 h"
   },
   {
    "name": "Spielgeld-Daten",
    "ok": false,
-   "info": "zuletzt vor 300 Min aktualisiert"
+   "info": "zuletzt vor 367 Min aktualisiert"
   },
   {
    "name": "Jarvis-App online",
@@ -140,6 +130,11 @@
    "t": 1795767197,
    "ok": 10,
    "n": 16
+  },
+  {
+   "t": 1795805547,
+   "ok": 8,
+   "n": 14
   }
  ]
 }
