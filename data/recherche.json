@@ -1,12 +1,47 @@
 {
  "v2": 1,
- "updated": 1795686113,
- "fazit": "Koed, AI Context Flow und PiBot bilden die Kerninfrastruktur, um Jarvis ressourcenschonend und skalierbar zu betreiben, während agy-fast, fast‑anything und shrink‑anything die Performance und Code‑Qualität kontinuierlich steigern.",
- "web": "**Viral‑TikTok‑AI‑Tools & Agenten (2024/2025)**  \n\n| # | Tool / Trend | Kurzbeschreibung | Link |\n|---|--------------|------------------|------|\n| 1 | **Luma AI (Hug‑Videos)** | Erzeugt in wenigen Minuten ein animiertes „AI‑Hug“-Video, indem man ein Side‑by‑Side‑Bild hochlädt und den Prompt „make them hug“ verwendet. | 【1†L40-L46】 |\n| 2 | **CapCut Hair‑Color‑Filter** | KI‑Filter, der ein Foto analysiert und das Haar in verschiedene Farben (Kupfer‑rot, Blond, Braun) umwandelt – komplett kostenlos in der CapCut‑App. | 【3†L15-L21】【3†L29-L37】 |\n| 3 | **CapCut Lego‑AI‑Filter** | Transformiert Personen, Tiere oder Objekte in LEGO‑Steine‑Optik und lässt so Videos wie aus Bauklötzen aussehen. | 【12†L13-L26】 |\n| 4 | **Viggle AI** | Discord‑basiertes KI‑Video‑Tool, das TikTok‑Hits erzeugt (z. B. Tanz‑ oder Fußball‑Clips) und bereits über 14 M Views erreicht hat. | 【11†L41-L45】 |\n\n**Neue kostenlose KI‑Tools / Skills / MCP‑Server (letzte 7 Tage, 20‑26 Nov 2026)**  \n\n| # | Tool / Service | Kurzbeschreibung | Link |\n|---|----------------|------------------|------|\n| 5 | **Koed** | Open‑Source‑Memory‑Layer (lokal, Apache‑2.0) für Claude Code, Codex & Pi; speichert Kontext und kann auf macOS‑Apple‑Silicon & Linux laufen (Free‑Tier: self‑hosted). | 【8†L80-L88】 |\n| 6 | **Canva MCP** | Remote‑MCP‑Server, der KI‑Assistenten ermöglicht, editierbare Canva‑Designs zu erstellen, Assets zu verwalten und in verschiedene Formate zu exportieren (kostenlos mit Canva‑Account). | 【8†L94-L100】 |\n| 7 | **AI Context Flow** | Gemeinsamer Speicher für alle AI‑Tools (Claude, ChatGPT, Gemini, Cursor usw.); tägliches kostenloses Kontingent von 100–200 Credits + 50 MB Speicher. | 【8†L477-L487】 |\n| 8 | **Tabstack** | Mozilla‑Web‑Access‑API für eigene Modelle/Agenten (Research, Extract, Automate) – 10 000 freie Credits ohne Kreditkarte. | 【8†L521-L530】 |\n\n*Alle Angaben stammen aus aktuellen News‑ und Produkt‑Launch‑Quellen (Stand 26. Nov 2026).*",
+ "updated": 1795772815,
+ "fazit": "",
+ "web": "**Viral AI‑Tools on TikTok (last 7 days)**  \n\n| # | Tool | 1‑sentence description | Link |\n|---|------|------------------------|------|\n| 1 | **Viggle** – AI‑driven video‑generator that turns a photo or short clip into a ready‑to‑post TikTok clip. | Users upload a picture, type a prompt (e.g., “dance”) and Viggle animates the subject, a trend that hit #Viggle and #ViggleAI on TikTok. | https://newrank.cn/article/detail/27539【8†L58-L59】 |\n| 2 | **Pika Art AI** – surreal image‑manipulation app that lets creators “crush, squish, inflate, cake” their photos. | The app’s viral effect chain is a hit on TikTok, with creators posting before‑and‑after shots that go viral. | https://www.the-sun.com/tech/12669278/pika-art-ai-app-viral-tiktok-crush-squish-cake-photo/【3†L15-L20】 |\n| 3 | **Argil** – deep‑fake AI TikTok video generator that clones users’ faces onto new scenes. | Argil lets creators produce high‑quality 9:16 videos from a script and a clone, sparking a new trend of “no‑camera” content. | https://www.argil.ai/blog/argil-the-first-deepfake-ai-tiktok-video-generator-platform【1†L1-L4】 |\n| 4 | **Symphony Digital Avatars** (TikTok Symphony) – AI‑powered avatar creation and dubbing suite. | Brands and creators can build custom avatars and auto‑dub videos into 10+ languages, fueling a wave of AI‑enhanced brand content. | https://newsroom.tiktok.com/en-us/announcing-symphony-avatars/【10†L10-L13】 |\n\n**Free AI tools, skills & MCP‑servers (last 7 days)**  \n\n| # | Tool/Server | 1‑sentence description | Link |\n|---|-------------|------------------------|------|\n| 5 | **Hiya Deepfake Voice Detector** – Chrome extension that detects voice cloning in audio/video. | It scans a second of audio/video and flags whether the voice is real or AI‑generated, free for everyone. | https://hiya.com/products/deepfake-voice-detector【5†L12-L15】 |\n| 6 | **OpenAI Playground Prompt‑Writing Feature** – hidden tool that auto‑generates prompts for other prompts. | The free feature streamlines prompt engineering, letting users produce multi‑platform content with a single input. | https://www.geeky-gadgets.com/secret-playground-prompt-writing-feature/【12†L6-L13】 |\n| 7 | **Mochi‑1 (Genmo)** – open‑source text‑to‑video model released under Apache‑2.0. | Mochi‑1 offers 480 p video generation with strong motion and prompt‑adherence, usable for free on Genmo’s site. | https://www.tomsguide.com/ai/meet-mochi-1-the-latest-free-and-open-source-ai-video-model【13†L9-L14】 |\n| 8 | **Playwright MCP Server** – a free Model‑Context‑Protocol server that lets agents automate a real Chrome browser. | It runs locally with no sign‑in and is the go‑to MCP server for browser‑automation tasks. | https://mcp.so/collections/free-mcp-servers【7†L4-L8】 |\n\n*All information is current as of 27 Nov 2024.*",
  "neu": [
-  "965de15c34"
+  "1ded0b2fad",
+  "c421aa7d49",
+  "f3cf7034fc"
  ],
  "items": [
+  {
+   "titel": "fewchat",
+   "url": "https://github.com/jasonc00person/fewchat",
+   "quelle": "GitHub",
+   "was": "Selbstgehostete Instagram‑DM‑Automatisierung mit visueller Flow‑Builder",
+   "nutzen": "Optimiert Lucas’ TikTok‑Video‑Promotion und Etsy‑Marketing durch automatisierte DMs und Story‑Interaktion",
+   "vorschlag": "Jarvis‑Dashboard‑Widget zur Steuerung von Kampagnen und Reporting einbauen",
+   "punkte": 80,
+   "id": "1ded0b2fad",
+   "t": 1795772815
+  },
+  {
+   "titel": "central",
+   "url": "https://github.com/matheusmongarde/central",
+   "quelle": "GitHub",
+   "was": "Agenten‑gestütztes System für Social‑Media, Vertrieb, Strategie und Betrieb",
+   "nutzen": "Steigert Effizienz aller Online‑Geschäfte, bietet Sprachsteuerung und Analyse",
+   "vorschlag": "Integration als Plugin, Agenten‑Skills für TikTok‑Video‑Planung und Etsy‑Listing‑Erstellung",
+   "punkte": 88,
+   "id": "c421aa7d49",
+   "t": 1795772815
+  },
+  {
+   "titel": "swarmy",
+   "url": "https://github.com/koorchik/swarmy",
+   "quelle": "GitHub",
+   "was": "Terminal‑basierte Echtzeit‑Analytics für Coding‑Agenten",
+   "nutzen": "Ermöglicht Lucas die Performance‑Verfolgung und Kostenkontrolle der in Jarvis eingesetzten Agenten",
+   "vorschlag": "Automatisches Logging in Jarvis, Dashboard‑Integration und Warnungen",
+   "punkte": 70,
+   "id": "f3cf7034fc",
+   "t": 1795772815
+  },
   {
    "titel": "shrink‑anything",
    "url": "https://github.com/EL4CTEO/shrink-anything",
