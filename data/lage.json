@@ -1,6 +1,6 @@
 {
- "updated": 1795805566,
- "lagebild": "Die UNO hat fünf neue „Hunger‑Hotspots“ benannt, weil sich Ernährungskrisen weltweit verschärfen.  \nDie USA haben neue Zölle angekündigt, die auch die EU und China betreffen.  \nDiese Zölle treiben die Preise in Deutschland, besonders für Kraftstoff, nach oben und belasten die Börse – ein direkter Effekt für Lucas.",
+ "updated": 1795807816,
+ "lagebild": "Weltweit stehen das umstrittene EU‑Haushaltspaket von bis zu zwei Billionen Euro und die von den USA angekündigten neuen Zölle gegen die EU im Mittelpunkt. In Deutschland wirken diese Finanz‑ und Handelsdebatten direkt auf die Preisentwicklung für Sprit und Lebensmittel. Dadurch entstehen für Lucas spürbare Auswirkungen an den Börsenkursen und auf die allgemeine Wirtschaftslage.",
  "orte": [
   {
    "land": "Russland",
@@ -825,9 +825,9 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54731,
+   "wert": 54812,
    "einheit": "€",
-   "pct": -0.79,
+   "pct": -0.71,
    "verlauf": [
     53604,
     54815,
@@ -836,38 +836,38 @@
     54515,
     55034,
     55161,
-    54572
+    54626
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1525.24,
+   "wert": 1528.97,
    "einheit": "€",
-   "pct": -1.58
+   "pct": -1.44
   },
   {
    "name": "Solana",
-   "wert": 65.65,
+   "wert": 66.04,
    "einheit": "€",
-   "pct": 1.02
+   "pct": 1.54
   },
   {
    "name": "EUR/CHF",
    "wert": 0.9157,
    "einheit": "",
-   "pct": 0.04
+   "pct": 0.0
   },
   {
    "name": "EUR/GBP",
    "wert": 0.83504,
    "einheit": "",
-   "pct": -0.3
+   "pct": 0.0
   },
   {
    "name": "EUR/USD",
    "wert": 1.0957,
    "einheit": "",
-   "pct": -0.16
+   "pct": 0.0
   }
  ],
  "fx": {
