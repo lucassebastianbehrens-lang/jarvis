@@ -1,6 +1,57 @@
 {
  "auftraege": [
   {
+   "id": "fl-40837304",
+   "t": 1795737775,
+   "datum": "27.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/seo-writing/Myntra-Jewelry-Catalog-Listing",
+   "titel": "Myntra Jewelry Catalog Listing Specialist",
+   "original": "Myntra Jewelry Catalog Listing Specialist",
+   "auftrag": "Myntra Bulk Listing Excel Sheet (Catalog Prep):Accurately fill out the Myntra Partner Portal bulk upload template for jewelry (necklaces, earrings, sets, rings, etc.).   Write SEO-friendly product titles, clear descriptions, and accurate attribute tags (base metal, plating, stone type, closure, occasion, color, and dimensions) to maximize search visibility.   Properly map SKU codes, HSN codes, MRP/selling prices, and image URLs without dropdown or formatting errors.   QC Approval Support:Assist in fixing any catalog or image rejection remarks until the listings go live on Myntra.Requirements:Proven prior experience creating live listings on the Myntra Partner Portal (experience in Fashion Jewelry/Accessories is a big plus).Strong command of MS Excel (handling Myntra catalog templates, dropdown validations, and bulk uploads).   Proficiency in Photoshop / AI catalog editing tools for clean background removal, realistic model placement, and resizing.To Apply, Please Share:2–3 examples of Myntra product listings or edited 3:4 jewelry images you have done previously.Your per-SKU rate (including both image editing + Excel entry) and turnaround time for [Insert Number, e.g., 20–50] SKUs.",
+   "punkte": 70,
+   "warum": "Excel‑Ausfüllaufgabe – Daten sauber zu formatieren, mit KI‑Funktionen möglich, ohne große Kundendaten.",
+   "preis_eur": 15,
+   "lieferzeit": "3 business days",
+   "angebot": "Hello! I understand you need a precise and SEO‑friendly catalog for Myntra – from titles and descriptions to attribute tags, SKU mapping, MRP, image URLs, and QC support. I’ll leverage my experience with fashion jewelry listings and Excel validations to ensure zero errors and fast approval. Delivery: 3 business days after project initiation. I’m ready to work for the agreed flat fee of 15 €. I’ll provide editable Excel and screenshots of a completed catalog sample. Please review the work before finalization, as I can’t guarantee 100% performance once your copy is modified.",
+   "ergebnis": "1. Excel sheet (Myntra template) with 20 sample SKUs populated: Title, Brand, Category, Keywords, Description, Base Metal, Plating, Stone Type, Closure, Occasion, Color, Dimensions, SKU, HSN, MRP, Image URL.\n2. SEO‑ready titles: e.g., “Vintage Sterling Silver Drop Necklace – 18″ Chain with Clear Quartz – Ideal for Evening Wear”.\n3. Clear description: 3‑sentence summary highlighting material, craftsmanship, and care instructions.\n4. Attribute tags: \n   • Base Metal: Sterling Silver\n   • Plating: None\n   • Stone Type: Clear Quartz\n   • Closure: Lobster Clip\n   • Occasion: Evening, Anniversary\n   • Color: Silver, Clear\n   • Dimensions: 18″ chain, 2.5″ pendant\n5. SKU Mapping: SKU001 (Myntra), HSN 7116, MRP ₹2500, Image URL: https://example.com/sku001.jpg\n6. QC Notes: Dropdown validation passes, no missing fields. Sample QC report attached.\n7. Image editing: 3‑4 high‑quality images with clean background and model placement ready for upload.",
+   "schritte": [
+    "Überprüfe die Excel‑Datei auf korrekte Spaltenbezeichnungen und Dropdown‑Validierungen.",
+    "Vergleiche die Beispielziele mit deinem eigenen Linking‑Schema, um sicherzugehen, dass die Attribute übereinstimmen.",
+    "Testiere einen SKU‑Eintrag im Myntra Partner Panel, um frühzeitig eventuelle Fehler zu erkennen.",
+    "Kundenspezifische Anpassungen vor Zitieren des finalen Outputs einholen."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  },
+  {
+   "id": "fl-40835325",
+   "t": 1795737905,
+   "datum": "27.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/project-management/Urgent-Project-Completion-Help",
+   "titel": "Urgent Project Completion Help",
+   "original": "Urgent Project Completion Help",
+   "auftrag": "I am right at the finish line with a project but need an experienced freelancer to step in and take it from “almost there” to “completely done.” The outstanding items could involve tightening up code, refining a visual design, proofreading or rewriting key text, or any other last-mile task that turns work in progress into a polished, ready-to-use deliverable.  \n\nYou should be comfortable joining an existing project, assessing what’s left, and working independently to close gaps without endless back-and-forth. Please tell me what sort of wrap-up work you specialise in, show a quick example of something you have rescued or finalised before, and let me know how soon you can start and finish.  \n\nDeliverables  \n• A fully completed, production-ready outcome in the area we agree on  \n• A brief handover note explaining any changes or next steps  \n\nI am ready to move quickly once I find the right fit, so if you thrive on fast turnarounds and clean finishes, let’s get this done.",
+   "punkte": 60,
+   "warum": "Finish‑Work kann KI-nützlich sein, aber oft wird manuelle Prüfung nötig, je nach Domain des Projekts.",
+   "preis_eur": 228,
+   "lieferzeit": "5 days",
+   "angebot": "Hi! I specialize in final‑stage polish work such as code tightening, visual design refinement, and content proofreading. I’ve helped clients finish projects quickly by identifying gaps and closing them with minimal back‑and‑forth. I can start immediately, deliver a production‑ready output within 5 days, and provide a concise handover note. Let’s get your project all the way to finish line!",
+   "ergebnis": "A fully polished deliverable in the agreed area (e.g., cleaned‑up HTML/CSS, revised UI files, or rewritten prose). Includes a brief handover note detailing any changes, next steps, and contact info for follow‑up.  [Annahme: Project assets located on a shared drive; if not, please provide access.]",
+   "schritte": [
+    "Stelle sicher, dass alle Projektdateien zum Download bereitstehen.",
+    "Lege fest, welche Aufgabe (Code, Design, Text) ich übernehmen soll.",
+    "Bestätige das gestellte Liefertermin und die Handout‑Struktur."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  },
+  {
    "id": "eigen-20261126",
    "t": 1795650521,
    "datum": "26.11.2026",
@@ -353,11 +404,11 @@
    "status": "neu"
   }
  ],
- "stand": "26.11.2026 16:25",
+ "stand": "27.11.2026 01:05",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
-  "gefunden": 206,
-  "gefiltert": 12,
-  "neu": 0
+  "gefunden": 197,
+  "gefiltert": 11,
+  "neu": 2
  }
 }
