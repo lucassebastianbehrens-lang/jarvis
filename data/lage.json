@@ -1,14 +1,20 @@
 {
- "updated": 1795860941,
- "lagebild": "Die USA haben neue Zölle angekündigt, die auch die EU und China treffen und damit die Weltmärkte stark belasten. Gleichzeitig kämpft die EU um einen Haushalt von bis zu zwei Billionen Euro, wobei die Kommission weiterhin staatliche Hilfen für Landwirte und Industrie genehmigt. Für Lucas in Deutschland führen die US‑Zölle und die unsichere EU‑Finanzlage voraussichtlich zu höheren Preisen, steigenden Spritkosten und Schwankungen an der Börse.",
+ "updated": 1795871256,
+ "lagebild": "Die Ankündigung neuer US‑Zölle gegen die EU und China ist das derzeit wichtigste globale Ereignis. Gleichzeitig kämpfen die EU‑Staaten um einen Haushalt von bis zu zwei Billionen Euro. Für Lucas in Deutschland bedeuten diese Entwicklungen steigende Preise, höhere Spritkosten und Unsicherheit an der Börse.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
-   "anzahl": 21,
-   "heiss": 13,
+   "anzahl": 22,
+   "heiss": 14,
    "meldungen": [
+    {
+     "titel": "Datenleak zeigt Ausmaß russischer Verluste im Krieg gegen die Ukraine",
+     "text": "Russland hält die offiziellen Zahlen zu seinen Verlusten im Ukraine-Krieg unter Verschluss. Nun liefert ein Hackerangriff auf die Statistikbehörde Einblicke - und gibt Hinweise auf Hunderttausende getötete russische Soldaten. Von L. Becker.",
+     "url": "https://www.tagesschau.de/ausland/europa/russland-rosstat-datenleak-hacker-100.html",
+     "quelle": "tagesschau"
+    },
     {
      "titel": "EU-Geld für die Ukraine - wie gegen Korruption vorgegangen wird",
      "text": "Die Ukraine braucht viel Geld wegen der Schäden durch russische Luftangriffe. Das kommt oft von der EU. Journalisten und Politiker decken Fälle mutmaßlicher Korruption auf - und bewegen damit etwas. Von F. Kellermann.",
@@ -38,11 +44,50 @@
      "text": "Das russische Militär geht weiter unvermindert gegen die Zivilbevölkerung in der Ukraine vor. Mindestens zehn Menschen wurden getötet, als in der Nacht zu Sonntag ein Wohnhaus in der Region Kiew angegriffen wurde.",
      "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-wohnhaeuser-104.html",
      "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Ukraine",
+   "lat": 49.0,
+   "lon": 31.3,
+   "anzahl": 17,
+   "heiss": 12,
+   "meldungen": [
+    {
+     "titel": "Datenleak zeigt Ausmaß russischer Verluste im Krieg gegen die Ukraine",
+     "text": "Russland hält die offiziellen Zahlen zu seinen Verlusten im Ukraine-Krieg unter Verschluss. Nun liefert ein Hackerangriff auf die Statistikbehörde Einblicke - und gibt Hinweise auf Hunderttausende getötete russische Soldaten. Von L. Becker.",
+     "url": "https://www.tagesschau.de/ausland/europa/russland-rosstat-datenleak-hacker-100.html",
+     "quelle": "tagesschau"
     },
     {
-     "titel": "Nach Drohnenangriff: \"Sparta II\" wird in russische Gewässer geschleppt",
-     "text": "Am Samstag war der russische Frachter \"Sparta II\" in der Ostsee von einer Drohne getroffen worden und in Brand geraten. Laut finnischem Grenzschutz hat das Schiff Schlagseite, kann aber in russische Gewässer geschleppt werden.",
-     "url": "https://www.tagesschau.de/ausland/europa/finnland-ostsee-frachter-drohne-102.html",
+     "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
+     "text": "Um mehr als 200 Milliarden Euro ist der EU-Haushaltsentwurf bereits gekürzt worden. Dem Kanzler reicht das aber noch nicht. Außerdem verknüpft Merz die schwierigen Verhandlungen weiterhin mit der Unterstützung für die Ukraine.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-ukraine-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Streit um EU-Haushalt: Warum die Slowakei blockieren will",
+     "text": "Beim EU-Sondergipfel geht der slowakische Regierungschef Fico auf Konfrontation. Zusammen mit Polen, Ungarn und Tschechien will er die EU-Haushaltspläne blockieren - insbesondere die Ukraine-Hilfen. Innenpolitisch könnte ihm das nutzen. Von",
+     "url": "https://www.tagesschau.de/ausland/europa/slowakei-blockiert-eu-haushalt-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "EU-Geld für die Ukraine - wie gegen Korruption vorgegangen wird",
+     "text": "Die Ukraine braucht viel Geld wegen der Schäden durch russische Luftangriffe. Das kommt oft von der EU. Journalisten und Politiker decken Fälle mutmaßlicher Korruption auf - und bewegen damit etwas. Von F. Kellermann.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-korruption-118.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
+     "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Deutschland baut künftig ukrainische Drohnen",
+     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
+     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
      "quelle": "tagesschau"
     }
    ]
@@ -51,8 +96,8 @@
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 24,
-   "heiss": 8,
+   "anzahl": 23,
+   "heiss": 7,
    "meldungen": [
     {
      "titel": "Ursachensuche: EU streitet weiter ums Geld",
@@ -93,63 +138,12 @@
    ]
   },
   {
-   "land": "Ukraine",
-   "lat": 49.0,
-   "lon": 31.3,
-   "anzahl": 16,
-   "heiss": 11,
-   "meldungen": [
-    {
-     "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
-     "text": "Um mehr als 200 Milliarden Euro ist der EU-Haushaltsentwurf bereits gekürzt worden. Dem Kanzler reicht das aber noch nicht. Außerdem verknüpft Merz die schwierigen Verhandlungen weiterhin mit der Unterstützung für die Ukraine.",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-ukraine-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Streit um EU-Haushalt: Warum die Slowakei blockieren will",
-     "text": "Beim EU-Sondergipfel geht der slowakische Regierungschef Fico auf Konfrontation. Zusammen mit Polen, Ungarn und Tschechien will er die EU-Haushaltspläne blockieren - insbesondere die Ukraine-Hilfen. Innenpolitisch könnte ihm das nutzen. Von",
-     "url": "https://www.tagesschau.de/ausland/europa/slowakei-blockiert-eu-haushalt-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "EU-Geld für die Ukraine - wie gegen Korruption vorgegangen wird",
-     "text": "Die Ukraine braucht viel Geld wegen der Schäden durch russische Luftangriffe. Das kommt oft von der EU. Journalisten und Politiker decken Fälle mutmaßlicher Korruption auf - und bewegen damit etwas. Von F. Kellermann.",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-korruption-118.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Brücken-Krieg: Gefahr für Kiew, Probleme für Russlands Logistik",
-     "text": "Kiew, Saporischschja, Odessa - immer wieder greift Russland ukrainische Brücken an. Im Gegenzug schießt die Ukraine vermehrt zurück - auch auf die Krim-Brücke. Dabei geht es beiden Seiten nicht immer nur um militärische Ziele. Von R. Barth.",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-bruecken-krieg-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Deutschland baut künftig ukrainische Drohnen",
-     "text": "Bereits im April hatten Deutschland und die Ukraine vereinbart, militärisch enger zusammenzuarbeiten - etwa beim Drohnenbau. Verteidigungsminister Pistorius wurde nun konkreter. Mit Blick auf mögliche russische Angriffspläne im All mahnte e",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-pistorius-104.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Angriffe auf russische Schiffe: \"Das kann brandgefährlich für uns alle werden\"",
-     "text": "Die Angriffe auf russische Schiffe sind für die Ukraine ein Erfolg, sagt der Sicherheitsexperte Joachim Weber. Aber sie stellten auch eine Eskalation dar, die Russland zu Gegenmaßnahmen provozieren könnte. Ein Kalkül von Kiew?",
-     "url": "https://www.tagesschau.de/ausland/europa/ukraine-angriffe-ostsee-libyen-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 21,
+   "anzahl": 20,
    "heiss": 5,
    "meldungen": [
-    {
-     "titel": "US-Militär beschießt Frachter im Golf von Oman",
-     "text": "Im Golf von Oman hat das US-Militär nach eigenen Angaben ein Handelsschiff beschossen. Die Besatzung habe versucht, die US-Blockade iranischer Häfen zu durchbrechen. Das Schiff sei manövrierunfähig, die Crew unverletzt.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-usa-frachter-beschuss-golf-oman-100.html",
-     "quelle": "tagesschau"
-    },
     {
      "titel": "Schwerer Sturm sorgt in den USA an Thanksgiving für massive Einschränkungen",
      "text": "Gestrichene Flüge, Stromausfälle und Überschwemmungen: Ausgerechnet an Thanksgiving haben Starkregen und heftige Winde in vielen Teilen der USA für Chaos gesorgt. In einigen Bundesstaaten gilt der Notstand.",
@@ -179,6 +173,12 @@
      "text": "Die EU will bis 2030 ein eigenes sicheres Kommunikationsnetz im Weltraum aufbauen. Ziel ist es, unabhängiger von Anbietern wie dem US-Dienst Starlink zu werden. Helfen soll dabei Europas größte Satellitenfabrik - sie wurde nun eröffnet.",
      "url": "https://www.tagesschau.de/ausland/satellitenfabrik-100.html",
      "quelle": "tagesschau"
+    },
+    {
+     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
+     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
+     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
+     "quelle": "tagesschau"
     }
    ]
   },
@@ -186,19 +186,13 @@
    "land": "Iran",
    "lat": 32.4,
    "lon": 53.7,
-   "anzahl": 12,
+   "anzahl": 11,
    "heiss": 6,
    "meldungen": [
     {
      "titel": "Treibstoffkrise in Malawi: Kaum Geld - und dann der Iran-Krieg",
      "text": "Malawi leidet unter einer extremen Treibstoffkrise. Die fragile Wirtschaft hängt vom Tabakexport ab - zu schwachen Deviseneinnahmen kommt die Lage an der Straße von Hormus hinzu. Die Krise wirkt sich auf alle Lebensbereiche aus. Von C. Hauc",
      "url": "https://www.tagesschau.de/ausland/afrika/malawi-treibstoffkrise-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "US-Militär beschießt Frachter im Golf von Oman",
-     "text": "Im Golf von Oman hat das US-Militär nach eigenen Angaben ein Handelsschiff beschossen. Die Besatzung habe versucht, die US-Blockade iranischer Häfen zu durchbrechen. Das Schiff sei manövrierunfähig, die Crew unverletzt.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-usa-frachter-beschuss-golf-oman-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -214,15 +208,21 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
-     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
-     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
+     "titel": "US-Militär beschießt Frachter im Golf von Oman",
+     "text": "Im Golf von Oman hat das US-Militär nach eigenen Angaben ein Handelsschiff beschossen. Die Besatzung habe versucht, die US-Blockade iranischer Häfen zu durchbrechen. Das Schiff sei manövrierunfähig, die Crew unverletzt.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-usa-frachter-beschuss-golf-oman-100.html",
      "quelle": "tagesschau"
     },
     {
      "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
      "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
      "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
+     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
+     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -321,7 +321,7 @@
    "land": "Gaza",
    "lat": 31.4,
    "lon": 34.4,
-   "anzahl": 7,
+   "anzahl": 8,
    "heiss": 4,
    "meldungen": [
     {
@@ -349,15 +349,15 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "News kompakt: Tödlicher Angriff auf Gaza-Helfer",
-     "text": "Zwei Männer wurden bei einem israelischen Luftangriff auf eine Klinik im Gazastreifen getötet. Deutschlands Umweltminister plädiert für Umbau des Rheins. Der DW-Nachrichtenüberblick.",
-     "url": "https://www.dw.com/de/news-kompakt-tödlicher-angriff-auf-gaza-helfer/a-80083580?maca=de-rss-de-all-1119-rdf",
+     "titel": "Rätselraten um UN-Sonderberichterstatterin Albanese",
+     "text": "Costa Rica hatte ihr die Einreise verweigert. Anschließend saß die UN-Sonderberichterstatterin für die Palästinensergebiete, Francesca Albanese, am Flughafen der Hauptstadt San José fest. Unklar ist, wie es weitergeht.",
+     "url": "https://www.dw.com/de/rätselraten-um-un-sonderberichterstatterin-albanese/a-80084232?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     },
     {
-     "titel": "Gaza: Humanitäre Lage verschärft sich, politische Lösung bleibt aus",
-     "text": "Heftige Regenfälle haben in Gaza Tausende Zelte überflutet, mehrere Menschen starben. Kann Trumps Friedensgremium mit Druck auf Israel und die Hamas die humanitäre Not lindern?",
-     "url": "https://www.dw.com/de/gaza-humanitäre-lage-verschärft-sich-politische-lösung-bleibt-aus/a-79946973?maca=de-rss-de-all-1119-rdf",
+     "titel": "News kompakt: Tödlicher Angriff auf Gaza-Helfer",
+     "text": "Zwei Männer wurden bei einem israelischen Luftangriff auf eine Klinik im Gazastreifen getötet. Deutschlands Umweltminister plädiert für Umbau des Rheins. Der DW-Nachrichtenüberblick.",
+     "url": "https://www.dw.com/de/news-kompakt-tödlicher-angriff-auf-gaza-helfer/a-80083580?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -497,6 +497,27 @@
      "text": "Die Internationale Walfangkommission hat in Australien über die weltweiten Bestände beraten. Auf ein großes Schutzgebiet konnten sich die Mitglieder nicht verständigen - dafür aber auf andere Maßnahmen. Von Jennifer Johnston.",
      "url": "https://www.tagesschau.de/ausland/ozeanien/australien-walschutz-konferenz-100.html",
      "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Afghanistan",
+   "lat": 33.9,
+   "lon": 67.7,
+   "anzahl": 2,
+   "heiss": 1,
+   "meldungen": [
+    {
+     "titel": "Mehrere Opfer bei Explosion nahe einer Schule in Afghanistan",
+     "text": "Nahe einer Schule im Osten Afghanistans hat es eine Explosion gegeben. Durch die Detonation sind offenbar mehrere Schüler getötet worden. Die Behörden sprechen von Fahrlässigkeit.",
+     "url": "https://www.tagesschau.de/ausland/asien/explosion-an-schule-in-afghanistan-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
+     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
+     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   },
@@ -769,21 +790,6 @@
      "quelle": "tagesschau"
     }
    ]
-  },
-  {
-   "land": "Türkei",
-   "lat": 39.0,
-   "lon": 35.2,
-   "anzahl": 1,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Türkischer Sender Sözcü TV: Journalismus unter Zwangsverwaltung",
-     "text": "Der regierungskritische türkische Sender Sözcü steht seit wenigen Tagen unter Zwangsverwaltung. Für die Journalisten war die Razzia ein Schock - wie hat sich seitdem ihre Arbeit verändert? Von Isabel Gotovac.",
-     "url": "https://www.tagesschau.de/ausland/asien/tuerkei-sender-soezcue-zwangsverwaltung-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
   }
  ],
  "ohne_land": [
@@ -795,11 +801,6 @@
   {
    "titel": "Bosnien und Herzogowina: Dodik hebt Sohn auf den Thron",
    "url": "https://www.tagesschau.de/ausland/europa/dodik-bosnien-sohn-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "Run auf kostenlose Finnland-Reise für Singles",
-   "url": "https://www.tagesschau.de/ausland/europa/single-urlaub-finnland-100.html",
    "quelle": "tagesschau"
   },
   {
@@ -826,14 +827,19 @@
    "titel": "Jugendlicher überlebt sechs Tage im australischen Outback",
    "url": "https://www.tagesschau.de/ausland/australien-teenager-wildnis-100.html",
    "quelle": "tagesschau"
+  },
+  {
+   "titel": "Parlamentswahl in Neuseeland: Regierungspartei und Labour nahezu gleichauf",
+   "url": "https://www.tagesschau.de/ausland/ozeanien/neuseeland-parlamentswahl-102.html",
+   "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54261,
+   "wert": 54097,
    "einheit": "€",
-   "pct": -3.49,
+   "pct": -3.56,
    "verlauf": [
     54815,
     55754,
@@ -842,20 +848,20 @@
     55034,
     55161,
     54705,
-    54264
+    54079
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1507.83,
+   "wert": 1504.41,
    "einheit": "€",
-   "pct": -4.32
+   "pct": -4.16
   },
   {
    "name": "Solana",
-   "wert": 64.85,
+   "wert": 64.71,
    "einheit": "€",
-   "pct": -3.19
+   "pct": -2.94
   },
   {
    "name": "EUR/CHF",
