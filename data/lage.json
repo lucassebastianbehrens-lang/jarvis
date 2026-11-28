@@ -1,6 +1,6 @@
 {
- "updated": 1795830885,
- "lagebild": "Die UN warnt vor fünf globalen „Hunger‑Hotspots“ und einer sich verschärfenden Ernährungskrise. Gleichzeitig streiten die EU‑Staaten um den zweitrillionen‑Euro‑Haushalt und weitere Kürzungen, was die allgemeinen Preise beeinflusst. Für Lucas in Deutschland bedeuten das Schiffsunglück vor Ibiza mit 7 000 t Diesel, mögliche Spritpreisanstiege und ein volatiles Börsenumfeld.",
+ "updated": 1795833868,
+ "lagebild": "Weltweit dominiert der Kampf um den EU‑Haushalt von bis zu zwei Billionen Euro und die anhaltenden Streitigkeiten über EU‑Finanzmittel die Schlagzeilen. In Deutschland könnte dies die Preise und insbesondere die Spritkosten drücken, weil ein Tanker vor Ibiza mit 7 000 Tonnen Diesel gekentert ist und gleichzeitig die Haushaltsdebatte die Energie‑ und Verbraucherpreise belastet. Die Unsicherheit über die EU‑Finanzpolitik belastet zudem die deutschen Börsen, wie die von Merz angekündigten Kürzungen und das vorzeitige Ende des EU‑Sondergipfels zeigen.",
  "orte": [
   {
    "land": "Russland",
@@ -831,9 +831,9 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54968,
+   "wert": 54800,
    "einheit": "€",
-   "pct": -0.49,
+   "pct": -2.1,
    "verlauf": [
     54815,
     55754,
@@ -842,20 +842,20 @@
     55034,
     55161,
     54705,
-    54968
+    54800
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1525.11,
+   "wert": 1519.56,
    "einheit": "€",
-   "pct": -1.46
+   "pct": -3.35
   },
   {
    "name": "Solana",
-   "wert": 65.95,
+   "wert": 65.47,
    "einheit": "€",
-   "pct": 1.36
+   "pct": -0.86
   },
   {
    "name": "EUR/CHF",
