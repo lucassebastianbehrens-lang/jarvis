@@ -1,0 +1,59 @@
+{
+ "id": "zt-11-du-bekommst-eine-sms-das",
+ "series": "Stell dir vor",
+ "episode": 11,
+ "title": "Kaffee geschenkt",
+ "caption": "Stell dir vor, du bekommst eine SMS: 7 Tage lang Kaffee umsonst. ☕️ Was würdest du tun? 👇",
+ "hashtags": [
+  "#stelldirvor",
+  "#kiserie",
+  "#alltag",
+  "#zeichentrick",
+  "#fyp"
+ ],
+ "end": "TEIL 2? SCHREIB'S IN DIE KOMMENTARE",
+ "thema": "Du bekommst eine SMS, dass dein Lieblingscafé dir einen kostenlosen Kaffee für die nächsten 7 Tage schenkt.",
+ "scenes": [
+  {
+   "bg": "kueche",
+   "pose": "staunen",
+   "prop": "handy",
+   "text": "Stell dir vor, du hältst dein Handy in der Hand. Eine SMS blinkt auf.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "freude",
+   "prop": "handy",
+   "zahl": 1,
+   "zahl_label": "Tag",
+   "text": "Dein Lieblingscafé schenkt dir einen Kaffee. Für heute.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "denken",
+   "prop": "handy",
+   "zahl": 3,
+   "zahl_label": "Tage",
+   "text": "Dann liest du weiter. Es sind nicht nur heute.",
+   "pause": 0.0
+  },
+  {
+   "bg": "kueche",
+   "pose": "schock",
+   "prop": "handy",
+   "zahl": 7,
+   "zahl_label": "Tage",
+   "pause": 1.2,
+   "text": "Sondern sieben Tage lang. Jeden Morgen."
+  },
+  {
+   "bg": "kueche",
+   "pose": "zeigen",
+   "prop": "keins",
+   "text": "Du grinst. Nicht laut, aber du spürst es im Bauch. Was wäre dein erstes Ritual, wenn du wüsstest, dass es kommt?",
+   "pause": 0.0
+  }
+ ]
+}

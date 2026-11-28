@@ -12,7 +12,7 @@ Regeln stehen in 00-BIBEL.md. Jarvis nimmt das oberste offene Thema; ist der Poo
 - [x] Über deinem Kopf steht, wie viele Minuten du heute schon am Handy warst (zt-08-ueber-deinem-kopf-steht)
 - [x] Du öffnest den Kühlschrank und findest genau 12 Euro, die du letzte Woche verlegt hast. (zt-09-du-oeffnest-den-kuehlsch)
 - [x] Du stehst im Aufzug und plötzlich zeigt das Display an, dass du 5 Minuten früher angekommen bist als geplant. (zt-10-du-stehst-im-aufzug-und)
-- [ ] Du bekommst eine SMS, dass dein Lieblingscafé dir einen kostenlosen Kaffee für die nächsten 7 Tage schenkt.
+- [x] Du bekommst eine SMS, dass dein Lieblingscafé dir einen kostenlosen Kaffee für die nächsten 7 Tage schenkt. (zt-11-du-bekommst-eine-sms-das)
 - [ ] Du gehst spazieren und bemerkst, dass jedes Blatt, das du berührst, eine kleine, positive Erinnerung auslöst.
 - [ ] Du sitzt im Bus und der Fahrer ruft deinen Namen, weil du gerade die gleiche Musik hörst wie er.
 - [ ] Du schaust auf deine To‑Do‑Liste und plötzlich ist jede Aufgabe bereits erledigt.
