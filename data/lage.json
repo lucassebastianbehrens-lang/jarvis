@@ -1,6 +1,6 @@
 {
- "updated": 1795833868,
- "lagebild": "Weltweit dominiert der Kampf um den EU‑Haushalt von bis zu zwei Billionen Euro und die anhaltenden Streitigkeiten über EU‑Finanzmittel die Schlagzeilen. In Deutschland könnte dies die Preise und insbesondere die Spritkosten drücken, weil ein Tanker vor Ibiza mit 7 000 Tonnen Diesel gekentert ist und gleichzeitig die Haushaltsdebatte die Energie‑ und Verbraucherpreise belastet. Die Unsicherheit über die EU‑Finanzpolitik belastet zudem die deutschen Börsen, wie die von Merz angekündigten Kürzungen und das vorzeitige Ende des EU‑Sondergipfels zeigen.",
+ "updated": 1795860941,
+ "lagebild": "Die USA haben neue Zölle angekündigt, die auch die EU und China treffen und damit die Weltmärkte stark belasten. Gleichzeitig kämpft die EU um einen Haushalt von bis zu zwei Billionen Euro, wobei die Kommission weiterhin staatliche Hilfen für Landwirte und Industrie genehmigt. Für Lucas in Deutschland führen die US‑Zölle und die unsichere EU‑Finanzlage voraussichtlich zu höheren Preisen, steigenden Spritkosten und Schwankungen an der Börse.",
  "orte": [
   {
    "land": "Russland",
@@ -51,8 +51,8 @@
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 28,
-   "heiss": 7,
+   "anzahl": 24,
+   "heiss": 8,
    "meldungen": [
     {
      "titel": "Ursachensuche: EU streitet weiter ums Geld",
@@ -141,13 +141,13 @@
    "land": "USA",
    "lat": 39.8,
    "lon": -98.6,
-   "anzahl": 20,
-   "heiss": 4,
+   "anzahl": 21,
+   "heiss": 5,
    "meldungen": [
     {
-     "titel": "Europas größte Satellitenfabrik eröffnet",
-     "text": "Die EU will bis 2030 ein eigenes sicheres Kommunikationsnetz im Weltraum aufbauen. Ziel ist es, unabhängiger von Anbietern wie dem US-Dienst Starlink zu werden. Helfen soll dabei Europas größte Satellitenfabrik - sie wurde nun eröffnet.",
-     "url": "https://www.tagesschau.de/ausland/satellitenfabrik-100.html",
+     "titel": "US-Militär beschießt Frachter im Golf von Oman",
+     "text": "Im Golf von Oman hat das US-Militär nach eigenen Angaben ein Handelsschiff beschossen. Die Besatzung habe versucht, die US-Blockade iranischer Häfen zu durchbrechen. Das Schiff sei manövrierunfähig, die Crew unverletzt.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-usa-frachter-beschuss-golf-oman-100.html",
      "quelle": "tagesschau"
     },
     {
@@ -175,9 +175,99 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "US-Medienberichte: Trump plant wohl neue Zölle - auch gegen die EU",
-     "text": "Die US-Regierung bereitet offenbar neue Zölle gegenüber China, der EU und weiteren Ländern vor. Der Schritt erfolgt, nachdem die Zölle vom Supreme Court als illegal eingestuft wurden.",
-     "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-122.html",
+     "titel": "Europas größte Satellitenfabrik eröffnet",
+     "text": "Die EU will bis 2030 ein eigenes sicheres Kommunikationsnetz im Weltraum aufbauen. Ziel ist es, unabhängiger von Anbietern wie dem US-Dienst Starlink zu werden. Helfen soll dabei Europas größte Satellitenfabrik - sie wurde nun eröffnet.",
+     "url": "https://www.tagesschau.de/ausland/satellitenfabrik-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Iran",
+   "lat": 32.4,
+   "lon": 53.7,
+   "anzahl": 12,
+   "heiss": 6,
+   "meldungen": [
+    {
+     "titel": "Treibstoffkrise in Malawi: Kaum Geld - und dann der Iran-Krieg",
+     "text": "Malawi leidet unter einer extremen Treibstoffkrise. Die fragile Wirtschaft hängt vom Tabakexport ab - zu schwachen Deviseneinnahmen kommt die Lage an der Straße von Hormus hinzu. Die Krise wirkt sich auf alle Lebensbereiche aus. Von C. Hauc",
+     "url": "https://www.tagesschau.de/ausland/afrika/malawi-treibstoffkrise-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "US-Militär beschießt Frachter im Golf von Oman",
+     "text": "Im Golf von Oman hat das US-Militär nach eigenen Angaben ein Handelsschiff beschossen. Die Besatzung habe versucht, die US-Blockade iranischer Häfen zu durchbrechen. Das Schiff sei manövrierunfähig, die Crew unverletzt.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-usa-frachter-beschuss-golf-oman-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "74 Peitschenhiebe für iranische Sängerin lösen Empörung aus",
+     "text": "Ein Onlinekonzert ohne Kopftuch - dafür erhielt die iranische Sängerin Parastu Ahmadi 74 Peitschenhiebe. Das löste international große Empörung aus. Die Strafe sei \"grausam und unmenschlich\" und eine Form der Folter.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-saengerin-peitschenhiebe-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
+     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
+     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
+     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
+     "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
+     "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
+   "land": "Israel",
+   "lat": 31.0,
+   "lon": 34.9,
+   "anzahl": 10,
+   "heiss": 5,
+   "meldungen": [
+    {
+     "titel": "Mitarbeiter von Ärzte ohne Grenzen im Gazastreifen getötet",
+     "text": "Israel wirft der Hamas im Gazastreifen immer wieder vor, sich als humanitäre Helfer auszugeben. Nun hat das Militär bei einem Angriff zwei Wachleute von Ärzte ohne Grenzen getötet. Die Hilfsorganisation zeigt sich empört.",
+     "url": "https://www.tagesschau.de/ausland/asien/gaza-israel-angriff-hamas-aerzte-ohne-grenzen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Westjordanland: Israelische Politiker sprechen von \"jüdischem Terror\"",
+     "text": "Die Gewalt radikaler Siedler gegen Palästinenser im Westjordanland hat massiv zugenommen. In Israel ist der Begriff \"jüdischer Terror\" kein Tabu mehr. Doch in der Regierung tobt ein Richtungsstreit. Von Julio Segador.",
+     "url": "https://www.tagesschau.de/ausland/asien/westjordanland-gewalt-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israel: Staatsanwältin im Netanjahu-Prozess vor Dilemma",
+     "text": "Im Korruptionsprozess gegen Israels Premier Netanjahu haben die Richter empfohlen, den Vorwurf wegen Bestechlichkeit fallen zu lassen. Netanjahus Lager feiert das als Triumph - und die Staatsanwaltschaft steht massiv unter Zugzwang. Von J. ",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-prozess-bestechungsvorwurf-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Bestechungsvorwurf gegen Netanjahu könnte fallen gelassen werden",
+     "text": "Seit Jahren muss sich Israels Premier wegen Betrugs, Untreue und Bestechlichkeit vor Gericht verantworten. Jetzt haben Richter empfohlen, den letzten Anklagepunkt fallen zu lassen. Netanjahu sieht den ganzen Prozess als gescheitert.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-korruptionsvorwuerfe-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israel nach der Wahl: Schwierige Sondierungen zwischen Rivalen",
+     "text": "In Israel bleibt Gadi Eisenkot nicht mehr viel Zeit, eine Regierung zu bilden. Aktuell laufen die Gespräche mit Netanjahus Likud-Partei. Dabei gibt es große Differenzen - und kaum Alternativen. Von J. Segador.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-eisenkot-netanjahu-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
+     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
      "quelle": "tagesschau"
     }
    ]
@@ -186,8 +276,8 @@
    "land": "Belgien/EU",
    "lat": 50.8,
    "lon": 4.4,
-   "anzahl": 16,
-   "heiss": 3,
+   "anzahl": 13,
+   "heiss": 2,
    "meldungen": [
     {
      "titel": "Ursachensuche: EU streitet weiter ums Geld",
@@ -228,57 +318,18 @@
    ]
   },
   {
-   "land": "Iran",
-   "lat": 32.4,
-   "lon": 53.7,
-   "anzahl": 10,
-   "heiss": 5,
+   "land": "Gaza",
+   "lat": 31.4,
+   "lon": 34.4,
+   "anzahl": 7,
+   "heiss": 4,
    "meldungen": [
     {
-     "titel": "74 Peitschenhiebe für iranische Sängerin lösen Empörung aus",
-     "text": "Ein Onlinekonzert ohne Kopftuch - dafür erhielt die iranische Sängerin Parastu Ahmadi 74 Peitschenhiebe. Das löste international große Empörung aus. Die Strafe sei \"grausam und unmenschlich\" und eine Form der Folter.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-saengerin-peitschenhiebe-100.html",
+     "titel": "Mitarbeiter von Ärzte ohne Grenzen im Gazastreifen getötet",
+     "text": "Israel wirft der Hamas im Gazastreifen immer wieder vor, sich als humanitäre Helfer auszugeben. Nun hat das Militär bei einem Angriff zwei Wachleute von Ärzte ohne Grenzen getötet. Die Hilfsorganisation zeigt sich empört.",
+     "url": "https://www.tagesschau.de/ausland/asien/gaza-israel-angriff-hamas-aerzte-ohne-grenzen-100.html",
      "quelle": "tagesschau"
     },
-    {
-     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
-     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Rheinmetall-Arbeiter bei Angriff in Kuwait getötet",
-     "text": "In Kuwait sind bei einem Drohnenangriff zwei Italiener getötet worden, die bei dem deutschen Rüstungskonzern Rheinmetall beschäftigt waren. Italien weist Iran die Verantwortung zu, doch Teheran dementiert den Angriff.",
-     "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Pressefreiheit: Wie ARD-Journalisten aus Iran berichten",
-     "text": "Die Bedingungen für freie Berichterstattung aus Iran sind schlecht. Trotzdem ist es möglich, mit Menschen aus dem Land zu sprechen. Das zeigen auch jüngere Beispiele aus tagesschau und tagesthemen. Ein Gastbeitrag von Natalie Amiri.",
-     "url": "https://www.tagesschau.de/ausland/asien/iran-berichterstattung-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Xi, Trump und Putin: Drei Perspektiven, viele Differenzen",
-     "text": "Es gilt schon vorab als historisch - das erste Dreier-Treffen von Xi, Trump und Putin auf dem APEC-Gipfel in Shenzhen. Doch die Positionen der drei Präsidenten bei den Themen atomare Abrüstung, Iran oder Ukraine klaffen teils auseinander.",
-     "url": "https://www.tagesschau.de/ausland/asien/apec-treffen-xi-putin-trump-themen-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Jemen: Regierungstruppen wollen Aden vor Huthi schützen",
-     "text": "Die von Iran unterstützte Huthi-Miliz rückt im Jemen offenbar auf den Regierungssitz Aden vor. Gleichzeitig ziehen sich regierungstreue Truppen weiter von der für den Welthandel wichtigen Meerenge Bab al-Mandab zurück.",
-     "url": "https://www.tagesschau.de/ausland/asien/jemen-huthi-aden-100.html",
-     "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Israel",
-   "lat": 31.0,
-   "lon": 34.9,
-   "anzahl": 8,
-   "heiss": 3,
-   "meldungen": [
     {
      "titel": "Westjordanland: Israelische Politiker sprechen von \"jüdischem Terror\"",
      "text": "Die Gewalt radikaler Siedler gegen Palästinenser im Westjordanland hat massiv zugenommen. In Israel ist der Begriff \"jüdischer Terror\" kein Tabu mehr. Doch in der Regierung tobt ein Richtungsstreit. Von Julio Segador.",
@@ -286,27 +337,9 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Israel: Staatsanwältin im Netanjahu-Prozess vor Dilemma",
-     "text": "Im Korruptionsprozess gegen Israels Premier Netanjahu haben die Richter empfohlen, den Vorwurf wegen Bestechlichkeit fallen zu lassen. Netanjahus Lager feiert das als Triumph - und die Staatsanwaltschaft steht massiv unter Zugzwang. Von J. ",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-prozess-bestechungsvorwurf-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Bestechungsvorwurf gegen Netanjahu könnte fallen gelassen werden",
-     "text": "Seit Jahren muss sich Israels Premier wegen Betrugs, Untreue und Bestechlichkeit vor Gericht verantworten. Jetzt haben Richter empfohlen, den letzten Anklagepunkt fallen zu lassen. Netanjahu sieht den ganzen Prozess als gescheitert.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-korruptionsvorwuerfe-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Israel nach der Wahl: Schwierige Sondierungen zwischen Rivalen",
-     "text": "In Israel bleibt Gadi Eisenkot nicht mehr viel Zeit, eine Regierung zu bilden. Aktuell laufen die Gespräche mit Netanjahus Likud-Partei. Dabei gibt es große Differenzen - und kaum Alternativen. Von J. Segador.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-eisenkot-netanjahu-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Israel: Warum die Stadt Bat Yam Iran verklagt",
-     "text": "Mehr als ein Jahr nach dem verheerenden Raketenangriff auf ein Wohnviertel im israelischen Bat Yam sind viele Familien nicht in ihre Wohnungen zurückgekehrt. Nun hat die Stadt Klage gegen Iran eingereicht. Von Bettina Meier.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-bat-jam-raketenangriff-klage-iran-reportage-100.html",
+     "titel": "Kriegsfolgen im Gazastreifen: Verschmutztes Wasser, Asbest in den Trümmern",
+     "text": "Auf den Straßen sammelt sich der Müll, in den zerstörten Gebäuden steckt Asbest: Im Gazastreifen leidet die Bevölkerung. Die Folgen des Krieges könnten noch Jahrzehnte spürbar sein, so die Hilfsorganisation Oxfam. Von Julio Segador.",
+     "url": "https://www.tagesschau.de/ausland/asien/israel-gazastreifen-162.html",
      "quelle": "tagesschau"
     },
     {
@@ -314,6 +347,18 @@
      "text": "Die israelische Armee hat eigenen Angaben zufolge eine Bodenoffensive mit Panzern im Zentrum des Gazastreifens begonnen. Das Land kontrolliert inzwischen rund 60 bis 70 Prozent des Gazastreifens militärisch.",
      "url": "https://www.tagesschau.de/ausland/asien/israel-gaza-bodenoffensive-104.html",
      "quelle": "tagesschau"
+    },
+    {
+     "titel": "News kompakt: Tödlicher Angriff auf Gaza-Helfer",
+     "text": "Zwei Männer wurden bei einem israelischen Luftangriff auf eine Klinik im Gazastreifen getötet. Deutschlands Umweltminister plädiert für Umbau des Rheins. Der DW-Nachrichtenüberblick.",
+     "url": "https://www.dw.com/de/news-kompakt-tödlicher-angriff-auf-gaza-helfer/a-80083580?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    },
+    {
+     "titel": "Gaza: Humanitäre Lage verschärft sich, politische Lösung bleibt aus",
+     "text": "Heftige Regenfälle haben in Gaza Tausende Zelte überflutet, mehrere Menschen starben. Kann Trumps Friedensgremium mit Druck auf Israel und die Hamas die humanitäre Not lindern?",
+     "url": "https://www.dw.com/de/gaza-humanitäre-lage-verschärft-sich-politische-lösung-bleibt-aus/a-79946973?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
     }
    ]
   },
@@ -321,8 +366,8 @@
    "land": "Spanien",
    "lat": 40.4,
    "lon": -3.7,
-   "anzahl": 6,
-   "heiss": 3,
+   "anzahl": 5,
+   "heiss": 2,
    "meldungen": [
     {
      "titel": "Parlamentswahl: Wie Spaniens Volkspartei die Ära Sánchez abwickeln will",
@@ -343,12 +388,6 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Spanien vor der Parlamentswahlen: Sánchez gegen Feijóo",
-     "text": "Spanien vor der Parlamentswahlen: Sánchez gegen Feijóo",
-     "url": "https://www.tagesschau.de/tagesthemen/video-1691336.html",
-     "quelle": "tagesschau"
-    },
-    {
      "titel": "11KM-Podcast: Kommt es bei der Wahl in Spanien zum Rechtsruck?",
      "text": "Umfragen sehen bei der Parlamentswahl in Spanien ein Bündnis aus Konservativen und Rechtspopulisten vorn. Der Podcast 11KM fragt: Was bedeutet die Wahl für Ministerpräsident Sánchez? Und steht Spanien vor einem Rechtsruck?",
      "url": "https://www.tagesschau.de/multimedia/podcast/11km/podcast-11km-wahl-spanien-100.html",
@@ -358,45 +397,6 @@
      "titel": "Tanker vor Ibiza gekentert: Ein Besatzungsmitglied tot",
      "text": "Mit 8,2 Millionen Litern Dieseltreibstoff in den Tanks geriet die \"Med Emre\" vor der spanischen Insel Ibiza in Seenot. Dann kenterte das Schiff. Wird es sinken?",
      "url": "https://www.dw.com/de/tanker-vor-ibiza-gekentert-ein-besatzungsmitglied-tot/a-80062333?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Gaza",
-   "lat": 31.4,
-   "lon": 34.4,
-   "anzahl": 5,
-   "heiss": 2,
-   "meldungen": [
-    {
-     "titel": "Westjordanland: Israelische Politiker sprechen von \"jüdischem Terror\"",
-     "text": "Die Gewalt radikaler Siedler gegen Palästinenser im Westjordanland hat massiv zugenommen. In Israel ist der Begriff \"jüdischer Terror\" kein Tabu mehr. Doch in der Regierung tobt ein Richtungsstreit. Von Julio Segador.",
-     "url": "https://www.tagesschau.de/ausland/asien/westjordanland-gewalt-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Kriegsfolgen im Gazastreifen: Verschmutztes Wasser, Asbest in den Trümmern",
-     "text": "Auf den Straßen sammelt sich der Müll, in den zerstörten Gebäuden steckt Asbest: Im Gazastreifen leidet die Bevölkerung. Die Folgen des Krieges könnten noch Jahrzehnte spürbar sein, so die Hilfsorganisation Oxfam. Von Julio Segador.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-gazastreifen-162.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Israels Armee startet Einsatz in von Hamas kontrolliertem Gebiet",
-     "text": "Die israelische Armee hat eigenen Angaben zufolge eine Bodenoffensive mit Panzern im Zentrum des Gazastreifens begonnen. Das Land kontrolliert inzwischen rund 60 bis 70 Prozent des Gazastreifens militärisch.",
-     "url": "https://www.tagesschau.de/ausland/asien/israel-gaza-bodenoffensive-104.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Gaza: Humanitäre Lage verschärft sich, politische Lösung bleibt aus",
-     "text": "Heftige Regenfälle haben in Gaza Tausende Zelte überflutet, mehrere Menschen starben. Kann Trumps Friedensgremium mit Druck auf Israel und die Hamas die humanitäre Not lindern?",
-     "url": "https://www.dw.com/de/gaza-humanitäre-lage-verschärft-sich-politische-lösung-bleibt-aus/a-79946973?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    },
-    {
-     "titel": "Karateka Mariam Bsharat, 17, gewinnt zweimal U21-WM-Gold für Palästina - trotz Reisebeschränkungen, finanzieller Not und Olympia-Ausschluss",
-     "text": "Mariam Bsharat ist 17 Jahre alt, wuchs im besetzten Westjordanland auf - und lebt wegen des Nahost-Konflikts heute in Hamburg. In Polen holt sie ihr zweites WM-Gold für Palästina. Olympia ist ihr großer Traum.",
-     "url": "https://www.dw.com/de/karateka-mariam-bsharat-17-gewinnt-zweimal-u21-wm-gold-für-palästina-trotz-reisebeschränkungen-finanzieller-not-und-olympia-ausschluss/a-79874096?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -555,6 +555,39 @@
    ]
   },
   {
+   "land": "Japan",
+   "lat": 36.2,
+   "lon": 138.3,
+   "anzahl": 4,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
+     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
+     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
+     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
+     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Paarlauf-Duo Hase/Volodin siegt auch in Japan",
+     "text": "Die Eiskunstlauf-Weltmeister Minerva Hase und Nikita Volodin haben ihre Erfolgsserie mit einem souveränen Sieg beim Grand Prix in Japan verlängert. Die beiden setzten sich gegen die Paare aus Japan und Armenien durch.",
+     "url": "https://www.sportschau.de/wintersport/eiskunstlauf/hase-volodin-auch-in-japan-nicht-zu-schlagen,hase-volodin-tokio-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
+     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
+     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Ägypten",
    "lat": 26.8,
    "lon": 30.8,
@@ -598,33 +631,6 @@
      "titel": "Karateka Mariam Bsharat, 17, gewinnt zweimal U21-WM-Gold für Palästina - trotz Reisebeschränkungen, finanzieller Not und Olympia-Ausschluss",
      "text": "Mariam Bsharat ist 17 Jahre alt, wuchs im besetzten Westjordanland auf - und lebt wegen des Nahost-Konflikts heute in Hamburg. In Polen holt sie ihr zweites WM-Gold für Palästina. Olympia ist ihr großer Traum.",
      "url": "https://www.dw.com/de/karateka-mariam-bsharat-17-gewinnt-zweimal-u21-wm-gold-für-palästina-trotz-reisebeschränkungen-finanzieller-not-und-olympia-ausschluss/a-79874096?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Japan",
-   "lat": 36.2,
-   "lon": 138.3,
-   "anzahl": 3,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Südkorea meldet russische Militärflugzeuge vor seiner Küste",
-     "text": "Mehrere russische Militärflugzeuge sind südkoreanischen Sicherheitsbehörden zufolge am Dienstagmorgen in Südkoreas Luftverteidigungszone eingedrungen. Erst kürzlich meldeten Taiwan und Japan ähnliche Vorfälle.",
-     "url": "https://www.tagesschau.de/ausland/asien/suedkorea-russland-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Protest Tokios in Moskau - Mutmaßlich russische Jets im japanischen Luftraum",
-     "text": "Japan hat das Eindringen zweier mutmaßlich russischer Flugzeuge in den Luftraum des Landes gemeldet. Das Militär ließ Abfangjäger aufsteigen. Auch Südkorea und Taiwan meldeten Zwischenfälle mit russischen Jets.",
-     "url": "https://www.tagesschau.de/ausland/asien/japan-russland-luftraumverletzung-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
-     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
-     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -729,27 +735,6 @@
    ]
   },
   {
-   "land": "Afghanistan",
-   "lat": 33.9,
-   "lon": 67.7,
-   "anzahl": 2,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Polizistin in Kabul: Verhüllt im Dienst für das Taliban-Regime",
-     "text": "In Afghanistan haben Frauen kaum noch Rechte. In der Öffentlichkeit muss ihr Gesicht verhüllt sein, Bildung ist kaum möglich. Dennoch arbeiten einige Frauen bei der Polizei und sind so Teil des Systems der Taliban. Von F. Amler.",
-     "url": "https://www.tagesschau.de/ausland/asien/taliban-polizistin-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
-     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
-     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
    "land": "Indien",
    "lat": 21.0,
    "lon": 78.0,
@@ -771,6 +756,21 @@
    ]
   },
   {
+   "land": "Schweiz",
+   "lat": 46.8,
+   "lon": 8.2,
+   "anzahl": 1,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Volksabstimmung: Darf die Schweiz bald einfacher Waffen verkaufen?",
+     "text": "Das Schweizer Recht erlaubt den Export von Rüstungsgütern nur unter engen Vorgaben. Das schwäche die Sicherheit des Landes, meint die Regierung. Sie will das ändern - und lässt die Schweizer am Sonntag darüber abstimmen. Von S. Biegger.",
+     "url": "https://www.tagesschau.de/ausland/europa/schweiz-abstimmung-kriegsmaterialgesetz-100.html",
+     "quelle": "tagesschau"
+    }
+   ]
+  },
+  {
    "land": "Türkei",
    "lat": 39.0,
    "lon": 35.2,
@@ -788,18 +788,8 @@
  ],
  "ohne_land": [
   {
-   "titel": "Schiffsunglück vor Ibiza: Gefahr für Umwelt gering",
-   "url": "https://www.tagesschau.de/ausland/europa/tankerunglueck-ibiza-vorsichtige-entwarnung-100.html",
-   "quelle": "tagesschau"
-  },
-  {
    "titel": "Serbiens Studenten nominieren Professor als Staatsoberhaupt",
    "url": "https://www.tagesschau.de/ausland/europa/serbien-praesidentschaftswahl-professor-100.html",
-   "quelle": "tagesschau"
-  },
-  {
-   "titel": "UN sieht fünf \"Hunger-Hotspots\": Ernährungskrisen verschärfen sich",
-   "url": "https://www.tagesschau.de/ausland/afrika/vereinte-nationen-hunger-hotspots-100.html",
    "quelle": "tagesschau"
   },
   {
@@ -818,22 +808,32 @@
    "quelle": "tagesschau"
   },
   {
-   "titel": "Haiti: El Salvadors Präsident Bukele wegen Militäreinsatz gefeiert",
-   "url": "https://www.tagesschau.de/ausland/amerika/el-salvador-haiti-100.html",
+   "titel": "Internationaler Gerichtshof: Vorgehen Myanmars gegen Rohingya war Völkermord",
+   "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html",
    "quelle": "tagesschau"
   },
   {
-   "titel": "Internationaler Gerichtshof: Vorgehen Myanmars gegen Rohingya war Völkermord",
-   "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html",
+   "titel": "\"Keine Klimagerechtigkeit ohne Entmilitarisierung\"",
+   "url": "https://www.tagesschau.de/ausland/asien/cop31-krieg-emissionen-100.html",
+   "quelle": "tagesschau"
+  },
+  {
+   "titel": "Neuseeland: Konservative verlieren Mehrheit - Labour hat auch keine",
+   "url": "https://www.tagesschau.de/ausland/ozeanien/neuseeland-parlamentswahl-106.html",
+   "quelle": "tagesschau"
+  },
+  {
+   "titel": "Jugendlicher überlebt sechs Tage im australischen Outback",
+   "url": "https://www.tagesschau.de/ausland/australien-teenager-wildnis-100.html",
    "quelle": "tagesschau"
   }
  ],
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54800,
+   "wert": 54261,
    "einheit": "€",
-   "pct": -2.1,
+   "pct": -3.49,
    "verlauf": [
     54815,
     55754,
@@ -842,20 +842,20 @@
     55034,
     55161,
     54705,
-    54800
+    54264
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1519.56,
+   "wert": 1507.83,
    "einheit": "€",
-   "pct": -3.35
+   "pct": -4.32
   },
   {
    "name": "Solana",
-   "wert": 65.47,
+   "wert": 64.85,
    "einheit": "€",
-   "pct": -0.86
+   "pct": -3.19
   },
   {
    "name": "EUR/CHF",
