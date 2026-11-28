@@ -1,14 +1,71 @@
 {
  "v2": 1,
- "updated": 1795772815,
+ "updated": 1795856363,
  "fazit": "",
- "web": "**Viral AI‑Tools on TikTok (last 7 days)**  \n\n| # | Tool | 1‑sentence description | Link |\n|---|------|------------------------|------|\n| 1 | **Viggle** – AI‑driven video‑generator that turns a photo or short clip into a ready‑to‑post TikTok clip. | Users upload a picture, type a prompt (e.g., “dance”) and Viggle animates the subject, a trend that hit #Viggle and #ViggleAI on TikTok. | https://newrank.cn/article/detail/27539【8†L58-L59】 |\n| 2 | **Pika Art AI** – surreal image‑manipulation app that lets creators “crush, squish, inflate, cake” their photos. | The app’s viral effect chain is a hit on TikTok, with creators posting before‑and‑after shots that go viral. | https://www.the-sun.com/tech/12669278/pika-art-ai-app-viral-tiktok-crush-squish-cake-photo/【3†L15-L20】 |\n| 3 | **Argil** – deep‑fake AI TikTok video generator that clones users’ faces onto new scenes. | Argil lets creators produce high‑quality 9:16 videos from a script and a clone, sparking a new trend of “no‑camera” content. | https://www.argil.ai/blog/argil-the-first-deepfake-ai-tiktok-video-generator-platform【1†L1-L4】 |\n| 4 | **Symphony Digital Avatars** (TikTok Symphony) – AI‑powered avatar creation and dubbing suite. | Brands and creators can build custom avatars and auto‑dub videos into 10+ languages, fueling a wave of AI‑enhanced brand content. | https://newsroom.tiktok.com/en-us/announcing-symphony-avatars/【10†L10-L13】 |\n\n**Free AI tools, skills & MCP‑servers (last 7 days)**  \n\n| # | Tool/Server | 1‑sentence description | Link |\n|---|-------------|------------------------|------|\n| 5 | **Hiya Deepfake Voice Detector** – Chrome extension that detects voice cloning in audio/video. | It scans a second of audio/video and flags whether the voice is real or AI‑generated, free for everyone. | https://hiya.com/products/deepfake-voice-detector【5†L12-L15】 |\n| 6 | **OpenAI Playground Prompt‑Writing Feature** – hidden tool that auto‑generates prompts for other prompts. | The free feature streamlines prompt engineering, letting users produce multi‑platform content with a single input. | https://www.geeky-gadgets.com/secret-playground-prompt-writing-feature/【12†L6-L13】 |\n| 7 | **Mochi‑1 (Genmo)** – open‑source text‑to‑video model released under Apache‑2.0. | Mochi‑1 offers 480 p video generation with strong motion and prompt‑adherence, usable for free on Genmo’s site. | https://www.tomsguide.com/ai/meet-mochi-1-the-latest-free-and-open-source-ai-video-model【13†L9-L14】 |\n| 8 | **Playwright MCP Server** – a free Model‑Context‑Protocol server that lets agents automate a real Chrome browser. | It runs locally with no sign‑in and is the go‑to MCP server for browser‑automation tasks. | https://mcp.so/collections/free-mcp-servers【7†L4-L8】 |\n\n*All information is current as of 27 Nov 2024.*",
+ "web": "**1. Cantina – AI‑Charakter‑App von Sean Parker** – ermöglicht das Erstellen von Kurz‑Videos, indem man einfach einen Charakter auswählt, einen Prompt eingibt und das Ergebnis in Sekunden erhält【8†L9-L13】【8†L65-L68】  \n\n**2. Luma AI Dream Machine** – verwandelt ein einzelnes Bild per Texteingabe in ein kurzer KI‑animierter Clip; seit ihrer Veröffentlichung vor wenigen Tagen explodiert die Nutzung auf TikTok【1†L45-L48】  \n\n**3. Sora 2 (OpenAI)** – das führende KI‑Video‑Modell für „impossible‑footage“‑Clips (z. B. ein Giraffen‑Auftritt im Times Square) und dominiert die cineastischen Hero‑Formate auf TikTok【21†L39-L44】  \n\n**4. Runway Gen‑4** – liefert konsistente Charaktere über mehrere Shots hinweg und wird für Produkt‑ und Marken‑Storytelling auf TikTok stark eingesetzt【21†L50-L56】  \n\n**5. Kling 2 (Kuaishou)** – erzeugt ultra‑natürliche menschliche Bewegungen; momentan die am häufigsten genutzte KI für realistische Personen‑Clips auf TikTok【21†L59-L65】  \n\n**6. Stable Video 3 (Stability AI)** – Open‑Weight‑Modell für stilisierte Animations‑Loops (Ghibli‑Stil, Wasser‑ und Atem‑Effekte) und treibt die „aesthetic‑loop“‑Trends auf TikTok an【21†L67-L72】  \n\n**7. AI:GO 2.0 (Lablup)** – kostenlose lokale Desktop‑App, die Sprach‑, Bild‑ und Text‑Modelle ohne Cloud ausführt; enthält den „Cowork“-Agenten, der direkt Dateien bearbeiten kann【24†L10-L14】【24†L33-L34】  \n\n**8. KeepPlain** – kostenloser MCP‑Server (veröffentlicht 22 Nov 2026) für Coding‑Agents, speichert Sitzungsverläufe und bietet Git‑Blame‑ähnliche Rückverfolgung von Code‑Änderungen【25†L53-L56】【25†L73-L76】",
  "neu": [
-  "1ded0b2fad",
-  "c421aa7d49",
-  "f3cf7034fc"
+  "5e3bddecf3",
+  "1ab6857604",
+  "f9c3da1cec",
+  "63a3a7a6fb",
+  "4a34fa517d"
  ],
  "items": [
+  {
+   "titel": "nexu-io/opengame",
+   "url": "https://github.com/nexu-io/opengame",
+   "quelle": "GitHub",
+   "was": "The Super Game Agent — the Unity & Unreal for AI agents, with 100+ viral games to remix. Turn 20+ coding agents (Claude Code, Codex, DeepSeek, etc.) into a full-stack AI game studio. Build and publish",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "5e3bddecf3",
+   "t": 1795856363
+  },
+  {
+   "titel": "alesha-pro/llm.asm",
+   "url": "https://github.com/alesha-pro/llm.asm",
+   "quelle": "GitHub",
+   "was": "Qwen3-0.6B inference (12 KB), bare-metal bootable OS (22 KB), and from-scratch Mini-GPT trainer with live Braille TUI (32 KB) in 100% pure x86-64 NASM assembly. Zero C, zero libc, zero dependencies.",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "1ab6857604",
+   "t": 1795856363
+  },
+  {
+   "titel": "qianyiai/KuroCat",
+   "url": "https://github.com/qianyiai/KuroCat",
+   "quelle": "GitHub",
+   "was": "KuroCat — Free open-source 3D/2D desktop typing cat & AI companion (Bongo Cat alternative · MCP · Win/Mac/Linux/Android) 开源3D桌面打字小黑猫",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "f9c3da1cec",
+   "t": 1795856363
+  },
+  {
+   "titel": "Indigo-0167/universal-game-mod-manager",
+   "url": "https://github.com/Indigo-0167/universal-game-mod-manager",
+   "quelle": "GitHub",
+   "was": "Free Windows game mod manager to discover, install, update and manage universal Unity and Unreal Engine mods.",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "63a3a7a6fb",
+   "t": 1795856363
+  },
+  {
+   "titel": "Basil0879/steam-game-idler",
+   "url": "https://github.com/Basil0879/steam-game-idler",
+   "quelle": "GitHub",
+   "was": "Free Steam idler for trading card farming, achievement management, playtime boosting and multi-account automation on Windows.",
+   "nutzen": "",
+   "vorschlag": "",
+   "punkte": null,
+   "id": "4a34fa517d",
+   "t": 1795856363
+  },
   {
    "titel": "fewchat",
    "url": "https://github.com/jasonc00person/fewchat",
