@@ -1,13 +1,13 @@
 {
- "updated": 1795807816,
- "lagebild": "Weltweit stehen das umstrittene EU‑Haushaltspaket von bis zu zwei Billionen Euro und die von den USA angekündigten neuen Zölle gegen die EU im Mittelpunkt. In Deutschland wirken diese Finanz‑ und Handelsdebatten direkt auf die Preisentwicklung für Sprit und Lebensmittel. Dadurch entstehen für Lucas spürbare Auswirkungen an den Börsenkursen und auf die allgemeine Wirtschaftslage.",
+ "updated": 1795830885,
+ "lagebild": "Die UN warnt vor fünf globalen „Hunger‑Hotspots“ und einer sich verschärfenden Ernährungskrise. Gleichzeitig streiten die EU‑Staaten um den zweitrillionen‑Euro‑Haushalt und weitere Kürzungen, was die allgemeinen Preise beeinflusst. Für Lucas in Deutschland bedeuten das Schiffsunglück vor Ibiza mit 7 000 t Diesel, mögliche Spritpreisanstiege und ein volatiles Börsenumfeld.",
  "orte": [
   {
    "land": "Russland",
    "lat": 61.5,
    "lon": 90.0,
-   "anzahl": 22,
-   "heiss": 14,
+   "anzahl": 21,
+   "heiss": 13,
    "meldungen": [
     {
      "titel": "EU-Geld für die Ukraine - wie gegen Korruption vorgegangen wird",
@@ -51,7 +51,7 @@
    "land": "Deutschland",
    "lat": 51.2,
    "lon": 10.4,
-   "anzahl": 29,
+   "anzahl": 28,
    "heiss": 7,
    "meldungen": [
     {
@@ -96,8 +96,8 @@
    "land": "Ukraine",
    "lat": 49.0,
    "lon": 31.3,
-   "anzahl": 17,
-   "heiss": 12,
+   "anzahl": 16,
+   "heiss": 11,
    "meldungen": [
     {
      "titel": "Merz fordert weitere Kürzungen der EU-Finanzen",
@@ -343,9 +343,9 @@
      "quelle": "tagesschau"
     },
     {
-     "titel": "Wahlkampf um neues Parlament in Spanien geht in den Endspurt",
-     "text": "Wahlkampf um neues Parlament in Spanien geht in den Endspurt",
-     "url": "https://www.tagesschau.de/video/video-1691092.html",
+     "titel": "Spanien vor der Parlamentswahlen: Sánchez gegen Feijóo",
+     "text": "Spanien vor der Parlamentswahlen: Sánchez gegen Feijóo",
+     "url": "https://www.tagesschau.de/tagesthemen/video-1691336.html",
      "quelle": "tagesschau"
     },
     {
@@ -501,6 +501,39 @@
    ]
   },
   {
+   "land": "Frankreich",
+   "lat": 46.2,
+   "lon": 2.2,
+   "anzahl": 4,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Durchsuchung bei Le Pens früherem Bürochef",
+     "text": "Er soll vertrauliche Informationen aus dem Innenministerium erhalten haben: In Frankreich sind die Parteizentrale des Rassemblement National und die Wohnung des früheren Bürochefs von Präsidentschaftskandidatin Le Pen durchsucht worden.",
+     "url": "https://www.tagesschau.de/ausland/europa/frankreich-durchsuchung-ex-mitarbeiter-le-pen-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Ursachensuche: EU streitet weiter ums Geld",
+     "text": "Druck aus Frankreich, Widerstand aus Deutschland und der Gastgeber mit einer ungewöhnlichen Verhandlungsstrategie. Es gibt mehrere Gründe, warum der EU-Sondergipfel zum Haushalt gescheitert ist. Von Sabrina Fritz.",
+     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-gipfel-analyse-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Kommentar: Hernández de Cos - ein EZB-Chef im Sinne Frankreichs",
+     "text": "Der neue EZB-Rat steht fest - eingefädelt durch Emmanuel Macron. Der künftige EZB-Präsident Pablo Hernández de Cos steht eher für eine lockere Geldpolitik. In Zeiten hoher Inflation sind Konflikte programmiert. Von Klaus-Rainer Jackisch.",
+     "url": "https://www.tagesschau.de/wirtschaft/finanzen/neuer-ezb-chef-de-cos-geldpolitik-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
+     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
+     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Italien",
    "lat": 42.8,
    "lon": 12.6,
@@ -539,33 +572,6 @@
      "text": "Journalisten in Ägypten sind enormem Druck ausgesetzt - teilweise werden ganze Redaktionen verhaftet. Mutige Journalisten versuchen dennoch weiterzumachen. Sie hoffen auf Solidarität aus dem Ausland. Von M. Behrendt.",
      "url": "https://www.tagesschau.de/ausland/afrika/pressefreiheit-aegypten-100.html",
      "quelle": "tagesschau"
-    }
-   ]
-  },
-  {
-   "land": "Frankreich",
-   "lat": 46.2,
-   "lon": 2.2,
-   "anzahl": 3,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Ursachensuche: EU streitet weiter ums Geld",
-     "text": "Druck aus Frankreich, Widerstand aus Deutschland und der Gastgeber mit einer ungewöhnlichen Verhandlungsstrategie. Es gibt mehrere Gründe, warum der EU-Sondergipfel zum Haushalt gescheitert ist. Von Sabrina Fritz.",
-     "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-gipfel-analyse-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Kommentar: Hernández de Cos - ein EZB-Chef im Sinne Frankreichs",
-     "text": "Der neue EZB-Rat steht fest - eingefädelt durch Emmanuel Macron. Der künftige EZB-Präsident Pablo Hernández de Cos steht eher für eine lockere Geldpolitik. In Zeiten hoher Inflation sind Konflikte programmiert. Von Klaus-Rainer Jackisch.",
-     "url": "https://www.tagesschau.de/wirtschaft/finanzen/neuer-ezb-chef-de-cos-geldpolitik-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Infantino, Diallo, Tashima: Wer führt die FIFA ab 2027?",
-     "text": "Gianni Infantino gilt als Favorit für die FIFA-Präsidentschaft 2027 - doch Frankreichs Verbandschef Philippe Diallo und der Japaner Kozo Tashima fordern ihn heraus. Wofür stehen die Kandidaten und wie sind ihre Chancen?",
-     "url": "https://www.dw.com/de/infantino-diallo-tashima-wer-führt-die-fifa-ab-2027/a-79991151?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
     }
    ]
   },
@@ -634,27 +640,6 @@
      "titel": "Saudi-Arabien verschärft Vorgehen gegen Regimekritiker",
      "text": "Die Menschenrechtslage in Saudi-Arabien bleibt düster. Allein 2026 fanden bisher 211 Hinrichtungen statt. Nutzt Saudi-Arabien den Iran-Krieg, um politischen Dissens zu unterdrücken?",
      "url": "https://www.dw.com/de/saudi-arabien-verschärft-vorgehen-gegen-regimekritiker/a-80006017?maca=de-rss-de-all-1119-rdf",
-     "quelle": "DW"
-    }
-   ]
-  },
-  {
-   "land": "Afghanistan",
-   "lat": 33.9,
-   "lon": 67.7,
-   "anzahl": 2,
-   "heiss": 0,
-   "meldungen": [
-    {
-     "titel": "Polizistin in Kabul: Verhüllt im Dienst für das Taliban-Regime",
-     "text": "In Afghanistan haben Frauen kaum noch Rechte. In der Öffentlichkeit muss ihr Gesicht verhüllt sein, Bildung ist kaum möglich. Dennoch arbeiten einige Frauen bei der Polizei und sind so Teil des Systems der Taliban. Von F. Amler.",
-     "url": "https://www.tagesschau.de/ausland/asien/taliban-polizistin-100.html",
-     "quelle": "tagesschau"
-    },
-    {
-     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
-     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
-     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
      "quelle": "DW"
     }
    ]
@@ -744,6 +729,27 @@
    ]
   },
   {
+   "land": "Afghanistan",
+   "lat": 33.9,
+   "lon": 67.7,
+   "anzahl": 2,
+   "heiss": 0,
+   "meldungen": [
+    {
+     "titel": "Polizistin in Kabul: Verhüllt im Dienst für das Taliban-Regime",
+     "text": "In Afghanistan haben Frauen kaum noch Rechte. In der Öffentlichkeit muss ihr Gesicht verhüllt sein, Bildung ist kaum möglich. Dennoch arbeiten einige Frauen bei der Polizei und sind so Teil des Systems der Taliban. Von F. Amler.",
+     "url": "https://www.tagesschau.de/ausland/asien/taliban-polizistin-100.html",
+     "quelle": "tagesschau"
+    },
+    {
+     "titel": "Afghanistans Frauen: Ohne Ärztin, ohne Behandlung?",
+     "text": "Millionen Frauen in Afghanistan, insbesondere Schwangere, leiden unter den Einschränkungen der Taliban und verlieren zunehmend den Zugang zu lebenswichtiger medizinischer Versorgung.",
+     "url": "https://www.dw.com/de/afghanistans-frauen-ohne-ärztin-ohne-behandlung/a-80043524?maca=de-rss-de-all-1119-rdf",
+     "quelle": "DW"
+    }
+   ]
+  },
+  {
    "land": "Indien",
    "lat": 21.0,
    "lon": 78.0,
@@ -825,31 +831,31 @@
  "maerkte": [
   {
    "name": "Bitcoin",
-   "wert": 54812,
+   "wert": 54968,
    "einheit": "€",
-   "pct": -0.71,
+   "pct": -0.49,
    "verlauf": [
-    53604,
     54815,
     55754,
     56132,
     54515,
     55034,
     55161,
-    54626
+    54705,
+    54968
    ]
   },
   {
    "name": "Ethereum",
-   "wert": 1528.97,
+   "wert": 1525.11,
    "einheit": "€",
-   "pct": -1.44
+   "pct": -1.46
   },
   {
    "name": "Solana",
-   "wert": 66.04,
+   "wert": 65.95,
    "einheit": "€",
-   "pct": 1.54
+   "pct": 1.36
   },
   {
    "name": "EUR/CHF",
