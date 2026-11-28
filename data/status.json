@@ -1,66 +1,66 @@
 {
- "updated": 1795805547,
+ "updated": 1795830868,
  "ok": false,
  "checks": [
   {
    "name": "Automaton Ava",
    "ok": false,
-   "info": "letzter Lauf vor 10 h (erwartet alle 5 h) → selbst gestartet"
+   "info": "letzter Lauf vor 6 h (erwartet alle 5 h) → selbst gestartet"
   },
   {
    "name": "Trader Toni",
    "ok": false,
-   "info": "letzter Lauf vor 6 h (erwartet alle 2 h) → selbst gestartet"
+   "info": "letzter Lauf vor 4 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Meme-Makler Max",
    "ok": false,
-   "info": "letzter Lauf vor 8 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 6 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Forscherin Frieda",
    "ok": true,
-   "info": "ok · vor 9 h"
+   "info": "ok · vor 16 h"
   },
   {
    "name": "Agentin Ada",
    "ok": false,
-   "info": "letzter Lauf vor 10 h (erwartet alle 3 h) → selbst gestartet"
+   "info": "letzter Lauf vor 6 h (erwartet alle 3 h) → selbst gestartet"
   },
   {
    "name": "Butler Bruno",
    "ok": true,
-   "info": "ok · vor 4 h"
+   "info": "ok · vor 11 h"
   },
   {
    "name": "Scout Sam",
    "ok": true,
-   "info": "ok · vor 4 h"
+   "info": "ok · vor 2 h"
   },
   {
    "name": "Postbote Paul",
    "ok": false,
-   "info": "letzter Lauf vor 7 h (erwartet alle 2 h) → selbst gestartet"
+   "info": "letzter Lauf vor 6 h (erwartet alle 2 h) → selbst gestartet"
   },
   {
    "name": "Regisseurin Rita",
    "ok": true,
-   "info": "ok · vor 1 h"
+   "info": "ok · vor 25 Min"
   },
   {
    "name": "Baumeister Bob",
    "ok": true,
-   "info": "ok · vor 20 h"
+   "info": "ok · vor 5 h"
   },
   {
    "name": "Prüferin Paula",
    "ok": true,
-   "info": "ok · vor 20 h"
+   "info": "ok · vor 5 h"
   },
   {
    "name": "Spielgeld-Daten",
    "ok": false,
-   "info": "zuletzt vor 367 Min aktualisiert"
+   "info": "zuletzt vor 253 Min aktualisiert"
   },
   {
    "name": "Jarvis-App online",
@@ -70,7 +70,7 @@
   {
    "name": "KI-Motor (Groq)",
    "ok": true,
-   "info": "antwortet in 0.5 s"
+   "info": "antwortet in 0.3 s"
   }
  ],
  "repariert": [
@@ -133,6 +133,11 @@
   },
   {
    "t": 1795805547,
+   "ok": 8,
+   "n": 14
+  },
+  {
+   "t": 1795830868,
    "ok": 8,
    "n": 14
   }
