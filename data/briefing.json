@@ -1,32 +1,38 @@
 {
- "t": 1795791386,
- "datum": "Freitag, 27.11.2026",
- "fazit": "Letzte Nacht erledigten 12 Bots 42 Aufträge (2 fehlerhaft), Krypto‑Bot liegt bei 1.000 €, Memecoin‑Bot bei 842,82 € (‑11,09 €), 2 neue Aufträge und 3 Tools wurden entdeckt, 6 Wächter‑Probleme gemeldet und Ava, Toni, Max, Ada sowie Paul wurden selbst repariert. Wichtig heute: den neuen Auftrag „Myntra Jewelry Catalog Listing Specialist“ sofort angehen.",
+ "t": 1795874757,
+ "datum": "Samstag, 28.11.2026",
+ "fazit": "12 Bots erledigten 46 Aufträge (3 mit Fehler), Krypto‑Bot bleibt bei 1.000 €, Memecoin‑Bot leicht plus, ein neuer Auftrag gefunden, 5 neue Tools entdeckt, 6 Wächter‑Probleme, Ava hat selbst gestartet und 5 Agenten wurden repariert.  \nWichtig heute: den neuen Auftrag „Bewerbung und Lebenslauf überarbeiten lassen“ angehen.",
  "zeilen": [
-  "🤖 12 Bots haben 42 Aufträge erledigt, 2 mit Fehler.",
+  "🤖 12 Bots haben 46 Aufträge erledigt, 3 mit Fehler.",
   "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
-  "📈 Memecoin-Bot: 842,82 € (-11,09 € in 24 h), 3 Trades – Spielgeld",
-  "🔭 2 neue Aufträge gefunden, z. B. „Myntra Jewelry Catalog Listing Specialist“.",
-  "📚 3 neue Tools/Trends entdeckt – Top: fewchat.",
-  "🛡️ Wächter: 6 Problem(e) – Automaton Ava: letzter Lauf vor 9 h (erwartet alle 5 h) → selbst gestartet",
+  "📈 Memecoin-Bot: 846,59 € (+3,77 € in 24 h), 1 Trades – Spielgeld",
+  "🔭 1 neue Aufträge gefunden, z. B. „Bewerbung und Lebenslauf überarbeiten lassen“.",
+  "📚 5 neue Tools/Trends entdeckt – Top: nexu-io/opengame.",
+  "🛡️ Wächter: 6 Problem(e) – Automaton Ava: letzter Lauf vor 7 h (erwartet alle 5 h) → selbst gestartet",
   "🔧 Selbst repariert: Automaton Ava, Trader Toni, Meme-Makler Max, Agentin Ada, Postbote Paul."
  ],
  "bots": [
   {
    "name": "Regisseurin Rita",
    "icon": "🎬",
-   "ok": 5,
-   "fehler": 2
+   "ok": 4,
+   "fehler": 3
   },
   {
-   "name": "Trader Toni",
-   "icon": "📈",
+   "name": "Automaton Ava",
+   "icon": "🧬",
    "ok": 6,
    "fehler": 0
   },
   {
-   "name": "Postbote Paul",
-   "icon": "📮",
+   "name": "Agentin Ada",
+   "icon": "🛰️",
+   "ok": 6,
+   "fehler": 0
+  },
+  {
+   "name": "Trader Toni",
+   "icon": "📈",
    "ok": 6,
    "fehler": 0
   },
@@ -37,15 +43,9 @@
    "fehler": 0
   },
   {
-   "name": "Automaton Ava",
-   "icon": "🧬",
-   "ok": 3,
-   "fehler": 0
-  },
-  {
-   "name": "Agentin Ada",
-   "icon": "🛰️",
-   "ok": 3,
+   "name": "Postbote Paul",
+   "icon": "📮",
+   "ok": 6,
    "fehler": 0
   },
   {
@@ -61,18 +61,6 @@
    "fehler": 0
   },
   {
-   "name": "Baumeister Bob",
-   "icon": "🏗️",
-   "ok": 2,
-   "fehler": 0
-  },
-  {
-   "name": "Prüferin Paula",
-   "icon": "✅",
-   "ok": 2,
-   "fehler": 0
-  },
-  {
    "name": "Butler Bruno",
    "icon": "🎩",
    "ok": 1,
@@ -81,6 +69,18 @@
   {
    "name": "Forscherin Frieda",
    "icon": "📚",
+   "ok": 1,
+   "fehler": 0
+  },
+  {
+   "name": "Baumeister Bob",
+   "icon": "🏗️",
+   "ok": 1,
+   "fehler": 0
+  },
+  {
+   "name": "Prüferin Paula",
+   "icon": "✅",
    "ok": 1,
    "fehler": 0
   }
@@ -94,31 +94,55 @@
    "pnl": 0
   },
   "Memecoin-Bot": {
-   "wert": 842.82,
-   "diff": -11.09,
-   "trades": 3,
+   "wert": 846.59,
+   "diff": 3.77,
+   "trades": 1,
    "gewinner": 1,
-   "pnl": -11.09
+   "pnl": 3.77
   }
  },
  "neu": [
   {
-   "titel": "fewchat",
-   "nutzen": "Optimiert Lucas’ TikTok‑Video‑Promotion und Etsy‑Marketing durch automatisierte DMs und Story‑Interaktion",
-   "url": "https://github.com/jasonc00person/fewchat"
+   "titel": "nexu-io/opengame",
+   "nutzen": "",
+   "url": "https://github.com/nexu-io/opengame"
   },
   {
-   "titel": "central",
-   "nutzen": "Steigert Effizienz aller Online‑Geschäfte, bietet Sprachsteuerung und Analyse",
-   "url": "https://github.com/matheusmongarde/central"
+   "titel": "alesha-pro/llm.asm",
+   "nutzen": "",
+   "url": "https://github.com/alesha-pro/llm.asm"
   },
   {
-   "titel": "swarmy",
-   "nutzen": "Ermöglicht Lucas die Performance‑Verfolgung und Kostenkontrolle der in Jarvis eingesetzten Agenten",
-   "url": "https://github.com/koorchik/swarmy"
+   "titel": "qianyiai/KuroCat",
+   "nutzen": "",
+   "url": "https://github.com/qianyiai/KuroCat"
+  },
+  {
+   "titel": "Indigo-0167/universal-game-mod-manager",
+   "nutzen": "",
+   "url": "https://github.com/Indigo-0167/universal-game-mod-manager"
+  },
+  {
+   "titel": "Basil0879/steam-game-idler",
+   "nutzen": "",
+   "url": "https://github.com/Basil0879/steam-game-idler"
   }
  ],
  "verlauf": [
+  {
+   "t": 1795791386,
+   "datum": "Freitag, 27.11.2026",
+   "fazit": "Letzte Nacht erledigten 12 Bots 42 Aufträge (2 fehlerhaft), Krypto‑Bot liegt bei 1.000 €, Memecoin‑Bot bei 842,82 € (‑11,09 €), 2 neue Aufträge und 3 Tools wurden entdeckt, 6 Wächter‑Probleme gemeldet und Ava, Toni, Max, Ada sowie Paul wurden selbst repariert. Wichtig heute: den neuen Auftrag „Myntra Jewelry Catalog Listing Specialist“ sofort angehen.",
+   "zeilen": [
+    "🤖 12 Bots haben 42 Aufträge erledigt, 2 mit Fehler.",
+    "📈 Krypto-Bot: 1.000,00 € (+0,00 € in 24 h), 0 Trades – Spielgeld",
+    "📈 Memecoin-Bot: 842,82 € (-11,09 € in 24 h), 3 Trades – Spielgeld",
+    "🔭 2 neue Aufträge gefunden, z. B. „Myntra Jewelry Catalog Listing Specialist“.",
+    "📚 3 neue Tools/Trends entdeckt – Top: fewchat.",
+    "🛡️ Wächter: 6 Problem(e) – Automaton Ava: letzter Lauf vor 9 h (erwartet alle 5 h) → selbst gestartet",
+    "🔧 Selbst repariert: Automaton Ava, Trader Toni, Meme-Makler Max, Agentin Ada, Postbote Paul."
+   ]
+  },
   {
    "t": 1795705295,
    "datum": "Donnerstag, 26.11.2026",
