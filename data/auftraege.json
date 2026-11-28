@@ -1,6 +1,32 @@
 {
  "auftraege": [
   {
+   "id": "fl-40840093",
+   "t": 1795875431,
+   "datum": "28.11.2026",
+   "quelle": "Freelancer.com",
+   "plattform": true,
+   "url": "https://www.freelancer.com/projects/writing/Toddler-Adventure-Story-Writer-Needed",
+   "titel": "Abenteuerbuch für Kleinkinder",
+   "original": "Toddler Adventure Story Writer Needed",
+   "auftrag": "I’m putting together a short children’s book aimed at ages 0–3 and I need a skilled writer to craft a gentle, fun adventure featuring a child as the main character. The tone should feel playful and imaginative yet use simple, rhythmic language suited to toddlers who are just beginning to engage with stories.\n\nHere’s what I’m after:\n\n• A complete manuscript (roughly 300–500 words is usually perfect for this age group, but I’m open to your professional judgment)  \n• Age-appropriate vocabulary, short sentences, and plenty of read-aloud appeal  \n• A clear beginning, middle, and end that create a sense of adventure without becoming complicated or scary  \n• Natural pauses or page breaks that lend themselves to future illustrations\n\nIf you have experience writing for very young readers and can deliver a narrative that parents will enjoy reading aloud night after night, I’d love to see a brief sample of your previous toddler-focused work and hear how you’d approach this project.",
+   "punkte": 95,
+   "warum": "Einmalige, vollständig digital erstellbare Kindergeschichte, die ohne Kundendateien auskommt und in 15 Minuten auf Wortzahl, Ton und Aufbau prüfbar ist.",
+   "preis_eur": 228,
+   "lieferzeit": "3 days",
+   "angebot": "I’ll write a complete, gentle adventure story for ages 0–3, using short, rhythmic sentences, simple vocabulary, and natural page breaks for illustrations. I’ll aim for roughly 300–500 words and give the story a clear, reassuring beginning, middle, and end. I can’t claim or provide previous client work that I haven’t verified, so I’ve included an original manuscript draft below instead. Delivery: within 3 days. Fixed price: 228 EUR. Please review the manuscript before using it, including checking that the wording and page breaks fit your intended illustrations and publishing plans.",
+   "ergebnis": "**The Little Moon Boat**\n\nMia saw a boat by the pond.\n\nIt was small and blue.\nIt had a moon on its sail.\n\n“Hello, boat,” said Mia.\n\nThe boat gave a gentle bob.\n\nMia climbed in.\n\nThe boat went swish.\nThe boat went sway.\nAnd off they sailed on a sunny day.\n\n[Page break]\n\nA duck paddled by.\n“Can I come?” quacked Duck.\n\n“Hop in!” said Mia.\n\nThe boat went swish.\nThe boat went sway.\nPast a reed and a dragonfly.\n\nA frog sat on a lily pad.\n“Can I come?” said Frog.\n\n“Hop in!” said Mia.\n\nDuck made room.\nFrog made room.\nThe little boat had room for all.\n\n[Page break]\n\nThen—plip!\nA raindrop fell on Mia’s nose.\n\nThen—plip, plip!\nThe clouds came softly overhead.\n\n“Shall we find a cozy place?” asked Mia.\n\nThe boat turned round.\nIt sailed past the reeds,\npast the lily pads,\nand back to the pond’s grassy edge.\n\n[Page break]\n\nMia stepped out.\nDuck waddled out.\nFrog hopped out.\n\nThe rain stopped.\nThe sun peeked out.\n\nA rainbow stretched across the sky.\n\n“Look!” said Mia.\n\nThe moon on the sail shone bright.\nThe little boat bobbed once.\nThen it rested in the light.\n\nMia waved goodbye.\n“See you soon, boat.”\n\nAt home, Mia snuggled in bed.\nShe dreamed of swish and sway,\nand friends who sailed with her all day.\n\n[Page break]\n\nGood night, Mia.\nGood night, Duck.\nGood night, Frog.\nGood night, little moon boat.",
+   "schritte": [
+    "Prüfe, ob Lucas die Lieferzeit von 3 Tagen einhalten kann.",
+    "Lies das Manuskript laut vor und prüfe Rhythmus, Wortwahl und Länge.",
+    "Kläre vor dem Absenden, ob der Kunde bestimmte Namen, Illustrationsvorgaben oder Formatwünsche hat.",
+    "Weise darauf hin, dass dies ein neuer Entwurf und kein früheres Kundenbeispiel ist."
+   ],
+   "paypal": "",
+   "zahlung": "Über Freelancer.com (Plattform zahlt aus – in den Kontoeinstellungen PayPal als Auszahlung wählen). Keine Zahlung außerhalb der Plattform anbieten!",
+   "status": "neu"
+  },
+  {
    "id": "eigen-20261128",
    "t": 1795823153,
    "datum": "28.11.2026",
@@ -429,11 +455,11 @@
    "status": "neu"
   }
  ],
- "stand": "28.11.2026 00:45",
+ "stand": "28.11.2026 15:17",
  "paypal_me": "LucasBehrenski",
  "letzter_lauf": {
-  "gefunden": 220,
-  "gefiltert": 12,
+  "gefunden": 194,
+  "gefiltert": 11,
   "neu": 1
  }
 }
