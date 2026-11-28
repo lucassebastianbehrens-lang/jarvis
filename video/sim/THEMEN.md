@@ -31,3 +31,11 @@
 - [x] Mikrowelle vs Backofen – Pizza aufwärmen, Strom (sim-10-mikrowelle-vs-backofen)
 - [x] Rolltreppe gehen vs stehen – wer ist zuerst oben? (sim-11-rolltreppe-gehen-vs-stehen)
 - [x] Kaffee vs Energydrink – Koffein pro Getränk (sim-12-kaffee-vs-energydrink)
+- [x] Bus vs Carpool – 10 km zur Arbeit, Kosten & CO₂ (sim-13-bus-vs-carpool)
+- [ ] Duschkopf mit Durchflussbegrenzer vs normaler Duschkopf – 5 Minuten, Wasserverbrauch
+- [ ] LED-Lampe vs Glühbirne – 8 Stunden Nutzung, Strom & Kosten
+- [ ] Kochbuch folgen vs Meal-Prep App – 1 Woche, Zeitaufwand
+- [ ] Kondensmilch vs Vollmilch im Kaffee – 200 ml, Kalorien
+- [ ] Elektrogrill vs Gasgrill – 1 kg Steak, Energieverbrauch
+- [ ] Smartphone-Ladegerät vs Powerbank – 50% Aufladung, Zeit
+- [ ] Papiernotiz vs digitale Notiz-App – 100 Einträge, Materialverbrauch

@@ -1,0 +1,101 @@
+{
+  "id": "sim-13-bus-vs-carpool",
+  "titel": [
+    "BUS",
+    "CARPOOL"
+  ],
+  "frage": [
+    "20 km zur Arbeit –",
+    "WER IST GRÜNER?"
+  ],
+  "a": {
+    "name": "BUS",
+    "figur": "auto",
+    "dauer_s": 30.0,
+    "menge": 35200.0,
+    "info": "35,2 kg CO₂/Monat"
+  },
+  "b": {
+    "name": "CARPOOL",
+    "figur": "auto",
+    "dauer_s": 25.0,
+    "menge": 33030.0,
+    "info": "33,0 kg CO₂/Monat"
+  },
+  "modell": {
+    "typ": "generisch",
+    "einheit": "g",
+    "zaehler": "CO₂",
+    "besser": "weniger"
+  },
+  "skala": [
+    "Niedrig",
+    "Mittel",
+    "Hoch"
+  ],
+  "ergebnis": "etwa {p} % weniger CO₂",
+  "lines": [
+    {
+      "phase": "intro",
+      "t": "20 km zur Arbeit – Bus oder Fahrgemeinschaft?"
+    },
+    {
+      "phase": "race",
+      "t": "Bus: 440 km × 80 g CO₂/km gleich 35 200 g CO₂ pro Person im Monat."
+    },
+    {
+      "phase": "race",
+      "t": "Carpool: 440 km × 0,065 L/km gleich 28,6 L Benzin; 28,6 L × 2,31 kg CO₂/L gleich 66,1 kg, geteilt durch 2 gleich 33 000 g CO₂."
+    },
+    {
+      "phase": "result",
+      "t": "Ergebnis: Carpool spart etwa 6 Prozent CO₂ und kostet 37,4 € vs. 61,6 € beim Bus."
+    },
+    {
+      "phase": "result",
+      "t": "Was würdest du wählen? Schreib es in die Kommentare."
+    }
+  ],
+  "hooks": [
+    "20 km zur Arbeit – Bus oder Fahrgemeinschaft?",
+    "Ein Bus stößt 35 kg CO₂ pro Monat aus!",
+    "Man sagt, Fahrgemeinschaften seien immer sauberer als Busse."
+  ],
+  "kommentar_frage": "Was würdest du wählen?",
+  "caption": "Bus vs Fahrgemeinschaft: Wer ist günstiger & umweltfreundlicher? 🚍🚗 Was würdest du wählen? 👇",
+  "hashtags": [
+    "#simulation",
+    "#umwelt",
+    "#kosten",
+    "#pendeln",
+    "#tiktokwissen"
+  ],
+  "quelle": "Verbraucherzentrale 2023 (Kraftstoffverbrauch, Gesamtkosten); Umweltbundesamt 2022 (CO₂‑Faktoren, Bus‑Emissionen); Verkehrsverbund 2023 (Ticketpreis); Annahmen: 10 km Einweg, 22 Arbeitstage, Benzinpreis 1,80 €/L, Car‑pool 2 Personen, Busauslastung 30 Passagiere; Eigene Berechnung.",
+  "fakten": [
+    {
+      "satz": "Durchschnittlicher Kraftstoffverbrauch eines deutschen Mittelklasse-Pkw (Benzin)",
+      "wert": "6.5 L/100 km",
+      "quelle": "Verbraucherzentrale, 2023"
+    },
+    {
+      "satz": "CO₂‑Emissionen von Benzin: 2.31 kg CO₂ pro Liter Kraftstoff",
+      "wert": "2.31 kg CO₂/L",
+      "quelle": "Umweltbundesamt, Emissionsfaktoren 2022"
+    },
+    {
+      "satz": "CO₂‑Emissionen eines typischen Diesel‑Stadtbusses pro mitfahrendem Passagier",
+      "wert": "≈80 g CO₂/Person‑km",
+      "quelle": "Umweltbundesamt, Verkehr 2022"
+    },
+    {
+      "satz": "Durchschnittlicher Ticketpreis für den Nahverkehr (Monatskarte, 10 km Strecke, 22 Arbeitstage)",
+      "wert": "0.14 €/km",
+      "quelle": "Verkehrsverbund, Tarifübersicht 2023"
+    },
+    {
+      "satz": "Gesamtkosten (Kraftstoff, Abschreibung, Versicherung, Wartung, Parken) eines privaten PKW pro gefahrenem Kilometer",
+      "wert": "≈0.17 €/km",
+      "quelle": "Verbraucherzentrale, Gesamtkostenrechnung PKW 2023"
+    }
+  ]
+}
